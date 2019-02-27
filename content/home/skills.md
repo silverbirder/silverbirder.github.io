@@ -15,22 +15,59 @@ weight = 7
 # 
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
+
 [[feature]]
-  icon = "r-project"
+  icon = "node-js"
   icon_pack = "fab"
-  name = "R"
-  description = "90%"
-  
+  name = "Node.js"
+  description = "6 years"
+
 [[feature]]
-  icon = "chart-line"
-  icon_pack = "fas"
-  name = "Statistics"
-  description = "100%"  
-  
+  icon = "python"
+  icon_pack = "fab"
+  name = "Python"
+  description = "2 years"
+
 [[feature]]
-  icon = "camera-retro"
+  icon = "code"
   icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "golang"
+  description = "6 months"
+
+[[feature]]
+  icon = "amazon"
+  icon_pack = "fab"
+  name = "Love Amazon"
+  description = "10 year"
+
+[[feature]]
+  icon = "google"
+  icon_pack = "fab"
+  name = "Love Google"
+  description = "10 year"
+
+[[feature]]
+  icon = "apple"
+  icon_pack = "fab"
+  name = "Love Apple"
+  description = "10 year"
+
+[[feature]]
+  icon = "dollar-sign"
+  icon_pack = "fas"
+  name = "FX"
+  description = "3 years"  
+
+[[feature]]
+  icon = "book"
+  icon_pack = "fas"
+  name = "Tech Book"
+  description = "3 years"  
+
+[[feature]]
+  icon = "dumbbell"
+  icon_pack = "fas"
+  name = "gym"
+  description = "3 years"  
 
 +++

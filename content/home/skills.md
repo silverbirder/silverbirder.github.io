@@ -20,54 +20,36 @@ weight = 7
   icon = "node-js"
   icon_pack = "fab"
   name = "Node.js"
-  description = "6 years"
+  description = "Use 6 years"
 
 [[feature]]
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  description = "2 years"
+  description = "Use 2 years"
 
 [[feature]]
   icon = "code"
   icon_pack = "fas"
   name = "golang"
-  description = "6 months"
-
-[[feature]]
-  icon = "amazon"
-  icon_pack = "fab"
-  name = "Love Amazon"
-  description = "10 year"
-
-[[feature]]
-  icon = "google"
-  icon_pack = "fab"
-  name = "Love Google"
-  description = "10 year"
-
-[[feature]]
-  icon = "apple"
-  icon_pack = "fab"
-  name = "Love Apple"
-  description = "10 year"
+  description = "Use 6 months"
 
 [[feature]]
   icon = "dollar-sign"
   icon_pack = "fas"
   name = "FX"
-  description = "3 years"  
+  description = "Develop EA for 5 years"  
 
 [[feature]]
   icon = "book"
   icon_pack = "fas"
   name = "Tech Book"
-  description = "3 years"  
+  description = "https://book-store-vue.now.sh"  
 
 [[feature]]
   icon = "dumbbell"
   icon_pack = "fas"
-  name = "gym"
-  description = "3 years"  
+  name = "GYM"
+  description = "A Week 3 Days"  
 
 +++

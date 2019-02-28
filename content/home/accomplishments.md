@@ -20,27 +20,11 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
-  title = "GCP Handson Commendation on Developers Summit 2019"
-  organization = "Company"
+  title = "GCP Hands-on Commendation"
+  organization = "Developers Summit 2019"
   date_start = "2019-02-14"
   date_end = ""
   description = "https://event.shoeisha.jp/devsumi/20190214/session/2015/"
   certificate_url = "https://res.cloudinary.com/silverbirder/image/upload/v1551278903/Accomplish%C2%ADments/developers_summit_2019_gcp_handson.jpg"
-
-[[item]]
-  title = "Oracle Certified Java Programmer, Silver SE 8 取得"
-  organization = "Company"
-  date_start = "2017-09-30"
-  date_end = ""
-  description = ""
-  certificate_url = "https://res.cloudinary.com/silverbirder/image/upload/v1551278902/Accomplish%C2%ADments/oracle_java_se_8.png"
-
-[[item]]
-  title = "応用情報技術者 取得"
-  organization = "Doshisha University"
-  date_start = "2015-04-19"
-  date_end = ""
-  description = ""
-
 
 +++

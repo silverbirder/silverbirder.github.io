@@ -9,11 +9,11 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "Programmer of Web App"
+role = "Web Application Engineer"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-# organizations = [ { name = "", url = "" } ]
+organizations = [ { name = "MonotaRO, Inc.", url = "https://www.monotaro.com" } ]
 
 # Short bio (displayed in user profile at end of posts)
 bio = "私はWebAppエンジニア"
@@ -33,10 +33,21 @@ interests = [
 user_groups = ["データマーケティング"]
 
 # List qualifications (such as academic degrees)
+
 [[education.courses]]
-  course = "Intelligent Information Engineering"
-  institution = "Doshisha University"
+  course = "Java SE 8, September"
+  institution = "Oracle"
+  year = "2017"
+
+[[education.courses]]
+  course = "インテリジェント情報工学科 学士課程, March"
+  institution = "同志社大学(Doshisha University)"
   year = 2016
+
+[[education.courses]]
+  course = "応用情報技術者試験,　April"
+  institution = "IPA:Information-technology Promotion Agency, Japan"
+  year = "2015"
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons

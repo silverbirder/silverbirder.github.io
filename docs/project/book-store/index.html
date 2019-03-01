@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,12 @@
   
     
   
-  <meta name="description" content="Web Application Engineer">
+  <meta name="description" content="書籍管理システム - Book-Store 背景 今持っている本がどれぐらいあるのか管理したくなったところから始まった
+機能 簡単に言うと下記
+ 全文検索で書籍を検索できる ISBNで書籍登録できるし、変更もできる Amazonリンクにつながる  技術スタック vue.js &#43; golang &#43; algolia &#43; now.sh">
 
   
-  <link rel="alternate" hreflang="en-us" href="/publication_types/">
+  <link rel="alternate" hreflang="en-us" href="/project/book-store/">
 
   
 
@@ -100,15 +100,15 @@
   
 
   
-  <link rel="alternate" href="/publication_types/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
-  <link rel="feed" href="/publication_types/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/publication_types/">
+  <link rel="canonical" href="/project/book-store/">
 
   
   
@@ -123,19 +123,23 @@
   <meta property="twitter:creator" content="@silver_birder">
   
   <meta property="og:site_name" content="Masashi Shibamoto">
-  <meta property="og:url" content="/publication_types/">
-  <meta property="og:title" content="Publication_types | Masashi Shibamoto">
-  <meta property="og:description" content="Web Application Engineer"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/project/book-store/">
+  <meta property="og:title" content="Book Store | Masashi Shibamoto">
+  <meta property="og:description" content="書籍管理システム - Book-Store 背景 今持っている本がどれぐらいあるのか管理したくなったところから始まった
+機能 簡単に言うと下記
+ 全文検索で書籍を検索できる ISBNで書籍登録できるし、変更もできる Amazonリンクにつながる  技術スタック vue.js &#43; golang &#43; algolia &#43; now.sh"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2019-03-01T22:43:36&#43;09:00">
   
+  <meta property="article:modified_time" content="2019-03-01T22:43:36&#43;09:00">
+  
+
   
 
   
 
-  
-
-  <title>Publication_types | Masashi Shibamoto</title>
+  <title>Book Store | Masashi Shibamoto</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -276,7 +280,9 @@
 </nav>
 
 
+<article class="article article-project" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -293,28 +299,245 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Book Store</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Publication_types</h1>
+
+
+
+<meta content="2019-03-01 22:43:36 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-03-01 22:43:36 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 1, 2019</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Book%20Store&amp;url=%2fproject%2fbook-store%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fproject%2fbook-store%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fproject%2fbook-store%2f&amp;title=Book%20Store"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fproject%2fbook-store%2f&amp;title=Book%20Store"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Book%20Store&amp;body=%2fproject%2fbook-store%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="書籍管理システム-book-store">書籍管理システム - Book-Store</h1>
+
+<p><img src="https://res.cloudinary.com/silverbirder/image/upload/v1548220071/book-store-vue.mov.gif" alt="output" /></p>
+
+<h1 id="背景">背景</h1>
+
+<p>今持っている本がどれぐらいあるのか管理したくなったところから始まった</p>
+
+<h1 id="機能">機能</h1>
+
+<p>簡単に言うと下記</p>
+
+<ul>
+<li>全文検索で書籍を検索できる</li>
+<li>ISBNで書籍登録できるし、変更もできる</li>
+<li>Amazonリンクにつながる</li>
+</ul>
+
+<h1 id="技術スタック">技術スタック</h1>
+
+<p>vue.js + golang + algolia + now.sh</p>
+
+    </div>
+
+    
+
+    
+
+
+
+
+
 
   
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2c140fd70437384b2f284bfaeb136d8c_100791_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
   
 
-  
-
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Masashi Shibamoto</a></h5>
+    <h6 class="card-subtitle">Web Application Engineer</h6>
+    <p class="card-text" itemprop="description">Node.jsやGolangが大好きなWebAppエンジニア</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:silverbirder@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/silver_birder" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/Silver-birder" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+  </div>
+</article>
+
+
+
 <div class="container">
   <footer class="site-footer">
   
@@ -463,6 +686,4 @@
 
   </body>
 </html>
-
-
 

@@ -16,7 +16,7 @@ role = "Web Application Engineer"
 organizations = [ { name = "MonotaRO, Inc.", url = "https://www.monotaro.com" } ]
 
 # Short bio (displayed in user profile at end of posts)
-bio = "私はWebAppエンジニア"
+bio = "Node.jsやGolangが大好きなWebAppエンジニア"
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email = "silverbirder@gmail.com"
@@ -78,4 +78,9 @@ user_groups = ["データマーケティング"]
 
 +++
 
-自己紹介
+* 芝本　雅史（しばもと　まさし）
+* 1994年02月14日生まれ
+
+大学時代に初めてWebAppを開発し, 目に見える形までアウトプットできたことに感動し,
+今の職業を目指すようになる. ふとWebAppのアイデアが浮かんだときは, **素早く**,**安く**, そして**お手軽に**
+リリースできることを目指して個人開発をしている。

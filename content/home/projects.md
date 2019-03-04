@@ -48,4 +48,8 @@ filter_default = 0
 #   name = "Other"
 #   tag = "Demo"
 
+[header]
+image = "project/test.png"
+caption = "Image credit: [**Academic**](https://github.com/gcushen/hugo-academic/)"
+preview = true
 +++

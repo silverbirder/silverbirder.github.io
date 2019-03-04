@@ -20,8 +20,8 @@ date_format = "January 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
   title = "初めての転職"
-  company = "株式会社MonotaRO"
-  company_url = "https://www.monotaro.com"
+  company = "E-Commerce"
+  company_url = ""
   location = "兵庫"
   date_start = "2018-08-01"
   date_end = ""
@@ -32,8 +32,8 @@ date_format = "January 2006"
 
 [[experience]]
   title = "新卒入社"
-  company = "株式会社テイジイエル"
-  company_url = "https://www.tgl.co.jp"
+  company = "請負/受託"
+  company_url = ""
   location = "大阪"
   date_start = "2016-04-01"
   date_end = "2018-07-01"

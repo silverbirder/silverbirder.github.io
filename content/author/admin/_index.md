@@ -13,7 +13,7 @@ role = "Web Application Engineer"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-organizations = [ { name = "MonotaRO, Inc.", url = "https://www.monotaro.com" } ]
+# organizations = [ { name = "", url = "" } ]
 
 # Short bio (displayed in user profile at end of posts)
 bio = "Node.jsやGolangが大好きなWebAppエンジニア"
@@ -30,7 +30,7 @@ interests = [
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
-user_groups = ["データマーケティング"]
+user_groups = [""]
 
 # List qualifications (such as academic degrees)
 

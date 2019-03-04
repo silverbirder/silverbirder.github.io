@@ -43,7 +43,7 @@ weight = 7
 [[feature]]
   icon = "book"
   icon_pack = "fas"
-  name = "Tech Book"
+  name = "Book"
   description = "https://book-store-vue.now.sh"  
 
 [[feature]]

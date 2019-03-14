@@ -2,6 +2,7 @@
 title: "Web Ar"
 date: 2019-03-04T22:04:29+09:00
 draft: false
+summary: "webでAR"
 ---
 
 ## Web上でAR体験 - Web-AR

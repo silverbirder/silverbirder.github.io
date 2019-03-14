@@ -2,6 +2,7 @@
 title: "Share Session"
 date: 2019-03-04T22:03:35+09:00
 draft: false
+summary: "アカウント共有が簡単に実現"
 ---
 
 ## セッション共有 - Share-Session

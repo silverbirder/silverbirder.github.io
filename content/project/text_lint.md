@@ -2,6 +2,7 @@
 title: "Text_lint"
 date: 2019-03-04T22:03:41+09:00
 draft: false
+summary: "文章の表記ゆれチェック"
 ---
 
 ## 文章向けLinter - text_lint

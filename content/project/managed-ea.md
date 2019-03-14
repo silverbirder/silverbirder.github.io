@@ -2,6 +2,7 @@
 title: "Managed EA"
 date: 2019-03-04T22:19:28+09:00
 draft: false
+summary: "EA(FX)データを集計・管理するシステム"
 ---
 
 ## EA管理システム - Managed-EA

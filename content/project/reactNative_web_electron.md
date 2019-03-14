@@ -2,6 +2,7 @@
 title: "ReactNative_Web_Electron"
 date: 2019-03-04T22:03:14+09:00
 draft: false
+summary: "Web/Mobile/Desktopをワンソース開発"
 ---
 
 ## ReactNative_Web_Electron - One Logic

@@ -2,6 +2,7 @@
 title: "Run Character"
 date: 2019-03-05T00:15:20+09:00
 draft: false
+summary: "キャラクターが画面をぐるぐる回るだけのアプリ"
 ---
 
 ## キャラクターがぐるぐる回るよ！ - Run Character

@@ -2,6 +2,7 @@
 title: "Book Store"
 date: 2019-03-01T22:43:36+09:00
 draft: false
+summary: "書籍を良い感じに管理"
 ---
 
 ## 書籍管理システム - Book-Store

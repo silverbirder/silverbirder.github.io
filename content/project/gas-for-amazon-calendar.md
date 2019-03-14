@@ -2,6 +2,7 @@
 title: "Amazon Calendar"
 date: 2019-03-04T22:02:12+09:00
 draft: false
+summary: "お届け予定日がGoogleCalendarに自動登録"
 ---
 
 ## AmazonCalendar - Gas for Amazon Calendar

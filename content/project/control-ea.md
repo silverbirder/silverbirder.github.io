@@ -2,6 +2,7 @@
 title: "Control EA"
 date: 2019-03-04T22:01:54+09:00
 draft: false
+summary: "EA(FX)を安全に運用するシステム"
 ---
 
 ## EAの制御システム - Control-EA

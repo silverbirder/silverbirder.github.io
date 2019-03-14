@@ -2,6 +2,7 @@
 title: "Search Local Web"
 date: 2019-03-04T22:03:28+09:00
 draft: false
+summary: "よく見る記事を保存"
 ---
 
 ## ローカル検索 - Search-Local-Web

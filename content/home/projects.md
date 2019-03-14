@@ -22,7 +22,7 @@ view = 3
 
 # Widget layout
 # Legend: 0 = two columns (default), 1 = single column
-widget_layout = 0
+widget_layout = 1
 
 # For Showcase view, flip alternate rows?
 flip_alt_rows = false
@@ -47,9 +47,4 @@ filter_default = 0
 # [[filter]]
 #   name = "Other"
 #   tag = "Demo"
-
-[header]
-image = "project/test.png"
-caption = "Image credit: [**Academic**](https://github.com/gcushen/hugo-academic/)"
-preview = true
 +++

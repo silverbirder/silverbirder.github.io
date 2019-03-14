@@ -2,6 +2,7 @@
 title: "Google Word Cloud"
 date: 2019-03-04T22:01:42+09:00
 draft: false
+summary: "google検索履歴をWordCloud化"
 ---
 
 ## Google検索履歴をWordCloud化 - Google Word Cloud

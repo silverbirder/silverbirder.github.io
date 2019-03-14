@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Web Application Engineer">
+  <meta name="description" content="silverbirder,portfolio">
 
   
   <link rel="alternate" hreflang="en-us" href="/project/">
@@ -53,7 +53,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#4caf50">
   
 
   
@@ -125,10 +125,10 @@
   <meta property="og:site_name" content="Masashi Shibamoto">
   <meta property="og:url" content="/project/">
   <meta property="og:title" content="Projects | Masashi Shibamoto">
-  <meta property="og:description" content="Web Application Engineer"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="silverbirder,portfolio"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-05T00:15:20&#43;09:00">
+  <meta property="og:updated_time" content="2019-03-14T22:03:13&#43;09:00">
   
 
   
@@ -369,13 +369,19 @@
   
   
   <div>
+    <h2><a href="/project/searchwordcloud/">Search Word Cloud</a></h2>
+    <div class="article-style">
+      
+      検索キーワードをリアルタイムWordCloud化
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/project/run-character/">Run Character</a></h2>
     <div class="article-style">
       
-      キャラクターがぐるぐる回るよ！ - Run Character 背景 デスクトップ画面がなんだか寂しいなと感じたのがきっかけ。 画面の周りをぐるぐる回るキャラクターがほしいなと思った。
-機能 簡単に言うと下記
- 好きなキャラクターを選べる(いまのところハロウィンのみ) 開始後、デスクトップの周りをぐるぐる回る 止まる手段はない！ので、強制終了させる  技術スタック electron
-関連リポジトリ https://github.com/Silver-birder/run_character
+      キャラクターが画面をぐるぐる回るだけのアプリ
       
     </div>
   </div>
@@ -384,11 +390,7 @@
     <h2><a href="/project/managed-ea/">Managed EA</a></h2>
     <div class="article-style">
       
-      EA管理システム - Managed-EA 背景 EAを複数人で利用している想定のため、いくつかほしい機能があった。
-機能 簡単に言うと下記
- EAを使うユーザーの認証 EAを使うユーザーの登録・編集 各ユーザーの決済履歴  技術スタック react + dataStore + GAE
-こちらは、下記をフォークしFeaturesをいくつか追加したもの https://github.com/osamu38/react-ssr-starter
-関連リポジトリ https://github.com/Silver-birder/managed-ea
+      EA(FX)データを集計・管理するシステム
       
     </div>
   </div>
@@ -397,13 +399,7 @@
     <h2><a href="/project/web-ar/">Web Ar</a></h2>
     <div class="article-style">
       
-      Web上でAR体験 - Web-AR 背景 https://www.youtube.com/watch?v=rIPfpGCxONQ この動画が発端となる。
-ARをどうしても触ってみたかった。 ただ、ネイティブアプリではなくWeb上で表現できないか考えていた。 three.jsを使えばイケるかも！？とやってみた。
-機能 簡単に言うと下記
- three.jsで現実世界にオブジェクトを生成する 座標位置とオブジェクトとの距離により見え方が変わる オブジェクトに接すると、中の世界が見えるようになる  技術スタック javascript(three.js)
-関連リポジトリ frontend javascript(three.js)
-backend golang
-https://github.com/Silver-birder/web-ar
+      webでAR
       
     </div>
   </div>
@@ -412,10 +408,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/text_lint/">Text_lint</a></h2>
     <div class="article-style">
       
-      文章向けLinter - text_lint $ npm install $ echo &quot;I love docker&quot; &gt;&gt; sample.md $ npm run lint sample.md -s text_lint/sample.md 1:8 ✓ error docker =&gt; Docker prh ✖ 1 problem (1 error, 0 warnings) ✓ 1 fixable problem. Try to run: $ textlint --fix [file]  背景 文章を書いていて、表記ゆれが多々あった。 それをなんとか防ぎたかった。
-機能 簡単に言うと下記
- 有名なIT向け辞書を登録済みなので、誤りを検知してくれる。 git hookと合わせれば、commit時に検知できる。 辞書をカスタマイズできるので、自分にあった検知が作れる。  技術スタック node.js
-関連リポジトリ https://github.com/Silver-birder/text_lint
+      文章の表記ゆれチェック
       
     </div>
   </div>
@@ -424,10 +417,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/share-session/">Share Session</a></h2>
     <div class="article-style">
       
-      セッション共有 - Share-Session 背景 とあるサービスのアカウントを共有したかった。
-機能 簡単に言うと下記
- Cookieデータを登録・編集できる ブックマークレットから、共有したいサイトでCookie設定できる  技術スタック golang + dataStore + GAE
-関連リポジトリ frontend　and backend golang https://github.com/Silver-birder/share_session
+      アカウント共有が簡単に実現
       
     </div>
   </div>
@@ -436,10 +426,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/search-local-web/">Search Local Web</a></h2>
     <div class="article-style">
       
-      ローカル検索 - Search-Local-Web 背景 過去に検索した記事を思い出せず、苦労したことがある。 検索履歴をローカルに保存して全文検索できるようにしたい。
-機能 簡単に言うと下記
- URLからHTMLを取得し、googleDriveにドキュメント保存できる 思い出しているキーワードから全文検索できる(googleDriveApi) LINKから、記事をアクセスできる  技術スタック node.js(express) + googleDrive + GAE
-関連リポジトリ https://github.com/Silver-birder/search-local-web
+      よく見る記事を保存
       
     </div>
   </div>
@@ -448,10 +435,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/reactnative_web_electron/">ReactNative_Web_Electron</a></h2>
     <div class="article-style">
       
-      ReactNative_Web_Electron - One Logic 背景 WebApp,MobileApp,DesktopAppを共通の言語で開発したいなと考えていた。 View側はプラットフォーム毎に用意して、Logicは共通化したかった。 (仕組みは用意したものの、途中で諦めた)
-機能 簡単に言うと下記
- src/native, src/webでプラットフォーム毎のViewを作成できる src/actionsでロジック部分を共通化する src/storeでデータを集約する  技術スタック reactNative + react.js + electron　+ expo.io
-関連リポジトリ https://github.com/Silver-birder/rss_reader
+      Web/Mobile/Desktopをワンソース開発
       
     </div>
   </div>
@@ -460,10 +444,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/gas-for-amazon-calendar/">Amazon Calendar</a></h2>
     <div class="article-style">
       
-      AmazonCalendar - Gas for Amazon Calendar 背景 アマゾンで買った商品がいつ届くのかメールを いつも見ていたが、不便と感じた。googleCalendar に登録されればなと思った。
-機能 簡単に言うと下記
- Amazonで購入した際に送られるメールからgoogleCalandarに「いつ届くのか」登録してくれる  技術スタック gas + gmail + googleCalendar
-関連リポジトリ https://github.com/Silver-birder/gas-for-amazon-calendar
+      お届け予定日がGoogleCalendarに自動登録
       
     </div>
   </div>
@@ -472,28 +453,7 @@ https://github.com/Silver-birder/web-ar
     <h2><a href="/project/control-ea/">Control EA</a></h2>
     <div class="article-style">
       
-      EAの制御システム - Control-EA 背景 FXでEAという自動売買プログラムがあるのだが、 外部から注文を停止・決済させたいときがあった。 https://www.fxstreet.jp/economic-calendar
-要人発表時は、相場が大きく揺れてしまうので制御したかった。
-機能 簡単に言うと下記
- Webアプリ上で、要人発表データを操作できる 要人発表データをEAがほぼリアルタイムに監視している ボラリティが高い相場時間帯は、注文しないようにする  技術スタック vue.js + golang + dataStore + now.sh
-関連リポジトリ frontend vue.js https://github.com/Silver-birder/control-ea
-backend golang https://github.com/Silver-birder/control-ea-api
-batch node.js https://github.com/Silver-birder/control-ea-batch
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/project/google-word-cloud/">Google Word Cloud</a></h2>
-    <div class="article-style">
-      
-      Google検索履歴をWordCloud化 - Google Word Cloud 上記は、2019年1月のGoogle検索履歴。 golangとvueにハマっていた。
-背景 下記のページより、Googleで検索したデータをダウンロードできることを知った。 https://takeout.google.com
-そこで、WordCloudに流したら面白そうではないかと思った。
-機能 簡単に言うと下記
- Google検索のような検索結果のjsonファイルを月毎に分割できる 検索結果のjsonファイルから単語を抽出できる 抽出した結果をWordCloudで出力した画像を取得できる  Google検索だけでなく下記も出力できる（他も可能かもしれないが私自身にデータがなかった)
- Gmail GoogleApps YouTube Drive Map 画像検索 動画検索  技術スタック python
-関連リポジトリ python https://github.com/Silver-birder/google-word-cloud
+      EA(FX)を安全に運用するシステム
       
     </div>
   </div>

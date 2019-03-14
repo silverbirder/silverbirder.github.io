@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="silverbirder,portfolio">
+  <meta name="description" content="検索キーワードをリアルタイムWordCloud化">
 
   
-  <link rel="alternate" hreflang="en-us" href="/authors/">
+  <link rel="alternate" hreflang="en-us" href="/project/searchwordcloud/">
 
   
 
@@ -98,15 +98,15 @@
   
 
   
-  <link rel="alternate" href="/authors/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
-  <link rel="feed" href="/authors/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Masashi Shibamoto">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/authors/">
+  <link rel="canonical" href="/project/searchwordcloud/">
 
   
   
@@ -121,19 +121,21 @@
   <meta property="twitter:creator" content="@silver_birder">
   
   <meta property="og:site_name" content="Masashi Shibamoto">
-  <meta property="og:url" content="/authors/">
-  <meta property="og:title" content="Authors | Masashi Shibamoto">
-  <meta property="og:description" content="silverbirder,portfolio"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/project/searchwordcloud/">
+  <meta property="og:title" content="Search Word Cloud | Masashi Shibamoto">
+  <meta property="og:description" content="検索キーワードをリアルタイムWordCloud化"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2019-03-14T22:03:13&#43;09:00">
   
+  <meta property="article:modified_time" content="2019-03-14T22:03:13&#43;09:00">
+  
+
   
 
   
 
-  
-
-  <title>Authors | Masashi Shibamoto</title>
+  <title>Search Word Cloud | Masashi Shibamoto</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -331,7 +333,9 @@
 </nav>
 
 
+<article class="article article-project" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -348,39 +352,248 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Search Word Cloud</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Authors</h1>
+
+
+
+<meta content="2019-03-14 22:03:13 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-03-14 22:03:13 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
   
 
-  <ul>
+  
+  <span class="article-date">
     
     
       
-      
-      
-      
-        
-        
-      
-    <li><a href="/authors/admin/">Masashi Shibamoto</a></li>
     
+    <time>Mar 14, 2019</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Search%20Word%20Cloud&amp;url=%2fproject%2fsearchwordcloud%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fproject%2fsearchwordcloud%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fproject%2fsearchwordcloud%2f&amp;title=Search%20Word%20Cloud"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fproject%2fsearchwordcloud%2f&amp;title=Search%20Word%20Cloud"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Search%20Word%20Cloud&amp;body=%2fproject%2fsearchwordcloud%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
+</div>
+
 
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="検索キーワードをworcloud化-searchwordcloud">検索キーワードをWorCloud化 - SearchWordCloud</h2>
+
+<p><img src="https://res.cloudinary.com/silverbirder/image/upload/v1552224172/word-cloud-chrome-extension/word-cloud-chrome-extension.gif" alt="output" /></p>
+
+<p>拡張機能のダウンロードは<a href="https://chrome.google.com/webstore/detail/searchwordcloud/dbpmolojnmdfgggfnhlioepakmpjafal/related?hl=ja&amp;gl=JP" target="_blank">こちら</a></p>
+
+<h2 id="背景">背景</h2>
+
+<p>googleのマイアクティビティから検索履歴をwordCloud化した
+ツールを作ってみたのだが、それをリアルタイムでも見れるにしたいと考えた。</p>
+
+<h2 id="機能">機能</h2>
+
+<p>簡単に言うと下記</p>
+
+<ul>
+<li>chrome拡張機能で、検索するたびにwordCloudが更新される</li>
+<li>データはgoogleアカウントに紐づくので、端末が異なっていても共有できる</li>
+<li>データをクリアできるオプションを用意している</li>
+</ul>
+
+<h2 id="技術スタック">技術スタック</h2>
+
+<p>node.js</p>
+
+    </div>
+
+    
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2c140fd70437384b2f284bfaeb136d8c_100791_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Masashi Shibamoto</a></h5>
+    <h6 class="card-subtitle">Web Application Engineer</h6>
+    <p class="card-text" itemprop="description">Node.jsやGolangが大好きなWebAppエンジニア</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:silverbirder@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/silver_birder" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/Silver-birder" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+  </div>
+</article>
+
+
+
 <div class="container">
   <footer class="site-footer">
   

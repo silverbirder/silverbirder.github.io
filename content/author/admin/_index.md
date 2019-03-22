@@ -69,6 +69,11 @@ user_groups = [""]
   icon_pack = "fab"
   link = "https://github.com/Silver-birder"
 
+[[social]]
+  icon = "calendar"
+  icon_pack = "far"
+  link = "https://calendar.google.com/calendar/embed?src=silverbirder%40gmail.com&ctz=Asia%2FTokyo"
+
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # [[social]]

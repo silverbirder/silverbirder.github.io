@@ -65,14 +65,34 @@ user_groups = [""]
   link = "https://twitter.com/silver_birder"
 
 [[social]]
-  icon = "github"
+  icon = "facebook"
   icon_pack = "fab"
-  link = "https://github.com/Silver-birder"
+  link = "https://www.facebook.com/silverbirder"
 
 [[social]]
   icon = "calendar"
   icon_pack = "far"
   link = "https://calendar.google.com/calendar/embed?src=silverbirder%40gmail.com&ctz=Asia%2FTokyo"
+
+[[social]]
+  icon = "medium"
+  icon_pack = "fab"
+  link = "https://medium.com/@silverbirder"
+
+[[social]]
+  icon = "search"
+  icon_pack = "fas"
+  link = "https://qiita.com/silverbirder"
+
+[[social]]
+  icon = "box"
+  icon_pack = "fas"
+  link = "https://scrapbox.io/silverbirder-memo"
+
+[[social]]
+  icon = "github"
+  icon_pack = "fab"
+  link = "https://github.com/Silver-birder"
 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.

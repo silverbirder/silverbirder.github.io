@@ -6,8 +6,47 @@
     <description>Recent content in Masashi Shibamoto on Masashi Shibamoto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Mar 2019 13:32:59 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 04 Apr 2019 00:07:40 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Notify Google Home</title>
+      <link>/project/notify-google-home/</link>
+      <pubDate>Thu, 04 Apr 2019 00:07:40 +0900</pubDate>
+      
+      <guid>/project/notify-google-home/</guid>
+      <description>
+
+&lt;h2 id=&#34;notify-google-home&#34;&gt;Notify Google Home&lt;/h2&gt;
+
+&lt;p&gt;Google Homeに任意のメッセージを通知することができる。&lt;/p&gt;
+
+&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;Google Homeにメッセージを送ることはあるけど、
+逆はないなと思い、発話できるのか調べてみた。
+すると、google-home-notifierなるものを発見した。
+ただ、色々と環境構築が複雑なため、dockerに押し込めることにした。&lt;/p&gt;
+
+&lt;h2 id=&#34;機能&#34;&gt;機能&lt;/h2&gt;
+
+&lt;p&gt;簡単に言うと下記&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google HomeのIPアドレスとメッセージを指定して&lt;code&gt;docker run&lt;/code&gt;するだけで、発話させることができる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;技術スタック&#34;&gt;技術スタック&lt;/h2&gt;
+
+&lt;p&gt;node.js&lt;/p&gt;
+
+&lt;h2 id=&#34;関連リポジトリ&#34;&gt;関連リポジトリ&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Silver-birder/notify-message-by-google-home&#34; target=&#34;_blank&#34;&gt;https://github.com/Silver-birder/notify-message-by-google-home&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/r/silverbirder/simple-google-home-notifier&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/silverbirder/simple-google-home-notifier&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Random Amazon Ranking</title>

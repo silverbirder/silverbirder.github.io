@@ -6,10 +6,24 @@
     <description>Recent content in Projects on Masashi Shibamoto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Mar 2019 13:32:59 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 04 Apr 2019 00:07:40 +0900</lastBuildDate>
     
 	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notify Google Home</title>
+      <link>/project/notify-google-home/</link>
+      <pubDate>Thu, 04 Apr 2019 00:07:40 +0900</pubDate>
+      
+      <guid>/project/notify-google-home/</guid>
+      <description>Notify Google Home Google Homeに任意のメッセージを通知することができる。
+背景 Google Homeにメッセージを送ることはあるけど、 逆はないなと思い、発話できるのか調べてみた。 すると、google-home-notifierなるものを発見した。 ただ、色々と環境構築が複雑なため、dockerに押し込めることにした。
+機能 簡単に言うと下記
+ Google HomeのIPアドレスとメッセージを指定してdocker runするだけで、発話させることができる。  技術スタック node.js
+関連リポジトリ https://github.com/Silver-birder/notify-message-by-google-home
+https://hub.docker.com/r/silverbirder/simple-google-home-notifier</description>
+    </item>
     
     <item>
       <title>Random Amazon Ranking</title>

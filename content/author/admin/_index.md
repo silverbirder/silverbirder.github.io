@@ -85,6 +85,11 @@ user_groups = [""]
   link = "https://qiita.com/silverbirder"
 
 [[social]]
+  icon = "compass"
+  icon_pack = "far"
+  link = "https://silverbirder180.hatenablog.com"
+
+[[social]]
   icon = "box"
   icon_pack = "fas"
   link = "https://scrapbox.io/silverbirder-memo"

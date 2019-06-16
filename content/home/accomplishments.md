@@ -26,5 +26,12 @@ date_format = "Jan 2006"
   date_end = ""
   description = "https://event.shoeisha.jp/devsumi/20190214/session/2015/"
   certificate_url = "https://res.cloudinary.com/silverbirder/image/upload/v1551278903/Accomplish%C2%ADments/developers_summit_2019_gcp_handson.jpg"
+[[item]]
+  title = "First time on the stage"
+  organization = "Developers Boost KANSAI ～関西U30エンジニアの登竜門～"
+  date_start = "2019-06-15"
+  date_end = ""
+  description = "https://event.shoeisha.jp/devboost/20190615/timetable#tt1810"
+  certificate_url = "https://togetter.com/li/1366508"
 
 +++

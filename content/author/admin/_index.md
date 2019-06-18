@@ -95,6 +95,11 @@ user_groups = [""]
   link = "https://scrapbox.io/silverbirder-memo"
 
 [[social]]
+  icon = "sticky-note"
+  icon_pack = "fa"
+  link = "https://note.mu/silverbirder"
+
+[[social]]
   icon = "github"
   icon_pack = "fab"
   link = "https://github.com/Silver-birder"

@@ -31,7 +31,10 @@ date_format = "Jan 2006"
   organization = "Developers Boost KANSAI ～関西U30エンジニアの登竜門～"
   date_start = "2019-06-15"
   date_end = ""
-  description = "https://event.shoeisha.jp/devboost/20190615/timetable#tt1810"
+  description = """
+  [timetable](https://event.shoeisha.jp/devboost/20190615/timetable#tt1810) <br>
+  [slide](https://www.slideshare.net/monotaro-itd-pr/ss-150331504)
+  """
   certificate_url = "https://togetter.com/li/1366508"
 
 +++

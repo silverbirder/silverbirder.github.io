@@ -90,6 +90,11 @@ user_groups = [""]
   link = "https://silverbirder180.hatenablog.com"
 
 [[social]]
+  icon = "speaker-deck"
+  icon_pack = "fab"
+  link = "https://speakerdeck.com/silverbirder"
+
+[[social]]
   icon = "box"
   icon_pack = "fas"
   link = "https://scrapbox.io/silverbirder-memo"

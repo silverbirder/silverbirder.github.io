@@ -17,12 +17,7 @@
       <pubDate>Thu, 04 Apr 2019 00:07:40 +0900</pubDate>
       
       <guid>/project/notify-google-home/</guid>
-      <description>Notify Google Home Google Homeに任意のメッセージを通知することができる。
-背景 Google Homeにメッセージを送ることはあるけど、 逆はないなと思い、発話できるのか調べてみた。 すると、google-home-notifierなるものを発見した。 ただ、色々と環境構築が複雑なため、dockerに押し込めることにした。
-機能 簡単に言うと下記
- Google HomeのIPアドレスとメッセージを指定してdocker runするだけで、発話させることができる。  技術スタック node.js
-関連リポジトリ https://github.com/Silver-birder/notify-message-by-google-home
-https://hub.docker.com/r/silverbirder/simple-google-home-notifier</description>
+      <description>簡単にGoogle-Homeから発話させる</description>
     </item>
     
     <item>
@@ -31,13 +26,7 @@ https://hub.docker.com/r/silverbirder/simple-google-home-notifier</description>
       <pubDate>Sun, 31 Mar 2019 13:32:59 +0900</pubDate>
       
       <guid>/project/random-amazon-ranking/</guid>
-      <description>Random Amazon Ranking 背景 アマゾン売れ筋ランキングを適当に眺めていたら、 全く知らなかった興味深い商品を発見できた。 他にも同様の商品がないのか知りたくなり、このアプリを作った。
-機能 簡単に言うと下記
- アマゾン売れ筋ランキングTOP3の商品のみを表示する アマゾンに存在する全カテゴリをランダムに3カテゴリ抽出する 商品データは逐次取得しているため、リアルタイムな商品が見れる  技術スタック vue.js + node.js + now.sh
-関連リポジトリ frontend vue.js
-https://github.com/Silver-birder/amazon-ranking-vue
-backend node.js
-https://github.com/Silver-birder/amazon-ranking-api</description>
+      <description>アマゾンの売れ筋ランキングをランダムに表示するアプリ</description>
     </item>
     
     <item>
@@ -46,10 +35,7 @@ https://github.com/Silver-birder/amazon-ranking-api</description>
       <pubDate>Thu, 14 Mar 2019 22:03:13 +0900</pubDate>
       
       <guid>/project/searchwordcloud/</guid>
-      <description>検索キーワードをWorCloud化 - SearchWordCloud 拡張機能のダウンロードはこちら
-背景 googleのマイアクティビティから検索履歴をwordCloud化した ツールを作ってみたのだが、それをリアルタイムでも見れるにしたいと考えた。
-機能 簡単に言うと下記
- chrome拡張機能で、検索するたびにwordCloudが更新される データはgoogleアカウントに紐づくので、端末が異なっていても共有できる データをクリアできるオプションを用意している  技術スタック node.js</description>
+      <description>検索キーワードをリアルタイムWordCloud化</description>
     </item>
     
     <item>
@@ -58,10 +44,7 @@ https://github.com/Silver-birder/amazon-ranking-api</description>
       <pubDate>Tue, 05 Mar 2019 00:15:20 +0900</pubDate>
       
       <guid>/project/run-character/</guid>
-      <description>キャラクターがぐるぐる回るよ！ - Run Character 背景 デスクトップ画面がなんだか寂しいなと感じたのがきっかけ。 画面の周りをぐるぐる回るキャラクターがほしいなと思った。
-機能 簡単に言うと下記
- 好きなキャラクターを選べる(いまのところハロウィンのみ) 開始後、デスクトップの周りをぐるぐる回る 止まる手段はない！ので、強制終了させる  技術スタック electron
-関連リポジトリ https://github.com/Silver-birder/run_character</description>
+      <description>キャラクターが画面をぐるぐる回るだけのアプリ</description>
     </item>
     
     <item>
@@ -70,11 +53,7 @@ https://github.com/Silver-birder/amazon-ranking-api</description>
       <pubDate>Mon, 04 Mar 2019 22:19:28 +0900</pubDate>
       
       <guid>/project/managed-ea/</guid>
-      <description>EA管理システム - Managed-EA 背景 EAを複数人で利用している想定のため、いくつかほしい機能があった。
-機能 簡単に言うと下記
- EAを使うユーザーの認証 EAを使うユーザーの登録・編集 各ユーザーの決済履歴  技術スタック react + dataStore + GAE
-こちらは、下記をフォークしFeaturesをいくつか追加したもの https://github.com/osamu38/react-ssr-starter
-関連リポジトリ https://github.com/Silver-birder/managed-ea</description>
+      <description>EA(FX)データを集計・管理するシステム</description>
     </item>
     
     <item>
@@ -83,13 +62,7 @@ https://github.com/Silver-birder/amazon-ranking-api</description>
       <pubDate>Mon, 04 Mar 2019 22:04:29 +0900</pubDate>
       
       <guid>/project/web-ar/</guid>
-      <description>Web上でAR体験 - Web-AR 背景 https://www.youtube.com/watch?v=rIPfpGCxONQ この動画が発端となる。
-ARをどうしても触ってみたかった。 ただ、ネイティブアプリではなくWeb上で表現できないか考えていた。 three.jsを使えばイケるかも！？とやってみた。
-機能 簡単に言うと下記
- three.jsで現実世界にオブジェクトを生成する 座標位置とオブジェクトとの距離により見え方が変わる オブジェクトに接すると、中の世界が見えるようになる  技術スタック javascript(three.js)
-関連リポジトリ frontend javascript(three.js)
-backend golang
-https://github.com/Silver-birder/web-ar</description>
+      <description>webでAR</description>
     </item>
     
     <item>
@@ -98,10 +71,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:03:41 +0900</pubDate>
       
       <guid>/project/text_lint/</guid>
-      <description>文章向けLinter - text_lint $ npm install $ echo &amp;quot;I love docker&amp;quot; &amp;gt;&amp;gt; sample.md $ npm run lint sample.md -s text_lint/sample.md 1:8 ✓ error docker =&amp;gt; Docker prh ✖ 1 problem (1 error, 0 warnings) ✓ 1 fixable problem. Try to run: $ textlint --fix [file]  背景 文章を書いていて、表記ゆれが多々あった。 それをなんとか防ぎたかった。
-機能 簡単に言うと下記
- 有名なIT向け辞書を登録済みなので、誤りを検知してくれる。 git hookと合わせれば、commit時に検知できる。 辞書をカスタマイズできるので、自分にあった検知が作れる。  技術スタック node.js
-関連リポジトリ https://github.com/Silver-birder/text_lint</description>
+      <description>文章の表記ゆれチェック</description>
     </item>
     
     <item>
@@ -110,10 +80,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:03:35 +0900</pubDate>
       
       <guid>/project/share-session/</guid>
-      <description>セッション共有 - Share-Session 背景 とあるサービスのアカウントを共有したかった。
-機能 簡単に言うと下記
- Cookieデータを登録・編集できる ブックマークレットから、共有したいサイトでCookie設定できる  技術スタック golang + dataStore + GAE
-関連リポジトリ frontend　and backend golang https://github.com/Silver-birder/share_session</description>
+      <description>アカウント共有が簡単に実現</description>
     </item>
     
     <item>
@@ -122,10 +89,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:03:28 +0900</pubDate>
       
       <guid>/project/search-local-web/</guid>
-      <description>ローカル検索 - Search-Local-Web 背景 過去に検索した記事を思い出せず、苦労したことがある。 検索履歴をローカルに保存して全文検索できるようにしたい。
-機能 簡単に言うと下記
- URLからHTMLを取得し、googleDriveにドキュメント保存できる 思い出しているキーワードから全文検索できる(googleDriveApi) LINKから、記事をアクセスできる  技術スタック node.js(express) + googleDrive + GAE
-関連リポジトリ https://github.com/Silver-birder/search-local-web</description>
+      <description>よく見る記事を保存</description>
     </item>
     
     <item>
@@ -134,10 +98,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:03:14 +0900</pubDate>
       
       <guid>/project/reactnative_web_electron/</guid>
-      <description>ReactNative_Web_Electron - One Logic 背景 WebApp,MobileApp,DesktopAppを共通の言語で開発したいなと考えていた。 View側はプラットフォーム毎に用意して、Logicは共通化したかった。 (仕組みは用意したものの、途中で諦めた)
-機能 簡単に言うと下記
- src/native, src/webでプラットフォーム毎のViewを作成できる src/actionsでロジック部分を共通化する src/storeでデータを集約する  技術スタック reactNative + react.js + electron　+ expo.io
-関連リポジトリ https://github.com/Silver-birder/rss_reader</description>
+      <description>Web/Mobile/Desktopをワンソース開発</description>
     </item>
     
     <item>
@@ -146,10 +107,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:02:12 +0900</pubDate>
       
       <guid>/project/gas-for-amazon-calendar/</guid>
-      <description>AmazonCalendar - Gas for Amazon Calendar 背景 アマゾンで買った商品がいつ届くのかメールを いつも見ていたが、不便と感じた。googleCalendar に登録されればなと思った。
-機能 簡単に言うと下記
- Amazonで購入した際に送られるメールからgoogleCalandarに「いつ届くのか」登録してくれる  技術スタック gas + gmail + googleCalendar
-関連リポジトリ https://github.com/Silver-birder/gas-for-amazon-calendar</description>
+      <description>お届け予定日がGoogleCalendarに自動登録</description>
     </item>
     
     <item>
@@ -158,13 +116,7 @@ https://github.com/Silver-birder/web-ar</description>
       <pubDate>Mon, 04 Mar 2019 22:01:54 +0900</pubDate>
       
       <guid>/project/control-ea/</guid>
-      <description>EAの制御システム - Control-EA 背景 FXでEAという自動売買プログラムがあるのだが、 外部から注文を停止・決済させたいときがあった。 https://www.fxstreet.jp/economic-calendar
-要人発表時は、相場が大きく揺れてしまうので制御したかった。
-機能 簡単に言うと下記
- Webアプリ上で、要人発表データを操作できる 要人発表データをEAがほぼリアルタイムに監視している ボラリティが高い相場時間帯は、注文しないようにする  技術スタック vue.js + golang + dataStore + now.sh
-関連リポジトリ frontend vue.js https://github.com/Silver-birder/control-ea
-backend golang https://github.com/Silver-birder/control-ea-api
-batch node.js https://github.com/Silver-birder/control-ea-batch</description>
+      <description>EA(FX)を安全に運用するシステム</description>
     </item>
     
     <item>
@@ -173,13 +125,7 @@ batch node.js https://github.com/Silver-birder/control-ea-batch</description>
       <pubDate>Mon, 04 Mar 2019 22:01:42 +0900</pubDate>
       
       <guid>/project/google-word-cloud/</guid>
-      <description>Google検索履歴をWordCloud化 - Google Word Cloud 上記は、2019年1月のGoogle検索履歴。 golangとvueにハマっていた。
-背景 下記のページより、Googleで検索したデータをダウンロードできることを知った。 https://takeout.google.com
-そこで、WordCloudに流したら面白そうではないかと思った。
-機能 簡単に言うと下記
- Google検索のような検索結果のjsonファイルを月毎に分割できる 検索結果のjsonファイルから単語を抽出できる 抽出した結果をWordCloudで出力した画像を取得できる  Google検索だけでなく下記も出力できる（他も可能かもしれないが私自身にデータがなかった)
- Gmail GoogleApps YouTube Drive Map 画像検索 動画検索  技術スタック python
-関連リポジトリ python https://github.com/Silver-birder/google-word-cloud</description>
+      <description>google検索履歴をWordCloud化</description>
     </item>
     
     <item>
@@ -188,11 +134,7 @@ batch node.js https://github.com/Silver-birder/control-ea-batch</description>
       <pubDate>Fri, 01 Mar 2019 22:43:36 +0900</pubDate>
       
       <guid>/project/book-store/</guid>
-      <description>書籍管理システム - Book-Store 背景 今持っている本がどれぐらいあるのか管理したくなったところから始まった
-機能 簡単に言うと下記
- 全文検索で書籍を検索できる ISBNで書籍登録できるし、変更もできる Amazonリンクにつながる  技術スタック vue.js + golang + algolia + now.sh
-関連リポジトリ frontend vue.js https://github.com/Silver-birder/book-store-vue
-backend golang https://github.com/Silver-birder/book-store-go</description>
+      <description>書籍を良い感じに管理</description>
     </item>
     
   </channel>

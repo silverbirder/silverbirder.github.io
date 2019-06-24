@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git subtree push --prefix docs/ origin master
+git subtree push --prefix docs/ upstream master

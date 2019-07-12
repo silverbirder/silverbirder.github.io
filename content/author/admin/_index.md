@@ -55,11 +55,6 @@ user_groups = [""]
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 
 [[social]]
-  icon = "envelope"
-  icon_pack = "fas"
-  link = "mailto:silverbirder@gmail.com"  # For a direct email link, use "mailto:test@example.org".
-
-[[social]]
   icon = "twitter"
   icon_pack = "fab"
   link = "https://twitter.com/silver_birder"
@@ -68,6 +63,16 @@ user_groups = [""]
   icon = "facebook"
   icon_pack = "fab"
   link = "https://www.facebook.com/silverbirder"
+
+[[social]]
+  icon = "instagram"
+  icon_pack = "fab"
+  link = "https://www.instagram.com/silverbirder"
+
+[[social]]
+  icon = "google"
+  icon_pack = "fab"
+  link = "https://www.google.com/maps/contrib/101722346324226588907/reviews/@34.6907839,135.4537926,13z/"
 
 [[social]]
   icon = "calendar"
@@ -90,16 +95,6 @@ user_groups = [""]
   link = "https://silverbirder180.hatenablog.com"
 
 [[social]]
-  icon = "trello"
-  icon_pack = "fab"
-  link = "https://trello.com/b/RNbUvPFw/my-task"
-
-[[social]]
-  icon = "speaker-deck"
-  icon_pack = "fab"
-  link = "https://speakerdeck.com/silverbirder"
-
-[[social]]
   icon = "box"
   icon_pack = "fas"
   link = "https://scrapbox.io/silverbirder-memo"
@@ -115,9 +110,24 @@ user_groups = [""]
   link = "https://github.com/Silver-birder"
 
 [[social]]
+  icon = "speaker-deck"
+  icon_pack = "fab"
+  link = "https://speakerdeck.com/silverbirder"
+
+[[social]]
+  icon = "trello"
+  icon_pack = "fab"
+  link = "https://trello.com/b/RNbUvPFw/my-task"
+
+[[social]]
   icon = "question"
   icon_pack = "fas"
   link = "https://peing.net/ja/712b46e2274795"
+
+[[social]]
+  icon = "envelope"
+  icon_pack = "fas"
+  link = "mailto:silverbirder@gmail.com"
 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.

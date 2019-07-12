@@ -90,6 +90,11 @@ user_groups = [""]
   link = "https://silverbirder180.hatenablog.com"
 
 [[social]]
+  icon = "trello"
+  icon_pack = "fab"
+  link = "https://trello.com/b/RNbUvPFw/my-task"
+
+[[social]]
   icon = "speaker-deck"
   icon_pack = "fab"
   link = "https://speakerdeck.com/silverbirder"

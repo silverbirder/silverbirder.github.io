@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="silverbirder,portfolio">
+  <meta name="description" content="CanvasAPIとPuppeteerを簡単に使う">
 
   
-  <link rel="alternate" hreflang="en-us" href="/404.html">
+  <link rel="alternate" hreflang="en-us" href="/project/puppeteer-and-canvas/">
 
   
 
@@ -106,7 +106,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/404.html">
+  <link rel="canonical" href="/project/puppeteer-and-canvas/">
 
   
   
@@ -121,19 +121,21 @@
   <meta property="twitter:creator" content="@silver_birder">
   
   <meta property="og:site_name" content="Masashi Shibamoto">
-  <meta property="og:url" content="/404.html">
-  <meta property="og:title" content="404 Page not found | Masashi Shibamoto">
-  <meta property="og:description" content="silverbirder,portfolio"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/project/puppeteer-and-canvas/">
+  <meta property="og:title" content="Puppeteer and Canvas | Masashi Shibamoto">
+  <meta property="og:description" content="CanvasAPIとPuppeteerを簡単に使う"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2019-09-23T11:52:30&#43;09:00">
   
+  <meta property="article:modified_time" content="2019-09-23T11:52:30&#43;09:00">
+  
+
   
 
   
 
-  
-
-  <title>404 Page not found | Masashi Shibamoto</title>
+  <title>Puppeteer and Canvas | Masashi Shibamoto</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -330,47 +332,473 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Perhaps you were looking for one of these?</p>
+<article class="article article-project" itemscope itemtype="http://schema.org/Article">
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Puppeteer and Canvas</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-09-23 11:52:30 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-09-23 11:52:30 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 23, 2019</time>
+  </span>
+  
+
+  
+
   
 
   
   
 
   
-  
 
   
-  
-  <h2>Projects</h2>
-  
-  <ul>
-    <li><a href="/project/puppeteer-and-canvas/">Puppeteer and Canvas</a></li>
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Puppeteer%20and%20Canvas&amp;url=%2fproject%2fpuppeteer-and-canvas%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fproject%2fpuppeteer-and-canvas%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fproject%2fpuppeteer-and-canvas%2f&amp;title=Puppeteer%20and%20Canvas"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fproject%2fpuppeteer-and-canvas%2f&amp;title=Puppeteer%20and%20Canvas"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Puppeteer%20and%20Canvas&amp;body=%2fproject%2fpuppeteer-and-canvas%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-  
-  <ul>
-    <li><a href="/project/notify-google-home/">Notify Google Home</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/random-amazon-ranking/">Random Amazon Ranking</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/searchwordcloud/">Search Word Cloud</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/run-character/">Run Character</a></li>
-  </ul>
-  
+</div>
+
+
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="puppeteer-and-canvas">Puppeteer And Canvas</h2>
+
+<p>PuppeteerとCanvasを手軽に使えるようにする</p>
+
+<h2 id="背景">背景</h2>
+
+<p>Canvasをbrowser上で使う分には簡単。
+けど、サーバ上で使用するには必要なミドルウェアが多く、準備が大変。
+docker上に押し込め得ることとする。</p>
+
+<h2 id="機能">機能</h2>
+
+<p>簡単に言うと下記</p>
+
+<ul>
+<li>docker runするだけで、サーバ側でpuppeteerとcanvasが使える状態になっている。</li>
+</ul>
+
+<h2 id="技術スタック">技術スタック</h2>
+
+<p>node.js</p>
+
+<h2 id="関連リポジトリ">関連リポジトリ</h2>
+
+<p><a href="https://github.com/Silver-birder/notify-message-by-google-home" target="_blank">https://github.com/Silver-birder/notify-message-by-google-home</a></p>
+
+<p><a href="https://cloud.docker.com/u/silverbirder/repository/docker/silverbirder/puppeteer-and-canvas" target="_blank">https://cloud.docker.com/u/silverbirder/repository/docker/silverbirder/puppeteer-and-canvas</a></p>
+
+    </div>
+
+    
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2c140fd70437384b2f284bfaeb136d8c_100791_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Masashi Shibamoto</a></h5>
+    <h6 class="card-subtitle">Web Application Engineer</h6>
+    <p class="card-text" itemprop="description">Node.jsやGolangが大好きなWebAppエンジニア</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/silver_birder" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.facebook.com/silverbirder" target="_blank" rel="noopener">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.instagram.com/silverbirder" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.google.com/maps/contrib/101722346324226588907/reviews/@34.6907839,135.4537926,13z/" target="_blank" rel="noopener">
+          <i class="fab fa-google"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://calendar.google.com/calendar/embed?src=silverbirder%40gmail.com&amp;ctz=Asia%2FTokyo" target="_blank" rel="noopener">
+          <i class="far fa-calendar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://medium.com/@silverbirder" target="_blank" rel="noopener">
+          <i class="fab fa-medium"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://qiita.com/silverbirder" target="_blank" rel="noopener">
+          <i class="fas fa-search"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://silverbirder180.hatenablog.com" target="_blank" rel="noopener">
+          <i class="far fa-compass"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://scrapbox.io/silverbirder-memo" target="_blank" rel="noopener">
+          <i class="fas fa-box"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://note.mu/silverbirder" target="_blank" rel="noopener">
+          <i class="fa fa-sticky-note"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/Silver-birder" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://speakerdeck.com/silverbirder" target="_blank" rel="noopener">
+          <i class="fab fa-speaker-deck"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://trello.com/b/RNbUvPFw/my-task" target="_blank" rel="noopener">
+          <i class="fab fa-trello"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://peing.net/ja/712b46e2274795" target="_blank" rel="noopener">
+          <i class="fas fa-question"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:silverbirder@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+  </div>
+</article>
+
+
+
 <div class="container">
   <footer class="site-footer">
   

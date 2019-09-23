@@ -36,5 +36,12 @@ date_format = "Jan 2006"
   [slide](https://www.slideshare.net/monotaro-itd-pr/ss-150331504)
   """
   certificate_url = "https://togetter.com/li/1366508"
+[[item]]
+  title = "First Publish Book"
+  organization = "技術書典7"
+  date_start = "2019-09-22"
+  date_end = ""
+  description = "https://techbookfest.org/event/tbf07/circle/5117648689954816"
+  certificate_url = "https://silverbirder.booth.pm/items/1572900"
 
 +++

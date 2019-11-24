@@ -9,12 +9,15 @@ summary: "Webページのビジュアル変化を監視するサービス"
 ![output](https://res.cloudinary.com/silverbirder/image/upload/v1573651959/backstopjs/backstopjs.png)
 
 ## 背景
-TBD
+Webアプリを定期的に監視したい要求があった。  
+監視したい対象は、Webアプリの見た目（ビジュアル）だけ。  
+詳しくは、[こちら](https://qiita.com/silverbirder/items/35d8109faf649808ccb9)を参照。
 
 ## 機能
 簡単に言うと下記
 
-TBD
+* BackstopJSによるビジュアルリグレッションテスト
+* CircleCIによる定期的なテスト実行
 
 ## 技術スタック
 
@@ -23,7 +26,4 @@ CircleCI + BackstopJS
 
 ## 関連リポジトリ
 https://github.com/Silver-birder/silver-enigma
-
-## 関連サイト
-https://qiita.com/silverbirder/items/35d8109faf649808ccb9
 

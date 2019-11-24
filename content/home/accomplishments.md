@@ -43,5 +43,11 @@ date_format = "Jan 2006"
   date_end = ""
   description = "https://techbookfest.org/event/tbf07/circle/5117648689954816"
   certificate_url = "https://silverbirder.booth.pm/items/1572900"
-
+[[item]]
+  title = "第三回 銭けっと サークル参加"
+  organization = "銭けっと"
+  date_start = "2019-11-23"
+  date_end = ""
+  description = "https://zeniket.jimdofree.com/"
+  certificate_url = ""
 +++

@@ -50,4 +50,11 @@ date_format = "Jan 2006"
   date_end = ""
   description = "https://zeniket.jimdofree.com/"
   certificate_url = ""
+[[item]]
+  title = "初インタビュー"
+  organization = "エンジニアHub"
+  date_start = "2019-12-19"
+  date_end = ""
+  description = "https://employment.en-japan.com/engineerhub/entry/2019/12/19/103000"
+  certificate_url = ""
 +++

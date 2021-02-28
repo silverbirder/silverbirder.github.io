@@ -1,0 +1,20 @@
+<head>
+    <title>blog - silverbirder's page</title>
+    <meta name="description" content="This is the blog page of silverbirder's portfolio.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+<main>
+    <h1>📝 Blog</h1>
+    <amp-list width="auto"
+              height="2000"
+              layout="fixed-height"
+              src="BASE_URL/blog/index.json">
+        <ul>
+            <template type="amp-mustache">
+                <li>
+                    <span>{{humanDate}}</span> - <a href="{{url}}">{{title}}</a>
+                </li>
+            </template>
+        </ul>
+    </amp-list>
+</main>

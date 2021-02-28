@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<!-- AMP Web Push Permission Dialog -->
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Do not edit styles in this section -->
+  <style builtin>
+    /* Do not edit styles in this section. Add custom styles in the next
+       style section */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Default loading spinner */
+    .spinner,
+    .spinner:after {
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+    }
+    .spinner {
+      margin: 60px auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(140, 140, 140, 0.2);
+      border-right: 1.1em solid rgba(140, 140, 140, 0.2);
+      border-bottom: 1.1em solid rgba(140, 140, 140, 0.2);
+      border-left: 1.1em solid rgb(140, 140, 140);
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: spinner 1.1s infinite linear;
+      animation: spinner 1.1s infinite linear;
+    }
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Horizontally and vertically center items */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    /* Page message text styles */
+    .message {
+      font-size: 22px;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    /* Close icon styles */
+    #close {
+      position: fixed;
+      right: 32px;
+      top: 32px;
+      width: 32px;
+      height: 32px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    #close:before, #close:after {
+      position: fixed;
+      right: 48px;
+      content: ' ';
+      height: 33px;
+      width: 3px;
+      background-color: #333;
+    }
+    #close:before {
+      transform: rotate(45deg);
+    }
+    #close:after {
+      transform: rotate(-45deg);
+    }
+
+    /* Used to hide the preload and postload sections */
+    .invisible {
+      display: none;
+    }
+  </style>
+
+  <!-- Optional: Add custom styles here -->
+  <style custom>
+    /* Add custom styles here */
+  </style>
+</head>
+<body>
+<div id="preload">
+  <!-- Anything in this section will be shown before the main script
+        runs, and will be hidden after -->
+  <div class="spinner"></div>
+</div>
+<div id="postload" class="invisible">
+  <span id="close"></span>
+  <div permission="default">
+    <p class="message">
+      <!--
+      Customize the subscribing message here
+          (e.g. "Click Allow to receive notifications")
+      -->
+      Click Allow to receive notifications.
+    </p>
+  </div>
+  <div permission="denied">
+    <!--
+      Customize the unblocking message here
+          (e.g. "Please unblock notifications in your browser settings
+                  to receive notifications from this website.")
+      -->
+    <p class="message">
+      Please unblock notifications in your browser settings to receive notifications from this website.
+    </p>
+  </div>
+</div>
+<script>(function(){var f,k=function(a){return"undefined"!=typeof window&&window===a?a:"undefined"!=typeof global&&null!=global?global:a}(this);function l(a,b){b=void 0===b?"":b;try{return decodeURIComponent(a)}catch(d){return b}};var m=/(?:^[#?]?|&)([^=&]+)(?:=([^&]*))?/g;self.log=self.log||{user:null,dev:null,userForEmbed:null};var n=self.log;function p(a){this.I=a;this.j=Object.create(null)}p.prototype.get=function(a){if(this.j[a])return this.j[a].access=Date.now(),this.j[a].payload};p.prototype.put=function(a,b){var d=this;this.j[a]={payload:b,access:Date.now()};var c=Object.keys(this.j);if(c.length>this.I){if(n.dev)a=n.dev;else throw Error("failed to call initLogConstructor");a.warn("lru-cache","Trimming template cache");c.sort(function(a,b){return d.j[b].access-d.j[a].access});delete this.j[c[c.length-1]]}};var q,r;
+  function u(a){var b;q||(q=self.document.createElement("a"),r=self.UrlCache||(self.UrlCache=new p(100)));var d=r.get(a);if(d)return d;var c=q;c.href=a;c.protocol||(c.href=c.href);var e={href:c.href,protocol:c.protocol,host:c.host,hostname:c.hostname,port:"0"==c.port?"":c.port,pathname:c.pathname,search:c.search,hash:c.hash,origin:null};"/"!==e.pathname[0]&&(e.pathname="/"+e.pathname);if("http:"==e.protocol&&80==e.port||"https:"==e.protocol&&443==e.port)e.port="",e.host=e.hostname;e.origin=c.origin&&
+  "null"!=c.origin?c.origin:"data:"!=e.protocol&&e.host?e.protocol+"//"+e.host:e.href;var g=e,h=g;if(b)return h;r.put(a,h);return h};/*
+ https://mths.be/cssescape v1.5.1 by @mathias | MIT license */
+  var v=/(\0)|^(-)$|([\x01-\x1f\x7f]|^-?[0-9])|([\x80-\uffff0-9a-zA-Z_-]+)|[^]/g;function w(a,b,d,c,e){return e?e:b?"\ufffd":c?a.slice(0,-1)+"\\"+a.slice(-1).charCodeAt(0).toString(16)+" ":"\\"+a};function x(a){a||(a={debug:!1,windowContext:window});this.m={};this.l={};this.F=a.debug;this.o=this.J=this.K=!1;this.w=this.B=this.C=this.h=this.A=null;this.c=a.windowContext||window}f=x.prototype;
+  f.listen=function(a){var b=this;return(new Promise(function(d,c){b.o?c(Error("Already connected.")):b.K?c(Error("Already listening for connections.")):Array.isArray(a)?(b.C=b.M.bind(b,a,d,c),b.c.addEventListener("message",b.C)):c(Error("allowedOrigins should be a string array of allowed origins to accept messages from. Got:",a))})).then(function(){b.send(x.Topics.CONNECT_HANDSHAKE,null);b.o=!0})};
+  f.M=function(a,b,d,c){var e=c.data,g=c,h=g.ports;a:{for(var g=u(g.origin).origin,t=0;t<a.length;t++)if(u(a[t]).origin===g){a=!0;break a}a=!1}a&&e&&e.topic===x.Topics.CONNECT_HANDSHAKE&&(this.c.removeEventListener("message",this.C),this.h=h[0],this.w=this.G.bind(this),this.h.addEventListener("message",this.w,!1),this.h.start(),b())};
+  f.connect=function(a,b){var d=this;return new Promise(function(c,e){a||e(Error("Provide a valid Window context to connect to."));b||e(Error("Provide an expected origin for the remote Window or provide the wildcard *."));d.o?e(Error("Already connected.")):d.J?e(Error("Already connecting.")):(d.A=new MessageChannel,d.h=d.A.port1,d.B=d.L.bind(d,d.h,b,c),d.h.addEventListener("message",d.B),d.h.start(),a.postMessage({topic:x.Topics.CONNECT_HANDSHAKE},"*"===b?"*":u(b).origin,[d.A.port2]))})};
+  f.L=function(a,b,d){this.o=!0;a.removeEventListener("message",this.B);this.w=this.G.bind(this);a.addEventListener("message",this.w,!1);d()};f.G=function(a){a=a.data;if(this.m[a.id]&&a.isReply){var b=this.m[a.id];delete this.m[a.id];var d=b.promiseResolver;b.message=a.data;d([a.data,this.H.bind(this,a.id,b.topic)])}else{var c=this.l[a.topic];if(c)for(var e=0;e<c.length;e++)(0,c[e])(a.data,this.H.bind(this,a.id,a.topic))}};f.on=function(a,b){this.l[a]?this.l[a].push(b):this.l[a]=[b]};
+  f.off=function(a,b){if(b){var d=this.l[a].indexOf(b);-1!==d&&this.l[a].splice(d,1)}else this.l[a]&&delete this.l[a]};f.H=function(a,b,d){var c=this,e={id:a,topic:b,data:d,isReply:!0};this.h.postMessage(e);return new Promise(function(a){c.m[e.id]={message:d,topic:b,promiseResolver:a}})};f.send=function(a,b){var d=this,c={id:crypto.getRandomValues(new Uint8Array(10)).join(""),topic:a,data:b};this.h.postMessage(c);return new Promise(function(e){d.m[c.id]={message:b,topic:a,promiseResolver:e}})};
+  k.Object.defineProperties(x,{Topics:{configurable:!0,enumerable:!0,get:function(){return{CONNECT_HANDSHAKE:"topic-connect-handshake",NOTIFICATION_PERMISSION_STATE:"topic-notification-permission-state",SERVICE_WORKER_STATE:"topic-service-worker-state",SERVICE_WORKER_REGISTRATION:"topic-service-worker-registration",SERVICE_WORKER_QUERY:"topic-service-worker-query",STORAGE_GET:"topic-storage-get"}}}});function y(a){this.F=a&&a.debug;this.c=a.windowContext||window;this.D=new x({debug:this.F,windowContext:this.c})}f=y.prototype;f.isCurrentDialogPopup=function(){return!!this.c.opener&&this.c.opener!==this.c};f.requestNotificationPermission=function(){var a=this;return new Promise(function(b,d){try{a.c.Notification.requestPermission(function(a){return b(a)})}catch(c){d(c)}})};
+  f.run=function(){z(this);A(this);for(var a=this.c.document.querySelectorAll("[permission]"),b=0;b<a.length;b++)B(a[b],!1);(a=this.c.document.querySelector("[permission="+String(this.c.Notification.permission).replace(v,w)+"]"))&&B(a,!0);a=this.c.document.querySelector("#preload");b=this.c.document.querySelector("#postload");a&&b&&(B(a,!1),B(b,!0));"denied"!==this.c.Notification.permission?C(this):D(this)};
+  function z(a){var b=a.c.document.querySelector("#close");b&&b.addEventListener("click",function(){a.closeDialog()})}f.closeDialog=function(){if(this.isCurrentDialogPopup())this.c.close();else{var a=this.c.fakeLocation||this.c.location;var b=a.search,d=Object.create(null);if(b)for(var c;c=m.exec(b);){var e=l(c[1],c[1]);c=c[2]?l(c[2],c[2]):"";d[e]=c}var g=d;if(!g["return"])throw Error("Missing required parameter.");var h=l(g["return"],void 0);this.redirectToUrl(h)}};
+  function D(a){navigator.permissions.query({name:"notifications"}).then(function(b){b.onchange=function(){A(a);switch(a.c.Notification.permission){case "default":case "granted":C(a)}}})}function A(a){a.c.localStorage.setItem("amp-web-push-notification-permission",a.c.Notification.permission)}function B(a,b){if(a){var d="invisible";b?a.classList.remove(d):a.classList.add(d)}}
+  function C(a){a.requestNotificationPermission().then(function(b){A(a);if(a.isCurrentDialogPopup())return a.D.connect(opener,"*"),a.D.send(x.Topics.NOTIFICATION_PERMISSION_STATE,b).then(function(b){var c=b[0];c&&c.closeFrame&&a.closeDialog()});a.closeDialog()})}f.redirectToUrl=function(a){var b=u(a);!b||"http:"!==b.protocol&&"https:"!==b.protocol||(this.c.location.href=a)};window._ampWebPushPermissionDialog=new y({debug:!1});window._ampWebPushPermissionDialog.run();})();
+</script>
+</body>
+</html>

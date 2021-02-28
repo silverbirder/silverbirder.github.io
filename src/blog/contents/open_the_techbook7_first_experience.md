@@ -1,0 +1,425 @@
+<!-- 
+title: 技術書典7で初執筆した経験をすべて公開
+date: 2019-09-06T20:52:53+09:00
+draft: false
+description: 
+image: 
+icon: 😎
+-->
+
+技術書典7で初執筆しました。
+
+# 記事の目的
+
+* 執筆でどういったことをしたのかの備忘録
+* <b>執筆を考えている人</b>の助けになりたい
+
+実際に販売する本は↓のものです。
+
+[https://techbookfest.org/event/tbf07/circle/5117648689954816:embed]
+
+[:contents]
+
+## きっかけ
+
+大学時代の友人であるcastaneaiくんが技術書典6で初執筆しました。
+
+[https://castaneai.hatenablog.com/entry/2019/04/24/093514:embed]
+
+castaneaiくんの話を聞いていると、得られるメリット(実績、交流)が大きいことと、
+製本までのフローがそこまで難しくないことを知りました。
+そこから、私も参加しようと思えるようになりました。
+castaneaiくんは、今回の技術書典7も参加するみたいです。興味がある方は是非お立ち寄りください。
+
+[https://techbookfest.org/event/tbf07/circle/5182251830607872:embed]
+
+# 何をするのか
+大きく分けて３つのステップになります。
+
+1.  文章作成
+1.  製本
+1.  販売準備
+
+それぞれ説明していきます。
+
+# 1. 文章作成
+
+本は何よりも文章が必要です。
+ただ文章を書くだけでは、本になりません。
+書籍化するためのツールを使うと効率よく進みます。
+
+## 1.1. 書籍化ツール
+文章を書き、本っぽい見た目にする必要があります。
+Re:VIEW Starterというツールを使うと、学習コストゼロで、良い感じの本が出来上がります。
+
+[https://kauplan.org/reviewstarter/:embed]
+
+次のコマンド１つで本のPDFが作られます。
+
+```shell
+$ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake pdf"
+```
+
+<figure title="ReViewStarter sample page">
+<img alt="ReViewStarter sample page" src="https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png">
+<figcaption>ReViewStarter sample page</figcaption>
+</figure>
+
+**良い感じの本**のPDFが作成されました、最高です。
+
+## 1.2. 他ツール
+
+他にも次のようなツールがあります。
+
+* [textlint](https://github.com/textlint/textlint)
+  * テキストの表記ゆれを防止
+* [CircleCI](https://circleci.com)
+  * GitOps的な執筆が可能
+* [Review Live Reload](https://github.com/yoshiko-pg/review-live-reload)
+  * テキスト更新後の自動Preview
+
+執筆当初は、これらのツールを調査していました。
+しかし、一人で100ページ未満の規模の本を書くなら、特に必要ないかなと思ったので導入しませんでした。
+実際、なくても困りませんでした。
+
+## 1.3. レビュー
+
+文章を書いて終わる訳ではないです。
+文章の構成や表現が適切に伝わっているか確認する必要があります。
+読んでもらいたい対象読書に近い人を探して、レビューしてもらいます。
+
+### 1.3.1. 1st レビュー
+文章をざっくりと作り終えた時点でレビューしてもらいます。
+イメージとしては、各章とそれぞれの第一節ぐらいが書き終えている感じです。
+
+各章の構成がおかしくないかをレビューしてもらいます。構成がおかしいと、読者は困惑してしまいます。
+後々になって構成を変更すると、**後戻りコスト**が高く付きます。
+
+※ 実際は時間の都合上していません。
+
+### 1.3.2. 2nd レビュー
+各章の文章を**とりあえず**書き終えた段階でレビューしてもらいます。
+これも、1stレビューと同様の目的です。
+2stレビューでは、もう少し細かいレベルで章(節)構成をレビューしてもらいます。
+
+### 1.3.3. 3rd レビュー
+コンテンツの構成に問題なければ、ようやく文章の中身をレビューしてもらいます。
+例えば、次のようなものを見てくれました。
+
+* 口調の統一 (です、ます）
+* 言葉の統一 (本、書籍）
+* 主語の明確化
+* 文章を短くする
+* 内容の誤り修正
+* 誤字脱字
+* 図や表の挿入
+
+また、**GoogleDrive上でPDFをレビュー**するのが便利です。
+直接文章にコメントできるので、オススメです。
+
+[https://twitter.com/silver_birder/status/1167314554205786112:embed]
+
+## 1.5. 本のタイトル
+本を買ってもらうためには、本のタイトルは重要です。
+本の内容を推測しやすく、かつ、注目してもらえるタイトルにしようと考えました。
+私は、特定の技術の入門書を書いたので、「特定の技術 + 入門」という組み合わせにしようと思いました。
+結果、「はじめての WebComponents 入門」というタイトルにしました。
+
+## 1.6. イラストの作成
+本には、文章だけでなくイラストが必要になります。
+例えば、次のようなイラストが必要になります。
+
+* 表表紙
+* 裏表紙
+* 背表紙
+* 文章中に挿入するイラスト
+
+また、少し内容が異なりますが、次のようなイラストも必要です。
+
+* サークル配置図 案内
+* サークルカット
+* サークルカット（グレートーン）
+
+表紙用のテンプレートがありますので、それを使います。
+
+[http://www.nikko-pc.com/offset/template/tonbo.html:embed]
+
+**背表紙の幅はページ数によって変化します**。
+私は、70ページほど予定していたので4mm幅で背表紙を描きました。
+幅計算は、テンプレート内に詳細が記載されていますので、ご参考下さい。
+（日光企画のお姉さんに指摘頂きました）
+
+### 1.6.1. 初イラスト
+
+私はPhotoshopやIllustratorを使ったことがありません。
+まずは、環境準備からです。
+
+* iPad
+* Magic Pencil
+
+これらを購入しました。
+iPadとMagic Pencilを使うと、紙に書いている感覚で、イラストを書けるようになります。
+特に良かったのは「手の小指側の面がiPadに接しても無視される」ので、
+手の小指側の面をiPadにひっつけながらイラストがかけます。
+iPad, Magic Pencilは買って正解でした。
+ソフトウェアは、次のとおりです。
+
+* [Clip Studio](https://apps.apple.com/jp/app/clip-studio-paint-%E6%BC%AB%E7%94%BB-%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E5%88%B6%E4%BD%9C/id1262985592)
+  * メインのイラストツール
+  * iPad
+* [Good Notes](https://apps.apple.com/jp/app/goodnotes-5/id1444383602)
+  * 説明用のイラストツール
+  * iPad
+* [AnyFont](https://apps.apple.com/jp/app/anyfont/id821560738)
+  * 日本語用のFont
+  * iPad
+* [Fire Alpaca](https://firealpaca.com/ja/)
+  * イラストの調整
+  * iMac
+
+お絵かきが苦手だったので、知人に助けてもらい、なんとか作れました。
+
+<figure title="表表紙">
+<img alt="表表紙" src="https://res.cloudinary.com/silverbirder/image/upload/v1614430433/silver-birder.github.io/blog/front_cover_of_web_component_for_the_first_time.png">
+<figcaption>表表紙</figcaption>
+</figure>
+
+# 2. 製本
+製本には、技術書典オススメの日光企画さんにお願いしました。
+製本する際には、用紙の種類であったり綴じ方であったりと決める必要があります。
+
+私は、あまりこだわりがないので一般的なものを選択しました。
+それは、次のようになります。
+
+|種類|選択|
+| ---- | ---- |
+|ご予約のセットまたは仕様は？|早割りセット|
+|用紙サイズ|A5|
+|表紙込みページ数 |72ページ (表表紙+裏表紙+本文(70page))|
+|冊数|300冊|
+|本の閉じ方向|左|
+|本の閉じ種類|平綴じ|
+|表紙用紙|NPホワイト200kg|
+|表紙の印刷種類|通常4色クリアPP|
+|本文用紙|上質90kg|
+|本文の印刷種類|データ150線印刷|
+|本文はじまりのページ|1ページ目|
+|遊び紙|有り, 上質90kg/イエロー/前|
+
+[https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634:embed]
+
+を参考にしました。
+
+本文はじまりのページは、nombreをというものを設定する必要があります。
+Re:VIEW Starterはnombre対応していて、次のコマンドを叩くだけです。
+
+```shell
+$ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake pdf:nombre"
+```
+
+用紙についてこだわりたい方は、次のリンクにあるようにサンプルを手に入れると良いでしょう。
+
+[https://natuna.jp/marcket/10282/:embed]
+
+# 3. 販売準備
+## 3.1. 物品購入
+
+技術書典では、会場で本を販売することになります。
+販売するサークルブースを目立たせるために、いくつか物品を準備しました。
+
+|名前|店舗|用途|サイズ|イラスト|
+| ---- | ---- | ---- | ---- | ---- |
+|[折りたたみカードスタンド](https://iemonocatalog.com/wp-content/uploads/2019/05/daiso-100yen-card-stand01b.jpg) |ダイソー|値札|110mm×60mm|必|
+|[軟質クリアブックカバー](https://stripehome.net/wp-content/uploads/2018/05/daisobookcover11.jpg)|ダイソー|見本誌カバー|A5|不|
+|[T型カードスタンド](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)|ダイソー| 公式後払いQRコード|90mm×128mm|必|
+|[T型カードスタンド](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)|ダイソー| PixivPayQRコード|90mm×128mm|必|
+|[T型カードスタンド](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)|ダイソー| 商品紹介|90mm×128mm|必|
+|[T型カードスタンド](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)|ダイソー| TwitterQRコード|90mm×128mm|必|
+|[あの布](http://anonuno.shop-pro.jp/)|公式サイト|テーブル作業|-|不|
+|テーブルクロス前用紙|印刷業社|宣伝|900mm×600mm|必|
+|[テーブルクロス](https://iemonocatalog.com/wp-content/uploads/2019/01/table-cloth-100yen-main03.jpg)|ダイソー|あの布を隠す|900mm×1200mm|不|
+|[テーブルクロス滑り止めシート](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7H8zYedCGI_RtVMpgjakWWv5Gt6PT76gu93WcAUqx5e5XOxtH)|ダイソー|あの布|-|不|
+|[本スタンド](https://www.instagram.com/p/BibVAdbFcAN/media/?size=l)|ダイソー|見本誌|-|不|
+|タペストリー用紙|印刷業社|宣伝|728mm×1030mm|必|
+|[タペストリースタンド](https://www.amazon.co.jp/gp/product/B0052QLJEI/)|ダイソー|宣伝|-|不|
+|[名札](https://iemonocatalog.com/wp-content/uploads/2018/12/namecard-cliptyle-100yen-main.jpg)|ダイソー|著者、売り子|50mm×25mm|必|
+|[硬質カードケース](https://i2.wp.com/zatsuknowledge.com/wp-content/uploads/2019/04/IMG_4649.jpg)|ダイソー|お品書き|A5|不|
+|複写式 領収書|ダイソー|お客さん|-|不|
+|メモ、ふせん|ダイソー|作業|-|不|
+|養生テープ|ダイソー|作業|-|不|
+|スケッチブック|ダイソー|作業|-|不|
+|ダンボールカッター|ダイソー|作業|-|不|
+
+[https://note.mu/mochikoastech/n/nf484f114855c:embed]
+
+[https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動:embed]
+
+[https://note.mu/yagitch/n/nc796a0c2c796:embed]
+
+
+印刷する手段は3つあります。
+
+* 細かいもの
+  * 1つのファイルにして[セブンイレブン印刷](https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動)
+* 大きなもの
+  * [ソクプリ](https://www.ooban-senmon.com)で印刷
+* 大量印刷
+  * [プリントパック](https://www.printpac.co.jp/)で印刷
+
+## 3.2. 電子書籍の準備
+
+ピクシブ社のサービスであるBoothを利用しました。
+
+[https://booth.pm/ja:embed]
+
+特に専門的な知識が必要なことがなく、本のPDFを登録するだけです。
+せっかく足を運んで会場に来て頂いた方のために、電子書籍と物理本の違いを出そうと考えました。
+（中身のデータは同じです）
+そこで、物理本を購入して頂いた方には、**無料で電子書籍をプレゼント**することにしました。
+技術書典ではよくある方法だそうです。
+
+また、サンプルの本をアップロードし、無料でダウンロードできるようにすることで、
+事前に本の中身を確認できるようにしました。
+
+[[見本誌] はじめてのWeb Components入門 -4つの基本機能から関連ライブラリまで-](https://silverbirder.booth.pm/items/1536228)
+
+ただ、ダウンロード数を見る限り、あまり数は多くありませんでした。
+Google Analytics (**初登録**)とBoothが連携できるので、流入数を見れるのですが、
+離脱率が86%という悲しい結果を知りました。ここは改善の余地がありそうです。
+
+<figure title="Booth on Google Analytics">
+<img alt="Booth on Google Analytics" src="https://res.cloudinary.com/silverbirder/image/upload/v1614430470/silver-birder.github.io/blog/booth_on_google_analytics.png">
+<figcaption>Booth on Google Analytics</figcaption>
+</figure>
+
+pixiv ID登録しないとダウンロードできないので、ここが駄目ならサービスを使わない方が良いかもしれません。
+見本誌に限っては、GoogleDriveで渡すようにするとかですかね。
+
+## 3.3. 支払い手段の準備
+
+技術書典では、次のような支払手段を用意しました。
+
+* 公式かんたん後払い
+* pixiv pay
+
+前者は、技術書典で口座情報を登録すると利用できます。
+後者は、アプリをダウンロードして商品を登録するだけです。無料です。
+
+他にもPayPayやKyashといった手段も用意しようか迷ったのですが、やめました。
+理由は、支払い方法が若干複雑そうでしたからです。
+
+# 4. その他
+## 宣伝
+
+この本のことを広く知ってもらうためには、宣伝が必要です。
+私が取った宣伝手段は次の通りです。
+
+1. Twitterで "#技術書典7" タグ
+1.  LINEのOpenChatやTL
+1. FaceBook
+1. 本の内容と関係する勉強会ハッシュタグ
+1. 会社
+1. 友人
+
+あとは、勉強会に参加して宣伝する手段もあります。
+
+
+**「興味を持ってくれそうな人」が「多い」場**を探す必要があります。
+例えば、4番は事前に [connpass](https://connpass.com)で関係がありそうな勉強会を調べて、
+該当ハッシュタグで宣伝したりしました。
+また、積極的に1番を実施していると、他のサークル参加さんがリツイートしてくれるため、とても助かりました。
+
+Twitterで宣伝するために、16:9の画像を用意したりもしました。
+
+[https://twitter.com/silver_birder/status/1172097536510676994:embed]
+
+## 被チェック数と販売冊数
+被チェック数は、お客さんが気になる本をチェックした数になります。
+この数字から、印刷する冊数を決める大きな要因になります。
+
+[https://note.mu/yagitch/n/n2b5576363f4e:embed]
+
+恥ずかしい話になりますが、私は毎朝この数字を見ていました。（笑）
+
+[https://github.com/Silver-birder/get-checked-number-for-techbook:embed]
+
+被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
+
+[https://twitter.com/silver_birder/status/1171178281380405248:embed]
+
+このようにどの時間やどの曜日にチェックされるのかがわかるようになります。
+
+
+今回、300冊を印刷することにしました。間違いなく残ってしまうと思うので、
+とらのあなさんへ委託しようと考えています。
+
+[https://news.toranoana.jp/107460:embed]
+
+残ってしまったいくつかの本は、お家に保存用として持ち帰ろうと考えています。（笑）
+
+## 公式ツイッター
+
+公式ツイッターアカウントをフォローしておくと、なにかと便利です。
+
+[https://twitter.com/techbookfest:embed]
+
+## Google カレンダー 登録
+技術書典のスケジュールが登録されているGoogleカレンダーを、ご自身のカレンダーにも登録することをオススメします。
+
+[https://twitter.com/techbookfest/status/1083948257095503872:embed]
+
+いつまでに何をしないといけないのか逆算できるので、知っておいたほうが良いです。
+
+## スケジュールと実績
+
+公式予定と私の実績は次のとおりです。
+
+|日付|公式予定|筆者実績|
+| ---- | ---- | ---- |
+|07/10|当落通知日|当選|
+|07/12|-|[入金済](https://twitter.com/silver_birder/status/1149650432039387137)|
+|07/17|入金締切日|入金済|
+|07/20|-|計画立てる＆テーマ確定|
+|07/23|-|castaneaiくんに<br>印刷用サークルカット書いてもらう|
+|07/27|-|[サンプルコード作成完了](https://twitter.com/silver_birder/status/1155089319410843648)|
+|07/31| 印刷用サークルカット締切日|登録済|
+|08/02|-|原稿作成開始|
+|08/15|-|レビュー対応中(2st)|
+|08/21|サークル配置発表日|[宣伝済](https://twitter.com/silver_birder/status/1164294933752119296)|
+|08/26|一般参加者向け正式サイトオープン|[宣伝済](https://twitter.com/silver_birder/status/1166171153875886080)|
+|08/29|-|[レビュー対応中(3st)](https://twitter.com/silver_birder/status/1167051004308684800)|
+|08/30|-|原稿作成完了, [Booth登録](https://twitter.com/silver_birder/status/1167265421373788161), [製本依頼](https://twitter.com/silver_birder/status/1167379639724994560)|
+|08/31|-|[物品購入](https://twitter.com/silver_birder/status/1167775260139114496)(あの布は事前購入)|
+|09/06|-|現在|
+|09/07|サークル通行証の割当日|-|
+|09/19|見本誌の提出締切|-|
+|09/22|イベント当日|-|
+
+※ レビュー依頼中に、表紙等のイラスト作成を並行して進めていました。
+
+サンプルコードを書いている時は、「こんな話も増やそうかな？」と楽しい気分になれました。 
+原稿を書いている時は、「予定日の◯◯日には終わらせないと…」という苦しい時期がありました。 
+なんだかんだで、日光企画さんの早割チケットを手に入れれたので満足です。
+
+# 終わりに
+私が今回、初執筆した経験を包み隠さずすべて公開しました。
+執筆をやってみてよかったことは次のとおりです。
+
+* 本を作るのは、意外と簡単
+  * ツールやサービスが十分整っている
+* 書いた本が好きになる
+  * いろんな人にみてほしい
+  * 書いた知識は、とても定着する
+* コミュニティが楽しい
+  * "#技術書典"のハッシュタグはオススメ
+  * フォロワーが増えた
+
+逆につらかったことは次のとおりです。
+
+* ずーっと本のことを考える
+* 締め切りに追われる
+* 文章力のなさを痛感する
+
+初執筆しようと考えている人にとって、何かの助けになれば幸いです。
+
+あとは、技術書典7 当日を楽しむだけ！！

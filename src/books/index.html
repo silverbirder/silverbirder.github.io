@@ -1,0 +1,67 @@
+<head>
+    <title>books - silverbirder's page</title>
+    <meta name="description" content="This is the books page of silverbirder's portfolio.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+</head>
+<main>
+    <h1>📚 Books</h1>
+    <amp-script layout="container" script="search">
+        <input
+                type="search"
+                id="search-input"
+                placeholder="Type to search"
+        />
+        <div id="search-results" class="row">No results</div>
+    </amp-script>
+    <script id="search" type="text/plain" target="amp-script">
+      const searchInput = document.querySelector("#search-input");
+      searchInput.addEventListener("input", onInput);
+
+      async function onInput(event) {
+        const previousSearchResults = document.querySelector("#search-results");
+        const newSearchResults = document.createElement("div");
+        newSearchResults.setAttribute("id", "search-results");
+        newSearchResults.classList.add("row");
+        if (searchInput.value.length > 0) {
+          const results = (await runSearch(searchInput.value)).hits;
+          results.forEach(result => {
+              const item = document.createElement("div");
+              item.classList.add("card");
+              const img = document.createElement("amp-img");
+              img.classList.add("card-img-top");
+              img.setAttribute("src", result.cover);
+              img.setAttribute("width", 200);
+              img.setAttribute("height", 280);
+              img.setAttribute("layout", 'responsive');
+              item.appendChild(img);
+              const label = document.createElement("div");
+              label.classList.add("card-body");
+              let text = result.title;
+              if (text.length > 50) {
+                text = text.substring(0, 50) + '...';
+              }
+              label.textContent = text;
+              item.appendChild(label);
+              const grid = document.createElement("div");
+              grid.classList.add("col-md-3");
+              grid.classList.add("col-sm-12");
+              grid.appendChild(item);
+              newSearchResults.appendChild(grid);
+          });
+        }
+        document.body.replaceChild(newSearchResults, previousSearchResults);
+      }
+      async function runSearch(keyword) {
+        const response = await fetch(`https://ik2g3qgl59-dsn.algolia.net/1/indexes/Book/?query=${keyword}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Algolia-API-Key': '228126acea5bd276469e9549fb22b5bd',
+            'X-Algolia-Application-Id': 'IK2G3QGL59'
+          }
+        })
+        return await response.json();
+      }
+
+    </script>
+</main>

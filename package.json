@@ -7,6 +7,7 @@
     "build:dev": "gulp build",
     "build:prod": "BASE_URL=https://silver-birder.github.io gulp build",
     "build:watch": "gulp watch",
+    "generate:sitemap": "BASE_URL=https://silver-birder.github.io gulp sitemap",
     "start": "serve ."
   },
   "keywords": [],
@@ -21,8 +22,10 @@
     "highlight.js": "^10.5.0",
     "jsdom": "^16.4.0",
     "markdown-it": "^12.0.4",
+    "node-fetch": "^2.6.1",
     "probe-image-size": "^6.0.0",
     "serve": "^11.3.2",
+    "sitemap-generator": "^8.5.1",
     "through2": "^4.0.2",
     "toc": "^0.4.0"
   }

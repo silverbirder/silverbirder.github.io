@@ -19,3 +19,7 @@ exports.watch = () => {
         'assets/*'
     ], exports.build)
 };
+
+exports.sitemap = series(
+    runners.generateSiteMapRunner
+);

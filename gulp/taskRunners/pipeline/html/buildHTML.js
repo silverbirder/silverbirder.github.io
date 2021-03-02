@@ -78,12 +78,7 @@ const addLdJson = (layoutDOM, canonicalUrl) => {
         "publisher": {
             "@type": "Person",
             "name": "silverbirder",
-            "logo": {
-                "url": "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_520/v1611128736/silver-birder.github.io/assets/logo.png",
-                "width": 520,
-                "height": 520,
-                "@type": "ImageObject"
-            }
+            "image": "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_520/v1611128736/silver-birder.github.io/assets/logo.png"
         }
     });
     headElement.appendChild(scriptElement);

@@ -2,7 +2,7 @@
 
 ## Overview
 
-![overview](./overview.svg)
+![overview](./overview.png)
 
 ## Dev
 

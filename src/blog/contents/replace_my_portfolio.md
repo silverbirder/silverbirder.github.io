@@ -30,9 +30,8 @@ Hugoで記事を管理する対象は、Markdownであるため、エンジニ�
 また、デザインテーマは、公開されているテーマがあるので、好きなものを選びます。
 
 導入当初は、とても快適でした。手軽にオシャレなポートフォリオサイトを公開できて満足でした。
-しかし、ずっと使っていると、やっぱりかゆいところに手が届ないのに、もどかしさがあります。
-これは、便利さとのトレードオフだと思いますが、デメリットの方が大きく感じるようになりました。
-例えば、下記のようなことにデメリットと感じるようになりました。
+しかし、ずっと使っていると、やっぱりかゆいところに手が届ないのに、もどかしさを感じるようになりました。
+これは、便利さとのトレードオフだと思いますが、下記のようなデメリットをだと認識し始めました。
 
 * Javascriptで技術的な挑戦が難しい
 * デザインテーマのカスタマイズが難しい
@@ -46,38 +45,40 @@ AMPを存分に使ったポートフォリオサイトを作成しました。�
 
 ![overview](https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/overview.png)
 
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
 ソースコードは、下記のリポジトリにあります。
 
 [https://github.com/Silver-birder/silver-birder.github.io:embed]
 
 # 技術選択
 
-今回のポートフォリオサイトに、必要以上の機能を持つWebフレームワーク(e.g. Next.js)を使うのは、ちょっとメンテナンスコストが高くなるので、
-必要最小限の構成にしたいと思いました。そのため、ざっくり、次の流れの構成にしました。
+今回のポートフォリオサイトに、必要以上の機能を持つWebフレームワーク(e.g. Next.js)を使うのは、メンテナンスコストが高くなるので、
+必要最小限の構成にしたいと思いました。また、静的ページジェネレーター(e.g. Gatsby)は、動機の理由より却下としました。
+それらを踏まえて、ざっくり、次の流れの構成にしました。
 
 1. コンテンツを用意する(Markdown,HTML,JSON)
 2. 1をインプットとして[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)でAMP化する
 
 これらの順序を制御するタスクランナーとして、[Gulp](https://www.npmjs.com/package/gulp) を採用しました。
-AMP Optimizerは、NPMでインストールするので、nodeと相性が良いタスクランナーを求めていました。
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)は、NPMでインストールするので、nodeと相性が良いタスクランナーを求めていました。
 その選択肢として、GruntやGulpがあったのですが、[AMPの公式サイトではGulpを紹介されていた](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/node-amp-optimizer/)ので、Gulpを選択しました。
 
-大きな技術選択としては、これくらいで、あとは細かい技術周りは、簡単にまとめておきますと
+大きな技術選択としては、これくらいです。他の細かい所は、下記のとおりです。
 
 * highlightjs
-  * プログラムコードのハイライト
+  * プログラムコードのハイライト機能
 * jsdom
   * htmlの各処理
     * h1~h6タグのAnchor設定(anchorJS風)
     * HTMLのテンプレートとメインコンテンツのMix
     * ...etc
 * ampcssframework
-  * dark themeとかgridとか欲しかったので
-* cloudinary
-  * 画像管理。OGPなどに利用
+  * Dark ThemeやGrid機能が欲しかった
+* Cloudinary
+  * 画像管理SaaS。OGPなどに利用
 * SEO向け
-  * google search console
-  * google analytics
+  * Google search console
+  * Google analytics
 
 # ポートフォリオコンテンツ
 
@@ -98,6 +99,8 @@ AMP Optimizerは、NPMでインストールするので、nodeと相性が良い
 * プロジェクト
   * 作ったものの紹介
 
+ウォッチページで、RSSのWebPush機能を追加しようとしましたが、Pushする側であるServerが必要となり、開発が伸びそうだったのでやめておきました。
+
 # 刷新してどうだったか
 
 想定通り、Hugoではできなかったような様々なポートフォリオサイトの機能拡張ができるようになりました。
@@ -113,18 +116,23 @@ AMP Optimizerは、NPMでインストールするので、nodeと相性が良い
 想定通りにできなかったのは、AMPの制約なのですが、WebComponentsのようなamp-script上で動かせない技術が使えないことでした。
 また、WebWorker(amp-script)上で、ES Module([skypack](https://skypack.dev/))をImportしようとしても、Safariが未対応だったりで、断念したりもしました。
 
-# [WIP] 刷新を通して学んだこと
+ただ、最終的な感想としては、HTMLを柔軟に処理できるようになったので、AMP上でできることは何でもできるようになり、刷新してよかったと思います。
 
-まずは、具体的な所での学びは、AMPの使い方を知りました。当初、AMPは使ったことなかったのですが、
-イメージとしてはJavascriptが一切使えない？と思ったりしていましたが、実際に使ってみると、そうでもなかったです。
+# 学んだこと
 
-これを抽象的に捉えると、使ったことがない技術を使おうとしたときに、想定している課題は、以外は解決していて、
-別の課題が見えたりするのかなと思います。
+経験学習モデルより、簡単に振り返ります。
 
-そう思うと、もう一度具体的に見ると、AMPだけじゃなくて、デザインの変更も、同様だったなと思いました。
-当初、GithubのCSSデザインを適用すれば良いと思っていたのですが、それだとDarkThemeやBlockquoteなどが
-イマイチでした。であれば、AMPに最適なcssフレームワークを別で選択することとなり、ampcssframeworkを使うようになりました。
+* 経験
+  * 1. AMPを初めて使ってみた
+  * 2. Next.jsやGatsbyなど使わなかった
+* 省察
+  * 1. AMP使ったことなかったけど、思っていたより課題は少なかった。しかし、想定していなかった課題もあった。
+  * 2. シンプルな構成にしたかった。必要以上なフレームワークを入れたくなかった。
+* 概念化
+  * 1.
+  * 2.
+* 試行
+  * 1.
+  * 2.
 
 # 終わりに
-
-TODO

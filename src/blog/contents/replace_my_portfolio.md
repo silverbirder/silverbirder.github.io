@@ -30,7 +30,7 @@ Hugoで記事を管理する対象は、Markdownであるため、エンジニ�
 また、デザインテーマは、公開されているテーマがあるので、好きなものを選びます。
 
 導入当初は、とても快適でした。手軽にオシャレなポートフォリオサイトを公開できて満足でした。
-しかし、ずっと使っていると、かゆいところに手が届ないのに、もどかしさを感じるようになりました。
+しかし、ずっと使っていると、かゆいところに手が届ないもどかしさを感じるようになりました。
 これは、便利さとのトレードオフだと思いますが、下記のようなデメリットがあると認識し始めました。
 
 * Javascriptで技術的な挑戦が難しい
@@ -61,7 +61,7 @@ AMPを存分に使ったポートフォリオサイトを作成しました。�
 2. 1をインプットとして[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)でAMP化する
 
 これらの順序を制御するタスクランナーとして、[Gulp](https://www.npmjs.com/package/gulp) を採用しました。
-[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)は、NPMでインストールするので、Node.jsと相性が良いタスクランナーを求めていました。
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)は、NPMでインストールするので、Node.jsと相性が良いタスクランナーを求めました。
 その選択肢として、GruntやGulpがあったのですが、[AMPの公式サイトではGulpを紹介されていた](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/node-amp-optimizer/)ので、Gulpを選択しました。
 
 大きな技術選択としては、これくらいです。他の細かい所は、下記のとおりです。
@@ -115,19 +115,19 @@ AMPを存分に使ったポートフォリオサイトを作成しました。�
   * SearchConsoleやGoogleAnalyticsが使えた
   * sitemapやmetaタグのチューニングができた
 
-想定通りにできなかったのは、AMPの制約なのですが、WebComponentsのようなamp-script上で動かせない技術が使えないことでした。
+想定通りにできなかったのは、AMPの制約なのですが、WebComponentsのようなamp-script上で動かせない技術もあるということでした。
 また、WebWorker(amp-script)上で、ES Module([skypack](https://skypack.dev/))をImportしようとしても、Safariが未対応だったりで、断念したりもしました。
 
 ただ、最終的な感想としては、HTMLを柔軟に処理できるようになったので、AMP上でできることは何でもできるようになり、刷新してよかったと思います。
 
 # 学んだこと
 
-経験学習モデルより、簡単に振り返ります。
+経験学習モデルより、簡単に振り返ります。(はじめて)
 
 |経験|省察|概念化|試行|
 |---|---|---|---|
 |AMPを初めて使ってみた|AMP使ったことなかったけど、思っていたより課題は少なかった。<br>しかし、想定していなかった課題もあった。|使ったことがない技術要素の課題は、想定していても未知数|未知数な技術は、軽く試してみる|
-|Next.jsやGatsbyなど、フレームワークを使わなかった|シンプルな構成にしたかった。<br>必要以上なフレームワークを入れたくなかった。|保守性を担保するため、不要な機能を削ぎ落とした|大掛かりな技術の選択は、保守性と天秤にかける|
+|Next.jsやGatsbyなど、フレームワークを使わなかった|シンプルな構成にしたかった。<br>必要以上に機能が多いフレームワークを入れたくなかった。|保守性を担保するため、最小限の機能で構成|大掛かりな技術の選択は、保守性と天秤にかける|
 
 # 終わりに
 

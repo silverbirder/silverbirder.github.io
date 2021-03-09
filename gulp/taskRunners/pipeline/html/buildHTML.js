@@ -162,7 +162,7 @@ const addHeadTag = (layoutDOM, option) => {
     }
     if (titleElement === null && option['title'] !== undefined && option['title'] !== '') {
         const newTitleElement = layoutDOM.window.document.createElement('title');
-        newTitleElement.textContent = `${option['title']} - silverbirder's page`;
+        newTitleElement.textContent = option['title'];
         headElement.appendChild(newTitleElement);
     }
     if (iconElement === null && option['icon'] !== undefined && option['icon'] !== '') {
@@ -176,10 +176,11 @@ const addHeadTag = (layoutDOM, option) => {
 const addOGP = (layoutDOM, option) => {
     let src = '';
     let title = '';
+    let description = '';
     const imgElement = layoutDOM.window.document.querySelector('img');
     const titleElement = layoutDOM.window.document.querySelector('title');
+    const descriptionElement = layoutDOM.window.document.querySelector('meta[name="description"]');
     const imgOption = option['image'];
-    const titleOption = option['title'];
     if (imgOption) {
         src = imgOption;
     } else if (imgElement !== null) {
@@ -189,18 +190,66 @@ const addOGP = (layoutDOM, option) => {
     }
     if (titleElement !== null) {
         title = titleElement.textContent;
-    } else if (titleOption) {
-        title = titleOption;
+        titleElement.textContent = `${title} - silverbirder`;
     }
-    if (src && title) {
-        const ogMetaImage = layoutDOM.window.document.createElement('meta');
-        ogMetaImage.setAttribute('property', 'og:image');
-        const header = `w_500,b_black,co_white,c_fit,g_north,l_text:Arial_30_bold_center:silverbirder`;
-        const customTitle = `w_500,h_50,b_black,co_white,c_fit,g_south,l_text:Arial_20_bold:${encodeURIComponent(title.replace(regEmoji, ''))}`;
-        const imageUrl = `https://res.cloudinary.com/silverbirder/image/fetch/f_auto,w_500/${header}/${customTitle}/${src}`;
-        ogMetaImage.setAttribute('content', `${imageUrl}`);
-        layoutDOM.window.document.querySelector('head').appendChild(ogMetaImage);
+    if (descriptionElement !== null) {
+        description = descriptionElement.getAttribute('content');
     }
+    const excludeEmojiTitle = title.replace(regEmoji, '');
+    const headElement = layoutDOM.window.document.querySelector('head');
+
+    // base OGP
+    const ogMetaImage = layoutDOM.window.document.createElement('meta');
+    ogMetaImage.setAttribute('property', 'og:image');
+    const header = `w_500,b_black,co_white,c_fit,g_north,l_text:Arial_30_bold_center:silverbirder`;
+    const customTitle = `w_500,h_50,b_black,co_white,c_fit,g_south,l_text:Arial_20_bold:${encodeURIComponent(excludeEmojiTitle)}`;
+    const imageUrl = `https://res.cloudinary.com/silverbirder/image/fetch/f_auto,w_500/${header}/${customTitle}/${src}`;
+    ogMetaImage.setAttribute('content', `${imageUrl}`);
+    const ogMetaUrl = layoutDOM.window.document.createElement('meta');
+    ogMetaUrl.setAttribute('property', 'og:url');
+    ogMetaUrl.setAttribute('content', option['canonical']);
+    const ogMetaSiteName = layoutDOM.window.document.createElement('meta');
+    ogMetaSiteName.setAttribute('property', 'og:site_name');
+    ogMetaSiteName.setAttribute('content', "silverbirder's page");
+    const ogMetaTitle = layoutDOM.window.document.createElement('meta');
+    ogMetaTitle.setAttribute('property', 'og:title');
+    ogMetaTitle.setAttribute('content', title);
+    const ogMetaDescription = layoutDOM.window.document.createElement('meta');
+    ogMetaDescription.setAttribute('property', 'og:description');
+    ogMetaDescription.setAttribute('content', description);
+    const ogMetaType = layoutDOM.window.document.createElement('meta');
+    ogMetaType.setAttribute('property', 'og:type');
+    const type = `${BASE_URL}/` === option['canonical'] ? 'website': 'article';
+    ogMetaType.setAttribute('content', type);
+
+    const ogMetaTwitterCard = layoutDOM.window.document.createElement('meta');
+    ogMetaTwitterCard.setAttribute('name', 'twitter:card');
+    ogMetaTwitterCard.setAttribute('content', 'summary');
+    const ogMetaTwitterTitle = layoutDOM.window.document.createElement('meta');
+    ogMetaTwitterTitle.setAttribute('name', 'twitter:title');
+    ogMetaTwitterTitle.setAttribute('content', title);
+    const ogMetaTwitterImage = layoutDOM.window.document.createElement('meta');
+    ogMetaTwitterImage.setAttribute('name', 'twitter:image');
+    ogMetaTwitterImage.setAttribute('content', imageUrl);
+    const ogMetaTwitterSite = layoutDOM.window.document.createElement('meta');
+    ogMetaTwitterSite.setAttribute('name', 'twitter:site');
+    ogMetaTwitterSite.setAttribute('content', 'silver_birder');
+
+    const ogMetaFacebookAppId = layoutDOM.window.document.createElement('meta');
+    ogMetaFacebookAppId.setAttribute('property', 'fb:app_id');
+    ogMetaFacebookAppId.setAttribute('content', '757288804895366');
+
+    headElement.appendChild(ogMetaImage);
+    headElement.appendChild(ogMetaUrl);
+    headElement.appendChild(ogMetaSiteName);
+    headElement.appendChild(ogMetaTitle);
+    headElement.appendChild(ogMetaDescription);
+    headElement.appendChild(ogMetaType);
+    headElement.appendChild(ogMetaTwitterCard);
+    headElement.appendChild(ogMetaTwitterTitle);
+    headElement.appendChild(ogMetaTwitterImage);
+    headElement.appendChild(ogMetaTwitterSite);
+    headElement.appendChild(ogMetaFacebookAppId);
 };
 
 const buildHTML = (content, layout, option) => {

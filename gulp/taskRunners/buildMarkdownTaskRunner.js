@@ -7,7 +7,10 @@ const collectFileRunner = () => {
     const through = require('through2');
     return src('src/**/*.md')
         .pipe(through.obj((file, enc, cb) => {
-            files.push(file.path);
+            const targeBlogName = process.env.TARGET_BLOG_NAME || '.*';
+            if (file.path.match(new RegExp(targeBlogName))) {
+                files.push(file.path);
+            }
             cb(null);
         }));
 };

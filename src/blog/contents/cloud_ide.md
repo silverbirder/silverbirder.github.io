@@ -57,7 +57,7 @@ Cloud IDEは、クラウドにある統合開発環境(IDE)のことで、主に
 </figure>
 
 <figure title="gitpod">
-<img alt="gitpod" src="https://www.gitpod.io/static/04a67274312aeedce08b6b7a46e0046a/6346c/screenshot.png">
+<img alt="gitpod" src="https://www.gitpod.io/images/gitpod-editor.jpg">
 <figcaption><a href="https://www.gitpod.io">https://www.gitpod.io</a></figcaption>
 </figure>
 

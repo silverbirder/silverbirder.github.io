@@ -1,7 +1,7 @@
 <!-- 
-title: 自作からブラウザの仕組みを学ぶ
+title: ブラウザの仕組みを学ぶ
 date: 2021-05-24T20:28:00+09:00
-draft: false
+draft: true
 description: 
 image: 
 icon: 📚
@@ -71,12 +71,13 @@ Chromeは、Chromiumを元に開発されています。
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザの主な構成要素 - www.html5rocks.com</span></figcaption>
 </figure>
 
-* レンダリングエンジン
-  * [webkit](https://webkit.org/)
-  * [blink](https://www.chromium.org/blink)
+まず、ブラウザエンジンは、UIとレンダリングエンジンの間の処理を整理します。
+レンダリングエンジンは、要求されたコンテンツの表示を担当します。
 
-レンダリングエンジンは、描画を担保します。
-ブラウザエンジンは、レンダリングエンジンを含めてブラウザの動作を制御します。
+Chromiumのレンダリングエンジンには、webkitを使っていましたが、blinkに変わりました。
+
+* [webkit](https://webkit.org/)
+* [blink](https://www.chromium.org/blink)
 
 ブラウザの基本的なフローは、次の図のようです。
 

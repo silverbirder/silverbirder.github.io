@@ -65,21 +65,32 @@ Chromeは、Chromiumを元に開発されています。
 ちょっと趣向を変えて、次のような資料を読むことにしました。
 
 * [ブラウザの仕組み: 最新ウェブブラウザの内部構造](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/)
+  * 記事の公開日が2011年8月5日なので、色々古いかもしれません。
+
+では、さっそく見ていきます。
+最初に目につくのが、ブラウザの主な構成要素です。
 
 <figure title="ブラウザの主な構成要素">
 <img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/layers.png" alt="ブラウザの主な構成要素">
-<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザの主な構成要素 - www.html5rocks.com</span></figcaption>
+<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザの主な構成要素 - www.html5rocks.com</a></span></figcaption>
 </figure>
 
-まず、ブラウザエンジンは、UIとレンダリングエンジンの間の処理を整理します。
-レンダリングエンジンは、要求されたコンテンツの表示を担当します。
+構成要素の内、ユーザーインターフェース、ブラウザエンジン、レンダリングエンジンに着目します。
+それぞれ、次の役割があります。
 
-Chromiumのレンダリングエンジンには、webkitを使っていましたが、blinkに変わりました。
+* ユーザーインターフェース
+  * アドレスバーや戻る/進むボタンのようなUIを担当
+* ブラウザエンジン
+  * UIとレンダリングエンジンの間の処理を整理
+* レンダリングエンジン
+  * 要求されたコンテンツ(HTMLなど)の表示を担当
+
+ちなみに、Chromiumのレンダリングエンジンには、webkitを使っていましたが、blinkに変わりました。
 
 * [webkit](https://webkit.org/)
 * [blink](https://www.chromium.org/blink)
 
-ブラウザの基本的なフローは、次の図のようです。
+ブラウザの基本的なフローは、次の図の通りです。
 
 <figure title="レンダリングの基本的なフロー">
 <img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/flow.png" alt="レンダリングの基本的なフロー">
@@ -96,12 +107,15 @@ Chromiumのレンダリングエンジンには、webkitを使っていました
 3. Layout of the render tree
 4. Painting the render tree
 
+それぞれ見ていきます。
+
 ----
 ① Parsing HTML to construct the DOM tree
 
-1は、HTMLをレキサ(字句解析. ex:flex)・パーサ(構文解析. ex:bison)してDOMツリーを作ります。
-レキサでは、ステートマシンによって読み込み状態を管理しつつトークンを識別します。
-空白とかコメントなどを削除したりもします。
+1は、HTMLをレキサ(字句解析. ex:flex)・パーサ(構文解析. ex:bison)を使ってDOMツリーを構築します。
+
+レキサでは、ステートマシンによって読み込み状態を管理しつつトークンを識別します。空白とかコメントなどは削除されます。
+
 レキサから識別されたトークンをパーサに渡し、構文解析していきます。
 HTMLはDTD（Document Type Definition）で文脈自由文法なため、機械的に解析できます。
 ただ、HTMLは寛大な仕様で、次のようなパターンも許容するようになっています。
@@ -116,42 +130,96 @@ HTMLはDTD（Document Type Definition）で文脈自由文法なため、機械�
 DOMは、これまでの単なるテキストから、APIを持たせたオブジェクトモデルを作ることで、
 以降はDOMを使って処理しやすくなります。
 
-これまではHTMLの話をしていましたが、HTMLと並行してCSSも同様に処理していきレンダーオブジェクトを作っていきます。
-基本的に、CSSとHTMLは互いに独立しているので、並列処理が可能です。
-例えば、CSSを処理したことで、HTMLが変化することはないはずです。
+<figure title="サンプル マークアップのDOMツリー">
+<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image015.png" alt="サンプル マークアップのDOMツリー">
+<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">サンプル マークアップのDOMツリー - www.html5rocks.com</a></span></figcaption>
+</figure>
+
+これまではHTMLの話をしていましたが、HTMLと並行してCSSも同様に処理していきレンダーオブジェクトというオブジェクトを作っていきます。これは、スタイル情報を付与したオブジェクトになります。
+基本的に、CSSとHTMLは互いに独立しているので、並列処理が可能です。例えば、CSSを処理したことで、HTMLが変化することはないはずです。
+
+<figure title="CSSの解析">
+<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image023.png" alt="CSSの解析">
+<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">CSSの解析 - www.html5rocks.com</a></span></figcaption>
+</figure>
+
 ただ、Javascriptは話が違うので、Javascriptが読み込まれた時点でHTMLのパースを中断してJavascriptのパースが開始されます。
+また、Javascriptが、まだ読み込まれていないスタイルシートの影響を受けそうな特定のスタイルプロパティにアクセスした場合、Javascriptはブロックされます。
 
 ----
 ② Render tree construction
 
 ①のDOMとレンダーオブジェクトから、レンダーツリーを構築します。
 DOMとレンダーオブジェクトは、1対1という訳ではなく、例えばhead要素や、`display:none;`の要素もレンダーツリーに含まれません。
-このレンダーツリーの構築は、処理が複雑です。
+レンダーツリーの更新は、DOMツリーが更新される度に行われます。
+
+<figure title="レンダーツリーと対応するDOMツリー">
+<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image025.png" alt="レンダーツリーと対応するDOMツリー">
+<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">レンダーツリーと対応するDOMツリー - www.html5rocks.com</a></span></figcaption>
+</figure>
+
+レンダーオブジェクトからスタイルを計算するのですが、ちょっと複雑です。
+詳しくは、[スタイルの計算](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/#Style_Computation)を見てください。
 
 ----
 ③ Layout of the render tree
 
-レンダーツリーから、レイアウト情報を生成していきます。
+レンダーツリーから、レイアウト情報を計算していきます。
 レイアウト情報とは、位置(x,y)とサイズ(width,height)です。
 
-ルートから再帰的にレイアウト情報を計算していきます。
-padding,marginが登場します。
+レンダーツリーのルートから再帰的にレイアウト情報を計算(layoutメソッド)していきます。
+
+1. 親レンダラーが自身の幅を決定します。
+2. 親が子を確認して、
+   1. 子レンダラーを配置します（xとyを設定します）。
+   2. 必要な場合は子のlayoutメソッドを呼び出します。これにより、子の高さを計算します。
+3. 親は子の高さの累積、マージンの高さ、パディングを使用して、自身の高さを設定します。この高さは親レンダラーのさらに親によって使用されます。
+
+※ [レイアウト処理](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/#The_layout_process) 参考
+
+CSSボックスモデルの図を参考までに共有しておきます。
+
+<figure title="CSS 基本ボックスモデル">
+<img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3).png" alt="CSS 基本ボックスモデル">
+<figcaption><span><a href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">CSS 基本ボックスモデル - developer.mozilla.org</a></span></figcaption>
+</figure>
 
 ---
 ④ Painting the render tree
 
 ようやく描画します。
+どこに描画するかという配置方法について考えることになります。
+大きく分けて、3つに分かれます。
 
-1. 背景色
-2. 背景画像
-3. ボーダー
-4. 子
-5. アウトライン
+* 通常
+  * オブジェクトはドキュメント内の場所に従って配置されます。つまり、レンダーツリー内の場所はDOMツリー内の場所と同様になり、ボックスの種類や寸法に従ってレイアウトされます。
+    * position:static,relative
+* フロート
+  * オブジェクトは最初に通常のフローのようにレイアウトされてから、左右のできるだけ遠くに移動されます。
+    * float:right,left
+* 絶対
+  * オブジェクトはレンダーツリー内でDOMツリーとは異なる場所に配置されます。
+    * position:absolute,fixed
+
+※ [配置方法](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/#Positioning_scheme)
+
+配置方法が分かれば、今度は描画する形について考えます。ブロックボックスとインラインボックスです。
+
+<figure title="ブロックとインラインの配列">
+<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image061.png" alt="ブロックとインラインの配列">
+<figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブロックとインラインの配列 - www.html5rocks.com</a></span></figcaption>
+</figure>
+
+ブロックボックスは、短形の形であり垂直に並びます。
+インラインボックスは、独自の形を持たず水平に並びます。
+
+z-indexのようなプロパティでは、スタッキングコンテキストという概念を知る必要があります。
+詳しくは、[重ね合わせコンテキスト - developer.mozilla.org](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) をご確認ください。
 
 ---
 
-なんとなく、ブラウザの動作を分かったのですが、やっぱり書いたり読んだりしてみたいところです。
-そうです、自作です。
+資料を通して、ブラウザの動作は理解できました。
+さらに理解を深堀りするために、自作してみます。
 
 # ブラウザを自作してみる
 
@@ -170,7 +238,7 @@ Rust製のServoというブラウザエンジンを開発している人が書�
 <figcaption><span><a href="https://github.com/mbrubeck/robinson">Toyブラウザエンジン(mbrubeck)のアウトプット - github.com/mbrubeck/robinson</a></span></figcaption>
 </figure>
 
-なので、これはRustで作られています。
+このToyブラウザエンジンはRustで作られています。
 次のリンクにある自作ブラウザエンジンは、C++で書かれていて、さっきのよりも高機能です。
 
 * [askerry/toy-browser](https://github.com/askerry/toy-browser)
@@ -192,11 +260,12 @@ Rust製のServoというブラウザエンジンを開発している人が書�
 
 # Re: ブラウザの仕組み資料を読む
 
-もう一度、[ブラウザの仕組み: 最新ウェブブラウザの内部構造](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/) を読むと、初めて読んだときに比べて、深く理解できます。
+もう一度、[ブラウザの仕組み: 最新ウェブブラウザの内部構造](https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/) を読むと、初めて読んだときに比べて、深く理解できるんじゃないかなと思います。
 
 # 最後に
 
-以上。
+ブラウザの動作について資料や自作を通して理解を深めました。
+次は、Javascriptエンジンも自作してみたいと思います。
 
 # その他
 

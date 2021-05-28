@@ -1,7 +1,7 @@
 <!-- 
 title: ブラウザの仕組みを学ぶ
 date: 2021-05-24T20:28:00+09:00
-draft: true
+draft: false
 description: 
 image: 
 icon: 📚
@@ -235,7 +235,7 @@ Toyブラウザエンジン(mbrubeck)のメインフローが、これまでの�
 </figure>
 
 Style treeは、これまでの話でいうとRender treeだと思います。
-Toyブラウザエンジン(mbrubeck)のアウトプットは、次の画像のとおりです。
+Toyブラウザエンジン(mbrubeck)に、次のHTMLとCSSを読み込ませると、下記の画像のようなアウトプットになります。
 
 ```
 <!-- https://github.com/mbrubeck/robinson/blob/master/examples/test.html -->
@@ -313,7 +313,8 @@ span#name {
   * Toyブラウザエンジン(askerry)
   * C++製
 
-Toyブラウザエンジン(askerry)のアウトプットは、次の画像です。見たらわかりますが、とても高機能です。
+Toyブラウザエンジン(askerry)に、次のHTMLとCSSを読み込ませると、下記の画像のようなアウトプットになります。
+見たら分かると思いますが、とても高機能です。
 
 ```
 <!-- https://github.com/askerry/toy-browser/blob/master/examples/demo.html -->
@@ -463,26 +464,36 @@ li {
 * [C++入門 - wisdom.sakura.ne.jp](http://wisdom.sakura.ne.jp/programming/cpp/)
 * [C++入門 - kaitei.net](http://kaitei.net/cpp/)
 
-# 自作ブラウザ
+# 自作ブラウザのソースコード
+
+[askerry/toy-browser](https://github.com/askerry/toy-browser)のメインコード(main.cc)を載せます。
 
 ```
-/* https://github.com/Silver-birder/toy-browser/blob/master/src2/main.cc */
+/* https://github.com/askerry/toy-browser/blob/master/src/main.cc */
 namespace {
 
-void renderWindow(int width, int height, const style::StyledNode &sn, sf::RenderWindow *window) {
+void renderWindow(int width, int height, const style::StyledNode &sn,
+                  sf::RenderWindow *window) {
   layout::Dimensions viewport;
   viewport.content.width = width;
   viewport.content.height = height;
-  std::unique_ptr<layout::LayoutElement> layout_root = layout::layout_tree(sn, viewport);
+  // Create layout tree for the specified viewport dimensions.
+  std::unique_ptr<layout::LayoutElement> layout_root =
+      layout::layout_tree(sn, viewport);
+  // Paint to window.
   paint(*layout_root, viewport.content, window);
 }
 
 int windowLoop(const style::StyledNode &sn) {
+  // Create browser window.
   std::unique_ptr<sf::RenderWindow> window(new sf::RenderWindow());
-  window->create(sf::VideoMode(FLAGS_window_width, FLAGS_window_height), "Toy Browser", sf::Style::Close | sf::Style::Resize);
+  window->create(sf::VideoMode(FLAGS_window_width, FLAGS_window_height),
+                 "Toy Browser", sf::Style::Close | sf::Style::Resize);
   window->setPosition(sf::Vector2i(0, 0));
   window->clear(sf::Color::Black);
+  // Render initial window contents.
   renderWindow(FLAGS_window_width, FLAGS_window_height, sn, window.get());
+  // Run the main event loop as long as the window is open.
   while (window->isOpen()) {
     sf::Event event;
     while (window->pollEvent(event)) {
@@ -504,7 +515,9 @@ int windowLoop(const style::StyledNode &sn) {
 
         case sf::Event::TextEntered:
           if (event.text.unicode < 128) {
-            logger::debug( "ASCII character typed: " + std::to_string(static_cast<char>(event.text.unicode)));
+            logger::debug(
+                "ASCII character typed: " +
+                std::to_string(static_cast<char>(event.text.unicode)));
           }
           break;
 
@@ -515,25 +528,67 @@ int windowLoop(const style::StyledNode &sn) {
   }
   return 0;
 }
-}
-
+}  // namespace
 int main(int argc, char **argv) {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
 
+  // Parse HTML and CSS files.
   const std::string source = io::readFile(FLAGS_html_file);
-  const std::string css = io::readFile(FLAGS_css_file);
   std::unique_ptr<dom::Node> root = html_parser::parseHtml(source);
+  const std::string css = io::readFile(FLAGS_css_file);
   const std::unique_ptr<css::StyleSheet const> stylesheet = css::parseCss(css);
 
-  text_render::FontRegistry *registry = text_render::FontRegistry::getInstance();
-  std::unique_ptr<style::StyledNode> styled_node = style::styleTree(*root, stylesheet, style::PropertyMap());
+  // Initialize font registry singleton.
+  text_render::FontRegistry *registry =
+      text_render::FontRegistry::getInstance();
 
+  // Align styles with DOM nodes.
+  std::unique_ptr<style::StyledNode> styled_node =
+      style::styleTree(*root, stylesheet, style::PropertyMap());
+
+  // Run main browser window loop.
   windowLoop(*styled_node);
 
+  // Delete styled node and clear font registry.
   styled_node.reset();
   registry->clear();
   return 0;
 }
+```
+
+次のとおり、これまで学んできたメインフローと、C++がとても似ていることが分かります。
+
+1. HTMLとCSSをパース
+
+```
+// Parse HTML and CSS files.
+const std::string source = io::readFile(FLAGS_html_file);
+std::unique_ptr<dom::Node> root = html_parser::parseHtml(source);
+const std::string css = io::readFile(FLAGS_css_file);
+const std::unique_ptr<css::StyleSheet const> stylesheet = css::parseCss(css);
+```
+
+2. 1の結果からStyle tree(Render tree)を構築
+
+```
+// Align styles with DOM nodes.
+std::unique_ptr<style::StyledNode> styled_node =
+    style::styleTree(*root, stylesheet, style::PropertyMap());
+```
+
+3. 2の結果からLayout treeを構築
+
+```
+// Create layout tree for the specified viewport dimensions.
+std::unique_ptr<layout::LayoutElement> layout_root =
+    layout::layout_tree(sn, viewport);
+```
+
+4. 3をpaintという描画
+
+```
+// Paint to window.
+paint(*layout_root, viewport.content, window);
 ```
 
 # Re: ブラウザの仕組み資料を読む
@@ -543,7 +598,10 @@ int main(int argc, char **argv) {
 # 最後に
 
 ブラウザの動作について資料や自作を通して理解を深めました。
-次は、Javascriptエンジンも自作してみたいと思います。
+
+ブラウザの動作が分かれば、ブラウザに優しいWebフロントエンド開発ができると思います。
+
+(今度こそChromiumのリバースエンジニアリングができるかもしれません。)
 
 # その他
 

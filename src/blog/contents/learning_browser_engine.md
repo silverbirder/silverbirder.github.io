@@ -220,7 +220,7 @@ z-indexのようなプロパティでは、スタッキングコンテキスト�
 読むだけじゃなく、動かして理解してみたいとは思いませんか？
 そうです、自作してみましょう。
 
-Rust製のServoというブラウザエンジンを開発している人が書いた、次の記事がとても分かりやすいです。
+Rust製のServoというブラウザエンジンを開発している人が書いた、次のブラウザ自作に関する記事がとても分かりやすいです。
 
 * [Let's build a browser engine! Part 1: Getting started](https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html)
   * [mbrubeck/robinson](https://github.com/mbrubeck/robinson)

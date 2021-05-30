@@ -1,29 +1,52 @@
-const {BASE_URL} = require('./variables.js');
-const fetch = require('node-fetch');
-const RSS = require('rss');
 const fs = require('fs');
 
+const fetch = require('node-fetch');
+const RSS = require('rss');
+const jsdom = require('jsdom');
+
+const {BASE_URL} = require('./variables.js');
+const {JSDOM} = jsdom;
+
 const generateRSSRunner = async (cb) => {
-    // const blogJson = await (await fetch(`${BASE_URL}/blog/index.json`)).json();
-    // const feed = new RSS({
-    //     title: 'blog - silverbirder',
-    //     description: "This is the blog page of silverbirder's portfolio.",
-    //     feed_url: `${BASE_URL}/blog/feed.xml`,
-    //     site_url: `${BASE_URL}/blog/`,
-    //     managingEditor: 'silverbirder@gmail.com (silverbirder)',
-    //     webMaster: 'silverbirder@gmail.com (silverbirder)',
-    //     language: 'ja',
-    //     ttl: '60',
-    // });
-    // feed.item({
-    //     title:  'ブラウザの仕組みを学ぶ',
-    //     description: 'Photo by Remotar Jobs on Unsplash Webフロントエンジニアたるもの、ブラウザの仕組みに興味を持つのは自然の摂理です。本記事では、私がブラウザの仕組みを学んでいく過程を備忘録として残します。 みんな大好きCh',
-    //     url: `${BASE_URL}/blog/contents/learning_browser_engine`,
-    //     author: 'silverbirder', 
-    //     date: '2021-05-24T11:28:00.000Z',
-    // });
-    // const xml = feed.xml();
-    // fs.writeFileSync(`assets/blog/feed.xml`, xml);
+    const RSS_PATH = `blog/feed.xml`;
+    const feedCore = await (async () => {
+        const html = await (await fetch(`${BASE_URL}/blog/`)).text();
+        const dom = new JSDOM(html);
+        const head = dom.window.document.querySelector('head');
+        return {
+            title: head.querySelector('title').textContent,
+            description: head.querySelector('meta[name="description"]').getAttribute('content'),
+        }
+    })();
+
+    const feed = new RSS(Object.assign(feedCore, {
+        feed_url: `${BASE_URL}/${RSS_PATH}`,
+        site_url: `${BASE_URL}/blog/`,
+        managingEditor: 'silverbirder@gmail.com (silverbirder)',
+        webMaster: 'silverbirder@gmail.com (silverbirder)',
+        language: 'ja',
+    }));
+
+    const blogJson = await (await fetch(`${BASE_URL}/blog/index.json`)).json();
+    (await Promise.all(blogJson.items.map(async (item) => {
+        const html = await (await fetch(item.url)).text();
+        const dom = new JSDOM(html);
+        const head = dom.window.document.querySelector('head');
+        return {
+            title: head.querySelector('title').textContent,
+            description: head.querySelector('meta[name="description"]').getAttribute('content'),
+            url: item.url,
+            author: 'silverbirder',
+            date: item.date,
+            sort: (new Date(item.date)).getTime()
+        };
+    }))).sort((a, b) => {
+        return a.sort - b.sort;
+    }).map((item) => {
+        feed.item(item);
+    });
+    const xml = feed.xml({indent: true});
+    fs.writeFileSync(`assets/${RSS_PATH}`, xml);
     cb();
 };
 

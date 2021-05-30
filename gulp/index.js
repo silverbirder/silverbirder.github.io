@@ -4,6 +4,7 @@ const {buildAggregatedJSONTaskRunner} = require('./taskRunners/buildAggregatedJS
 const {buildMarkdownTaskRunner} = require('./taskRunners/buildMarkdownTaskRunner.js');
 const {buildHTMLTaskRunner} = require('./taskRunners/buildHTMLTaskRunner.js');
 const {generateSiteMapRunner} = require('./taskRunners/generateSiteMapRunner.js');
+const {generateRSSRunner} = require('./taskRunners/generateRSSRunner.js');
 
 exports.runners = {
     cleanTaskRunner,
@@ -11,5 +12,6 @@ exports.runners = {
     buildAggregatedJSONTaskRunner,
     buildMarkdownTaskRunner,
     buildHTMLTaskRunner,
-    generateSiteMapRunner
+    generateSiteMapRunner,
+    generateRSSRunner
 };

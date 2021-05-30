@@ -20,6 +20,9 @@ exports.watch = () => {
     ], exports.build)
 };
 
-exports.sitemap = series(
-    runners.generateSiteMapRunner
+exports.buildForCrawlers = series(
+    parallel(
+        runners.generateSiteMapRunner,
+        runners.generateRSSRunner
+    )
 );

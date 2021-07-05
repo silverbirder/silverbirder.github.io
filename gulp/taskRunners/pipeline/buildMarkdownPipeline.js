@@ -20,7 +20,8 @@ const buildMarkdownPipeline = async (file, enc, cb) => {
         buildHTML(`<main>${markdownHtml}</main>`, layout, markdownJson), {
             markdown: true
         }, {canonical: canonicalUrl});
-    file.contents = Buffer.from(html);
+    const bugfixHtml = html.replace('https://cdn.ampproject.org/v0/amp-embedly-card-1.0.js', 'https://cdn.ampproject.org/v0/amp-embedly-card-0.1.js');
+    file.contents = Buffer.from(bugfixHtml);
     cb(null, file)
 };
 

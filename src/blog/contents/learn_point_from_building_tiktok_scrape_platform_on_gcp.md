@@ -187,22 +187,27 @@ Specific resourceは、特定のObeject名がObject.createされた場合のみ�
 
 今回は、PubSubのイベントのみでトリガーするようにしました。
 
-## PubSubをトリガーとするCloudRunでHTTPレスポンス500を返却すると、PubSubが再発火される
+## PubSubをトリガーとするCloudRunでHTTPレスポンス500を返却すると、PubSubが再試行される
 
-Cloud Runで、5XX系のエラーとなった場合、PubSubの再発火されます。
+Cloud Runで、5XX系のエラーとなった場合、PubSubの再試行されます。
 
-[https://cloud.google.com/run/docs/triggering/pubsub-push?hl=ja:embed]
+[https://cloud.google.com/pubsub/docs/admin?hl=ja#using_retry_policies:embed]
 
 何度もPubSubが実行されると、Cloud Runのコンピューティングリソースが消費され続けます。
 そうすると、課金が発生するので、対策が必要です。
 
-## Workflowの処理は、あまりカスタマイズできない(処理しちゃだめ。並列処理は実験的)
+## Cloud Workflowsの処理は、あまりカスタマイズできない
 
+Cloud Workflowsは、あくまでワークフローの管理です。
+変数処理などは、基本的に使わず、ワークフローのタスクを連結するだけです。
+次の資料には、Cloud Workflowsで使える標準機能です。
 
 [https://cloud.google.com/workflows/docs/reference/stdlib/overview:embed]
+
+また並列処理は、まだ実験段階なので、本番環境は使えないようです。
 
 [https://cloud.google.com/workflows/docs/reference/stdlib/experimental.executions/map:embed]
 
 # 終わりに
 
-ほげ
+以上です!!!

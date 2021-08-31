@@ -12,7 +12,7 @@ TikTokへスクレイプするバッチをGCP上で構築しました。
 
 [:contents]
 
-# まえがき
+# きっかけ
 
 2020年、最もダウンロードされたアプリがFacebookを抜いて**TikTok**が一位になったそうです。
 
@@ -20,7 +20,7 @@ TikTokへスクレイプするバッチをGCP上で構築しました。
 
 私もTikTokを利用しています。
 
-ネットサーフィンをしている時に、[tiktok-scraper](https://www.npmjs.com/package/tiktok-scraper)というライブラリを[cloudflareのサイト](https://workers.cloudflare.com/works)で発見しました。これを使って、TikTokの情報収集できるんじゃないかなと思い始めました。
+ネットサーフィンをしている時に、[tiktok-scraper](https://www.npmjs.com/package/tiktok-scraper)というライブラリを[cloudflareのサイト](https://workers.cloudflare.com/works)で発見しました。これを使って、TikTokの情報収集できるんじゃないかなと思い始めましたのがきっかけです。
 
 ※ スクレイプは私的利用であることが前提です。また、TikTokへ負荷をかけないようスクレイプ間隔に配慮しましょう。
 
@@ -75,6 +75,11 @@ This is not an official API support and etc. This is just a scraper that is usin
 バッチを動かす環境ですが、プライベートでよく使っているGCP上で構築しようと思いました。
 バッチで収集したデータを閲覧するWebアプリケーションも作ろうと考え、NetlifyとReactで動かすことにしました。
 
+<figure title="tiktok_scraper_web_app_sample">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1630404283/silver-birder.github.io/blog/tiktok_scraper_web_app_sample.png" alt="tiktok_scraper_web_app_sample">
+<figcaption>Webアプリケーション UI</figcaption>
+</figure>
+
 ## 目的
 私がフォローしているユーザーのTikTok動画やメタ情報を集めること。
 
@@ -126,7 +131,7 @@ GCPリソースの用途は、次のとおりです。
 |API|Cloud SQLとのインターフェース|
 
 # ハマったこと
-## Cloud Workflowの制限が厳しい
+## Cloud Workflowsの制限が厳しい
 
 当初、PubSubは使わずに、Cloud Runの連携はCloud Workflowsで行おうと考えていました。
 PubSubでワークフローを制御するよりも、Cloud Workflowsのyamlでワークフローを制御した方が分かりやすいと思ったからです。
@@ -141,12 +146,12 @@ HTTPレスポンスのBodyを変数保持する構成を取ると、そのサイ
 いくつかやり方を見直してみたのですが、思うような形に仕上げることができず、断念しました。
 つまりは、PubSubを使ってCloud Runを連携することになりました。
 
-## Firestoreのページカーソルにドキュメント設計が不一致している
+## Firestoreのページカーソルに+2ページ以降への移動が難しい
 
 GCPでデータストレージで、無料枠があるFirestoreを当初使っていました。
 理由は、単純にGCP無料枠としてFirestoreがあったからです。
 
-当初、Firestoreを使って、でバッチとWebアプリを書いていました。
+当初、Firestoreを使って、バッチとWebアプリを書いていました。
 Webアプリには、バッチで収集したTikTokの動画を一覧表示するViewを用意しました。
 
 閲覧するTikTok動画が多くなると、ページネーションが欲しくなりました。
@@ -155,11 +160,53 @@ Webアプリには、バッチで収集したTikTokの動画を一覧表示す�
 [https://firebase.google.com/docs/firestore/query-data/query-cursors?hl=ja:embed]
 
 これを見ると、ページネーションは、現在位置 + 前後の+1ページ は実現が容易です。
-しかし、現在位置から+2ページ目以降への遷移が、ドキュメント設計の影響で、厳しいことが判明しました。
-順序を示すフィールドがあれば、問題ないかもしれません。
-例えば、orderプロパティで、1,2,3とインクリメントしたデータがあれば、クリアできるかもしれません。
+資料にあるサンプルコードのように、`startAfter`を使えばよいだけです。
 
-が、他にもいくつか理由があり、FirestoreからCloud SQLへデータストレージを切り替えるようにしました。
+```javascript
+var first = db.collection("cities")
+        .orderBy("population")
+        .limit(25);
+
+return first.get().then((documentSnapshots) => {
+  // Get the last visible document
+  var lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+  console.log("last", lastVisible);
+
+  // Construct a new query starting at this document,
+  // get the next 25 cities.
+  var next = db.collection("cities")
+          .orderBy("population")
+          .startAfter(lastVisible)
+          .limit(25);
+});
+```
+
+しかし、現在位置から+2ページ目以降への遷移がしたい場合は、どうすれば良いでしょうか。
+上記のサンプルコードで言えば、`first`をコピペして`second`変数を生成するのでしょうか。
+それよりも、`offset`メソッドがほしいところです。
+
+[https://firebase.google.com/docs/firestore/best-practices?hl=ja:embed]
+
+> オフセットは使用しないでください。その代わりにカーソルを使用します。オフセットを使用すると、スキップされたドキュメントがアプリケーションに返されなくなりますが、内部ではスキップされたドキュメントも引き続き取得されています。スキップされたドキュメントはクエリのレイテンシに影響し、このようなドキュメントの取得に必要な読み取りオペレーションは課金対象になります。
+
+という訳で、クエリカーソルを推奨されています。
+
+解決策としては、順序を示すフィールドがあれば、問題ないかもしれません。
+例えば、`order`というフィールドを用意し、1,2,3とインクリメントしたデータがあれば、クリアできるかもしれません。
+`startAfter`の引数はdocumentオブジェクトだけではなく、orderBy句で指定したフィールドの変数を含めることができます。
+
+```javascript
+  var next = db.collection("cities")
+          .orderBy("order")
+          .startAfter(50)
+          .limit(25);
+```
+
+これだと、1ページ25個のデータを表示するならば、3ページ目(51~75)を取得できます。(`startAfter`は開始点を含めません)
+
+[https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query#_google_cloud_firestore_Query_startAfter_member_1_:embed]
+
+そこで、FirestoreからCloud SQLへデータストレージを切り替えるようにしました。
 改修自体、Cloud Runの役割が明確に分離されていたので、一部の処理を書き換えるだけで、簡単にできました。
 
 ## Eventacのリソース選択が物足りない
@@ -183,7 +230,7 @@ Cloud RunとPubSubの連携には、Eventacを使用します。
 All resourceは、Cloud Storageの全てのバケットにおけるObject.createイベントがトリガーとなります。
 Specific resourceは、特定のObeject名がObject.createされた場合のみ、トリガーとなります。
 欲しいなと思ったのは、Specific resouceの正規表現によるフィルタリング、任意のバケットやフォルダの配下で限定など
-のフィルタリングです。
+のフィルタリングです。例えば、`gs://bucket/folder/*.json` のような形式です。現状は、`gs://bucket/folder/A.json` とするしかありません。
 
 今回は、PubSubのイベントのみでトリガーするようにしました。
 

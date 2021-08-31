@@ -146,7 +146,7 @@ HTTPレスポンスのBodyを変数保持する構成を取ると、そのサイ
 いくつかやり方を見直してみたのですが、思うような形に仕上げることができず、断念しました。
 つまりは、PubSubを使ってCloud Runを連携することになりました。
 
-## Firestoreのページカーソルに+2ページ以降への移動が難しい
+## Firestoreのページカーソルに±2ページ以降への移動が難しい
 
 GCPでデータストレージで、無料枠があるFirestoreを当初使っていました。
 理由は、単純にGCP無料枠としてFirestoreがあったからです。
@@ -159,7 +159,7 @@ Webアプリには、バッチで収集したTikTokの動画を一覧表示す�
 
 [https://firebase.google.com/docs/firestore/query-data/query-cursors?hl=ja:embed]
 
-これを見ると、ページネーションは、現在位置 + 前後の+1ページ は実現が容易です。
+これを見ると、ページネーションは、現在位置から±1ページの移動は簡単です。
 資料にあるサンプルコードのように、`startAfter`を使えばよいだけです。
 
 ```javascript
@@ -181,9 +181,10 @@ return first.get().then((documentSnapshots) => {
 });
 ```
 
-しかし、現在位置から+2ページ目以降への遷移がしたい場合は、どうすれば良いでしょうか。
+しかし、現在位置から±2ページ目以降への遷移がしたい場合は、どうすれば良いでしょうか。
 上記のサンプルコードで言えば、`first`をコピペして`second`変数を生成するのでしょうか。
 それよりも、`offset`メソッドがほしいところです。
+しかし、次の資料を発見し、諦めることになります。
 
 [https://firebase.google.com/docs/firestore/best-practices?hl=ja:embed]
 
@@ -191,7 +192,7 @@ return first.get().then((documentSnapshots) => {
 
 という訳で、クエリカーソルを推奨されています。
 
-解決策としては、順序を示すフィールドがあれば、問題ないかもしれません。
+解決策としては、順序を示すフィールドがあれば、解決するかもしれません。
 例えば、`order`というフィールドを用意し、1,2,3とインクリメントしたデータがあれば、クリアできるかもしれません。
 `startAfter`の引数はdocumentオブジェクトだけではなく、orderBy句で指定したフィールドの変数を含めることができます。
 
@@ -204,7 +205,7 @@ return first.get().then((documentSnapshots) => {
 
 これだと、1ページ25個のデータを表示するならば、3ページ目(51~75)を取得できます。(`startAfter`は開始点を含めません)
 
-[https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query#_google_cloud_firestore_Query_startAfter_member_1_:embed]
+[https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query:embed]
 
 そこで、FirestoreからCloud SQLへデータストレージを切り替えるようにしました。
 改修自体、Cloud Runの役割が明確に分離されていたので、一部の処理を書き換えるだけで、簡単にできました。
@@ -218,7 +219,7 @@ Cloud RunとPubSubの連携には、Eventacを使用します。
 > 昨年 10 月、60 を超える Google Cloud ソースから Cloud Run にイベントを送信できる新しいイベント機能、Eventarc を発表いたしました。Eventarc は、さまざまなソースから監査ログを読み取り、それらを CloudEvents 形式のイベントとして Cloud Run サービスに送信します。また、カスタム アプリケーションの Pub/Sub トピックからイベントを読み取ることもできます。
 
 このEventarcのソースとして、Cloud StorageのObject.createをトリガーとして設計を考えていました。
-そのイベントには、フィルタリングの機能に、あまり選択肢の幅がありません。
+しかし、そのイベントをフィルタリングする選択肢は、2つしかありません。
 
 [https://cloud.google.com/blog/ja/products/serverless/demystifying-event-filters-eventarc:embed]
 
@@ -230,7 +231,7 @@ Cloud RunとPubSubの連携には、Eventacを使用します。
 All resourceは、Cloud Storageの全てのバケットにおけるObject.createイベントがトリガーとなります。
 Specific resourceは、特定のObeject名がObject.createされた場合のみ、トリガーとなります。
 欲しいなと思ったのは、Specific resouceの正規表現によるフィルタリング、任意のバケットやフォルダの配下で限定など
-のフィルタリングです。例えば、`gs://bucket/folder/*.json` のような形式です。現状は、`gs://bucket/folder/A.json` とするしかありません。
+のフィルタリングです。例えば、`gs://bucket/folder/*.json` のような形式です。現状は、`gs://bucket/folder/A.json`とするしかありません。
 
 今回は、PubSubのイベントのみでトリガーするようにしました。
 
@@ -246,7 +247,7 @@ Cloud Runで、5XX系のエラーとなった場合、PubSubの再試行され�
 ## Cloud Workflowsの処理は、あまりカスタマイズできない
 
 Cloud Workflowsは、あくまでワークフローの管理です。
-変数処理などは、基本的に使わず、ワークフローのタスクを連結するだけです。
+変数処理などは、基本的に使わず、ワークフローのタスクを連結するだけにした方が良いです。
 次の資料には、Cloud Workflowsで使える標準機能です。
 
 [https://cloud.google.com/workflows/docs/reference/stdlib/overview:embed]
@@ -257,4 +258,9 @@ Cloud Workflowsは、あくまでワークフローの管理です。
 
 # 終わりに
 
-以上です!!!
+システム設計変更が度々変更がありつつも、目的とするTikTok動画やメタ情報を収集することは達成できました。
+変更があったとしても、役割をできる限り小さく保つことで、変更に柔軟に対応することができます。
+また、実際に動かすことで、気付けるポイントもあるので、フィードバックサイクルを短くすることも大切です。
+
+まだまだ改善する余地はあります。ユーザー情報という切り口で情報収集していましたが、トレンドやハッシュタグなどからも
+取得できるようにしたいです。また、ユーザーのRSSを作ることで、金銭的な節約もしてみたいと思っています。

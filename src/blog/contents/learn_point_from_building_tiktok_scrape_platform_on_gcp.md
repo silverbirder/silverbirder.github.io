@@ -8,7 +8,7 @@ icon: 😞
 -->
 
 TikTokへスクレイプするバッチをGCP上で構築しました。
-その構築時に、ハマったことを共有します。
+GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。
 
 [:contents]
 
@@ -144,7 +144,8 @@ PubSubでワークフローを制御するよりも、Cloud Workflowsのyamlで�
 特に困ったのが、全ての変数のメモリ合計が、**64kb** だということです。
 HTTPレスポンスのBodyを変数保持する構成を取ると、そのサイズを考慮しなければいけません。
 いくつかやり方を見直してみたのですが、思うような形に仕上げることができず、断念しました。
-つまりは、PubSubを使ってCloud Runを連携することになりました。
+結果、PubSubを使ってCloud Runを連携することになりました。
+Cloud Workflowsは、バッチのキック、通知などをすることとなりました。
 
 ## Firestoreのページカーソルに±2ページ以降への移動が難しい
 
@@ -207,7 +208,9 @@ return first.get().then((documentSnapshots) => {
 
 [https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query:embed]
 
-そこで、FirestoreからCloud SQLへデータストレージを切り替えるようにしました。
+そもそも、ドキュメントベースの設計よりも、RDBの設計に慣れていた私は、
+Firestoreよりも、Cloud SQLの方が扱いやすいと思いました。
+そこで、データストレージをFirestoreからCloud SQLへ切り替えることとしました。
 改修自体、Cloud Runの役割が明確に分離されていたので、一部の処理を書き換えるだけで、簡単にできました。
 
 ## Eventacのリソース選択が物足りない
@@ -223,7 +226,7 @@ Cloud RunとPubSubの連携には、Eventacを使用します。
 
 [https://cloud.google.com/blog/ja/products/serverless/demystifying-event-filters-eventarc:embed]
 
-できるのは、次の2つです。
+できるのは、執筆時点(2021年8月)で、次の2つです。
 
 * All resource
 * Specific resource
@@ -252,7 +255,7 @@ Cloud Workflowsは、あくまでワークフローの管理です。
 
 [https://cloud.google.com/workflows/docs/reference/stdlib/overview:embed]
 
-また並列処理は、まだ実験段階なので、本番環境は使えないようです。
+ワークフローのタスクを並列処理する機能は、まだ実験段階なので、本番環境は使えないようです。
 
 [https://cloud.google.com/workflows/docs/reference/stdlib/experimental.executions/map:embed]
 

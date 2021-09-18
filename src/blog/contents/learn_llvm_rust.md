@@ -41,3 +41,23 @@ Emoji Lang 的なやつを作ってみる。
 目的は、すごい言語を作りたいというわけじゃなくて、言語の作り方を知りたい。
 なので、よく知っている言語、俺だったらjavascriptがよくしっているので、
 rustscriptを作ってみるか。
+
+* rustscript ...
+
+ちょっとrustの文法を記憶できておらず、rust-by-example-jaを少しかじる。
+
+* トークナイズ、AST構築、、大変そうだ
+
+https://github.com/orgs/rusty-ecma/repositories rusty-ecma を発見。
+javascriptをトークナイズ、ASTなどやってくれるくん。なんだって！
+
+(ありえないけど) denoくんのランタイムでrustが使われていたような。。。
+https://github.com/denoland/rusty_v8 ここには、依存ないんだな。そりゃそうだ。
+
+* LLVM 使い方が...わからんぞ
+
+ASTがたとえ作れたとして、LLVMにどう繋げられるかわからんとな...。
+llvm-sys ? とか、inkwellとかあるんだけどな...。
+これらの使い方には、根っことしてLLVMの動きが知らないとな...。
+
+Module, Function, Block, Builder ... という構造を知った。

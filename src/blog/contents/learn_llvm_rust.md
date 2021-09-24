@@ -69,3 +69,17 @@ Rustからinkwellを通してjitで動かすことに苦労してた。
 まずは、llファイルに出して動作を知る。
 そのためには、llファイルってどうなっているのか知りたくなり、
 C言語のよくみるコードをllファイルに出力し、Cとllでどう違うのか考える。
+
+* BNFやらPEGやら
+
+https://qiita.com/Anharu/items/cc2ef930274ed5d13c97 の記事を見て、
+あれ、TOKEN処理ないじゃん？って思ったら、PEGというものを知る。
+
+https://github.com/kevinmehall/rust-peg
+
+BNFは、なんとなく知っているけど、PGEを初めて知った。
+ルールを書いておけば、TOKENの処理が不要っぽい？
+パフォーマンスは悪いらしい（先読み？）
+
+BNFもジェネレータ？のようなものがあればな〜、
+https://docs.rs/bnf/0.3.3/bnf/

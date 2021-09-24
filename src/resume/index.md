@@ -4,9 +4,11 @@ date: 2021-07-05T20:18:58+09:00
 draft: false
 description: This is the resume page of silverbirder's portfolio.
 image: 
-icon: 👨‍🎓
+icon: 🧑‍💻
 -->
-# 👨‍🎓 Resume
+# 🧑‍💻 職務経歴書
+
+### 🏢 職歴
 
 |期間|会社|担当業務内容|環境|役割|規模|テクニカルスキル<br>技術スタック|実績|所感|
 |--|--|--|--|--|--|--|--|--|

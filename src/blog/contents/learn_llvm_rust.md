@@ -83,3 +83,45 @@ BNFは、なんとなく知っているけど、PGEを初めて知った。
 
 BNFもジェネレータ？のようなものがあればな〜、
 https://docs.rs/bnf/0.3.3/bnf/
+
+* 学び
+
+```
+    let context = Context::create();
+    let module = context.create_module("main");
+    let builder = context.create_builder();
+    let i64_type = context.i64_type();
+    let fn_type = i64_type.fn_type(&[i64_type.into(), i64_type.into()], false);
+    let function = module.add_function("sum", fn_type, None);
+    let basic_block = context.append_basic_block(function, "entry");
+    builder.position_at_end(basic_block);
+
+    let x = function.get_nth_param(0).unwrap().into_int_value();
+    let y = function.get_nth_param(1).unwrap().into_int_value();
+    let sum = builder.build_int_add(x, y, "sum");
+    builder.build_return(Some(&sum));
+```
+
+このbuilder.position_at_endが、build_returnよりも下にしていたら、llの結果を見るとほぼ空っぽだった。
+先に、builder.position_at_endで書き込んで、そこからbuilderを動かす流れだと理解。
+いやー、しかし main.llを出力して確認するのは、大切だな〜。
+
+RUST_BACKTRACE=1も大切だな。
+```
+thread 'main' panicked at 'called `Option::unwrap()` on a `None` value', src/main.rs:29:39
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
+どこでpanicになったかわかるじゃん。
+
+* fizzbuzz できた!
+
+よっしゃ、if else if else で動くようになった！
+はじめて、(サンプルコードにない)switchを試してみた。
+https://llvm.org/docs/LangRef.html#switch-instruction
+サンプルコードが読めるようになった。
+
+が、https://stackoverflow.com/questions/14069737/switch-case-error-case-label-does-not-reduce-to-an-integer-constant にあるとおり、
+実行時に評価されるものは、だめだ。
+で、これC言語で使おうとすると、switch (n % 15) case 3,6,9,12: と書くしかない。
+switch (x) case x % 5 のような記法 (なんていうんだっけ、式評価?) が無理なんだな。
+ま、大丈夫だ。

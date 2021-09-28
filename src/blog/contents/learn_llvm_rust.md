@@ -125,3 +125,14 @@ https://llvm.org/docs/LangRef.html#switch-instruction
 で、これC言語で使おうとすると、switch (n % 15) case 3,6,9,12: と書くしかない。
 switch (x) case x % 5 のような記法 (なんていうんだっけ、式評価?) が無理なんだな。
 ま、大丈夫だ。
+
+* 次どうしようか
+
+BNFの定義から、パーサージェネレータがあれば、Javascriptのパースができるんじゃないかな〜。
+RUSTなら、LLじゃなくてLRのBNFで https://github.com/lalrpop/lalrpop というものがある。
+
+で、JavascriptのBNFは、↓ のようだ
+https://tc39.es/ecma262/#sec-grammar-summary 
+
+ちなみに、BNFの書き方↓
+https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%83%E3%82%AB%E3%82%B9%E3%83%BB%E3%83%8A%E3%82%A6%E3%82%A2%E8%A8%98%E6%B3%95

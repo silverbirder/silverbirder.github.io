@@ -132,7 +132,24 @@ BNFの定義から、パーサージェネレータがあれば、Javascriptの�
 RUSTなら、LLじゃなくてLRのBNFで https://github.com/lalrpop/lalrpop というものがある。
 
 で、JavascriptのBNFは、↓ のようだ
-https://tc39.es/ecma262/#sec-grammar-summary 
+https://tc39.es/ecma262/#sec-grammar-summary  (https://github.com/tc39/ecma262)
 
 ちなみに、BNFの書き方↓
 https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%83%E3%82%AB%E3%82%B9%E3%83%BB%E3%83%8A%E3%82%A6%E3%82%A2%E8%A8%98%E6%B3%95
+
+* swc で...
+
+swcは、rustで動いているけど ecmascriptのパース処理があって
+https://rustdoc.swc.rs/swc_ecma_parser/
+これは、さっきの https://github.com/tc39/test262 に参照がある。
+
+お、じゃあ、パースは、これ使えば良いんじゃね？それをllvmで!
+
+そして、試してみる...
+1+1というjsファイルをparseしてみた。
+簡単にvalueを手に入れた。
+
+https://stackoverflow.com/questions/9109872/how-do-you-access-enum-values-in-rust
+
+enumのstructを取る方法は、知らなかった。
+けど、これで実現できるかもしれない。

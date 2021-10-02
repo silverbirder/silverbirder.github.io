@@ -153,3 +153,12 @@ https://stackoverflow.com/questions/9109872/how-do-you-access-enum-values-in-rus
 
 enumのstructを取る方法は、知らなかった。
 けど、これで実現できるかもしれない。
+
+* 細かい
+
+こういうのがある。
+
+* alloca
+  * https://rhysd.hatenablog.com/entry/2017/03/13/230119
+* phi
+  * https://qiita.com/JunSuzukiJapan/items/faf2ac94df0ebca43064

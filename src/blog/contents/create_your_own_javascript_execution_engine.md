@@ -1,0 +1,42 @@
+<!-- 
+title: javascriptをLLVM(Rust:inkwell)でJITコンパイルするまで
+date: 2021-09-04T18:58:00+09:00
+draft: false
+description: 
+image: 
+icon: 🦀
+-->
+
+# 内容流れ
+
+○ あなたは誰？
+→ フロントエンドエンジニア？
+→ javascriptをよく書いている人
+
+○ 背景
+おもちゃのブラウザ自作をしてみた。
+おもちゃの自作言語を作ってみたくなった。
+途中で、考えること(Rust,LLVM,自作言語文法)が増えてしまって、javascriptのコンパイルをすることになった。
+
+○ モチベーション
+V8エンジンのRust版を書いてみたい
+
+○ ゴール
+javascriptをインプットとし、JITコンパイラで実行完了すること
+
+○ 過程
+
+1. 自作言語にLLVMを使おうと理解する
+2. Rustに慣れていないので、環境構築から頑張る
+3. Rustの万華鏡でLLVMを学ぶ
+4. 自作言語の文法を考え始める
+5. 文法を考えるのを断念して、既存言語(js)を対象とする
+5.5. rust文法を忘れて、チュートリアルを再度する
+6. TOKEN,PARSE,ASTのステップについて理解を深める
+7. LLVMの使い方が分からなくなるので、基礎勉強する(Module,Function,..etc. C + ll, debug)
+8. 1から⑥を書くのが大変だ。BNFやPEGからパーサを自動生成するツールを調べる (rust_peg || lalrpop)
+9. LLVMを再度、学ぶ(四則演算、fizzbuzz)=>完全理解
+10. ⑧よりも、swcというツールでecmascriptパーサがあったので、使えそう!
+11. swc_ecma_parser + LLVMでjs四則演算が動くようになる
+12. allocaやphiなど、まだ使ったことない機能を知る
+13. fizzbuzzのjsファイルをLLVMでコンパイルできるようにする!

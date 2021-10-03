@@ -53,6 +53,8 @@ javascriptをトークナイズ、ASTなどやってくれるくん。なんだ�
 
 (ありえないけど) denoくんのランタイムでrustが使われていたような。。。
 https://github.com/denoland/rusty_v8 ここには、依存ないんだな。そりゃそうだ。
+rusty_v8は、v8 C++のバインディング。
+
 
 * LLVM 使い方が...わからんぞ
 
@@ -162,3 +164,33 @@ enumのstructを取る方法は、知らなかった。
   * https://rhysd.hatenablog.com/entry/2017/03/13/230119
 * phi
   * https://qiita.com/JunSuzukiJapan/items/faf2ac94df0ebca43064
+
+* 記事書くために
+
+https://browserbook.shift-js.info/chapters/integrating-v8
+
+v8とrusty_v8、そのあたりを理解する。
+
+Chromiumは、ブラウザレンダラーにblinkを作っていてC++。
+blinkは、DOM操作などAPIを公開していて、それをv8というC++で書かれた
+javascript実行エンジンとバインディングする。
+
+rusty_v8は、v8の機能(C++)をrustから叩くだけ。
+
+https://zenn.dev/yubrot/articles/eaaeeab742b4a1
+
+この記事、セルフホスティングについて。
+
+```
+kaleidoscope → Rust (LLVM) でコンパイル → kaleidoscope コンパイラ
+
+kaleidoscope コンパイラ に、LLVMのC APIを生やす。
+
+kaleidoscope2 → kaleidoscope (LLVM) でコンパイラ → kaleidoscope2 コンパイラ
+
+kaleidoscope2 コンパイラ に、LLVMのC APIを生やす。
+
+kaleidoscope3 → kaleidoscope2 (LLVM) でコンパイラ → kaleidoscope3 コンパイラ
+
+diff kaleidoscope2 コンパイラ kaleidoscope3 コンパイラ
+```

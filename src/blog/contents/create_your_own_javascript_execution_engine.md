@@ -33,16 +33,26 @@ javascriptをよく書いてる。自作ブラウザの次は自作言語。
 それには、LLVMを使ってみたい。
 
 LLVMとは？ 簡単に。
+(frontend middle backend)
 
 LLVMの構成
+** module,function,block,builder **
 
-組み立て方
+組み立て方:
+LLVM Rust inkwell で試す。
 
-LLVM Rust inkwell で試す
+** Tips: C言語で試すのが良い。 **
+Tips: DEBUGも良い。
 
-Tips: C言語で試すのが良い。DEBUGも良い。
+試しに 文法が決まっているJS:
+swc_ecma_parserが良いだろう
 
-試しに 文法が決まっているJSで。
+(BNF,PEGについても触れたい)
+
+* 四則演算
+* fizzbuzz
+
+終わりに
 
 ○ 過程
 

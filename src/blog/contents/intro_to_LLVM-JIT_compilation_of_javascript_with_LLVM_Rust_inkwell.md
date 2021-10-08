@@ -28,6 +28,9 @@ LLVMについて、全く知識がなかった人間です。
 # きっかけは？
 
 いぜん、おもちゃのブラウザ自作をやってみました。
+
+[https://silver-birder.github.io/blog/contents/learning_browser_engine:embed]
+
 HTMLとCSSを解析し、レンダリングするところを書き、基本的な動作を知ることができました。
 HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを書いてみたくなりました。
 ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は、いきなりするのは難しいので、
@@ -36,8 +39,6 @@ HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを
 # どうやって作るの？
 
 プログラムをコンパイルするというのは、主に次の順番で処理されます。
-
-ソースコード → 字句解析 → 構文解析 → 構文木 → 中間言語 → コード生成
 
 @startuml
 rectangle ソースコード
@@ -54,9 +55,7 @@ rectangle コード生成
 中間言語 -> コード生成
 @enduml
 
-[図で書こう]
-
-## 字句解析 ~ 構文木 は、どう作るの？
+## "字句解析 ~ 構文木"は、どう作るの？
 
 lexやyaccというソフトウェアが有名だと思います。
 ただし、1から作るのは大変なので、swc_ecma_parserというものを使います。
@@ -66,9 +65,9 @@ swc_ecma_parserは、[swc](https://github.com/swc-project/swc)で使われるパ
 > EcmaScript/TypeScript parser for the rust programming language.
 Passes almost all tests from tc39/test262.
 
-※ https://rustdoc.swc.rs/swc_ecma_parser/
+※ [swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)
 
-tc39/test262は、次の仕様動作を保証するテストスイートです。
+[tc39/test262](https://github.com/tc39/test262)は、次の仕様動作を保証するテストスイートです。
 
 ```
 ECMA-262, ECMAScript Language Specification
@@ -86,9 +85,9 @@ ECMA-404, The JSON Data Interchange Format (pdf)
 そこで、javascript、というよりecmascriptのBNFってどれだろうなと調べていました。
 そうすると、私の調べた範囲では、次のページにたどり着きました。
 
-https://tc39.es/ecma262/#sec-grammar-summary
+[https://tc39.es/ecma262/#sec-grammar-summary](https://tc39.es/ecma262/#sec-grammar-summary)
 
-ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程のtc39/test262をパスするswc_ecma_parserがあるので、
+ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程の[tc39/test262](https://github.com/tc39/test262)をパースする[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)があるので、
 それを使おうと判断しました。
 
 ### 実は...
@@ -101,12 +100,21 @@ WASMは、もちろんブラウザでサポートされています。
 自作言語 → WASM ということができそうだなと思い、そうすると、自作言語を
 ブラウザで動かすことができるという訳です(WASMを動かしているだけですが)
 
+@startuml
+rectangle 自作言語
+rectangle LLVM
+rectangle WASM
+
+自作言語 -> LLVM
+LLVM -> WASM
+@enduml
+
 自作言語は、おもちゃなものを作ろうと思いつつ、自分の好きなモノを混ぜたいなと思い、
 絵文字で動くemoji langを書こうと思いました。
 
 ただ、文法を考えるのが大変だな〜と思って、却下しました。
 
-## 構文木 → (中間言語) → コード生成は、どう作るの？
+## "構文木 ~ コード生成"は、どう作るの？
 
 そこが、LLVMというコンパイル基盤を使おうと思います。
 
@@ -118,25 +126,31 @@ LLVMについては、ggれば詳しい説明が多くあると思いますの�
 
 > The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
 
-https://llvm.org/
+※ [ttps://llvm.org/](https://llvm.org/)
 
 ちょっとわかりにくいかもです。Wikiの説明を引用します。
 
 > LLVM（エルエルヴィーエム、 またはエルエルブイエム）とは、コンパイル時、リンク時、実行時などあらゆる時点でプログラムを最適化するよう設計された、任意のプログラミング言語に対応可能なコンパイラ基盤である。
 
-https://ja.wikipedia.org/wiki/LLVM
+※ [https://ja.wikipedia.org/wiki/LLVM](https://ja.wikipedia.org/wiki/LLVM)
 
-任意のプログラミング言語に〜というのは、従来のコンパイラは特定言語に依存して最適化していました。(そう)
+従来のコンパイラは特定言語に依存して最適化していたそうです。
 
-![Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM](http://www.aosabook.org/images/llvm/SimpleCompiler.png)
+<figure title="Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM">
+<img alt="Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM" src="http://www.aosabook.org/images/llvm/SimpleCompiler.png">
+<figcaption>Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM<figcaption>
+</figure>  
 
-LLVMは、フロントエンド、バックエンドをそれぞれ分けています。
+LLVMは、フロントエンド、共通オプティマイズ、バックエンドの3構成です。
+フロントエンドには、CやFortranなど、バックエンドはX86やPowerPCなど選択肢の幅があります。
+任意のプログラミング言語に対応というのは、そういう選択肢の話です。
 
-![Retargetablity - The Architecture of Open Source Applications: LLVM](http://www.aosabook.org/images/llvm/RetargetableCompiler.png)
+<figure title="Retargetablity - The Architecture of Open Source Applications: LLVM">
+<img alt="Retargetablity - The Architecture of Open Source Applications: LLVM" src="http://www.aosabook.org/images/llvm/RetargetableCompiler.png">
+<figcaption>Retargetablity - The Architecture of Open Source Applications: LLVM<figcaption>
+</figure>  
 
-こちらが、LLVMの設計です。
-
-### 何言語で作るの？
+### LLVMのフロントエンドは何言語で書くの？
 
 Rustを使おうと思います。
 深い理由は、ありません。
@@ -144,6 +158,15 @@ Rustを使おうと思います。
 
 * Rustを学びたかった 
 * ブラウザ(レンダリングエンジン)をRustで書いたので、JSエンジンもRustで書こうと思った
+
+### LLVMのバックエンドは何言語で書くの？
+
+よくわかっていないです。inkwellの`create_jit_execution_engine`を使ってJIT実行エンジンで動かします。
+バックエンドは、デフォルトでなにか指定されているのか。
+
+[wasmer-compiler-llvm](https://lib.rs/crates/wasmer-compiler-llvm)というのもある。
+
+clang --target=XXX のXXXがバックエンドだ。
 
 # LLVMで、どうやって作るの？
 LLVMでは、Module,Function,Block,Builderの構成というのを知っていると、理解が進みます。

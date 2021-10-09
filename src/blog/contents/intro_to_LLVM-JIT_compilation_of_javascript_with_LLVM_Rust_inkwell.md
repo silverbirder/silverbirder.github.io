@@ -27,13 +27,13 @@ LLVMについて、全く知識がなかった人間です。
 
 # きっかけは？
 
-いぜん、おもちゃのブラウザ自作をやってみました。
+過去に、おもちゃのブラウザ自作をやってみました。
 
 [https://silver-birder.github.io/blog/contents/learning_browser_engine:embed]
 
 HTMLとCSSを解析し、レンダリングするところを書き、基本的な動作を知ることができました。
 HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを書いてみたくなりました。
-ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は、いきなりするのは難しいので、
+ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は難しいので、
 まずは、単純な処理、四則演算やfizzbuzzが処理できるものを作ろうと思いました。
 
 # どうやって作るの？
@@ -79,40 +79,15 @@ ECMA-404, The JSON Data Interchange Format (pdf)
 
 パーサ部分を自作しようか悩みました。
 パースするということは、言語の文法を理解する必要があります。
-それには、BNFやPEGという文法を定義するメタ言語を覚える必要があります。
-また、BNFやPEGからパーサを自動生成する技術が存在します。
+その理解を、プログラミングで泥臭く定義しコーディングしてパース処理を書くか、
+BNFやPEGなどのメタ言語を書き、パーサを自動生成するライブラリを使うかの大まか2択あります。
 
 そこで、javascript、というよりecmascriptのBNFってどれだろうなと調べていました。
 そうすると、私の調べた範囲では、次のページにたどり着きました。
 
 [https://tc39.es/ecma262/#sec-grammar-summary](https://tc39.es/ecma262/#sec-grammar-summary)
 
-ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程の[tc39/test262](https://github.com/tc39/test262)をパースする[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)があるので、
-それを使おうと判断しました。
-
-### 実は...
-
-実は、javascriptではなく自作言語を書こうと思っていました。
-モチベーションとしては、自作言語をブラウザで動かしたいなと思いました。
-というのも、LLVMはバックエンドにWASMをサポートしました。
-WASMは、もちろんブラウザでサポートされています。
-そこで、自作言語 → LLVM で処理し、バックエンドでWASMをアウトプットすれば、
-自作言語 → WASM ということができそうだなと思い、そうすると、自作言語を
-ブラウザで動かすことができるという訳です(WASMを動かしているだけですが)
-
-@startuml
-rectangle 自作言語
-rectangle LLVM
-rectangle WASM
-
-自作言語 -> LLVM
-LLVM -> WASM
-@enduml
-
-自作言語は、おもちゃなものを作ろうと思いつつ、自分の好きなモノを混ぜたいなと思い、
-絵文字で動くemoji langを書こうと思いました。
-
-ただ、文法を考えるのが大変だな〜と思って、却下しました。
+ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程の[tc39/test262](https://github.com/tc39/test262)をパースする[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)の方が安定しているだろうと思い、自作を断念しました。
 
 ## "構文木 ~ コード生成"は、どう作るの？
 
@@ -122,56 +97,85 @@ LLVM -> WASM
 
 ### LLVMとは
 
-LLVMについては、ggれば詳しい説明が多くあると思いますので、簡単にだけ説明します。
+公式ページより、
 
 > The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
 
 ※ [ttps://llvm.org/](https://llvm.org/)
 
-ちょっとわかりにくいかもです。Wikiの説明を引用します。
+LLVMプロジェクトとは、再利用性が高いコンパイラとツールチェイン技術の総称です。
+コンパイラとは、
 
-> LLVM（エルエルヴィーエム、 またはエルエルブイエム）とは、コンパイル時、リンク時、実行時などあらゆる時点でプログラムを最適化するよう設計された、任意のプログラミング言語に対応可能なコンパイラ基盤である。
+> compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). The name "compiler" is primarily used for programs that translate source code from a high-level programming language to a lower level language (e.g. assembly language, object code, or machine code) to create an executable program.
 
-※ [https://ja.wikipedia.org/wiki/LLVM](https://ja.wikipedia.org/wiki/LLVM)
+※ [https://en.wikipedia.org/wiki/Compiler](https://en.wikipedia.org/wiki/Compiler)
 
-従来のコンパイラは特定言語に依存して最適化していたそうです。
+に書かれている通り、あるコードを別のコードに変換するプログラムのことをコンパイラと指します。
+主に、高級言語(ex. javascript)から低級言語(ex. アセンブリ言語)への変換という意味でコンパイラが使われます。
 
-<figure title="Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM">
-<img alt="Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM" src="http://www.aosabook.org/images/llvm/SimpleCompiler.png">
-<figcaption>Three Major Components of a Three-Phase Compiler - The Architecture of Open Source Applications: LLVM<figcaption>
-</figure>  
+LLVMは、次の特徴があります。
 
-LLVMは、フロントエンド、共通オプティマイズ、バックエンドの3構成です。
-フロントエンドには、CやFortranなど、バックエンドはX86やPowerPCなど選択肢の幅があります。
-任意のプログラミング言語に対応というのは、そういう選択肢の話です。
+> LLVM is a set of compiler and toolchain technologies, which can be used to develop a front end for any programming language and a back end for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes.
+
+※ [https://en.wikipedia.org/wiki/LLVM](https://en.wikipedia.org/wiki/LLVM)
+
+LLVMは、任意のフロントエンド言語(コンパイラという文脈でいう変換前の言語)から任意の命令セットアーキテクチャバックエンド(コンパイラという文脈で言う変換後の言語)へ変換できます。
+また、非言語依存な中間言語(IR)を中心として設計されています。
 
 <figure title="Retargetablity - The Architecture of Open Source Applications: LLVM">
 <img alt="Retargetablity - The Architecture of Open Source Applications: LLVM" src="http://www.aosabook.org/images/llvm/RetargetableCompiler.png">
 <figcaption>Retargetablity - The Architecture of Open Source Applications: LLVM<figcaption>
 </figure>  
 
+#### バックエンドにWebAssemblyサポート
+
+古い記事ですが、LLVMがバックエンドとしてWebAssembly(以下,WASM)をサポートしました。
+
+[https://www.publickey1.jp/blog/19/webassemblyllvm_80.html:embed]
+
+WASMは、仮想的なISAとして設計されています。
+
+> WebAssembly, or "wasm", is a general-purpose virtual ISA designed to be a compilation target for a wide variety of programming languages.
+
+[WebAssembly Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md)
+
 ### LLVMのフロントエンドは何言語で書くの？
 
-Rustを使おうと思います。
-深い理由は、ありません。
-強いてあげるなら、次の2つです。
+タイトルにある通り、Rustで書こうと思います。
+単にRustでやってみたかっただけです。
+LLVMライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を使用します。
+これは、LLVMのC APIを安全に使えるようにする薄いラッパーライブラリです。
 
-* Rustを学びたかった 
-* ブラウザ(レンダリングエンジン)をRustで書いたので、JSエンジンもRustで書こうと思った
+### LLVMのバックエンドは何にするの？
 
-### LLVMのバックエンドは何言語で書くの？
+今回は、ローカルマシンで動かすこととします。
+具体的には、次のISAになります。
 
-よくわかっていないです。inkwellの`create_jit_execution_engine`を使ってJIT実行エンジンで動かします。
-バックエンドは、デフォルトでなにか指定されているのか。
+```bash
+$ llc --version | grep Default
+Default target: x86_64-apple-darwin20.6.0
+```
 
-[wasmer-compiler-llvm](https://lib.rs/crates/wasmer-compiler-llvm)というのもある。
+試していないですが、WASMへターゲットができるようです。
 
-clang --target=XXX のXXXがバックエンドだ。
+* [Target initialize_webassembly](https://thedan64.github.io/inkwell/inkwell/targets/struct.Target.html#method.initialize_webassembly)
 
-# LLVMで、どうやって作るの？
-LLVMでは、Module,Function,Block,Builderの構成というのを知っていると、理解が進みます。
+# そろそろ、LLVMをやってみよう
 
-[Kaleidoscope](https://llvm.org/docs/tutorial/)という自作言語を作ることで、作り方がわかります。
+前置きが長くなりましたが、実際にLLVMをやっていきたいと思います。
+
+## 環境
+
+```
+
+```
+
+LLVMでは、Module,Function,Block,Builderの構成があります。
+これを知っていないと、LLVMのコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
+
+## 参考になる資料たち
+
+* [Kaleidoscope](https://llvm.org/docs/tutorial/)という自作言語を作ることで、作り方がわかります。
 資料をちゃんと読めば、わかるのかな〜と思いましたが、前提知識？というんでしょうか、そこが欠けていてよくわからなかったです。
 
 ちなみに、RustでLLVMするならば、
@@ -179,9 +183,6 @@ LLVMでは、Module,Function,Block,Builderの構成というのを知ってい�
 https://github.com/jauhien/iron-kaleidoscope
 
 というものがあります。しかし、codegenの部分が動きません。
-
-rustは、inkwellというものを使いました。正直メリット・デメリットがわかりません。
-いい感じにラップしてくれているようで、わかりやすいなと思います。
 
 ![きつねさんでもわかるLlvm読書会 第２回](https://image.slidesharecdn.com/llvm-130706080925-phpapp01/95/llvm-9-638.jpg?cb=1373386334)
 
@@ -208,6 +209,9 @@ Apple clang version 12.0.5 (clang-1205.0.22.9)
 Target: x86_64-apple-darwin20.6.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+xcodeのclangはwasm対応していないので、wasm対応したければllvmを別途インストールしましょう。
+
 $ $ llc -version
 Homebrew LLVM version 12.0.1
 $ clang -S -emit-llvm -O3 hw.c

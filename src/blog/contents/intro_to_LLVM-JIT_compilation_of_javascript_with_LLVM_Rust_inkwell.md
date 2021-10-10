@@ -55,7 +55,7 @@ rectangle コード生成
 中間言語 -> コード生成
 @enduml
 
-## "字句解析 ~ 構文木"は、どう作るの？
+# "字句解析 ~ 構文木"は、どう作るの？
 
 lexやyaccというソフトウェアが有名だと思います。
 ただし、1から作るのは大変なので、swc_ecma_parserというものを使います。
@@ -75,7 +75,9 @@ ECMA-402, ECMAScript Internationalization API Specification
 ECMA-404, The JSON Data Interchange Format (pdf)
 ```
 
-### 寄り道
+実際のテストコードは、[tc39/test262/test](https://github.com/tc39/test262/tree/main/test)にあります。
+
+# 自作パーサは断念
 
 パーサ部分を自作しようか悩みました。
 パースするということは、言語の文法を理解する必要があります。
@@ -89,13 +91,13 @@ BNFやPEGなどのメタ言語を書き、パーサを自動生成するライ�
 
 ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程の[tc39/test262](https://github.com/tc39/test262)をパースする[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)の方が安定しているだろうと思い、自作を断念しました。
 
-## "構文木 ~ コード生成"は、どう作るの？
+# "構文木 ~ コード生成"は、どう作るの？
 
 そこが、LLVMというコンパイル基盤を使おうと思います。
 
 [コンパイラ - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9)
 
-### LLVMとは
+# LLVMとは
 
 公式ページより、
 
@@ -119,8 +121,8 @@ LLVMは、次の特徴があります。
 
 ※ [https://en.wikipedia.org/wiki/LLVM](https://en.wikipedia.org/wiki/LLVM)
 
-LLVMは、任意のフロントエンド言語(コンパイラという文脈でいう変換前の言語)から任意の命令セットアーキテクチャバックエンド(コンパイラという文脈で言う変換後の言語)へ変換できます。
-また、非言語依存な中間言語(IR)を中心として設計されています。
+LLVMは、任意のフロントエンド言語(コンパイラという文脈でいう変換前の言語)から任意の命令セットアーキテクチャ(以下、ISA)バックエンドへ変換できます。
+また、非言語依存な中間言語(以下、IR)を中心として設計されています。
 
 <figure title="Retargetablity - The Architecture of Open Source Applications: LLVM">
 <img alt="Retargetablity - The Architecture of Open Source Applications: LLVM" src="http://www.aosabook.org/images/llvm/RetargetableCompiler.png">
@@ -149,12 +151,7 @@ LLVMライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を
 ### LLVMのバックエンドは何にするの？
 
 今回は、ローカルマシンで動かすこととします。
-具体的には、次のISAになります。
-
-```bash
-$ llc --version | grep Default
-Default target: x86_64-apple-darwin20.6.0
-```
+具体的には、`x86_64-apple-darwin20.6.0` になります。
 
 試していないですが、WASMへターゲットができるようです。
 
@@ -166,97 +163,135 @@ Default target: x86_64-apple-darwin20.6.0
 
 ## 環境
 
+私の環境(Mac)はこちらです。
+
+```shell session
+$ sw_vers 
+ProductName:    macOS
+ProductVersion: 11.6
+BuildVersion:   20G165
+$ cargo --version && rustc --version
+cargo 1.56.0-nightly (18751dd3f 2021-09-01)
+rustc 1.56.0-nightly (50171c310 2021-09-01)
 ```
 
+llvmのインストールは、Macユーザなので、[brewからllvm](https://formulae.brew.sh/formula/llvm)をインストールします。
+[公式ページからダウンロード](https://releases.llvm.org/download.html)もできるようです。
+
+インストールが完了すると、clangやllcといったツールが使えます。
+
+```shell session
+$ clang --version
+Homebrew clang version 13.0.0
+Target: x86_64-apple-darwin20.6.0
+Thread model: posix
+InstalledDir: /usr/local/opt/llvm/bin
+$ llc -version
+Homebrew LLVM version 12.0.1
 ```
 
-LLVMでは、Module,Function,Block,Builderの構成があります。
-これを知っていないと、LLVMのコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
+MacにはXcodeにclangが含まれているようです。こちらを使っても問題ありません。
+(ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
 
-## 参考になる資料たち
-
-* [Kaleidoscope](https://llvm.org/docs/tutorial/)という自作言語を作ることで、作り方がわかります。
-資料をちゃんと読めば、わかるのかな〜と思いましたが、前提知識？というんでしょうか、そこが欠けていてよくわからなかったです。
-
-ちなみに、RustでLLVMするならば、
-
-https://github.com/jauhien/iron-kaleidoscope
-
-というものがあります。しかし、codegenの部分が動きません。
-
-![きつねさんでもわかるLlvm読書会 第２回](https://image.slidesharecdn.com/llvm-130706080925-phpapp01/95/llvm-9-638.jpg?cb=1373386334)
-
-この考えを知ることが、良いです。
-
-# 具体的な例を見せて！
-
-## まず、小さく知る
-
-いきなりRustで書くよりも、C言語で書いたコードをLLVMで、中間ファイル(IR)を出力するのが、初歩として良いと思っています。
-
-```c
-#include <stdio.h>
-
-int main(int argc, char **argv) {
-     printf("Hello, world!\n");
-     return 0;
-}
-```
-
-```
+```shell session
 $ clang --version
 Apple clang version 12.0.5 (clang-1205.0.22.9)
 Target: x86_64-apple-darwin20.6.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
-
-xcodeのclangはwasm対応していないので、wasm対応したければllvmを別途インストールしましょう。
-
-$ $ llc -version
-Homebrew LLVM version 12.0.1
-$ clang -S -emit-llvm -O3 hw.c
 ```
 
+## 手を動かす前に、知っておくこと
+
+LLVMでは、IRを生成します。
+そのIRでは、`Module ⊇ Function ⊇ Block ⊇ Instruction(Builder)` という構成になっています。
+これを知っていないと、LLVMのコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
+
+![きつねさんでもわかるLlvm読書会 第２回](https://image.slidesharecdn.com/llvm-130706080925-phpapp01/95/llvm-9-638.jpg?cb=1373386334)
+
+小さなC言語コードとIRで例を示します。
+Rustじゃなく、Cを選んだのは、clangから手軽にIRを出力できるからです。
+
+```c
+// if.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int i = rand();
+    if (i == 1)
+    {
+        printf("i is one.");
+    }
+    return 0;
+}
 ```
-; ModuleID = 'hw.c'
-source_filename = "hw.c"
-target datalayout = "e-m:o-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-apple-macosx11.0.0"
 
-@str = private unnamed_addr constant [14 x i8] c"Hello, world!\00", align 1
+これをIRに変換
 
-; Function Attrs: nofree nounwind ssp uwtable
-define i32 @main(i32 %0, i8** nocapture readnone %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr inbounds ([14 x i8], [14 x i8]* @str, i64 0, i64 0))
+```shell session
+$ clang -S -emit-llvm -O3 if.c
+```
+
+出力されたファイルは、`if.ll`というIRファイルです。
+そこから、`@main`コードを見ます。
+
+```
+@.str = private unnamed_addr constant [10 x i8] c"i is one.\00", align 1
+
+define i32 @main() local_unnamed_addr #0 {
+  %1 = tail call i32 @rand() #3
+  %2 = icmp eq i32 %1, 1
+  br i1 %2, label %3, label %5
+
+3:                                                ; preds = %0
+  %4 = tail call i32 (i8*, ...) @printf(i8* nonnull dereferenceable(1) getelementptr inbounds ([10 x i8], [10 x i8]* @.str, i64 0, i64 0))
+  br label %5
+
+5:                                                ; preds = %3, %0
   ret i32 0
 }
 
-; Function Attrs: nofree nounwind
-declare i32 @puts(i8* nocapture readonly) local_unnamed_addr #1
+declare i32 @rand() local_unnamed_addr #1
 
-attributes #0 = { nofree nounwind ssp uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "darwin-stkchk-strong-link" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "probe-stack"="___chkstk_darwin" "stack-protector-buffer-size"="8" "target-cpu"="penryn" "target-features"="+cx16,+cx8,+fxsr,+mmx,+sahf,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
-attributes #1 = { nofree nounwind }
-
-!llvm.module.flags = !{!0, !1, !2}
-!llvm.ident = !{!3}
-
-!0 = !{i32 2, !"SDK Version", [2 x i32] [i32 11, i32 3]}
-!1 = !{i32 1, !"wchar_size", i32 4}
-!2 = !{i32 7, !"PIC Level", i32 2}
-!3 = !{!"Apple clang version 12.0.5 (clang-1205.0.22.9)"}
+declare noundef i32 @printf(i8* nocapture noundef readonly, ...) local_unnamed_addr #2
 ```
 
-ここで重要なのが、...。
+* Module
+  * LLVM programs are composed of Module’s, each of which is a translation unit of the input programs.
+  * 入力プログラムの変換単位.
+    * https://llvm.org/docs/LangRef.html#module-structure
+* Function
+  * LLVM function definitions consist of the “define” keyword.
+  * A function definition contains a list of basic blocks.
+  * 関数. 複数の基本ブロックを持つ.
+  * https://llvm.org/docs/LangRef.html#functions
+* Block
+  * Each basic block may optionally start with a label (giving the basic block a symbol table entry), contains a list of instructions, and ends with a terminator instruction (such as a branch or function return).
+  * ラベルから始まり、複数の命令を持つ.
+  * https://llvm.org/docs/LangRef.html#functions
+* Instruction
+  * The LLVM instruction set consists of several different classifications of instructions: terminator instructions, binary instructions, bitwise binary instructions, memory instructions, and other instructions.
+  * バイナリ命令やメモリ命令など、様々な命令を持つ. 
+  * https://llvm.org/docs/LangRef.html#instruction-reference
 
-## Rustで書いてみよう
+![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png)
 
-LLVM Rust inkwell で試す。
+## 参考になる資料たち
 
-```
-$ cargo --version && rustc --version
-cargo 1.56.0-nightly (18751dd3f 2021-09-01)
-rustc 1.56.0-nightly (50171c310 2021-09-01)
-```
+* チュートリアル
+  * C++ [Kaleidoscope](https://llvm.org/docs/tutorial/)
+  * Rust [Kaleidoscope](https://github.com/jauhien/iron-kaleidoscope)
+    * codegenが動かないため、途中までしか使えません
+  * Rust + inkwell [Kaleidoscope](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope)
+
+# Rustで書いてみよう
+
+LLVM Rust inkwell で書いてみます。
+
+## Hello World
+まずは、Hello World を出力します。
 
 ```rust
 use inkwell::context::Context;
@@ -264,73 +299,374 @@ use inkwell::OptimizationLevel;
 
 fn main() {
     let context = Context::create();
-    // moduleを作成
     let module = context.create_module("main");
-    // builderを作成
     let builder = context.create_builder();
 
-    // 型関係の変数
     let i32_type = context.i32_type();
     let i8_type = context.i8_type();
     let i8_ptr_type = i8_type.ptr_type(inkwell::AddressSpace::Generic);
 
-    // printf関数を宣言
     let printf_fn_type = i32_type.fn_type(&[i8_ptr_type.into()], true);
     let printf_function = module.add_function("printf", printf_fn_type, None);
 
-    // main関数を宣言
     let main_fn_type = i32_type.fn_type(&[], false);
     let main_function = module.add_function("main", main_fn_type, None);
 
-    // main関数にBasic Blockを追加
     let entry_basic_block = context.append_basic_block(main_function, "entry");
-    // builderのpositionをentry Basic Blockに設定
     builder.position_at_end(entry_basic_block);
 
-    // ここからmain関数に命令をビルドしていく
-    // globalに文字列を宣言
     let hw_string_ptr = builder.build_global_string_ptr("Hello, world!", "hw");
-    // printfをcall
     builder.build_call(printf_function, &[hw_string_ptr.as_pointer_value().into()], "call");
-    // main関数は0を返す
     builder.build_return(Some(&i32_type.const_int(0, false)));
 
-    // JIT実行エンジンを作成し、main関数を実行
     let execution_engine = module.create_jit_execution_engine(OptimizationLevel::Aggressive).unwrap();
-    module.print_to_file("main.ll");
     unsafe {
         execution_engine.get_function::<unsafe extern "C" fn()>("main").unwrap().call();
     }
 }
 ```
 
-(DEBUGも良い)
+```shell session
+$ RUST_BACKTRACE=1 cargo run
+```
 
-### 四則演算
+```rust
+module.print_to_file("module.ll");
+```
+
+これを挟んでデバッグするのも良いだろう。
+
+## sum
+
+```rust
+extern crate inkwell;
+
+use inkwell::OptimizationLevel;
+use inkwell::builder::Builder;
+use inkwell::context::Context;
+use inkwell::execution_engine::{ExecutionEngine, JitFunction};
+use inkwell::module::Module;
+
+use std::error::Error;
+
+/// Convenience type alias for the `sum` function.
+///
+/// Calling this is innately `unsafe` because there's no guarantee it doesn't
+/// do `unsafe` operations internally.
+type SumFunc = unsafe extern "C" fn(u64, u64, u64) -> u64;
+
+struct CodeGen<'ctx> {
+    context: &'ctx Context,
+    module: Module<'ctx>,
+    builder: Builder<'ctx>,
+    execution_engine: ExecutionEngine<'ctx>,
+}
+
+impl<'ctx> CodeGen<'ctx> {
+    fn jit_compile_sum(&self) -> Option<JitFunction<SumFunc>> {
+        let i64_type = self.context.i64_type();
+        let fn_type = i64_type.fn_type(&[i64_type.into(), i64_type.into(), i64_type.into()], false);
+        let function = self.module.add_function("sum", fn_type, None);
+        let basic_block = self.context.append_basic_block(function, "entry");
+
+        self.builder.position_at_end(basic_block);
+
+        let x = function.get_nth_param(0)?.into_int_value();
+        let y = function.get_nth_param(1)?.into_int_value();
+        let z = function.get_nth_param(2)?.into_int_value();
+
+        let sum = self.builder.build_int_add(x, y, "sum");
+        let sum = self.builder.build_int_add(sum, z, "sum");
+
+        self.builder.build_return(Some(&sum));
+
+        unsafe { self.execution_engine.get_function("sum").ok() }
+    }
+}
+
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let context = Context::create();
+    let module = context.create_module("sum");
+    let execution_engine = module.create_jit_execution_engine(OptimizationLevel::None)?;
+    let codegen = CodeGen {
+        context: &context,
+        module,
+        builder: context.create_builder(),
+        execution_engine,
+    };
+
+    let sum = codegen.jit_compile_sum().ok_or("Unable to JIT compile `sum`")?;
+
+    let x = 1u64;
+    let y = 2u64;
+    let z = 3u64;
+
+    unsafe {
+        println!("{} + {} + {} = {}", x, y, z, sum.call(x, y, z));
+        assert_eq!(sum.call(x, y, z), x + y + z);
+    }
+
+    Ok(())
+}
+```
 
 ### fizzbuzz
 
-### JSをパース
+```rust
+extern crate inkwell;
 
-### 四則演算のJSをパース
+use inkwell::builder::Builder;
+use inkwell::context::Context;
+use inkwell::execution_engine::ExecutionEngine;
+use inkwell::module::Module;
+use inkwell::IntPredicate::EQ;
+use inkwell::OptimizationLevel;
+use std::error::Error;
+use std::ptr::null;
+
+struct CodeGen<'ctx> {
+    context: &'ctx Context,
+    module: Module<'ctx>,
+    builder: Builder<'ctx>,
+    execution_engine: ExecutionEngine<'ctx>,
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let context = Context::create();
+    let module = context.create_module("fizzbuzz");
+    let i64_type = context.i64_type();
+    let void_type = context.void_type();
+    let i8_type = context.i8_type();
+    let i8_ptr_type = i8_type.ptr_type(inkwell::AddressSpace::Generic);
+    let null = i8_ptr_type.const_null();
+    let printf_fn_type = void_type.fn_type(&[i8_ptr_type.into()], true);
+    let printf_function = module.add_function("printf", printf_fn_type, None);
+
+    let fn_type = i64_type.fn_type(&[i64_type.into()], false);
+    let function = module.add_function("fizzbuzz", fn_type, None);
+    let block = context.append_basic_block(function, "entry");
+    let builder = context.create_builder();
+    builder.position_at_end(block);
+    let fb_string_ptr = builder.build_global_string_ptr("fizzbuzz\n", "fizzbuzz");
+    let f_string_ptr = builder.build_global_string_ptr("fizz\n", "fizz");
+    let b_string_ptr = builder.build_global_string_ptr("buzz\n", "buzz");
+    let x = function.get_nth_param(0).unwrap().into_int_value();
+    let x3 = builder.build_int_signed_rem(x, i64_type.const_int(3, false), "rem");
+    let x5 = builder.build_int_signed_rem(x, i64_type.const_int(5, false), "rem");
+    let x15 = builder.build_int_signed_rem(x, i64_type.const_int(15, false), "rem");
+    let x3_cmp = builder.build_int_compare(EQ, x3, i64_type.const_int(0, false), "if");
+    let x5_cmp = builder.build_int_compare(EQ, x5, i64_type.const_int(0, false), "if");
+    let x15_cmp = builder.build_int_compare(EQ, x15, i64_type.const_int(0, false), "if");
+    let fb_then_bb = context.append_basic_block(function, "fb_then");
+    let con_1_bb = context.append_basic_block(function, "con_1");
+    let con_2_bb = context.append_basic_block(function, "con_2");
+    let f_else_bb = context.append_basic_block(function, "f_else_if");
+    let b_else_bb = context.append_basic_block(function, "b_else");
+    let cont_bb = context.append_basic_block(function, "ifcont");
+    builder.build_conditional_branch(x15_cmp, fb_then_bb, con_1_bb);
+
+    builder.position_at_end(fb_then_bb);
+    builder.build_call(
+        printf_function,
+        &[fb_string_ptr.as_pointer_value().into()],
+        "c_fb",
+    );
+    builder.build_unconditional_branch(cont_bb);
+
+    builder.position_at_end(con_1_bb);
+    builder.build_conditional_branch(x3_cmp, f_else_bb, con_2_bb);
+
+    builder.position_at_end(f_else_bb);
+    builder.build_call(
+        printf_function,
+        &[f_string_ptr.as_pointer_value().into()],
+        "c_f",
+    );
+    builder.build_unconditional_branch(cont_bb);
+
+    builder.position_at_end(con_2_bb);
+    builder.build_conditional_branch(x5_cmp, b_else_bb, cont_bb);
+
+    builder.position_at_end(b_else_bb);
+    builder.build_call(
+        printf_function,
+        &[b_string_ptr.as_pointer_value().into()],
+        "c_b",
+    );
+    builder.build_unconditional_branch(cont_bb);
+
+    builder.position_at_end(cont_bb);
+    builder.build_return(Some(&null));
+
+    // module.print_to_file("main.ll");
+    let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
+    unsafe {
+        let x = 6u64;
+        e.get_function::<unsafe extern "C" fn(u64) -> ()>("fizzbuzz")?
+            .call(x);
+    }
+    Ok(())
+}
+```
+
+# JSをパース
+
+```rust
+#[macro_use]
+extern crate swc_common;
+extern crate swc_ecma_parser;
+extern crate swc_ecma_ast;
+
+use std::path::Path;
+
+use swc_common::sync::Lrc;
+use swc_common::{
+    errors::{ColorConfig, Handler},
+    FileName, FilePathMapping, SourceMap,
+};
+use swc_ecma_parser::{lexer::Lexer, Parser, StringInput, Syntax};
+use swc_ecma_ast::{Lit, Number};
+use swc_ecma_ast::Lit::Num;
+
+fn main() {
+    let cm: Lrc<SourceMap> = Default::default();
+    let handler =
+        Handler::with_tty_emitter(ColorConfig::Auto, true, false,
+        Some(cm.clone()));
+
+    // Real usage
+    let fm = cm
+        .load_file(Path::new("./src/test.js"))
+        .expect("failed to load test.js");
+    // let fm = cm.new_source_file(
+    //     FileName::Custom("test.js".into()),
+    //     "function foo() {}".into(),
+    // );
+    let lexer = Lexer::new(
+        // We want to parse ecmascript
+        Syntax::Es(Default::default()),
+        // JscTarget defaults to es5
+        Default::default(),
+        StringInput::from(&*fm),
+        None,
+    );
+
+    let mut parser = Parser::new_from(lexer);
+
+    for e in parser.take_errors() {
+        e.into_diagnostic(&handler).emit();
+    }
+
+    let _module = parser
+        .parse_module()
+        .map_err(|mut e| {
+            // Unrecoverable fatal error occurred
+            e.into_diagnostic(&handler).emit()
+        })
+        .expect("failed to parser module");
+}
+```
+
+# 四則演算のJSをパース
+
+```rust
+extern crate inkwell;
+extern crate swc_common;
+extern crate swc_ecma_ast;
+extern crate swc_ecma_parser;
+
+use inkwell::context::Context;
+use inkwell::OptimizationLevel;
+use std::error::Error;
+use std::path::Path;
+use swc_common::sync::Lrc;
+use swc_common::{
+    errors::{ColorConfig, Handler},
+    SourceMap,
+};
+use swc_ecma_ast::Lit::Num;
+use swc_ecma_parser::{lexer::Lexer, Parser, StringInput, Syntax};
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let cm: Lrc<SourceMap> = Default::default();
+    let handler = Handler::with_tty_emitter(ColorConfig::Auto, true, false, Some(cm.clone()));
+
+    let fm = cm
+        .load_file(Path::new("./src/test.js"))
+        .expect("failed to load test.js");
+    let lexer = Lexer::new(
+        Syntax::Es(Default::default()),
+        Default::default(),
+        StringInput::from(&*fm),
+        None,
+    );
+    let mut parser = Parser::new_from(lexer);
+    for e in parser.take_errors() {
+        e.into_diagnostic(&handler).emit();
+    }
+    let _module = parser
+        .parse_module()
+        .map_err(|e| e.into_diagnostic(&handler).emit())
+        .expect("failed to parser module");
+
+    let context = Context::create();
+    let module = context.create_module("main");
+    let builder = context.create_builder();
+    for b in _module.body {
+        if b.is_stmt() {
+            let stmt = b.stmt().unwrap();
+            if stmt.is_expr() {
+                let expr_stmt = stmt.expr().unwrap();
+                let expr = expr_stmt.expr;
+                if expr.is_bin() {
+                    let bin_expr = expr.bin().unwrap();
+                    let left_expr = bin_expr.left;
+                    let right_expr = bin_expr.right;
+                    let binary_op = bin_expr.op;
+                    if left_expr.is_lit() && right_expr.is_lit() {
+                        let left_lit = left_expr.lit().unwrap();
+                        let right_lit = right_expr.lit().unwrap();
+                        let left_value = match left_lit {
+                            Num(n) => n.value,
+                            _ => 0f64,
+                        };
+                        let right_value = match right_lit {
+                            Num(n) => n.value,
+                            _ => 0f64,
+                        };
+                        let i64_type = context.i64_type();
+                        let void_type = context.void_type();
+                        let fn_type = void_type.fn_type(&[], false);
+                        let function = module.add_function("main", fn_type, None);
+                        let basic_block = context.append_basic_block(function, "entry");
+                        builder.position_at_end(basic_block);
+                        let x = i64_type.const_int(left_value as u64, true);
+                        let y = i64_type.const_int(right_value as u64, true);
+                        let result = match binary_op {
+                            swc_ecma_ast::BinaryOp::Add => builder.build_int_add(x, y, "main"),
+                            swc_ecma_ast::BinaryOp::Sub => builder.build_int_sub(x, y, "main"),
+                            swc_ecma_ast::BinaryOp::Div => {
+                                builder.build_int_signed_div(x, y, "main")
+                            }
+                            swc_ecma_ast::BinaryOp::Mul => builder.build_int_mul(x, y, "main"),
+                            _ => i64_type.const_int(0u64, true),
+                        };
+                        builder.build_return(Some(&result));
+                        let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
+                        unsafe {
+                            let r = e
+                                .get_function::<unsafe extern "C" fn() -> u64>("main")?
+                                .call();
+                            println!("{:?}", r);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    Ok(())
+}
+```
 
 # 終わりに
-
-# メモ
-
-○ 過程
-
-1. 自作言語にLLVMを使おうと理解する
-2. Rustに慣れていないので、環境構築から頑張る
-3. Rustの万華鏡でLLVMを学ぶ
-4. 自作言語の文法を考え始める
-5. 文法を考えるのを断念して、既存言語(js)を対象とする
-5.5. rust文法を忘れて、チュートリアルを再度する
-6. TOKEN,PARSE,ASTのステップについて理解を深める
-7. LLVMの使い方が分からなくなるので、基礎勉強する(Module,Function,..etc. C + ll, debug)
-8. 1から⑥を書くのが大変だ。BNFやPEGからパーサを自動生成するツールを調べる (rust_peg || lalrpop)
-9. LLVMを再度、学ぶ(四則演算、fizzbuzz)=>完全理解
-10. ⑧よりも、swcというツールでecmascriptパーサがあったので、使えそう!
-11. swc_ecma_parser + LLVMでjs四則演算が動くようになる
-12. allocaやphiなど、まだ使ったことない機能を知る
-13. fizzbuzzのjsファイルをLLVMでコンパイルできるようにする

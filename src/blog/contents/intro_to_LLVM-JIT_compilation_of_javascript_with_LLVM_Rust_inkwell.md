@@ -20,12 +20,12 @@ LLVMの記事は数多くありますが、初心者向けの記事が少なく�
 
 [:contents]
 
-# あなたは誰？
+# 自己紹介
 
 ふだん、javascriptやpythonなどインタプリタ言語を使うエンジニアです。
 LLVMについて、全く知識がなかった人間です。
 
-# きっかけは？
+# 背景
 
 過去に、おもちゃのブラウザ自作をやってみました。
 
@@ -36,7 +36,18 @@ HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを
 ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は難しいので、
 まずは、単純な処理、四則演算やfizzbuzzが処理できるものを作ろうと思いました。
 
-# どうやって作るの？
+# コンパイラとは
+
+コンパイラとは、
+
+> compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). The name "compiler" is primarily used for programs that translate source code from a high-level programming language to a lower level language (e.g. assembly language, object code, or machine code) to create an executable program.
+
+※ [https://en.wikipedia.org/wiki/Compiler](https://en.wikipedia.org/wiki/Compiler)
+
+に書かれている通り、あるコードを別のコードに変換するプログラムのことをコンパイラと指します。
+主に、高級言語(ex. javascript)から低級言語(ex. アセンブリ言語)への変換という意味でコンパイラが使われます。
+
+---
 
 プログラムをコンパイルするというのは、主に次の順番で処理されます。
 
@@ -55,18 +66,17 @@ rectangle コード生成
 中間言語 -> コード生成
 @enduml
 
-# "字句解析 ~ 構文木"は、どう作るの？
+---
 
-lexやyaccというソフトウェアが有名だと思います。
-ただし、1から作るのは大変なので、swc_ecma_parserというものを使います。
-
-swc_ecma_parserは、[swc](https://github.com/swc-project/swc)で使われるパーサです。
+字句解析 ~ 構文木は、lexやyaccというソフトウェアが有名だと思います。
+今回は、swc_ecma_parserというものを使います。swc_ecma_parserは、[swc](https://github.com/swc-project/swc)で使われるパーサです。
 
 > EcmaScript/TypeScript parser for the rust programming language.
 Passes almost all tests from tc39/test262.
 
 ※ [swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)
 
+tc39/test262のテストケースをほとんどパスしているようです。
 [tc39/test262](https://github.com/tc39/test262)は、次の仕様動作を保証するテストスイートです。
 
 ```
@@ -77,44 +87,35 @@ ECMA-404, The JSON Data Interchange Format (pdf)
 
 実際のテストコードは、[tc39/test262/test](https://github.com/tc39/test262/tree/main/test)にあります。
 
-# 自作パーサは断念
+---
 
 パーサ部分を自作しようか悩みました。
-パースするということは、言語の文法を理解する必要があります。
-その理解を、プログラミングで泥臭く定義しコーディングしてパース処理を書くか、
-BNFやPEGなどのメタ言語を書き、パーサを自動生成するライブラリを使うかの大まか2択あります。
+自作するには、次の手順を踏むことになります。
 
-そこで、javascript、というよりecmascriptのBNFってどれだろうなと調べていました。
+1. 言語文法の理解
+1. パース処理の実装
+  1. BNFやPEGからパース自動生成も可
+
+①番の言語文法について知るために、ecmascriptのBNFってどれだろうなと調べていました。
 そうすると、私の調べた範囲では、次のページにたどり着きました。
 
 [https://tc39.es/ecma262/#sec-grammar-summary](https://tc39.es/ecma262/#sec-grammar-summary)
 
-ここをBNFの文法を書き直せばできるんだろうなと思いつつ、先程の[tc39/test262](https://github.com/tc39/test262)をパースする[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)の方が安定しているだろうと思い、自作を断念しました。
+これは、先程の[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)のテストスイート対象[tc39/test262/test](https://github.com/tc39/test262/tree/main/test)であったので、あえて再構築する気になれず、自作は諦めました。
 
-# "構文木 ~ コード生成"は、どう作るの？
+---
 
-そこが、LLVMというコンパイル基盤を使おうと思います。
-
-[コンパイラ - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9)
+中間言語 ~ コード生成については、LLVMというコンパイル基盤を使おうと思います。
 
 # LLVMとは
 
-公式ページより、
+LLVMとは、公式ページより、
 
 > The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
 
 ※ [ttps://llvm.org/](https://llvm.org/)
 
 LLVMプロジェクトとは、再利用性が高いコンパイラとツールチェイン技術の総称です。
-コンパイラとは、
-
-> compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). The name "compiler" is primarily used for programs that translate source code from a high-level programming language to a lower level language (e.g. assembly language, object code, or machine code) to create an executable program.
-
-※ [https://en.wikipedia.org/wiki/Compiler](https://en.wikipedia.org/wiki/Compiler)
-
-に書かれている通り、あるコードを別のコードに変換するプログラムのことをコンパイラと指します。
-主に、高級言語(ex. javascript)から低級言語(ex. アセンブリ言語)への変換という意味でコンパイラが使われます。
-
 LLVMは、次の特徴があります。
 
 > LLVM is a set of compiler and toolchain technologies, which can be used to develop a front end for any programming language and a back end for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes.
@@ -129,85 +130,34 @@ LLVMは、任意のフロントエンド言語(コンパイラという文脈で
 <figcaption>Retargetablity - The Architecture of Open Source Applications: LLVM<figcaption>
 </figure>  
 
-#### バックエンドにWebAssemblyサポート
+---
 
-古い記事ですが、LLVMがバックエンドとしてWebAssembly(以下,WASM)をサポートしました。
+今回、LLVMのフロントエンド言語は、タイトルにある通り、Rustで書こうと思います。
+単にRustでやってみたかっただけです。
+LLVMライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を使用します。
+これは、LLVMのC APIを安全に使えるようにする薄いラッパーライブラリです。
 
-[https://www.publickey1.jp/blog/19/webassemblyllvm_80.html:embed]
+---
 
-WASMは、仮想的なISAとして設計されています。
+LLVMのバックエンドは、ローカルマシンで動かすこととします。
+具体的には、`x86_64-apple-darwin20.6.0` になります。
+
+試していないですが、WASMもバックエンドとして選択できるようです。
+というのも、過去の記事([WebAssemblyに正式対応した「LLVM 8.0」がリリース － Publickey](https://www.publickey1.jp/blog/19/webassemblyllvm_80.html))ですが、LLVMがバックエンドとしてWebAssembly(以下,WASM)をサポートしました。
+
+* [Target initialize_webassembly](https://thedan64.github.io/inkwell/inkwell/targets/struct.Target.html#method.initialize_webassembly)
+
+ちなみに、WASMは、仮想的なISAとして設計されています。
 
 > WebAssembly, or "wasm", is a general-purpose virtual ISA designed to be a compilation target for a wide variety of programming languages.
 
 [WebAssembly Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md)
 
-### LLVMのフロントエンドは何言語で書くの？
-
-タイトルにある通り、Rustで書こうと思います。
-単にRustでやってみたかっただけです。
-LLVMライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を使用します。
-これは、LLVMのC APIを安全に使えるようにする薄いラッパーライブラリです。
-
-### LLVMのバックエンドは何にするの？
-
-今回は、ローカルマシンで動かすこととします。
-具体的には、`x86_64-apple-darwin20.6.0` になります。
-
-試していないですが、WASMへターゲットができるようです。
-
-* [Target initialize_webassembly](https://thedan64.github.io/inkwell/inkwell/targets/struct.Target.html#method.initialize_webassembly)
-
-# そろそろ、LLVMをやってみよう
-
-前置きが長くなりましたが、実際にLLVMをやっていきたいと思います。
-
-## 環境
-
-私の環境(Mac)はこちらです。
-
-```shell session
-$ sw_vers 
-ProductName:    macOS
-ProductVersion: 11.6
-BuildVersion:   20G165
-$ cargo --version && rustc --version
-cargo 1.56.0-nightly (18751dd3f 2021-09-01)
-rustc 1.56.0-nightly (50171c310 2021-09-01)
-```
-
-llvmのインストールは、Macユーザなので、[brewからllvm](https://formulae.brew.sh/formula/llvm)をインストールします。
-[公式ページからダウンロード](https://releases.llvm.org/download.html)もできるようです。
-
-インストールが完了すると、clangやllcといったツールが使えます。
-
-```shell session
-$ clang --version
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin20.6.0
-Thread model: posix
-InstalledDir: /usr/local/opt/llvm/bin
-$ llc -version
-Homebrew LLVM version 12.0.1
-```
-
-MacにはXcodeにclangが含まれているようです。こちらを使っても問題ありません。
-(ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
-
-```shell session
-$ clang --version
-Apple clang version 12.0.5 (clang-1205.0.22.9)
-Target: x86_64-apple-darwin20.6.0
-Thread model: posix
-InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
-```
-
-## 手を動かす前に、知っておくこと
+# LLVM開発で、知っておくべきこと
 
 LLVMでは、IRを生成します。
 そのIRでは、`Module ⊇ Function ⊇ Block ⊇ Instruction(Builder)` という構成になっています。
 これを知っていないと、LLVMのコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
-
-![きつねさんでもわかるLlvm読書会 第２回](https://image.slidesharecdn.com/llvm-130706080925-phpapp01/95/llvm-9-638.jpg?cb=1373386334)
 
 小さなC言語コードとIRで例を示します。
 Rustじゃなく、Cを選んだのは、clangから手軽にIRを出力できるからです。
@@ -258,9 +208,16 @@ declare i32 @rand() local_unnamed_addr #1
 declare noundef i32 @printf(i8* nocapture noundef readonly, ...) local_unnamed_addr #2
 ```
 
+IRをModule,Function,Block,Instructionで区切って見ると、次の画像のとおりです。
+
+![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png)
+
+それぞれ、どういうものか簡単に説明します。
+
 * Module
   * LLVM programs are composed of Module’s, each of which is a translation unit of the input programs.
   * 入力プログラムの変換単位.
+  * 関数、グローバル変数、シンボルテーブルエントリ(?)を持つ.
     * https://llvm.org/docs/LangRef.html#module-structure
 * Function
   * LLVM function definitions consist of the “define” keyword.
@@ -276,46 +233,104 @@ declare noundef i32 @printf(i8* nocapture noundef readonly, ...) local_unnamed_a
   * バイナリ命令やメモリ命令など、様々な命令を持つ. 
   * https://llvm.org/docs/LangRef.html#instruction-reference
 
-![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png)
+---
 
-## 参考になる資料たち
+参考になる資料たちは、次のとおりです。
 
 * チュートリアル
   * C++ [Kaleidoscope](https://llvm.org/docs/tutorial/)
   * Rust [Kaleidoscope](https://github.com/jauhien/iron-kaleidoscope)
     * codegenが動かないため、途中までしか使えません
   * Rust + inkwell [Kaleidoscope](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope)
+* LLVMリファレンス
+  * [LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html)
 
-# Rustで書いてみよう
+# LLVMをやってみよう
 
-LLVM Rust inkwell で書いてみます。
+前置きが長くなりましたが、実際にLLVMをやっていきたいと思います。
 
-## Hello World
+## 開発環境
+
+私の環境(Mac)はこちらです。
+
+```shell session
+$ sw_vers 
+ProductName:    macOS
+ProductVersion: 11.6
+BuildVersion:   20G165
+$ cargo --version && rustc --version
+cargo 1.56.0-nightly (18751dd3f 2021-09-01)
+rustc 1.56.0-nightly (50171c310 2021-09-01)
+```
+
+llvmのインストールは、Macユーザなので、[brewからllvm](https://formulae.brew.sh/formula/llvm)をインストールします。
+[公式ページからダウンロード](https://releases.llvm.org/download.html)もできるようです。
+
+インストールが完了すると、clangやllcといったツールが使えます。
+
+```shell session
+$ clang --version
+Homebrew clang version 13.0.0
+Target: x86_64-apple-darwin20.6.0
+Thread model: posix
+InstalledDir: /usr/local/opt/llvm/bin
+$ llc -version
+Homebrew LLVM version 12.0.1
+```
+
+MacにはXcodeにclangが含まれているようです。こちらを使っても問題ありません。
+(ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
+
+```shell session
+$ clang --version
+Apple clang version 12.0.5 (clang-1205.0.22.9)
+Target: x86_64-apple-darwin20.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+```
+
+Cargo.tomlの`dependencies`は、次のとおりです。
+
+```toml
+[dependencies]
+inkwell = { git = "https://github.com/TheDan64/inkwell", branch = "master", features = ["llvm12-0"] }
+swc_ecma_parser = "0.73.0"
+swc_common = { version = "0.13.0", features=["tty-emitter"] }
+swc_ecma_ast = "0.54.0"
+```
+
+## "Hello World" を出力
+
 まずは、Hello World を出力します。
 
 ```rust
+extern crate inkwell;
+
 use inkwell::context::Context;
 use inkwell::OptimizationLevel;
 
 fn main() {
     let context = Context::create();
-    let module = context.create_module("main");
-    let builder = context.create_builder();
-
     let i32_type = context.i32_type();
     let i8_type = context.i8_type();
     let i8_ptr_type = i8_type.ptr_type(inkwell::AddressSpace::Generic);
 
+    // Module
+    let module = context.create_module("main");
+
+    // Function
     let printf_fn_type = i32_type.fn_type(&[i8_ptr_type.into()], true);
     let printf_function = module.add_function("printf", printf_fn_type, None);
-
     let main_fn_type = i32_type.fn_type(&[], false);
     let main_function = module.add_function("main", main_fn_type, None);
 
+    // Block
     let entry_basic_block = context.append_basic_block(main_function, "entry");
-    builder.position_at_end(entry_basic_block);
 
-    let hw_string_ptr = builder.build_global_string_ptr("Hello, world!", "hw");
+    // Instruction(Builder)
+    let builder = context.create_builder();
+    builder.position_at_end(entry_basic_block);
+    let hw_string_ptr = builder.build_global_string_ptr("Hello, world!\n", "hw");
     builder.build_call(printf_function, &[hw_string_ptr.as_pointer_value().into()], "call");
     builder.build_return(Some(&i32_type.const_int(0, false)));
 
@@ -327,91 +342,101 @@ fn main() {
 ```
 
 ```shell session
-$ RUST_BACKTRACE=1 cargo run
+$ cargo run
+Hello, world!
 ```
 
-```rust
-module.print_to_file("module.ll");
+LLVMのJITコンパイラで実行できました。
+ちなみに、IRがどんなものか確認したい場合は、`module.print_to_file` を使いましょう。
+実際に出力してみると、次の結果になります。
+
+```
+; ModuleID = 'main'
+source_filename = "main"
+
+@hw = private unnamed_addr constant [15 x i8] c"Hello, world!\0A\00", align 1
+
+declare i32 @printf(i8*, ...)
+
+define i32 @main() {
+entry:
+  %call = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([15 x i8], [15 x i8]* @hw, i32 0, i32 0))
+  ret i32 0
+}
 ```
 
-これを挟んでデバッグするのも良いだろう。
+## SUM
 
-## sum
+次は、3つの数値を引数とし、足し算した結果を返す関数SUMを作成してみます。
 
 ```rust
 extern crate inkwell;
 
 use inkwell::OptimizationLevel;
-use inkwell::builder::Builder;
 use inkwell::context::Context;
-use inkwell::execution_engine::{ExecutionEngine, JitFunction};
-use inkwell::module::Module;
-
 use std::error::Error;
-
-/// Convenience type alias for the `sum` function.
-///
-/// Calling this is innately `unsafe` because there's no guarantee it doesn't
-/// do `unsafe` operations internally.
-type SumFunc = unsafe extern "C" fn(u64, u64, u64) -> u64;
-
-struct CodeGen<'ctx> {
-    context: &'ctx Context,
-    module: Module<'ctx>,
-    builder: Builder<'ctx>,
-    execution_engine: ExecutionEngine<'ctx>,
-}
-
-impl<'ctx> CodeGen<'ctx> {
-    fn jit_compile_sum(&self) -> Option<JitFunction<SumFunc>> {
-        let i64_type = self.context.i64_type();
-        let fn_type = i64_type.fn_type(&[i64_type.into(), i64_type.into(), i64_type.into()], false);
-        let function = self.module.add_function("sum", fn_type, None);
-        let basic_block = self.context.append_basic_block(function, "entry");
-
-        self.builder.position_at_end(basic_block);
-
-        let x = function.get_nth_param(0)?.into_int_value();
-        let y = function.get_nth_param(1)?.into_int_value();
-        let z = function.get_nth_param(2)?.into_int_value();
-
-        let sum = self.builder.build_int_add(x, y, "sum");
-        let sum = self.builder.build_int_add(sum, z, "sum");
-
-        self.builder.build_return(Some(&sum));
-
-        unsafe { self.execution_engine.get_function("sum").ok() }
-    }
-}
-
 
 fn main() -> Result<(), Box<dyn Error>> {
     let context = Context::create();
-    let module = context.create_module("sum");
-    let execution_engine = module.create_jit_execution_engine(OptimizationLevel::None)?;
-    let codegen = CodeGen {
-        context: &context,
-        module,
-        builder: context.create_builder(),
-        execution_engine,
+    let i64_type = context.i64_type();
+    let fn_type = i64_type.fn_type(&[i64_type.into(), i64_type.into(), i64_type.into()], false);
+
+    // Module
+    let module = context.create_module("main");
+    let builder = context.create_builder();
+
+    // Function
+    let function = module.add_function("sum", fn_type, None);
+
+    // Block
+    let basic_block = context.append_basic_block(function, "entry");
+
+    // Instruction(Builder)
+    builder.position_at_end(basic_block);
+    let x = function.get_nth_param(0).unwrap().into_int_value();
+    let y = function.get_nth_param(1).unwrap().into_int_value();
+    let z = function.get_nth_param(2).unwrap().into_int_value();
+    let sum = builder.build_int_add(x, y, "sum");
+    let sum = builder.build_int_add(z, sum, "sum");
+    builder.build_return(Some(&sum));
+
+    let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
+
+    unsafe { 
+        let x = 1u64;
+        let y = 2u64;
+        let z = 3u64;
+        let s = e.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);
+        println!("{:?}", s);
     };
-
-    let sum = codegen.jit_compile_sum().ok_or("Unable to JIT compile `sum`")?;
-
-    let x = 1u64;
-    let y = 2u64;
-    let z = 3u64;
-
-    unsafe {
-        println!("{} + {} + {} = {}", x, y, z, sum.call(x, y, z));
-        assert_eq!(sum.call(x, y, z), x + y + z);
-    }
-
     Ok(())
 }
 ```
 
-### fizzbuzz
+```shell session
+$ cargo run
+6
+```
+
+見事、`1 + 2 + 3`の足し算ができました。
+ちなみに、IRも出力しておきます。
+
+```
+; ModuleID = 'main'
+source_filename = "main"
+target datalayout = "e-m:o-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+define i64 @sum(i64 %0, i64 %1, i64 %2) {
+entry:
+  %sum = add i64 %0, %1
+  %sum1 = add i64 %2, %sum
+  ret i64 %sum1
+}
+```
+
+## fizzbuzz
+
+では、次はFizzBuzzをしてみます。
 
 ```rust
 extern crate inkwell;
@@ -499,7 +524,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     builder.position_at_end(cont_bb);
     builder.build_return(Some(&null));
 
-    // module.print_to_file("main.ll");
     let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
     unsafe {
         let x = 6u64;
@@ -510,7 +534,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
-# JSをパース
+## JSをパース
+
+ここからは、javascriptをパースしてみます。
 
 ```rust
 #[macro_use]
@@ -536,13 +562,13 @@ fn main() {
         Some(cm.clone()));
 
     // Real usage
-    let fm = cm
-        .load_file(Path::new("./src/test.js"))
-        .expect("failed to load test.js");
-    // let fm = cm.new_source_file(
-    //     FileName::Custom("test.js".into()),
-    //     "function foo() {}".into(),
-    // );
+    // let fm = cm
+    //     .load_file(Path::new("./src/test.js"))
+    //     .expect("failed to load test.js");
+    let fm = cm.new_source_file(
+        FileName::Custom("test.js".into()),
+        "function foo() {}".into(),
+    );
     let lexer = Lexer::new(
         // We want to parse ecmascript
         Syntax::Es(Default::default()),
@@ -565,10 +591,12 @@ fn main() {
             e.into_diagnostic(&handler).emit()
         })
         .expect("failed to parser module");
+    
+    println!("{:?}", _module);
 }
 ```
 
-# 四則演算のJSをパース
+## 四則演算のJSをパース
 
 ```rust
 extern crate inkwell;

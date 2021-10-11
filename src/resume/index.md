@@ -22,3 +22,144 @@ icon: 🧑‍💻
 |2019/10 ~ 2020/04|関西自社サービス会社|X年先を見据えたフロントエンド モダナイゼーション|AWS, GCP|Webアプリケーション フロントエンドエンジニア<br>(PoC)|5名|Nestjs検証, Micro Frontends検討, 方式設計議論|Nestjsの検証. チーム移動で離脱|大規模Webアプリケーションフロントエンドにおけるアジリティ向上を目指す|
 |2020/05 ~ 2020/08|関西自社サービス会社|ドメインロジックの集約と提供<br>(バッチ&API)|GCP|データエンジニア, インフラエンジニア<br>(開発, 検証, 展開)|5名|Kotlin, Docker, Cloud Dataflow, Cloud Scheduler, Cloud Build, PubSub, GCE, Terraform, BigQuery.|仕組み化のPoC完了. バッチリリース|フロントエンドが活用するデータへの理解|
 |2020/09 ~|関西自社サービス会社|X年先を見据えた 基盤開発 バッチ群担当|GCP|データエンジニア, インフラエンジニア<br>(要件定義, 設計, リリース戦略, PoC, 開発, 検証, 展開, 運用)|30名|Digdag, Cloud Dataflow, BigQuery, Cloud Build, Cloud Monitoring, Logging, Cloud Scheduler, PubSub, GCE, Docker, Ansible, Terraform, Fluentd|[技術選定](https://tech-blog.monotaro.com/entry/2021/06/03/090000), 一部データ提供済み|データのスケーラビリティに対応したリアルタイムデータ構築に挑戦|
+
+### 🏠 テクニカルスキル(プライベート込)
+
+<i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+<i class="devicon-angularjs-plain-wordmark colored"></i>
+<i class="devicon-apache-plain-wordmark colored"></i>
+<i class="devicon-babel-plain colored"></i>
+<i class="devicon-bash-plain colored"></i>
+<i class="devicon-bitbucket-original-wordmark colored"></i>
+<i class="devicon-bootstrap-plain-wordmark colored"></i>
+<i class="devicon-c-plain-wordmark colored"></i>
+<i class="devicon-cakephp-plain-wordmark colored"></i>
+<i class="devicon-chrome-plain-wordmark colored"></i>
+<i class="devicon-circleci-plain-wordmark colored"></i>
+<i class="devicon-confluence-original-wordmark colored"></i>
+<i class="devicon-denojs-original-wordmark colored"></i>
+<i class="devicon-django-plain-wordmark colored"></i>
+<i class="devicon-docker-plain-wordmark colored"></i>
+<i class="devicon-electron-original-wordmark colored"></i>
+<i class="devicon-elm-plain-wordmark colored"></i>
+<i class="devicon-express-original-wordmark colored"></i>
+<i class="devicon-firebase-plain-wordmark colored"></i>
+<i class="devicon-flask-original-wordmark colored"></i>
+<i class="devicon-gatsby-plain-wordmark colored"></i>
+<i class="devicon-git-plain-wordmark colored"></i>
+<i class="devicon-github-original-wordmark colored"></i>
+<i class="devicon-go-original-wordmark colored"></i>
+<i class="devicon-googlecloud-plain-wordmark colored"></i>
+<i class="devicon-graphql-plain-wordmark colored"></i>
+<i class="devicon-gulp-plain colored"></i>
+<i class="devicon-heroku-original-wordmark colored"></i>
+<i class="devicon-html5-plain-wordmark colored"></i>
+<i class="devicon-intellij-plain-wordmark colored"></i>
+<i class="devicon-jamstack-plain-wordmark colored"></i>
+<i class="devicon-java-plain-wordmark colored"></i>
+<i class="devicon-javascript-plain colored"></i>
+<i class="devicon-jest-plain colored"></i>
+<i class="devicon-jenkins-plain colored"></i>
+<i class="devicon-jira-plain-wordmark colored"></i>
+<i class="devicon-jquery-plain-wordmark colored"></i>
+<i class="devicon-kotlin-plain-wordmark colored"></i>
+<i class="devicon-kubernetes-plain-wordmark colored"></i>
+<i class="devicon-materialui-plain colored"></i>
+<i class="devicon-markdown-original colored"></i>
+<i class="devicon-mongodb-plain-wordmark colored"></i>
+<i class="devicon-mysql-plain-wordmark colored"></i>
+<i class="devicon-nestjs-plain-wordmark colored"></i>
+<i class="devicon-nextjs-original-wordmark colored"></i>
+<i class="devicon-nginx-original colored"></i>
+<i class="devicon-nodejs-plain-wordmark colored"></i>
+<i class="devicon-npm-original-wordmark colored"></i>
+<i class="devicon-nuxtjs-plain-wordmark"></i>
+<i class="devicon-php-plain colored"></i>
+<i class="devicon-python-plain-wordmark colored"></i>
+<i class="devicon-raspberrypi-line-wordmark colored"></i>
+<i class="devicon-react-original-wordmark colored"></i>
+<i class="devicon-rust-plain colored"></i>
+<i class="devicon-slack-plain-wordmark colored"></i>
+<i class="devicon-subversion-original colored"></i>
+<i class="devicon-ssh-original-wordmark colored"></i>
+<i class="devicon-trello-plain-wordmark colored"></i>
+<i class="devicon-twitter-original colored"></i>
+<i class="devicon-typescript-plain colored"></i>
+<i class="devicon-vuejs-plain-wordmark colored"></i>
+<i class="devicon-vscode-plain-wordmark colored"></i>
+<i class="devicon-webpack-plain-wordmark colored"></i>
+
+<img src="https://www.vectorlogo.zone/logos/algolia/algolia-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/google_cloud_run/google_cloud_run-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/cloudflare/cloudflare-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/browserstack/browserstack-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/buildpacksio/buildpacksio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/bracketsio/bracketsio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/apache_beam/apache_beam-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/auth0/auth0-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/google_appengine/google_appengine-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/ampproject/ampproject-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/datadoghq/datadoghq-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/eslint/eslint-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/expoio/expoio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/fluentd/fluentd-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/flyio/flyio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/gitbook/gitbook-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/gitpodio/gitpodio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/google_maps/google_maps-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/gravatar/gravatar-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/grpcio/grpcio-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/guess-js/guess-js-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/haxe/haxe-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/imagemagick/imagemagick-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/jsdelivr/jsdelivr-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/jsfiddle/jsfiddle-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/json/json-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/amazon_awslambda/amazon_awslambda-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/line/line-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/linux/linux-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/nagios/nagios-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/netlify/netlify-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/nim-lang/nim-lang-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/openpolicyagent/openpolicyagent-ar21.svg">
+<img src="https://www.vectorlogo.zone/logos/oreilly/oreilly-ar21.svg">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+
+
+backstopjs
+digdag
+javascriptゲームエンジン
+v言語

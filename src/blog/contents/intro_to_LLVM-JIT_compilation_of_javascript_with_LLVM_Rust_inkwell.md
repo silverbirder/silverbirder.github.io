@@ -441,97 +441,139 @@ entry:
 ```rust
 extern crate inkwell;
 
-use inkwell::builder::Builder;
 use inkwell::context::Context;
-use inkwell::execution_engine::ExecutionEngine;
-use inkwell::module::Module;
 use inkwell::IntPredicate::EQ;
 use inkwell::OptimizationLevel;
 use std::error::Error;
-use std::ptr::null;
-
-struct CodeGen<'ctx> {
-    context: &'ctx Context,
-    module: Module<'ctx>,
-    builder: Builder<'ctx>,
-    execution_engine: ExecutionEngine<'ctx>,
-}
 
 fn main() -> Result<(), Box<dyn Error>> {
     let context = Context::create();
-    let module = context.create_module("fizzbuzz");
     let i64_type = context.i64_type();
     let void_type = context.void_type();
     let i8_type = context.i8_type();
+
     let i8_ptr_type = i8_type.ptr_type(inkwell::AddressSpace::Generic);
+    let fn_type = i64_type.fn_type(&[i64_type.into()], false);
     let null = i8_ptr_type.const_null();
+
+    // Module
+    let module = context.create_module("fizz_buzz");
+
+    // Function
     let printf_fn_type = void_type.fn_type(&[i8_ptr_type.into()], true);
     let printf_function = module.add_function("printf", printf_fn_type, None);
+    let fizz_buzz_function = module.add_function("fizz_buzz", fn_type, None);
 
-    let fn_type = i64_type.fn_type(&[i64_type.into()], false);
-    let function = module.add_function("fizzbuzz", fn_type, None);
-    let block = context.append_basic_block(function, "entry");
+    // Block
+    let block = context.append_basic_block(fizz_buzz_function, "entry");
+
+    // Instruction
     let builder = context.create_builder();
     builder.position_at_end(block);
-    let fb_string_ptr = builder.build_global_string_ptr("fizzbuzz\n", "fizzbuzz");
-    let f_string_ptr = builder.build_global_string_ptr("fizz\n", "fizz");
-    let b_string_ptr = builder.build_global_string_ptr("buzz\n", "buzz");
-    let x = function.get_nth_param(0).unwrap().into_int_value();
-    let x3 = builder.build_int_signed_rem(x, i64_type.const_int(3, false), "rem");
-    let x5 = builder.build_int_signed_rem(x, i64_type.const_int(5, false), "rem");
-    let x15 = builder.build_int_signed_rem(x, i64_type.const_int(15, false), "rem");
-    let x3_cmp = builder.build_int_compare(EQ, x3, i64_type.const_int(0, false), "if");
-    let x5_cmp = builder.build_int_compare(EQ, x5, i64_type.const_int(0, false), "if");
-    let x15_cmp = builder.build_int_compare(EQ, x15, i64_type.const_int(0, false), "if");
-    let fb_then_bb = context.append_basic_block(function, "fb_then");
-    let con_1_bb = context.append_basic_block(function, "con_1");
-    let con_2_bb = context.append_basic_block(function, "con_2");
-    let f_else_bb = context.append_basic_block(function, "f_else_if");
-    let b_else_bb = context.append_basic_block(function, "b_else");
-    let cont_bb = context.append_basic_block(function, "ifcont");
-    builder.build_conditional_branch(x15_cmp, fb_then_bb, con_1_bb);
 
-    builder.position_at_end(fb_then_bb);
+    let fizz_buzz_string_ptr = builder.build_global_string_ptr("FizzBuzz\n", "fizz_buzz");
+    let fizz_string_ptr = builder.build_global_string_ptr("Fizz\n", "fizz");
+    let buzz_string_ptr = builder.build_global_string_ptr("Buzz\n", "buzz");
+
+    let param_0 = fizz_buzz_function
+        .get_nth_param(0)
+        .unwrap()
+        .into_int_value();
+
+    let rem_divied_by_3 =
+        builder.build_int_signed_rem(param_0, i64_type.const_int(3, false), "rem_3");
+    let rem_divied_by5 =
+        builder.build_int_signed_rem(param_0, i64_type.const_int(5, false), "rem_5");
+    let rem_divied_by15 =
+        builder.build_int_signed_rem(param_0, i64_type.const_int(15, false), "rem_15");
+
+    let comp_that_is_divisible_by_3 = builder.build_int_compare(
+        EQ,
+        rem_divied_by_3,
+        i64_type.const_int(0, false),
+        "if_can_divide_by_3",
+    );
+    let comp_that_is_divisible_by_5 = builder.build_int_compare(
+        EQ,
+        rem_divied_by5,
+        i64_type.const_int(0, false),
+        "if_can_divide_by_5",
+    );
+    let comp_that_is_divisible_by_15 = builder.build_int_compare(
+        EQ,
+        rem_divied_by15,
+        i64_type.const_int(0, false),
+        "if_can_divide_by_15",
+    );
+
+    // Prepare Block
+    let fizz_buzz_block = context.append_basic_block(fizz_buzz_function, "fizz_buzz");
+    let fizz_block = context.append_basic_block(fizz_buzz_function, "fizz");
+    let buzz_block = context.append_basic_block(fizz_buzz_function, "buzz");
+    let num_block = context.append_basic_block(fizz_buzz_function, "num");
+    let else_1_block = context.append_basic_block(fizz_buzz_function, "else_1");
+    let else_2_block = context.append_basic_block(fizz_buzz_function, "else_2");
+    let end_block = context.append_basic_block(fizz_buzz_function, "end_block");
+
+    // Instruction
+    builder.build_conditional_branch(comp_that_is_divisible_by_15, fizz_buzz_block, else_1_block);
+    builder.position_at_end(fizz_buzz_block);
     builder.build_call(
         printf_function,
-        &[fb_string_ptr.as_pointer_value().into()],
-        "c_fb",
+        &[fizz_buzz_string_ptr.as_pointer_value().into()],
+        "print_fizz_buzz",
     );
-    builder.build_unconditional_branch(cont_bb);
+    builder.build_unconditional_branch(end_block);
 
-    builder.position_at_end(con_1_bb);
-    builder.build_conditional_branch(x3_cmp, f_else_bb, con_2_bb);
-
-    builder.position_at_end(f_else_bb);
+    // Instruction
+    builder.position_at_end(else_1_block);
+    builder.build_conditional_branch(comp_that_is_divisible_by_3, fizz_block, else_2_block);
+    builder.position_at_end(fizz_block);
     builder.build_call(
         printf_function,
-        &[f_string_ptr.as_pointer_value().into()],
-        "c_f",
+        &[fizz_string_ptr.as_pointer_value().into()],
+        "print_fizz",
     );
-    builder.build_unconditional_branch(cont_bb);
+    builder.build_unconditional_branch(end_block);
 
-    builder.position_at_end(con_2_bb);
-    builder.build_conditional_branch(x5_cmp, b_else_bb, cont_bb);
-
-    builder.position_at_end(b_else_bb);
+    // Instruction
+    builder.position_at_end(else_2_block);
+    builder.build_conditional_branch(comp_that_is_divisible_by_5, buzz_block, num_block);
+    builder.position_at_end(buzz_block);
     builder.build_call(
         printf_function,
-        &[b_string_ptr.as_pointer_value().into()],
-        "c_b",
+        &[buzz_string_ptr.as_pointer_value().into()],
+        "print_buzz",
     );
-    builder.build_unconditional_branch(cont_bb);
+    builder.build_unconditional_branch(end_block);
 
-    builder.position_at_end(cont_bb);
+    // Instruction
+    builder.position_at_end(num_block);
+    builder.build_call(
+        printf_function,
+        &[buzz_string_ptr.as_pointer_value().into()], // TODO: Print input num.
+        "print_num",
+    );
+    builder.build_unconditional_branch(end_block);
+
+    // Instruction
+    builder.position_at_end(end_block);
     builder.build_return(Some(&null));
 
     let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
     unsafe {
-        let x = 6u64;
-        e.get_function::<unsafe extern "C" fn(u64) -> ()>("fizzbuzz")?
+        let x = 15u64;
+        e.get_function::<unsafe extern "C" fn(u64) -> ()>("fizz_buzz")?
             .call(x);
     }
     Ok(())
 }
+```
+
+
+```shell session
+$ cargo run
+FizzBuzz
 ```
 
 ## JSをパース
@@ -541,36 +583,25 @@ fn main() -> Result<(), Box<dyn Error>> {
 ```rust
 #[macro_use]
 extern crate swc_common;
-extern crate swc_ecma_parser;
 extern crate swc_ecma_ast;
-
-use std::path::Path;
+extern crate swc_ecma_parser;
 
 use swc_common::sync::Lrc;
 use swc_common::{
     errors::{ColorConfig, Handler},
-    FileName, FilePathMapping, SourceMap,
+    FileName, SourceMap,
 };
 use swc_ecma_parser::{lexer::Lexer, Parser, StringInput, Syntax};
-use swc_ecma_ast::{Lit, Number};
-use swc_ecma_ast::Lit::Num;
 
 fn main() {
     let cm: Lrc<SourceMap> = Default::default();
-    let handler =
-        Handler::with_tty_emitter(ColorConfig::Auto, true, false,
-        Some(cm.clone()));
+    let handler = Handler::with_tty_emitter(ColorConfig::Auto, true, false, Some(cm.clone()));
 
-    // Real usage
-    // let fm = cm
-    //     .load_file(Path::new("./src/test.js"))
-    //     .expect("failed to load test.js");
     let fm = cm.new_source_file(
         FileName::Custom("test.js".into()),
         "function foo() {}".into(),
     );
     let lexer = Lexer::new(
-        // We want to parse ecmascript
         Syntax::Es(Default::default()),
         // JscTarget defaults to es5
         Default::default(),
@@ -586,14 +617,17 @@ fn main() {
 
     let _module = parser
         .parse_module()
-        .map_err(|mut e| {
-            // Unrecoverable fatal error occurred
-            e.into_diagnostic(&handler).emit()
-        })
+        .map_err(|mut e| e.into_diagnostic(&handler).emit())
         .expect("failed to parser module");
-    
+
     println!("{:?}", _module);
 }
+```
+
+
+```shell session
+$ cargo run
+Module { span: Span { lo: BytePos(0), hi: BytePos(17), ctxt: #0 }, body: [Stmt(Decl(Fn(FnDecl { ident: Ident { span: Span { lo: BytePos(9), hi: BytePos(12), ctxt: #0 }, sym: Atom('foo' type=inline), optional: false }, declare: false, function: Function { params: [], decorators: [], span: Span { lo: BytePos(0), hi: BytePos(17), ctxt: #0 }, body: Some(BlockStmt { span: Span { lo: BytePos(15), hi: BytePos(17), ctxt: #0 }, stmts: [] }), is_generator: false, is_async: false, type_params: None, return_type: None } })))], shebang: None }
 ```
 
 ## 四則演算のJSをパース
@@ -695,6 +729,16 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
     Ok(())
 }
+```
+
+```javascript
+20 / 10;
+```
+
+
+```shell session
+$ cargo run
+2
 ```
 
 # 終わりに

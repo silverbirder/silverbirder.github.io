@@ -25,481 +25,128 @@ icon: 🧑‍💻
 
 ### 🏠 テクニカルスキル
 
----
+|名前|経験年数|TODO|
+|--|--|--|
+|<i class="devicon-amazonwebservices-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-angularjs-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-apache-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-babel-plain colored"></i>|TODO|TODO|
+|<i class="devicon-bash-plain colored"></i>|TODO|TODO|
+|<i class="devicon-bitbucket-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-bootstrap-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-c-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-cakephp-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-chrome-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-circleci-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-confluence-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-denojs-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-django-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-docker-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-electron-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-elm-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-express-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-firebase-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-flask-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-gatsby-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-git-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-github-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-go-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-googlecloud-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-graphql-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-gulp-plain colored"></i>|TODO|TODO|
+|<i class="devicon-heroku-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-html5-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-intellij-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-jamstack-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-java-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-javascript-plain colored"></i>|TODO|TODO|
+|<i class="devicon-jenkins-plain colored"></i>|TODO|TODO|
+|<i class="devicon-jest-plain colored"></i>|TODO|TODO|
+|<i class="devicon-jira-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-jquery-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-kotlin-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-kubernetes-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-markdown-original colored"></i>|TODO|TODO|
+|<i class="devicon-materialui-plain colored"></i>|TODO|TODO|
+|<i class="devicon-mongodb-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-mysql-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-nestjs-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-nextjs-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-nginx-original colored"></i>|TODO|TODO|
+|<i class="devicon-nodejs-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-npm-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-nuxtjs-plain-wordmark"></i>|TODO|TODO|
+|<i class="devicon-php-plain colored"></i>|TODO|TODO|
+|<i class="devicon-python-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-raspberrypi-line-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-react-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-rust-plain colored"></i>|TODO|TODO|
+|<i class="devicon-slack-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-ssh-original-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-subversion-original colored"></i>|TODO|TODO|
+|<i class="devicon-trello-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-twitter-original colored"></i>|TODO|TODO|
+|<i class="devicon-typescript-plain colored"></i>|TODO|TODO|
+|<i class="devicon-vscode-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-vuejs-plain-wordmark colored"></i>|TODO|TODO|
+|<i class="devicon-webpack-plain-wordmark colored"></i>|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/akamai/akamai-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/algolia/algolia-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/amazon_awslambda/amazon_awslambda-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/ampproject/ampproject-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/apache_beam/apache_beam-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/apache_solr/apache_solr-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/auth0/auth0-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/bracketsio/bracketsio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/browserstack/browserstack-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/buildpacksio/buildpacksio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/cloudeventsio/cloudeventsio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/cloudflare/cloudflare-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/datadoghq/datadoghq-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/eslint/eslint-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/expoio/expoio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/fluentd/fluentd-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/flyio/flyio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/gitbook/gitbook-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/gitpodio/gitpodio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_appengine/google_appengine-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_cloud_run/google_cloud_run-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_maps/google_maps-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/google_stackdriver/google_stackdriver-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/gravatar/gravatar-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/grpcio/grpcio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/guess-js/guess-js-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/haxe/haxe-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/imagemagick/imagemagick-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/js_webpack/js_webpack-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/jsdelivr/jsdelivr-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/jsfiddle/jsfiddle-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/json/json-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/letsencrypt/letsencrypt-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/line/line-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/linux/linux-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/memcached/memcached-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/nagios/nagios-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/netlify/netlify-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/nim-lang/nim-lang-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/openpolicyagent/openpolicyagent-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/oreilly/oreilly-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/pulumiio/pulumiio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/raspberrypi/raspberrypi-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/redis/redis-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/sentryio/sentryio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/surgesh/surgesh-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/theia-ide/theia-ide-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/varnish-cache/varnish-cache-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/webassembly/webassembly-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/webcomponents/webcomponents-ar21.svg">|TODO|TODO|
+|<img src="https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg">|TODO|TODO|
 
-<i class="devicon-amazonwebservices-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-angularjs-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-apache-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-babel-plain colored"></i>
-
----
-
-<i class="devicon-bash-plain colored"></i>
-
----
-
-<i class="devicon-bitbucket-original-wordmark colored"></i>
-
----
-
-<i class="devicon-bootstrap-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-c-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-cakephp-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-chrome-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-circleci-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-confluence-original-wordmark colored"></i>
-
----
-
-<i class="devicon-denojs-original-wordmark colored"></i>
-
----
-
-<i class="devicon-django-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-docker-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-electron-original-wordmark colored"></i>
-
----
-
-<i class="devicon-elm-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-express-original-wordmark colored"></i>
-
----
-
-<i class="devicon-firebase-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-flask-original-wordmark colored"></i>
-
----
-
-<i class="devicon-gatsby-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-git-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-github-original-wordmark colored"></i>
-
----
-
-<i class="devicon-go-original-wordmark colored"></i>
-
----
-
-<i class="devicon-googlecloud-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-graphql-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-gulp-plain colored"></i>
-
----
-
-<i class="devicon-heroku-original-wordmark colored"></i>
-
----
-
-<i class="devicon-html5-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-intellij-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-jamstack-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-java-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-javascript-plain colored"></i>
-
----
-
-<i class="devicon-jest-plain colored"></i>
-
----
-
-<i class="devicon-jenkins-plain colored"></i>
-
----
-
-<i class="devicon-jira-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-jquery-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-kotlin-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-kubernetes-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-materialui-plain colored"></i>
-
----
-
-<i class="devicon-markdown-original colored"></i>
-
----
-
-<i class="devicon-mongodb-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-mysql-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-nestjs-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-nextjs-original-wordmark colored"></i>
-
----
-
-<i class="devicon-nginx-original colored"></i>
-
----
-
-<i class="devicon-nodejs-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-npm-original-wordmark colored"></i>
-
----
-
-<i class="devicon-nuxtjs-plain-wordmark"></i>
-
----
-
-<i class="devicon-php-plain colored"></i>
-
----
-
-<i class="devicon-python-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-raspberrypi-line-wordmark colored"></i>
-
----
-
-<i class="devicon-react-original-wordmark colored"></i>
-
----
-
-<i class="devicon-rust-plain colored"></i>
-
----
-
-<i class="devicon-slack-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-subversion-original colored"></i>
-
----
-
-<i class="devicon-ssh-original-wordmark colored"></i>
-
----
-
-<i class="devicon-trello-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-twitter-original colored"></i>
-
----
-
-<i class="devicon-typescript-plain colored"></i>
-
----
-
-<i class="devicon-vuejs-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-vscode-plain-wordmark colored"></i>
-
----
-
-<i class="devicon-webpack-plain-wordmark colored"></i>
-
----
-
-<img src="https://www.vectorlogo.zone/logos/algolia/algolia-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_cloud_run/google_cloud_run-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/cloudflare/cloudflare-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/browserstack/browserstack-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/buildpacksio/buildpacksio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/bracketsio/bracketsio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/apache_beam/apache_beam-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/auth0/auth0-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_appengine/google_appengine-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/ampproject/ampproject-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/datadoghq/datadoghq-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/eslint/eslint-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/expoio/expoio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/fluentd/fluentd-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/flyio/flyio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/gitbook/gitbook-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/gitpodio/gitpodio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_maps/google_maps-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/gravatar/gravatar-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/grpcio/grpcio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/guess-js/guess-js-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/haxe/haxe-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/imagemagick/imagemagick-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/jsdelivr/jsdelivr-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/jsfiddle/jsfiddle-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/json/json-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/amazon_awslambda/amazon_awslambda-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/line/line-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/linux/linux-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/nagios/nagios-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/netlify/netlify-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/nim-lang/nim-lang-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/openpolicyagent/openpolicyagent-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/oreilly/oreilly-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/pulumiio/pulumiio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/raspberrypi/raspberrypi-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/sentryio/sentryio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/apache_solr/apache_solr-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/google_stackdriver/google_stackdriver-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/surgesh/surgesh-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/theia-ide/theia-ide-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/varnish-cache/varnish-cache-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/webcomponents/webcomponents-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/webassembly/webassembly-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/js_webpack/js_webpack-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/akamai/akamai-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/cloudeventsio/cloudeventsio-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/letsencrypt/letsencrypt-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/memcached/memcached-ar21.svg">
-
----
-
-<img src="https://www.vectorlogo.zone/logos/redis/redis-ar21.svg">
 
 <!-- <img style="width: 60px;" src="https://raw.githubusercontent.com/coinranking/cryptocurrency-icons/master/icons/vezt_vzt.svg">
 <img style="width: 60px;" src="https://raw.githubusercontent.com/file-icons/icons/master/svg/Digdag.svg">

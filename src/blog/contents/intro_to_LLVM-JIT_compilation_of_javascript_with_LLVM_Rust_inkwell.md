@@ -27,10 +27,7 @@ LLVMについて、全く知識がなかった人間です。
 
 # 背景
 
-過去に、おもちゃのブラウザ自作をやってみました。
-
-[https://silver-birder.github.io/blog/contents/learning_browser_engine:embed]
-
+過去に、おもちゃのブラウザ自作をやってみました。([ブラウザの仕組みを学ぶ](https://silver-birder.github.io/blog/contents/learning_browser_engine))
 HTMLとCSSを解析し、レンダリングするところを書き、基本的な動作を知ることができました。
 HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを書いてみたくなりました。
 ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は難しいので、
@@ -214,26 +211,41 @@ IRをModule,Function,Block,Instructionで区切って見ると、次の画像の
 
 それぞれ、どういうものか簡単に説明します。
 
-* Module
-  * LLVM programs are composed of Module’s, each of which is a translation unit of the input programs.
-  * 入力プログラムの変換単位.
-  * 関数、グローバル変数、シンボルテーブルエントリ(?)を持つ.
-    * https://llvm.org/docs/LangRef.html#module-structure
-* Function
-  * LLVM function definitions consist of the “define” keyword.
-  * A function definition contains a list of basic blocks.
-  * 関数. 複数の基本ブロックを持つ.
-  * https://llvm.org/docs/LangRef.html#functions
-* Block
-  * Each basic block may optionally start with a label (giving the basic block a symbol table entry), contains a list of instructions, and ends with a terminator instruction (such as a branch or function return).
-  * ラベルから始まり、複数の命令を持つ.
-  * https://llvm.org/docs/LangRef.html#functions
-* Instruction
-  * The LLVM instruction set consists of several different classifications of instructions: terminator instructions, binary instructions, bitwise binary instructions, memory instructions, and other instructions.
-  * バイナリ命令やメモリ命令など、様々な命令を持つ. 
-  * https://llvm.org/docs/LangRef.html#instruction-reference
+## Module
 
----
+> LLVM programs are composed of Module’s, each of which is a translation unit of the input programs.
+
+※ [https://llvm.org/docs/LangRef.html#module-structure](https://llvm.org/docs/LangRef.html#module-structure)
+
+モジュールは、入力プログラムの変換単位になります。
+モジュールには、関数、グローバル変数、シンボルテーブルエントリを持ちます。
+
+## Function
+
+> LLVM function definitions consist of the “define” keyword.
+A function definition contains a list of basic blocks.
+
+※ [https://llvm.org/docs/LangRef.html#functions](https://llvm.org/docs/LangRef.html#functions)
+
+関数は、複数のブロック(Block)を持ちます。
+
+## Block
+
+> Each basic block may optionally start with a label (giving the basic block a symbol table entry), contains a list of instructions, and ends with a terminator instruction (such as a branch or function return).
+
+※ [https://llvm.org/docs/LangRef.html#functions](https://llvm.org/docs/LangRef.html#functions)
+
+ブロックは、ラベルから始まり、複数の命令(Instruction)を持ちます。
+
+## Instruction
+
+> The LLVM instruction set consists of several different classifications of instructions: terminator instructions, binary instructions, bitwise binary instructions, memory instructions, and other instructions.
+
+※ [https://llvm.org/docs/LangRef.html#instruction-reference](https://llvm.org/docs/LangRef.html#instruction-reference)
+
+命令は、バイナリ命令やメモリ命令など、様々な命令があります。 
+
+## 参考資料
 
 参考になる資料たちは、次のとおりです。
 
@@ -302,6 +314,7 @@ swc_ecma_ast = "0.54.0"
 ## "Hello World" を出力
 
 まずは、Hello World を出力します。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -341,6 +354,8 @@ fn main() {
 }
 ```
 
+実行してみます。
+
 ```shell session
 $ cargo run
 Hello, world!
@@ -365,9 +380,16 @@ entry:
 }
 ```
 
+Rustの`execution_engine.get_function::<unsafe extern "C" fn()>("main").unwrap().call();`は、IRの`@main`関数を実行しています。
+`@main`関数では、`@printf`関数を実行していますが、それは、C言語の`printf`になります。
+
+IRのコードに関する調査は、[LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html) が重宝します。
+`getelementptr`を調査してみると面白いです。
+
 ## SUM
 
 次は、3つの数値を引数とし、足し算した結果を返す関数SUMを作成してみます。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -400,18 +422,20 @@ fn main() -> Result<(), Box<dyn Error>> {
     let sum = builder.build_int_add(z, sum, "sum");
     builder.build_return(Some(&sum));
 
-    let e = module.create_jit_execution_engine(OptimizationLevel::None)?;
+    let execution_engine = module.create_jit_execution_engine(OptimizationLevel::None)?;
 
     unsafe { 
         let x = 1u64;
         let y = 2u64;
         let z = 3u64;
-        let s = e.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);
-        println!("{:?}", s);
+        let r = execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);
+        println!("{:?}", r);
     };
     Ok(())
 }
 ```
+
+実行してみます。
 
 ```shell session
 $ cargo run
@@ -434,9 +458,13 @@ entry:
 }
 ```
 
+前回同様、Rustの`execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);`は、IRの`@sum`関数に該当します。
+足し算の`Instruction`が使えました。
+
 ## fizzbuzz
 
-では、次はFizzBuzzをしてみます。
+では、次はFizzBuzzをしてみます。割り算やifの命令が新しく使います。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -506,7 +534,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "if_can_divide_by_15",
     );
 
-    // Prepare Block
+    // Block
     let fizz_buzz_block = context.append_basic_block(fizz_buzz_function, "fizz_buzz");
     let fizz_block = context.append_basic_block(fizz_buzz_function, "fizz");
     let buzz_block = context.append_basic_block(fizz_buzz_function, "buzz");
@@ -570,15 +598,81 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
+if文では、`build_conditional_branch`と`build_unconditional_branch`がどうやら使うそうです。
+[inkwell/examples/kaleidoscope/main.rs](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope/main.rs)で書いてありましたので、使ってみました。
+実行してみます。15を引数として呼んでいます。
 
 ```shell session
 $ cargo run
 FizzBuzz
 ```
 
-## JSをパース
+成功です！
+ちなみに、IRも出力しておきます。
 
-ここからは、javascriptをパースしてみます。
+```
+; ModuleID = 'fizz_buzz'
+source_filename = "fizz_buzz"
+
+@fizz_buzz.1 = private unnamed_addr constant [10 x i8] c"FizzBuzz\0A\00", align 1
+@fizz = private unnamed_addr constant [6 x i8] c"Fizz\0A\00", align 1
+@buzz = private unnamed_addr constant [6 x i8] c"Buzz\0A\00", align 1
+
+declare void @printf(i8*, ...)
+
+define i64 @fizz_buzz(i64 %0) {
+entry:
+  %rem_3 = srem i64 %0, 3
+  %rem_5 = srem i64 %0, 5
+  %rem_15 = srem i64 %0, 15
+  %if_can_divide_by_3 = icmp eq i64 %rem_3, 0
+  %if_can_divide_by_5 = icmp eq i64 %rem_5, 0
+  %if_can_divide_by_15 = icmp eq i64 %rem_15, 0
+  br i1 %if_can_divide_by_15, label %fizz_buzz, label %else_1
+
+fizz_buzz:                                        ; preds = %entry
+  call void (i8*, ...) @printf(i8* getelementptr inbounds ([10 x i8], [10 x i8]* @fizz_buzz.1, i32 0, i32 0))
+  br label %end_block
+
+fizz:                                             ; preds = %else_1
+  call void (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @fizz, i32 0, i32 0))
+  br label %end_block
+
+buzz:                                             ; preds = %else_2
+  call void (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @buzz, i32 0, i32 0))
+  br label %end_block
+
+num:                                              ; preds = %else_2
+  call void (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @buzz, i32 0, i32 0))
+  br label %end_block
+
+else_1:                                           ; preds = %entry
+  br i1 %if_can_divide_by_3, label %fizz, label %else_2
+
+else_2:                                           ; preds = %else_1
+  br i1 %if_can_divide_by_5, label %buzz, label %num
+
+end_block:                                        ; preds = %num, %buzz, %fizz, %fizz_buzz
+  ret i8* null
+}
+```
+
+Blockがめちゃくちゃ増えました。それはFizzBuzzのif,elseが多いからですね。
+LLVMについて、少し自信がついてきました。
+これまで`中間言語 ~ コード生成`をLLVMでやってみました。
+少し戻って、`字句解析 ~ 構文木`の部分、つまりパース処理をやってみます。
+
+## 四則演算するJavascriptをパース
+
+javascriptをパースしてみます。[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)を使います。
+パースするjavascriptは、次のものになります。
+
+```javascript
+// ./src/test.js
+20 / 10
+```
+
+Rustのコードは、次のものになります。
 
 ```rust
 #[macro_use]
@@ -586,10 +680,12 @@ extern crate swc_common;
 extern crate swc_ecma_ast;
 extern crate swc_ecma_parser;
 
+use std::path::Path;
+
 use swc_common::sync::Lrc;
 use swc_common::{
     errors::{ColorConfig, Handler},
-    FileName, SourceMap,
+    SourceMap,
 };
 use swc_ecma_parser::{lexer::Lexer, Parser, StringInput, Syntax};
 
@@ -597,10 +693,9 @@ fn main() {
     let cm: Lrc<SourceMap> = Default::default();
     let handler = Handler::with_tty_emitter(ColorConfig::Auto, true, false, Some(cm.clone()));
 
-    let fm = cm.new_source_file(
-        FileName::Custom("test.js".into()),
-        "function foo() {}".into(),
-    );
+    let fm = cm
+        .load_file(Path::new("./src/test.js"))
+        .expect("failed to load test.js");
     let lexer = Lexer::new(
         Syntax::Es(Default::default()),
         // JscTarget defaults to es5
@@ -624,13 +719,27 @@ fn main() {
 }
 ```
 
+実行してみます。
 
 ```shell session
 $ cargo run
-Module { span: Span { lo: BytePos(0), hi: BytePos(17), ctxt: #0 }, body: [Stmt(Decl(Fn(FnDecl { ident: Ident { span: Span { lo: BytePos(9), hi: BytePos(12), ctxt: #0 }, sym: Atom('foo' type=inline), optional: false }, declare: false, function: Function { params: [], decorators: [], span: Span { lo: BytePos(0), hi: BytePos(17), ctxt: #0 }, body: Some(BlockStmt { span: Span { lo: BytePos(15), hi: BytePos(17), ctxt: #0 }, stmts: [] }), is_generator: false, is_async: false, type_params: None, return_type: None } })))], shebang: None }
+Module { span: Span { lo: BytePos(0), hi: BytePos(8), ctxt: #0 }, body: [Stmt(Expr(ExprStmt { span: Span { lo: BytePos(0), hi: BytePos(8), ctxt: #0 }, expr: Bin(BinExpr { span: Span { lo: BytePos(0), hi: BytePos(7), ctxt: #0 }, op: "/", left: Lit(Num(Number { span: Span { lo: BytePos(0), hi: BytePos(2), ctxt: #0 }, value: 20.0 })), right: Lit(Num(Number { span: Span { lo: BytePos(5), hi: BytePos(7), ctxt: #0 }, value: 10.0 })) }) }))], shebang: None }
 ```
 
-## 四則演算のJSをパース
+それっぽい結果(20.0や10.0)が出力されましたね！
+
+## 四則演算するJavascriptをLLVMで実行
+
+最後に、swc_ecma_parserとLLVMを組み合わせて、`字句解析 ~ 構文木`と`中間言語 ~ コード生成`を繋げ、四則演算するJSをパースし、LLVMで実行してみます。
+
+パースするjavascriptは、次のものになります。
+
+```javascript
+// ./src/test.js
+20 / 10;
+```
+
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -731,14 +840,16 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
-```javascript
-20 / 10;
-```
-
+実行してみます。
 
 ```shell session
 $ cargo run
 2
 ```
 
+`20 / 10`つまり、`2`が出力されました！やった！
+
 # 終わりに
+これにて、簡単なjavascriptコードをパースし、LLVMで実行できるところまでたどり着きました。
+当初、LLVMの使い方って全然わからなかったのですが、段階的にできる部分が増えると、分かる領域が増えて、モチベーションが高まります。
+LLVMの勉強をされている方、参考にしてみてください。

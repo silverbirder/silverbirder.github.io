@@ -7,10 +7,6 @@ image:
 icon: 🦀
 -->
 
-![Photo by Sigmund on Unsplash](https://res.cloudinary.com/silverbirder/image/upload/v1633604091/silver-birder.github.io/blog/sigmund-HsTnjCVQ798-unsplash.jpg)
-
-※ [Photo by Sigmund on Unsplash](https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
 コンパイラ基盤であるLLVMについて、全く知識がない私が、
 javascriptソースコードをパースしLLVMでコンパイルできるようになりました。
 

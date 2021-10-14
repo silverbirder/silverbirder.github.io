@@ -289,6 +289,7 @@ MacにはXcodeにclangが含まれているようです。こちらを使って�
 (ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
 
 ```shell session
+# xcode付属のclangの場合
 $ clang --version
 Apple clang version 12.0.5 (clang-1205.0.22.9)
 Target: x86_64-apple-darwin20.6.0
@@ -456,7 +457,7 @@ entry:
 前回同様、Rustの`execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);`は、IRの`@sum`関数に該当します。
 足し算の`Instruction`が使えました。
 
-## fizzbuzz
+## FizzBuzz
 
 では、次はFizzBuzzをしてみます。割り算やifの命令が新しく使います。
 Rustのコードは、次のものになります。

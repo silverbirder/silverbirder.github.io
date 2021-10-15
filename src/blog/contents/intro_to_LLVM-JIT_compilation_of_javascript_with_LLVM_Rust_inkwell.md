@@ -123,6 +123,16 @@ LLVMは、任意のフロントエンド言語(コンパイラという文脈で
 </figure>  
 
 ---
+命令セットアーキテクチャは、次の意味になります。
+
+> 命令セットとは、あるマイクロプロセッサ（CPU/MPU）を動作させるための命令語の体系。プロセッサが直に解釈して実行できる機械語（マシン語）の仕様を定めたもの。
+
+※ [https://e-words.jp/w/命令セット.html](https://e-words.jp/w/命令セット.html)
+
+プロセッサを動作させるための命令は、例えばLoad(LDR)とStore(STR)です。Loadは、メモリからレジスタへセットし、Storeは、その逆です。
+後で紹介する[Instruction(Builder)](https://thedan64.github.io/inkwell/inkwell/builder/struct.Builder.html)に一覧があります。
+
+---
 
 今回、LLVMのフロントエンド言語は、タイトルにある通り、Rustで書こうと思います。
 単にRustでやってみたかっただけです。

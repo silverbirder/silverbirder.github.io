@@ -13,6 +13,10 @@ javascriptソースコードをパースしLLVMでコンパイルできるよう
 LLVMの記事は数多くありますが、初心者向けの記事が少なく感じたため、
 本記事では、できる限り分かりやすくLLVMについて紹介できる記事を書こうと思います。
 
+ソースコードは、こちらに置いています。
+
+[https://github.com/Silver-birder/rustscript:embed]
+
 [:contents]
 
 # 自己紹介

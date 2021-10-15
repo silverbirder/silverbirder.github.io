@@ -123,6 +123,16 @@ LLVMは、任意のフロントエンド言語(コンパイラという文脈で
 </figure>  
 
 ---
+命令セットアーキテクチャは、次の意味になります。
+
+> 命令セットとは、あるマイクロプロセッサ（CPU/MPU）を動作させるための命令語の体系。プロセッサが直に解釈して実行できる機械語（マシン語）の仕様を定めたもの。
+
+※ [https://e-words.jp/w/命令セット.html](https://e-words.jp/w/命令セット.html)
+
+プロセッサを動作させるための命令は、例えばLoad(LDR)とStore(STR)です。Loadは、メモリからレジスタへセットし、Storeは、その逆です。
+後で紹介する[Instruction(Builder)](https://thedan64.github.io/inkwell/inkwell/builder/struct.Builder.html)に一覧があります。
+
+---
 
 今回、LLVMのフロントエンド言語は、タイトルにある通り、Rustで書こうと思います。
 単にRustでやってみたかっただけです。
@@ -289,6 +299,7 @@ MacにはXcodeにclangが含まれているようです。こちらを使って�
 (ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
 
 ```shell session
+# xcode付属のclangの場合
 $ clang --version
 Apple clang version 12.0.5 (clang-1205.0.22.9)
 Target: x86_64-apple-darwin20.6.0
@@ -456,7 +467,7 @@ entry:
 前回同様、Rustの`execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);`は、IRの`@sum`関数に該当します。
 足し算の`Instruction`が使えました。
 
-## fizzbuzz
+## FizzBuzz
 
 では、次はFizzBuzzをしてみます。割り算やifの命令が新しく使います。
 Rustのコードは、次のものになります。

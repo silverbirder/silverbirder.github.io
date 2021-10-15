@@ -31,7 +31,7 @@ const singleBuildMarkdownTaskRunner = (filePath) => {
 
 const parallelBuildMarkdownTaskRunner = (done) => {
     const tasks = files.map(path => singleBuildMarkdownTaskRunner(path));
-    parallel(...tasks)();
+    series(...tasks)();
     done();
 };
 

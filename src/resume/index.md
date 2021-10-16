@@ -25,25 +25,51 @@ icon: 🧑‍💻
 
 ### 🏠 テクニカルスキル
 
-|名前|経験年数|TODO|
+<p>
+    <span class="badge badge-light">経験年数</span>
+    <span class="badge badge-info">種類</span>
+</p>
+
+<amp-list width="auto"
+              height="1500"
+              layout="fixed-height"
+              class="resume-tech-items"
+              src="BASE_URL/resume/index.json">
+        <template type="amp-mustache">
+            <div class="col-sm-12 col-md-3">
+                <div class="card">
+                    {{#image}}
+                    <amp-img class="card-img-top" src="{{image}}" width="120" height="60" layout="responsive"></amp-img>
+                    {{/image}}
+                    {{#icon}}
+                    <i class="{{icon}}"></i>
+                    {{/icon}}
+                    <div class="card-body">
+                        <p class="lead"><strong>{{name}}</strong></p>
+                        <p>{{results}}</p>
+                        <p><span class="badge badge-light">{{actual_years}}</span></p>
+                        <p>
+                            {{#types}}
+                            <span class="badge badge-info">{{.}}</span>
+                            {{/types}}
+                        </p>
+                        <p>
+                            {{#github_url}}
+                            <a href="{{github_url}}"><i class="fab fa-github"></i></a>
+                            {{/github_url}}
+                            {{#official_url}}
+                            <a href="{{official_url}}"><i class="fas fa-home"></i></a>
+                            {{/official_url}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </template>
+</amp-list>
+<!-- template engine is https://github.com/janl/mustache.js/ -->
+
+|名前|経験年数|経験内容|
 |--|--|--|
-|<i class="devicon-amazonwebservices-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-angularjs-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-apache-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-babel-plain colored"></i>|TODO|TODO|
-|<i class="devicon-bash-plain colored"></i>|TODO|TODO|
-|<i class="devicon-bitbucket-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-bootstrap-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-c-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-cakephp-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-chrome-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-circleci-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-confluence-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-denojs-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-django-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-docker-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-electron-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-elm-plain-wordmark colored"></i>|TODO|TODO|
 |<i class="devicon-express-original-wordmark colored"></i>|TODO|TODO|
 |<i class="devicon-firebase-plain-wordmark colored"></i>|TODO|TODO|
 |<i class="devicon-flask-original-wordmark colored"></i>|TODO|TODO|
@@ -150,6 +176,37 @@ icon: 🧑‍💻
 
 <!-- <img style="width: 60px;" src="https://raw.githubusercontent.com/coinranking/cryptocurrency-icons/master/icons/vezt_vzt.svg">
 <img style="width: 60px;" src="https://raw.githubusercontent.com/file-icons/icons/master/svg/Digdag.svg">
-<img style="width: 60px;" src="https://raw.githubusercontent.com/AliasIO/Wappalyzer/master/src/drivers/webextension/images/icons/Contentful.svg">
+<img style="width: 60px;" src="https://raw.githubusercontent.com/AliasIO/Wappalyzer/master/src/drivers/webextension/images/icons/Contentful.svg"> -->
+<!-- backstopjs
+enchant.js
+LLVM
+wordcloud
+typesense
+airflow
+argoworkflow
+tailor
+three.ar.js
+mql
 backstopjs
-enchant.js -->
+cloudinary
+Contentful
+Ara-Framework
+Zalando tailor
+LitElement
+Rendertron
+Lerna
+open-testing
+vaadin/router 
+Rxjs
+SSI,ESI
+podium
+archunit
+snowpack
+gas(clasp)
+cloud run
+toy-browser?
+linebot and freee api
+buildpack
+driftctl
+text_lint
+gather town -->

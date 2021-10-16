@@ -23,7 +23,7 @@ icon: 🧑‍💻
 |2020/05 ~ 2020/08|関西自社サービス会社|ドメインロジックの集約と提供<br>(バッチ&API)|GCP|データエンジニア, インフラエンジニア<br>(開発, 検証, 展開)|5名|Kotlin, Docker, Cloud Dataflow, Cloud Scheduler, Cloud Build, PubSub, GCE, Terraform, BigQuery.|仕組み化のPoC完了. バッチリリース|フロントエンドが活用するデータへの理解|
 |2020/09 ~|関西自社サービス会社|X年先を見据えた 基盤開発 バッチ群担当|GCP|データエンジニア, インフラエンジニア<br>(要件定義, 設計, リリース戦略, PoC, 開発, 検証, 展開, 運用)|30名|Digdag, Cloud Dataflow, BigQuery, Cloud Build, Cloud Monitoring, Logging, Cloud Scheduler, PubSub, GCE, Docker, Ansible, Terraform, Fluentd|[技術選定](https://tech-blog.monotaro.com/entry/2021/06/03/090000), 一部データ提供済み|データのスケーラビリティに対応したリアルタイムデータ構築に挑戦|
 
-### 🏠 テクニカルスキル
+### 🏠 [WIP] テクニカルスキル
 
 <p>
     <span class="badge badge-light">経験年数</span>
@@ -60,6 +60,9 @@ icon: 🧑‍💻
                             {{#official_url}}
                             <a href="{{official_url}}"><i class="fas fa-home"></i></a>
                             {{/official_url}}
+                            {{#wiki_url}}
+                            <a href="{{wiki_url}}"><i class="fab fa-wikipedia-w"></i></a>
+                            {{/wiki_url}}
                         </p>
                     </div>
                 </div>
@@ -70,24 +73,6 @@ icon: 🧑‍💻
 
 |名前|経験年数|経験内容|
 |--|--|--|
-|<i class="devicon-express-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-firebase-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-flask-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-gatsby-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-git-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-github-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-go-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-googlecloud-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-graphql-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-gulp-plain colored"></i>|TODO|TODO|
-|<i class="devicon-heroku-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-html5-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-intellij-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-jamstack-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-java-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-javascript-plain colored"></i>|TODO|TODO|
-|<i class="devicon-jenkins-plain colored"></i>|TODO|TODO|
-|<i class="devicon-jest-plain colored"></i>|TODO|TODO|
 |<i class="devicon-jira-plain-wordmark colored"></i>|TODO|TODO|
 |<i class="devicon-jquery-plain-wordmark colored"></i>|TODO|TODO|
 |<i class="devicon-kotlin-plain-wordmark colored"></i>|TODO|TODO|
@@ -209,4 +194,12 @@ linebot and freee api
 buildpack
 driftctl
 text_lint
-gather town -->
+gather town 
+文字コード
+正規表現
+Github Action
+Atomic Design
+Clean Arhcitecutre
+Micro Frontends
+Puppeteer
+-->

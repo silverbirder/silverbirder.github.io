@@ -73,34 +73,6 @@ icon: 🧑‍💻
 
 |名前|経験年数|経験内容|
 |--|--|--|
-|<i class="devicon-jira-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-jquery-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-kotlin-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-kubernetes-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-markdown-original colored"></i>|TODO|TODO|
-|<i class="devicon-materialui-plain colored"></i>|TODO|TODO|
-|<i class="devicon-mongodb-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-mysql-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-nestjs-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-nextjs-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-nginx-original colored"></i>|TODO|TODO|
-|<i class="devicon-nodejs-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-npm-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-nuxtjs-plain-wordmark"></i>|TODO|TODO|
-|<i class="devicon-php-plain colored"></i>|TODO|TODO|
-|<i class="devicon-python-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-raspberrypi-line-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-react-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-rust-plain colored"></i>|TODO|TODO|
-|<i class="devicon-slack-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-ssh-original-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-subversion-original colored"></i>|TODO|TODO|
-|<i class="devicon-trello-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-twitter-original colored"></i>|TODO|TODO|
-|<i class="devicon-typescript-plain colored"></i>|TODO|TODO|
-|<i class="devicon-vscode-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-vuejs-plain-wordmark colored"></i>|TODO|TODO|
-|<i class="devicon-webpack-plain-wordmark colored"></i>|TODO|TODO|
 |<img src="https://www.vectorlogo.zone/logos/akamai/akamai-ar21.svg">|TODO|TODO|
 |<img src="https://www.vectorlogo.zone/logos/algolia/algolia-ar21.svg">|TODO|TODO|
 |<img src="https://www.vectorlogo.zone/logos/amazon_awslambda/amazon_awslambda-ar21.svg">|TODO|TODO|
@@ -202,4 +174,5 @@ Atomic Design
 Clean Arhcitecutre
 Micro Frontends
 Puppeteer
+neumorphism
 -->

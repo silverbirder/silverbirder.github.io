@@ -78,7 +78,6 @@ icon: 🧑‍💻
 
 <!-- backstopjs
 enchant.js
-LLVM
 wordcloud
 typesense
 airflow
@@ -117,4 +116,6 @@ Clean Arhcitecutre
 Micro Frontends
 Puppeteer
 neumorphism
+elasticsearch
+Bit.dev
 -->

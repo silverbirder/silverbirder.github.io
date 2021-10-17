@@ -78,7 +78,6 @@ icon: 🧑‍💻
 
 <!-- backstopjs
 enchant.js
-LLVM
 wordcloud
 typesense
 airflow

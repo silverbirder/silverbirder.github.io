@@ -117,4 +117,6 @@ Clean Arhcitecutre
 Micro Frontends
 Puppeteer
 neumorphism
+elasticsearch
+Bit.dev
 -->

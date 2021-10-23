@@ -25,12 +25,6 @@ icon: 🧑‍💻
 
 ### 🏠 [WIP] テクニカルスキル
 
-<p>
-    <span class="badge badge-primary">経験年数</span>
-    <span class="badge badge-secondary">利用場面</span>
-    <span class="badge badge-info">技術種類</span>
-</p>
-
 <amp-list width="auto"
               height="1500"
               layout="fixed-height"
@@ -53,16 +47,21 @@ icon: 🧑‍💻
                         {{/icon}}
                         <div class="card-body">
                             <p class="lead"><strong>{{name}}</strong></p>
-                            <p>{{results}}</p>
-                            <p><span class="badge badge-primary">{{actual_years}}</span></p>
-                            <p>
+                            <p><span class="badge badge-success">経験内容</span><br/><span>{{results}}</span></p>
+                            <p><span class="badge badge-primary">経験年数</span><br/><span>{{actual_years}}</span></p>
+                            <p><span class="badge badge-secondary">利用場面</span><br/>
+                                [
                                 {{#usage_scenarios}}
-                                <span class="badge badge-secondary">{{.}}</span>
+                                <span>{{.}}</span>,
                                 {{/usage_scenarios}}
-                            <p>
+                                ]
+                            </p>
+                            <p><span class="badge badge-info">技術種類</span><br/>
+                                [
                                 {{#tech_types}}
-                                <span class="badge badge-info">{{.}}</span>
+                                <span>{{.}}</span>,
                                 {{/tech_types}}
+                                ]
                             </p>
                             <p>
                                 {{#github_url}}
@@ -94,7 +93,6 @@ three.ar.js
 mql
 backstopjs
 cloudinary
-Contentful
 Ara-Framework
 Zalando tailor
 LitElement
@@ -125,4 +123,7 @@ Puppeteer
 neumorphism
 elasticsearch
 Bit.dev
+Lisp?haskell
+TDD,DDD
+Zabbix
 -->

@@ -26,8 +26,9 @@ icon: 🧑‍💻
 ### 🏠 [WIP] テクニカルスキル
 
 <p>
-    <span class="badge badge-light">経験年数</span>
-    <span class="badge badge-info">種類</span>
+    <span class="badge badge-primary">経験年数</span>
+    <span class="badge badge-secondary">利用場面</span>
+    <span class="badge badge-info">技術種類</span>
 </p>
 
 <amp-list width="auto"
@@ -36,42 +37,48 @@ icon: 🧑‍💻
               class="resume-tech-items"
               src="BASE_URL/resume/index.json">
         <template type="amp-mustache">
-            <div class="col-sm-12 col-md-3">
-                <div class="card">
-                    {{#image}}
-                        {{#width}}
-                            <amp-img class="card-img-top" src="{{image}}" width="{{width}}" height="{{height}}" layout="responsive"></amp-img>
-                        {{/width}}
-                        {{^width}}
-                            <amp-img class="card-img-top" src="{{image}}" width="120" height="60" layout="responsive"></amp-img>
-                        {{/width}}
-                    {{/image}}
-                    {{#icon}}
-                    <i class="{{icon}}"></i>
-                    {{/icon}}
-                    <div class="card-body">
-                        <p class="lead"><strong>{{name}}</strong></p>
-                        <p>{{results}}</p>
-                        <p><span class="badge badge-light">{{actual_years}}</span></p>
-                        <p>
-                            {{#types}}
-                            <span class="badge badge-info">{{.}}</span>
-                            {{/types}}
-                        </p>
-                        <p>
-                            {{#github_url}}
-                            <a href="{{github_url}}"><i class="fab fa-github"></i></a>
-                            {{/github_url}}
-                            {{#official_url}}
-                            <a href="{{official_url}}"><i class="fas fa-home"></i></a>
-                            {{/official_url}}
-                            {{#wiki_url}}
-                            <a href="{{wiki_url}}"><i class="fab fa-wikipedia-w"></i></a>
-                            {{/wiki_url}}
-                        </p>
+            {{#results}}
+                <div class="col-sm-12 col-md-3">
+                    <div class="card">
+                        {{#image}}
+                            {{#width}}
+                                <amp-img class="card-img-top" src="{{image}}" width="{{width}}" height="{{height}}" layout="responsive"></amp-img>
+                            {{/width}}
+                            {{^width}}
+                                <amp-img class="card-img-top" src="{{image}}" width="120" height="60" layout="responsive"></amp-img>
+                            {{/width}}
+                        {{/image}}
+                        {{#icon}}
+                        <i class="{{icon}}"></i>
+                        {{/icon}}
+                        <div class="card-body">
+                            <p class="lead"><strong>{{name}}</strong></p>
+                            <p>{{results}}</p>
+                            <p><span class="badge badge-primary">{{actual_years}}</span></p>
+                            <p>
+                                {{#usage_scenarios}}
+                                <span class="badge badge-secondary">{{.}}</span>
+                                {{/usage_scenarios}}
+                            <p>
+                                {{#tech_types}}
+                                <span class="badge badge-info">{{.}}</span>
+                                {{/tech_types}}
+                            </p>
+                            <p>
+                                {{#github_url}}
+                                <a href="{{github_url}}"><i class="fab fa-github"></i></a>
+                                {{/github_url}}
+                                {{#official_url}}
+                                <a href="{{official_url}}"><i class="fas fa-home"></i></a>
+                                {{/official_url}}
+                                {{#wiki_url}}
+                                <a href="{{wiki_url}}"><i class="fab fa-wikipedia-w"></i></a>
+                                {{/wiki_url}}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/results}}
         </template>
 </amp-list>
 <!-- template engine is https://github.com/janl/mustache.js/ -->

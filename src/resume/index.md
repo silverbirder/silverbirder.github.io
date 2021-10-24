@@ -81,3 +81,4 @@ icon: 🧑‍💻
         </template>
 </amp-list>
 <!-- template engine is https://github.com/janl/mustache.js/ -->
+<!-- cat index.json | jq '.items | sort_by(.name) | { items: .}' > index.sort.json -->

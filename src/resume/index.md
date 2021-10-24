@@ -23,7 +23,7 @@ icon: 🧑‍💻
 |2020/05 ~ 2020/08|関西自社サービス会社|ドメインロジックの集約と提供<br>(バッチ&API)|GCP|データエンジニア, インフラエンジニア<br>(開発, 検証, 展開)|5名|Kotlin, Docker, Cloud Dataflow, Cloud Scheduler, Cloud Build, PubSub, GCE, Terraform, BigQuery.|仕組み化のPoC完了. バッチリリース|フロントエンドが活用するデータへの理解|
 |2020/09 ~|関西自社サービス会社|X年先を見据えた 基盤開発 バッチ群担当|GCP|データエンジニア, インフラエンジニア<br>(要件定義, 設計, リリース戦略, PoC, 開発, 検証, 展開, 運用)|30名|Digdag, Cloud Dataflow, BigQuery, Cloud Build, Cloud Monitoring, Logging, Cloud Scheduler, PubSub, GCE, Docker, Ansible, Terraform, Fluentd|[技術選定](https://tech-blog.monotaro.com/entry/2021/06/03/090000), 一部データ提供済み|データのスケーラビリティに対応したリアルタイムデータ構築に挑戦|
 
-### 🏠 [WIP] テクニカルスキル
+### 🏠 テクニカルスキル
 
 <amp-list width="auto"
               height="1500"

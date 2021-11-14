@@ -1,7 +1,7 @@
 <!-- 
 title: カジュアル面談を10社受けた感想
 date: 2021-11-12T18:30:00+09:00
-draft: false
+draft: true
 description: 
 image: 
 icon: 👔

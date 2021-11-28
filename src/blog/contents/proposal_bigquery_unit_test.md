@@ -17,13 +17,17 @@ BigQuery、皆さん使っていますか？
 # 動機
 端的に言うと、BigQueryのSQL改修時にデグレが発生していないか確認したいです。
 
-業務でBigQueryのSQLを書きます。運用・保守が長引くとBigQueryのSQLファイル数が増えたり、
-SQLのロジックが複雑になります。
-PythonやJavascriptのような言語では、ユニットテストを使ってロジックの保証をしますが、
-BigQueryのSQLには、ユニットテストをどう書けばよいのか、私は知りませんでした。
-そこで、私なりにBigQueryのSQLに対するユニットテストを考えました。
+業務でBigQueryのSQLを書いているのですが、それに対するユニットテストがありません。
+PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークを使いユニットテストができます。
 
-# xUnit
+しかし、SQLに対するユニットテストというのは、(私の観測範囲上) あまり聞いたことがありません。
+dbt(Data Build Tool)というツールを使えば、SQLへテストをかけるようですが、私はそれの良さ・悪さを知りません。
+
+新しいライブラリ・ツールを覚えるよりも、その言語の**標準的な技術**を用いて、SQLのユニットテストがかけないかと考えました。
+そこで、BigQueryの標準的な技術だけで、ユニットテストを書こうと思いました。
+
+# XUnit
+
 xUnitは、単体テストで使用するフレームワークです。例えば、『100円未満の果物を取得する』関数、`get_less_than`があったとします。言語はPythonです。
 
 ```python
@@ -42,6 +46,7 @@ class Fruits(object):
         fruits = self._get_fruits()
         return list(filter(lambda x: x["price"] < price, fruits))
 ```
+
 `_get_fruits`関数は、簡易的なモノで、実際には実データを参照する箇所になります。
 
 `get_less_than`関数に対してxUnitを書くとすれば、次のコードになります。
@@ -76,7 +81,7 @@ class TestFruits(unittest.TestCase):
 
 # BigQuery
 
-BigQueryの場合、どのようにテストしましょうか。
+BigQueryの場合、どのようにテストすればよいのでしょうか。
 まず、データを用意します。
 
 ```sql
@@ -127,8 +132,7 @@ WHERE
   price < 100
 ```
 
-これだと、実データ(shop.fruits)を参照しています。
-このまま、テストを書くとすれば、次の感じになります。
+出力された`fruits_less_than_100`テーブルに対して、Pythonで書いたようなテストを、SQLで書いてみます。
 
 ```sql
 -- test_fruits_less_than_100.sql
@@ -140,17 +144,59 @@ ASSERT
     shop.fruits_less_than_100) AS "The fruit that costs less than 100 is an orange."
 ```
 
-これだと、実データで生成したデータに対してテストをしています。
-これは、次の2つのデメリットがあります。
+このテストにより `fruits_less_than_100`テーブルに対して、"priceが100未満のfruitのnameがorangeであるということ"が保証できました。
 
+ただし、これは実データ(shop.fruitsテーブル)を参照して生成されたデータです。
+そのため、次の問題があります。
+
+* 実データを参照しているため、テストが不安定になる
+  * 実データに`orange`がなくなると、テストが失敗する
 * フィードバックサイクルが長い
-* テストが不安定になる
+  * 実データが多くなると、テスト結果に時間がかかる
 
-そこで、テーブル関数というものを活用します。
+そこで、テーブル関数というものを活用し、実データをモックデータに差し替えるようにします。
 
 # テーブル関数とは
 
-TODO
+> テーブル関数（テーブル値関数、TVF とも呼ばれます）は、テーブルを返すユーザー定義関数です。テーブル関数は、テーブルを使用できる場所であればどこでも使用できます。テーブル関数はビューと似ていますが、テーブル関数ではパラメータを取得できます。
+
+※ [テーブル関数|BigQuery|Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/table-functions)
+
+ユーザー定義関数は、スカラ値を返却できますが、非スカラ値、つまりテーブルを返却できません。
+次にユーザー定義関数の例を示します。
+
+```sql
+CREATE TEMP FUNCTION AddFourAndDivide(x INT64, y INT64)
+  RETURNS FLOAT64
+  AS ((x + 4) / y);
+```
+
+ユーザー定義関数は、次のように使います。
+
+```sql
+SELECT val, AddFourAndDivide(val, 2)
+  FROM UNNEST([2,3,5,8]) AS val;
+```
+
+逆にテーブル関数は、テーブルを返却することができます。次にテーブル関数の例を示します。
+
+```sql
+CREATE OR REPLACE TABLE FUNCTION mydataset.names_by_year(y INT64)
+AS
+  SELECT year, name, SUM(number) AS total
+  FROM `bigquery-public-data.usa_names.usa_1910_current`
+  WHERE year = y
+  GROUP BY year, name
+```
+
+テーブル関数は、次のように使います。
+
+```sql
+SELECT * FROM mydataset.names_by_year(1950)
+  ORDER BY total DESC
+  LIMIT 5
+```
+
 
 # BigQuery Mocking
 

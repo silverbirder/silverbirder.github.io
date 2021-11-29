@@ -19,10 +19,10 @@ BigQuery、皆さん使っていますか？
 
 業務でBigQueryのSQLを書いているのですが、それに対するユニットテストがありません。
 
-PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークを使いユニットテストを書くことは、よくあると思います。
+PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークでユニットテストを書くのは、よくあると思います。
 しかし、SQLに対するユニットテストというのは、(私の観測範囲上) あまり聞いたことがありません。
 
-dbt(Data Build Tool)というツールを使えば、SQLへテストをかけるようですが、私はそれの良さ・悪さを知りません。
+dbt(Data Build Tool)というツールを使えば、SQLへユニットテストをかけるようですが、私はそれの良さ・悪さを知りません。
 それよりも、新しいライブラリ・ツールを覚えるのではなく、その言語の**標準的な技術**を用いて、SQLのユニットテストが書けないかと悩みました。
 
 そこで、私なりにBigQueryのSQLに対するユニットテスト方法を考えてみました。
@@ -91,6 +91,12 @@ class TestFruits(unittest.TestCase):
         assert len(actual) == 1
 ```
 
+[単体テストを記述するためのベストプラクティス#テストの配置](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests)にあるように、ユニットテストは、次の3段階で分けて書くと、分かりやすいです。
+
+1. Arrange: 配置, 準備
+1. Act: 実行
+1. Assert: 検証
+
 ユニットテストは、次のコマンドで実行できます。
 
 ```shell
@@ -141,8 +147,6 @@ FAILED (failures=1)
 その際、**ロジックが間違っている** と気付ける、つまりデグレしていることが気づける事が大切です。
 ユニットテストを書くメリットは、この **デグレを検知できるところ** だと思っています。
 
-※ ちなみに、[単体テストを記述するためのベストプラクティス#テストの配置](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests)にあるように、Arrange,Act,Assertという3段階でユニットテストを書くのが分かりやすいです。
-
 # xUnit x BigQuery
 
 BigQueryの場合、どのようにテストすればよいのでしょうか。
@@ -153,7 +157,7 @@ BigQueryの場合、どのようにテストすればよいのでしょうか。
 -- destination: 
 --   dataset: shop
 --   table: fruits
-CREATE OR REPLACE TABLE
+CREATE TABLE
   shop.fruits AS
 SELECT
   price,
@@ -301,7 +305,7 @@ WHERE
   is_test
 ```
 
-ステートメントは、2つあります。
+このSQLには、2つのステートメントがあります。
 
 1. テーブル関数 shop.fruits_injectの定義
 1. テーブル関数 shop.fruitsの定義

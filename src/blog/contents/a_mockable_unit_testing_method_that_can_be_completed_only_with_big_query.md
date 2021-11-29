@@ -397,22 +397,36 @@ ASSERT
 BigQueryのMockを差し替え可能なユニットテストについて、メリット・デメリットを列挙します。
 
 * メリット
-  * BQオンリー
-  * 実データではなく、Mockデータ
+  * BigQueryの標準機能だけで、完結する
+    * 学習コストが、BigQueryだけになる
+      * 普及しやすい
+  * 実データを参照するのではなく、モックデータを参照する
     * フィードバックサイクルが短い
-    * テストが安定
+    * テストが安定する
   * テーブル関数によるロジックカプセル化
-   * 処理共通化 (書かなくて良いかも)
+   * テストもプロダクトもshop.fruits_less_than関数を呼ぶ
 * デメリット
-  * テーブル関数がTEMPじゃない。
-  * BQのジョブを制御する必要がある
+  * テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
+    * 並列実行すると、予期せぬ動作になる
+    * `CREATE TEMP TABLE FUNCTION` は未サポート
+    * 回避案
+      * BigQueryのトランザクションを利用
+  * BigQueryのSQL実行順序を制御する必要あり
+    * 今回でいうと
+      * fruits_tvf.sql
+      * fruits_tvf.sql
+      * test_fruits_less_than_100.sql
+    * 回避案
+      * BigQueryのScriptingを利用
 
 # 終わりに
-TODO
 
-# その他
-今回は、たまたまBigQueryにMockingする方法としてテーブル関数が使えましたが、他のSQLには使えません。
-そのため、他にテストする手段も、考えても良いです。
-例えば、Open Policy Agent を使ってAST分解した構造化ファイル(jsonファイル)をOPAでテストだったり、
-BigQuery API + Python によるユニットテスト、
-Apache Beamのテストランナー などがあります。
+今回、この手法を使うことで、BigQueryのSQLに対してユニットテストを書けることがわかりました。
+これにより、データに対する品質を一定担保しながら、安全に開発できるようになります。
+
+他にも、次のようなテスト手法についても検討して良いかもしれません。
+
+* dbtによるデータモデルテスト
+* Open Policy Agent(OPA)によるポリシーテスト
+  * SQLをAST分解しJSON化し、OPAでテスト
+* BigQueryのクライアントライブラリを使った、ユニットテスト

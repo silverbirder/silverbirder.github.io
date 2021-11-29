@@ -1,5 +1,5 @@
 <!-- 
-title: BigQueryだけで完結するMock可能なユニットテスト手法
+title: BigQueryだけで完結するモック可能なユニットテスト手法
 date: 2021-11-26T20:47:00+09:00
 draft: false
 description: 
@@ -18,17 +18,31 @@ BigQuery、皆さん使っていますか？
 端的に言うと、BigQueryのSQL改修時にデグレが発生していないか確認したいです。
 
 業務でBigQueryのSQLを書いているのですが、それに対するユニットテストがありません。
-PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークを使いユニットテストができます。
 
+PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークを使いユニットテストを書くことは、よくあると思います。
 しかし、SQLに対するユニットテストというのは、(私の観測範囲上) あまり聞いたことがありません。
+
 dbt(Data Build Tool)というツールを使えば、SQLへテストをかけるようですが、私はそれの良さ・悪さを知りません。
+それよりも、新しいライブラリ・ツールを覚えるのではなく、その言語の**標準的な技術**を用いて、SQLのユニットテストが書けないかと悩みました。
 
-新しいライブラリ・ツールを覚えるよりも、その言語の**標準的な技術**を用いて、SQLのユニットテストがかけないかと考えました。
-そこで、BigQueryの標準的な技術だけで、ユニットテストを書こうと思いました。
+そこで、私なりにBigQueryのSQLに対するユニットテスト方法を考えてみました。
 
-# XUnit
+# xUnit
 
-xUnitは、単体テストで使用するフレームワークです。例えば、『100円未満の果物を取得する』関数、`get_less_than`があったとします。言語はPythonです。
+xUnitは、ユニットテストのためのフレームワークです。
+
+> xUnit is the collective name for several unit testing frameworks that derive their structure and functionality from Smalltalk's SUnit.
+
+※ https://en.wikipedia.org/wiki/XUnit
+
+xUnitは、各プログラミング言語に影響を与えました。
+JavaならJUnit、Pythonならunittest(厳密にはJUnitから触発)のユニットテストができます。
+
+# xUnit x Python
+
+Pythonを使って、サンプルのユニットテストを紹介します。
+
+『100円未満の果物を取得する』関数、`get_less_than`があったとします。
 
 ```python
 # fruits.py
@@ -49,7 +63,7 @@ class Fruits(object):
 
 `_get_fruits`関数は、簡易的なモノで、実際には実データを参照する箇所になります。
 
-`get_less_than`関数に対してxUnitを書くとすれば、次のコードになります。
+`get_less_than`関数に対してユニットテストを書くとすれば、次のコードになります。
 
 ```python
 # test_fruits.py
@@ -77,12 +91,62 @@ class TestFruits(unittest.TestCase):
         assert len(actual) == 1
 ```
 
-[単体テストを記述するためのベストプラクティス#テストの配置](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests)にあるように、Arrange,Act,Assertという3段階でユニットテストを書くのが分かりやすいです。
+ユニットテストは、次のコマンドで実行できます。
 
-# BigQuery
+```shell
+$ python -m unittest test_fruits
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+```
+
+テストは成功したようです。今度は、失敗させてみましょう。
+fruits.pyのコードにある `get_less_than`のロジックを下記のように変更します。
+
+```python
+# fruits.py
+class Fruits(object):
+    ...
+    def get_less_than(self, price):
+        fruits = self._get_fruits()
+        # return list(filter(lambda x: x["price"] < price, fruits))
+        return list(filter(lambda x: x["price"] <= price, fruits))
+```
+
+この状態で、さきほどのユニットテストを実施してみます。
+
+```shell
+$ python3 -m unittest test_fruits
+F
+======================================================================
+FAIL: test_get_less_than (test_fruits.TestFruits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/unittest/mock.py", line 1348, in patched
+    return func(*newargs, **newkeywargs)
+  File "test_fruits.py", line 22, in test_get_less_than
+    assert len(actual) == 1
+AssertionError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=1)
+```
+
+期待通り、失敗しました。
+**ロジックを誤る**というのは、保守を続けていくと、**ほぼ間違いなく発生**します。
+その際、**ロジックが間違っている** と気付ける、つまりデグレしていることが気づける事が大切です。
+ユニットテストを書くメリットは、この **デグレを検知できるところ** だと思っています。
+
+※ ちなみに、[単体テストを記述するためのベストプラクティス#テストの配置](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests)にあるように、Arrange,Act,Assertという3段階でユニットテストを書くのが分かりやすいです。
+
+# xUnit x BigQuery
 
 BigQueryの場合、どのようにテストすればよいのでしょうか。
-まず、データを用意します。
+まず、BigQueryのSQLを書くために元データを用意します。
 
 ```sql
 -- fruits_ct.sql
@@ -116,7 +180,7 @@ FROM (
     "orange" AS name )
 ```
 
-fruitsのテーブルから、`get_less_than`関数相当のSQLを用意します。
+shop.fruitsテーブルから、先程のPythonコードにあった`get_less_than`関数相当のSQLを用意します。
 
 ```sql
 -- fruits_less_than_100.sql
@@ -132,7 +196,7 @@ WHERE
   price < 100
 ```
 
-出力された`fruits_less_than_100`テーブルに対して、Pythonで書いたようなテストを、SQLで書いてみます。
+出力された`fruits_less_than_100`テーブルに対して、ユニットテストを書いてみます。
 
 ```sql
 -- test_fruits_less_than_100.sql
@@ -144,7 +208,9 @@ ASSERT
     shop.fruits_less_than_100) AS "The fruit that costs less than 100 is an orange."
 ```
 
-このテストにより `fruits_less_than_100`テーブルに対して、"priceが100未満のfruitのnameがorangeであるということ"が保証できました。
+このテストにより `fruits_less_than_100`テーブルに対して、次のことを保証できました。
+
+* priceが100未満のfruitのnameがorangeであるということ
 
 ただし、これは実データ(shop.fruitsテーブル)を参照して生成されたデータです。
 そのため、次の問題があります。
@@ -162,46 +228,50 @@ ASSERT
 
 ※ [テーブル関数|BigQuery|Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/table-functions)
 
-ユーザー定義関数は、スカラ値を返却できますが、非スカラ値、つまりテーブルを返却できません。
-次にユーザー定義関数の例を示します。
+テーブル関数の定義は、次のように書きます。
 
 ```sql
-CREATE TEMP FUNCTION AddFourAndDivide(x INT64, y INT64)
-  RETURNS FLOAT64
-  AS ((x + 4) / y);
+-- names_by_year.tvf.sql
+CREATE OR REPLACE TABLE
+  FUNCTION shop.names_by_year(y INT64) AS
+SELECT
+  year,
+  name,
+  SUM(number) AS total
+FROM
+  `bigquery-public-data.usa_names.usa_1910_current`
+WHERE
+  year = y
+GROUP BY
+  year,
+  name
 ```
 
-ユーザー定義関数は、次のように使います。
+定義したテーブル関数は、次のように使います。
 
 ```sql
-SELECT val, AddFourAndDivide(val, 2)
-  FROM UNNEST([2,3,5,8]) AS val;
+-- names_by_year.sql
+SELECT
+  *
+FROM
+  shop.names_by_year(1950)
+ORDER BY
+  total DESC
+LIMIT
+  5
 ```
 
-逆にテーブル関数は、テーブルを返却することができます。次にテーブル関数の例を示します。
+テーブル関数は、FROM句に使えます。これを利用してMockデータの差し替えができるようにします。
+
+# xUnit x BigQuery (Mock)
+
+shop.fruitsテーブルをMockで差し替えられるように、テーブル関数化します。
 
 ```sql
-CREATE OR REPLACE TABLE FUNCTION mydataset.names_by_year(y INT64)
-AS
-  SELECT year, name, SUM(number) AS total
-  FROM `bigquery-public-data.usa_names.usa_1910_current`
-  WHERE year = y
-  GROUP BY year, name
-```
-
-テーブル関数は、次のように使います。
-
-```sql
-SELECT * FROM mydataset.names_by_year(1950)
-  ORDER BY total DESC
-  LIMIT 5
-```
-
-
-# BigQuery Mocking
-
-```sql
--- 1_fruits_tvf.sql
+-- fruits_tvf.sql
+--   function:
+--    - shop.fruits_inject()
+--    - shop.fruits(is_test BOOL)
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_inject() AS
 SELECT
@@ -231,7 +301,20 @@ WHERE
   is_test
 ```
 
+ステートメントは、2つあります。
+
+1. テーブル関数 shop.fruits_injectの定義
+1. テーブル関数 shop.fruitsの定義
+
+1つ目は、後でMock差し替え(上書き)するための関数です。
+2つ目は、`is_test BOOL` という値を引数とした関数で、実データ(shop.fruits)とモックデータ(shop.fruits_inject)の和集合を返します。
+
+元データを関数化したら、次は `fruits_less_than_100`テーブルを関数化します。
+
 ```sql
+-- fruits_tvf.sql
+--  function: 
+--    - shop.fruits_less_than(is_test BOOL, p INT)
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_less_than(is_test BOOL,
     p INT) AS
@@ -244,15 +327,27 @@ WHERE
   price < p
 ```
 
+shop.fruits_less_than関数は、shop.fruits関数と同じ `is_test BOOL` という引数を持ちます。
+また、`p INT` という引数も持ち、less_thanのpriceを柔軟に対応できるようにします。
+
+では、プロダクションコードを書きます。
+
 ```sql
+-- fruits_less_than_100.sql
+-- destination
+--   dataset: shop
+--   table: fruits_less_than_100
 SELECT
   *
 FROM
-  shop.fruits_less_than(false, 100)
+  shop.fruits_less_than(False, 100)
 ```
 
+次が、本記事のメインであるユニットテストコードです。
+
 ```sql
-  -- arrange
+-- test_fruits_less_than_100.sql
+-- arrange
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_inject() AS
 SELECT
@@ -266,14 +361,14 @@ UNION ALL
 SELECT
   90 AS price,
   "orange" AS name;
-  -- act
+-- act
   CREATE TEMP TABLE fruits_less_than_100 AS
 SELECT
   *
 FROM
-  shop.fruits_less_than(FALSE,
+  shop.fruits_less_than(True,
     100);
-  -- assert
+-- assert
 ASSERT
   (
   SELECT
@@ -282,30 +377,38 @@ ASSERT
     fruits_less_than_100) AS "The fruit that costs less than 100 is an orange."
 ```
 
-これで、dataset.product_data(false) とすれば、datasets.product_data_inject()のデータを返却できます。味噌は、datasets.product_data_inject()の関数を後で上書きします。
+このSQLは、3つのステートメントがあります。
 
-これにより、モックデータを差し替えた状態で、BigQueryのアサート関数を使いテストすることができます。
+1. shop.fruits_inject関数の上書き(**モックの差し込み**)
+1. shop.fruits_less_than関数で、is_test=Trueとして生成し、一時テーブルで保存
+1. fruits_less_than_100に対してアサーション
 
-メリット
-* BQオンリー
-* 実データではなく、Mockデータ
-   * フィードバックサイクルが短い
-   * テストが安定
-* テーブル関数によるロジックカプセル化
+重要なのが、①番です。shop.fruits_inject関数を上書きします。
+そうすると、shop.fruits関数で参照するshop.fruits_inject関数結果が、上書きされたものに切り替わります。
+
+後は、②番でshop.fruits_less_than関数を呼んで一時テーブル保存し、③番でアサーションします。
+
+# xUnit x BigQuery メリット・デメリット
+
+BigQueryのMockを差し替え可能なユニットテストについて、メリット・デメリットを列挙します。
+
+* メリット
+  * BQオンリー
+  * 実データではなく、Mockデータ
+    * フィードバックサイクルが短い
+    * テストが安定
+  * テーブル関数によるロジックカプセル化
    * 処理共通化 (書かなくて良いかも)
-デメリット
-* テーブル関数がTEMPじゃない。
-* BQのジョブを制御する必要がある
+* デメリット
+  * テーブル関数がTEMPじゃない。
+  * BQのジョブを制御する必要がある
 
 # 終わりに
-BigQueryだけで完結できるポイントが良いです。BigQuery Client Libraryを使ったテストも、もちろんできますが、BigQueryだけでテストできるのは、テストの敷居が下がります。
+TODO
 
 # その他
 今回は、たまたまBigQueryにMockingする方法としてテーブル関数が使えましたが、他のSQLには使えません。
-
 そのため、他にテストする手段も、考えても良いです。
-
 例えば、Open Policy Agent を使ってAST分解した構造化ファイル(jsonファイル)をOPAでテストだったり、
 BigQuery API + Python によるユニットテスト、
-dbtによるテスト、
 Apache Beamのテストランナー などがあります。

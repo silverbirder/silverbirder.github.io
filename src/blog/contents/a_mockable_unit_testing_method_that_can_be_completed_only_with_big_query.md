@@ -39,8 +39,7 @@ xUnitは、各プログラミング言語に影響を与えました。
 JavaならJUnit、Pythonならunittest(厳密にはJUnitから触発)のユニットテストができます。
 
 # xUnit x Python
-
-Pythonを使って、サンプルのユニットテストを紹介します。
+BigQueryの前に、まずPythonを使ったユニットテストを紹介します。
 
 『100円未満の果物を取得する』関数、`get_less_than`があったとします。
 
@@ -108,8 +107,9 @@ Ran 1 test in 0.001s
 OK
 ```
 
-テストは成功したようです。今度は、失敗させてみましょう。
-fruits.pyのコードにある `get_less_than`のロジックを下記のように変更します。
+テストは成功しました。今度は、失敗させてみましょう。
+fruits.pyのコードにある `get_less_than`のロジックを誤ったものに変更します。
+コードは、次のとおりです。
 
 ```python
 # fruits.py
@@ -144,8 +144,8 @@ FAILED (failures=1)
 
 期待通り、失敗しました。
 **ロジックを誤る**というのは、保守を続けていくと、**ほぼ間違いなく発生**します。
-その際、**ロジックが間違っている** と気付ける、つまりデグレしていることが気づける事が大切です。
-ユニットテストを書くメリットは、この **デグレを検知できるところ** だと思っています。
+その際、**ロジックが誤っている** と気付ける、つまりデグレを気づける事が大切です。
+ユニットテストを書くメリットの1つは、この **デグレを検知できるところ** だと思っています。
 
 # xUnit x BigQuery
 
@@ -222,22 +222,24 @@ ASSERT
 * 実データを参照しているため、テストが不安定になる
   * 実データに`orange`がなくなると、テストが失敗する
 * フィードバックサイクルが長い
-  * 実データが多くなると、テスト結果に時間がかかる
+  * 実データが多くなると、テスト実行時間が長くなる
 
 そこで、テーブル関数というものを活用し、実データをモックデータに差し替えるようにします。
 
 # テーブル関数とは
 
+BigQueryの公式ページより、テーブル関数について、次のことが書かれています。
+
 > テーブル関数（テーブル値関数、TVF とも呼ばれます）は、テーブルを返すユーザー定義関数です。テーブル関数は、テーブルを使用できる場所であればどこでも使用できます。テーブル関数はビューと似ていますが、テーブル関数ではパラメータを取得できます。
 
 ※ [テーブル関数|BigQuery|Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/table-functions)
 
-テーブル関数の定義は、次のように書きます。
+テーブル関数の定義は、次のようなサンプルコードがあります。
 
 ```sql
 -- names_by_year.tvf.sql
 CREATE OR REPLACE TABLE
-  FUNCTION shop.names_by_year(y INT64) AS
+  FUNCTION mydataset.names_by_year(y INT64) AS
 SELECT
   year,
   name,
@@ -251,6 +253,8 @@ GROUP BY
   name
 ```
 
+特徴は、`CREATE OR REPLACE TABLE FUNCTION` です。関数を定義し、テーブル情報を返り値とします。今回のケースでは、`year, name, total` のフィールドを持つテーブルです。
+
 定義したテーブル関数は、次のように使います。
 
 ```sql
@@ -258,16 +262,30 @@ GROUP BY
 SELECT
   *
 FROM
-  shop.names_by_year(1950)
+  mydataset.names_by_year(1950)
 ORDER BY
   total DESC
 LIMIT
   5
 ```
 
-テーブル関数は、FROM句に使えます。これを利用してMockデータの差し替えができるようにします。
+テーブル関数は、`FROM句`に使えます。私は、ここに着目しました。
+FROM句で関数呼び出しする際、モックデータを返却できるようにできないかと考えました。
+
+そこで、次の章にある手段を発見しました。
 
 # xUnit x BigQuery (Mock)
+
+どのように差し替えるかというと、次の2つの順番にテーブル関数化していきます。
+
+1. 元データをMock差し替えできるように、テーブル関数化
+1. ロジックを含んだSQLのFROM句を、①のテーブル関数に差し替えて、テーブル関数化
+
+順を追って説明します。
+
+---
+
+①番目は、`元データをMock差し替えできるように、テーブル関数化` です。
 
 shop.fruitsテーブルをMockで差し替えられるように、テーブル関数化します。
 
@@ -311,12 +329,17 @@ WHERE
 1. テーブル関数 shop.fruitsの定義
 
 1つ目は、後でMock差し替え(上書き)するための関数です。
+
 2つ目は、`is_test BOOL` という値を引数とした関数で、実データ(shop.fruits)とモックデータ(shop.fruits_inject)の和集合を返します。
 
-元データを関数化したら、次は `fruits_less_than_100`テーブルを関数化します。
+---
+
+②番目は、`ロジックを含んだSQLのFROM句を、①のテーブル関数に差し替えて、テーブル関数化` です。
+
+`fruits_less_than_100`テーブルを関数化します。
 
 ```sql
--- fruits_tvf.sql
+-- fruits_less_than_tvf.sql
 --  function: 
 --    - shop.fruits_less_than(is_test BOOL, p INT)
 CREATE OR REPLACE TABLE
@@ -331,10 +354,15 @@ WHERE
   price < p
 ```
 
-shop.fruits_less_than関数は、shop.fruits関数と同じ `is_test BOOL` という引数を持ちます。
-また、`p INT` という引数も持ち、less_thanのpriceを柔軟に対応できるようにします。
+FROM句に、先程定義したshop.fruitsテーブル関数を呼び出します。
+引数は、shop.fruits_less_than関数から渡ってくる`is_test BOOL`をそのままセットします。
+また、shop.fruits_less_than関数には、`p INT`という引数も持ち、less_thanのpriceを柔軟に対応できるようにします。
 
-では、プロダクションコードを書きます。
+--- 
+
+これにて、テーブル関数化を終えました。次は、プロダクトコードとテストコードを紹介します。
+
+では、まずプロダクションコードを書きます。
 
 ```sql
 -- fruits_less_than_100.sql
@@ -342,12 +370,15 @@ shop.fruits_less_than関数は、shop.fruits関数と同じ `is_test BOOL` と�
 --   dataset: shop
 --   table: fruits_less_than_100
 SELECT
-  *
+  price,
+  name,
 FROM
   shop.fruits_less_than(False, 100)
 ```
 
-次が、本記事のメインであるユニットテストコードです。
+取り上げて重要なことは、ありません。
+
+次が、本記事のメインである、**BigQueryのSQLに対するユニットテストコード**です。
 
 ```sql
 -- test_fruits_less_than_100.sql
@@ -368,7 +399,8 @@ SELECT
 -- act
   CREATE TEMP TABLE fruits_less_than_100 AS
 SELECT
-  *
+  price,
+  name,
 FROM
   shop.fruits_less_than(True,
     100);
@@ -404,7 +436,7 @@ BigQueryのMockを差し替え可能なユニットテストについて、メ�
     * フィードバックサイクルが短い
     * テストが安定する
   * テーブル関数によるロジックカプセル化
-   * テストもプロダクトもshop.fruits_less_than関数を呼ぶ
+    * テストもプロダクトもshop.fruits_less_than関数を呼ぶ
 * デメリット
   * テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
     * 並列実行すると、予期せぬ動作になる
@@ -412,12 +444,16 @@ BigQueryのMockを差し替え可能なユニットテストについて、メ�
     * 回避案
       * BigQueryのトランザクションを利用
   * BigQueryのSQL実行順序を制御する必要あり
-    * 今回でいうと
-      * fruits_tvf.sql
-      * fruits_tvf.sql
-      * test_fruits_less_than_100.sql
+    * 今回でいうと、次の順番でクエリ実行する必要がある
+      * 1. fruits_tvf.sql
+      * 2. fruits_less_than_tvf.sql
+      * 3. test_fruits_less_than_100.sql
     * 回避案
       * BigQueryのScriptingを利用
+  * 汎用性がない
+    * MySQLやPostgreSQLなど、別のデータベースで同じ手法は使えない
+      * 回避案
+        * dbtの利用
 
 # 終わりに
 

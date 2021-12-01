@@ -22,7 +22,8 @@ BigQuery、皆さん使っていますか？
 PythonやJavascriptのような言語でアプリケーション開発する場合、XUnit等のユニットテストフレームワークでユニットテストを書くのは、よくあると思います。
 しかし、SQLに対するユニットテストというのは、(私の観測範囲上) あまり聞いたことがありません。
 
-dbt(Data Build Tool)というツールを使えば、SQLへユニットテストをかけるようですが、私はそれの良さ・悪さを知りません。
+dbt(Data Build Tool)というツールを使えば、SQLへユニットテストをかけるようですが、私はそれの良さ・悪さを知りません。(興味本位で、試してみたい)
+
 それよりも、新しいライブラリ・ツールを覚えるのではなく、その言語の**標準的な技術**を用いて、SQLのユニットテストが書けないかと悩みました。
 
 そこで、私なりにBigQueryのSQLに対するユニットテスト方法を考えてみました。
@@ -157,7 +158,7 @@ BigQueryの場合、どのようにテストすればよいのでしょうか。
 -- destination: 
 --   dataset: shop
 --   table: fruits
-CREATE TABLE
+CREATE OR REPLACE TABLE
   shop.fruits AS
 SELECT
   price,
@@ -207,14 +208,14 @@ WHERE
 ASSERT
   (
   SELECT
-    name = "orange"
+    COUNT(name) = 1
   FROM
-    shop.fruits_less_than_100) AS "The fruit that costs less than 100 is an orange."
+    shop.fruits_less_than_100) AS "There's one fruit less than 100."
 ```
 
 このテストにより `fruits_less_than_100`テーブルに対して、次のことを保証できました。
 
-* priceが100未満のfruitのnameがorangeであるということ
+* priceが100未満のfruitは1つ
 
 ただし、これは実データ(shop.fruitsテーブル)を参照して生成されたデータです。
 そのため、次の問題があります。
@@ -408,9 +409,9 @@ FROM
 ASSERT
   (
   SELECT
-    name = "orange"
+    COUNT(name) = 1
   FROM
-    fruits_less_than_100) AS "The fruit that costs less than 100 is an orange."
+    fruits_less_than_100) AS "There's one fruit less than 100."
 ```
 
 このSQLは、3つのステートメントがあります。
@@ -424,25 +425,104 @@ ASSERT
 
 後は、②番でshop.fruits_less_than関数を呼んで一時テーブル保存し、③番でアサーションします。
 
+では、テストを失敗させてみましょう。ロジックを含んでいるshop.fruits_less_than関数を、次のように書き換えます。
+
+```sql
+-- fruits_less_than_tvf.sql
+--  function: 
+--    - shop.fruits_less_than(is_test BOOL, p INT)
+CREATE OR REPLACE TABLE
+  FUNCTION shop.fruits_less_than(is_test BOOL,
+    p INT) AS
+SELECT
+  price,
+  name
+FROM
+  shop.fruits(is_test)
+WHERE
+  -- price < p
+  price <= p
+```
+
+WHERE句のpriceが100未満ではなく、100以下になっているので、`orange`と`lemon`の2つが抽出されます。
+
+この関数を再度定義し、もう一度テストを実行してみましょう。
+そうすると、次のようなメッセージが出力されます。
+
+```
+Query error: There's one fruit less than 100. at [25:1]
+```
+
+期待通り、テストは失敗しました！🎉
+
+---
+
+BigQueryのユニットテストができるようになれば、次はCIに組み込みたいと思うはずです。
+BigQueryは、GCPのサービスなので、GCPのCIサービスとして有名なCloud Buildを活用しようと思います。
+Cloud Buildの定義ファイルを、次に示します。
+
+```yaml
+-- cloudbuild.yaml
+steps:
+  # If you want to receive notifications from Slack, uncomment it. 
+  # Then follow the README.md at the following URL to set it up.
+  # https://github.com/GoogleCloudPlatform/cloud-builders-community/tree/master/slackbot
+  # - name: "gcr.io/$PROJECT_ID/slackbot"
+  #   id: "WATCH"
+  #   args: [
+  #     "--build", "$BUILD_ID",
+  #     "--webhook", "$_SLACK_WEB_HOOK"
+  #   ]
+  - name: gcr.io/cloud-builders/gcloud-slim
+    id: fruits_ct
+    entrypoint: 'bash'
+    args: ['run_query.sh', 'fruits_ct.sql']
+  - name: gcr.io/cloud-builders/gcloud-slim
+    id: fruits_tvf
+    entrypoint: 'bash'
+    args: ['run_query.sh', 'fruits_tvf.sql']
+    waitFor:
+      - fruits_ct
+  - name: gcr.io/cloud-builders/gcloud-slim
+    id: fruits_less_than_tvf
+    entrypoint: 'bash'
+    args: ['run_query.sh', 'fruits_less_than_tvf.sql']
+    waitFor:
+      - fruits_tvf
+  - name: gcr.io/cloud-builders/gcloud-slim
+    id: test_fruits_less_than_100
+    entrypoint: 'bash'
+    args: ['run_query.sh', 'test_fruits_less_than_100.sql']
+    waitFor:
+      - fruits_less_than_tvf
+```
+
+```sh
+#!/bin/bash
+# run_query.sh
+if [ $# -eq 0 ]; then
+  echo "No arguments supplied"
+fi
+bq query --use_legacy_sql=false < $1
+```
+
+Cloud BuildをGithub等のGitプラットフォームと連携すれば、Gitのイベント毎(Push,Merge,etc)にユニットテストを動かすことができます。
+
+※ サンプルのcloudbuild.yamlにある、`id:fruits_ct`や`id:fruits_tvf`、`id:fruits_less_than_tvf`は何度も実行するものではないのですが、
+記事をわかりやすくするために書いています。
+
 # xUnit x BigQuery メリット・デメリット
 
 BigQueryのMockを差し替え可能なユニットテストについて、メリット・デメリットを列挙します。
 
 * メリット
-  * BigQueryの標準機能だけで、完結する
-    * 学習コストが、BigQueryだけになる
-      * 普及しやすい
-  * 実データを参照するのではなく、モックデータを参照する
-    * フィードバックサイクルが短い
-    * テストが安定する
-  * テーブル関数によるロジックカプセル化
-    * テストもプロダクトもshop.fruits_less_than関数を呼ぶ
+  * BigQueryだけ学習すればよい
+    * BigQueryの標準機能だけで、完結しているため
+  * フィードバックサイクルが短い
+    * 実データを参照するのではなく、モックデータを参照しているため
+  * テストが安定する
+    * 実データを参照するのではなく、モックデータを参照しているため
 * デメリット
-  * テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
-    * 並列実行すると、予期せぬ動作になる
-    * `CREATE TEMP TABLE FUNCTION` は未サポート
-    * 回避案
-      * BigQueryのトランザクションを利用
   * BigQueryのSQL実行順序を制御する必要あり
     * 今回でいうと、次の順番でクエリ実行する必要がある
       * 1. fruits_tvf.sql
@@ -450,10 +530,18 @@ BigQueryのMockを差し替え可能なユニットテストについて、メ�
       * 3. test_fruits_less_than_100.sql
     * 回避案
       * BigQueryのScriptingを利用
+      * Cloud Buildの`waitFor`利用
+  * 並列実行すると、予期せぬ動作になる
+    * テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
+      * shop.fruits_inject関数が、何度も再定義されている
+    * `CREATE TEMP TABLE FUNCTION` は未サポート
+    * 回避案
+      * BigQueryのトランザクションを利用
+        * テーブル関数は未サポート
   * 汎用性がない
-    * MySQLやPostgreSQLなど、別のデータベースで同じ手法は使えない
+    * 他のデータベースエンジン(MySQL,PostgreSQL,etc)に、同じ手法(テーブル関数)は使えない
       * 回避案
-        * dbtの利用
+        * dbtの利用(多分)
 
 # 終わりに
 
@@ -464,5 +552,9 @@ BigQueryのMockを差し替え可能なユニットテストについて、メ�
 
 * dbtによるデータモデルテスト
 * Open Policy Agent(OPA)によるポリシーテスト
-  * SQLをAST分解しJSON化し、OPAでテスト
+  * SQLをAST分解→JSON化し、OPAでテスト
 * BigQueryのクライアントライブラリを使った、ユニットテスト
+
+# P.S.
+
+dbtを試したいと思っています。

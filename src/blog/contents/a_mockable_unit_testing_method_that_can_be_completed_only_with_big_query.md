@@ -288,7 +288,8 @@ FROM句で関数呼び出しする際、モックデータを返却できるよ�
 
 ①番目は、`元データをMock差し替えできるように、テーブル関数化` です。
 
-shop.fruitsテーブルをMockで差し替えられるように、テーブル関数化します。
+元データは、今回`shop.fruits`テーブルですので、Mockで差し替えられるようにテーブル関数化します。
+次のコードが、Mock差し替え可能なテーブル関数です。
 
 ```sql
 -- fruits_tvf.sql
@@ -331,13 +332,21 @@ WHERE
 
 1つ目は、後でMock差し替え(上書き)するための関数です。
 
-2つ目は、`is_test BOOL` という値を引数とした関数で、実データ(shop.fruits)とモックデータ(shop.fruits_inject)の和集合を返します。
+2つ目は、`is_test BOOL` という値を引数とした関数で、次の条件分岐があります。
+
+* is_testがTrueの場合
+  * モックデータ(shop.fruits_inject)を返却
+* is_testがFalseの場合
+  * 実データ(shop.fruits)を返却
+
+プロダクションコード時は、is_testをFalseとし、テストコード時は、is_testをTrueとして使う想定です。
 
 ---
 
 ②番目は、`ロジックを含んだSQLのFROM句を、①のテーブル関数に差し替えて、テーブル関数化` です。
 
-`fruits_less_than_100`テーブルを関数化します。
+ロジックを含んだSQL、今回は、`fruits_less_than_100`テーブルを関数化します。
+次のコードが、①のテーブル関数で差し替えたテーブル関数です。
 
 ```sql
 -- fruits_less_than_tvf.sql
@@ -355,8 +364,8 @@ WHERE
   price < p
 ```
 
-FROM句に、先程定義したshop.fruitsテーブル関数を呼び出します。
-引数は、shop.fruits_less_than関数から渡ってくる`is_test BOOL`をそのままセットします。
+FROM句に、先程①番で定義したshop.fruitsテーブル関数を呼び出します。
+shop.fruitsテーブル関数の引数は、shop.fruits_less_than関数から渡ってくる`is_test BOOL`をそのままセットします。
 また、shop.fruits_less_than関数には、`p INT`という引数も持ち、less_thanのpriceを柔軟に対応できるようにします。
 
 --- 
@@ -377,7 +386,7 @@ FROM
   shop.fruits_less_than(False, 100)
 ```
 
-取り上げて重要なことは、ありません。
+取り上げて重要なことは、ありません。プロダクションコードは、is_testをFalseとします。
 
 次が、本記事のメインである、**BigQueryのSQLに対するユニットテストコード**です。
 
@@ -418,7 +427,7 @@ ASSERT
 
 1. shop.fruits_inject関数の上書き(**モックの差し込み**)
 1. shop.fruits_less_than関数で、is_test=Trueとして生成し、一時テーブルで保存
-1. fruits_less_than_100に対してアサーション
+1. ②の一時テーブルに対してアサーション
 
 重要なのが、①番です。shop.fruits_inject関数を上書きします。
 そうすると、shop.fruits関数で参照するshop.fruits_inject関数結果が、上書きされたものに切り替わります。
@@ -530,7 +539,7 @@ BigQueryのMockを差し替え可能なユニットテストについて、メ�
       * 3. test_fruits_less_than_100.sql
     * 回避案
       * BigQueryのScriptingを利用
-      * Cloud Buildの`waitFor`利用
+      * Cloud Buildの`waitFor`を利用
   * 並列実行すると、予期せぬ動作になる
     * テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
       * shop.fruits_inject関数が、何度も再定義されている

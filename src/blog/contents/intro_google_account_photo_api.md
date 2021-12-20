@@ -11,7 +11,7 @@ icon: 😎
 
 最近、自身の[ポートフォリオページ](https://silver-birder.github.io/)刷新を検討しており、プロフィール画像をどうするか悩みました。ポートフォリオのベースドキュメントは、Markdownを採用しています。
 
-プロフィール画像を固定で保持させず、API経由でプロフィール画像を設定できないかと思い、今回、**Googleアカウント画像を返却するだけのAPI**を作成しました。
+プロフィール画像を固定で保持させず、API経由でプロフィール画像を設定できないかと思い、今回、**Googleアカウント画像を返却するだけのAPI、Google Account Photo API**を作成しました。
 
 APIのソースコードは、[こちら(Github)](https://github.com/Silver-birder/Google-Account-Photo-API)です。1時間程度で作ったので、正常パターンしか見ていません。(笑) ご了承ください。
 
@@ -27,7 +27,7 @@ APIを呼び出すために、あなたのGoogleアカウントID というも�
 
 ## GoogleアカウントIDの調べ方
 
-GoogleアカウントIDは、[Google People APIのExplorerを実行](https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22%3A%22people%2Fme%22%2C%22personFields%22%3A%22photos%22%7D) するだけで分かります。
+あなたのGoogleアカウントIDは、[Google People APIのExplorerを実行](https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22%3A%22people%2Fme%22%2C%22personFields%22%3A%22photos%22%7D) するだけで分かります。
 
 実行すると、`resourceName(ex. people/<account_id>)` というフィールドが返却されるので、そこに書いてあるaccount_idが、あなたのモノになります。
 
@@ -51,11 +51,13 @@ https://google-account-photo.vercel.app/api/?account_id=<your_account_id>
 ![google account image](https://google-account-photo.vercel.app/api/?account_id=<your_account_id>)
 ```
 
-これだけだと、ちょっと味気ないので、Cloudinaryを組み合わせることで、画像を**URLを操作するだけで加工すること**ができます。例えば、画像を円にする場合は、次のURLを書きます。
+これだけだと、ちょっと味気ないので、Cloudinaryを使います。Cloudinaryは、URLのパラメータを設定するだけで、画像を加工できます。例えば、画像を円にする場合は、次のURLを書きます。
 
 ```
 ![circle google account image](https://res.cloudinary.com/demo/image/fetch/r_max/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3D<your_account_id>)
 ```
+
+Cloudinaryについての説明は、割愛します。
 
 私の場合は、次のような画像が表示されます。
 
@@ -65,3 +67,7 @@ Cloudinaryについて、詳しくは次のURLを確認ください。
 
 * [Deliver remote media files | Cloudinary](https://cloudinary.com/documentation/fetch_remote_images)
 * [Image transformations | Cloudinary](https://cloudinary.com/documentation/image_transformations)
+
+# 終わりに
+
+サクッとAPIを構築できちゃうのって、便利な世の中だな〜と思いました。

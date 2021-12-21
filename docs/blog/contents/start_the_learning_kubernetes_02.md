@@ -1,0 +1,150 @@
+---
+title: 一足遅れて Kubernetes を学び始める - 02. Docker For Mac -
+published: true
+date: 2019-04-27
+description: 前回 一足遅れて Kubernetes を学び始める - 01. 環境選択編 -にて、Kubernetesを学ぶ環境を考えてみました。いきなりGKEを使うんじゃなくて、お手軽に試せるDockerForMacを使おうとなりました。
+tags: ["Kubernetes", "Story", "Beginner"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png
+---
+
+<!--  TODO: TOC -->
+
+# ストーリー
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](./start_the_learning_kubernetes_01.md)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](./start_the_learning_kubernetes_02.md)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](./start_the_learning_kubernetes_03.md)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](./start_the_learning_kubernetes_04.md)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その1 -](./start_the_learning_kubernetes_05.md)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その2 -](./start_the_learning_kubernetes_06.md)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その3 -](./start_the_learning_kubernetes_07.md)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その1 -](./start_the_learning_kubernetes_08.md)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その2 -](./start_the_learning_kubernetes_09.md)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その1 -](./start_the_learning_kubernetes_10.md)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その2 -](./start_the_learning_kubernetes_11.md)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](./start_the_learning_kubernetes_12.md)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](./start_the_learning_kubernetes_13.md)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](./start_the_learning_kubernetes_14.md)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](./start_the_learning_kubernetes_15.md)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](./start_the_learning_kubernetes_16.md)
+
+# 前回
+[一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](./start_the_learning_kubernetes_01.md)にて、Kubernetesを学ぶ環境を考えてみました。いきなりGKEを使うんじゃなくて、お手軽に試せるDockerForMacを使おうとなりました。
+
+# Docker For Mac を試す
+
+## 環境
+
+```
+# Machine
+iMac (21.5-inch, 2017)
+```
+```
+# Docker
+Docker Community Edition:
+  Version: 18.06.1-ce-mac73 (26764)
+Docker Engine:
+  Version: 18.06.1-ce
+Kubernetes:
+  Version: v1.10.3
+```
+
+## 実践
+さっそく、使ってみます。 ([入門 Kubernetes](https://www.oreilly.co.jp/books/9784873118406/)参考)
+
+```shell
+~ $ kubectl get componentstatuses
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+```
+Kubernetesでは、MasterNodeとWorkerNodeの2種類のNodeが存在しており、
+そのうちのMasterNodeにあるコンポーネントの一覧が上記よりわかります。詳細については、[こちら](https://qiita.com/tkusumi/items/c2a92cd52bfdb9edd613)にあります。
+要は、`kubectl apply -f nginx.yaml` とすると
+
+1. etcdにマニュフェスト(nginx.yaml)を登録
+1. controller-managerがetcdにあるマニュフェストと既存podを比べてpodが少ないことを検知
+1. schedulerが適切な数のpodに調整
+
+という理解になりました。また、全てのやり取りは、api-serverを経由しているそうです。
+
+私なりの理解をアウトプットしたものが下記になります。
+(ほとんど真似した感じです。しかし、アウトプットするだけで理解が深まるため実施。 **アウトプット大事！** )
+
+![Kubernetes_learning.png](https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png)
+
+
+```shell
+~ $ kubectl get nodes
+NAME                 STATUS    ROLES     AGE       VERSION
+docker-for-desktop   Ready     master    120d      v1.10.3
+~ $ kubectl get pods
+No resources found.
+```
+使い始めたばかりだと、podが１つもない状態ですね。
+また、DockerForMacでは、もちろん動かしているマシンは一台（VMとか使えば増やせますが）なので、
+MasterNodeとWorkerNodeが同一になっているはずです。試してみます。
+
+```yaml
+# nginx.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+       - containerPort: 80
+         name: http
+         protocol: TCP
+```
+
+```shell
+~ $ kubectl apply -f nginx.yaml
+pod "nginx" created
+~ $ kubectl get pod -o wide
+NAME      READY     STATUS    RESTARTS   AGE       IP           NODE
+nginx     1/1       Running   0          3m        10.1.0.157   docker-for-desktop
+```
+
+WorkerNodeにPodが作られていますね。んー、これだとある程度の学習には繋がりそう（Podの動き）ですが、
+後の学ぶReplicaSetやDaemonsetなどNode横断した機能を経験したい場合には不向きのようですね。
+まあ、簡単に使えるので良いっちゃ良いのですが...
+
+次は、いくつかのコマンド(cp,exec, port-forward)を試してみます。
+
+```shell
+~ $ touch memo.txt
+~ $ ls
+nginx.yaml memo.txt
+~ $ kubectl cp memo.txt nginx:/memo.txt
+~ $ rm memo.txt
+~ $ ls
+nginx.yaml
+~ $ kubectl cp nginx:/memo.txt ./memo.txt
+~ $ ls
+nginx.yaml memo.txt
+~ $ kubectl exec -it nginx bash
+root@nginx:/# exit
+exit
+~ $
+```
+
+ローカルとPodとの双方向コピー、仮想的なターミナルを体験していました。
+「ふ〜ん、で？」ってなっちゃいました。(笑)
+
+# お片付け
+
+```shell
+~ $ kubectl delete -f nginx.yaml
+pod "nginx" deleted
+```
+
+# ものたりない
+やっぱりNode増やしたい！！
+[Raspberry PiでおうちKubernetes構築【論理編】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778)を見て、これをやるっきゃない！
+すごく今更だけど、試してみようと思います。
+次回は[こちら](./start_the_learning_kubernetes_03.md)です。

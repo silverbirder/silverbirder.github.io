@@ -1,0 +1,214 @@
+<script type="module">
+class BaseCards extends HTMLElement {
+
+  static get observedAttributes() {
+    return ['source'];
+  }
+  styleElements () {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .card-list {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 40px;
+                --gap: 60px;
+                display: inline-flex;
+                flex-wrap: wrap;
+                margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+                width: calc(100% + var(--gap));
+                align-items: flex-start;
+        }
+        .card {
+                flex: 0 1 360px;
+                margin: var(--gap) 0 0 var(--gap);
+                box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+                transition: 0.3s;
+        }
+        .card .thumbnail {
+                background-image: url(https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: block;
+                height: 200px;
+        }
+        table {
+              text-align: left;
+        }
+        `;
+    return [styleElement];
+  }
+  templateElements () {
+    const cardListTemplateElement = document.createElement('template');
+    cardListTemplateElement.setAttribute('id', 'cardList');
+    cardListTemplateElement.innerHTML = `
+        <div class="card-list"></div>
+    `.trim();
+    const cardTemplateElement = document.createElement('template');
+    cardTemplateElement.setAttribute('id', 'card');
+    cardTemplateElement.innerHTML = `
+        <div class="card">
+            <div class="thumbnail"></div>
+            <div class="content">
+                <h2>Title</h2>
+                <p>contents</p>
+            </div>
+        </div>
+    `.trim();
+    return [cardListTemplateElement, cardTemplateElement]
+  }
+  constructor() {
+    super();
+    const shadow = this.attachShadow({mode: 'open'});
+    this.styleElements().map((e) => shadow.appendChild(e));
+    this.templateElements().map((e) => shadow.appendChild(e));
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+  }
+
+  async fetch(uri) {
+    return (await fetch(uri)).json();
+  }
+}
+
+class SkillCards extends BaseCards {
+  async render() {
+    let cardListTemplate = this.shadowRoot.getElementById('cardList');
+    this.shadowRoot.appendChild(cardListTemplate.content.cloneNode(true));
+    const response = await this.fetch(this.getAttribute('source'));
+    response.items
+    .filter((i) => {
+      return i.results != '';
+    })
+    .map((i) => {
+      let cardTemplate = this.shadowRoot.getElementById('card');
+      let cardElement = cardTemplate.content.cloneNode(true);
+      cardElement.querySelector('.card .thumbnail').setAttribute('style', `background-image: url(${i.image});`);
+      cardElement.querySelector('h2').textContent = i.name;
+      cardElement.querySelector('p').textContent = i.results;
+      cardElement.querySelector('p').innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>経験年数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${i.actual_years}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>利用シーン</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${i.usage_scenarios.map((u) => `<tr><td>${u}</td></tr>`).join('')}
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>種別</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${i.tech_types.map((t) => `<tr><td>${t}</td></tr>`).join('')}
+        </tbody>
+      </table>
+      <h3>所感</h3>
+      <p>${i.results}</p>
+      `;
+      this.shadowRoot.querySelector('.card-list').appendChild(cardElement);
+    });
+  }
+}
+
+class BookCards extends BaseCards {
+  async render() {
+    let cardListTemplate = this.shadowRoot.getElementById('cardList');
+    this.shadowRoot.appendChild(cardListTemplate.content.cloneNode(true));
+    const books = await this.fetch(this.getAttribute('source'));
+    books.map((b) => {
+      let cardTemplate = this.shadowRoot.getElementById('card');
+      let cardElement = cardTemplate.content.cloneNode(true);
+      cardElement.querySelector('.card .thumbnail').setAttribute('style', `background-image: url(${b.cover});`);
+      cardElement.querySelector('h2').textContent = b.title;
+      let bookText = '';
+      if (b.textContent && b.textContent.length > 0) {
+        bookText = `<h3>内容</h3><p>${b.textContent[0].Text}</p>`;
+      }
+      const bookTable = `
+      <table>
+        <thead>
+          <tr>
+            <th>著者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${b.author}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>出版社</th>
+            <th>出版日</th>
+            <th>ISBN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${b.publisher}</td>
+            <td>${b.pubdate}</td>
+            <td>${b.isbn}</td>
+          </tr>
+        </tbody>
+      </table>
+      `;
+      cardElement.querySelector('p').innerHTML = bookTable + bookText;
+      this.shadowRoot.querySelector('.card-list').appendChild(cardElement);
+    });
+  }
+}
+
+class GoodsCards extends BaseCards {
+  async render() {
+    let cardListTemplate = this.shadowRoot.getElementById('cardList');
+    this.shadowRoot.appendChild(cardListTemplate.content.cloneNode(true));
+    const response = await this.fetch(this.getAttribute('source'));
+    response.items.map((i) => {
+      let cardTemplate = this.shadowRoot.getElementById('card');
+      let cardElement = cardTemplate.content.cloneNode(true);
+      cardElement.querySelector('.card .thumbnail').setAttribute('style', `background-image: url(${i.image});`);
+      cardElement.querySelector('h2').textContent = i.name;
+      cardElement.querySelector('p').innerHTML = `
+      <table>
+        <thead>
+          <tr><th>購入日</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>${i.date}</td></tr>
+        </tbody>
+      </table>
+      `;
+      this.shadowRoot.querySelector('.card-list').appendChild(cardElement);
+    });
+  }
+}
+
+customElements.define('skill-cards', SkillCards);
+customElements.define('book-cards', BookCards);
+customElements.define('goods-cards', GoodsCards);
+</script>

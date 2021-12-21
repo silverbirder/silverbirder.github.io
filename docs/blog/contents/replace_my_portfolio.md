@@ -4,8 +4,8 @@ published: true
 date: 2021-03-03
 description: この度、私のポートフォリオページを刷新致しました。本記事では、刷新することになった動機から、刷新内容、今後について紹介したいと思います。
 tags: ["Portfolio", "Renewal"]
-cover_image: https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/overview.png
-socialMediaImage: https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/overview.png
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png
 ---
 
 この度、私のポートフォリオページを刷新致しました。本記事では、
@@ -45,7 +45,7 @@ Hugoで記事を管理する対象は、Markdownであるため、エンジニ�
 
 AMPを存分に使ったポートフォリオサイトを作成しました。全体像は、下記のとおりです。
 
-![overview](https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/overview.png)
+![overview](https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png)
 
 [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
 ソースコードは、下記のリポジトリにあります。

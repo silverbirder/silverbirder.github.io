@@ -17,4 +17,4 @@
 
 ## Technical skills
 
-<skill-cards source="https://raw.githubusercontent.com/Silver-birder/My-Portfolio/main/docs/resume/index.json"></skill-cards>
+<skill-cards source="https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/docs/resume/index.json"></skill-cards>

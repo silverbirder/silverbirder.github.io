@@ -9,10 +9,7 @@ callToActionItems:
     href: /resume/
 ---
 
-```js script
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-confetti();
-```
+<fire-confetti></fire-confetti>
 
 ## 自己紹介
 

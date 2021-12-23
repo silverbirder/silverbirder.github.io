@@ -1,4 +1,12 @@
 <script type="module">
+import confetti from 'canvas-confetti';
+class FireConfetti extends HTMLElement {
+  constructor() {
+    super();
+    confetti();
+  }
+}
+
 class BaseCards extends HTMLElement {
 
   static get observedAttributes() {
@@ -211,4 +219,5 @@ class GoodsCards extends BaseCards {
 customElements.define('skill-cards', SkillCards);
 customElements.define('book-cards', BookCards);
 customElements.define('goods-cards', GoodsCards);
+customElements.define('fire-confetti', FireConfetti);
 </script>

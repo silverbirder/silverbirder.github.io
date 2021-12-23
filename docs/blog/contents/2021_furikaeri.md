@@ -2,10 +2,10 @@
 title: 2021年の振り返り。
 published: true
 date: 2021-12-21
-description: 
+description: 2021年も、もう残りわずかになりました。今年も、振り返りをブログに残そうと思います。技術 フルスタックエンジニアリング 今年は、業務でフルスタックな開発を多く経験できました。
 tags: ["Looking Back"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1640236996/silver-birder.github.io/blog/okinawa_photo.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1640236996/silver-birder.github.io/blog/okinawa_photo.jpg
 ---
 
 2021年も、もう残りわずかになりました。今年も、振り返りをブログに残そうと思います。
@@ -47,7 +47,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 * プロのカメラマンに撮影頂く
 * 和装・洋装どちらも着る
 
-最後の"和装・洋装どちらも着る"は、衣装替えやタイトなスケジュールになってしまうと大変になると思い、洋装のみとしました。
+最後の"和装・洋装どちらも着る"は、衣装替えによってタイトなスケジュールになってしまうため、洋装のみとしました。
 
 撮影当日は、曇りの天候でしたが、場を和ませてくれるカメラマンさんや、チャペルスタッフの方々のおかげで、とても晴れやかな雰囲気で撮影できました。
 私と妻の両家の両親へ写真を共有し、とても喜んでくれました。
@@ -64,7 +64,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 またしても、新婚旅行の天候は芳しくなく、いくつか予定変更を余儀なくされましたが、
 このような事態を何度も経験しているたためか、臨機応変に予定を組み直し、自由気ままに遊んで満喫しました。
 
-竹富島から石垣島への船移動のため、竹富島の中心部から船乗り場まで、全力で走ったのは、その場のノリでやりすぎたなとも思っています。(笑)
+竹富島の中心部から船乗り場まで、全力で走ったのは、その場のノリでやりすぎたなとも思っています。(笑)
 
 ## 来年の抱負
 
@@ -75,7 +75,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 そのため、来年の抱負は **挑戦と健康のバランスを保つ** です。
 まだ20代なので、何事にも失敗を恐れず挑戦していきたいと思っています。
 例えば、Webフロントエンドの専門的な領域を探求したり、OSSコミッター活動を頑張ったりです。
-他には、ペーパードライバーな私が、子供と遠出しやすいよう、車の運転に慣れるよう努力したいです。
+他には、ペーパードライバーの私が、子供と遠出しやすいよう、車の運転に慣れるよう努力したいです。
 
 ただ、挑戦し続けると疲労し、ストレスが蓄積しやすくなります。
 今年、何度か妻とケンカをしてしまったのですが、原因の多くは、私の未熟さだと思っています。
@@ -84,6 +84,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 特に『一緒にやる or お願いする』や『妻のタイミングで』をできるようになりたいです。
 
 ※ 妻とは9年ぐらいの付き合いなので、言わなくても通じることが多いです。
+
 ※ 私は、一人でなんでもやろうとする人で、几帳面な性格も相まって、完璧にこなそうとする癖があるようです。
 
 ## 終わりに

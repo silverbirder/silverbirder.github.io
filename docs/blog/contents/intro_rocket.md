@@ -1,5 +1,5 @@
 ---
-title: Markdownで執筆するなら、WebComponentsが使えるSSG、Rocketがお勧め
+title: Markdownで執筆するなら、WebComponentsが使えるSSG、Rocketがオススメ！
 published: true
 date: 2021-12-24
 description: Markdownでブログやドキュメントを書いていますか？執筆活動に集中したいのに、Markdownだけだとかゆいところに手が届かないもどかしさ、感じたことありませんか？そんな方に、MarkdownとWebComponentsがシームレスに統合できる静的サイトジェネレータ(以降、SSGと呼ぶ)、Rocketをおすすめします。
@@ -15,9 +15,9 @@ Markdownでブログやドキュメントを書いていますか？
 
 ## 対象読者
 
-* SSGでWebサイト構築している人
 * (ブログなど)執筆活動に集中したい人
   * 執筆に、Markdownを利用している
+* 執筆したコンテンツをSSGで公開している人
 * SSGの移行コストを極力減らしたい人
 
 ## そもそも、Markdownって何？
@@ -30,7 +30,7 @@ Markdownは、QiitaやZenn、Hatenaなどの各サービス(以降、執筆サ�
 
 > Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
 
-Markdownは、**Webライター**向けに開発されたTextからHTMLへ変換するためのツールです。
+Markdownは、**Webライター**向けに開発されたPlainTextからHTMLへ変換するためのツールです。
 また、Markdownには**書きやすさ、読みやすさが大切**です。
 
 Webライターは、ブログ記事やネット広告の文章など、Web向けコンテンツを執筆する人です。
@@ -50,7 +50,7 @@ Markdownには、見出しや箇条書き、テーブルなどの記法(シン�
 
 > For any markup that is not covered by Markdown’s syntax, you simply use HTML itself. There’s no need to preface it or delimit it to indicate that you’re switching from Markdown to HTML; you just use the tags.
 
-MarkdownにはHTMLが使えます。執筆サービスのMarkdownプレビューで、HTMLを書いてみると、恐らく使えるはずです。
+MarkdownにはHTMLが使えます。執筆サービスのMarkdownで、HTMLを書いてみると、恐らく使えるはずです。
 
 MarkdownはHTMLへ変換するという目的を考えると、HTMLが使用できるというのは納得できると思います。
 ただし、**HTMLを使用することで、読みやすさや書きやすさは少し悪くなってしまうため、多用は避けなければいけません**。
@@ -64,10 +64,12 @@ MarkdownはHTMLへ変換するという目的を考えると、HTMLが使用で�
 * 目次(TOC)生成
   * 文章の見出しを収集し、目次を生成してくれる
 
-これらは、記法というより機能だと、私は思うので、Markdownの標準記法に求めるつもりはありません。
+これらの機能によって、執筆したコンテンツが読みやすくなったり、執筆の効率性が向上したりします。
+当たり前ですが、Markdownには、そのような機能が存在しません。
+Markdownは、記法を定義しているだけなので、Markdownに機能拡張を望んでいる訳ではありません。
 
-しかし、執筆をしていくと、**どうしても欲しくなってきます**。
-それら機能がなくても、Markdown記法を駆使すれば、埋め込みコンテンツっぽく表示できますし、目次も手動で生成できます。
+しかし、執筆をしていくと、それらの機能が**どうしても欲しくなってきます**。
+機能がなくても、Markdown記法を駆使すれば、埋め込みコンテンツっぽく表示できますし、目次も手動で生成できます。
 ただ、本来執筆に集中したいのに、見出しが増えるたびに、目次を手動更新するというのは、非効率的です。
 
 その非効率、どうしたら良いでしょうか。
@@ -91,10 +93,10 @@ Hello, World
 
 ```javascript
 // transform.js
-const fs = require("fs");
-const { marked } = require("marked"); // markdownをhtmlへ変換してくれる
+const fs = require('fs');
+const { marked } = require('marked'); // markdownをhtmlへ変換してくれる
 
-const markdown = fs.readFileSync("README.md", { encoding: 'utf-8' });
+const markdown = fs.readFileSync('README.md', { encoding: 'utf-8' });
 const html = marked(markdown);
 console.log(html);
 ```
@@ -124,10 +126,10 @@ Hello, World
 
 ```javascript
 // transform.js
-const fs = require("fs");
-const { marked } = require("marked"); // markdownをhtmlへ変換してくれる
+const fs = require('fs');
+const { marked } = require('marked'); // markdownをhtmlへ変換してくれる
 
-const markdown = fs.readFileSync("README.md", { encoding: 'utf-8' });
+const markdown = fs.readFileSync('README.md', { encoding: 'utf-8' });
 reMarkdown = markdown
              // TODO: replaceの第2引数の固定を動的に設定
              .replace(/\[:contents\]/g, '<div id="toc"><ul><li>Header1</li></ul></div>');
@@ -146,26 +148,26 @@ $ node transform.js
 <p>Hello, World</p>
 ```
 
-期待通り、Markdownの目次(toc)が生成されています。
+期待通り、Markdownの目次が生成されています。
 これは簡単な例ですが、機能拡張していくと、transform.jsの処理が増えたり、README.mdにマーカーがたくさん書かれていきます。
 
 このように変換処理に機能拡張するのは、変換処理に機能を一任できるというメリットがあります。
 ですが、**Markdownが変換処理に依存してしまう**こととなってしまいます。
-これは、変換処理を違うものへ移行するときに**移行コスト**が発生してしまいます。(例えば、HugoからGatsbyJSに移行)
+これは、変換処理を違うものへ移行するときに**移行コスト**が発生してしまいます。
 
 また、Markdown自体に、**Markdown記法やHTMLでもないマーカーを埋める**というのも、ちょっと違和感を感じます。
 
 ### 案2. WebComponentsで、機能拡張する
 
 WebComponentsは、Web標準技術の1つで、HTML要素を独自にカスタマイズできる機能(Custom Elements)があります。
-例えば、目次生成するためのHTML要素、`<view-toc>`をWebComponentsで開発したとします。
+例えば、目次生成するためのHTML要素、`<generate-toc>`をWebComponentsで開発したとします。
 このHTML要素は、全ての見出しテキストを収集し、箇条書きで表示するだけのWebComponentsだとします。
 
 Markdownのイメージは、次のとおりになります。
 
 ```markdown
 <!-- README.md -->
-<view-toc />
+<generate-toc />
 
 # Header1
 Hello, World
@@ -174,19 +176,19 @@ Hello, World
 このMarkdownを、任意のHTML変換処理(さきほどのtransform.jsでも可)をすると、次の結果になります。
 
 ```html
-<view-toc />
+<generate-toc />
 
 <h1 id="header1">Header1</h1>
 <p>Hello, World</p>
 ```
 
-MarkdownはHTMLを許容するため、view-tocタグが、そのままHTML出力されます。
-このままだと、ブラウザが `view-toc` を識別できません。そのため、`view-toc`を定義したコード、つまりWebComponentsを読み込む必要があります。
+MarkdownはHTMLを許容するため、`<generate-toc />`が、そのままHTML出力されます。
+このままだと、ブラウザが `generate-toc` を識別できません。そのため、`generate-toc`を定義したコード、つまりWebComponentsを読み込む必要があります。
 例えば、次のようなコードを読み込みます。
 
 ```html
 <script>
-  class ViewToc extends HTMLElement {
+  class GenerateToc extends HTMLElement {
     constructor() {
       super();
       const shadow = this.attachShadow({mode: 'open'});
@@ -194,11 +196,11 @@ MarkdownはHTMLを許容するため、view-tocタグが、そのままHTML出�
       shadow.innerHTML = `<div id="toc"><ul><li>Header1</li></ul></div>`;
     }
   }
-  customElements.define('view-toc', ViewToc);
+  customElements.define('generate-toc', GenerateToc);
 </script>
 ```
 
-これで、ブラウザは `view-toc`を識別できるようになったため、期待通り目次が表示されます。
+これで、ブラウザは `generate-toc`を識別できるようになったため、期待通り目次が表示されます。
 
 WebComponentsを利用するメリットは、**変換処理に依存せずWebComponentsに依存します**。ブラウザの標準技術に依存するというのは、全く問題ありません。
 変換処理の移行をしても、WebComponentsのコードがあれば、同じ動作が実現できます。
@@ -207,7 +209,7 @@ WebComponentsを利用するメリットは、**変換処理に依存せずWebCo
 
 ```markdown
 <!-- README.md -->
-<view-toc />
+<generate-toc />
 
 # Header1
 Hello, World
@@ -230,6 +232,9 @@ Rocketの事例は、次のものがあります。
 * https://open-wc.org/
 * https://apolloelements.dev/
 
+Rocketは、技術的には、EleventyというSSGのWrapperになります。
+Eleventyは、MarkdownをHTMLへ変換してくれます。Rocketは、そのEleventyにModern Webの技術(WebComponents,TestRunner,DevServer)を混ぜています。
+
 ### Modern Web って？
 
 Javascriptを使って開発すると、Babelのトランスパイラ、ESLintのリンター、Jestのテスター、Webpackのビルダーなど、扱うツールが多く、必要以上に複雑になり、開発者は疲弊してしまいます。
@@ -240,15 +245,6 @@ Javascriptを使って開発すると、Babelのトランスパイラ、ESLint�
 ※ JSDOMのようなブラウザAPIをモックすることでテストするのではなく、本来動いているブラウザでテストするテストランナーもあります。
 
 Modern Webは、そういったWeb標準技術の開発を支援します。
-
-## Rocketの技術構成
-
-Rocketは、EleventyというSSGのWrapperになります。
-Eleventyは、MarkdownをHTMLへ変換してくれます。Rocketは、そのEleventyにModern Webの技術(WebComponents,TestRunner,DevServer)を混ぜています。
-
-Eleventyには、テンプレートに独自の制御プログラムを書けるテンプレートエンジンとして、Numjucksを採用しています。
-Numjucksで、HTMLを柔軟に書き換えられますが、私はあまり好みません。理由は、**そのテンプレートエンジンにどっぷり依存してしまう**からです。
-できれば、(ケースバイケースですが) WebComponentsで書いた方が良いと思っています。
 
 ## Rocketの特徴
 
@@ -315,7 +311,7 @@ Numjucksのscriptヘッダに、共通化したいWebComponentsを書いてあ�
 Rocketは、Modern Webの[開発サーバー](https://modern-web.dev/docs/dev-server/overview/)を内部で使用しています。開発サーバーには、[Bare Importをサポートしています](https://modern-web.dev/blog/introducing-modern-web/#highlights-1)。
 
 Bare Importの例を示します。
-次のMarkdownは、事前に `npm install canvas-confetti` インストールしていることを前提とした場合、`confetti()`が実行されます。
+事前に `npm install canvas-confetti` インストールしていることを前提とした場合、次のMarkdownは`confetti()`が実行されます。
 
 ````markdown
 ```js script

@@ -11,7 +11,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144307
 大阪のグランフロント大阪で開かれました「AWS Summit Osaka 2019」に参加してきましたので、
 私の中で良かった３つのセッションを紹介したいなと思います。
 
-[https://aws.amazon.com/jp/summits/osaka-2019/](https://aws.amazon.com/jp/summits/osaka-2019/)  <!--  TODO: embed  -->
+<iframely-embed url="https://aws.amazon.com/jp/summits/osaka-2019/"></iframely-embed>
 
 <figure title="もらったもの">
 <img alt="もらったもの" src="https://res.cloudinary.com/silverbirder/image/upload/v1614430752/silver-birder.github.io/blog/AWS_Summit_Osaka_2019_Novelty.png">
@@ -21,7 +21,8 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144307
 hastagはこちら [#AWSSummit](https://twitter.com/hashtag/AWSSummit)
 
 私のメモはこちら
-[https://scrapbox.io/silverbirder-memo/AWS_Summit_Osaka_2019](https://scrapbox.io/silverbirder-memo/AWS_Summit_Osaka_2019)  <!--  TODO: embed  -->
+
+<iframely-embed url="https://scrapbox.io/silverbirder-memo/AWS_Summit_Osaka_2019"></iframely-embed>
 
 <!--  TODO: TOC -->
 # Amazon Sumerian によるVR/AR/MRアプリケーションの開発
@@ -41,16 +42,14 @@ VRやARについては、広く知れ渡っていると思いますが、MRは�
 
 VRは、Oculus Questのようなヘッドセットで仮想世界に没入できます。  
   
-[https://www.youtube.com/watch?v=BqM27iLnDJs](https://www.youtube.com/watch?v=BqM27iLnDJs)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.youtube.com/watch?v=BqM27iLnDJs"></iframely-embed>
 
 ARは、ポケモンGoのようなアプリで現実世界に仮想のキャラクタを投影できます。
 
-[https://www.youtube.com/watch?time_continue=11&v=E7nwr6sA6Es](https://www.youtube.com/watch?time_continue=11&v=E7nwr6sA6Es)  <!--  TODO: embed  -->
-  
+<iframely-embed url="https://www.youtube.com/watch?time_continue=11&v=E7nwr6sA6Es"></iframely-embed>
+
 MRは、VRとARのMixみたいな感じですね。ヘッドセットをかぶりながら、現実世界に仮想世界がmixされた景色が見えます。  
 代表的なものとして、Microsoft HoloLensがあります。  
-
-[https://www.youtube.com/watch?time_continue=69&v=KXkmyhoIcGQ](https://www.youtube.com/watch?time_continue=69&v=KXkmyhoIcGQ)  <!--  TODO: embed  -->
 
 Amazon Sumerianは、このVR/ARにフォーカスしたサービスになります。
 
@@ -81,24 +80,24 @@ xRはWeb好きな私でも興味がある技術です。Sumerianをつかうこ�
 実際触るかどうかは分かりませんが（無料枠使い切ってしまったので...)、こういったxRを開発するための手段を１つ知れたことは良かったと思います。  
 （他のクラウドサービスにはxR向けサービスないのですかね...?）
 
-[https://aws.amazon.com/jp/sumerian/pricing/](https://aws.amazon.com/jp/sumerian/pricing/)  <!--  TODO: embed  -->
+<iframely-embed url="https://aws.amazon.com/jp/sumerian/pricing/"></iframely-embed>
 
-[https://aws.amazon.com/jp/sumerian/](https://aws.amazon.com/jp/sumerian/)  <!--  TODO: embed  -->
+<iframely-embed url="https://aws.amazon.com/jp/sumerian/"></iframely-embed>
 
 ※ 下記のレポートもご参考下さい
-[https://dev.classmethod.jp/cloud/aws/awssummit-2019-tokyo-h2-01/](https://dev.classmethod.jp/cloud/aws/awssummit-2019-tokyo-h2-01/)  <!--  TODO: embed  -->
+<iframely-embed url="https://dev.classmethod.jp/cloud/aws/awssummit-2019-tokyo-h2-01/"></iframely-embed>
 
 # クラウドネイティブなモダンアプリケーション開発入門
 ## モダンアプリケーションのデザインパターン
 今回紹介されたパターンは、マイクロサービスのデザインパターンのことを指しているのでしょうか。
-[https://microservices.io/patterns/microservices.html](https://microservices.io/patterns/microservices.html)  <!--  TODO: embed  -->
+<iframely-embed url="https://microservices.io/patterns/microservices.html"></iframely-embed>
 
 デザインパターンといえば、GoFのデザインパターンが有名ですね。
-[https://en.wikipedia.org/wiki/Software_design_pattern](https://en.wikipedia.org/wiki/Software_design_pattern)  <!--  TODO: embed  -->
+<iframely-embed url="https://en.wikipedia.org/wiki/Software_design_pattern"></iframely-embed>
 最近では、分散システムにフォーカスした[分散システムデザインパターン](https://www.oreilly.co.jp/books/9784873118758/)があります。
 
 今回登壇で話されいた内容を私が説明するより、下記のほうが十分に説明がありますので、そちらをご参考下さい。
-[https://qiita.com/yasuabe2613/items/3bff44e662c922083264](https://qiita.com/yasuabe2613/items/3bff44e662c922083264)  <!--  TODO: embed  -->
+<iframely-embed url="https://qiita.com/yasuabe2613/items/3bff44e662c922083264"></iframely-embed>
 
 ## 感想
 今回のセッションでは、少し駆け足になっていたせいか全て聞き取れなかった印象でした。
@@ -109,7 +108,7 @@ CQRSというパターンを業務上調査した覚えがあるのですが、�
 １度目を通しておこうと思いました。
 
 ※ 下記のレポートもご参考下さい
-[https://dev.classmethod.jp/cloud/aws-summit-2019-day3-a03-06/](https://dev.classmethod.jp/cloud/aws-summit-2019-day3-a03-06/)  <!--  TODO: embed  -->
+<iframely-embed url="https://dev.classmethod.jp/cloud/aws-summit-2019-day3-a03-06/"></iframely-embed>
 
 # クラウドネイティブがもたらすスケーラブルな開発、インフラストラクチャー、そして組織
 ## Nulabの現状
@@ -143,7 +142,7 @@ Nulabさんの取り組みで勉強になったのは「小さなところから
 私も、プロダクトへ何度か提案したことがありますが、今回のポイントも検討してみたいなと思います。
 
 ※ 下記のレポートもご参考下さい
-[https://aws.amazon.com/jp/blogs/startup/summit-osaka-2019-racap/](https://aws.amazon.com/jp/blogs/startup/summit-osaka-2019-racap/)  <!--  TODO: embed  -->
+<iframely-embed url="https://aws.amazon.com/jp/blogs/startup/summit-osaka-2019-racap/"></iframely-embed>
 
 # 全体感想
 AWS Summit Osakaは今回が初めてだそうです。前回は震災の影響で中止になったみたいです。     

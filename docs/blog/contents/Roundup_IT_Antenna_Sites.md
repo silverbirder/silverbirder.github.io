@@ -15,7 +15,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144121
 # 背景
 今年の9月にPyConJP 2019が開催されます。
 
-[https://pycon.jp/2019/](https://pycon.jp/2019/)  <!--  TODO: embed  -->
+<iframely-embed url="https://pycon.jp/2019/"></iframely-embed>
 
 LTの募集があったので、LT応募するためのネタ探しをはじめました 😄
 
@@ -26,39 +26,39 @@ LTの募集があったので、LT応募するためのネタ探しをはじめ�
 
 # Github
 
-[https://github.com/trending/python](https://github.com/trending/python)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/trending/python"></iframely-embed>
 
 # PublicKey
 
-[https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python](https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python"></iframely-embed>
 
 # Dev.to
 
-[https://dev.to/t/python](https://dev.to/t/python)  <!--  TODO: embed  -->
+<iframely-embed url="https://dev.to/t/python"></iframely-embed>
 
 # Reddit
 
-[https://www.reddit.com/r/Python](https://www.reddit.com/r/Python)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.reddit.com/r/Python"></iframely-embed>
 
 # Hacker News
 
-[https://hn.algolia.com/?query=python](https://hn.algolia.com/?query=python)  <!--  TODO: embed  -->
+<iframely-embed url="https://hn.algolia.com/?query=python"></iframely-embed>
 
 # Qiita
 
-[https://qiita.com/tags/python](https://qiita.com/tags/python)  <!--  TODO: embed  -->
+<iframely-embed url="https://qiita.com/tags/python"></iframely-embed>
 
 # Hatena
 
-[https://b.hatena.ne.jp/search/tag?q=Python](https://b.hatena.ne.jp/search/tag?q=Python)  <!--  TODO: embed  -->
+<iframely-embed url="https://b.hatena.ne.jp/search/tag?q=Python"></iframely-embed>
 
 # Medium
 
-[https://medium.com/tag/python](https://medium.com/tag/python)  <!--  TODO: embed  -->
+<iframely-embed url="https://medium.com/tag/python"></iframely-embed>
 
 # Ubersuggest
 
-[https://app.neilpatel.com/jp/ubersuggest/overview?keyword=python](https://app.neilpatel.com/jp/ubersuggest/overview?keyword=python)  <!--  TODO: embed  -->
+<iframely-embed url="https://app.neilpatel.com/jp/ubersuggest/overview?keyword=python"></iframely-embed>
 
 # GoogleTrend
 
@@ -72,43 +72,43 @@ LTの募集があったので、LT応募するためのネタ探しをはじめ�
 
 ## Deepfacelab
 
-[https://github.com/iperov/DeepFaceLab](https://github.com/iperov/DeepFaceLab)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/iperov/DeepFaceLab"></iframely-embed>
 
 > DeepFaceLab is a tool that utilizes machine learning to replace faces in videos. Includes prebuilt ready to work standalone Windows 7,8,10 binary (look readme.md).
 
 ## Grumpy
 
-[https://github.com/google/grumpy](https://github.com/google/grumpy)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/google/grumpy"></iframely-embed>
 
 > Grumpy is a Python to Go source code transcompiler and runtime.
 
 ## Pyodide
 
-[https://github.com/iodide-project/pyodide](https://github.com/iodide-project/pyodide)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/iodide-project/pyodide"></iframely-embed>
 
 > The Python scientific stack, compiled to WebAssembly
 
 ## PyOxidizer
 
-[https://github.com/indygreg/PyOxidizer](https://github.com/indygreg/PyOxidizer)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/indygreg/PyOxidizer"></iframely-embed>
 
 > A modern Python application packaging and distribution tool
 
 ## Pyre
 
-[https://github.com/facebook/pyre-check](https://github.com/facebook/pyre-check)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/facebook/pyre-check"></iframely-embed>
 
 > Performant type-checking for python.
 
 ## Pyxel
 
-[https://github.com/kitao/pyxel](https://github.com/kitao/pyxel)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/kitao/pyxel"></iframely-embed>
 
 > A retro game engine for Python
 
 ## ScrapydWeb
 
-[https://github.com/my8100/scrapydweb](https://github.com/my8100/scrapydweb)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/my8100/scrapydweb"></iframely-embed>
 
 > Web app for Scrapyd cluster management, Scrapy log analysis & visualization, Auto packaging, Timer tasks, Email notice, and Mobile UI
 

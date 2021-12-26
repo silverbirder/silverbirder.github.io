@@ -11,13 +11,13 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144306
 今回、またMicro Frontendsの構築を試みようと思います。構築パターンの内、サーバーサイド統合パターン、特にエッジサイド統合を試しました。
 その内容を紹介します。サンプルコードは、下記に残しています。
 
-[https://github.com/Silver-birder/micro-frontends-sample-code-5/](https://github.com/Silver-birder/micro-frontends-sample-code-5/)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/micro-frontends-sample-code-5/"></iframely-embed>
 
 <!--  TODO: TOC -->
 
 # Edge Side Include (ESI)って？
 
-[https://www.w3.org/TR/esi-lang/](https://www.w3.org/TR/esi-lang/)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.w3.org/TR/esi-lang/"></iframely-embed>
 
 ESIは、SSIと似たようなもので、サーバーサイド側でコンテンツを挿入する仕組みの1つです。ESIの場合、挿入するコンテンツ(ページフラグメント)がEdge側にあると理解しています。
 そのため、Edgeキャッシュをコンテンツ毎に効かせれるメリットがあります。
@@ -66,7 +66,7 @@ JSONを返すURLは、/manifest.json と統一しています。
 
 また、RustのWebAssemblyを下記のようなテンプレートで組み込むことができます。
 
-[https://github.com/cloudflare/rustwasm-worker-template](https://github.com/cloudflare/rustwasm-worker-template)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/cloudflare/rustwasm-worker-template"></iframely-embed>
 
 特定の重い処理をRustのWebAssemblyで処理するようなフラグメントをページに混ぜることができます。
 
@@ -77,13 +77,13 @@ Cloudflare Workersは、任意のドメインで動かすことになります�
 例えば、ドメインA内に複数のCloudflare Workers XとYがあったとすると、
 XからYへの通信ができないです。
 
-[https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/94472/37](https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/94472/37)  <!--  TODO: embed  -->
+<iframely-embed url="https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/94472/37"></iframely-embed>
 
 そのため、複数のCloudflare Workersを使用する場合は 複数のドメインが必要になります。
 先程の例なら、ドメインAに属するCloudflare Workers XからドメインBに属するCloudflare Workers Yへ通信することができます。
 私は、freenomのtkドメイン(無料)を複数購入しました。
 
-[https://freenom.com/](https://freenom.com/)  <!--  TODO: embed  -->
+<iframely-embed url="https://freenom.com/"></iframely-embed>
 
 ## 直接IPアドレスへリクエストできない
 
@@ -91,19 +91,19 @@ XからYへの通信ができないです。
 Cloudflare Workersをローカル開発する場合、[wrangler:dev](https://github.com/cloudflare/wrangler#-dev) というコマンドで検証します。
 検証中に、他のCloudflare WorkersのURL(localhost:XXXX)へアクセスしようとしても、直接IPとなるため失敗します。
 
-[https://support.cloudflare.com/hc/ja/articles/360029779472-Cloudflare-1XX-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#error1003](https://support.cloudflare.com/hc/ja/articles/360029779472-Cloudflare-1XX-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#error1003)  <!--  TODO: embed  -->
+<iframely-embed url="https://support.cloudflare.com/hc/ja/articles/360029779472-Cloudflare-1XX-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#error1003"></iframely-embed>
 
 そのため、下記のようなサービスを使って、私は解決させました。
 
-[https://ngrok.com/](https://ngrok.com/)  <!--  TODO: embed  -->
+<iframely-embed url="https://ngrok.com/"></iframely-embed>
 
-[https://github.com/localtunnel/localtunnel](https://github.com/localtunnel/localtunnel)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/localtunnel/localtunnel"></iframely-embed>
 
 ## Cloudflare Workersによる制約が大きい
 
 Cloudflareのプラットフォーム上では、下記のランタイムAPIが使用できます。
 
-[https://developers.cloudflare.com/workers/runtime-apis](https://developers.cloudflare.com/workers/runtime-apis)  <!--  TODO: embed  -->
+<iframely-embed url="https://developers.cloudflare.com/workers/runtime-apis"></iframely-embed>
 
 Cloudflare Workersの仕組みを把握していないのですが、この提供されているAPI以外は、
 確か使えなかったような気がします。

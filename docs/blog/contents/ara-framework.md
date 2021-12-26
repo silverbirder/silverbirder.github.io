@@ -13,7 +13,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144308
 みなさん、こんにちは。silverbirder です。
 私の最近の興味として、Micro Frontends があります。
 
-[./microfrontends](./microfrontends.md)  <!--  TODO: embed  -->
+<iframely-embed url="https://silver-birder.github.io/blog/contents/microfrontends"></iframely-embed>
 
 今、Ara-Frameworkというフレームワークを使った Micro Frontends のアプローチ方法を学んでいます。
 
@@ -64,7 +64,7 @@ Ara-Frameworkのアーキテクチャ図は、次のようなものです。
 # Ara-Framework サンプルコード
 
 Ara-Frameworkを実際に使ってみました。サンプルコードは下記にあげています。
-[https://github.com/Silver-birder/micro-frontends-sample-code-2](https://github.com/Silver-birder/micro-frontends-sample-code-2)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/micro-frontends-sample-code-2"></iframely-embed>
 
 package.json はこんな感じです。
 

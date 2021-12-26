@@ -12,7 +12,7 @@ CircleCIとBackstopJSを組み合わせて、『継続的にWebページの視�
 
 <!--  TODO: TOC -->
 
-[https://github.com/Silver-birder/silver-enigma](https://github.com/Silver-birder/silver-enigma)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/silver-enigma"></iframely-embed>
 
 # Motivation
 Webアプリを運用する上で、システム改善は継続的に行われます。

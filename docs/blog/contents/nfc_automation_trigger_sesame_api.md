@@ -38,7 +38,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16143455
 
 NFC Automation Triggerが作動！解錠！
 
-[https://twitter.com/silver_birder/status/1187016726363299840](https://twitter.com/silver_birder/status/1187016726363299840)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1187016726363299840" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 作成方法は、とっても**かんたん**です。iPhone標準アプリshortcutと、[NFCタグ(１枚94円)](https://www.amazon.co.jp/gp/product/B00GXSGL5G/)があれば誰でも作れます。もちろん、**[SESAME](https://www.amazon.co.jp/dp/B0787N1L3M)**が必要ですけどね（笑)。
 

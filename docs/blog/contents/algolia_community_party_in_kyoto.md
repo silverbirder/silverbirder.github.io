@@ -8,7 +8,7 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614431407/si
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614431407/silver-birder.github.io/blog/Algolia_Community_Party_in_Kyoto_2019_5_10.png
 ---
 
-[Algolia Community Party in 京都 - 2019年5月10日](https://algolia.connpass.com/event/128524/)  <!--  TODO: embed  -->
+<iframely-embed url="https://algolia.connpass.com/event/128524/"></iframely-embed>
 
 こちらに参加しましたので、ご報告までに記事を書こうと思います。
 
@@ -33,7 +33,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144314
 
 ## 概要
 
-[https://www.algolia.com/](https://www.algolia.com/)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.algolia.com/"></iframely-embed>
 
 > Products to accelerate search and discovery experiences across any device and platform.
 
@@ -45,16 +45,16 @@ Alogliaでは、そういった全文検索に関わる機能をSaaSとして提
 使われているところでは、ブログサービスである[medium](https://medium.com/)や、オンライン決算処理である[Stripeのドキュメント](https://stripe.com/docs/api)がメジャーでしょうか。
 エンジニア向けとしては、[Docker Hub](https://hub.docker.com/)にも使われています。また、Firebaseの公式でも使用事例として紹介されています。これは驚きですね。
 
-[https://firebase.google.com/docs/firestore/solutions/search?hl=ja](https://firebase.google.com/docs/firestore/solutions/search?hl=ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://firebase.google.com/docs/firestore/solutions/search?hl=ja"></iframely-embed>
 
 Algoliaの会社としては、フランスから2012年よりスタートしました。
 ベンチャー企業であり、日本人のエンジニア募集もあるそうです。
 
 SaaSコミュニティ用のイベントがあるそうで、こちらにAlgoliaさんも登壇されています。
 
-[https://www.saastr.com/](https://www.saastr.com/)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.saastr.com/"></iframely-embed>
 
-[https://www.saastr.com/watch-the-saastr-masterclass-from-0-to-10m-in-arr-from-algolia-in-paris-video/](https://www.saastr.com/watch-the-saastr-masterclass-from-0-to-10m-in-arr-from-algolia-in-paris-video/)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.saastr.com/watch-the-saastr-masterclass-from-0-to-10m-in-arr-from-algolia-in-paris-video/"></iframely-embed>
 
 ## どんな機能があるの？
 
@@ -77,11 +77,11 @@ SaaSコミュニティ用のイベントがあるそうで、こちらにAlgolia
 
 ## どうやって使うの？
 
-[https://github.com/algolia](https://github.com/algolia)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/algolia"></iframely-embed>
 OSSとしてライブラリを提供されています。
 手っ取り早く使いたいときは、instantsearch.jsでしょうか。
 
-[https://community.algolia.com](https://community.algolia.com)  <!--  TODO: embed  -->
+<iframely-embed url="https://community.algolia.com"></iframely-embed>
 こちらも参考になるかと思います。
 
 ## Algoliaは知っていたの？
@@ -93,24 +93,24 @@ Algoliaは、全文検索システムを構築せずとも、お手軽に使え�
 
 その後、下記の記事で書いた通りOSS Gateの対象にもさせてもらいました。
 
-[https://tech-blog.monotaro.com/entry/2018/10/17/115442](https://tech-blog.monotaro.com/entry/2018/10/17/115442)  <!--  TODO: embed  -->
+<iframely-embed url="https://tech-blog.monotaro.com/entry/2018/10/17/115442"></iframely-embed>
 
 また、作りたいものリストに溜まっていたアプリを作る時間があったので、
 最近では、下記のような書籍管理を作りました。検索はAlgoliaを使っています。
 
-[https://github.com/Silver-birder/book-store-vue](https://github.com/Silver-birder/book-store-vue)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/book-store-vue"></iframely-embed>
 
 # なぜ会場が、はてな株式会社なの？
 はてなの社長であるid:chris4403さんが、[@shinodogg](https://twitter.com/shinodogg)と前職での知り合いだったからだそうです。
 
-[https://mackerel.io/ja/](https://mackerel.io/ja/)  <!--  TODO: embed  -->
+<iframely-embed url="https://mackerel.io/ja/"></iframely-embed>
 
 はてなも、サーバー監視サービスであるmackerel（鯖）をSaaSとして提供しています。
 このお二方が、前職を離れてからも、同様の事業に携わっているということに、不思議な縁だな〜と思いました。
 
 会場では、ピザを提供して頂きました。美味しかったです！ごちそうさまでした！
 
-[https://twitter.com/silver_birder/status/1126841269097865216?s=20](https://twitter.com/silver_birder/status/1126841269097865216?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1126841269097865216?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 # 最後に
 SaaSは、その専門の技術を持ってサービス提供をされています。

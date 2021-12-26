@@ -17,7 +17,7 @@ GCP構築のシステム設計話と、その構築時に、ハマったこと�
 
 2020年、最もダウンロードされたアプリがFacebookを抜いて**TikTok**が一位になったそうです。
 
-[https://gigazine.net/news/20210811-tiktok-overtakes-facebook/](https://gigazine.net/news/20210811-tiktok-overtakes-facebook/)  <!--  TODO: embed  -->
+<iframely-embed url="https://gigazine.net/news/20210811-tiktok-overtakes-facebook/"></iframely-embed>
 
 私もTikTokを利用しています。
 
@@ -27,7 +27,7 @@ GCP構築のシステム設計話と、その構築時に、ハマったこと�
 
 # tiktok-scraper
 
-[https://www.npmjs.com/package/tiktok-scraper](https://www.npmjs.com/package/tiktok-scraper)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.npmjs.com/package/tiktok-scraper"></iframely-embed>
 
 > Scrape and download useful information from TikTok.
 No login or password are required.
@@ -140,7 +140,7 @@ PubSubでワークフローを制御するよりも、Cloud Workflowsのyamlで�
 
 ただ、Cloud Workflowsには、次のページに書いてあるとおり、いくつかの制限があります。
 
-[https://cloud.google.com/workflows/quotas?hl=ja](https://cloud.google.com/workflows/quotas?hl=ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/workflows/quotas?hl=ja"></iframely-embed>
 
 特に困ったのが、全ての変数のメモリ合計が、**64kb** だということです。
 HTTPレスポンスのBodyを変数保持する構成を取ると、そのサイズを考慮しなければいけません。
@@ -159,7 +159,7 @@ Webアプリには、バッチで収集したTikTokの動画を一覧表示す�
 閲覧するTikTok動画が多くなると、ページネーションが欲しくなりました。
 そこで、Firestoreでページネーションの実現方法を調べてみると、次の資料を発見しました。
 
-[https://firebase.google.com/docs/firestore/query-data/query-cursors?hl=ja](https://firebase.google.com/docs/firestore/query-data/query-cursors?hl=ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://firebase.google.com/docs/firestore/query-data/query-cursors?hl=ja"></iframely-embed>
 
 これを見ると、ページネーションは、現在位置から±1ページの移動は簡単です。
 資料にあるサンプルコードのように、`startAfter`を使えばよいだけです。
@@ -188,7 +188,7 @@ return first.get().then((documentSnapshots) => {
 それよりも、`offset`メソッドがほしいところです。
 しかし、次の資料を発見し、諦めることになります。
 
-[https://firebase.google.com/docs/firestore/best-practices?hl=ja](https://firebase.google.com/docs/firestore/best-practices?hl=ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://firebase.google.com/docs/firestore/best-practices?hl=ja"></iframely-embed>
 
 > オフセットは使用しないでください。その代わりにカーソルを使用します。オフセットを使用すると、スキップされたドキュメントがアプリケーションに返されなくなりますが、内部ではスキップされたドキュメントも引き続き取得されています。スキップされたドキュメントはクエリのレイテンシに影響し、このようなドキュメントの取得に必要な読み取りオペレーションは課金対象になります。
 
@@ -207,7 +207,7 @@ return first.get().then((documentSnapshots) => {
 
 これだと、1ページ25個のデータを表示するならば、3ページ目(51~75)を取得できます。(`startAfter`は開始点を含めません)
 
-[https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query](https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/query"></iframely-embed>
 
 そもそも、ドキュメントベースの設計よりも、RDBの設計に慣れていた私は、
 Firestoreよりも、Cloud SQLの方が扱いやすいと思いました。
@@ -218,14 +218,14 @@ Firestoreよりも、Cloud SQLの方が扱いやすいと思いました。
 
 Cloud RunとPubSubの連携には、Eventacを使用します。
 
-[https://cloud.google.com/blog/ja/products/serverless/eventarc-unified-eventing-experience-google-cloud](https://cloud.google.com/blog/ja/products/serverless/eventarc-unified-eventing-experience-google-cloud)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/blog/ja/products/serverless/eventarc-unified-eventing-experience-google-cloud"></iframely-embed>
 
 > 昨年 10 月、60 を超える Google Cloud ソースから Cloud Run にイベントを送信できる新しいイベント機能、Eventarc を発表いたしました。Eventarc は、さまざまなソースから監査ログを読み取り、それらを CloudEvents 形式のイベントとして Cloud Run サービスに送信します。また、カスタム アプリケーションの Pub/Sub トピックからイベントを読み取ることもできます。
 
 このEventarcのソースとして、Cloud StorageのObject.createをトリガーとして設計を考えていました。
 しかし、そのイベントをフィルタリングする選択肢は、2つしかありません。
 
-[https://cloud.google.com/blog/ja/products/serverless/demystifying-event-filters-eventarc](https://cloud.google.com/blog/ja/products/serverless/demystifying-event-filters-eventarc)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/blog/ja/products/serverless/demystifying-event-filters-eventarc"></iframely-embed>
 
 できるのは、執筆時点(2021年8月)で、次の2つです。
 
@@ -243,7 +243,7 @@ Specific resourceは、特定のObeject名がObject.createされた場合のみ�
 
 Cloud Runで、5XX系のエラーとなった場合、PubSubの再試行されます。
 
-[https://cloud.google.com/pubsub/docs/admin?hl=ja#using_retry_policies](https://cloud.google.com/pubsub/docs/admin?hl=ja#using_retry_policies)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/pubsub/docs/admin?hl=ja#using_retry_policies"></iframely-embed>
 
 何度もPubSubが実行されると、Cloud Runのコンピューティングリソースが消費され続けます。
 そうすると、課金が発生するので、対策が必要です。
@@ -254,11 +254,11 @@ Cloud Workflowsは、あくまでワークフローの管理です。
 変数処理などは、基本的に使わず、ワークフローのタスクを連結するだけにした方が良いです。
 次の資料には、Cloud Workflowsで使える標準機能です。
 
-[https://cloud.google.com/workflows/docs/reference/stdlib/overview](https://cloud.google.com/workflows/docs/reference/stdlib/overview)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/workflows/docs/reference/stdlib/overview"></iframely-embed>
 
 ワークフローのタスクを並列処理する機能は、まだ実験段階なので、本番環境は使えないようです。
 
-[https://cloud.google.com/workflows/docs/reference/stdlib/experimental.executions/map](https://cloud.google.com/workflows/docs/reference/stdlib/experimental.executions/map)  <!--  TODO: embed  -->
+<iframely-embed url="https://cloud.google.com/workflows/docs/reference/stdlib/experimental.executions/map"></iframely-embed>
 
 # 終わりに
 

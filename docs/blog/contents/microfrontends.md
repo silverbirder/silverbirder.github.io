@@ -37,10 +37,10 @@ ECサイトのようなWebアプリケーションでは、様々な専門知識
 
 さらに詳しく知りたい方は、次のページをご参考下さい。とてもわかりやすいです。
 
-[https://micro-frontends-japanese.org/](https://micro-frontends-japanese.org/)  <!--  TODO: embed  -->
+<iframely-embed url="https://micro-frontends-japanese.org/"></iframely-embed>
 
 また、次の書籍を読むと、
-[https://www.manning.com/books/micro-frontends-in-action](https://www.manning.com/books/micro-frontends-in-action)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.manning.com/books/micro-frontends-in-action"></iframely-embed>
 
 > Amazon does not talk a lot about its internal development structure. However, there are reports that <b>the teams who run its e-commerce site have been working like this </b>for a long time.  ...
 
@@ -125,7 +125,7 @@ apple, banana, orangeという商品を検索するだけのサンプルWebア�
 ![micro frontends sample overview](https://res.cloudinary.com/silverbirder/image/upload/v1588513402/micro-frontends-sample-code/micro_frontends_sample.jpg)
 
 サンプルコードは、ここに置いています。
-[https://github.com/Silver-birder/micro-frontends-sample-code](https://github.com/Silver-birder/micro-frontends-sample-code)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/micro-frontends-sample-code"></iframely-embed>
 
 ## サービス
 
@@ -139,7 +139,7 @@ apple, banana, orangeという商品を検索するだけのサンプルWebア�
 ##  仕組み
 Podium というライブラリを採用しました。
 
-[https://github.com/podium-lib/](https://github.com/podium-lib/)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/podium-lib/"></iframely-embed>
 
 これは、フロントエンドのサービスを簡単に統合できるようなライブラリになっています。
 Podium には大きく分けて3つの機能があります。
@@ -272,7 +272,7 @@ messageBus.subscribe('search', 'search.word', event => {
 
 各サービスは、fly.io というPaaSへデプロイしています。
 
-[https://fly.io/](https://fly.io/)  <!--  TODO: embed  -->
+<iframely-embed url="https://fly.io/"></iframely-embed>
 
 CDNでSSRが実行できる <b>Edge Worker</b>を使用しています。
 これにより、SSR結果をキャッシュし、高速にレスポンスを返却できます。
@@ -280,7 +280,7 @@ CDNでSSRが実行できる <b>Edge Worker</b>を使用しています。
 ただ、サンプルWebアプリでは、全くその力を引き出せていないです...
 
 ※ 参考記事
-[https://mizchi.hatenablog.com/entry/2019/02/21/235403](https://mizchi.hatenablog.com/entry/2019/02/21/235403)  <!--  TODO: embed  -->
+<iframely-embed url="https://mizchi.hatenablog.com/entry/2019/02/21/235403"></iframely-embed>
 
 # サンプルWebアプリで分かったこと
 ## SSR + CSR (Hydration) が実現可能
@@ -292,12 +292,12 @@ CDNでSSRが実行できる <b>Edge Worker</b>を使用しています。
 例えば、次のリポジトリにある "shared_vendor_webpack_dll" のように、vendorファイルを共有することで、
 javascriptのsizeを減らすといった手段があります。
 
-[https://github.com/naltatis/micro-frontends-in-action-code](https://github.com/naltatis/micro-frontends-in-action-code)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/naltatis/micro-frontends-in-action-code"></iframely-embed>
 
 また、次のリポジトリにある zalando tailorは、script loadをstreamingすることで、
 全体のscript load完了時間を短縮するツールもあります。
 
-[https://github.com/zalando/tailor](https://github.com/zalando/tailor)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/zalando/tailor"></iframely-embed>
 
 ## サービス内で技術スタックを選択できる
 
@@ -340,4 +340,4 @@ Micro Frontendsは、このような<b>複雑化するフロントエンドに�
 
 # 参考リンク
 
-[https://github.com/ChristianUlbrich/awesome-microfrontends](https://github.com/ChristianUlbrich/awesome-microfrontends)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/ChristianUlbrich/awesome-microfrontends"></iframely-embed>

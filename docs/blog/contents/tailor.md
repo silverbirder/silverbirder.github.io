@@ -13,7 +13,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144299
 Zalando社が開発したTailorを使って、サンプルWebアプリをMicro Frontendsで構築してみました。Tailorはサーバーサイドで統合するアーキテクチャです。クライアントサイドは、Web Componentsで作られているLit Elementを使って統合しました。どういった内容か、ここに投稿しようと思います。
 
 作ったリポジトリは、下記に残しています。
-[https://github.com/Silver-birder/micro-frontends-sample-code-4](https://github.com/Silver-birder/micro-frontends-sample-code-4)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/micro-frontends-sample-code-4"></iframely-embed>
 
 <!--  TODO: TOC -->
 
@@ -29,7 +29,7 @@ Zalando社が開発したTailorを使って、サンプルWebアプリをMicro F
 # Tailor
 ![image](https://camo.githubusercontent.com/3018354754cc0c9f1f6b27ac68bd8060a11db5a7/68747470733a2f2f7261776769746875622e636f6d2f7a616c616e646f2f7461696c6f722f6d61737465722f6c6f676f2f7461696c6f722d6c6f676f2e737667)
 
-[https://github.com/zalando/tailor](https://github.com/zalando/tailor)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/zalando/tailor"></iframely-embed>
 
 > A streaming layout service for front-end microservices
 
@@ -145,7 +145,7 @@ package.json
 
 ![LitElement](https://res.cloudinary.com/silverbirder/image/upload/v1614430086/silver-birder.github.io/blog/LitElement.jpg)
 
-[https://lit-element.polymer-project.org/](https://lit-element.polymer-project.org/)  <!--  TODO: embed  -->
+<iframely-embed url="https://lit-element.polymer-project.org/"></iframely-embed>
 > LitElement
 A simple base class for creating fast, lightweight web components
 
@@ -187,11 +187,11 @@ declare global {
 ```
 
 LitElement + Typescript では、open-testing を使ってテストすることができます。
-[https://github.com/PolymerLabs/lit-element-starter-ts/blob/master/src/test/my-element_test.ts](https://github.com/PolymerLabs/lit-element-starter-ts/blob/master/src/test/my-element_test.ts)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/PolymerLabs/lit-element-starter-ts/blob/master/src/test/my-element_test.ts"></iframely-embed>
 
 また、jestでもテストができるようです。
 
-[https://www.ninkovic.dev/blog/2020/testing-web-components-with-jest-and-lit-element](https://www.ninkovic.dev/blog/2020/testing-web-components-with-jest-and-lit-element)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.ninkovic.dev/blog/2020/testing-web-components-with-jest-and-lit-element"></iframely-embed>
 
 # DynamicRendering
 
@@ -201,11 +201,11 @@ LitElement + Typescript では、open-testing を使ってテストすること�
 『SEOガー！』とSSRしなきゃと思う訳ですが、正直SSRを考えたくないです。(ハイドレーションなんて無駄なロードをブラウザにさせたくない）
 次の記事のように、ボットのアクセスのみに、ダイナミックレンダリングした結果（SPAのレンダリング結果HTML）を返すようにしたいです。
 
-[https://developers.google.com/search/docs/guides/dynamic-rendering?hl=ja](https://developers.google.com/search/docs/guides/dynamic-rendering?hl=ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://developers.google.com/search/docs/guides/dynamic-rendering?hl=ja"></iframely-embed>
 
 技術的には、次のようなものを使えば良いです。
 
-[https://github.com/GoogleChrome/rendertron](https://github.com/GoogleChrome/rendertron)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/GoogleChrome/rendertron"></iframely-embed>
 
 function-renderer-proxy/src/renderer.ts
 ```typescript
@@ -221,7 +221,7 @@ const result = await page.content() as string;  // Puppeteerのレンダリン�
 
 フラグメント同士は、CustomEventを通して連携します。
 
-[https://developer.mozilla.org/ja/docs/Web/Guide/Events/Creating_and_triggering_events](https://developer.mozilla.org/ja/docs/Web/Guide/Events/Creating_and_triggering_events)  <!--  TODO: embed  -->
+<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/Guide/Events/Creating_and_triggering_events"></iframely-embed>
 
 全て、このCustomEventとAddEventListenerを管理するEventHub(packages名)を経由するようにします。(理想)
 
@@ -229,18 +229,18 @@ const result = await page.content() as string;  // Puppeteerのレンダリン�
 
 ページ全体のヒストリーは、HistoryNavigation(packages名)で管理したいと考えています。(理想)
 
-[https://developer.mozilla.org/en-US/docs/Web/API/History_API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)  <!--  TODO: embed  -->
+<iframely-embed url="https://developer.mozilla.org/en-US/docs/Web/API/History_API"></iframely-embed>
 
 また、ルーティングを制御する Web Components向けライブラリ vaadin/router も便利そうだったので導入してみました。
 
-[https://vaadin.com/router](https://vaadin.com/router)  <!--  TODO: embed  -->
+<iframely-embed url="https://vaadin.com/router"></iframely-embed>
 
 # ShareModule
 
 LitElementのようなどこでも使っているライブラリは、共通化してバンドルサイズを縮めたいです。
 Webpackのようなバンドルツールには、ExternalやDLLPlugin、ModuleFederationなどの共通化機能があります。
 
-[https://webpack.js.org/concepts/module-federation/](https://webpack.js.org/concepts/module-federation/)  <!--  TODO: embed  -->
+<iframely-embed url="https://webpack.js.org/concepts/module-federation/"></iframely-embed>
 
 今回は、externalを使っています。
 
@@ -319,11 +319,11 @@ APIは、雑にGraphQLを採用しました。特に理由はありません。
 
 Skelton UIも使ってみたいなと思っていました。
 
-[https://material-ui.com/components/skeleton/](https://material-ui.com/components/skeleton/)  <!--  TODO: embed  -->
+<iframely-embed url="https://material-ui.com/components/skeleton/"></iframely-embed>
 
 Reactを使わなくても、CSSの@keyframesを使えば良いでしょう。が、まあ使っていません。(笑)
 
-[https://developer.mozilla.org/ja/docs/Web/CSS/@keyframes](https://developer.mozilla.org/ja/docs/Web/CSS/@keyframes)  <!--  TODO: embed  -->
+<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/CSS/@keyframes"></iframely-embed>
 
 ## Rxjs
 
@@ -331,14 +331,14 @@ typescriptの処理をリアクティブな雰囲気でコーディングした�
 
 (リアクティブに詳しい人には、怒られそうな理由ですね...笑)
 
-[https://rxjs.dev/](https://rxjs.dev/)  <!--  TODO: embed  -->
+<iframely-embed url="https://rxjs.dev/"></iframely-embed>
 
 # 所感
 これまで、Podium、Ara-Framework, そして Tailor といったMicro Frontendsに関わるサーバーサイド統合ライブラリを使ってみました。
 
-[./microfrontends](./microfrontends.md)  <!--  TODO: embed  -->
+<iframely-embed url="https://silver-birder.github.io/blog/contents/microfrontends"></iframely-embed>
 
-[./ara-framework](./ara-framework.md)  <!--  TODO: embed  -->
+<iframely-embed url="https://silver-birder.github.io/blog/contents/ara-framework"></iframely-embed>
 
 これらは、どれも考え方が良いなと思っています。
 Podiumのフラグメントのインターフェース設計、Ara-FrameworkのRenderとデータ取得の明確な分離、そしてTailorのストリーム統合です。

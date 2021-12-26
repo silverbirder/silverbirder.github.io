@@ -18,7 +18,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 
 下記のスプレッドシートに、技術資料リンクを自動登録しています。
 
-[https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit](https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit)  <!--  TODO: embed  -->
+[UseCotlin (github.com/Silver-birder/Cotlin)](https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit)
 
 日本だけじゃなく、海外の技術資料も発見できるので、色々な観点の技術を知ることができました。例えば、テスト手法、アーキテクチャの考え方、働き方の考え方などです。これを毎日欠かさずキャッチアップし続けていました。
 
@@ -34,7 +34,7 @@ UseCotlinは、主に技術のインプットばかりで、アウトプット�
 
 （思いつきで）Twitterのフォロワーを増やしてみようと思い、TwitterのFollowerを自動的に増やす仕組みを構築しました。2020年9月ぐらいからはじめて、フォロワー1000人ぐらいだったものがもうすぐ3000人ぐらいになります。
 
-[https://twitter.com/silver_birder/status/1318861346327252993](https://twitter.com/silver_birder/status/1318861346327252993)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1318861346327252993" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 # 生活
 ## 結婚

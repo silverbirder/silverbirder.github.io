@@ -1,3 +1,5 @@
+<script defer async src="https://cdn.jsdelivr.net/npm/oembed-component/dist/oEmbed.js"></script>
+
 <script type="module">
 import confetti from 'canvas-confetti';
 class FireConfetti extends HTMLElement {
@@ -216,8 +218,38 @@ class GoodsCards extends BaseCards {
   }
 }
 
+class IframelyEmbed extends HTMLElement {
+  static get observedAttributes() {
+    return ['url'];
+  }
+  constructor() {
+    super();
+    const shadow = this.attachShadow({mode: 'open'});
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+  }
+
+  async render() {
+    const IFRAME_API_KEY = 'b1dc2c53e25891f6135f84';
+    const IFRAME_ENDPOINT = 'https://iframe.ly/api/oembed';
+    const BUILD_URL = `${IFRAME_ENDPOINT}?url=${encodeURIComponent(this.getAttribute('url'))}&api_key=${IFRAME_API_KEY}&omit_script=1&card=small`;
+    const response = await this.fetch(BUILD_URL);
+    this.shadowRoot.innerHTML = response.html;
+  }
+
+  async fetch(uri) {
+    return (await fetch(uri)).json();
+  }
+}
+
 customElements.define('skill-cards', SkillCards);
 customElements.define('book-cards', BookCards);
 customElements.define('goods-cards', GoodsCards);
 customElements.define('fire-confetti', FireConfetti);
+customElements.define('iframely-embed', IframelyEmbed);
 </script>

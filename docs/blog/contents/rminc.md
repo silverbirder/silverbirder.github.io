@@ -39,7 +39,7 @@ Googleは気を利かせて、次のような予定を勝手に登録してく�
 
 # rMinc is 何？
 
-[https://www.npmjs.com/package/@silverbirder/rminc](https://www.npmjs.com/package/@silverbirder/rminc)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.npmjs.com/package/@silverbirder/rminc"></iframely-embed>
 
 > rMinc is the Google Apps Script Library that register Mail in Calendar.
 

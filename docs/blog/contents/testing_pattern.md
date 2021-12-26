@@ -23,13 +23,13 @@ Webアプリでは、様々なCacheが使われます。
 Cacheは、便利な反面、使いすぎると、どこがどうCacheしているのか迷子になってしまいます。
 Webアプリでも、Cacheをテストする必要がありそうです。
 
-[https://github.com/http-tests/cache-tests](https://github.com/http-tests/cache-tests)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/http-tests/cache-tests"></iframely-embed>
 
 ## Code Size Test
 
 大きなサイズのJSライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。
 
-[https://github.com/ai/size-limit](https://github.com/ai/size-limit)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/ai/size-limit"></iframely-embed>
 
 <figure title="https://github.com/ai/size-limit">
 <img alt="https://github.com/ai/size-limit" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png">
@@ -41,13 +41,13 @@ Webアプリでも、Cacheをテストする必要がありそうです。
 循環的複雑度(Cyclomatic complexity)は、制御文(ifやfor)の複雑さを計測します。
 複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。
 
-[https://eslint.org/docs/rules/complexity](https://eslint.org/docs/rules/complexity)  <!--  TODO: embed  -->
+<iframely-embed url="https://eslint.org/docs/rules/complexity"></iframely-embed>
 
 ## Copy&Paste Test
 
 Copy&Pasteは、DRYの原則に反するため、特別な理由がない限りは、してはいけません。Copy&Pasteを検出するツールがあるみたいです。
 
-[https://github.com/kucherenko/jscpd](https://github.com/kucherenko/jscpd)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/kucherenko/jscpd"></iframely-embed>
 
 <figure title="https://github.com/kucherenko/jscpd">
 <img alt="jscpd" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png">
@@ -60,7 +60,7 @@ Copy&Pasteは、DRYの原則に反するため、特別な理由がない限り�
 そのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。
 そういう環境を手軽に使えるサービスがあったりします。
 
-[https://github.com/browserstack](https://github.com/browserstack)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/browserstack"></iframely-embed>
 
 ## E2E Test
 
@@ -69,7 +69,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 このテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。
 例えば、操作する処理の抽象化や、データ固定などです。
 
-[https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/cypress-io/cypress"></iframely-embed>
 
 ## Exception Test
 正常系、準正常系、異常系などのテストが必要です。
@@ -86,7 +86,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 [https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf](https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf)
 
 日本人がまとめて頂いたものが、次の資料です。
-[https://speakerdeck.com/nihonbuson/flakytests](https://speakerdeck.com/nihonbuson/flakytests)  <!--  TODO: embed  -->
+<o-embed url="https://speakerdeck.com/nihonbuson/flakytests" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## Integration Test
 Integration Testは、Unit Testのような単一機能を統合した検証になります。
@@ -105,7 +105,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 お猿さんがランダムにテストするような、モンキーテストです。
 テストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。
 
-[https://github.com/marmelab/gremlins.js/](https://github.com/marmelab/gremlins.js/)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/marmelab/gremlins.js/"></iframely-embed>
 
 <figure title="https://github.com/marmelab/gremlins.js">
 <img alt="gremlins.js" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif">
@@ -123,7 +123,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 プロダクトコードを破壊することで、テストも壊れるかどうかを検証します。
 もし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。
 
-[https://github.com/stryker-mutator/stryker](https://github.com/stryker-mutator/stryker)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/stryker-mutator/stryker"></iframely-embed>
 <figure title="https://stryker-mutator.io/stryker/quickstart">
 <img alt="https://stryker-mutator.io/stryker/quickstart" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif">
 <figcaption><a href="https://stryker-mutator.io/stryker/quickstart">https://stryker-mutator.io/stryker/quickstart</a></figcaption>
@@ -133,7 +133,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 
 障害を注入した際に、どういった動きになるのかを検証するテストです。
 
-[https://github.com/goldbergyoni/node-chaos-monkey](https://github.com/goldbergyoni/node-chaos-monkey)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/goldbergyoni/node-chaos-monkey"></iframely-embed>
 
 ## Performance Test
 
@@ -141,13 +141,13 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 CPU使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。
 これらを計測し、SLOなどの基準値を満たせているかを検証しておく必要があります。
 
-[https://github.com/bestiejs/benchmark.js/](https://github.com/bestiejs/benchmark.js/)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/bestiejs/benchmark.js/"></iframely-embed>
 
 ## Property Based Test
 
 データを半自動生成し、テストをする手法です。
 
-[https://github.com/dubzzz/fast-check](https://github.com/dubzzz/fast-check)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/dubzzz/fast-check"></iframely-embed>
 
 ## Regression Test
 Regression Testは、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。
@@ -174,7 +174,7 @@ npm audit fix
 Webアプリへ流入数を改善するためには、SEOは不可欠です。
 lighthouseというツールでSEOスコアを見ることができるみたいです。
 
-[https://github.com/GoogleChrome/lighthouse-ci](https://github.com/GoogleChrome/lighthouse-ci)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/GoogleChrome/lighthouse-ci"></iframely-embed>
 
 <figure title="https://github.com/GoogleChrome/lighthouse-ci">
 <img alt="https://github.com/GoogleChrome/lighthouse-ci" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png">
@@ -195,7 +195,7 @@ Webアプリへリクエストし、そのレスポンスであるHTML(スナッ
 このHTMLが、変更前と比較して変化がないかの検証をするのが、Snapshot testです。
 リファクタリングなど、変化がない修正に対して有効です。
 
-[https://jestjs.io/docs/ja/snapshot-testing](https://jestjs.io/docs/ja/snapshot-testing)  <!--  TODO: embed  -->
+<iframely-embed url="https://jestjs.io/docs/ja/snapshot-testing"></iframely-embed>
 
 ## Static Test
 
@@ -203,38 +203,38 @@ Static Testは、Webアプリを動かさなくても検証できるテストで
 よくあるのが、Linter です。
 
 * HTML
-[https://github.com/htmlhint/HTMLHint](https://github.com/htmlhint/HTMLHint)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/htmlhint/HTMLHint"></iframely-embed>
 
 * CSS
 
-[https://github.com/CSSLint/csslint](https://github.com/CSSLint/csslint)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/CSSLint/csslint"></iframely-embed>
 
 * JS
 
-[https://github.com/eslint/eslint](https://github.com/eslint/eslint)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/eslint/eslint"></iframely-embed>
 
 * SVG
 
-[https://github.com/birjolaxew/svglint](https://github.com/birjolaxew/svglint)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/birjolaxew/svglint"></iframely-embed>
 
 * Commit
 
-[https://github.com/conventional-changelog/commitlint](https://github.com/conventional-changelog/commitlint)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/conventional-changelog/commitlint"></iframely-embed>
 
 * Docker
 
-[https://github.com/RedCoolBeans/dockerlint/](https://github.com/RedCoolBeans/dockerlint/)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/RedCoolBeans/dockerlint/"></iframely-embed>
 
 これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。
 
-[https://github.com/danger/danger](https://github.com/danger/danger)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/danger/danger"></iframely-embed>
 
 ## Unit Test
 
 単一機能をテストするUnit Testがあります。このUnit Testが全てPASSしたら、
 他のテストを進めるのが一般的かなと思います。
 
-[https://github.com/facebook/jest](https://github.com/facebook/jest)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/facebook/jest"></iframely-embed>
 
 ### Code Coverage
 
@@ -245,15 +245,15 @@ Unitテストで、どこをテストできたかのカバレッジを見るこ�
 
 実際に動作しているJSやCSSのカバレッジを収集することもできます。
 
-[https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su](https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su)  <!--  TODO: embed  -->
+<o-embed url="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-[https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b](https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b)  <!--  TODO: embed  -->
+<iframely-embed url="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></iframely-embed>
 
 ## Visual Regression Test
 
 見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。
 
-[https://github.com/garris/BackstopJS](https://github.com/garris/BackstopJS)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/garris/BackstopJS"></iframely-embed>
 
 <figure title="https://github.com/garris/BackstopJS">
 <img alt="https://github.com/garris/BackstopJS" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png">

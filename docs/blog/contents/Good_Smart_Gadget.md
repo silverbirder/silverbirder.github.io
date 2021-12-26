@@ -26,7 +26,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144121
 
 決して回し者ではないです（笑）
 
-## オススメ１： Nature Remo
+## オススメ１： Nature Remo
 
 赤外線送信している媒体に対して、nature remoが代わりに送信してくれます。ですので、例えば照明にリモコンでポチポチON/OFFしていたことを、代わりにnature remoがしてくれます。
 
@@ -39,9 +39,9 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144121
 
 ↓ スマートフォンからnature remo経由で電気をつけてみます。
 
-[https://youtu.be/_j-qXrxtsyU](https://youtu.be/_j-qXrxtsyU)  <!--  TODO: embed  -->
+<o-embed url="https://www.youtube.com/watch?v=_j-qXrxtsyU" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-## オススメ２： Switch Bot
+## オススメ２： Switch Bot
 
 物理的に押すボタンに対してswitch botが代わりに押してくれます。
 nature remoでは制御できなかった物理ボタンに対応しています。
@@ -59,9 +59,9 @@ nature remoでは制御できなかった物理ボタンに対応しています
 
 ↓ スマートフォンからswitch bot経由でボタンを押しています。
 
-[https://youtu.be/wkrPf-FuXFU](https://youtu.be/wkrPf-FuXFU)  <!--  TODO: embed  -->
+<o-embed url="https://www.youtube.com/watch?v=wkrPf-FuXFU" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-## オススメ３： Google Home Mini
+## オススメ３： Google Home Mini
 
 これは無知な僕でも知っていた商品です。音声でgoogleアシスタントにサポートしてくれるすぐれものですよね。
 
@@ -76,7 +76,7 @@ nature remoでは制御できなかった物理ボタンに対応しています
 
 ↓ google home miniから「ただいま」を言ってみる
 
-[https://youtu.be/_XGMBIXC3pU](https://youtu.be/_XGMBIXC3pU)  <!--  TODO: embed  -->
+<o-embed url="https://www.youtube.com/watch?v=_XGMBIXC3pU" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## おわりに
 とある友達にこのことを伝えると「自分でやれば良いじゃん（笑）」と言われてしまいました。しかし、どっぷりハマった僕には、もう引き返せません。朝起きて、電気をつけて、エアコンをつけて、テレビをつけてる生活なんて…。

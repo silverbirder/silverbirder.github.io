@@ -17,7 +17,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144303
 
 実際に販売する本は↓のものです。
 
-[https://techbookfest.org/event/tbf07/circle/5117648689954816](https://techbookfest.org/event/tbf07/circle/5117648689954816)  <!--  TODO: embed  -->
+<iframely-embed url="https://techbookfest.org/event/tbf07/circle/5117648689954816"></iframely-embed>
 
 <!--  TODO: TOC -->
 
@@ -25,14 +25,14 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144303
 
 大学時代の友人であるcastaneaiくんが技術書典6で初執筆しました。
 
-[https://castaneai.hatenablog.com/entry/2019/04/24/093514](https://castaneai.hatenablog.com/entry/2019/04/24/093514)  <!--  TODO: embed  -->
+<iframely-embed url="https://castaneai.hatenablog.com/entry/2019/04/24/093514"></iframely-embed>
 
 castaneaiくんの話を聞いていると、得られるメリット(実績、交流)が大きいことと、
 製本までのフローがそこまで難しくないことを知りました。
 そこから、私も参加しようと思えるようになりました。
 castaneaiくんは、今回の技術書典7も参加するみたいです。興味がある方は是非お立ち寄りください。
 
-[https://techbookfest.org/event/tbf07/circle/5182251830607872](https://techbookfest.org/event/tbf07/circle/5182251830607872)  <!--  TODO: embed  -->
+<iframely-embed url="https://techbookfest.org/event/tbf07/circle/5182251830607872"></iframely-embed>
 
 # 何をするのか
 大きく分けて３つのステップになります。
@@ -53,7 +53,7 @@ castaneaiくんは、今回の技術書典7も参加するみたいです。興�
 文章を書き、本っぽい見た目にする必要があります。
 Re:VIEW Starterというツールを使うと、学習コストゼロで、良い感じの本が出来上がります。
 
-[https://kauplan.org/reviewstarter/](https://kauplan.org/reviewstarter/)  <!--  TODO: embed  -->
+<iframely-embed url="https://kauplan.org/reviewstarter/"></iframely-embed>
 
 次のコマンド１つで本のPDFが作られます。
 
@@ -118,7 +118,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 また、**GoogleDrive上でPDFをレビュー**するのが便利です。
 直接文章にコメントできるので、オススメです。
 
-[https://twitter.com/silver_birder/status/1167314554205786112](https://twitter.com/silver_birder/status/1167314554205786112)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1167314554205786112" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## 1.5. 本のタイトル
 本を買ってもらうためには、本のタイトルは重要です。
@@ -143,7 +143,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 表紙用のテンプレートがありますので、それを使います。
 
-[http://www.nikko-pc.com/offset/template/tonbo.html](http://www.nikko-pc.com/offset/template/tonbo.html)  <!--  TODO: embed  -->
+<iframely-embed url="http://www.nikko-pc.com/offset/template/tonbo.html"></iframely-embed>
 
 **背表紙の幅はページ数によって変化します**。
 私は、70ページほど予定していたので4mm幅で背表紙を描きました。
@@ -207,7 +207,7 @@ iPad, Magic Pencilは買って正解でした。
 |本文はじまりのページ|1ページ目|
 |遊び紙|有り, 上質90kg/イエロー/前|
 
-[https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634](https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634)  <!--  TODO: embed  -->
+<iframely-embed url="https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634"></iframely-embed>
 
 を参考にしました。
 
@@ -220,7 +220,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 用紙についてこだわりたい方は、次のリンクにあるようにサンプルを手に入れると良いでしょう。
 
-[https://natuna.jp/marcket/10282/](https://natuna.jp/marcket/10282/)  <!--  TODO: embed  -->
+<iframely-embed url="https://natuna.jp/marcket/10282/"></iframely-embed>
 
 # 3. 販売準備
 ## 3.1. 物品購入
@@ -251,11 +251,11 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 |スケッチブック|ダイソー|作業|-|不|
 |ダンボールカッター|ダイソー|作業|-|不|
 
-[https://note.mu/mochikoastech/n/nf484f114855c](https://note.mu/mochikoastech/n/nf484f114855c)  <!--  TODO: embed  -->
+<iframely-embed url="https://note.mu/mochikoastech/n/nf484f114855c"></iframely-embed>
 
-[https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動](https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動)  <!--  TODO: embed  -->
+<iframely-embed url="https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動"></iframely-embed>
 
-[https://note.mu/yagitch/n/nc796a0c2c796](https://note.mu/yagitch/n/nc796a0c2c796)  <!--  TODO: embed  -->
+<iframely-embed url="https://note.mu/yagitch/n/nc796a0c2c796"></iframely-embed>
 
 
 印刷する手段は3つあります。
@@ -271,7 +271,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 ピクシブ社のサービスであるBoothを利用しました。
 
-[https://booth.pm/ja](https://booth.pm/ja)  <!--  TODO: embed  -->
+<iframely-embed url="https://booth.pm/ja"></iframely-embed>
 
 特に専門的な知識が必要なことがなく、本のPDFを登録するだけです。
 せっかく足を運んで会場に来て頂いた方のために、電子書籍と物理本の違いを出そうと考えました。
@@ -332,21 +332,21 @@ pixiv ID登録しないとダウンロードできないので、ここが駄目
 
 Twitterで宣伝するために、16:9の画像を用意したりもしました。
 
-[https://twitter.com/silver_birder/status/1172097536510676994](https://twitter.com/silver_birder/status/1172097536510676994)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1172097536510676994" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## 被チェック数と販売冊数
 被チェック数は、お客さんが気になる本をチェックした数になります。
 この数字から、印刷する冊数を決める大きな要因になります。
 
-[https://note.mu/yagitch/n/n2b5576363f4e](https://note.mu/yagitch/n/n2b5576363f4e)  <!--  TODO: embed  -->
+<iframely-embed url="https://note.mu/yagitch/n/n2b5576363f4e"></iframely-embed>
 
 恥ずかしい話になりますが、私は毎朝この数字を見ていました。（笑）
 
-[https://github.com/Silver-birder/get-checked-number-for-techbook](https://github.com/Silver-birder/get-checked-number-for-techbook)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/Silver-birder/get-checked-number-for-techbook"></iframely-embed>
 
 被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
 
-[https://twitter.com/silver_birder/status/1171178281380405248](https://twitter.com/silver_birder/status/1171178281380405248)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1171178281380405248" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 このようにどの時間やどの曜日にチェックされるのかがわかるようになります。
 
@@ -354,7 +354,7 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 今回、300冊を印刷することにしました。間違いなく残ってしまうと思うので、
 とらのあなさんへ委託しようと考えています。
 
-[https://news.toranoana.jp/107460](https://news.toranoana.jp/107460)  <!--  TODO: embed  -->
+<iframely-embed url="https://news.toranoana.jp/107460"></iframely-embed>
 
 残ってしまったいくつかの本は、お家に保存用として持ち帰ろうと考えています。（笑）
 
@@ -362,12 +362,12 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 
 公式ツイッターアカウントをフォローしておくと、なにかと便利です。
 
-[https://twitter.com/techbookfest](https://twitter.com/techbookfest)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/techbookfest" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## Google カレンダー 登録
 技術書典のスケジュールが登録されているGoogleカレンダーを、ご自身のカレンダーにも登録することをオススメします。
 
-[https://twitter.com/techbookfest/status/1083948257095503872](https://twitter.com/techbookfest/status/1083948257095503872)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/techbookfest/status/1083948257095503872" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 いつまでに何をしないといけないのか逆算できるので、知っておいたほうが良いです。
 

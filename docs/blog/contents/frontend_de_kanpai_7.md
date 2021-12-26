@@ -27,7 +27,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 ※ [https://twitter.com/antidotech/status/1152154690617872384](https://twitter.com/antidotech/status/1152154690617872384)  
 ※ [https://twitter.com/wanami3103/status/1152202843618603008](https://twitter.com/wanami3103/status/1152202843618603008)  
 
-[https://frokan.connpass.com/event/135584/](https://frokan.connpass.com/event/135584/)  <!--  TODO: embed  -->
+<iframely-embed url="https://frokan.connpass.com/event/135584/"></iframely-embed>
 
 <!--  TODO: TOC -->
 
@@ -46,7 +46,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 
 ただ、翌日は少しつらかったです...。
 
-[https://twitter.com/silver_birder/status/1152348180643627008](https://twitter.com/silver_birder/status/1152348180643627008)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1152348180643627008" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 普段は、メモをがっつり書いてtwitterに投稿している私ですが、
 今回は一切そのようなことをしていません。したがって、ほぼ記憶ベースでイベント内容を報告します。ご了承ください。
@@ -57,7 +57,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 ### 日本経済新聞社 宮本 将 さん
 WebComponentsに興味がある私は、この発表は気になっていました。
 
-[https://twitter.com/silver_birder/status/1149648900627693572](https://twitter.com/silver_birder/status/1149648900627693572)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1149648900627693572" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 内容をざっくり説明すると「CustomElementsをプロダクトとして使っていたけど、つらみがあったのでtypescriptで縛るようにしたよ」
 というものでした。CustomElementsはWeb標準の技術ですが、reactやvueのようなpropによる型縛りがありません。
@@ -74,7 +74,7 @@ VanillaなJSでCustomElementsを進めて行こうという経緯があるそう
 
 ※ CustomElementsっていろんなフレームワークで対応しているんですね。
 
-[https://custom-elements-everywhere.com/](https://custom-elements-everywhere.com/)  <!--  TODO: embed  -->
+<iframely-embed url="https://custom-elements-everywhere.com/"></iframely-embed>
 
 ## 実録フグ料理
 ### 株式会社ディー・エヌ・エー Takepepe さん
@@ -83,7 +83,7 @@ VanillaなJSでCustomElementsを進めて行こうという経緯があるそう
 
 Project Fuguというものがあります。
 
-[https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html](https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html)  <!--  TODO: embed  -->
+<iframely-embed url="https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html"></iframely-embed>
 
 > Unter dem Codenamen Fugu plant Google die Einführung zahlreicher Webschnittstellen in seinem Webbrowser Chrome, welche die Lücke zwischen Progressive Web Apps und ihren nativen Gegenstücken schließen wollen.
 
@@ -113,7 +113,7 @@ Google翻訳を通すと
 
 ## 新しいAPI
 ### 株式会社ディー・エヌ・エー feb19 さん
-[https://speakerdeck.com/feb19/xin-sii-api](https://speakerdeck.com/feb19/xin-sii-api)  <!--  TODO: embed  -->
+<o-embed url="https://speakerdeck.com/feb19/xin-sii-api" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 いきなりポエムを語り始めたfeb19さん。
 「DeNAの人たちは、みんなこうなのか？」と面白く見ていました。

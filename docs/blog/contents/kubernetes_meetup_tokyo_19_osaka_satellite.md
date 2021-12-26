@@ -12,12 +12,12 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144287
 Kubernetesの生みの親である3人の内の1人のJoe Bedaから、**Kubernetesの歴史**の経緯について教えて頂きました。
 その話がとてもわかりやすく、なるほどなと思ったので、ぜひとも共有したいと思います。
 
-[https://k8sjp-osaka.connpass.com/event/131981/](https://k8sjp-osaka.connpass.com/event/131981/)  <!--  TODO: embed  -->
+<iframely-embed url="https://k8sjp-osaka.connpass.com/event/131981/"></iframely-embed>
 
 ※ 以降の内容は、私なりの解釈が入っており誤った認識かもしれません。ご了承下さい。
 発表の内容は全てYoutubeにありますので、そちらが正しいものです。ご参考下さい。
 
-[https://www.youtube.com/watch?v=ETHGx8_Q-1k](https://www.youtube.com/watch?v=ETHGx8_Q-1k)  <!--  TODO: embed  -->
+<o-embed url="https://www.youtube.com/watch?v=ETHGx8_Q-1k" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 <!--  TODO: TOC -->
 
@@ -49,11 +49,11 @@ Joeさんは英語で話されてました。
 CPCAmerica(?)の田中さんが通訳をされていたのですが、ものすごくわかりやすかったです。感謝です！
 あと、記憶力はんぱねぇ...。
 
-[https://twitter.com/mumoshu/status/1134438272518635521?s=20](https://twitter.com/mumoshu/status/1134438272518635521?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/mumoshu/status/1134438272518635521?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ※ 以下、[@‏apstndb](https://twitter.com/apstndb) さんの要約Tweetを参考にしました。神!!!
 
-[https://twitter.com/silver_birder/status/1134406467744804864?s=20](https://twitter.com/silver_birder/status/1134406467744804864?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1134406467744804864?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 ## kubernetesの歴史
 ### Borgの誕生
@@ -100,59 +100,59 @@ PodやReplication,Deploymentなど様々なリソースがあります。
 そこで、Custom Resource Definitions (CRD)です。
 なんだそれは...?
 
-[https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)  <!--  TODO: embed  -->
+<iframely-embed url="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/"></iframely-embed>
 
-[https://qiita.com/cvusk/items/773e222e0971a5391a51](https://qiita.com/cvusk/items/773e222e0971a5391a51)  <!--  TODO: embed  -->
+<iframely-embed url="https://qiita.com/cvusk/items/773e222e0971a5391a51"></iframely-embed>
 
 要は、PodやDeploymentのようなリソースを独自に作ることができるのですね。おぉなんだそれ！
 独自に機能を作るためには、Custom Resource と Costom Controllerが必要になり、両方をあわせて
 Operatorsというものが生まれました。
 
 例えば、下記のようなものがあります。
-[https://github.com/oracle/mysql-operator](https://github.com/oracle/mysql-operator)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/oracle/mysql-operator"></iframely-embed>
 
-[https://github.com/kubeflow/tf-operator](https://github.com/kubeflow/tf-operator)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/kubeflow/tf-operator"></iframely-embed>
 
 Yahooでは、gimbalというOSSを使ってKubernetesを導入したみたいです。
-[https://github.com/heptio/gimbal](https://github.com/heptio/gimbal)  <!--  TODO: embed  -->
+<iframely-embed url="https://github.com/heptio/gimbal"></iframely-embed>
 
-[https://techblog.yahoo.co.jp/advent-calendar-2018/oss-gimbal/](https://techblog.yahoo.co.jp/advent-calendar-2018/oss-gimbal/)  <!--  TODO: embed  -->
+<iframely-embed url="https://techblog.yahoo.co.jp/advent-calendar-2018/oss-gimbal/"></iframely-embed>
 
 詳しくは分かりませんが、こういった拡張しやすい機能があるおかげでドンドン普及するのだなと勉強になりました。
 
 ### Q&A
 #### Q1. StatefulSets には今回触れられなかったが、どういう扱いなのか
 
-[https://twitter.com/apstndb/status/1134409892033261569?s=20](https://twitter.com/apstndb/status/1134409892033261569?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134409892033261569?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 #### Q2. スケーラビリティに関して
 
-[https://twitter.com/apstndb/status/1134410827627487232?s=20](https://twitter.com/apstndb/status/1134410827627487232?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134410827627487232?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 #### Q3. Kubernetes はなぜ etcd を使っているか
 
-[https://twitter.com/apstndb/status/1134411776009785345?s=20](https://twitter.com/apstndb/status/1134411776009785345?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134411776009785345?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-[https://twitter.com/apstndb/status/1134412148237512705?s=20](https://twitter.com/apstndb/status/1134412148237512705?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134412148237512705?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-[https://twitter.com/apstndb/status/1134412317439844352?s=20](https://twitter.com/apstndb/status/1134412317439844352?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134412317439844352?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 #### Q4. Virtual Kubelet とか k3s みたいなエッジで活用する動きがコミュニティでは感じられるが、どう見ている?
 
-[https://twitter.com/apstndb/status/1134413224839745536?s=20](https://twitter.com/apstndb/status/1134413224839745536?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134413224839745536?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
-[https://twitter.com/apstndb/status/1134413431316987904?s=20](https://twitter.com/apstndb/status/1134413431316987904?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/apstndb/status/1134413431316987904?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 #### そのほか
 
 参加者からの質問は、どれも鋭いものばかり。
 適度な質問をしたいなとつぶやきました...。届かなかったけど...。
-[https://twitter.com/silver_birder/status/1134412867988480000?s=20](https://twitter.com/silver_birder/status/1134412867988480000?s=20)  <!--  TODO: embed  -->
+<o-embed url="https://twitter.com/silver_birder/status/1134412867988480000?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
 
 # Osaka会場
 会場提供は、株式会社Aimingさんでした。
 
-[https://aiming-inc.com/ja/](https://aiming-inc.com/ja/)  <!--  TODO: embed  -->
+<iframely-embed url="https://aiming-inc.com/ja/"></iframely-embed>
 
 会場場所は、グランフロント大阪タワーBの18階にありました。(高い!)
 今回使わさせて頂いた場所は、会議室でしょうか。

@@ -23,13 +23,13 @@ Webアプリでは、様々なCacheが使われます。
 Cacheは、便利な反面、使いすぎると、どこがどうCacheしているのか迷子になってしまいます。
 Webアプリでも、Cacheをテストする必要がありそうです。
 
-<iframely-embed url="https://github.com/http-tests/cache-tests"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/http-tests/cache-tests"></iframely-embed>
 
 ## Code Size Test
 
 大きなサイズのJSライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。
 
-<iframely-embed url="https://github.com/ai/size-limit"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/ai/size-limit"></iframely-embed>
 
 <figure title="https://github.com/ai/size-limit">
 <img alt="https://github.com/ai/size-limit" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png">
@@ -41,13 +41,13 @@ Webアプリでも、Cacheをテストする必要がありそうです。
 循環的複雑度(Cyclomatic complexity)は、制御文(ifやfor)の複雑さを計測します。
 複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。
 
-<iframely-embed url="https://eslint.org/docs/rules/complexity"></iframely-embed>
+<iframely-embed card="small" url="https://eslint.org/docs/rules/complexity"></iframely-embed>
 
 ## Copy&Paste Test
 
 Copy&Pasteは、DRYの原則に反するため、特別な理由がない限りは、してはいけません。Copy&Pasteを検出するツールがあるみたいです。
 
-<iframely-embed url="https://github.com/kucherenko/jscpd"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/kucherenko/jscpd"></iframely-embed>
 
 <figure title="https://github.com/kucherenko/jscpd">
 <img alt="jscpd" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png">
@@ -60,7 +60,7 @@ Copy&Pasteは、DRYの原則に反するため、特別な理由がない限り�
 そのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。
 そういう環境を手軽に使えるサービスがあったりします。
 
-<iframely-embed url="https://github.com/browserstack"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/browserstack"></iframely-embed>
 
 ## E2E Test
 
@@ -69,7 +69,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 このテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。
 例えば、操作する処理の抽象化や、データ固定などです。
 
-<iframely-embed url="https://github.com/cypress-io/cypress"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/cypress-io/cypress"></iframely-embed>
 
 ## Exception Test
 正常系、準正常系、異常系などのテストが必要です。
@@ -86,7 +86,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 [https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf](https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf)
 
 日本人がまとめて頂いたものが、次の資料です。
-<o-embed url="https://speakerdeck.com/nihonbuson/flakytests" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/nihonbuson/flakytests"></iframely-embed>
 
 ## Integration Test
 Integration Testは、Unit Testのような単一機能を統合した検証になります。
@@ -105,7 +105,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 お猿さんがランダムにテストするような、モンキーテストです。
 テストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。
 
-<iframely-embed url="https://github.com/marmelab/gremlins.js/"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/marmelab/gremlins.js/"></iframely-embed>
 
 <figure title="https://github.com/marmelab/gremlins.js">
 <img alt="gremlins.js" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif">
@@ -123,7 +123,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 プロダクトコードを破壊することで、テストも壊れるかどうかを検証します。
 もし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。
 
-<iframely-embed url="https://github.com/stryker-mutator/stryker"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/stryker-mutator/stryker"></iframely-embed>
 <figure title="https://stryker-mutator.io/stryker/quickstart">
 <img alt="https://stryker-mutator.io/stryker/quickstart" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif">
 <figcaption><a href="https://stryker-mutator.io/stryker/quickstart">https://stryker-mutator.io/stryker/quickstart</a></figcaption>
@@ -133,7 +133,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 
 障害を注入した際に、どういった動きになるのかを検証するテストです。
 
-<iframely-embed url="https://github.com/goldbergyoni/node-chaos-monkey"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/goldbergyoni/node-chaos-monkey"></iframely-embed>
 
 ## Performance Test
 
@@ -141,13 +141,13 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 CPU使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。
 これらを計測し、SLOなどの基準値を満たせているかを検証しておく必要があります。
 
-<iframely-embed url="https://github.com/bestiejs/benchmark.js/"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/bestiejs/benchmark.js/"></iframely-embed>
 
 ## Property Based Test
 
 データを半自動生成し、テストをする手法です。
 
-<iframely-embed url="https://github.com/dubzzz/fast-check"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/dubzzz/fast-check"></iframely-embed>
 
 ## Regression Test
 Regression Testは、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。
@@ -174,7 +174,7 @@ npm audit fix
 Webアプリへ流入数を改善するためには、SEOは不可欠です。
 lighthouseというツールでSEOスコアを見ることができるみたいです。
 
-<iframely-embed url="https://github.com/GoogleChrome/lighthouse-ci"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/GoogleChrome/lighthouse-ci"></iframely-embed>
 
 <figure title="https://github.com/GoogleChrome/lighthouse-ci">
 <img alt="https://github.com/GoogleChrome/lighthouse-ci" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png">
@@ -195,7 +195,7 @@ Webアプリへリクエストし、そのレスポンスであるHTML(スナッ
 このHTMLが、変更前と比較して変化がないかの検証をするのが、Snapshot testです。
 リファクタリングなど、変化がない修正に対して有効です。
 
-<iframely-embed url="https://jestjs.io/docs/ja/snapshot-testing"></iframely-embed>
+<iframely-embed card="small" url="https://jestjs.io/docs/ja/snapshot-testing"></iframely-embed>
 
 ## Static Test
 
@@ -203,38 +203,38 @@ Static Testは、Webアプリを動かさなくても検証できるテストで
 よくあるのが、Linter です。
 
 * HTML
-<iframely-embed url="https://github.com/htmlhint/HTMLHint"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/htmlhint/HTMLHint"></iframely-embed>
 
 * CSS
 
-<iframely-embed url="https://github.com/CSSLint/csslint"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/CSSLint/csslint"></iframely-embed>
 
 * JS
 
-<iframely-embed url="https://github.com/eslint/eslint"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/eslint/eslint"></iframely-embed>
 
 * SVG
 
-<iframely-embed url="https://github.com/birjolaxew/svglint"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/birjolaxew/svglint"></iframely-embed>
 
 * Commit
 
-<iframely-embed url="https://github.com/conventional-changelog/commitlint"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/conventional-changelog/commitlint"></iframely-embed>
 
 * Docker
 
-<iframely-embed url="https://github.com/RedCoolBeans/dockerlint/"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/RedCoolBeans/dockerlint/"></iframely-embed>
 
 これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。
 
-<iframely-embed url="https://github.com/danger/danger"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/danger/danger"></iframely-embed>
 
 ## Unit Test
 
 単一機能をテストするUnit Testがあります。このUnit Testが全てPASSしたら、
 他のテストを進めるのが一般的かなと思います。
 
-<iframely-embed url="https://github.com/facebook/jest"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/facebook/jest"></iframely-embed>
 
 ### Code Coverage
 
@@ -245,15 +245,15 @@ Unitテストで、どこをテストできたかのカバレッジを見るこ�
 
 実際に動作しているJSやCSSのカバレッジを収集することもできます。
 
-<o-embed url="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su"></iframely-embed>
 
-<iframely-embed url="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></iframely-embed>
+<iframely-embed card="small" url="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></iframely-embed>
 
 ## Visual Regression Test
 
 見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。
 
-<iframely-embed url="https://github.com/garris/BackstopJS"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/garris/BackstopJS"></iframely-embed>
 
 <figure title="https://github.com/garris/BackstopJS">
 <img alt="https://github.com/garris/BackstopJS" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png">

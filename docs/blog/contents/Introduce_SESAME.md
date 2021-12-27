@@ -14,7 +14,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16143457
 
 # SESAME(セサミ)って なに？
 
-<iframely-embed url="https://jp.candyhouse.co/"></iframely-embed>
+<iframely-embed card="small" url="https://jp.candyhouse.co/"></iframely-embed>
 
 > あなたは家を出る時、何を持って出ますか？
 鍵、財布、そしてスマホ…？
@@ -112,7 +112,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16143457
 
 当初、白色のアダプターが来るのかと思ったのですが、黒色がきました。良いね！
 
-<iframely-embed url="https://youtu.be/6Bn8uYl0ans"></iframely-embed>
+<iframely-embed card="small" url="https://youtu.be/6Bn8uYl0ans"></iframely-embed>
 
 家の扉前からSESAMEを使ってみたBluetoothが繋がっている状態だと、スムーズにロック解除ができました ！わーい！
 

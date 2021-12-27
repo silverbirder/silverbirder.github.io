@@ -11,7 +11,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144311
 今回、k8sの体験を目的として参加したのですが、意外な収穫があったので、
 共有したく、記事を書くことにしました。hashtagはこちら [#bmxug](https://twitter.com/hashtag/bmxug)
 
-<iframely-embed url="https://bmxug.connpass.com/event/117966/"></iframely-embed>
+<iframely-embed card="small" url="https://bmxug.connpass.com/event/117966/"></iframely-embed>
 
 <!--  TODO: TOC -->
 

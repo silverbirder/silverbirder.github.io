@@ -8,9 +8,9 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/si
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/silver-birder.github.io/blog/go_conference_2019_spring_coffee.jpg
 ---
 
-<iframely-embed url="https://gocon.connpass.com/event/124530/"></iframely-embed>
+<iframely-embed card="small" url="https://gocon.connpass.com/event/124530/"></iframely-embed>
 
-<iframely-embed url="https://gocon.jp/"></iframely-embed>
+<iframely-embed card="small" url="https://gocon.jp/"></iframely-embed>
 
 こちらに参加してきましたので、ご報告します！
 
@@ -29,9 +29,9 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144289
 
 ### 資料
 #### 今回
-<o-embed url="https://speakerdeck.com/moriyoshi/hacking-go-compiler-internals-2nd-season" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/moriyoshi/hacking-go-compiler-internals-2nd-season"></iframely-embed>
 #### 前回
-<iframely-embed url="https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-autumn"></iframely-embed>
+<iframely-embed card="small" url="https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-autumn"></iframely-embed>
 
 ### 感想
 このセッションでは、Golangのソースコードが機械語になるまでのステップ、要はコンパイラの動きを紹介されていました。
@@ -56,9 +56,9 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144289
 Go言語でのアプリケーション開発で、特にコンテナを前提とする場合の設計考慮点について話します。 例えば、Go言語でAPIを開発する場合、コンテナとして動かすことを前提とするケースが多いと感じます。コンテナベースで動かすことを前提とした場合、コンテナイメージ作成・アプリケーション監視において、考慮すべき点が出てくるでしょう。このトークでは、Go言語での実装にまで踏み込んだ上で、コンテナベースアプリケーションにおける設計の考慮点について話します。
 
 ### 資料
-<o-embed url="https://speakerdeck.com/hgsgtk/design-considerations-for-container-based-go-application" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/hgsgtk/design-considerations-for-container-based-go-application"></iframely-embed>
 
-<iframely-embed url="https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper"></iframely-embed>
+<iframely-embed card="small" url="https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper"></iframely-embed>
 
 ### 感想
 Golangの話というより、コンテナで開発する上でのTipsの話でした。
@@ -82,7 +82,7 @@ Tipsは３つ紹介されていて、「Configuration」「Logging」「Moniteri
 基本的なCPUやメモリを簡単に触れ、Goの最適化、コンパイラの最適化、Goで実装したときのCPUやメモリの振る舞いを紹介します。 またこれら最適化の様子やパフォーマンスを実際にGoの標準ツールを使いながら確認していきます。
 
 ### 資料
-<o-embed url="https://speakerdeck.com/sonatard/cpu-memory-and-go" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/sonatard/cpu-memory-and-go"></iframely-embed>
 
 ### 感想
 Golangにおけるパフォーマンス・チューニングについて勉強になりました。
@@ -117,5 +117,5 @@ Google TeamであるKatie Hockmanのspeakingが英語だったために、ほと
 実にもったいないと感じました。
 
 ※ 資料まとめ
-<iframely-embed url="https://engineer-fumi.hatenablog.com/entry/2019/05/18/172000"></iframely-embed>
+<iframely-embed card="small" url="https://engineer-fumi.hatenablog.com/entry/2019/05/18/172000"></iframely-embed>
 

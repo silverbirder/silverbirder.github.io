@@ -1,5 +1,3 @@
-<script defer async src="https://cdn.jsdelivr.net/npm/oembed-component/dist/oEmbed.js"></script>
-
 <script type="module">
 import confetti from 'canvas-confetti';
 class FireConfetti extends HTMLElement {
@@ -220,7 +218,7 @@ class GoodsCards extends BaseCards {
 
 class IframelyEmbed extends HTMLElement {
   static get observedAttributes() {
-    return ['url'];
+    return ['url', 'card'];
   }
   constructor() {
     super();
@@ -237,7 +235,15 @@ class IframelyEmbed extends HTMLElement {
   async render() {
     const IFRAME_API_KEY = 'b1dc2c53e25891f6135f84';
     const IFRAME_ENDPOINT = 'https://iframe.ly/api/oembed';
-    const BUILD_URL = `${IFRAME_ENDPOINT}?url=${encodeURIComponent(this.getAttribute('url'))}&api_key=${IFRAME_API_KEY}&omit_script=1&card=small`;
+
+    const params = [];
+    params.push({key: 'url', value: encodeURIComponent(this.getAttribute('url'))});
+    params.push({key: 'api_key', value: IFRAME_API_KEY});
+    params.push({key: 'omit_script', value: 1});
+    if (this.getAttribute('card')) {
+      params.push({key: 'card', value: this.getAttribute('card')});
+    }
+    const BUILD_URL = `${IFRAME_ENDPOINT}?${params.map((p) => `${p.key}=${p.value}`).join('&')}`;
     const response = await this.fetch(BUILD_URL);
     this.shadowRoot.innerHTML = response.html;
   }

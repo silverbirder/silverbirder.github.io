@@ -14,9 +14,9 @@ Twitterに投稿されているLinkを収集するツール Cotlin を作りま�
 
 から、Cotlinという名前にしました。Androidのアレに似ています。
 
-<iframely-embed url="https://github.com/Silver-birder/Cotlin"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/Silver-birder/Cotlin"></iframely-embed>
 
-<iframely-embed url="https://www.npmjs.com/package/@silverbirder/cotlin"></iframely-embed>
+<iframely-embed card="small" url="https://www.npmjs.com/package/@silverbirder/cotlin"></iframely-embed>
 
 <!--  TODO: TOC -->
 
@@ -33,7 +33,7 @@ Tweetに記述したリンクは、全て[t.co](https://help.twitter.com/ja/usin
 この短縮URLからオリジナルURLを手に入れるために、リダイレクトする必要があります。
 実際に作ってみると、次のような記事に書いたとおり、GASで書くと、少し困ったことがありました。
 
-<iframely-embed url="https://silver-birder.github.io/blog/contents/gas_fetchall_redirect"></iframely-embed>
+<iframely-embed card="small" url="https://silver-birder.github.io/blog/contents/gas_fetchall_redirect"></iframely-embed>
 
 そこで、複数のリダイレクトURLへリクエストする処理を並列化するために、Golangで開発していました。
 
@@ -44,7 +44,7 @@ Tweetに記述したリンクは、全て[t.co](https://help.twitter.com/ja/usin
 毎日、プレゼンテーション資料を収集し、スプレットシートに記録するよう、自動化しました。  
 ※ 都合により、URLのリンクとTweetのリンクのみ記載しています。
 
-<iframely-embed url="https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit?usp=sharing"></iframely-embed>
+<iframely-embed card="small" url="https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit?usp=sharing"></iframely-embed>
 
 次のような資料を発見できるようになりました。
 

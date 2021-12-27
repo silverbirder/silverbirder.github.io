@@ -48,17 +48,17 @@ Tiqav2は、大きく分けて2つの機能があります。
 
 検索する為には、全文検索サービスのAlgoliaを使います。
 
-<iframely-embed url="https://www.algolia.com/"></iframely-embed>
+<iframely-embed card="small" url="https://www.algolia.com/"></iframely-embed>
 
 Algoliaに保存する情報は、主に3つです。画像URLと拡張子、そしてテキストです。
 画像は画像変換&管理サービスのCloudinaryに保存します。保存後、Cloudinaryより、画像URLと拡張子が手に入ります。
 
-<iframely-embed url="https://cloudinary.com/"></iframely-embed>
+<iframely-embed card="small" url="https://cloudinary.com/"></iframely-embed>
 
 テキストは、Google Cloud Vision APIへ画像を渡すことでテキストを抽出します。
 もちろん、手動でテキストを設定することもできます。
 
-<iframely-embed url="https://cloud.google.com/vision/"></iframely-embed>
+<iframely-embed card="small" url="https://cloud.google.com/vision/"></iframely-embed>
 
 ### 画像を検索&表示
 
@@ -74,7 +74,7 @@ Algoliaに保存する情報は、主に3つです。画像URLと拡張子、そ
 "gif", "png", "jpg", "bmp", "ico", "pdf", "tiff", "eps", "jpc", "jp2", "psd", "webp", "zip", "svg", "mp4", "webm", "wdp", "hpx", "djvu", "ai", "flif", "bpg", "miff", "tga", "heic"
 ```
 
-<iframely-embed url="https://cloudinary.com/documentation/image_transformations#supported_image_formats"></iframely-embed>
+<iframely-embed card="small" url="https://cloudinary.com/documentation/image_transformations#supported_image_formats"></iframely-embed>
 
 この画像を表示する機能を使うと、次のようにSlack上で画像を送信することができます。
 
@@ -85,7 +85,7 @@ Algoliaに保存する情報は、主に3つです。画像URLと拡張子、そ
 
 詳しい機能は、次のリポジトリをご確認下さい。
 
-<iframely-embed url="https://github.com/Silver-birder/tiqav2"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/Silver-birder/tiqav2"></iframely-embed>
 
 # SaaSは個人開発には最適
 今回、全文検索であったり画像管理は、SaaSに全て任せました。テキスト抽出はなくてもよかったのですが、Google Cloud Vision APIが、そこそこ使えたため、そちらも使いました。
@@ -95,7 +95,7 @@ SaaSは、１つのことを上手くやってくれるし、個人の利用範�
 ニッチなカスタマイズしたい要求がない限り、SaaSは大体の要望を叶えてくれます。
 どんな種類のSaaSがあるか知りたい方は、↓のサイトを見てみて下さい。参考になるはずです。
 
-<iframely-embed url="https://saasblocks.io/"></iframely-embed>
+<iframely-embed card="small" url="https://saasblocks.io/"></iframely-embed>
 
 **SaaSに面倒なことは任せて、プロダクトコードに集中する**ことは、私にとって、とても大切にしています。
 ちなみに今回のプロダクトコードは、CleanArchitecture + InversifyJSで作りました。

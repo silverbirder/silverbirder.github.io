@@ -31,17 +31,17 @@ Google Apps Script(以下,GAS)でライブラリを公開しました。ライ�
 # ローカルで動かそう
 GASをローカル環境で動かすことができる ClaspというコマンドラインツールがGoogleより公開されています。
 
-<iframely-embed url="https://github.com/google/clasp"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/google/clasp"></iframely-embed>
 
 また、ClaspはTypescriptをサポートしているため、型を中心としたコーディングが可能となりました。
 
-<iframely-embed url="https://www.npmjs.com/package/@types/google-apps-script"></iframely-embed>
+<iframely-embed card="small" url="https://www.npmjs.com/package/@types/google-apps-script"></iframely-embed>
 
 Typescriptを選択すると、Interface設計が容易になります。もちろん、`.gs` ファイルでも同様の事は実現できると思います。
 
 次に、Jestと呼ばれるテストツールを組み合わせることで、ローカル環境でテストが可能になります。
 
-<iframely-embed url="https://jestjs.io/docs/getting-started"></iframely-embed>
+<iframely-embed card="small" url="https://jestjs.io/docs/getting-started"></iframely-embed>
 
 ただ、単純にテストコードが書けません。
 例えば、カレンダーイベントを取得するテストをコーディングするとき、次のようなスクリプトを書いたとします。
@@ -103,12 +103,12 @@ calendar.getEvents(new Date('2020-01-01'), new Date('2020-01-02')).forEach((cale
 もちろん、プロダクトコードでは、`CalendarAppMock` ではなく、 `CalendarAppImpl` を使用すれば良いです。
 Mockで差し替えるオブジェクトが増えると、InversifyJSのようなDIコンテナを検討してみると良いかもしれません。
 
-<iframely-embed url="https://github.com/inversify/InversifyJS"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/inversify/InversifyJS"></iframely-embed>
 
 こうすることで、Jestによるテストが動作するようになります。  
 実際に、開発・公開したライブラリでも十分にテストをすることができました。
 
-<iframely-embed url="https://www.npmjs.com/package/@silverbirder/caat"></iframely-embed>
+<iframely-embed card="small" url="https://www.npmjs.com/package/@silverbirder/caat"></iframely-embed>
 
 ```shell
 CaAT $ npm run test -- --coverage
@@ -158,7 +158,7 @@ GASを運用する方々には、是非ともテストコードを検討下さ�
 # え、あ、ちょっとまって。ライブラリの紹介！
 アジャイル開発で、かつ、Google Calendarで予定管理しているチームには是非とも使って頂きたいライブラリです。
 
-<iframely-embed url="https://github.com/Silver-birder/caat"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/Silver-birder/caat"></iframely-embed>
 
 > CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar.
 
@@ -171,4 +171,4 @@ GASを運用する方々には、是非ともテストコードを検討下さ�
 
 実際にサンプルコードがあるので、ご参考下さい。
 
-<iframely-embed url="https://github.com/Silver-birder/SampleCaat"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/Silver-birder/SampleCaat"></iframely-embed>

@@ -12,7 +12,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144308
 Google/Appleどちらも大好きで、けど海外カンファレンスにいけなかった私にとって、今回の報告会は<b>新鮮な内容</b>ばかりでした。
 その内容を記事に書こうと思います。
 
-<iframely-embed url="https://yahoo-osaka.connpass.com/event/132601/"></iframely-embed>
+<iframely-embed card="small" url="https://yahoo-osaka.connpass.com/event/132601/"></iframely-embed>
 
 ![Google I/O WWDC まとめて報告会 看板](https://res.cloudinary.com/silverbirder/image/upload/v1614430881/silver-birder.github.io/blog/Google_I_O_WWDC_1.png)
 ![YAHOO!Japan](https://res.cloudinary.com/silverbirder/image/upload/v1614430948/silver-birder.github.io/blog/Yahoo_japan.png)
@@ -26,7 +26,7 @@ hashtagはこちら [#mixleap](https://twitter.com/hashtag/mixleap)
 Googleが主催する、開発者向けイベントです。
 Google I/Oでは、WEBやGoogleが出しているガジェットなど様々な技術情報についてセッションが行われています。
 
-<iframely-embed url="https://events.google.com/io/"></iframely-embed>
+<iframely-embed card="small" url="https://events.google.com/io/"></iframely-embed>
 
 ※ [https://yahoo-osaka.connpass.com/event/132601/](https://yahoo-osaka.connpass.com/event/132601/)
 
@@ -57,7 +57,7 @@ Web好きの私としてはTOP2というのが悔しいですね。(笑)
 ML/ALが3番目とは驚きです。
 
 ### Deplex on the web
-<iframely-embed url="https://www.gizmodo.jp/2019/05/190305.html"></iframely-embed>
+<iframely-embed card="small" url="https://www.gizmodo.jp/2019/05/190305.html"></iframely-embed>
 
 ウェブベースでも使えるGoogleAssistantのことで、レンタカーや映画の予約ができるみたいです。
 これのすごいところは、レンタカーを予約するまでのステップを<b>全て自動入力</b>してくれるみたいです。
@@ -67,13 +67,13 @@ ML/ALが3番目とは驚きです。
 ### WebAuthn
 パスワードレスな生体認証のことを指すそうです。
 こちらについてのセッションが下記のようです。
-<iframely-embed url="https://developers.google.com/web/updates/2018/05/webauthn"></iframely-embed>
+<iframely-embed card="small" url="https://developers.google.com/web/updates/2018/05/webauthn"></iframely-embed>
 
 ひとまず知ることができてよかったです。
 
 ## ML
 ML Kitの発表があったそうです。
-<iframely-embed url="https://developers.google.com/ml-kit/"></iframely-embed>
+<iframely-embed card="small" url="https://developers.google.com/ml-kit/"></iframely-embed>
 
 その中でも、翻訳APIについて報告会では熱く話されていました。
 
@@ -88,7 +88,7 @@ ML Kitの発表があったそうです。
 [https://firebase.google.com/docs/ml-kit/translation-language-support](https://firebase.google.com/docs/ml-kit/translation-language-support)
 
 一部無料で使えるとのことで、こういうスタンスは本当に大好きです。
-<iframely-embed url="https://firebase.google.com/docs/ml-kit/android/translate-text"></iframely-embed>
+<iframely-embed card="small" url="https://firebase.google.com/docs/ml-kit/android/translate-text"></iframely-embed>
 
 ※ 翻訳する際は中間に英語を挟むような作りになっているみたいです。
 
@@ -106,7 +106,7 @@ Web好きなら知っていると思いますが、PWAという技術があり�
 # Googleアシスタントの他プラットフォームへの拡張方法の紹介 一円 真治さん
 
 いろいろとお話されていたのですが、下記の内容が一番衝撃でした。
-<iframely-embed url="https://japanese.engadget.com/2019/05/08/google-web-duplex/"></iframely-embed>
+<iframely-embed card="small" url="https://japanese.engadget.com/2019/05/08/google-web-duplex/"></iframely-embed>
 
 > Googleはまったくあたらしい音声認識と言語理解モデルを開発し、100GB必要だった学習モデルを0.5GB以下まで削減したとしています。これにより、学習モデルをスマートフォン内部に格納できるようになり、AI機能の動作にネットワーク接続不要に。この結果、ほぼ遅延なくデバイス上で音声認識が行えるようになるとのことです。
 
@@ -122,12 +122,12 @@ Swiftであんまり開発したことがないので、ほぼ想像で話しま
 そこを、SwiftUIはわざわざ端末にデータ移動せず、xcode上でpreviewできるという開発者にとって、とてもハッピーな機能がついたようです。
 
 ## SwiftUIってどうやって使うの？
-<o-embed url="https://twitter.com/silver_birder/status/1143475061673717760?s=20" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://twitter.com/silver_birder/status/1143475061673717760?s=20"></iframely-embed>
 
 この件について登壇者さんに質問してみました。そのとおりとのことです。
 swiftUIを手軽に動かしたい場合は、playgroundでも試せるそうなので、近い内にやってみようかなと思います。
 
-<iframely-embed url="https://qiita.com/shtnkgm/items/387132cd9633a59e7390"></iframely-embed>
+<iframely-embed card="small" url="https://qiita.com/shtnkgm/items/387132cd9633a59e7390"></iframely-embed>
 
 ## ショートカットアプリ
 標準でiphoneにインストールされるようになったアプリで、正直あんまり使った覚えはありません。
@@ -147,10 +147,10 @@ AppleのIDで認証ができるようになります。
 特に、JSライブラリや、REST APIの提供もあるそうです。
 
 JSライブラリ
-<iframely-embed url="https://developer.apple.com/documentation/signinwithapplejs"></iframely-embed>
+<iframely-embed card="small" url="https://developer.apple.com/documentation/signinwithapplejs"></iframely-embed>
 
 REST API
-<iframely-embed url="https://developer.apple.com/documentation/signinwithapplerestapi"></iframely-embed>
+<iframely-embed card="small" url="https://developer.apple.com/documentation/signinwithapplerestapi"></iframely-embed>
 
 良いっすね〜！これで認証の種類が増えました！
 
@@ -158,7 +158,7 @@ REST API
 Google I/OやWWDCには参加したいという気持ちがあるのですが、
 やはり英語のちからがまだまだ自信がありません。
 徐々に聞き取れるように勉強していきます。
-<iframely-embed url="https://note.mu/silverbirder/m/mcad08e0f384b"></iframely-embed>
+<iframely-embed card="small" url="https://note.mu/silverbirder/m/mcad08e0f384b"></iframely-embed>
 
 今回の報告会で何度も耳にした「デバイス上で動作、オフライン環境」は、
 今後、Googleでは力を入れていきたいのかなと思いました。

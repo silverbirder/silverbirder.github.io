@@ -17,12 +17,12 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144305
 コミックマーケットのエンジニア向けみたいなものです。
 詳しくは、下記のリンクを参照下さい。
 
-<iframely-embed url="https://techbookfest.org/event/tbf07"></iframely-embed>
+<iframely-embed card="small" url="https://techbookfest.org/event/tbf07"></iframely-embed>
 
 # あなたは誰？
 詳しくは、私のポートフォリオを参照下さい。
 
-<iframely-embed url="https://silver-birder.github.io/"></iframely-embed>
+<iframely-embed card="small" url="https://silver-birder.github.io/"></iframely-embed>
 
 Webアプリケーションが大好きなエンジニアです。
 今は、ECサイトのフロントエンドエンジニアをしています。
@@ -149,8 +149,8 @@ Webが大好きな私にとっては、Web Componentsという技術に興味が
 * [[見本誌] はじめてのWeb Components入門 -4つの基本機能から関連ライブラリまで-](https://silverbirder.booth.pm/items/1536228)
 
 ## 技術書典7
-<iframely-embed url="https://techbookfest.org/event/tbf07/circle/5117648689954816"></iframely-embed>
+<iframely-embed card="small" url="https://techbookfest.org/event/tbf07/circle/5117648689954816"></iframely-embed>
 
 ## Twitter宣伝
-<o-embed url="https://twitter.com/silver_birder/status/1166171153875886080" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://twitter.com/silver_birder/status/1166171153875886080"></iframely-embed>
 

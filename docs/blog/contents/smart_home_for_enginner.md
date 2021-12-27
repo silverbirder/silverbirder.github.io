@@ -21,32 +21,32 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 # スマートプロダクト リスト
 ## スマートリモコン
 ### Nature Remo
-<iframely-embed url="https://nature.global/jp/nature-remo"></iframely-embed>
+<iframely-embed card="small" url="https://nature.global/jp/nature-remo"></iframely-embed>
 
 ## スマートスピーカー
 ### Google Home
-<iframely-embed url="https://store.google.com/product/google_home"></iframely-embed>
+<iframely-embed card="small" url="https://store.google.com/product/google_home"></iframely-embed>
 
 ## スマートロック
 ### SESAME
-<iframely-embed url="https://jp.candyhouse.co/"></iframely-embed>
+<iframely-embed card="small" url="https://jp.candyhouse.co/"></iframely-embed>
 
 ## スマートトラッカー
 ### Tile
-<iframely-embed url="https://thetileapp.jp/"></iframely-embed>
+<iframely-embed card="small" url="https://thetileapp.jp/"></iframely-embed>
 
 ## スマートタグ
 ### Qrio Smart Tag
-<iframely-embed url="https://qrio.me/smarttag/"></iframely-embed>
+<iframely-embed card="small" url="https://qrio.me/smarttag/"></iframely-embed>
 
 
 ## スマートスイッチ
 ### Switch Bot
-<iframely-embed url="https://www.switchbot.jp/"></iframely-embed>
+<iframely-embed card="small" url="https://www.switchbot.jp/"></iframely-embed>
 
 ## スマートトースター
 ### Toasteroid
-<iframely-embed url="https://www.kickstarter.com/projects/258723592/toasteroid-first-app-controlled-smart-image-toaste"></iframely-embed>
+<iframely-embed card="small" url="https://www.kickstarter.com/projects/258723592/toasteroid-first-app-controlled-smart-image-toaste"></iframely-embed>
 
 ## スマートボタン
 ### Qmote S
@@ -60,15 +60,15 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 
 ## スマートプラグ
 ### TP‐Link HS105
-<iframely-embed url="https://www.tp-link.com/jp/home-networking/smart-plug/hs105/"></iframely-embed>
+<iframely-embed card="small" url="https://www.tp-link.com/jp/home-networking/smart-plug/hs105/"></iframely-embed>
 
 ## スマートスケール
 ### Withings Body +
-<iframely-embed url="https://www.withings.com/jp/ja/body"></iframely-embed>
+<iframely-embed card="small" url="https://www.withings.com/jp/ja/body"></iframely-embed>
 
 ## スマートスリープ
 ### Withings Sleep
-<iframely-embed url="https://www.withings.com/jp/ja/sleep"></iframely-embed>
+<iframely-embed card="small" url="https://www.withings.com/jp/ja/sleep"></iframely-embed>
 
 ## スマートライト
 ### Light Strip Plus
@@ -77,38 +77,38 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 
 ## スマートカメラ
 ### Arlo Ultra
-<iframely-embed url="https://www.arlo.com/jp/products/arlo-ultra/default.aspx"></iframely-embed>
+<iframely-embed card="small" url="https://www.arlo.com/jp/products/arlo-ultra/default.aspx"></iframely-embed>
 
 ## スマート歯ブラシ
 ### Philips Sonicare
-<iframely-embed url="https://www.philips.co.jp/c-m-pe/electric-toothbrushes"></iframely-embed>
+<iframely-embed card="small" url="https://www.philips.co.jp/c-m-pe/electric-toothbrushes"></iframely-embed>
 
 ## スマートカーテン
 ### Mornin' Plus
-<iframely-embed url="https://mornin.jp/"></iframely-embed>
+<iframely-embed card="small" url="https://mornin.jp/"></iframely-embed>
 
 ### SwitchBot Curtain
-<iframely-embed url="https://www.rakunew.com/items/82929"></iframely-embed>
+<iframely-embed card="small" url="https://www.rakunew.com/items/82929"></iframely-embed>
 
 ## スマートエアモニター
 ### Awair
-<iframely-embed url="https://jp.getawair.com/"></iframely-embed>
+<iframely-embed card="small" url="https://jp.getawair.com/"></iframely-embed>
 
 ## スマートクリーナー
 ### iRobot
-<iframely-embed url="https://www.irobot-jp.com"></iframely-embed>
+<iframely-embed card="small" url="https://www.irobot-jp.com"></iframely-embed>
 
 ## スマートテレビ
 ### Chromecast
-<iframely-embed url="https://store.google.com/jp/product/chromecast"></iframely-embed>
+<iframely-embed card="small" url="https://store.google.com/jp/product/chromecast"></iframely-embed>
 
 ## スマートウォッチ
 ### Apple Watch
-<iframely-embed url="https://www.apple.com/jp/watch/"></iframely-embed>
+<iframely-embed card="small" url="https://www.apple.com/jp/watch/"></iframely-embed>
 
 ## スマートケトル
 ### iKettle
-<iframely-embed url="https://www.smarter.am/ikettle"></iframely-embed>
+<iframely-embed card="small" url="https://www.smarter.am/ikettle"></iframely-embed>
 
 ##  スマートグラス
 ### Focals
@@ -117,8 +117,8 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 
 ## スマートエナジーハブ
 ### Nature Remo E
-<iframely-embed url="https://nature.global/jp/nature-remo-e"></iframely-embed>
+<iframely-embed card="small" url="https://nature.global/jp/nature-remo-e"></iframely-embed>
 
 ## Other
 ### 食宅便
-<iframely-embed url="https://shokutakubin.com/shop/default.aspx"></iframely-embed>
+<iframely-embed card="small" url="https://shokutakubin.com/shop/default.aspx"></iframely-embed>

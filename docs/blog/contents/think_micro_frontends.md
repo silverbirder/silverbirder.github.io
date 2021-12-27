@@ -13,13 +13,13 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 Micro Frontendsに関わる記事を100件以上読みました(参考記事に記載しています)。そこから得たMicro Frontendsについてこの投稿に記録します。
 また、調査メモについて、次のリポジトリに残しています。
 
-<iframely-embed url="https://github.com/Silver-birder/think-micro-frontends"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/Silver-birder/think-micro-frontends"></iframely-embed>
 
 <!--  TODO: TOC -->
 
 # 発端
 
-<iframely-embed url="https://www.thoughtworks.com/radar/techniques/micro-frontends"></iframely-embed>
+<iframely-embed card="small" url="https://www.thoughtworks.com/radar/techniques/micro-frontends"></iframely-embed>
 
 # 実績企業
 
@@ -72,7 +72,7 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 
 # 統合パターン
 
-<iframely-embed url="https://bluesoft.com/micro-frontends-the-missing-piece-of-the-puzzle-in-feature-teams/"></iframely-embed>
+<iframely-embed card="small" url="https://bluesoft.com/micro-frontends-the-missing-piece-of-the-puzzle-in-feature-teams/"></iframely-embed>
 
 |統合|選択基準|技術|
 |--|--|--|
@@ -84,9 +84,9 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 # 機能
 ## コミュニケーション
 
-<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/API/CustomEvent"></iframely-embed>
+<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/CustomEvent"></iframely-embed>
 
-<iframely-embed url="https://github.com/postaljs/postal.js"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/postaljs/postal.js"></iframely-embed>
 
 ## データ共有
 
@@ -100,29 +100,29 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 
 * webpack
 
-<iframely-embed url="https://webpack.js.org/concepts/module-federation/"></iframely-embed>
+<iframely-embed card="small" url="https://webpack.js.org/concepts/module-federation/"></iframely-embed>
 
-<iframely-embed url="https://webpack.js.org/configuration/externals/"></iframely-embed>
+<iframely-embed card="small" url="https://webpack.js.org/configuration/externals/"></iframely-embed>
 
-<iframely-embed url="https://webpack.js.org/plugins/dll-plugin/"></iframely-embed>
+<iframely-embed card="small" url="https://webpack.js.org/plugins/dll-plugin/"></iframely-embed>
 
 ## ルーティング
 
 Vaddin router
 
-<iframely-embed url="https://vaadin.com/router"></iframely-embed>
+<iframely-embed card="small" url="https://vaadin.com/router"></iframely-embed>
 
 ## キャッシュ
 
-<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/API/Service_Worker_API"></iframely-embed>
+<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/Service_Worker_API"></iframely-embed>
 
-<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API"></iframely-embed>
+<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API"></iframely-embed>
 
 ## 認証
 
 * JWT
 
-<iframely-embed url="https://jwt.io/"></iframely-embed>
+<iframely-embed card="small" url="https://jwt.io/"></iframely-embed>
 
 ## 計測
 
@@ -153,11 +153,11 @@ Vaddin router
 
 コンポジションプロキシ。テンプレートを組み合わせる。
 
-<iframely-embed url="https://github.com/tes/compoxure"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/tes/compoxure"></iframely-embed>
 
 ## アクセス履歴
 
-<iframely-embed url="https://developer.mozilla.org/ja/docs/Web/API/History_API"></iframely-embed>
+<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/History_API"></iframely-embed>
 
 # 分割ポリシー
 
@@ -195,7 +195,7 @@ Vaddin router
 
 #  書籍
 
-<iframely-embed url="https://www.manning.com/books/micro-frontends-in-action"></iframely-embed>
+<iframely-embed card="small" url="https://www.manning.com/books/micro-frontends-in-action"></iframely-embed>
 
 # 参考記事
 

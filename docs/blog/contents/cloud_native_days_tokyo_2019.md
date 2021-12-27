@@ -13,11 +13,11 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 
 <!--  TODO: TOC -->
 
-<iframely-embed url="https://cloudnativedays.jp/cndt2019/"></iframely-embed>
+<iframely-embed card="small" url="https://cloudnativedays.jp/cndt2019/"></iframely-embed>
 
 リンクをまとめています。
     
-<iframely-embed url="https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6"></iframely-embed>
+<iframely-embed card="small" url="https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6"></iframely-embed>
 
 # CNCFの利用率
 一日目のKeynoteで印象的だった内容です。 
@@ -39,17 +39,17 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 
 ただ、CNCFのメンバーとして日本企業は<b>17社</b>しかないそうで、まだまだこれからといったところでしょうか。
 
-<iframely-embed url="https://landscape.cncf.io/members"></iframely-embed>
+<iframely-embed card="small" url="https://landscape.cncf.io/members"></iframely-embed>
 
 さらには、Kubernetesから認定された日本企業ではまだないみたいです。残念です。  
 
-<iframely-embed url="https://kubernetes.io/partners/#kcsp"></iframely-embed>  
+<iframely-embed card="small" url="https://kubernetes.io/partners/#kcsp"></iframely-embed>  
 
 今後は、次のようなカンファレンスが海外でもあるみたいです。ぜひ参加してみたいと思います。  
 
-<iframely-embed url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/"></iframely-embed>
+<iframely-embed card="small" url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/"></iframely-embed>
 
-<iframely-embed url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"></iframely-embed>
+<iframely-embed card="small" url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"></iframely-embed>
 
 # CloudNativeとは？
 > クラウドネイティブ技術は、パブリッククラウド、プライベートクラウド、ハイブリッドクラウドなどの近代的でダイナミックな環境において、スケーラブルなアプリケーションを構築および実行するための能力を組織にもたらします。 このアプローチの代表例に、コンテナ、サービスメッシュ、マイクロサービス、イミューダブルインフラストラクチャ、および宣言型APIがあります。
@@ -62,7 +62,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 ただ、最近ではKubernetesを違う観点で考える人が増えてきたそうです。
 それが、二日目のKeynoteで発表された北山さんのスライドにあります。
 
-<o-embed url="https://speakerdeck.com/shkitayama/change-the-game-change-the-world" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/shkitayama/change-the-game-change-the-world"></iframely-embed>
 
 Kubernetesは「platformのためのplatform」と言われるようになりました。
 これは、slide.No.9(Kubernetes is a platform)で見て分かる通りで、次のようなことがわかります。
@@ -87,7 +87,7 @@ Kubernetesは「platformのためのplatform」と言われるようになりま
 CRDという言葉は様々なセッションで取り上げらていました。
 CRDとOperatorについては、下記をご参考下さい。
 
-<iframely-embed url="https://silver-birder.github.io/blog/contents/kubernetes_meetup_tokyo_19_osaka_satellite"></iframely-embed>
+<iframely-embed card="small" url="https://silver-birder.github.io/blog/contents/kubernetes_meetup_tokyo_19_osaka_satellite"></iframely-embed>
 
 Kubernetesを運用すると、既存のリソースだけでは物足りない所がでてくるそうです。
 そういう部分が「プラットフォームを利用するコスト」を大きくしてしまいます。
@@ -95,7 +95,7 @@ Kubernetesを運用すると、既存のリソースだけでは物足りない�
 CRD、Operatorが生まれました。
 ただ、独自に1から作るよりも、下記のサイトから使った方が効率的なときもあります。
 
-<iframely-embed url="https://operatorhub.io/"></iframely-embed>
+<iframely-embed card="small" url="https://operatorhub.io/"></iframely-embed>
 
 けど、結局は困ったとき、ソースコードを読むことになるので、それぐらいの能力がないと、
 運用を回せない気がします。
@@ -103,21 +103,21 @@ CRD、Operatorが生まれました。
 zlabのladicleさんの次のスライドがとてもわかりやすく、まとまっていました。
 これは貴重な資料ですね。
 
-<o-embed url="https://speakerdeck.com/ladicle/kuberneteswokuo-zhang-siteri-falseoperesiyonwozi-dong-hua-suru" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/ladicle/kuberneteswokuo-zhang-siteri-falseoperesiyonwozi-dong-hua-suru"></iframely-embed>
 
 ちなみに、独自に1から作ったケースがサイバーエージェントの山本さんの発表で、次のスライドです。  
 
-<o-embed url="https://speakerdeck.com/mayuyamamoto/kuberneteskuo-zhang-woli-yong-sitazi-zuo-autoscalerdeshi-xian-surusutoresuhurinayun-yong-falseshi-jie" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/mayuyamamoto/kuberneteskuo-zhang-woli-yong-sitazi-zuo-autoscalerdeshi-xian-surusutoresuhurinayun-yong-falseshi-jie"></iframely-embed>
 
 同じくサイバーエージェントの青山さんがライブコーディングされていたリポジトリが次のものになります。
 
-<iframely-embed url="https://github.com/cloudnativejp/webserver-operator"></iframely-embed>
+<iframely-embed card="small" url="https://github.com/cloudnativejp/webserver-operator"></iframely-embed>
 
 # Kubernetesは必要ですか？
 Kubernetesを使うべきかの話が2日間でちらほらありました。
 次のような議論もあります。
 
-<iframely-embed url="https://www.atmarkit.co.jp/ait/articles/1907/23/news120.html"></iframely-embed>
+<iframely-embed card="small" url="https://www.atmarkit.co.jp/ait/articles/1907/23/news120.html"></iframely-embed>
 
 CloudNativeなアプリケーション構築を目指す場合、どうしてもKubernetesを使う方向になりがちですよね。  
 今回参加したセッションの多くの企業では、Kubernetesを採用するための検討が下記のような感じでした。
@@ -132,7 +132,7 @@ CloudNativeなアプリケーション構築を目指す場合、どうしても
 
 様々なセッションがあった中で、とても王道なステップを踏まれている企業がありました。それは、SoftbankPaymentServiceの鈴木さんの次のスライドです。  
 
-<iframely-embed url="https://www.slideshare.net/JunyaSuzuki1/springpcf-cndt2019-osdt2019-keynote"></iframely-embed>
+<iframely-embed card="small" url="https://www.slideshare.net/JunyaSuzuki1/springpcf-cndt2019-osdt2019-keynote"></iframely-embed>
 
 企業に適したCloudNative化だなと勉強になりました。  
 特に「運用を回すコストを考慮すると、KubernetesではなくPaaSを使う」  というポイントが好きです。  
@@ -141,7 +141,7 @@ CloudNativeなアプリケーション構築を目指す場合、どうしても
 耳にタコができるぐらい、この単語を聞きました。
 下記のサイトが参考になります。
 
-<iframely-embed url="https://qiita.com/yasuabe2613/items/3bff44e662c922083264#circuit-breaker"></iframely-embed>
+<iframely-embed card="small" url="https://qiita.com/yasuabe2613/items/3bff44e662c922083264#circuit-breaker"></iframely-embed>
 
 > 同期リクエストの先で一部のマイクロサービスに障害があると、クライアントやその先の「クライアントのクライアント」までブロッキングが波及することになりかねない。
 この問題を、クライアントと実サービスの間に Circuit Breaker と呼ばれるプロキシを介在させて、実サービスの呼び出し失敗が一定基準を超えると、クライアントからのリクエストを即座にリジェクトさせて、ブロッキング連鎖を解消するパターン。
@@ -155,7 +155,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 # twelve factor app
 次のWantedlyさんのスライドが、私の中では話題になりました。
 
-<o-embed url="https://speakerdeck.com/potsbo/k8s-kubernetes-8-factors" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/potsbo/k8s-kubernetes-8-factors"></iframely-embed>
 
 要は、「アプリケーションとしての設計の考え方(twelve factor app)を、インフラ部分でも適用してみた」という感じです。
 どれも具体的なところまで説明されており、実際にKubernetesを構築する際に役に立つものだと思います。  
@@ -166,48 +166,48 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Chaos Engineering
 
-<o-embed url="https://speakerdeck.com/mahito/cndt-osdt-2019-2g1" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/mahito/cndt-osdt-2019-2g1"></iframely-embed>
 
 ## Docker
 
-<iframely-embed url="https://www.slideshare.net/AkihiroSuda/cndt-docker"></iframely-embed>
+<iframely-embed card="small" url="https://www.slideshare.net/AkihiroSuda/cndt-docker"></iframely-embed>
 
 ## Envoy
 
-<o-embed url="https://speakerdeck.com/taiki45/cloudnative-days-tokyo-2019-understanding-envoy" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/taiki45/cloudnative-days-tokyo-2019-understanding-envoy"></iframely-embed>
 
 ## Logging
 
-<o-embed url="https://speakerdeck.com/yosshi_/kubernetes-loggingru-men" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/yosshi_/kubernetes-loggingru-men"></iframely-embed>
 
 ## LinuxKernel
 
-<o-embed url="https://speakerdeck.com/tenforward/cndt2019" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/tenforward/cndt2019"></iframely-embed>
 
 ## Prometheus
 
-<o-embed url="https://speakerdeck.com/tokibi/prometheus-setup-with-long-term-storage" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/tokibi/prometheus-setup-with-long-term-storage"></iframely-embed>
 
 ## Sandbox
 
-<iframely-embed url="https://docs.google.com/presentation/d/1O9Q9E1hH6mBA5w8oDENnCYObZvij1-Dr_obvsY3X29k/edit"></iframely-embed>
+<iframely-embed card="small" url="https://docs.google.com/presentation/d/1O9Q9E1hH6mBA5w8oDENnCYObZvij1-Dr_obvsY3X29k/edit"></iframely-embed>
 
 ## Scheduler
 
-<o-embed url="https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019"></iframely-embed>
 
 ## Spinnaker
 
-<o-embed url="https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker:embed]9" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker:embed]9"></iframely-embed>
 
 ## Istio
 
-<o-embed url="https://speakerdeck.com/dangossk/a-deep-dive-into-service-mesh-and-istio-cndt-2019" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://speakerdeck.com/dangossk/a-deep-dive-into-service-mesh-and-istio-cndt-2019"></iframely-embed>
 
 # その他
 サイバーエージェントさんより、エンジニアにとってとても嬉しいアイテムを頂きました。
 
-<o-embed url="https://twitter.com/ca_adtechstudio/status/1152080444445167616" proxy="https://silverbirder-cors-anywhere.herokuapp.com/"></o-embed>
+<iframely-embed url="https://twitter.com/ca_adtechstudio/status/1152080444445167616"></iframely-embed>
 
 さっそく、キーボードにとりつけてみました。最高です！
 <figure title="ergodox with k8s keycap (cyberAgent)">
@@ -224,7 +224,7 @@ CloudNativeにどっぷり浸かった2日間でした。
 どの企業でもCloudNativeを導入したことによる「つらみ」や「価値」を共有して頂いたおかげで、これから導入する人たち（私を含む）にとっては、有意義な時間でした。  
 全てのセッションを吸収できたわけではないですが、ここで記載したスライドだけでも理解を深めたいなと思います。
 
-<iframely-embed url="https://cloudnativedays.jp/cndk2019/"></iframely-embed>
+<iframely-embed card="small" url="https://cloudnativedays.jp/cndk2019/"></iframely-embed>
 
 今度は大阪で開催されるそうです。これも絶対参加したいなと思います！
 
@@ -232,7 +232,7 @@ CloudNativeにどっぷり浸かった2日間でした。
 筆者はWebが大好きなエンジニアで、Kubernetesについては理解が浅い人間です。主にフロントエンドに注力しています。  
 ただ、昨年のDeveloperBoost2018で、サイバーエージェントの青山さんのセッションをうけてKubernetesに興味を持ち始めました。
 
-<iframely-embed url="https://codezine.jp/article/detail/11291"></iframely-embed>  
+<iframely-embed card="small" url="https://codezine.jp/article/detail/11291"></iframely-embed>  
 
 青山さんはKubernetesにとても詳しい方で、世代が近いせいか、私もこれぐらい夢中になれるものを見つけたいと感じるようになりました。  
 私はWebに関わるものなら何でも好きで、Kubernetesも含まれます。そこで、青山さん著作の[Kubernetes完全ガイド](http://www.wasdkeyboards.com/index.php/products/printed-keycap-singles/custom-art-cherry-mx-keycaps.html)を全て実践することにしてみました。もちろん<b>お家Kubernetes</b>でです。

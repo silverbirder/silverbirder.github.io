@@ -1,9 +1,9 @@
 ---
-title: Manifest V3でChrome拡張機能をはじめて作った体験記
+title: Chrome拡張機能(Manifest V3)の開発で知ったこと
 published: true
 date: 2022-01-16
 description: 
-tags: ["Chrome Extension","Manifest V3", "Feedback"]
+tags: ["Chrome Extension","Manifest V3"]
 cover_image: https://raw.githubusercontent.com/Silver-birder/chrome-extension-tiktok-scraping-downloader/main/overview.png
 ---
 
@@ -15,39 +15,47 @@ Chrome拡張機能の概要について詳しく知りたい方は、[What are e
 そして、今再び、Chrome拡張機能で作りたいものができたので、久々に作ろうと決意しました。
 作ろうと思ったものの、どうやら今のChrome拡張機能の仕様はManifest V3を推奨しているようです。
 
-そこで、Chrome拡張機能で知ったことを書こうと思います。
+そこで、Chrome拡張機能で知ったことをまとめようと思います。
 
-※ 補足ですが、これから紹介する内容は、Manifest V3に限った話ではありません。
+※ 補足ですが、これから紹介する内容は、Manifest V3に限った話ではないのかもしれません。
 
-## background scriptsとcontent scripts
+## Chrome Extensions Components
 
-Chrome拡張機能は、主に次の2つのコンポーネントが存在します。
+Chrome拡張機能は、主に次の4つのコンポーネントが存在します。
 
-* background scripts
-* content scripts
+* [Background Scripts](https://developer.chrome.com/docs/extensions/mv3/service_workers/)
+  * サービスワーカー上で動作し、ブラウザ上のイベント駆動(ページ遷移やブックマーク差所など)に反応します。
+  * [manifest](https://developer.chrome.com/docs/extensions/mv3/manifest/)の `background`フィールドで設定します。
+* [Content Scripts](https://developer.chrome.com/docs/extensions/mv3/content_scripts/)
+  * Webページのコンテキスト上で動作し、DOMへアクセスできます。
+  * [manifest](https://developer.chrome.com/docs/extensions/mv3/manifest/)の `content_scripts`フィールドで設定します。
+* [UI Elements](https://developer.chrome.com/docs/extensions/mv3/user_interface/)
+  * URLバーの右側にあるボタンを押した(Action)際に表示されるUIです。
+  * ブラウザ体験を損なわさない最低限の機能だけの提供を推奨されています。
+  * [manifest](https://developer.chrome.com/docs/extensions/mv3/manifest/)の `action`フィールドで設定します。
+* [Options Page](https://developer.chrome.com/docs/extensions/mv3/options/)
+  * Chrome拡張機能アイコンを右クリックして、オプションを選択すると表示されるUIです。
+  * Chrome拡張機能をカスタマイズしたい設定ページに使います。
+  * [manifest](https://developer.chrome.com/docs/extensions/mv3/manifest/)の `options_page`フィールドで設定します。
 
-background scriptsは、service worker上で動きます。そのため、DOM要素へのアクセスはできません。
-DOM要素へアクセスしたい場合は、content scriptsからアクセスする必要があります。
-[content scriptsは、Webページのコンテキスト上で動作します](https://developer.chrome.com/docs/extensions/mv3/content_scripts/#:~:text=Content%20scripts%20are%20files%20that%20run%20in%20the%20context%20of%20web%20pages.)。
-この2つは、できることが違うので使い分ける必要があります。
+私なりに、これらのコンポーネントの使い分けを考えると、次になります。
 
-![architecture-overview](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/CNDAVsTnJeSskIXVnSQV.png?auto=format&w=776)
+* DOMへアクセスする必要がある
+  * Content Scripts を使う
+* ページに依存しない処理がある
+  * Background Scripts を使う
+* 環境変数の設定が必要
+  * Option Page
 
-`気づいたこと`
-
-* DOM要素にアクセスしたい場合
-  * content scriptsを使う
-* DOM要素にアクセスしない場合
-  * background scriptsを使う
-    * service worker上で動きます
+UI Elementsは、基本的に必要ないのかなと思いました。
 
 ## Debug
 
-[Getting started - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/getstarted/)で、サンプルコードが載ってあるので、色々動かして試そうと思いました。そこで、思ったんです。『デバッグってどうやるんだっけ？』です。
-次の記事が参考になりました。
+デバッグって、どうやるんでしょうか。
 
 * [Debugging extensions - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/tut_debugging/)
 
+こちらにやり方が書いてありました。
 原則、**DevToolsでデバッグ**しましょう。
 
 * background scripts
@@ -102,47 +110,12 @@ WebページがAPIコールしている通信を監視した場面がありま�
 
 ## Option Set
 
+TODO
+
 ## Misc
 
 https://developer.chrome.com/docs/extensions/mv3/manifest/
 
 ## 最後に
 
-
-## 書きたいことメモ
-
-どういうものを作ろうって？TikTokのスクレイパーだよ。詳しくはこっち。
-当初は、簡単にオートスクロールしつつ、Videoタグを取ってblob手に入れて、POSTしようとしてた。
-blobを取る箇所をbackground.jsにしちゃうと、CORSで困ることがあったので、content-script.jsじゃないとだめだね。
-あと、contentscriptとbackgroundの通信手段って、何使えば良いんだ？あ、port messagingね。
-↓
-あれ、VideoだけだとVideoの情報がなにもないので、困るな。表示するときに。
-よし、じゃあTikTokのページ分析して、情報ないか見てみよう。
-
-あ、windowsオブジェクトに情報あるじゃん。あれ？content-scriptsからだとアクセスできないんだね。
-web accesable resource というのが使えるみたい。これ、jsを作っておいて、それをbodyタグにappendしたら動かせる。
-けど、これinjectなjsなので、port messaging無理だ。windowオブジェクトからpost messageすることで良いそうだ。
-(ユーザーページでもforyouページでも構成は同じようだ)
-↓
-よし、windowのオブジェクトにあるTiktokの情報は手に入れられたけど、スクロールロードしたtiktokのデータって、どこにあるんだ？
-どこにもそのデータが置いていなかった。これは、TiktokのAPIのレスポンスを傍受したいね。
-むむ、requestをmonitoringするAPIがあるそうだ。chrome。お、動いた。
-けど、urlはモニターできるんだけど、レスポンスのbodyは取れない。だから、URLを手に入れてcontentscriptで再リクエストして手に入れるしかないな。
-
-host_permissionsというのがあるようだ。monitoringするときに、許可が必要っぽい。
-https://twitter.com/silver_birder/status/1479628125323800577
-chrome.webrequestね。
-↓
-よし、これでほしい情報は手に入った。
-あれ、動かしてみると、port messageがたまに途切れるぞ。あ、sendResponseのところが間違っていたのね。
-↓
-うん、ちゃんと動くようになった。これを自宅にあるiMac(使っていない)に入れて動かし続けよう。
-特に問題ないっぽい！
-↓
-POSTするサーバ名をハードコードしてるから、ちょっとよくないな。
-環境変数の設定方法は、よくわからないけど、サンプルコードをみると、storageで管理してるっぽい。
-Optionで設定できるようにした。よしよし。
-
-※ 脱線
-表示方法で、tiktok oembedへリクエストしたレスポンスにあるhtmlやwidthとかを使ってあげれば良い。
-iframe srcdocでhtmlを埋め込めば良い。
+TODO

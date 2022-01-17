@@ -56,28 +56,28 @@ UI Elementsは、基本的に必要ないのかなと思いました。
 * [Debugging extensions - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/tut_debugging/)
 
 こちらにやり方が書いてありました。
-原則、**DevToolsでデバッグ**しましょう。
+私なりに解釈した結果、次の2つの分岐を考えます。
 
-* background scripts
-  * `chrome://extensions` にアクセス
-  * inspect viewsの右にあるリンクをクリック
-    * DevToolsが開く
-* content scripts
-  * content scriptsの対象ページを開く
-  * DevToolsを開く
-    * [Open Chrome DevTools - Chrome Developers](https://developer.chrome.com/docs/devtools/open/)
-  * popup.jsのdebugも、popupウィンドウ上でDevToolsを開きましょう
+* ①そもそも、Chrome拡張機能がロードできない場合
 
-その他のデバッグとして、manifest.jsonに誤りがあるなどでChrome拡張機能がLoadできない場合は、次の画像にある`ERROR`ボタンをクリックしましょう。
+`chrome://extensions` へアクセスし、次の図にあるようなERRORボタンをクリックします。
 
 ![chrome extensions debug](https://res.cloudinary.com/silverbirder/image/upload/v1642325181/silver-birder.github.io/blog/chrome_extensions_debug.png)
 
-恐らく、エラーメッセージが出力されているはずなので、それを解決しましょう。
+なにかエラーが出ているはずです。
+
+* ② ①以外の場合
+
+どのコンポーネントでも、共通して、DevToolsを開きましょう。
+
+* Content Scripts, UI Elements, Options Page
+  * UI上で右クリックして `Inspect` をクリック
+    * DevToolsが開きます。
+* Background Scripts
+  * `chrome://extensions` へアクセスし、`inspect views`の右にあるリンクをクリック。
+    * DevToolsが開きます。
 
 ## Message passing
-
-デバッグのやり方が分かりました。
-Chrome拡張機能で作ろうとしている内容の内、次の機能が必要になりました。
 
 * content scriptsとbackground scriptsの通信
 

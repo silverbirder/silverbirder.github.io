@@ -2,7 +2,7 @@
 title: Chrome拡張機能(Manifest V3)の開発で知ったこと
 published: true
 date: 2022-01-16
-description: 
+description: 皆さん、Chrome拡張機能をご存知ですか？Chrome拡張機能は、Chromeブラウザをカスタマイズするための機能です。Chrome拡張機能の概要について詳しく知りたい方は、What are extensions? - Chrome Developersをご覧ください。
 tags: ["Chrome Extension","Manifest V3"]
 cover_image: https://raw.githubusercontent.com/Silver-birder/chrome-extension-tiktok-scraping-downloader/main/overview.png
 ---
@@ -17,7 +17,9 @@ Chrome拡張機能の概要について詳しく知りたい方は、[What are e
 
 そこで、Chrome拡張機能で知ったことをまとめようと思います。
 
-※ 補足ですが、これから紹介する内容は、Manifest V3に限った話ではないのかもしれません。
+ちなみに、実際に作ったものは次のものです。
+
+* https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader
 
 ## Chrome Extensions Components
 
@@ -81,7 +83,7 @@ UI Elementsは、基本的に必要ないのかなと思いました。
   * `chrome://extensions` へアクセスし、`inspect views`の右にあるリンクをクリック。
     * DevToolsが開きます。
 
-## Message passing
+## Message Passing
 
 各コンポーネント間で、通信するのは、どうしたら良いのでしょうか。
 例えば、Content ScriptsからBackground Scriptsへデータを渡したいときなどです。
@@ -89,13 +91,15 @@ UI Elementsは、基本的に必要ないのかなと思いました。
 
 * [Message passing - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/messaging/)
 
-資料を読むと、Content ScriptsからBackground Scriptsだけではなく、`Chrome拡張機能間の通信(Cross-extension messaging)`や、`Web pagesからコンポーネントへの通信(Sending messages from web pages)`も可能のようです。
+資料を読むと、Content ScriptsやBackground Scriptsだけではなく、`Chrome拡張機能間の通信(Cross-extension messaging)`や、`Web pagesからコンポーネントへの通信(Sending messages from web pages)`も可能のようです。
 
 通信の具体的なコードは、`chrome.runtime.sendMessage`メソッドを使います。
 Background ScriptsからContent Scriptsへ通信する場合、どのChromeタブに送信するか`chrome.tabs.query`で事前にidを見つけておく必要があります。
 
 また、後で紹介しますが、`Web Accessible Resources`でアクセス可能なJavascriptをWebページへInject(`document.querySelector('body').append()`)した場合、そのJavascriptとContent Scriptsの通信は、`window.postMessage`と`window.addEventListener`を使いましょう。
 `chrome.runtime`が使えないので。
+
+TODO: コードの例？
 
 ## Web Accessible Resources
 
@@ -206,10 +210,7 @@ chrome.webRequest.onCompleted.addListener(
 
 このdetailsにはリクエストのURLが含まれています。さらに詳しく知りたい人は、[こちら](https://developer.chrome.com/docs/extensions/reference/webRequest/#event-onCompleted)をご確認ください。
 
-## Option Set
-
-TODO
-
 ## 最後に
 
-TODO
+Chrome拡張機能、久々に開発してみると、進化しすぎていてキャッチアップに苦労しました。
+私と同じような方の助けになれば、幸いです。

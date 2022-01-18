@@ -99,27 +99,116 @@ Background ScriptsからContent Scriptsへ通信する場合、どのChromeタ�
 
 ## Web Accessible Resources
 
-Content ScriptsからWebページのwindowオブジェクトにある変数へアクセスすることができません。
+Content ScriptsからWebページのDOMへアクセスできますが、windowオブジェクトにある変数へアクセスすることができません。
 
 * ['javascript - Can the window object be modified from a Chrome extension? - Stack Overflow'](https://stackoverflow.com/questions/12395722/can-the-window-object-be-modified-from-a-chrome-extension)
 
+windowオブジェクトへアクセスするには、Web Accessible Resourcesを使う方法があります。
+
 * [Manifest - Web Accessible Resources - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/manifest/web_accessible_resources/)
 
-そこで、Web Accesible ResourcesとしてChrome拡張機能から参照できるjsを作成しておき、それをBodyへAppendして動かします。
-そこであれば、windowオブジェクトへアクセスできます。
+---
 
-## chrome.webrequest API
+具体的にコードで説明しましょう。
 
-WebページがAPIコールしている通信を監視した場面がありました。
-そこで、chrome.webrequestです。
+manifest.jsonで必要なフィールドの例は、次のとおりです。
+
+```json
+{
+  "content_scripts": [
+    {
+      "js": [
+        "content-script.js"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "web_accessible_resources.js"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ]
+}
+```
+
+Content ScriptsとWeb Accessible ResourcesのJavascriptは次のとおりです。
+
+```javascript
+// content-script.js
+const injectScript = (filePath, tag) => {
+    var node = document.getElementsByTagName(tag)[0];
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', filePath);
+    node.appendChild(script);
+}
+injectScript(chrome.runtime.getURL('web_accessible_resources.js'), 'body');
+```
+
+```javascript
+// web_accessible_resources.js
+console.log(window['hoge']);
+// Content Scriptsへ通信する場合は、window.postMessageを使います。
+```
+
+このように、web_accessible_resources.jsをWebページのbodyタグへappendします。
+そのweb_accessible_resources.jsでは、windowオブジェクトにアクセスすることができます。
+
+## chrome.webRequest API
+
+Chromeブラウザでネットワークトラフィックを監視するChrome拡張機能のAPIがあります。
+それが、`chrome.webRequest`です。
+
+* [chrome.webRequest - Chrome Developers](https://developer.chrome.com/docs/extensions/reference/webRequest/)
+
+これがあれば、Webページでどういうリクエストが発生しているか分かるようになります。
+manifest.jsonのフィールドで、`host_permissions`の設定が必要です。
+
+---
+
+サンプルで、Background Scriptsのコードを紹介します。
+まず、manifest.jsonの必要なフィールドを書きます。
+
+```json
+{
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+```
+
+次に、Webページからリクエストが完了(onCompleted)したイベントを監視するコードを書きます。
+
+```javascript
+// background.js
+chrome.webRequest.onCompleted.addListener(
+  async (details) => {
+    console.log(`request url is ${details.url}`);
+  },
+  {
+      urls: [
+          "https://*/*"
+      ]
+  },
+  ["responseHeaders"] // responseHeadersをdetailsオブジェクトに含めることができます。
+);
+```
+
+このdetailsにはリクエストのURLが含まれています。さらに詳しく知りたい人は、[こちら](https://developer.chrome.com/docs/extensions/reference/webRequest/#event-onCompleted)をご確認ください。
 
 ## Option Set
 
 TODO
-
-## Misc
-
-https://developer.chrome.com/docs/extensions/mv3/manifest/
 
 ## 最後に
 

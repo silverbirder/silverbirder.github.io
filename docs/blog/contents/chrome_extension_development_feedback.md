@@ -58,6 +58,8 @@ UI Elementsは、基本的に必要ないのかなと思いました。
 こちらにやり方が書いてありました。
 私なりに解釈した結果、次の2つの分岐を考えます。
 
+---
+
 * ①そもそも、Chrome拡張機能がロードできない場合
 
 `chrome://extensions` へアクセスし、次の図にあるようなERRORボタンをクリックします。
@@ -65,6 +67,8 @@ UI Elementsは、基本的に必要ないのかなと思いました。
 ![chrome extensions debug](https://res.cloudinary.com/silverbirder/image/upload/v1642325181/silver-birder.github.io/blog/chrome_extensions_debug.png)
 
 なにかエラーが出ているはずです。
+
+---
 
 * ② ①以外の場合
 
@@ -79,24 +83,25 @@ UI Elementsは、基本的に必要ないのかなと思いました。
 
 ## Message passing
 
-* content scriptsとbackground scriptsの通信
+各コンポーネント間で、通信するのは、どうしたら良いのでしょうか。
+例えば、Content ScriptsからBackground Scriptsへデータを渡したいときなどです。
+次の資料が、参考になります。
 
-それには、[Message passing - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/messaging/)を読むと良いです。
+* [Message passing - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/messaging/)
 
-* content scripts から background scripts 
-* background scripts から content scripts
+資料を読むと、Content ScriptsからBackground Scriptsだけではなく、`Chrome拡張機能間の通信(Cross-extension messaging)`や、`Web pagesからコンポーネントへの通信(Sending messages from web pages)`も可能のようです。
 
-これらは、`chrome.runtime.sendMessage`で通信できます。
-また、後で紹介しますが`Web Accessible Resources`でinjectしたjavascriptとcontent scriptsの通信は、chrome.runtime.sendMessageが使えません。`window.postMessage`と`window.addEventListener`で通信しましょう。
+通信の具体的なコードは、`chrome.runtime.sendMessage`メソッドを使います。
+Background ScriptsからContent Scriptsへ通信する場合、どのChromeタブに送信するか`chrome.tabs.query`で事前にidを見つけておく必要があります。
+
+また、後で紹介しますが、`Web Accessible Resources`でアクセス可能なJavascriptをWebページへInject(`document.querySelector('body').append()`)した場合、そのJavascriptとContent Scriptsの通信は、`window.postMessage`と`window.addEventListener`を使いましょう。
+`chrome.runtime`が使えないので。
 
 ## Web Accessible Resources
 
-content scriptsからwindowオブジェクトにある変数を参照したい場面がありました。
-ただ、それはできません。
+Content ScriptsからWebページのwindowオブジェクトにある変数へアクセスすることができません。
 
-> An isolated world is a private execution environment that isn't accessible to the page or other extensions. 
-
-* https://stackoverflow.com/questions/12395722/can-the-window-object-be-modified-from-a-chrome-extension
+* ['javascript - Can the window object be modified from a Chrome extension? - Stack Overflow'](https://stackoverflow.com/questions/12395722/can-the-window-object-be-modified-from-a-chrome-extension)
 
 * [Manifest - Web Accessible Resources - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/manifest/web_accessible_resources/)
 

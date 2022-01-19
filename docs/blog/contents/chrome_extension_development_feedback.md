@@ -9,17 +9,18 @@ cover_image: https://raw.githubusercontent.com/Silver-birder/chrome-extension-ti
 
 皆さん、Chrome拡張機能をご存知ですか？
 Chrome拡張機能は、Chromeブラウザをカスタマイズするための機能です。
-Chrome拡張機能の概要について詳しく知りたい方は、[What are extensions? - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/overview/)をご覧ください。
 
 私は、Chrome拡張機能を過去(数年前)に2つ作っていて、その当時は、Chrome拡張機能の仕様であるManifest V2に従っていました。
 そして、今再び、Chrome拡張機能で作りたいものができたので、久々に作ろうと決意しました。
 作ろうと思ったものの、どうやら今のChrome拡張機能の仕様はManifest V3を推奨しているようです。
-
-そこで、Chrome拡張機能で知ったことをまとめようと思います。これから紹介する内容は、Manifest V3を前提とします。
+そこで、今回、開発した際に知ったことをまとめようと思います。
 
 ちなみに、実際に作ったものは次のものです。
 
 * https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader
+  * 上にある図が、このChrome拡張機能の設計図になります
+
+※ Chrome拡張機能の概要について詳しく知りたい方は、[What are extensions? - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/overview/)をご覧ください。
 
 ## Chrome Extensions Components
 
@@ -133,6 +134,7 @@ manifest.jsonで必要なフィールドの例は、次のとおりです。
 
 ```json
 {
+  "manifest_version": 3,
   "content_scripts": [
     {
       "js": [
@@ -196,6 +198,7 @@ manifest.jsonのフィールドで、`host_permissions`の設定が必要です�
 
 ```json
 {
+  "manifest_version": 3,
   "host_permissions": [
     "https://*/*"
   ],

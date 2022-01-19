@@ -19,3 +19,5 @@
 * [https://github.com/Silver-birder/silver-enigma](https://github.com/Silver-birder/silver-enigma)
 * [https://github.com/Silver-birder/tiqav2/](https://github.com/Silver-birder/tiqav2/)
 * [https://github.com/Silver-birder/zoom-meeting-creator](https://github.com/Silver-birder/zoom-meeting-creator)
+* [https://github.com/Silver-birder/Google-Account-Photo-API](https://github.com/Silver-birder/Google-Account-Photo-API)
+* [https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader](https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader)

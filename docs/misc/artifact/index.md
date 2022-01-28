@@ -16,11 +16,15 @@
 * [https://github.com/Silver-birder/run_character](https://github.com/Silver-birder/run_character)
 * [https://github.com/Silver-birder/search-local-web](https://github.com/Silver-birder/search-local-web)
 * [https://github.com/Silver-birder/searchWordCloud](https://github.com/Silver-birder/searchWordCloud)
+  * Chrome Web Store
+    * [searchWordCloud](https://chrome.google.com/webstore/detail/searchwordcloud/dbpmolojnmdfgggfnhlioepakmpjafal?hl=ja)
 * [https://github.com/Silver-birder/silver-enigma](https://github.com/Silver-birder/silver-enigma)
 * [https://github.com/Silver-birder/tiqav2/](https://github.com/Silver-birder/tiqav2/)
 * [https://github.com/Silver-birder/zoom-meeting-creator](https://github.com/Silver-birder/zoom-meeting-creator)
 * [https://github.com/Silver-birder/Google-Account-Photo-API](https://github.com/Silver-birder/Google-Account-Photo-API)
 * [https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader](https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader)
+  * Chrome Web Store
+    * [Tiktok-Scraper](https://chrome.google.com/webstore/detail/tiktok-scraper/ghnpllcbadkobhhidgbbffglnhjhfkje?hl=ja)
 
 ## SpreadSheet
 

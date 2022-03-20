@@ -26,6 +26,10 @@
   * Chrome Web Store
     * [Tiktok-Scraper](https://chrome.google.com/webstore/detail/tiktok-scraper/ghnpllcbadkobhhidgbbffglnhjhfkje?hl=ja)
 
+## WebComponents
+
+* [@silverbirder/o-embed](https://www.webcomponents.org/element/Silver-birder/o-embed)
+
 ## SpreadSheet
 
 * [POV](https://docs.google.com/spreadsheets/d/e/2PACX-1vSpbSeaOPVSKyi36bwbBXQ56DbXNzLEp-anI4PHfXps4pa7gWUMDGHjNmVy1gl945o4aNGCszPWxcKm/pubhtml)

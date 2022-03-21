@@ -13,7 +13,7 @@ callToActionItems:
 
 ## 自己紹介
 
-<img src="https://res.cloudinary.com/silverbirder/image/fetch/c_fill,g_face,w_100/r_max/f_auto/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3D101722346324226588907" style="width: 100px"/>
+<img src="https://res.cloudinary.com/silverbirder/image/fetch/c_fill,g_face,w_100/f_auto/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3D101722346324226588907" style="width: 100px"/>
 
 大学時代に初めてWebAppを開発し, 目に見える形までアウトプットできたことに感動し, 今の職業を目指すようになる. ふとWebAppのアイデアが浮かんだときは, 素早く,安く, そしてお手軽に リリースできることを目指して個人開発をしている。
 

@@ -66,7 +66,7 @@ GoogleでKubernetesの担当されているそうです。
 Istioについては、[こちら](https://cloud.google.com/istio/?hl=ja)をご確認下さい。   
 Istioの機能の特徴として下記があるそうです。
 
-<iframely-embed url="https://twitter.com/nankouyuukichi/status/1128245474215858176?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/nankouyuukichi/status/1128245474215858176?s=20" height="400px"></o-embed>
 
 k8sでは、対象とするクラスタを管理します。規模が拡大するにつれ、
 サービスが複雑になってくるケースがあります。その際Istioが、そのあたりを
@@ -140,7 +140,7 @@ Kirill Tropin(Google)
 ちまめ@rito
 
 ### 発表資料
-<iframely-embed url="https://speakerdeck.com/chimame/cloud-run-one-step-ahead"></iframely-embed>
+<o-embed src="https://speakerdeck.com/chimame/cloud-run-one-step-ahead"></o-embed>
 
 ### 内容
 2コマンドでcloudrunできるぐらい、簡単！

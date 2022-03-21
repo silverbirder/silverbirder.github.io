@@ -86,7 +86,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 [https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf](https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf)
 
 日本人がまとめて頂いたものが、次の資料です。
-<iframely-embed url="https://speakerdeck.com/nihonbuson/flakytests"></iframely-embed>
+<o-embed src="https://speakerdeck.com/nihonbuson/flakytests"></o-embed>
 
 ## Integration Test
 Integration Testは、Unit Testのような単一機能を統合した検証になります。
@@ -245,7 +245,7 @@ Unitテストで、どこをテストできたかのカバレッジを見るこ�
 
 実際に動作しているJSやCSSのカバレッジを収集することもできます。
 
-<iframely-embed url="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su"></iframely-embed>
+<o-embed src="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su"></o-embed>
 
 <iframely-embed card="small" url="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></iframely-embed>
 

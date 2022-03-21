@@ -280,7 +280,7 @@ CDNでSSRが実行できる <b>Edge Worker</b>を使用しています。
 ただ、サンプルWebアプリでは、全くその力を引き出せていないです...
 
 ※ 参考記事
-<iframely-embed card="small" url="https://mizchi.hatenablog.com/entry/2019/02/21/235403"></iframely-embed>
+<o-embed src="https://mizchi.hatenablog.com/entry/2019/02/21/235403"></o-embed>
 
 # サンプルWebアプリで分かったこと
 ## SSR + CSR (Hydration) が実現可能

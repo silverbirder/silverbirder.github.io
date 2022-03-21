@@ -62,7 +62,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 ただ、最近ではKubernetesを違う観点で考える人が増えてきたそうです。
 それが、二日目のKeynoteで発表された北山さんのスライドにあります。
 
-<iframely-embed url="https://speakerdeck.com/shkitayama/change-the-game-change-the-world"></iframely-embed>
+<o-embed src="https://speakerdeck.com/shkitayama/change-the-game-change-the-world"></o-embed>
 
 Kubernetesは「platformのためのplatform」と言われるようになりました。
 これは、slide.No.9(Kubernetes is a platform)で見て分かる通りで、次のようなことがわかります。
@@ -103,11 +103,11 @@ CRD、Operatorが生まれました。
 zlabのladicleさんの次のスライドがとてもわかりやすく、まとまっていました。
 これは貴重な資料ですね。
 
-<iframely-embed url="https://speakerdeck.com/ladicle/kuberneteswokuo-zhang-siteri-falseoperesiyonwozi-dong-hua-suru"></iframely-embed>
+<o-embed src="https://speakerdeck.com/ladicle/kuberneteswokuo-zhang-siteri-falseoperesiyonwozi-dong-hua-suru"></o-embed>
 
 ちなみに、独自に1から作ったケースがサイバーエージェントの山本さんの発表で、次のスライドです。  
 
-<iframely-embed url="https://speakerdeck.com/mayuyamamoto/kuberneteskuo-zhang-woli-yong-sitazi-zuo-autoscalerdeshi-xian-surusutoresuhurinayun-yong-falseshi-jie"></iframely-embed>
+<o-embed src="https://speakerdeck.com/mayuyamamoto/kuberneteskuo-zhang-woli-yong-sitazi-zuo-autoscalerdeshi-xian-surusutoresuhurinayun-yong-falseshi-jie"></o-embed>
 
 同じくサイバーエージェントの青山さんがライブコーディングされていたリポジトリが次のものになります。
 
@@ -155,7 +155,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 # twelve factor app
 次のWantedlyさんのスライドが、私の中では話題になりました。
 
-<iframely-embed url="https://speakerdeck.com/potsbo/k8s-kubernetes-8-factors"></iframely-embed>
+<o-embed src="https://speakerdeck.com/potsbo/k8s-kubernetes-8-factors"></o-embed>
 
 要は、「アプリケーションとしての設計の考え方(twelve factor app)を、インフラ部分でも適用してみた」という感じです。
 どれも具体的なところまで説明されており、実際にKubernetesを構築する際に役に立つものだと思います。  
@@ -166,7 +166,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Chaos Engineering
 
-<iframely-embed url="https://speakerdeck.com/mahito/cndt-osdt-2019-2g1"></iframely-embed>
+<o-embed src="https://speakerdeck.com/mahito/cndt-osdt-2019-2g1"></o-embed>
 
 ## Docker
 
@@ -174,19 +174,19 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Envoy
 
-<iframely-embed url="https://speakerdeck.com/taiki45/cloudnative-days-tokyo-2019-understanding-envoy"></iframely-embed>
+<o-embed src="https://speakerdeck.com/taiki45/cloudnative-days-tokyo-2019-understanding-envoy"></o-embed>
 
 ## Logging
 
-<iframely-embed url="https://speakerdeck.com/yosshi_/kubernetes-loggingru-men"></iframely-embed>
+<o-embed src="https://speakerdeck.com/yosshi_/kubernetes-loggingru-men"></o-embed>
 
 ## LinuxKernel
 
-<iframely-embed url="https://speakerdeck.com/tenforward/cndt2019"></iframely-embed>
+<o-embed src="https://speakerdeck.com/tenforward/cndt2019"></o-embed>
 
 ## Prometheus
 
-<iframely-embed url="https://speakerdeck.com/tokibi/prometheus-setup-with-long-term-storage"></iframely-embed>
+<o-embed src="https://speakerdeck.com/tokibi/prometheus-setup-with-long-term-storage"></o-embed>
 
 ## Sandbox
 
@@ -194,20 +194,20 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Scheduler
 
-<iframely-embed url="https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019"></iframely-embed>
+<o-embed src="https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019"></o-embed>
 
 ## Spinnaker
 
-<iframely-embed url="https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker:embed]9"></iframely-embed>
+<o-embed src="https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker:embed]9"></o-embed>
 
 ## Istio
 
-<iframely-embed url="https://speakerdeck.com/dangossk/a-deep-dive-into-service-mesh-and-istio-cndt-2019"></iframely-embed>
+<o-embed src="https://speakerdeck.com/dangossk/a-deep-dive-into-service-mesh-and-istio-cndt-2019"></o-embed>
 
 # その他
 サイバーエージェントさんより、エンジニアにとってとても嬉しいアイテムを頂きました。
 
-<iframely-embed url="https://twitter.com/ca_adtechstudio/status/1152080444445167616"></iframely-embed>
+<o-embed src="https://twitter.com/ca_adtechstudio/status/1152080444445167616" height="400px"></o-embed>
 
 さっそく、キーボードにとりつけてみました。最高です！
 <figure title="ergodox with k8s keycap (cyberAgent)">

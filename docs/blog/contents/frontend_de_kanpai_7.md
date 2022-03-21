@@ -46,7 +46,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 
 ただ、翌日は少しつらかったです...。
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1152348180643627008"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1152348180643627008" height="400px"></o-embed>
 
 普段は、メモをがっつり書いてtwitterに投稿している私ですが、
 今回は一切そのようなことをしていません。したがって、ほぼ記憶ベースでイベント内容を報告します。ご了承ください。
@@ -57,7 +57,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 ### 日本経済新聞社 宮本 将 さん
 WebComponentsに興味がある私は、この発表は気になっていました。
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1149648900627693572"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1149648900627693572" height="400px"></o-embed>
 
 内容をざっくり説明すると「CustomElementsをプロダクトとして使っていたけど、つらみがあったのでtypescriptで縛るようにしたよ」
 というものでした。CustomElementsはWeb標準の技術ですが、reactやvueのようなpropによる型縛りがありません。
@@ -113,7 +113,7 @@ Google翻訳を通すと
 
 ## 新しいAPI
 ### 株式会社ディー・エヌ・エー feb19 さん
-<iframely-embed url="https://speakerdeck.com/feb19/xin-sii-api"></iframely-embed>
+<o-embed src="https://speakerdeck.com/feb19/xin-sii-api"></o-embed>
 
 いきなりポエムを語り始めたfeb19さん。
 「DeNAの人たちは、みんなこうなのか？」と面白く見ていました。

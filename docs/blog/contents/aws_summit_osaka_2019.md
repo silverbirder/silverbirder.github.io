@@ -42,11 +42,10 @@ VRやARについては、広く知れ渡っていると思いますが、MRは�
 
 VRは、Oculus Questのようなヘッドセットで仮想世界に没入できます。  
   
-<iframely-embed card="small" url="https://www.youtube.com/watch?v=BqM27iLnDJs"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=BqM27iLnDJs"></o-embed>
 
 ARは、ポケモンGoのようなアプリで現実世界に仮想のキャラクタを投影できます。
 
-<iframely-embed card="small" url="https://www.youtube.com/watch?time_continue=11&v=E7nwr6sA6Es"></iframely-embed>
 
 MRは、VRとARのMixみたいな感じですね。ヘッドセットをかぶりながら、現実世界に仮想世界がmixされた景色が見えます。  
 代表的なものとして、Microsoft HoloLensがあります。  

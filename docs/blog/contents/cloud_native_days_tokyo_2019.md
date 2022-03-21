@@ -207,7 +207,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 # その他
 サイバーエージェントさんより、エンジニアにとってとても嬉しいアイテムを頂きました。
 
-<iframely-embed url="https://twitter.com/ca_adtechstudio/status/1152080444445167616"></iframely-embed>
+<o-embed src="https://twitter.com/ca_adtechstudio/status/1152080444445167616" height="400px"></o-embed>
 
 さっそく、キーボードにとりつけてみました。最高です！
 <figure title="ergodox with k8s keycap (cyberAgent)">

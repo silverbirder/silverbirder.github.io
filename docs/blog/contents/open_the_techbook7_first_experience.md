@@ -118,7 +118,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 また、**GoogleDrive上でPDFをレビュー**するのが便利です。
 直接文章にコメントできるので、オススメです。
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1167314554205786112"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1167314554205786112" height="400px"></o-embed>
 
 ## 1.5. 本のタイトル
 本を買ってもらうためには、本のタイトルは重要です。
@@ -332,7 +332,7 @@ pixiv ID登録しないとダウンロードできないので、ここが駄目
 
 Twitterで宣伝するために、16:9の画像を用意したりもしました。
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1172097536510676994"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1172097536510676994"></o-embed>
 
 ## 被チェック数と販売冊数
 被チェック数は、お客さんが気になる本をチェックした数になります。
@@ -346,7 +346,7 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 
 被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1171178281380405248"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1171178281380405248"></o-embed>
 
 このようにどの時間やどの曜日にチェックされるのかがわかるようになります。
 
@@ -362,12 +362,12 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 
 公式ツイッターアカウントをフォローしておくと、なにかと便利です。
 
-<iframely-embed url="https://twitter.com/techbookfest"></iframely-embed>
+<o-embed src="https://twitter.com/techbookfest"></o-embed>
 
 ## Google カレンダー 登録
 技術書典のスケジュールが登録されているGoogleカレンダーを、ご自身のカレンダーにも登録することをオススメします。
 
-<iframely-embed url="https://twitter.com/techbookfest/status/1083948257095503872"></iframely-embed>
+<o-embed src="https://twitter.com/techbookfest/status/1083948257095503872"></o-embed>
 
 いつまでに何をしないといけないのか逆算できるので、知っておいたほうが良いです。
 

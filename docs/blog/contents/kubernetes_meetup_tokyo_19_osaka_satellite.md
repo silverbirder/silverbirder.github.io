@@ -49,11 +49,11 @@ Joeさんは英語で話されてました。
 CPCAmerica(?)の田中さんが通訳をされていたのですが、ものすごくわかりやすかったです。感謝です！
 あと、記憶力はんぱねぇ...。
 
-<iframely-embed url="https://twitter.com/mumoshu/status/1134438272518635521?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/mumoshu/status/1134438272518635521?s=20" height="400px"></o-embed>
 
 ※ 以下、[@‏apstndb](https://twitter.com/apstndb) さんの要約Tweetを参考にしました。神!!!
 
-<iframely-embed url="https://twitter.com/silver_birder/status/1134406467744804864?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1134406467744804864?s=20" height="400px"></o-embed>
 
 ## kubernetesの歴史
 ### Borgの誕生
@@ -123,31 +123,31 @@ Yahooでは、gimbalというOSSを使ってKubernetesを導入したみたい�
 ### Q&A
 #### Q1. StatefulSets には今回触れられなかったが、どういう扱いなのか
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134409892033261569?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134409892033261569?s=20" height="400px"></o-embed>
 
 #### Q2. スケーラビリティに関して
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134410827627487232?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134410827627487232?s=20" height="400px"></o-embed>
 
 #### Q3. Kubernetes はなぜ etcd を使っているか
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134411776009785345?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134411776009785345?s=20" height="400px"></o-embed>
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134412148237512705?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134412148237512705?s=20" height="400px"></o-embed>
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134412317439844352?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134412317439844352?s=20" height="400px"></o-embed>
 
 #### Q4. Virtual Kubelet とか k3s みたいなエッジで活用する動きがコミュニティでは感じられるが、どう見ている?
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134413224839745536?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134413224839745536?s=20" height="500px"></o-embed>
 
-<iframely-embed url="https://twitter.com/apstndb/status/1134413431316987904?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/apstndb/status/1134413431316987904?s=20" height="500px"></o-embed>
 
 #### そのほか
 
 参加者からの質問は、どれも鋭いものばかり。
 適度な質問をしたいなとつぶやきました...。届かなかったけど...。
-<iframely-embed url="https://twitter.com/silver_birder/status/1134412867988480000?s=20"></iframely-embed>
+<o-embed src="https://twitter.com/silver_birder/status/1134412867988480000?s=20" height="300px"></o-embed>
 
 # Osaka会場
 会場提供は、株式会社Aimingさんでした。

@@ -17,7 +17,7 @@ Kubernetesの生みの親である3人の内の1人のJoe Bedaから、**Kuberne
 ※ 以降の内容は、私なりの解釈が入っており誤った認識かもしれません。ご了承下さい。
 発表の内容は全てYoutubeにありますので、そちらが正しいものです。ご参考下さい。
 
-<iframely-embed url="https://www.youtube.com/watch?v=ETHGx8_Q-1k"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=ETHGx8_Q-1k"></o-embed>
 
 <!--  TODO: TOC -->
 

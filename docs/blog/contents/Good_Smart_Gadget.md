@@ -39,7 +39,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144121
 
 ↓ スマートフォンからnature remo経由で電気をつけてみます。
 
-<iframely-embed url="https://www.youtube.com/watch?v=_j-qXrxtsyU"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=_j-qXrxtsyU"></o-embed>
 
 ## オススメ２： Switch Bot
 
@@ -59,7 +59,7 @@ nature remoでは制御できなかった物理ボタンに対応しています
 
 ↓ スマートフォンからswitch bot経由でボタンを押しています。
 
-<iframely-embed url="https://www.youtube.com/watch?v=wkrPf-FuXFU"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=wkrPf-FuXFU"></o-embed>
 
 ## オススメ３： Google Home Mini
 
@@ -76,7 +76,7 @@ nature remoでは制御できなかった物理ボタンに対応しています
 
 ↓ google home miniから「ただいま」を言ってみる
 
-<iframely-embed url="https://www.youtube.com/watch?v=_XGMBIXC3pU"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=_XGMBIXC3pU"></o-embed>
 
 ## おわりに
 とある友達にこのことを伝えると「自分でやれば良いじゃん（笑）」と言われてしまいました。しかし、どっぷりハマった僕には、もう引き返せません。朝起きて、電気をつけて、エアコンをつけて、テレビをつけてる生活なんて…。

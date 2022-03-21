@@ -57,7 +57,7 @@ DevFests自体は、グローバルで活動されているGDGがホストのイ
 
 また、コミュニティのYoutubeのチャンネルもあります。
 
-<iframely-embed url="https://www.youtube.com/channel/UCXDc-ckqru8BgppXbCt0APw"></iframely-embed>
+<o-embed src="https://www.youtube.com/channel/UCXDc-ckqru8BgppXbCt0APw"></o-embed>
 
 動画には、文字起こしとして 英語(自動生成)だけでなく、 <b>英語(CC)</b> もあります。
 英語のリスニングが苦手な人でも、文字から理解できるようになっています。こういう配慮はさすがですね。
@@ -126,7 +126,7 @@ Chrome Dev Summit(CDS) は、今まで以下のようなテーマが中心でし
 ### HTMLとCSS
 #### HTML isn't done.
 
-<iframely-embed url="https://www.youtube.com/watch?v=ZFvPLrKZywA"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=ZFvPLrKZywA"></o-embed>
 
 HTMLは、まだ成熟されたものではなく、まだまだ改善の余地があるという考えから、
 いくつかの改善提案の話が紹介されていました。
@@ -138,7 +138,7 @@ HTMLは、まだ成熟されたものではなく、まだまだ改善の余地�
 
 #### Next-generation web styling
 
-<iframely-embed url="https://www.youtube.com/watch?v=-oyeaIirVC0"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=-oyeaIirVC0"></o-embed>
 
 scroll-snapという機能は、スクロールの制御をCSSで実現しようとしています。
 従来は、Javascriptでハックな技を駆使していましたが、不要となります。
@@ -171,7 +171,7 @@ Googlebotが最新のChromiumベースになったことで、Chromeでブラウ
 
 また、Javascriptをシングルスレッドによる低パフォーマンスに対するアプローチ方法を紹介されていました。
 
-<iframely-embed url="https://www.youtube.com/watch?v=7Rrv9qFMWNM"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=7Rrv9qFMWNM"></o-embed>
 
 詳しくは、下記をご参考下さい。
 
@@ -325,7 +325,7 @@ Web Packagingには、大きく２つのものが含まれています。
 
 後者は、Webのアプリケーションを人まとまりにし、オフライン上で提供することができるそうです。
 
-<iframely-embed url="https://www.youtube.com/watch?v=xAujz66la3Y"></iframely-embed>
+<o-embed src="https://www.youtube.com/watch?v=xAujz66la3Y"></o-embed>
 
 ※ chrome canaryフラグを有効化する必要あり
 

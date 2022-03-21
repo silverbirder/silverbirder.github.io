@@ -183,9 +183,9 @@ Zoomは、次のような設定にしました。
 
 # 参考リンク
 
-<iframely-embed card="small" url="https://kumak1.hatenablog.com/entry/2018/09/27/234203"></iframely-embed>
+<o-embed src="https://kumak1.hatenablog.com/entry/2018/09/27/234203"></o-embed>
 
-<iframely-embed card="small" url="http://kuroyam.hatenablog.com/entry/2020/02/27/204246"></iframely-embed>
+<o-embed src="http://kuroyam.hatenablog.com/entry/2020/02/27/204246"></o-embed>
 
 <iframely-embed card="small" url="https://mzyy94.com/blog/2020/02/25/virtual-bishoujo-meeting/"></iframely-embed>
 

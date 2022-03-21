@@ -117,5 +117,5 @@ Google TeamであるKatie Hockmanのspeakingが英語だったために、ほと
 実にもったいないと感じました。
 
 ※ 資料まとめ
-<iframely-embed card="small" url="https://engineer-fumi.hatenablog.com/entry/2019/05/18/172000"></iframely-embed>
+<o-embed src="https://engineer-fumi.hatenablog.com/entry/2019/05/18/172000"></o-embed>
 

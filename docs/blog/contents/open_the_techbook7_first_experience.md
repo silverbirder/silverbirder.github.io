@@ -25,7 +25,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144303
 
 大学時代の友人であるcastaneaiくんが技術書典6で初執筆しました。
 
-<iframely-embed card="small" url="https://castaneai.hatenablog.com/entry/2019/04/24/093514"></iframely-embed>
+<o-embed src="https://castaneai.hatenablog.com/entry/2019/04/24/093514"></o-embed>
 
 castaneaiくんの話を聞いていると、得られるメリット(実績、交流)が大きいことと、
 製本までのフローがそこまで難しくないことを知りました。
@@ -207,7 +207,7 @@ iPad, Magic Pencilは買って正解でした。
 |本文はじまりのページ|1ページ目|
 |遊び紙|有り, 上質90kg/イエロー/前|
 
-<iframely-embed card="small" url="https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634"></iframely-embed>
+<<o-embed src="https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634"></o-embed>
 
 を参考にしました。
 

@@ -1,5 +1,14 @@
 <script type="module">
 import confetti from 'canvas-confetti';
+import { OEmbed } from '@silverbirder/o-embed';
+
+class MyOembed extends OEmbed {
+  proxy="https://silverbirder-cors-anywhere.herokuapp.com"
+  provider="https://gist.githubusercontent.com/Silver-birder/4575171d72cd1b0293c7de0913edb6f9/raw/oEmbedProviders.json"
+}
+
+customElements.define('o-embed', MyOembed);
+
 class FireConfetti extends HTMLElement {
   constructor() {
     super();

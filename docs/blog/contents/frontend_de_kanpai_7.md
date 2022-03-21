@@ -113,7 +113,7 @@ Google翻訳を通すと
 
 ## 新しいAPI
 ### 株式会社ディー・エヌ・エー feb19 さん
-<iframely-embed url="https://speakerdeck.com/feb19/xin-sii-api"></iframely-embed>
+<o-embed src="https://speakerdeck.com/feb19/xin-sii-api"></o-embed>
 
 いきなりポエムを語り始めたfeb19さん。
 「DeNAの人たちは、みんなこうなのか？」と面白く見ていました。

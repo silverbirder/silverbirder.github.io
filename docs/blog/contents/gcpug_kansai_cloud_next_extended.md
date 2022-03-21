@@ -140,7 +140,7 @@ Kirill Tropin(Google)
 ちまめ@rito
 
 ### 発表資料
-<iframely-embed url="https://speakerdeck.com/chimame/cloud-run-one-step-ahead"></iframely-embed>
+<o-embed src="https://speakerdeck.com/chimame/cloud-run-one-step-ahead"></o-embed>
 
 ### 内容
 2コマンドでcloudrunできるぐらい、簡単！

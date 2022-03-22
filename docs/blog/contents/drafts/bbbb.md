@@ -1,5 +1,5 @@
 ---
-title: Reactを学ぶ前に歴史を知る
+title: rustで色々かいて学んだtipsを
 published: false
 date: 2022-03-22
 description: 
@@ -10,4 +10,8 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 
 # 書きたいこと
 
-* 例のブログ記事をとってくる
+* フォルダ構成って何が良いんだろ？
+* TDDを手軽に
+* Dockerfile、buildめっちゃ時間かかるね
+* clone、to_string、str、なんか多様しちゃだめだ
+* あんまり書くことないかな？

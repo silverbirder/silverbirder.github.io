@@ -2,20 +2,18 @@
 title: WebComponentsでoEmbedのコンポーネントを開発して、学んだこと
 published: true
 date: 2022-03-25
-description:
+description: WebComponents で、oEmbed ぼコンポーネントを開発し、公開しました。開発していく上で、学んだことを列挙しようと思います。
 tags: ["Web Components", "oEmbed", "Publish", "Learn"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-WebComponents で、oEmbed ぼコンポーネントを開発し、公開しました。
+WebComponents で、oEmbed コンポーネントを開発し、公開しました。
 
 - https://www.webcomponents.org/element/Silver-birder/o-embed
 - https://www.npmjs.com/package/@silverbirder/o-embed
 
 開発していく上で、学んだことを列挙しようと思います。
 
-## スタートキット
+## スターターキット
 
 Web Components を開発する場合、次のどちらかのスターターキットを使うのが良さそうです。
 
@@ -79,14 +77,14 @@ JSDOM のように、ブラウザ API をラップするライブラリを使っ
 
 特に、してはいけないことを読むと、なるほどな〜ってなります。
 
-> ❌ Do not optimize
-> ❌ Do not bundle
-> ❌ Do not minify
-> ❌ Do not use .mjs file extensions
-> ❌ Do not import polyfills
+> ❌ Do not optimize  
+> ❌ Do not bundle  
+> ❌ Do not minify  
+> ❌ Do not use .mjs file extensions  
+> ❌ Do not import polyfills  
 
 詳しくは、上記の記事を読んでください。
 
 ## 終わりに
 
-Web Componentsをプロダクションレベルで使えるようになりたいなと思います。
+Web Components をプロダクションレベルで使えるようになりたいなと思います。

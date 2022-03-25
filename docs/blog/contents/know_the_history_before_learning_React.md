@@ -4,8 +4,6 @@ published: true
 date: 2022-03-11
 description: これは何？ Reactは、どうして生まれたのか歴史について簡単に紹介します。(ちょっと調べただけ) 背景 最近、Reactを学び始めました。その過程で、どうしてReactって学ぶべきなのか、どういう特徴があるのか気になった次第です。
 tags: ["React", "Learn", "History"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
 React は、どうして生まれたのか歴史について簡単に紹介します。(ちょっと調べただけ)

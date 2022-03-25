@@ -1,11 +1,9 @@
 ---
 title: Ruby on Railsを業務で使って思ったこと
-published: false
+published: true
 date: 2022-03-24
-description:
+description: 2022 年、1 月より新しい職場で、はじめて Ruby on Rails(以下、Rails)を使うようになりました。これまで、PHP の CakePHP、Node.js の Express、Python の Flask の経験がある私ですが、Rails に、なかなか慣れない苦労がありました。ゆるく、言語化しようと思います。ちなみに、Ruby もはじめて使いました。
 tags: ["Ruby on Rails", "Think"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
 2022 年、1 月より新しい職場で、はじめて Ruby on Rails(以下、Rails)を使うようになりました。

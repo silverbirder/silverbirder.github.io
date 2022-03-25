@@ -1,11 +1,9 @@
 ---
 title: Web Componentsの良さ
-published: false
+published: true
 date: 2022-03-01
-description:Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。Web Components is 何https://www.webcomponents.org/specs より引用します。
+description: Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。Web Components is 何https://www.webcomponents.org/specs より引用します。
 tags: ["Web Components", "Goodness"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
 Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。

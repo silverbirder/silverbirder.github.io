@@ -38,22 +38,55 @@ Web Components を開発する場合、次のどちらかのスターターキ�
 
 ## キャッチアップ
 
+Web Components ってどういうものなのか、キャッチアップするには MDN のサイトが参考になります。
+
 - [ウェブコンポーネント | MDN](https://developer.mozilla.org/ja/docs/Web/Web_Components)
+
+また、日本語で WebComponents(Custom Elements)の仕様書もあります。
+
 - [HTML Standard — Custom elements（日本語訳）](https://triple-underscore.github.io/HTML-custom-ja.html)
+
+Chrome の中にある Chromium におけるレンダリングエンジン blink の実装コードも、公開されています。
+
+- [chromium/third_party/blink/renderer/core/html/custom/README.md](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/html/custom/README.md)
 
 ## ベストプラクティス
 
+Google より、Custom Elements のベストプラクティスが公開されています。
+
 [Custom Element Best Practices  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/web-components/best-practices)
+
+例えば
+
+> Always accept primitive data (strings, numbers, booleans) as either attributes or properties.
+
+にあるように、プリミティブなデータのみ HTML の属性に渡すようにしましょう。
+オブジェクトや配列のようなリッチなデータは、シリアル化する必要がありオブジェクト参照がなくなってしまう欠点があります。
 
 ## テスト
 
-Shadow DOM に対応するテストツールが必要です。
+Web Components のテストを書くには、Shadow DOM に対応する必要があります。
+JSDOM のように、ブラウザ API をラップするライブラリを使っても良いのですが、ヘッドレスブラウザを使ったほうが妥当です。
+そこで、[@web/test-runner](https://www.npmjs.com/package/@web/test-runner)が便利です。
+このテストライブラリは、open-wc と同じ Modern Web というモノの 1 つです。
+@web/test-runner には、Puppeteer、Playwright、Selenium の 3 つをサポートしています。
 
 ## Publish
 
-open-wc の記事が良い
-webcomponents.org には、bower.json が必須。
+作成した Web Components を Publish したい場合、次の記事を読むと良いです。
 
 [Developing Components: Publishing: Open Web Components](https://open-wc.org/guides/developing-components/publishing/)
 
+特に、してはいけないことを読むと、なるほどな〜ってなります。
+
+> ❌ Do not optimize
+> ❌ Do not bundle
+> ❌ Do not minify
+> ❌ Do not use .mjs file extensions
+> ❌ Do not import polyfills
+
+詳しくは、上記の記事を読んでください。
+
 ## 終わりに
+
+Web Componentsをプロダクションレベルで使えるようになりたいなと思います。

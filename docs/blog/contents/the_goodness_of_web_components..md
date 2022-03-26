@@ -18,7 +18,7 @@ https://www.webcomponents.org/specs より引用します。
 > The HTML Template specification  
 > The ES Module specification
 
-WebComponents は、ブラウザの 4 つの API で実現可能なメタスペックです。ブラウザの標準技術です。
+WebComponents は、ブラウザの 4 つの API で実現可能となるメタ仕様です。
 
 > These four specifications can be used on their own but combined allow developers to define their own tags (custom element), whose styles are encapsulated and isolated (shadow dom), that can be restamped many times (template), and have a consistent way of being integrated into applications (es module).
 
@@ -33,7 +33,7 @@ div や span といった HTML タグがブラウザ標準にありますが、W
 - シンプル
   - HTML タグを使う要領で、WebComponents を使います。
 - サンドボックス
-  - Shadow DOM のおかげで、CSS のスタイルがコンポーネントの外に漏れません。
+  - Shadow DOM のおかげで、CSS のスタイルが独自のタグの外に漏れません。
 
 ## デメリット
 

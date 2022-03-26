@@ -32,7 +32,7 @@ Web Components を開発する場合、次のどちらかのスターターキ�
 - Building
 - Linting
 
-もちろん、Typescript をサポートしています。
+もちろん、Typescript もサポートしています。
 
 ## キャッチアップ
 

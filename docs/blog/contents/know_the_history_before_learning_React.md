@@ -20,12 +20,12 @@ React は、どうして生まれたのか歴史について簡単に紹介し�
 
 しかし、React の公式ドキュメントは、そのような情報を発見できませんでした。
 
-React の作成者 Jordan Walke の[React についての記事](https://hackernoon.com/the-evolution-of-react-48409fac2efd)を発見したので、それを見ます。
+React の作成者 Jordan Walke の[React についての記事](https://hackernoon.com/the-evolution-of-react-48409fac2efd)を発見したので、それを読みました。
 
 ざっくり要約すると、
 
 1. Facebook の広告系のプロダクト(Ads)のコードベースが大きくなった
-2. コードベースツリー(DOM ツリー?CSSOM ツリー?)の下位の変更で、全体の再描画が必要になった(カスケード更新)が、メンテナンスが大変になった
+2. コードベースツリー(DOM ツリー?CSSOM ツリー?)の下位の変更で、全体の再描画(カスケード更新)が必要になり、メンテナンスが大変になった
 3. Reactive 特性(状態変化に基づく自動更新) を活かした FaxJS (後の React)が誕生
 
 ## カスケード更新

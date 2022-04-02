@@ -13,7 +13,7 @@
 |2019/10 ~ 2020/04|ECサービス会社|X年先を見据えたフロントエンド モダナイゼーション|AWS, GCP|Webアプリケーション フロントエンドエンジニア<br>(PoC)|5名|Nestjs検証, Micro Frontends検討, 方式設計議論|Nestjsの検証. チーム移動で離脱|大規模Webアプリケーションフロントエンドにおけるアジリティ向上を目指す|
 |2020/05 ~ 2020/08|ECサービス会社|ドメインロジックの集約と提供<br>(バッチ&API)|GCP|データエンジニア, インフラエンジニア<br>(開発, 検証, 展開)|5名|Kotlin, Docker, Cloud Dataflow, Cloud Scheduler, Cloud Build, PubSub, GCE, Terraform, BigQuery.|仕組み化のPoC完了. バッチリリース|フロントエンドが活用するデータへの理解|
 |2020/09 ~ 2021/12|ECサービス会社|X年先を見据えた 基盤開発 バッチ群担当|GCP|データエンジニア, インフラエンジニア<br>(要件定義, 設計, リリース戦略, PoC, 開発, 検証, 展開, 運用)|30名|Digdag, Cloud Dataflow, BigQuery, Cloud Build, Cloud Monitoring, Logging, Cloud Scheduler, PubSub, GCE, Docker, Ansible, Terraform, Fluentd|[技術選定](https://tech-blog.monotaro.com/entry/2021/06/03/090000), 一部データ提供済み|データのスケーラビリティに対応したリアルタイムデータ構築に挑戦|
-|2021/01 ~ |SaaS会社|TODO|TODO|フロントエンドエンジニア|TODO|TODO|TODO|
+|2021/01 ~ |SaaS会社|バックオフィス向けERPプロダクト開発|AWS|アプリケーションエンジニア|30名|Ruby on Rails, React.js, MySQL, Terraform|ユーザーフォカスなプロダクト開発と、スピード感ある業務.|
 
 ## Technical skills
 

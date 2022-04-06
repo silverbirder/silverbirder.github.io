@@ -15,13 +15,13 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144311
 
 サンプルリポジトリは、下記に載せています。
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/apache-beam-kotlin-example/tree/master/src/main/kotlin"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/apache-beam-kotlin-example/tree/master/src/main/kotlin"></ogp-me>
 
 <!--  TODO: TOC -->
 
 # Apache Beam とは
 
-<iframely-embed card="small" url="https://www.st-hakky-blog.com/entry/2020/04/29/172220"></iframely-embed>
+<ogp-me src="https://www.st-hakky-blog.com/entry/2020/04/29/172220"></ogp-me>
 
 ** BatchやStreaming を1つのパイプライン処理 ** として実現できるデータパイプライン、それがApache Beamです。(Batch + Stream → Beam)
 

@@ -17,7 +17,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144303
 
 実際に販売する本は↓のものです。
 
-<iframely-embed card="small" url="https://techbookfest.org/event/tbf07/circle/5117648689954816"></iframely-embed>
+<ogp-me src="https://techbookfest.org/event/tbf07/circle/5117648689954816"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -32,7 +32,7 @@ castaneaiくんの話を聞いていると、得られるメリット(実績、�
 そこから、私も参加しようと思えるようになりました。
 castaneaiくんは、今回の技術書典7も参加するみたいです。興味がある方は是非お立ち寄りください。
 
-<iframely-embed card="small" url="https://techbookfest.org/event/tbf07/circle/5182251830607872"></iframely-embed>
+<ogp-me src="https://techbookfest.org/event/tbf07/circle/5182251830607872"></ogp-me>
 
 # 何をするのか
 大きく分けて３つのステップになります。
@@ -53,7 +53,7 @@ castaneaiくんは、今回の技術書典7も参加するみたいです。興�
 文章を書き、本っぽい見た目にする必要があります。
 Re:VIEW Starterというツールを使うと、学習コストゼロで、良い感じの本が出来上がります。
 
-<iframely-embed card="small" url="https://kauplan.org/reviewstarter/"></iframely-embed>
+<ogp-me src="https://kauplan.org/reviewstarter/"></ogp-me>
 
 次のコマンド１つで本のPDFが作られます。
 
@@ -143,7 +143,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 表紙用のテンプレートがありますので、それを使います。
 
-<iframely-embed card="small" url="http://www.nikko-pc.com/offset/template/tonbo.html"></iframely-embed>
+<ogp-me src="http://www.nikko-pc.com/offset/template/tonbo.html"></ogp-me>
 
 **背表紙の幅はページ数によって変化します**。
 私は、70ページほど予定していたので4mm幅で背表紙を描きました。
@@ -220,7 +220,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 用紙についてこだわりたい方は、次のリンクにあるようにサンプルを手に入れると良いでしょう。
 
-<iframely-embed card="small" url="https://natuna.jp/marcket/10282/"></iframely-embed>
+<ogp-me src="https://natuna.jp/marcket/10282/"></ogp-me>
 
 # 3. 販売準備
 ## 3.1. 物品購入
@@ -251,11 +251,11 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 |スケッチブック|ダイソー|作業|-|不|
 |ダンボールカッター|ダイソー|作業|-|不|
 
-<iframely-embed card="small" url="https://note.mu/mochikoastech/n/nf484f114855c"></iframely-embed>
+<ogp-me src="https://note.mu/mochikoastech/n/nf484f114855c"></ogp-me>
 
-<iframely-embed card="small" url="https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動"></iframely-embed>
+<ogp-me src="https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動"></ogp-me>
 
-<iframely-embed card="small" url="https://note.mu/yagitch/n/nc796a0c2c796"></iframely-embed>
+<ogp-me src="https://note.mu/yagitch/n/nc796a0c2c796"></ogp-me>
 
 
 印刷する手段は3つあります。
@@ -271,7 +271,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 
 ピクシブ社のサービスであるBoothを利用しました。
 
-<iframely-embed card="small" url="https://booth.pm/ja"></iframely-embed>
+<ogp-me src="https://booth.pm/ja"></ogp-me>
 
 特に専門的な知識が必要なことがなく、本のPDFを登録するだけです。
 せっかく足を運んで会場に来て頂いた方のために、電子書籍と物理本の違いを出そうと考えました。
@@ -338,11 +338,11 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 被チェック数は、お客さんが気になる本をチェックした数になります。
 この数字から、印刷する冊数を決める大きな要因になります。
 
-<iframely-embed card="small" url="https://note.mu/yagitch/n/n2b5576363f4e"></iframely-embed>
+<ogp-me src="https://note.mu/yagitch/n/n2b5576363f4e"></ogp-me>
 
 恥ずかしい話になりますが、私は毎朝この数字を見ていました。（笑）
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/get-checked-number-for-techbook"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/get-checked-number-for-techbook"></ogp-me>
 
 被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
 
@@ -354,7 +354,7 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 今回、300冊を印刷することにしました。間違いなく残ってしまうと思うので、
 とらのあなさんへ委託しようと考えています。
 
-<iframely-embed card="small" url="https://news.toranoana.jp/107460"></iframely-embed>
+<ogp-me src="https://news.toranoana.jp/107460"></ogp-me>
 
 残ってしまったいくつかの本は、お家に保存用として持ち帰ろうと考えています。（笑）
 

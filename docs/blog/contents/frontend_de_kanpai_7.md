@@ -27,7 +27,7 @@ firebaseの勢いがすごい。あとnowも多少人気で、now信者の私と
 ※ [https://twitter.com/antidotech/status/1152154690617872384](https://twitter.com/antidotech/status/1152154690617872384)  
 ※ [https://twitter.com/wanami3103/status/1152202843618603008](https://twitter.com/wanami3103/status/1152202843618603008)  
 
-<iframely-embed card="small" url="https://frokan.connpass.com/event/135584/"></iframely-embed>
+<ogp-me src="https://frokan.connpass.com/event/135584/"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -74,7 +74,7 @@ VanillaなJSでCustomElementsを進めて行こうという経緯があるそう
 
 ※ CustomElementsっていろんなフレームワークで対応しているんですね。
 
-<iframely-embed card="small" url="https://custom-elements-everywhere.com/"></iframely-embed>
+<ogp-me src="https://custom-elements-everywhere.com/"></ogp-me>
 
 ## 実録フグ料理
 ### 株式会社ディー・エヌ・エー Takepepe さん
@@ -83,7 +83,7 @@ VanillaなJSでCustomElementsを進めて行こうという経緯があるそう
 
 Project Fuguというものがあります。
 
-<iframely-embed card="small" url="https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html"></iframely-embed>
+<ogp-me src="https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html"></ogp-me>
 
 > Unter dem Codenamen Fugu plant Google die Einführung zahlreicher Webschnittstellen in seinem Webbrowser Chrome, welche die Lücke zwischen Progressive Web Apps und ihren nativen Gegenstücken schließen wollen.
 

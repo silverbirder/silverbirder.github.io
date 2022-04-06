@@ -15,7 +15,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144121
 # 背景
 今年の9月にPyConJP 2019が開催されます。
 
-<iframely-embed card="small" url="https://pycon.jp/2019/"></iframely-embed>
+<ogp-me src="https://pycon.jp/2019/"></ogp-me>
 
 LTの募集があったので、LT応募するためのネタ探しをはじめました 😄
 
@@ -26,39 +26,39 @@ LTの募集があったので、LT応募するためのネタ探しをはじめ�
 
 # Github
 
-<iframely-embed card="small" url="https://github.com/trending/python"></iframely-embed>
+<ogp-me src="https://github.com/trending/python"></ogp-me>
 
 # PublicKey
 
-<iframely-embed card="small" url="https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python"></iframely-embed>
+<ogp-me src="https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python"></ogp-me>
 
 # Dev.to
 
-<iframely-embed card="small" url="https://dev.to/t/python"></iframely-embed>
+<ogp-me src="https://dev.to/t/python"></ogp-me>
 
 # Reddit
 
-<iframely-embed card="small" url="https://www.reddit.com/r/Python"></iframely-embed>
+<ogp-me src="https://www.reddit.com/r/Python"></ogp-me>
 
 # Hacker News
 
-<iframely-embed card="small" url="https://hn.algolia.com/?query=python"></iframely-embed>
+<ogp-me src="https://hn.algolia.com/?query=python"></ogp-me>
 
 # Qiita
 
-<iframely-embed card="small" url="https://qiita.com/tags/python"></iframely-embed>
+<ogp-me src="https://qiita.com/tags/python"></ogp-me>
 
 # Hatena
 
-<iframely-embed card="small" url="https://b.hatena.ne.jp/search/tag?q=Python"></iframely-embed>
+<ogp-me src="https://b.hatena.ne.jp/search/tag?q=Python"></ogp-me>
 
 # Medium
 
-<iframely-embed card="small" url="https://medium.com/tag/python"></iframely-embed>
+<ogp-me src="https://medium.com/tag/python"></ogp-me>
 
 # Ubersuggest
 
-<iframely-embed card="small" url="https://app.neilpatel.com/jp/ubersuggest/overview?keyword=python"></iframely-embed>
+<ogp-me src="https://app.neilpatel.com/jp/ubersuggest/overview?keyword=python"></ogp-me>
 
 # GoogleTrend
 
@@ -72,43 +72,43 @@ LTの募集があったので、LT応募するためのネタ探しをはじめ�
 
 ## Deepfacelab
 
-<iframely-embed card="small" url="https://github.com/iperov/DeepFaceLab"></iframely-embed>
+<ogp-me src="https://github.com/iperov/DeepFaceLab"></ogp-me>
 
 > DeepFaceLab is a tool that utilizes machine learning to replace faces in videos. Includes prebuilt ready to work standalone Windows 7,8,10 binary (look readme.md).
 
 ## Grumpy
 
-<iframely-embed card="small" url="https://github.com/google/grumpy"></iframely-embed>
+<ogp-me src="https://github.com/google/grumpy"></ogp-me>
 
 > Grumpy is a Python to Go source code transcompiler and runtime.
 
 ## Pyodide
 
-<iframely-embed card="small" url="https://github.com/iodide-project/pyodide"></iframely-embed>
+<ogp-me src="https://github.com/iodide-project/pyodide"></ogp-me>
 
 > The Python scientific stack, compiled to WebAssembly
 
 ## PyOxidizer
 
-<iframely-embed card="small" url="https://github.com/indygreg/PyOxidizer"></iframely-embed>
+<ogp-me src="https://github.com/indygreg/PyOxidizer"></ogp-me>
 
 > A modern Python application packaging and distribution tool
 
 ## Pyre
 
-<iframely-embed card="small" url="https://github.com/facebook/pyre-check"></iframely-embed>
+<ogp-me src="https://github.com/facebook/pyre-check"></ogp-me>
 
 > Performant type-checking for python.
 
 ## Pyxel
 
-<iframely-embed card="small" url="https://github.com/kitao/pyxel"></iframely-embed>
+<ogp-me src="https://github.com/kitao/pyxel"></ogp-me>
 
 > A retro game engine for Python
 
 ## ScrapydWeb
 
-<iframely-embed card="small" url="https://github.com/my8100/scrapydweb"></iframely-embed>
+<ogp-me src="https://github.com/my8100/scrapydweb"></ogp-me>
 
 > Web app for Scrapyd cluster management, Scrapy log analysis & visualization, Auto packaging, Timer tasks, Email notice, and Mobile UI
 

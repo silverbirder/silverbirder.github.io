@@ -17,11 +17,11 @@ Hangouts MeetやZoomといったビデオ会議ツールを使う機会が増え
 
 そんな中、次の記事が流行りました。
 
-<iframely-embed card="small" url="https://level69.net/archives/26902"></iframely-embed>
+<ogp-me src="https://level69.net/archives/26902"></ogp-me>
 
 > バ美肉（バびにく）とは、バーチャル美少女受肉またはバーチャル美少女セルフ受肉の略語
 
-><iframely-embed card="small" url="https://ja.wikipedia.org/wiki/バ美肉"></iframely-embed>
+><ogp-me src="https://ja.wikipedia.org/wiki/バ美肉"></ogp-me>
 
 これにより、ビデオ会議(例はZoom)で、次のようなバーチャル美少女 (になりきった私)が参加できるようになります。もちろん、声もボイスチェンジできます。
 
@@ -76,10 +76,10 @@ Outputを soundflower (2ch)にしています。
 ## 仮想マイク
 
 仮想マイクは、Soundflowerを使います。
-<iframely-embed card="small" url="https://github.com/mattingalls/Soundflower/tags"></iframely-embed>
+<ogp-me src="https://github.com/mattingalls/Soundflower/tags"></ogp-me>
 
 音声出力のルーティングを制御するために、LadioCastも使いました。
-<iframely-embed card="small" url="https://apps.apple.com/jp/app/ladiocast/id411213048?mt=12"></iframely-embed>
+<ogp-me src="https://apps.apple.com/jp/app/ladiocast/id411213048?mt=12"></ogp-me>
 
 LadioCastは、次のような設定にしました。
 
@@ -95,7 +95,7 @@ Inputを soundflower (2ch)とし、Outputを soundflower (64ch)としていま�
 ### Desktop: 3tene
 デスクトップで動かす場合は、3tene(ミテネ)を使いました。
 
-<iframely-embed card="small" url="https://3tene.com/"></iframely-embed>
+<ogp-me src="https://3tene.com/"></ogp-me>
 
 3teneは、特に設定は必要ありません。
 撮影前には、Webカメラとリップシンク(口の動きの同期)を起動しておきましょう。
@@ -110,14 +110,14 @@ Inputを soundflower (2ch)とし、Outputを soundflower (64ch)としていま�
 肝心のキャラクターですが、3teneはVRM形式でなければならないそうです。(よくわかっていません)  
 私は、次のサイトでダウンロードしました。
 
-<iframely-embed card="small" url="https://hub.vroid.com/"></iframely-embed>
+<ogp-me src="https://hub.vroid.com/"></ogp-me>
 
-<iframely-embed card="small" url="https://3d.nicovideo.jp/"></iframely-embed>
+<ogp-me src="https://3d.nicovideo.jp/"></ogp-me>
 
 ### Mobile: Reality
 モバイルで動かす場合は、Realityを使いました。
 
-<iframely-embed card="small" url="https://apps.apple.com/jp/app/reality-%E3%83%90%E3%83%BC%E3%83%81%E3%83%A3%E3%83%AB%E3%83%A9%E3%82%A4%E3%83%96%E9%85%8D%E4%BF%A1%E3%82%A2%E3%83%97%E3%83%AA/id1404176564"></iframely-embed>
+<ogp-me src="https://apps.apple.com/jp/app/reality-%E3%83%90%E3%83%BC%E3%83%81%E3%83%A3%E3%83%AB%E3%83%A9%E3%82%A4%E3%83%96%E9%85%8D%E4%BF%A1%E3%82%A2%E3%83%97%E3%83%AA/id1404176564"></ogp-me>
 
 Realityは、特に設定は必要ありません。
 好みのキャラクターをカスタマイズして簡単に作れます。
@@ -141,7 +141,7 @@ noneは、私のiPhoneデバイス名です。
 ## 仮想カメラ
 
 CamTwistという仮想カメラを使いました。
-<iframely-embed card="small" url="http://camtwiststudio.com/download/"></iframely-embed>
+<ogp-me src="http://camtwiststudio.com/download/"></ogp-me>
 
 CamTwistは、次のような設定にしました。
 
@@ -187,10 +187,10 @@ Zoomは、次のような設定にしました。
 
 <o-embed src="http://kuroyam.hatenablog.com/entry/2020/02/27/204246"></o-embed>
 
-<iframely-embed card="small" url="https://mzyy94.com/blog/2020/02/25/virtual-bishoujo-meeting/"></iframely-embed>
+<ogp-me src="https://mzyy94.com/blog/2020/02/25/virtual-bishoujo-meeting/"></ogp-me>
 
-<iframely-embed card="small" url="https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/"></iframely-embed>
+<ogp-me src="https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/"></ogp-me>
 
-<iframely-embed card="small" url="https://www.cg-method.com/entry/gachikoe/#Gachikoe"></iframely-embed>
+<ogp-me src="https://www.cg-method.com/entry/gachikoe/#Gachikoe"></ogp-me>
 
-<iframely-embed card="small" url="https://vtuberkaibougaku.site/2019/01/31/post-3176/"></iframely-embed>
+<ogp-me src="https://vtuberkaibougaku.site/2019/01/31/post-3176/"></ogp-me>

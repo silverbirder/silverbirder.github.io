@@ -18,7 +18,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16400685
 元々、私のポートフォリオページは、静的ページジェネレーターであるHugoを使って
 構築していました。
 
-<iframely-embed card="small" url="http://kohki.hatenablog.jp/entry/hugo-portfolio"></iframely-embed>
+<ogp-me src="http://kohki.hatenablog.jp/entry/hugo-portfolio"></ogp-me>
 
 こちらの記事を参考にして、Hugoでポートフォリオページを作りました。
 その当時、なぜポートフォリオを作ったのかというと、確か次の3つの思いがありました。
@@ -50,7 +50,7 @@ AMPを存分に使ったポートフォリオサイトを作成しました。�
 [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
 ソースコードは、下記のリポジトリにあります。
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/silver-birder.github.io"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/silver-birder.github.io"></ogp-me>
 
 # 技術選択
 

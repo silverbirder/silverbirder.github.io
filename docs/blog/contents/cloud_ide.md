@@ -64,7 +64,7 @@ Cloud IDEは、クラウドにある統合開発環境(IDE)のことで、主に
 Cloud Shell EditorやGitpodは、OSSの **Theia** というものを使っています。
 また、全体的にUIがとても似ていますよね。これは、次の記事でわかりやすく説明されていますので、ご興味があればお読みください。
 
-<iframely-embed card="small" url="https://qiita.com/monamour555/items/f93287c273a388261968"></iframely-embed>
+<ogp-me src="https://qiita.com/monamour555/items/f93287c273a388261968"></ogp-me>
 
 これらのCloud IDEは、ここ最近Publickeyでよく目にします。記事と投稿日時をまとめてみました。
 
@@ -92,15 +92,15 @@ Theiaとは何か、Githubのaboutより引用します。
 
 このOSSの興味深いところの1つに、設計書が公開されているところです。
 
-<iframely-embed card="small" url="https://docs.google.com/document/d/1aodR1LJEF_zu7xBis2MjpHRyv7JKJzW7EWI9XRYCt48"></iframely-embed>
+<ogp-me src="https://docs.google.com/document/d/1aodR1LJEF_zu7xBis2MjpHRyv7JKJzW7EWI9XRYCt48"></ogp-me>
 
 Theiaは、ローカルで動かすことができます。Webアプリだけじゃなく、ネイティブアプリ(Electron)もあります。
 
-<iframely-embed card="small" url="https://github.com/eclipse-theia/theia/blob/master/doc/Developing.md#quick-start"></iframely-embed>
+<ogp-me src="https://github.com/eclipse-theia/theia/blob/master/doc/Developing.md#quick-start"></ogp-me>
 
 また、Dockerコンテナも公開されています。
 
-<iframely-embed card="small" url="https://github.com/theia-ide/theia-apps"></iframely-embed>
+<ogp-me src="https://github.com/theia-ide/theia-apps"></ogp-me>
 
 ベンダーニュートラルなので、VMインスタンスにTheiaを入れて独自に運用するなど、ベンダーに依存しません。
 
@@ -108,7 +108,7 @@ Theiaは、ローカルで動かすことができます。Webアプリだけじ
 
 個人的に、Gitpodを使いたいのですが無料だと月50時間までしか使えません。
 
-<iframely-embed card="small" url="https://www.gitpod.io/pricing/"></iframely-embed>
+<ogp-me src="https://www.gitpod.io/pricing/"></ogp-me>
 
 "Professional Open Source" というものを応募したところ、[Gitpodの組織](https://github.com/gitpod-io) へ招待頂き、公開リポジトリの無制限利用ができるようになりました。
 
@@ -116,12 +116,12 @@ Theiaは、ローカルで動かすことができます。Webアプリだけじ
 
 Gitpodは、.gitpod.ymlというファイルで環境構築されます。
 
-<iframely-embed card="small" url="https://www.gitpod.io/docs/configuration/"></iframely-embed>
+<ogp-me src="https://www.gitpod.io/docs/configuration/"></ogp-me>
 
 ベースとなるDockerイメージを指定して、必要なライブラリを事前にインストールできたりします。
 公式ブログに、Gitpodの完全ガイドがあります。
 
-<iframely-embed card="small" url="https://www.gitpod.io/blog/gitpodify/"></iframely-embed>
+<ogp-me src="https://www.gitpod.io/blog/gitpodify/"></ogp-me>
 
 また、様々なOSSをGitpodで簡単に動作確認できます。
 

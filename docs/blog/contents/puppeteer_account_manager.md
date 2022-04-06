@@ -13,7 +13,7 @@ GoogleやGithubなど、様々なサービスのプロフィール情報(画像,
 
 リポジトリは、こちらです。
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/puppeteer-account-manager"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/puppeteer-account-manager"></ogp-me>
 
 <!--  TODO: TOC -->
 # なんで作ったの？
@@ -28,7 +28,7 @@ GithubやTwitter、Facebookなど、Webサービスにはプロフィール画�
 
 今回の面倒さは、GravatarというWebサービスで解決できるかもしれません。
 
-<iframely-embed card="small" url="http://gravatar.com/"></iframely-embed>
+<ogp-me src="http://gravatar.com/"></ogp-me>
 
 このサービスは、グローバルなプロフィール画像を提供するサービスです。
 API経由で、プロフィール画像を取得できます。
@@ -44,7 +44,7 @@ API経由で、プロフィール画像を取得できます。
 
 そこで、Contentful というAPIベースのCMSを使うことにしました。
 
-<iframely-embed card="small" url="https://www.contentful.com/"></iframely-embed>
+<ogp-me src="https://www.contentful.com/"></ogp-me>
 
 Contentfulでは、自由に項目を決めることができます。
 独自に作った項目 (画像や紹介文)を、API経由で取得できるため、とても便利です。
@@ -55,13 +55,13 @@ Contentfulでは、自由に項目を決めることができます。
 Puppeteerと呼ばれる Chromeブラウザを自動操作できるライブラリを使いました。
 Chromeブラウザから、"各サービスへログインし、写真をアップロードする"処理を自動化しただけです。
 
-<iframely-embed card="small" url="https://github.com/puppeteer/puppeteer"></iframely-embed>
+<ogp-me src="https://github.com/puppeteer/puppeteer"></ogp-me>
 
 # プロフィール画像を更新するAPIは、なかったの？
 
 サービスによってはあります。例えば、Twitterには、次のようなプロフィール画像を更新するAPIがあります。
 
-<iframely-embed card="small" url="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile_image"></iframely-embed>
+<ogp-me src="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile_image"></ogp-me>
 
 ただ、全てのサービスには、そのようなAPIはありません。
 APIを使って更新するのが正しい姿ですが、全サービスの実装方法の足並みを揃えるために、
@@ -76,7 +76,7 @@ Dockerコンテナで動作できるようにしているので、ローカル�
 
 今後、パスワードの管理は、KeepassやLastpassのようなサービスと連携したいと思っています。
 
-<iframely-embed card="small" url="https://github.com/keeweb/kdbxweb"></iframely-embed>
+<ogp-me src="https://github.com/keeweb/kdbxweb"></ogp-me>
 
 # どのサービスが対応している？
 

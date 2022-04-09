@@ -8,9 +8,9 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/si
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/silver-birder.github.io/blog/go_conference_2019_spring_coffee.jpg
 ---
 
-<iframely-embed card="small" url="https://gocon.connpass.com/event/124530/"></iframely-embed>
+<ogp-me src="https://gocon.connpass.com/event/124530/"></ogp-me>
 
-<iframely-embed card="small" url="https://gocon.jp/"></iframely-embed>
+<ogp-me src="https://gocon.jp/"></ogp-me>
 
 こちらに参加してきましたので、ご報告します！
 
@@ -31,7 +31,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144289
 #### 今回
 <o-embed src="https://speakerdeck.com/moriyoshi/hacking-go-compiler-internals-2nd-season"></o-embed>
 #### 前回
-<iframely-embed card="small" url="https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-autumn"></iframely-embed>
+<ogp-me src="https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-autumn"></ogp-me>
 
 ### 感想
 このセッションでは、Golangのソースコードが機械語になるまでのステップ、要はコンパイラの動きを紹介されていました。
@@ -58,7 +58,7 @@ Go言語でのアプリケーション開発で、特にコンテナを前提と
 ### 資料
 <o-embed src="https://speakerdeck.com/hgsgtk/design-considerations-for-container-based-go-application"></o-embed>
 
-<iframely-embed card="small" url="https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper"></iframely-embed>
+<ogp-me src="https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper"></ogp-me>
 
 ### 感想
 Golangの話というより、コンテナで開発する上でのTipsの話でした。

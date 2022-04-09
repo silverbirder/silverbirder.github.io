@@ -13,11 +13,11 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 
 <!--  TODO: TOC -->
 
-<iframely-embed card="small" url="https://cloudnativedays.jp/cndt2019/"></iframely-embed>
+<ogp-me src="https://cloudnativedays.jp/cndt2019/"></ogp-me>
 
 リンクをまとめています。
     
-<iframely-embed card="small" url="https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6"></iframely-embed>
+<ogp-me src="https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6"></ogp-me>
 
 # CNCFの利用率
 一日目のKeynoteで印象的だった内容です。 
@@ -39,17 +39,17 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144296
 
 ただ、CNCFのメンバーとして日本企業は<b>17社</b>しかないそうで、まだまだこれからといったところでしょうか。
 
-<iframely-embed card="small" url="https://landscape.cncf.io/members"></iframely-embed>
+<ogp-me src="https://landscape.cncf.io/members"></ogp-me>
 
 さらには、Kubernetesから認定された日本企業ではまだないみたいです。残念です。  
 
-<iframely-embed card="small" url="https://kubernetes.io/partners/#kcsp"></iframely-embed>  
+<ogp-me src="https://kubernetes.io/partners/#kcsp"></ogp-me>
 
 今後は、次のようなカンファレンスが海外でもあるみたいです。ぜひ参加してみたいと思います。  
 
-<iframely-embed card="small" url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/"></iframely-embed>
+<ogp-me src="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/"></ogp-me>
 
-<iframely-embed card="small" url="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"></iframely-embed>
+<ogp-me src="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"></ogp-me>
 
 # CloudNativeとは？
 > クラウドネイティブ技術は、パブリッククラウド、プライベートクラウド、ハイブリッドクラウドなどの近代的でダイナミックな環境において、スケーラブルなアプリケーションを構築および実行するための能力を組織にもたらします。 このアプローチの代表例に、コンテナ、サービスメッシュ、マイクロサービス、イミューダブルインフラストラクチャ、および宣言型APIがあります。
@@ -87,7 +87,7 @@ Kubernetesは「platformのためのplatform」と言われるようになりま
 CRDという言葉は様々なセッションで取り上げらていました。
 CRDとOperatorについては、下記をご参考下さい。
 
-<iframely-embed card="small" url="https://silver-birder.github.io/blog/contents/kubernetes_meetup_tokyo_19_osaka_satellite"></iframely-embed>
+<ogp-me src="https://silver-birder.github.io/blog/contents/kubernetes_meetup_tokyo_19_osaka_satellite"></ogp-me>
 
 Kubernetesを運用すると、既存のリソースだけでは物足りない所がでてくるそうです。
 そういう部分が「プラットフォームを利用するコスト」を大きくしてしまいます。
@@ -95,7 +95,7 @@ Kubernetesを運用すると、既存のリソースだけでは物足りない�
 CRD、Operatorが生まれました。
 ただ、独自に1から作るよりも、下記のサイトから使った方が効率的なときもあります。
 
-<iframely-embed card="small" url="https://operatorhub.io/"></iframely-embed>
+<ogp-me src="https://operatorhub.io/"></ogp-me>
 
 けど、結局は困ったとき、ソースコードを読むことになるので、それぐらいの能力がないと、
 運用を回せない気がします。
@@ -111,13 +111,13 @@ zlabのladicleさんの次のスライドがとてもわかりやすく、まと
 
 同じくサイバーエージェントの青山さんがライブコーディングされていたリポジトリが次のものになります。
 
-<iframely-embed card="small" url="https://github.com/cloudnativejp/webserver-operator"></iframely-embed>
+<ogp-me src="https://github.com/cloudnativejp/webserver-operator"></ogp-me>
 
 # Kubernetesは必要ですか？
 Kubernetesを使うべきかの話が2日間でちらほらありました。
 次のような議論もあります。
 
-<iframely-embed card="small" url="https://www.atmarkit.co.jp/ait/articles/1907/23/news120.html"></iframely-embed>
+<ogp-me src="https://www.atmarkit.co.jp/ait/articles/1907/23/news120.html"></ogp-me>
 
 CloudNativeなアプリケーション構築を目指す場合、どうしてもKubernetesを使う方向になりがちですよね。  
 今回参加したセッションの多くの企業では、Kubernetesを採用するための検討が下記のような感じでした。
@@ -132,7 +132,7 @@ CloudNativeなアプリケーション構築を目指す場合、どうしても
 
 様々なセッションがあった中で、とても王道なステップを踏まれている企業がありました。それは、SoftbankPaymentServiceの鈴木さんの次のスライドです。  
 
-<iframely-embed card="small" url="https://www.slideshare.net/JunyaSuzuki1/springpcf-cndt2019-osdt2019-keynote"></iframely-embed>
+<ogp-me src="https://www.slideshare.net/JunyaSuzuki1/springpcf-cndt2019-osdt2019-keynote"></ogp-me>
 
 企業に適したCloudNative化だなと勉強になりました。  
 特に「運用を回すコストを考慮すると、KubernetesではなくPaaSを使う」  というポイントが好きです。  
@@ -141,7 +141,7 @@ CloudNativeなアプリケーション構築を目指す場合、どうしても
 耳にタコができるぐらい、この単語を聞きました。
 下記のサイトが参考になります。
 
-<iframely-embed card="small" url="https://qiita.com/yasuabe2613/items/3bff44e662c922083264#circuit-breaker"></iframely-embed>
+<ogp-me src="https://qiita.com/yasuabe2613/items/3bff44e662c922083264#circuit-breaker"></ogp-me>
 
 > 同期リクエストの先で一部のマイクロサービスに障害があると、クライアントやその先の「クライアントのクライアント」までブロッキングが波及することになりかねない。
 この問題を、クライアントと実サービスの間に Circuit Breaker と呼ばれるプロキシを介在させて、実サービスの呼び出し失敗が一定基準を超えると、クライアントからのリクエストを即座にリジェクトさせて、ブロッキング連鎖を解消するパターン。
@@ -170,7 +170,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Docker
 
-<iframely-embed card="small" url="https://www.slideshare.net/AkihiroSuda/cndt-docker"></iframely-embed>
+<ogp-me src="https://www.slideshare.net/AkihiroSuda/cndt-docker"></ogp-me>
 
 ## Envoy
 
@@ -190,7 +190,7 @@ Kubernetesでアプリケーションを構築すると、分散システムの�
 
 ## Sandbox
 
-<iframely-embed card="small" url="https://docs.google.com/presentation/d/1O9Q9E1hH6mBA5w8oDENnCYObZvij1-Dr_obvsY3X29k/edit"></iframely-embed>
+<ogp-me src="https://docs.google.com/presentation/d/1O9Q9E1hH6mBA5w8oDENnCYObZvij1-Dr_obvsY3X29k/edit"></ogp-me>
 
 ## Scheduler
 
@@ -224,7 +224,7 @@ CloudNativeにどっぷり浸かった2日間でした。
 どの企業でもCloudNativeを導入したことによる「つらみ」や「価値」を共有して頂いたおかげで、これから導入する人たち（私を含む）にとっては、有意義な時間でした。  
 全てのセッションを吸収できたわけではないですが、ここで記載したスライドだけでも理解を深めたいなと思います。
 
-<iframely-embed card="small" url="https://cloudnativedays.jp/cndk2019/"></iframely-embed>
+<ogp-me src="https://cloudnativedays.jp/cndk2019/"></ogp-me>
 
 今度は大阪で開催されるそうです。これも絶対参加したいなと思います！
 
@@ -232,7 +232,7 @@ CloudNativeにどっぷり浸かった2日間でした。
 筆者はWebが大好きなエンジニアで、Kubernetesについては理解が浅い人間です。主にフロントエンドに注力しています。  
 ただ、昨年のDeveloperBoost2018で、サイバーエージェントの青山さんのセッションをうけてKubernetesに興味を持ち始めました。
 
-<iframely-embed card="small" url="https://codezine.jp/article/detail/11291"></iframely-embed>  
+<ogp-me src="https://codezine.jp/article/detail/11291"></ogp-me>
 
 青山さんはKubernetesにとても詳しい方で、世代が近いせいか、私もこれぐらい夢中になれるものを見つけたいと感じるようになりました。  
 私はWebに関わるものなら何でも好きで、Kubernetesも含まれます。そこで、青山さん著作の[Kubernetes完全ガイド](http://www.wasdkeyboards.com/index.php/products/printed-keycap-singles/custom-art-cherry-mx-keycaps.html)を全て実践することにしてみました。もちろん<b>お家Kubernetes</b>でです。

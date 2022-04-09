@@ -24,7 +24,7 @@ Twitterに書くリンクは、全て短縮URLになります。
 そのため、短縮URLにアクセスし、リダイレクト先のURLを取りに行く必要がありました。
 GASでは、リクエストメソッドであるfetchがあります。そのfetchの`followRedirects`というオプションをfalseにし、responseHeaderのlocationを取ることで、解決(リダイレクト先のURL取得が)できます。
 
-<iframely-embed card="small" url="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#advanced-parameters"></iframely-embed>
+<ogp-me src="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#advanced-parameters"></ogp-me>
 
 また、1リクエストだけをするfetchでは、直列処理になってしまうため、大変遅いです。
 複数リクエストが同時にできるfeatchAllを使うことで、並列処理ができ、パフォーマンスが良いです。
@@ -66,7 +66,7 @@ return locationList;
 
 ##### 追記 (20200228)
 
-<iframely-embed card="small" url="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets"></iframely-embed>
+<ogp-me src="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets"></ogp-me>
 
 TwitterのAPIレスポンスに `urls` がありました。説明はありませんでしたが、Tweetに貼られたリンク(短縮URLと、オリジナルURL)の情報が入るそうです。
 
@@ -91,7 +91,7 @@ TwitterのAPIレスポンスに `urls` がありました。説明はありま�
 
 次です。
 
-<iframely-embed card="small" url="https://www.monotalk.xyz/blog/google-app-script-%E3%81%AE-urlfetchapp-%E3%81%AE-%E4%BE%8B%E5%A4%96%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/"></iframely-embed>
+<ogp-me src="https://www.monotalk.xyz/blog/google-app-script-%E3%81%AE-urlfetchapp-%E3%81%AE-%E4%BE%8B%E5%A4%96%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/"></ogp-me>
 
 fetchやfetchAllは、`muteHttpExceptions: true` としたとしても、ExceptionErrorが発生してしまいます。
 そうすると、例えば1000件のURLをfetchAllした場合、<b>どれが成功で、どれが失敗で、どれが未実施か</b> がわからないというところです。

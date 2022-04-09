@@ -23,13 +23,13 @@ Webアプリでは、様々なCacheが使われます。
 Cacheは、便利な反面、使いすぎると、どこがどうCacheしているのか迷子になってしまいます。
 Webアプリでも、Cacheをテストする必要がありそうです。
 
-<iframely-embed card="small" url="https://github.com/http-tests/cache-tests"></iframely-embed>
+<ogp-me src="https://github.com/http-tests/cache-tests"></ogp-me>
 
 ## Code Size Test
 
 大きなサイズのJSライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。
 
-<iframely-embed card="small" url="https://github.com/ai/size-limit"></iframely-embed>
+<ogp-me src="https://github.com/ai/size-limit"></ogp-me>
 
 <figure title="https://github.com/ai/size-limit">
 <img alt="https://github.com/ai/size-limit" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png">
@@ -41,13 +41,13 @@ Webアプリでも、Cacheをテストする必要がありそうです。
 循環的複雑度(Cyclomatic complexity)は、制御文(ifやfor)の複雑さを計測します。
 複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。
 
-<iframely-embed card="small" url="https://eslint.org/docs/rules/complexity"></iframely-embed>
+<ogp-me src="https://eslint.org/docs/rules/complexity"></ogp-me>
 
 ## Copy&Paste Test
 
 Copy&Pasteは、DRYの原則に反するため、特別な理由がない限りは、してはいけません。Copy&Pasteを検出するツールがあるみたいです。
 
-<iframely-embed card="small" url="https://github.com/kucherenko/jscpd"></iframely-embed>
+<ogp-me src="https://github.com/kucherenko/jscpd"></ogp-me>
 
 <figure title="https://github.com/kucherenko/jscpd">
 <img alt="jscpd" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png">
@@ -60,7 +60,7 @@ Copy&Pasteは、DRYの原則に反するため、特別な理由がない限り�
 そのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。
 そういう環境を手軽に使えるサービスがあったりします。
 
-<iframely-embed card="small" url="https://github.com/browserstack"></iframely-embed>
+<ogp-me src="https://github.com/browserstack"></ogp-me>
 
 ## E2E Test
 
@@ -69,7 +69,7 @@ Webアプリを、端から端まで (End To End: E2E)を検証します。
 このテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。
 例えば、操作する処理の抽象化や、データ固定などです。
 
-<iframely-embed card="small" url="https://github.com/cypress-io/cypress"></iframely-embed>
+<ogp-me src="https://github.com/cypress-io/cypress"></ogp-me>
 
 ## Exception Test
 正常系、準正常系、異常系などのテストが必要です。
@@ -105,7 +105,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 お猿さんがランダムにテストするような、モンキーテストです。
 テストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。
 
-<iframely-embed card="small" url="https://github.com/marmelab/gremlins.js/"></iframely-embed>
+<ogp-me src="https://github.com/marmelab/gremlins.js/"></ogp-me>
 
 <figure title="https://github.com/marmelab/gremlins.js">
 <img alt="gremlins.js" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif">
@@ -123,7 +123,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 プロダクトコードを破壊することで、テストも壊れるかどうかを検証します。
 もし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。
 
-<iframely-embed card="small" url="https://github.com/stryker-mutator/stryker"></iframely-embed>
+<ogp-me src="https://github.com/stryker-mutator/stryker"></ogp-me>
 <figure title="https://stryker-mutator.io/stryker/quickstart">
 <img alt="https://stryker-mutator.io/stryker/quickstart" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif">
 <figcaption><a href="https://stryker-mutator.io/stryker/quickstart">https://stryker-mutator.io/stryker/quickstart</a></figcaption>
@@ -133,7 +133,7 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 
 障害を注入した際に、どういった動きになるのかを検証するテストです。
 
-<iframely-embed card="small" url="https://github.com/goldbergyoni/node-chaos-monkey"></iframely-embed>
+<ogp-me src="https://github.com/goldbergyoni/node-chaos-monkey"></ogp-me>
 
 ## Performance Test
 
@@ -141,13 +141,13 @@ INFO, WARN, ERRORなどがルールに基づいて使い分けされているか
 CPU使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。
 これらを計測し、SLOなどの基準値を満たせているかを検証しておく必要があります。
 
-<iframely-embed card="small" url="https://github.com/bestiejs/benchmark.js/"></iframely-embed>
+<ogp-me src="https://github.com/bestiejs/benchmark.js/"></ogp-me>
 
 ## Property Based Test
 
 データを半自動生成し、テストをする手法です。
 
-<iframely-embed card="small" url="https://github.com/dubzzz/fast-check"></iframely-embed>
+<ogp-me src="https://github.com/dubzzz/fast-check"></ogp-me>
 
 ## Regression Test
 Regression Testは、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。
@@ -174,7 +174,7 @@ npm audit fix
 Webアプリへ流入数を改善するためには、SEOは不可欠です。
 lighthouseというツールでSEOスコアを見ることができるみたいです。
 
-<iframely-embed card="small" url="https://github.com/GoogleChrome/lighthouse-ci"></iframely-embed>
+<ogp-me src="https://github.com/GoogleChrome/lighthouse-ci"></ogp-me>
 
 <figure title="https://github.com/GoogleChrome/lighthouse-ci">
 <img alt="https://github.com/GoogleChrome/lighthouse-ci" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png">
@@ -195,7 +195,7 @@ Webアプリへリクエストし、そのレスポンスであるHTML(スナッ
 このHTMLが、変更前と比較して変化がないかの検証をするのが、Snapshot testです。
 リファクタリングなど、変化がない修正に対して有効です。
 
-<iframely-embed card="small" url="https://jestjs.io/docs/ja/snapshot-testing"></iframely-embed>
+<ogp-me src="https://jestjs.io/docs/ja/snapshot-testing"></ogp-me>
 
 ## Static Test
 
@@ -203,38 +203,38 @@ Static Testは、Webアプリを動かさなくても検証できるテストで
 よくあるのが、Linter です。
 
 * HTML
-<iframely-embed card="small" url="https://github.com/htmlhint/HTMLHint"></iframely-embed>
+<ogp-me src="https://github.com/htmlhint/HTMLHint"></ogp-me>
 
 * CSS
 
-<iframely-embed card="small" url="https://github.com/CSSLint/csslint"></iframely-embed>
+<ogp-me src="https://github.com/CSSLint/csslint"></ogp-me>
 
 * JS
 
-<iframely-embed card="small" url="https://github.com/eslint/eslint"></iframely-embed>
+<ogp-me src="https://github.com/eslint/eslint"></ogp-me>
 
 * SVG
 
-<iframely-embed card="small" url="https://github.com/birjolaxew/svglint"></iframely-embed>
+<ogp-me src="https://github.com/birjolaxew/svglint"></ogp-me>
 
 * Commit
 
-<iframely-embed card="small" url="https://github.com/conventional-changelog/commitlint"></iframely-embed>
+<ogp-me src="https://github.com/conventional-changelog/commitlint"></ogp-me>
 
 * Docker
 
-<iframely-embed card="small" url="https://github.com/RedCoolBeans/dockerlint/"></iframely-embed>
+<ogp-me src="https://github.com/RedCoolBeans/dockerlint/"></ogp-me>
 
 これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。
 
-<iframely-embed card="small" url="https://github.com/danger/danger"></iframely-embed>
+<ogp-me src="https://github.com/danger/danger"></ogp-me>
 
 ## Unit Test
 
 単一機能をテストするUnit Testがあります。このUnit Testが全てPASSしたら、
 他のテストを進めるのが一般的かなと思います。
 
-<iframely-embed card="small" url="https://github.com/facebook/jest"></iframely-embed>
+<ogp-me src="https://github.com/facebook/jest"></ogp-me>
 
 ### Code Coverage
 
@@ -247,13 +247,13 @@ Unitテストで、どこをテストできたかのカバレッジを見るこ�
 
 <o-embed src="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su"></o-embed>
 
-<iframely-embed card="small" url="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></iframely-embed>
+<ogp-me src="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></ogp-me>
 
 ## Visual Regression Test
 
 見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。
 
-<iframely-embed card="small" url="https://github.com/garris/BackstopJS"></iframely-embed>
+<ogp-me src="https://github.com/garris/BackstopJS"></ogp-me>
 
 <figure title="https://github.com/garris/BackstopJS">
 <img alt="https://github.com/garris/BackstopJS" src="https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png">

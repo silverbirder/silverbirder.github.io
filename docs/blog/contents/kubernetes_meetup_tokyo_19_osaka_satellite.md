@@ -12,7 +12,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144287
 Kubernetesの生みの親である3人の内の1人のJoe Bedaから、**Kubernetesの歴史**の経緯について教えて頂きました。
 その話がとてもわかりやすく、なるほどなと思ったので、ぜひとも共有したいと思います。
 
-<iframely-embed card="small" url="https://k8sjp-osaka.connpass.com/event/131981/"></iframely-embed>
+<ogp-me src="https://k8sjp-osaka.connpass.com/event/131981/"></ogp-me>
 
 ※ 以降の内容は、私なりの解釈が入っており誤った認識かもしれません。ご了承下さい。
 発表の内容は全てYoutubeにありますので、そちらが正しいものです。ご参考下さい。
@@ -100,23 +100,23 @@ PodやReplication,Deploymentなど様々なリソースがあります。
 そこで、Custom Resource Definitions (CRD)です。
 なんだそれは...?
 
-<iframely-embed card="small" url="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/"></iframely-embed>
+<ogp-me src="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/"></ogp-me>
 
-<iframely-embed card="small" url="https://qiita.com/cvusk/items/773e222e0971a5391a51"></iframely-embed>
+<ogp-me src="https://qiita.com/cvusk/items/773e222e0971a5391a51"></ogp-me>
 
 要は、PodやDeploymentのようなリソースを独自に作ることができるのですね。おぉなんだそれ！
 独自に機能を作るためには、Custom Resource と Costom Controllerが必要になり、両方をあわせて
 Operatorsというものが生まれました。
 
 例えば、下記のようなものがあります。
-<iframely-embed card="small" url="https://github.com/oracle/mysql-operator"></iframely-embed>
+<ogp-me src="https://github.com/oracle/mysql-operator"></ogp-me>
 
-<iframely-embed card="small" url="https://github.com/kubeflow/tf-operator"></iframely-embed>
+<ogp-me src="https://github.com/kubeflow/tf-operator"></ogp-me>
 
 Yahooでは、gimbalというOSSを使ってKubernetesを導入したみたいです。
-<iframely-embed card="small" url="https://github.com/heptio/gimbal"></iframely-embed>
+<ogp-me src="https://github.com/heptio/gimbal"></ogp-me>
 
-<iframely-embed card="small" url="https://techblog.yahoo.co.jp/advent-calendar-2018/oss-gimbal/"></iframely-embed>
+<ogp-me src="https://techblog.yahoo.co.jp/advent-calendar-2018/oss-gimbal/"></ogp-me>
 
 詳しくは分かりませんが、こういった拡張しやすい機能があるおかげでドンドン普及するのだなと勉強になりました。
 
@@ -152,7 +152,7 @@ Yahooでは、gimbalというOSSを使ってKubernetesを導入したみたい�
 # Osaka会場
 会場提供は、株式会社Aimingさんでした。
 
-<iframely-embed card="small" url="https://aiming-inc.com/ja/"></iframely-embed>
+<ogp-me src="https://aiming-inc.com/ja/"></ogp-me>
 
 会場場所は、グランフロント大阪タワーBの18階にありました。(高い!)
 今回使わさせて頂いた場所は、会議室でしょうか。

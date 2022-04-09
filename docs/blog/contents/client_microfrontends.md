@@ -12,7 +12,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/htt
 
 本記事は、昨年の冬あたりから検証していた クライアントサイド統合でのMicro Frontendsについて話そうと思います。検証したソースコードは、次のリポジトリにあります。
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/micro-frontends-sample-code-6"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/micro-frontends-sample-code-6"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -56,7 +56,7 @@ Javascript(index.js)には、次のModuleを含めようと考えていました
 Routerは、アプリケーション全体のRoutingを管理します。例えば、`/` はTopページ、 `/s` は検索ページといった具合です。
 Routerには、後ほど説明するWebComponentsとの相性が良いvaadin/router を使用しました。
 
-<iframely-embed card="small" url="https://vaadin.com/router"></iframely-embed>
+<ogp-me src="https://vaadin.com/router"></ogp-me>
 
 vaadin/routerでは、WebComponentsを指定してRoutingするため、指定されたWebComponentsは、Importerより取得します。
 

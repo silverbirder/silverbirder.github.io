@@ -1,13 +1,20 @@
 <script type="module">
 import confetti from 'canvas-confetti';
 import { OEmbed } from '@silverbirder/o-embed';
+import { OgpMe } from '@silverbirder/ogp-me';
 
 class MyOembed extends OEmbed {
   proxy="https://silverbirder-cors-anywhere.herokuapp.com"
   provider="https://gist.githubusercontent.com/Silver-birder/4575171d72cd1b0293c7de0913edb6f9/raw/oEmbedProviders.json"
 }
 
+class MyOgpMe extends OgpMe {
+  proxy="https://silverbirder-cors-anywhere.herokuapp.com"
+  width="512px"
+}
+
 customElements.define('o-embed', MyOembed);
+customElements.define('ogp-me', MyOgpMe);
 
 class FireConfetti extends HTMLElement {
   constructor() {
@@ -225,46 +232,8 @@ class GoodsCards extends BaseCards {
   }
 }
 
-class IframelyEmbed extends HTMLElement {
-  static get observedAttributes() {
-    return ['url', 'card'];
-  }
-  constructor() {
-    super();
-    const shadow = this.attachShadow({mode: 'open'});
-  }
-
-  connectedCallback() {
-    this.render();
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-  }
-
-  async render() {
-    const IFRAME_API_KEY = 'b1dc2c53e25891f6135f84';
-    const IFRAME_ENDPOINT = 'https://iframe.ly/api/oembed';
-
-    const params = [];
-    params.push({key: 'url', value: encodeURIComponent(this.getAttribute('url'))});
-    params.push({key: 'api_key', value: IFRAME_API_KEY});
-    params.push({key: 'omit_script', value: 1});
-    if (this.getAttribute('card')) {
-      params.push({key: 'card', value: this.getAttribute('card')});
-    }
-    const BUILD_URL = `${IFRAME_ENDPOINT}?${params.map((p) => `${p.key}=${p.value}`).join('&')}`;
-    const response = await this.fetch(BUILD_URL);
-    this.shadowRoot.innerHTML = response.html;
-  }
-
-  async fetch(uri) {
-    return (await fetch(uri)).json();
-  }
-}
-
 customElements.define('skill-cards', SkillCards);
 customElements.define('book-cards', BookCards);
 customElements.define('goods-cards', GoodsCards);
 customElements.define('fire-confetti', FireConfetti);
-customElements.define('iframely-embed', IframelyEmbed);
 </script>

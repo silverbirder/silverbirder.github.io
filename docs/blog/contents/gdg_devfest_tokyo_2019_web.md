@@ -24,14 +24,14 @@ GDG DevFest Tokyo 2019というイベントに参加してきました。
 <figcaption>GDG DevFest Tokyo 2019 提灯</figcaption>
 </figure>
 
-<iframely-embed card="small" url="https://gdg-tokyo.connpass.com/event/137666/"></iframely-embed>
+<ogp-me src="https://gdg-tokyo.connpass.com/event/137666/"></ogp-me>
 
 <!--  TODO: TOC -->
 
 # GDG DevFest Tokyo 2019
 > DevFest は、Google Developer Group (GDG) コミュニティによって世界各地で開かれるデベロッパー向けイベントです。東京では、Android、Google Cloud Platform（GCP）、Web、Firebase、Machine Learning （ML）、Assistant、Flutter、Goといった様々な技術の最新情報や現場でのノウハウを一日で学べるコミュニティイベントとして開催しています。去年に引き続き 4 回目の開催となります。
 
-<iframely-embed card="small" url="https://tokyo.gdgjapan.org/devfest2019"></iframely-embed>
+<ogp-me src="https://tokyo.gdgjapan.org/devfest2019"></ogp-me>
 
 |  名称  |  GDG DevFest Tokyo 2019  |
 | ---- | ---- |
@@ -45,7 +45,7 @@ GDG DevFest Tokyo 2019というイベントに参加してきました。
 # DevFests
 > DevFests are community-led developer events hosted by Google Developer Groups around the globe. GDGs are focused on community building and learning about Google’s technologies. 
 
-<iframely-embed card="small" url="https://devfest.withgoogle.com/"></iframely-embed>
+<ogp-me src="https://devfest.withgoogle.com/"></ogp-me>
 
 DevFests自体は、グローバルで活動されているGDGがホストのイベントです。
 下の図は、<b>2019年</b>の活動実績&予定です。全国各地で広く活発的に行われていることが分かると思います。
@@ -68,7 +68,7 @@ DevFests自体は、グローバルで活動されているGDGがホストのイ
 
 > A global program to recognize individuals who are experts and thought leaders in one or more Google technologies. These professionals actively contribute and support the developer and startup ecosystems around the world, helping them build and launch highly innovative apps.
 
-<iframely-embed card="small" url="https://developers.google.com/community/experts"></iframely-embed>
+<ogp-me src="https://developers.google.com/community/experts"></ogp-me>
 
 GDEの人は、端的に言うと『Googleのテクノロジを開発者やスタートアップ企業らに対して支援・啓蒙活動をしているGoogle外の人』です。
 GDEになるためには、Google、Googleパートナーからの紹介から入る必要があるそうです。
@@ -94,7 +94,7 @@ Speaker: 岩尾 エマ はるかさん
 
 こちらの記事が、今回の話のテーマとなります。
 
-<iframely-embed card="small" url="https://it.srad.jp/story/19/03/17/043207/"></iframely-embed>
+<ogp-me src="https://it.srad.jp/story/19/03/17/043207/"></ogp-me>
 
 岩尾 エマ はるかさんのお話は、おおよそ[Wiki](https://en.wikipedia.org/wiki/Emma_Haruka_Iwao)に記載があるとおりです。
 
@@ -147,7 +147,7 @@ scroll-snapという機能は、スクロールの制御をCSSで実現しよう
 ### JS +SEO
 SEOの話がありました。
 
-<iframely-embed card="small" url="https://www.suzukikenichi.com/blog/how-to-make-your-content-shine-on-google-search/"></iframely-embed>
+<ogp-me src="https://www.suzukikenichi.com/blog/how-to-make-your-content-shine-on-google-search/"></ogp-me>
 
 Googlebotが最新のChromiumベースになったことで、Chromeでブラウザを動かすのと同じような振る舞いになるそうです。
 今までは、Chrome 41ベースでGooglebotが動いていたため、新しいJavaScript構文やブラウザAPIを使えなかったそうです。
@@ -161,7 +161,7 @@ Googlebotが最新のChromiumベースになったことで、Chromeでブラウ
 
 以下の記事にある通り、Googleは「遅い」と感じるページに警告を出してくれます。
 
-<iframely-embed card="small" url="https://jp.techcrunch.com/2019/11/12/2019-11-11-google-chrome-to-identify-and-label-slow-websites/"></iframely-embed>
+<ogp-me src="https://jp.techcrunch.com/2019/11/12/2019-11-11-google-chrome-to-identify-and-label-slow-websites/"></ogp-me>
 
 パフォーマンス計測ツールを活用することで、事前に確認しておきましょう。
 
@@ -175,7 +175,7 @@ Googlebotが最新のChromiumベースになったことで、Chromeでブラウ
 
 詳しくは、下記をご参考下さい。
 
-<iframely-embed card="small" url="https://medium.com/lazy-learning/my-summary-of-the-main-thread-is-overworked-underpaid-chrome-dev-summit-2019-cd65efdf1ce1"></iframely-embed>
+<ogp-me src="https://medium.com/lazy-learning/my-summary-of-the-main-thread-is-overworked-underpaid-chrome-dev-summit-2019-cd65efdf1ce1"></ogp-me>
 
 ## ネイティブアプリとWebアプリの差を埋めるには：Project Fuguとマルチスレッドプログラミング
 Speaker: 清水 智公さん  
@@ -188,7 +188,7 @@ Webアプリは、ブラウザ上で動作するのものです。ブラウザ�
 ### Project Fugu
 > Fugu’s mission is to close the capabilities gap with native to enable developers to build new experiences on the web while preserving everything that is great about the web. 
 
-<iframely-embed card="small" url="https://www.chromium.org/teams/web-capabilities-fugu"></iframely-embed>
+<ogp-me src="https://www.chromium.org/teams/web-capabilities-fugu"></ogp-me>
 
 Project Fuguとは、ネイティブとのギャップを縮めるために、(Chrome)ブラウザからネイティブな部分を操作する試みのプロジェクトのことです。
 ネイティブ部分を操作するため、誤った使い方をするととても危険です。
@@ -196,7 +196,7 @@ Project Fuguとは、ネイティブとのギャップを縮めるために、(C
 
 提案中の機能一覧は、下記のシートになります。
 
-<iframely-embed card="small" url="http://goo.gle/fugu-api-tracker"></iframely-embed>
+<ogp-me src="http://goo.gle/fugu-api-tracker"></ogp-me>
 
 この中には、例えば『Contact Picker API』というものがあります。
 名前の通り、ネイティブアプリに登録されている電話帳にアクセスできるようになります。
@@ -210,21 +210,21 @@ Project Fuguとは、ネイティブとのギャップを縮めるために、(C
 
 > 60fps のフレームレートがなめらかなパフォーマンスの目標値であり、あるイベントに対して必要なすべての更新に与えられた時間は 16.7 ミリ秒です。
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Tools/Performance/Frame_rate"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Tools/Performance/Frame_rate"></ogp-me>
 
 1Taskを実行するのに16.7ミリ秒を超えてしまうと、ガタガタした動作になってしまいます。
 そこで、Web Workerという技術で解決しようと考えました。
 
 > Web Worker は、ウェブコンテンツがスクリプトをバックグラウンドのスレッドで実行するためのシンプルな手段です。
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/Web_Workers_API/Using_web_workers"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Web/API/Web_Workers_API/Using_web_workers"></ogp-me>
 
 しかし、スレッド間のメッセージパッシングが複雑化してしまう問題があるそうです。
 その問題を、さらに解決するため、GoogleChromeLabsは、comlinkなるライブラリを開発しました。
 
 > Comlink makes WebWorkers enjoyable. Comlink is a tiny library (1.1kB), that removes the mental barrier of thinking about postMessage and hides the fact that you are working with workers.
 
-<iframely-embed card="small" url="https://github.com/GoogleChromeLabs/comlink"></iframely-embed>
+<ogp-me src="https://github.com/GoogleChromeLabs/comlink"></ogp-me>
 
 
 Web Workerにおけるメッセージパッシングの複雑さがcomlinkによって減少するそうです。
@@ -248,11 +248,11 @@ PWAは、Webアプリでありながら、ネイティブアプリにとても�
 
 例えば、サンタトラッカーというWebアプリがとても良い例です。
 
-<iframely-embed card="small" url="https://santatracker.google.com/"></iframely-embed>
+<ogp-me src="https://santatracker.google.com/"></ogp-me>
 
 ソースコードも公開されており、PWAとして良い参考例になります。
 
-<iframely-embed card="small" url="https://github.com/google/santa-tracker-web"></iframely-embed>
+<ogp-me src="https://github.com/google/santa-tracker-web"></ogp-me>
 
 このWebアプリを『ホーム画面に追加』し、その追加されたアプリを起動してみて下さい。
 ネイティブアプリと似たユーザー体験ができるはずです。
@@ -271,26 +271,26 @@ PWAをインストールしてもらう場合、Mini-infobarというもので�
 
 > The mini-infobar is only meant as a helper, and it will go away in the future.
 
-<iframely-embed card="small" url="https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile"></iframely-embed>
+<ogp-me src="https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile"></ogp-me>
 
 ただ、既にネイティブアプリがある場合、PWAのインストール要求したくありません。
 そんなときは、『既にネイティブアプリをインストールしているかどうか』判断する仕組みが既にあるそうです。(origin trials)
 
-<iframely-embed card="small" url="https://web.dev/get-installed-related-apps/"></iframely-embed>
+<ogp-me src="https://web.dev/get-installed-related-apps/"></ogp-me>
 
 ### Desktop PWA
 モバイルだけでなく、DesktopにもPWAを適用できます。
 
 先程紹介したサンタトラッカーは、Desktop PWAにも対応しています。
 
-<iframely-embed card="small" url="https://santatracker.google.com/"></iframely-embed>
+<ogp-me src="https://santatracker.google.com/"></ogp-me>
 
 アドレスバーにある+ボタンよりインストールできます。
 
 ### Trusted Web Activities (TWA)
 > Trusted Web Activity は、Android アプリ内で Chrome ブラウザを全画面で実行します。
 
-<iframely-embed card="small" url="https://developers-jp.googleblog.com/2019/03/trusted-web-activity.html"></iframely-embed>
+<ogp-me src="https://developers-jp.googleblog.com/2019/03/trusted-web-activity.html"></ogp-me>
 
 Androidアプリでも、PWAが実現できるみたいです。
 > TWA は、Android アプリの全画面ウェブ コンテンツで WebView では利用できない Chrome 機能を使いたい場合や、Chrome ブラウザとオリジン ストレージを共有することでユーザーのナビゲーションが便利になる場合などに適しています。
@@ -305,14 +305,14 @@ Androidアプリでも、PWAが実現できるみたいです。
 
 TWAの開発には、次のライブラリが便利だそうです。
 
-<iframely-embed card="small" url="https://github.com/GoogleChromeLabs/llama-pack"></iframely-embed>
+<ogp-me src="https://github.com/GoogleChromeLabs/llama-pack"></ogp-me>
 
 ### Web Packaging
 PWAやDestop PWA, TWAといったもので、様々なところからWebアプリを
 配布する手段が増えました。では、オフラインの場合はどうでしょうか。
 その場合は、Web PackagingのWeb Bundlesが使えます。
 
-<iframely-embed card="small" url="https://github.com/WICG/webpackage"></iframely-embed>
+<ogp-me src="https://github.com/WICG/webpackage"></ogp-me>
 
 Web Packagingには、大きく２つのものが含まれています。
 
@@ -321,7 +321,7 @@ Web Packagingには、大きく２つのものが含まれています。
 
 前者は、AMPページのURLをgoogleホストから元のホストへ戻す際に有効だそうです。
 
-<iframely-embed card="small" url="https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/"></iframely-embed>
+<ogp-me src="https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/"></ogp-me>
 
 後者は、Webのアプリケーションを人まとまりにし、オフライン上で提供することができるそうです。
 

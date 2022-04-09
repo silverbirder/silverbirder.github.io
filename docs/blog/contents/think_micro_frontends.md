@@ -13,13 +13,13 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 Micro Frontendsに関わる記事を100件以上読みました(参考記事に記載しています)。そこから得たMicro Frontendsについてこの投稿に記録します。
 また、調査メモについて、次のリポジトリに残しています。
 
-<iframely-embed card="small" url="https://github.com/Silver-birder/think-micro-frontends"></iframely-embed>
+<ogp-me src="https://github.com/Silver-birder/think-micro-frontends"></ogp-me>
 
 <!--  TODO: TOC -->
 
 # 発端
 
-<iframely-embed card="small" url="https://www.thoughtworks.com/radar/techniques/micro-frontends"></iframely-embed>
+<ogp-me src="https://www.thoughtworks.com/radar/techniques/micro-frontends"></ogp-me>
 
 # 実績企業
 
@@ -72,7 +72,7 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 
 # 統合パターン
 
-<iframely-embed card="small" url="https://bluesoft.com/micro-frontends-the-missing-piece-of-the-puzzle-in-feature-teams/"></iframely-embed>
+<ogp-me src="https://bluesoft.com/micro-frontends-the-missing-piece-of-the-puzzle-in-feature-teams/"></ogp-me>
 
 |統合|選択基準|技術|
 |--|--|--|
@@ -84,9 +84,9 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 # 機能
 ## コミュニケーション
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/CustomEvent"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Web/API/CustomEvent"></ogp-me>
 
-<iframely-embed card="small" url="https://github.com/postaljs/postal.js"></iframely-embed>
+<ogp-me src="https://github.com/postaljs/postal.js"></ogp-me>
 
 ## データ共有
 
@@ -100,29 +100,29 @@ Micro Frontendsに関わる記事を100件以上読みました(参考記事に�
 
 * webpack
 
-<iframely-embed card="small" url="https://webpack.js.org/concepts/module-federation/"></iframely-embed>
+<ogp-me src="https://webpack.js.org/concepts/module-federation/"></ogp-me>
 
-<iframely-embed card="small" url="https://webpack.js.org/configuration/externals/"></iframely-embed>
+<ogp-me src="https://webpack.js.org/configuration/externals/"></ogp-me>
 
-<iframely-embed card="small" url="https://webpack.js.org/plugins/dll-plugin/"></iframely-embed>
+<ogp-me src="https://webpack.js.org/plugins/dll-plugin/"></ogp-me>
 
 ## ルーティング
 
 Vaddin router
 
-<iframely-embed card="small" url="https://vaadin.com/router"></iframely-embed>
+<ogp-me src="https://vaadin.com/router"></ogp-me>
 
 ## キャッシュ
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/Service_Worker_API"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Web/API/Service_Worker_API"></ogp-me>
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API"></ogp-me>
 
 ## 認証
 
 * JWT
 
-<iframely-embed card="small" url="https://jwt.io/"></iframely-embed>
+<ogp-me src="https://jwt.io/"></ogp-me>
 
 ## 計測
 
@@ -153,11 +153,11 @@ Vaddin router
 
 コンポジションプロキシ。テンプレートを組み合わせる。
 
-<iframely-embed card="small" url="https://github.com/tes/compoxure"></iframely-embed>
+<ogp-me src="https://github.com/tes/compoxure"></ogp-me>
 
 ## アクセス履歴
 
-<iframely-embed card="small" url="https://developer.mozilla.org/ja/docs/Web/API/History_API"></iframely-embed>
+<ogp-me src="https://developer.mozilla.org/ja/docs/Web/API/History_API"></ogp-me>
 
 # 分割ポリシー
 
@@ -195,7 +195,7 @@ Vaddin router
 
 #  書籍
 
-<iframely-embed card="small" url="https://www.manning.com/books/micro-frontends-in-action"></iframely-embed>
+<ogp-me src="https://www.manning.com/books/micro-frontends-in-action"></ogp-me>
 
 # 参考記事
 

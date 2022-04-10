@@ -29,6 +29,7 @@
 ## WebComponents
 
 * [@silverbirder/o-embed](https://www.webcomponents.org/element/Silver-birder/o-embed)
+* [@silverbirder/ogp-me](https://www.webcomponents.org/element/Silver-birder/ogp-me)
 
 ## SpreadSheet
 

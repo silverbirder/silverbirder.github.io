@@ -7,7 +7,7 @@ tags: ["Twitter", "How to use"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1653222658/silver-birder.github.io/blog/jeremy-bezanger-Jm1YUfYjpHI-unsplash.jpg
 ---
 
-# 結論
+## 結論
 
 `iframe.contentWindow` から `twttr` オブジェクトを見つけて、`event.bind("rendered", () => {})` の第二引数に、表示処理を書くことです。
 
@@ -19,7 +19,7 @@ iframe.addEventListener("load", () =>
 );
 ```
 
-# 背景
+## 背景
 
 `https://twitter.com/openwc/status/1427617679427440643` のような URL から、埋め込みコンテンツをブログサイトなどに表示したいです。
 
@@ -43,7 +43,7 @@ const iframe = document.querySelector("iframe");
 iframe.setAttribute("srcdoc", html);
 ```
 
-# 課題
+## 課題
 
 iframe で srcdoc を読み込んだ後、埋め込みたい Tweet の文字列だけが、チラっと見えてしまいます。
 下の例であれば、`npm init @‌open-wc now supports lit v2!` がチラっと見えるはずです。reload をしてみると分かります。
@@ -57,7 +57,7 @@ iframe で srcdoc を読み込んだ後、埋め込みたい Tweet の文字列�
 
 チラっと見えてしまうのを阻止したいです。
 
-# 解決方法
+## 解決
 
 埋め込みコンテンツの描画後イベント `rendered` というものがあります。これを使います。
 

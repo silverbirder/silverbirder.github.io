@@ -50,12 +50,12 @@ MFE で有名な Michael Geers さんの記事より、次のサンプル図が�
 - サーバーサイド組成パターン
 - クライアントサイド組成パターン
 
-次から、サンプルコードを紹介します。
+次に、サンプルコードを紹介します。
 
 ## 検索ボタンのフラグメント
 
 検索ボタンのフラグメント(Web Components)を書きます。
-それには、ボタンとクリックハンドラを定義した簡単なものです。
+それは、ボタンとクリックハンドラを定義した簡単なものです。
 フレームワークは、React を選択しました。
 
 ```typescript
@@ -103,14 +103,14 @@ export default App;
 
 この Web Components は、`<search-button />` と書いて使います。
 
-他のフラグメントと連携する場合、イベントを使います。
-このフラグメントは、クリックボタンを押したら、`CustomEvent("search", { detail: <object> })` というイベントを発火しています。
+他のフラグメントと連携する場合、カスタムイベントを使います。
+このフラグメントは、クリックボタンを押したら、`CustomEvent("search", { detail: <object> })` というカスタムイベントを発火します。
 
 ## JSON を表示するフラグメント
 
 次に、このイベントのデータ(`<object>`)を表示するフラグメント(Web Components)を書きます。
 与えられた json 文字列を表示するだけのシンプルなものです。
-Web Components へデータを与える手段は、2 つあります。
+Web Components へデータを与える手段は、2 つあります。(さらにあるかもです)
 
 - HTML の属性 (ex. `<div attribute="value">`)
   - プリミティブな値(数値、文字など)に使う
@@ -174,13 +174,14 @@ export default App;
 そこで、Webpack の Module Federation を使います。
 
 ※ 各フロントエンドチームのビルドシステムを Webpack で縛ってしまうデメリットがあります。
+
 ※ 他の提供する仕組みとして、`importmap` が使えないかなと思ったんですが、未検証です。
 
 ## Module Federation
 
 Module Federation は、Webpack@5 から導入された機能です。
 
-<ogp-me src="https://webpack.js.org/concepts/module-federation/"></ogp-me>
+- https://webpack.js.org/concepts/module-federation/
 
 > Each build acts as a container and also consumes other builds as containers. This way each build is able to access any other exposed module by loading it from its container.
 
@@ -275,7 +276,7 @@ const config = {
 ```
 
 remotes で、コンテナをロードする URL を設定します。
-次に、エントリーコードです。
+次に、entry コードです。
 
 ```typescript
 // ./src/index.ts
@@ -284,7 +285,7 @@ import("./bootstrap");
 export {};
 ```
 
-`@see`を読むと分かりますが、エントリーコードは、`import`で動的ロードする必要があります。
+`@see`を読むと分かりますが、entry コードは、`import`で動的ロードする必要があります。
 次に、bootstrap コードです。
 
 ```typescript

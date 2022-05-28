@@ -1,20 +1,20 @@
 ---
 title: Micro Frontendsで組成するフラグメントをWeb Componentsで定義してModule Federationで共有する
 published: true
-date: 2022-05-23
-description: xxxx
-tags: ["Web Components"]
-cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1649683816/silver-birder.github.io/blog/kelly-sikkema-JRVxgAkzIsM-unsplash.jpg
+date: 2022-05-28
+description: Micro Frontends(以降、MFE)で組成するフラグメントを Web Components で定義して Module Federation で共有する方法を、ざっくり紹介します。
+tags: ["Web Components", "Module Federation", "Micro Frontends"]
 ---
 
 Micro Frontends(以降、MFE)で組成するフラグメントを Web Components で定義して Module Federation で共有する方法を、ざっくり紹介します。
-MFE については、以下のブログ記事をお読みください。
+
+サンプルコードは、次のリポジトリにあります。
+
+- https://github.com/Silver-birder/playground/tree/main/node/web-components-is-api-for-micro-frontends
+
+※ MFE については、以下のブログ記事をお読みください。
 
 <ogp-me src="https://silver-birder.github.io/blog/contents/mfe/"></ogp-me>
-
-サンプルコードについては、次のリポジトリにあります。
-
-<ogp-me src="https://github.com/Silver-birder/playground/tree/main/node/web-components-is-api-for-micro-frontends"></ogp-me>
 
 ## 用語
 
@@ -23,7 +23,7 @@ MFE については、以下のブログ記事をお読みください。
 - 組成
   - フラグメントを使って、ページ全体を構築する
 
-MFE で有名な Michael Geers さんの記事より、MFE のサンプル例が、次の図です。
+MFE で有名な Michael Geers さんの記事より、次のサンプル図があります。
 
 <figure title="[翻訳記事]マイクロフロントエンド > mfe-three-teams">
 <img alt="[翻訳記事]マイクロフロントエンド > mfe-three-teams" src="https://micro-frontends-japanese.org/resources/three-teams.png">
@@ -38,32 +38,25 @@ MFE で有名な Michael Geers さんの記事より、MFE のサンプル例が
 
 組成は、プロダクトチームが担っています。
 
-## フラグメントを WebComponents で定義
-
-MFE を実現するための設計は、大きく分けて 3 パターン考えられます。
-
-- ビルドタイム組成パターン
-  - フラグメントのコードを含めてビルドしてから、デプロイする
-- サーバーサイド組成パターン
-  - ESI や SSI のような手法で、サーバーサイドでフラグメントから HTML を組み立てる
-    - 例
-      - https://silver-birder.github.io/blog/contents/ara-framework/
-      - https://silver-birder.github.io/blog/contents/cloudflare_workers_mfe/
-- クライアントサイド組成パターン
-  - ブラウザ上で、フラグメントから HTML を組み立てる
-  - 例
-    - https://silver-birder.github.io/blog/contents/client_microfrontends/
+## フラグメントを Web Components で定義
 
 フラグメントは、各フロントエンドチームが自由に定義できます。React で書いたり、Vue で書いたりできます。
-ただ、フラグメントを組成するチームからすると、フラグメントのインターフェースが揃っている方が使いやすいと思います。
+フラグメントを組成するチームからすると、フラグメントのインターフェースが揃っている方が使いやすいと思います。
+そこで、フラグメントを Web Components で定義しましょう。(定義の中身は React や Vue など自由です)
 
-そこで、フラグメントを WebComponents で定義し、その中身は React や Vue などで書くようにします。
+このやり方は、以下の MFE を実現する 3 つの設計パターンどれでも適用できると思います。
+
+- ビルドタイム組成パターン
+- サーバーサイド組成パターン
+- クライアントサイド組成パターン
+
 次から、サンプルコードを紹介します。
 
 ## 検索ボタンのフラグメント
 
-例えば、React の場合、次のようなコードを書きます。
-コードは、ボタンとクリックハンドラを定義した簡単なものです。
+検索ボタンのフラグメント(Web Components)を書きます。
+それには、ボタンとクリックハンドラを定義した簡単なものです。
+フレームワークは、React を選択しました。
 
 ```typescript
 // ./packages/team-search/src/components/SearchButton/SearchButton.tsx
@@ -108,14 +101,16 @@ const App = () => {
 export default App;
 ```
 
+この Web Components は、`<search-button />` と書いて使います。
+
 他のフラグメントと連携する場合、イベントを使います。
 このフラグメントは、クリックボタンを押したら、`CustomEvent("search", { detail: <object> })` というイベントを発火しています。
 
 ## JSON を表示するフラグメント
 
-次に、このイベントのデータ(`<object>`)を表示するフラグメントを書きます。
-具体的には、JsonDiv というフラグメントを書きます。json の文字列を表示するだけのシンプルなものです。
-WebComponents へデータを与える手段は、2 つあります。
+次に、このイベントのデータ(`<object>`)を表示するフラグメント(Web Components)を書きます。
+与えられた json 文字列を表示するだけのシンプルなものです。
+Web Components へデータを与える手段は、2 つあります。
 
 - HTML の属性 (ex. `<div attribute="value">`)
   - プリミティブな値(数値、文字など)に使う
@@ -154,7 +149,7 @@ export class JsonDiv extends HTMLElement {
 }
 ```
 
-この WebComponents は、`<json-div value="{}" />` のように使います。
+この Web Components は、`<json-div value="{}" />` のように使います。
 
 ```typescript
 // ./packages/team-content/src/components/JsonDiv/App.tsx
@@ -170,7 +165,7 @@ const App = (props: AppProps) => {
 export default App;
 ```
 
-`App.tsx`は、与えられた value を`<div>`で表示しているだけです。
+`App.tsx`は、与えられた json を`<div>`で表示しているだけです。
 
 ## 組成
 
@@ -178,7 +173,8 @@ export default App;
 組成するためには、フラグメントを提供する仕組みが必要です。
 そこで、Webpack の Module Federation を使います。
 
-※ 提供する仕組みとして、`importmap` が使えないかなと思ったんですが、分かりませんでした。
+※ 各フロントエンドチームのビルドシステムを Webpack で縛ってしまうデメリットがあります。
+※ 他の提供する仕組みとして、`importmap` が使えないかなと思ったんですが、未検証です。
 
 ## Module Federation
 
@@ -187,16 +183,15 @@ Module Federation は、Webpack@5 から導入された機能です。
 <ogp-me src="https://webpack.js.org/concepts/module-federation/"></ogp-me>
 
 > Each build acts as a container and also consumes other builds as containers. This way each build is able to access any other exposed module by loading it from its container.
-> Shared modules are modules that are both overridable and provided as overrides to nested container. They usually point to the same module in each build, e.g. the same library.
 
-今回のケースで言うと、検索ボタンと JSON 表示の 2 つを、それぞれコンテナとしてビルドします。
-それらのコンテナをロードすることができます。
+Module Federation は、各ビルドをコンテナとして機能させ、他のコンテナを使うことができます。
+今回で言うと、Web Components の SearchButton と JsonDiv をコンテナ化し、組成のビルドでコンテナを参照します。
+
 具体的なコードを紹介します。
 
 ### コンテナ化
 
-検索ボタン、JSON 表示をコンテナ化していきます。
-同じコードなので、検索ボタンのコードを紹介します。
+検索ボタンをコンテナ化してみます。(JSON を表示するフラグメントも同様のコードです)
 
 ```typescript
 // .packages/team-search/src/remoteEntry.ts
@@ -239,11 +234,12 @@ const config = {
 ```
 
 先程の export したファイルを exposes で設定します。
-また、Module Federation では、モジュールの重複ロードを防ぐために shared を設定します。
+ライブラリの重複ロードを防ぐために shared を設定します。
+これで、SearchButton をコンテナ化し提供できるようになりました。
 
 ### 組成
 
-コンテナをロードします。
+では、コンテナをロードする組成側のビルド(webpack)を見てみます。
 
 ```js
 // ./webpack.config.js
@@ -278,7 +274,7 @@ const config = {
 };
 ```
 
-remotes で、コンテナをロードします。ロード URL は、提供しているサーバー URL です。
+remotes で、コンテナをロードする URL を設定します。
 次に、エントリーコードです。
 
 ```typescript
@@ -345,25 +341,21 @@ export default App;
 ```
 
 ここにある `import("content/App")` や`import("search/App")` がコンテナを動的ロードしているところです。
-ロードするものは、WebComponents なので`customElements.define`で定義します。
+ロードするものは、Web Components なので`customElements.define`で定義します。
 また、`search-button`の`search`イベントハンドラをリッスンし、イベントデータを`json-div`の`value`属性に設定する処理を書きます。
 これで、組成が完了です。
 
-## メリット・デメリット
+実際に、動きを見てみたい場合は、リポジトリの README.md を見て試してみてください。
+
+## メリット
 
 Web Components は、Shadow DOM というサンドボックス環境でコンポーネント開発できます。
-そのため、フラグメントとして完全に独立することができます。
-また、Web Components は標準技術であるため、React や Vue などどのライブラリでも適用することができるはずです。
+そのため、フラグメントとして完全に独立することができます。これは、Micro Frontends として重要です。
 
-フラグメントを組成する側は、内部のライブラリを意識せず、Web Components というカスタム HTML タグを組み立てるだけです。これも同様で、組成する側のライブラリも、どのライブラリでも使えるはずです。
-
-フラグメントは、独立しなければならないです。依存してはマイクロフロントエンドの意味がありません。
-フラグメント間のやりとりは、イベント・ドリブンで設計します。
-具体的には、Custom Events です。
-
-フラグメント内部で使っているライブラリを、別フラグメントでも使っていると、重複したライブラリロードとなってしまいます。そこで、Webpack の Module Federation で共有しましょう。
-importmap でもできなくはないです。
+Web Components は標準技術であるため、React や Vue などどのライブラリでも適用することができるはずです。
+フラグメントを組成する側も、内部のライブラリを意識せず、Web Components というカスタム HTML タグを組み立てるだけです。
+これも同様で、組成する側のライブラリも何でも適用できるはずです。
 
 ## 最後に
 
-クライアント組成やサーバーサイド組成、ビルドタイム組成、どのタイミングでもこのアイデアは使えると思います。
+Web 標準技術(Web Components,CustomEvents)に依存した設計を採用することで、MFE の Agility と Independency の向上を期待できると思っています。

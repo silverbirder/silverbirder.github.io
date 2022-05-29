@@ -20,6 +20,7 @@ Micro Frontends(以降、MFE)で組成するフラグメントを Web Components
 
 - フラグメント
   - 各フロントエンドチームが提供する UI 部品(HTML,CSS,JS,etc)
+  - コンポーネントと言い換えても良いです
 - 組成
   - フラグメントを使って、ページ全体を構築する
 
@@ -37,6 +38,7 @@ MFE で有名な Michael Geers さんの記事より、次のサンプル図が�
 - バスケット(`busket: 0 items(s)`)
 
 組成は、プロダクトチームが担っています。
+組成は調整の難しさがあるので、専任のチームがあっても良いかもと思います。
 
 ## フラグメントを Web Components で定義
 
@@ -104,20 +106,22 @@ export default App;
 この Web Components は、`<search-button />` と書いて使います。
 
 他のフラグメントと連携する場合、カスタムイベントを使います。
-このフラグメントは、クリックボタンを押したら、`CustomEvent("search", { detail: <object> })` というカスタムイベントを発火します。
+この Web Components は、クリックボタンを押したら、`CustomEvent("search", { detail: <object> })` というカスタムイベントを発火します。
 
 ## JSON を表示するフラグメント
 
 次に、このイベントのデータ(`<object>`)を表示するフラグメント(Web Components)を書きます。
 与えられた json 文字列を表示するだけのシンプルなものです。
-Web Components へデータを与える手段は、2 つあります。(さらにあるかもです)
+Web Components へデータを与える手段は 3 つあります。(さらにあるかもです)
 
-- HTML の属性 (ex. `<div attribute="value">`)
-  - プリミティブな値(数値、文字など)に使う
+- HTML 属性 (ex. `<div attribute="value">`)
+  - プリミティブな値(数値、文字など)で使う
 - イベントリスナー (`eventlistener`)
-  - 非プリミティブな値(配列など)に使う
+  - 非プリミティブな値(配列など)で使う
+- Slot (`<slot name="xxx">`)
+  - HTML 要素を差し込みたいときに使う
 
-今回は、前者を選択しました。
+今回は、HTML 属性を選択しました。
 
 ```typescript
 // ./packages/team-content/src/components/JsonDiv/JsonDiv.tsx
@@ -173,7 +177,7 @@ export default App;
 組成するためには、フラグメントを提供する仕組みが必要です。
 そこで、Webpack の Module Federation を使います。
 
-※ 各フロントエンドチームのビルドシステムを Webpack で縛ってしまうデメリットがあります。
+※ Module Federation を採用すると、各フロントエンドチームのビルドシステムを Webpack で縛ってしまうデメリットがあります。
 
 ※ 他の提供する仕組みとして、`importmap` が使えないかなと思ったんですが、未検証です。
 
@@ -348,15 +352,20 @@ export default App;
 
 実際に、動きを見てみたい場合は、リポジトリの README.md を見て試してみてください。
 
-## メリット
+## この手法におけるメリット
 
-Web Components は、Shadow DOM というサンドボックス環境でコンポーネント開発できます。
-そのため、フラグメントとして完全に独立することができます。これは、Micro Frontends として重要です。
+Web Components をフラグメントとして使うメリット・デメリットは、次のとおりです。
 
-Web Components は標準技術であるため、React や Vue などどのライブラリでも適用することができるはずです。
-フラグメントを組成する側も、内部のライブラリを意識せず、Web Components というカスタム HTML タグを組み立てるだけです。
-これも同様で、組成する側のライブラリも何でも適用できるはずです。
+- メリット
+  - 適合性
+    - Web Components は、Web 標準技術なので、ライブラリとの適合は容易
+    - HTML タグを使うようにカスタム HTML タグを使えば良い
+  - 独立性
+    - Shadow DOM というサンドボックス環境で開発可能
+- デメリット
+  - Javascript が動く必要あり
 
 ## 最後に
 
-Web 標準技術(Web Components,CustomEvents)に依存した設計を採用することで、MFE の Agility と Independency の向上を期待できると思っています。
+Micro Frontends で組成するフラグメントを Web Components で定義して Module Federation で共有する方法を紹介しました。
+実運用の経験はないですが、アイデアとして使えるかもしれないと思いました。

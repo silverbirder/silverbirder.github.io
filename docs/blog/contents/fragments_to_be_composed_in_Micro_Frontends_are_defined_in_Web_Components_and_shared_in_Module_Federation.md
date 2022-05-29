@@ -20,7 +20,7 @@ Micro Frontends(以降、MFE)で組成するフラグメントを Web Components
 
 - フラグメント
   - 各フロントエンドチームが提供する UI 部品(HTML,CSS,JS,etc)
-  - = コンポーネント
+  - コンポーネントと言い換えても良いです
 - 組成
   - フラグメントを使って、ページ全体を構築する
 
@@ -241,7 +241,6 @@ const config = {
 先程の export したファイルを exposes で設定します。
 ライブラリの重複ロードを防ぐために shared を設定します。
 これで、SearchButton をコンテナ化し提供できるようになりました。
-提供する URL は、ローカル開発の場合、`${<WebpackのDevServerのURL>/remoteEntry}` になります。
 
 ### 組成
 

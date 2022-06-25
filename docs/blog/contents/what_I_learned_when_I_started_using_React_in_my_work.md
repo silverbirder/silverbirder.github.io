@@ -2,28 +2,31 @@
 title: ［覚書］Reactを業務で使い始めて知ったこと
 published: true
 date: 2022-06-25
-description: 私は、これまでプライベートでしか React を使っていませんでした。業務で、React を使う機会が増えた(1 ヶ月)ので、学んだことを残そうと思います。
+description: 私は、これまでプライベートでしか React を使っていませんでした。最近、業務で React を使う機会が増えたので、学んだことを残そうと思います。
 tags: ["React", "Learn"]
 ---
 
 私は、これまでプライベートでしか React を使っていませんでした。
-業務で、React を使う機会が増えた(1 ヶ月)ので、学んだことを残そうと思います。
+最近、業務で React を使う機会が増えたので、学んだことを残そうと思います。
 
 ## React の歴史
 
-なんで React って生まれたんだろうって気になりますよね。
-簡単ですが、ちょこっとだけ調べてみました。
-次の記事に、簡単ですがまとめました。
+なんで React って生まれたんだろうって気になりました。
+簡単ですが、ちょこっとだけ調べて、次の記事にまとめました。
 
 - [React を学ぶ前に歴史を知る](./know_the_history_before_learning_React.md)
 
-DOM ツリーが大きくなるにつれて、下位の変更によるカスケード更新の負荷が大きな問題となり、それを解決したかったのかなと思います。
+React は、次の問題を解決したかったんだと思います。
+
+- DOM ツリーが大きくなるにつれて、下位の変更によるカスケード更新の負荷が大きくなる
+
+そこで、React は、この問題を解決するために、仮想 DOM という仕組みを作ったんだと思います。
 
 ## 仮想 DOM、差分検出処理、そして Fiber
 
-React は、直接 DOM を操作するのではなく、仮想的な DOM(仮想 DOM)に対して操作することで、レンダリングの効率化を図る手法を採用していると思っています。
+React は、直接 DOM を操作するのではなく、仮想 DOM に対して操作します。仮想 DOM は、名前の通り仮想的な DOM です。
+仮想 DOM を DOM へ反映するために、差分検出処理(reconciliation)というアルゴリズムがあったり、Fiber と呼ばれる、レンダリングの最適化(優先順位)を目的としたアルゴリズムもあるようです。これらのおかげで、レンダリング負荷が軽減されるんだと思います。(しらんけど)
 
-仮想 DOM を DOM へ反映するために、差分検出処理(reconciliation)というアルゴリズムがあったり、Fiber と呼ばれる、レンダリングの最適化(優先順位)を目的としたアルゴリズムもあるようです。
 まだまだ理解が浅いので、これからもっと学んでいきたいと思います。
 
 - [仮想 DOM と内部処理 – React](https://ja.reactjs.org/docs/faq-internals.html)
@@ -31,12 +34,18 @@ React は、直接 DOM を操作するのではなく、仮想的な DOM(仮想 
 - [acdlite/react-fiber-architecture: A description of React's new core algorithm, React Fiber](https://github.com/acdlite/react-fiber-architecture)
 - [React Fiber アーキテクチャについて | POSTD](https://postd.cc/react-fiber-architecture/)
 
+レンダリングのタイミングは、いつなんでしょうか。
+
 ## レンダリングタイミング
 
-React は、親コンポーネントをレンダリングすると、子コンポーネントもレンダリングされます。
-また、setState や forUpdate などを呼ぶと、コンポーネントはレンダリングされます。
+基本的に、React は、親コンポーネントをレンダリングすると、子コンポーネントもレンダリングされます。
+
+再レンダリングをキューイングする関数、setState や forUpdate などを呼ぶと、コンポーネントはレンダリングされることになります。
 
 - [Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior · Mark's Dev Blog](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)
+
+コードベースが大きくなるにつれて、レンダリングのパフォーマンスが悪化していきます。
+そこで、パフォーマンスの最適化が求められます。
 
 ## パフォーマンス最適化
 
@@ -56,7 +65,8 @@ React は、親コンポーネントをレンダリングすると、子コン�
 
 ## 比較アルゴリズム
 
-React では、変更されたかどうかの判定に、[Object.is()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/is) を使っているようです。
+React では、コンポーネントや状態が変更されたかどうかの判定に、[Object.is()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/is) を使っているようです。
+Object.is のサンプルコードは、次のとおりです。
 
 ```javascript
 Object.is("foo", "foo"); // true
@@ -111,7 +121,7 @@ NG の方は、同じオブジェクトを使いまわしているのに対し�
 
 ## React コンポーネント デザインパターン
 
-React でコンポーネントを実装していると、次の 3 つのパターンがありそうです。
+React でコンポーネントを実装していると、次の 3 つのパターンがあるようです。
 
 - Container and presentation
   - ロジックと UI を分離

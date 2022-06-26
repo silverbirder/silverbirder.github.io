@@ -66,7 +66,7 @@ Chromeは、Chromiumを元に開発されています。
 最初に目につくのが、ブラウザの主な構成要素です。
 
 <figure title="ブラウザの主な構成要素">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/layers.png" alt="ブラウザの主な構成要素">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253204/silver-birder.github.io/blog/%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0.png" alt="ブラウザの主な構成要素">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザの主な構成要素 - www.html5rocks.com</a></span></figcaption>
 </figure>
 
@@ -88,12 +88,12 @@ Chromeは、Chromiumを元に開発されています。
 ブラウザの基本的なフローは、次の図の通りです。
 
 <figure title="レンダリングの基本的なフロー">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/flow.png" alt="レンダリングの基本的なフロー">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253204/silver-birder.github.io/blog/%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%99%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%99%E3%82%A8%E3%83%B3%E3%82%B7%E3%82%99%E3%83%B3%E5%9F%BA%E6%9C%AC%E3%83%95%E3%83%AD%E3%83%BC.png" alt="レンダリングの基本的なフロー">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">レンダリングの基本的なフロー - www.html5rocks.com</a></span></figcaption>
 </figure>
 
 <figure title="Webkitのメインフロー">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/webkitflow.png" alt="Webkitのメインフロー">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253203/silver-birder.github.io/blog/Webkit%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%95%E3%83%AD%E3%83%BC.png" alt="Webkitのメインフロー">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">Webkitのメインフロー - www.html5rocks.com</a></span></figcaption>
 </figure>
 
@@ -126,7 +126,7 @@ DOMは、これまでの単なるテキストから、APIを持たせたオブ�
 以降はDOMを使って処理しやすくなります。
 
 <figure title="サンプル マークアップのDOMツリー">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image015.png" alt="サンプル マークアップのDOMツリー">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253203/silver-birder.github.io/blog/%E3%82%B5%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AB%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%81%AEDOM%E3%83%84%E3%83%AA%E3%83%BC.png" alt="サンプル マークアップのDOMツリー">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">サンプル マークアップのDOMツリー - www.html5rocks.com</a></span></figcaption>
 </figure>
 
@@ -134,7 +134,7 @@ DOMは、これまでの単なるテキストから、APIを持たせたオブ�
 基本的に、CSSとHTMLは互いに独立しているので、並列処理が可能です。例えば、CSSを処理したことで、HTMLが変化することはないはずです。
 
 <figure title="CSSの解析">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image023.png" alt="CSSの解析">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253203/silver-birder.github.io/blog/CSS%E3%81%AE%E8%A7%A3%E6%9E%90.png" alt="CSSの解析">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">CSSの解析 - www.html5rocks.com</a></span></figcaption>
 </figure>
 
@@ -149,7 +149,7 @@ DOMとレンダーオブジェクトは、1対1という訳ではなく、例え
 レンダーツリーの更新は、DOMツリーが更新される度に行われます。
 
 <figure title="レンダーツリーと対応するDOMツリー">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image025.png" alt="レンダーツリーと対応するDOMツリー">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253203/silver-birder.github.io/blog/%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%99%E3%83%BC%E3%83%84%E3%83%AA%E3%83%BC%E3%81%A8%E5%AF%BE%E5%BF%9C%E3%81%99%E3%82%8BDOM%E3%83%84%E3%83%AA%E3%83%BC.png" alt="レンダーツリーと対応するDOMツリー">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">レンダーツリーと対応するDOMツリー - www.html5rocks.com</a></span></figcaption>
 </figure>
 
@@ -201,7 +201,7 @@ CSSボックスモデルの図を参考までに共有しておきます。
 配置方法が分かれば、今度は描画する形について考えます。ブロックボックスとインラインボックスです。
 
 <figure title="ブロックとインラインの配列">
-<img src="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/image061.png" alt="ブロックとインラインの配列">
+<img src="https://res.cloudinary.com/silverbirder/image/upload/v1656253203/silver-birder.github.io/blog/%E3%83%95%E3%82%99%E3%83%AD%E3%83%83%E3%82%AF%E3%81%A8%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E9%85%8D%E5%88%97.png" alt="ブロックとインラインの配列">
 <figcaption><span><a href="https://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブロックとインラインの配列 - www.html5rocks.com</a></span></figcaption>
 </figure>
 

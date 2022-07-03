@@ -6,67 +6,131 @@ description: XXX
 tags: ["Browser", "Layout", "Paint"]
 ---
 
-Web のフロントエンドエンジニアは、ブラウザのレンダリングエンジンについて知っておいて損はないと思います。
-そこで、レンダリング工程のレイアウトとペイントについて、最近調べたことをまとめます。
+ブラウザのレンダリングエンジンにおけるレイアウトやペイントについて気になったので、調べました。
+その内容をまとめます。
+レンダリングエンジンは、Chrome の Blink を題材とします。
 
-※ レンダリングエンジンは、Chrome の Blink を題材とします
+## レンダリングエンジンの処理工程
 
-## 背景
-
-XXX
-
-## レンダリングエンジンの動き
-
-レンダリングエンジンの工程は、次の記事が参考になります。
+レンダリングエンジンの処理工程は、次の記事が参考になります。
 
 - https://web.dev/rendering-performance/
 - https://blog.leap-in.com/lets-learn-how-to-browser-works/
 - https://silver-birder.github.io/blog/contents/learning_browser_engine/
+- https://developer.chrome.com/blog/inside-browser-part3/
 
 ![レンダリングエンジンの工程](https://res.cloudinary.com/silverbirder/image/upload/v1656816689/silver-birder.github.io/blog/browser_rendering_process.jpg)
 
 各工程の色は、この後使うので、覚えておいてください。
 
-- Parse
-  - html をパース
+- (図には書いていないけど)Parse
+  - HTML と CSS をパース
+  - DOM Tree と Style Rules を生成
 - JavaScript
   - 視覚的な操作を処理される
 - Style
-  - どの要素にどの CSS ルールが割り当たるか
+  - HTML 要素が、どの CSS ルールが割り当たるかを決める
+  - DOM Tree と Style Rules を紐付けた Render Tree を生成
 - Layout
-  - どの位置に配置されるか
+  - HTML 要素の位置と大きさを決める
+  - Layout Tree を生成
+  - Reflow とも呼ぶ
 - Paint
-  - 描画する
+  - ブラウザに表示するピクセルを塗る
+  - レイヤーを分ける
+  - Draw とも呼ぶ
 - Composite
-  - レイヤーを合成する
-  - メインスレッドから、異なるスレッドで動く.
-  - GPU
+  - 正しい順序で、レイヤーを重ねていく
+  - メインスレッドからコンポジットスレッド・ラスタースレッドに切り替わる
+    - コンポジットスレッドから、ページを各タイルに分割して、ラスタースレッドに送る
+    - ラスタースレッドは、ラスタライズして GPU に格納する
+
+この工程が、実際に動いているところを見てみましょう。
 
 ## DevTools でレンダリング工程を見てみる
 
-シンプルな HTML を Chrome でで開いてみましょう。
+次のシンプルな HTML を Chrome で開いてみましょう。
 
 ```html
 <div>Hello</div>
 ```
 
-開いたページで DevTools を開き、Performance タブをクリックし、計測してみると、次の画像になります。
+開いたページの DevTools を開き、Performance タブをクリックします。
+reload ボタンを押して、計測してみましょう。
+
+![devtools_performance](https://res.cloudinary.com/silverbirder/image/upload/v1656839846/silver-birder.github.io/blog/devtools_performance.png)
+
+計測結果の Main スレッドを見てみましょう。
 
 ![devtools_performance_1](https://res.cloudinary.com/silverbirder/image/upload/v1656823105/silver-birder.github.io/blog/devtools_performance_1.png)
 
+さきほど説明したレンダリングエンジンの工程が、見えると思います。
+
+- 青色 `Parse HTML`
+- 紫色 `Recalculate Style`
+- 紫色 `Layout`
+- (黄色は JavaScript 関係)
+- (緑色は Paint/Composite 関係)
+
+視覚的に見やすい一方で、全体を網羅してみるのは難しいです。
+そこで、下にある `Event Log` を開きます。
+
 ![devtools_performance_2](https://res.cloudinary.com/silverbirder/image/upload/v1656823105/silver-birder.github.io/blog/devtools_performance_2.png)
 
-説明にあった色と工程が見えると思います。
+レンダリングエンジンのイベントログが、色とともに表示されています。
+ここには、さきほど見れなかった黄色や緑色のものもあります。
+
+### Tips: Performance タブに慣れよう
+
+Performance タブには、様々な情報があります。
+
+いきなりプロダクションリリースされているものに対して、Performance 計測すると、何を診たらよいかわからなくなります。
+
+まずは、最小セットの HTML で見ていくと、情報量が絞られて、読みやすくなります。
+
+また、計測の各場所には、工程の色が使われています。色も合わせて見ると、読みやすくなります。
+
+## ブラウザとリフレッシュレートと 60fps
+
+ブラウザでアニメーションなど動きを出すときに、60fps を目標とすると良いです。
+
+http://jankfree.org/ というサイトから引用します。
+
+> Modern browsers try to refresh the content on screen in sync with a device's refresh rate. For most devices today, the screen will refresh 60 times a second, or 60Hz. If there is some motion on screen (such as scrolling, transitions, or animations) a browser should create 60 frames per second to match the refresh rate.
+
+ブラウザは、リフレッシュレートと同期してコンテンツを更新します。
+最近のデバイスは、1 秒間に 60 回更新できるようです。そのため、ブラウザは 60fps で動作すべきです。
+
+DevTools から、fps を確認できます。
+Rendering タブにある `Frame Rendering Stats`にチェックを入れます。
+
+![devtools_fps_1](https://res.cloudinary.com/silverbirder/image/upload/v1656854862/silver-birder.github.io/blog/devtools_fps_1.png)
+
+そうすると、画面に次の画像が表示されます。
+
+![devtools_fps_2](https://res.cloudinary.com/silverbirder/image/upload/v1656854862/silver-birder.github.io/blog/devtools_fps_2.png)
+
+今、ブラウザは 18.6 fps のようです。
+
+---
+
+fps が少ないと、どうなるんでしょうか。ジャンクと呼ばれる現象が発生します。
+
+> Jank is any stuttering, juddering or just plain halting that users see when a site or app isn't keeping up with the refresh rate. Jank is the result of frames taking too long for a browser to make, and it negatively impacts your users and how they experience your site or app.
+
+リフレッシュレートに、画面が追いついていないと、ジャンクと呼ばれる滑らかではない動作になってしまいます。これは、ユーザーへの悪い体験をさせてしまいます。
+
+https://googlechrome.github.io/devtools-samples/jank/ が、まさにそのジャンクの体験ができます。
 
 ## レイアウトやペイントからの再実行
 
-JavaScriptやCSSを書いていると、DOMを追加してレイアウトが実行されたり、colorを変えて、ペイントを実行されたりします。
+JavaScript や CSS を書いていると、DOM を追加してレイアウトが実行されたり、color を変えて、ペイントを実行されたりします。
 
 エンジン的には、シングルスレッドで動いているため、レイアウトの実行やペイントの実行は、できる限り控えたいところです。
 
 ## レイアウトスラッシング
 
-JavaScriptの以下の関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。FPSの低下につながる。
+JavaScript の以下の関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。FPS の低下につながる。
 
 - JavaScript
   - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
@@ -109,7 +173,7 @@ JavaScriptの以下の関数を使うと、そのときのレイアウト情報�
 </script>
 ```
 
-DevToolsから見ると、エラーが出ているのが、分かります。
+DevTools から見ると、エラーが出ているのが、分かります。
 
 参考までに
 
@@ -122,7 +186,7 @@ requestAnimationFrame を使いましょう。以下に例があります。
 ## ペイントとコンポジット
 
 ペイントもコストがかかります。そこで、コンポジット(GPU)に任せることで、メインスレッドを開放し、パフォーマンスが良くなります。
-具体的には、コンポジットで動作するtransformやopasityとかですね。
+具体的には、コンポジットで動作する transform や opasity とかですね。
 
 - CSS
   - https://csstriggers.com/transform
@@ -172,7 +236,6 @@ requestAnimationFrame を使いましょう。以下に例があります。
 - https://googlesamples.github.io/web-fundamentals/tools/chrome-devtools/rendering-tools/forcedsync.html
 - https://web.dev/stick-to-compositor-only-properties-and-manage-layer-count/
 
-
 - https://developers.google.com/speed/docs/insights/browser-reflow
 
 ```
@@ -182,26 +245,11 @@ CSS ルールを最小限に抑え、使用されていない CSS ルールを�
 不必要で複雑な CSS セレクタの使用は避けます。特に、セレクタの照合に CPU パワーを必要とする子孫セレクタの使用は避けます。
 ```
 
-## ペイントをDevToolsで見よう
+## ペイントを DevTools で見よう
 
-DevToolsからペイントのカウント回数やレイアウトが見れます。
+DevTools からペイントのカウント回数やレイアウトが見れます。
 レイアウトを分けると、ペイントの描画が独立されるため、パフォーマンスがよいです。
-具体的には、translateZのような3次元のCSSを使うと分離されます。
-
-## ジャンクと 60fps
-
-レンダリングの目標値として、60fps があります。
-
-- http://jankfree.org/
-
-> Modern browsers try to refresh the content on screen in sync with a device's refresh rate. For most devices today, the screen will refresh 60 times a second, or 60Hz. If there is some motion on screen (such as scrolling, transitions, or animations) a browser should create 60 frames per second to match the refresh rate.
-
-> Jank is any stuttering, juddering or just plain halting that users see when a site or app isn't keeping up with the refresh rate. Jank is the result of frames taking too long for a browser to make, and it negatively impacts your users and how they experience your site or app.
-
-DevToolsで、fpsを見れるようにしましょう。
-
-- https://googlechrome.github.io/devtools-samples/jank/
-
+具体的には、translateZ のような 3 次元の CSS を使うと分離されます。
 
 ## その他
 

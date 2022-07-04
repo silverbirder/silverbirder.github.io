@@ -2,13 +2,13 @@
 title: ブラウザのレイアウトとペイントを考慮したパフォーマンス最適化
 published: true
 date: 2022-07-03
-description: XXX
+description: ブラウザのレンダリングエンジンにおけるレイアウトやペイントについて気になったので、調べました。その内容をまとめます。レンダリングエンジンは、Chrome の Blink を題材とします。
 tags: ["Browser", "Layout", "Paint"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1656938619/silver-birder.github.io/blog/hal-gatewood-tZc3vjPCk-Q-unsplash.jpg
 ---
 
 ブラウザのレンダリングエンジンにおけるレイアウトやペイントについて気になったので、調べました。
-その内容をまとめます。
-レンダリングエンジンは、Chrome の Blink を題材とします。
+その内容をまとめます。レンダリングエンジンは、Chrome の Blink を題材とします。
 
 ## レンダリングエンジンの処理工程
 
@@ -122,18 +122,16 @@ fps が少ないと、どうなるんでしょうか。ジャンクと呼ばれ�
 
 https://googlechrome.github.io/devtools-samples/jank/ が、まさにそのジャンクの体験ができます。
 
-## レイアウトやペイントからの再実行
-
-JavaScript や CSS を書いていると、DOM を追加してレイアウトが実行されたり、color を変えて、ペイントを実行されたりします。
-
-エンジン的には、シングルスレッドで動いているため、レイアウトの実行やペイントの実行は、できる限り控えたいところです。
-
 ## レイアウトスラッシング
 
-JavaScript の以下の関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。FPS の低下につながる。
+JavaScript や CSS を書いていると、DOM を追加してレイアウトが実行されたり、color を変えて、ペイントを実行されたりします。
+レンダリングエンジンは、シングルスレッドで動いているため、レイアウトの実行やペイントの実行は、できる限り控えたいところです。
 
-- JavaScript
-  - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+JavaScript の次のサイトに書いている関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。これがレイアウトスラッシングと呼ばれます。
+レイアウトスラッシングは、FPS の低下につながります。
+
+- https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+  - 例えば、clientWidth
 
 ```html
 <button>click</button>
@@ -146,7 +144,12 @@ JavaScript の以下の関数を使うと、そのときのレイアウト情報
 </script>
 ```
 
+![layout_forced](https://res.cloudinary.com/silverbirder/image/upload/v1656856178/silver-birder.github.io/blog/layout_forced.png)
+
 強制レイアウトが発生しているのが、みてとれます。
+
+`b.clientWidth` をコメントアウトすれば、Layout Forced は発生しません。
+もっと、明らかに警告となるサンプルを用意しました。
 
 ```html
 <button id="btn">click</button>
@@ -173,39 +176,49 @@ JavaScript の以下の関数を使うと、そのときのレイアウト情報
 </script>
 ```
 
-DevTools から見ると、エラーが出ているのが、分かります。
+DevTools の Performance タブから見ると、`forced reflow is likely a bottleneck` と警告が出ているのが分かります。
+
+![devtools_warn_forced_reflow](https://res.cloudinary.com/silverbirder/image/upload/v1656858915/silver-birder.github.io/blog/devtools_warn_forced_reflow.png)
+
+対策としては、次があげられます。
+
+- レイアウトスラッシングを発生させる関数を実行しない、もしくはキャッシュする
+- `Window.requestAnimationFrame()` を利用する
 
 参考までに
 
 - https://web.dev/avoid-large-complex-layouts-and-layout-thrashing/#avoid-forced-synchronous-layouts
+- https://blog.wilsonpage.co.uk/preventing-layout-thrashing
 
-requestAnimationFrame を使いましょう。以下に例があります。
+DEMO は、次のページにもあります。
 
-- https://blog.wilsonpage.co.uk/preventing-layout-thrashing/
+- https://googlesamples.github.io/web-fundamentals/tools/chrome-devtools/rendering-tools/forcedsync.html
+- https://googlechrome.github.io/devtools-samples/jank/
 
-## ペイントとコンポジット
+## Paint と Composite
 
-ペイントもコストがかかります。そこで、コンポジット(GPU)に任せることで、メインスレッドを開放し、パフォーマンスが良くなります。
+Paint もコストがかかります。そこで、Composite に任せることで、メインスレッドを開放し、パフォーマンスが良くなります。
 具体的には、コンポジットで動作する transform や opasity とかですね。
 
-- CSS
-  - https://csstriggers.com/transform
+具体的な例を出しましょう。
+次の例は、四角のボックスを左右に動かすサンプルです。
+左右に動かす手段に、CSS の left のパターンと、transform のパターンを試してみます。
 
 ```html
 <style>
   @keyframes return {
-    /* 50% {
-      transform: translateX(200px);
-    }
-    100% {
-      transform: translateX(0px);
-    } */
     50% {
       left: 200px;
     }
     100% {
       left: 0px;
     }
+    /* 50% {
+      transform: translateX(200px);
+    }
+    100% {
+      transform: translateX(0px);
+    } */
   }
 
   .box {
@@ -214,7 +227,6 @@ requestAnimationFrame を使いましょう。以下に例があります。
     height: 100px;
     left: 0px;
     border: 1px solid black;
-    /* will-change: transform; */
   }
   .trans {
     animation-name: return;
@@ -224,51 +236,38 @@ requestAnimationFrame を使いましょう。以下に例があります。
   }
 </style>
 <div class="box trans"></div>
-<script>
-  const box = document.querySelector(".box");
-  const btn = document.querySelector(".btn");
-  btn.addEventListener("click", () => box.classList.add("trans"));
-</script>
 ```
 
-参考までに
+transform の場合は、left の部分をコメントアウトし、transform 部分をコメントアウトを外します。
 
-- https://googlesamples.github.io/web-fundamentals/tools/chrome-devtools/rendering-tools/forcedsync.html
-- https://web.dev/stick-to-compositor-only-properties-and-manage-layer-count/
+このファイルをブラウザで開き、Performance タブで計測し、Event Log を確認します。
 
-- https://developers.google.com/speed/docs/insights/browser-reflow
+left の場合、layout,paint,composite が発生しています。
 
-```
-必要以上に DOM を深くしないようにします。DOM ツリー内の 1 階層での変更が、上はルート、下は変更されたノードの子に至るまで、ツリー内の全階層での変更の引き金になることがあります。それにより、リフローに要する時間がさらに長くなります。
-CSS ルールを最小限に抑え、使用されていない CSS ルールを削除します。
-アニメーションなどの複雑なレンダリングの変更は、フローの外で行うようにします。これは「position: absolute」や「position: fixed」を使用することで実現できます。
-不必要で複雑な CSS セレクタの使用は避けます。特に、セレクタの照合に CPU パワーを必要とする子孫セレクタの使用は避けます。
-```
+![css_trigger_1](https://res.cloudinary.com/silverbirder/image/upload/v1656936814/silver-birder.github.io/blog/css_trigger_1.png)
 
-## ペイントを DevTools で見よう
+transform の場合、composite のみ発生しています。
 
-DevTools からペイントのカウント回数やレイアウトが見れます。
-レイアウトを分けると、ペイントの描画が独立されるため、パフォーマンスがよいです。
-具体的には、translateZ のような 3 次元の CSS を使うと分離されます。
+![css_trigger_2](https://res.cloudinary.com/silverbirder/image/upload/v1656936814/silver-birder.github.io/blog/css_trigger_2.png)
 
-## その他
+このように、composite のみで動く CSS プロパティを選ぶと、軽量になります。
+次のサイトには、CSS のどのプロパティがレイアウト・ペイント・コンポジットどれを更新するのか分かります。
 
-https://dev.opera.com/articles/efficient-javascript/
+- https://csstriggers.com/
+
+また、DevTools の Layers タブを開くと、ペイントのカウント回数やレイアウトが見れます。
+
+left の場合の Layers は、次の画像です。
+数秒経過しただけで、ペイントカウントが、数百を超えました。
+
+![devtools_layout_1](https://res.cloudinary.com/silverbirder/image/upload/v1656938347/silver-birder.github.io/blog/devtools_layout_1.png)
+
+transform の場合の Layers は、次の画像です。
+ペイントカウントが、たったの 2 回に留まりました。
+
+![devtools_layout_2](https://res.cloudinary.com/silverbirder/image/upload/v1656938347/silver-birder.github.io/blog/devtools_layout_2.png)
 
 ## 参考
 
-https://gist.github.com/paulirish/5d52fb081b3570c81e3a
-http://jankfree.org/
-https://web.dev/avoid-large-complex-layouts-and-layout-thrashing/
-https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
-https://web.dev/speed-layers/
-https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
-https://medium.com/swlh/what-the-heck-is-repaint-and-reflow-in-the-browser-b2d0fb980c08
-https://developers.google.com/speed/docs/insights/browser-reflow
-http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/
-https://engineering.linecorp.com/ja/blog/reflow-and-markup-optimization/
-https://qiita.com/jkr_2255/items/5cdead4ee7fa289bfeed
-http://www.inazumatv.com/contents/archives/8167
-https://scrapbox.io/pastak-pub/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97_DOM%E3%81%A8%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9
-https://github.com/GoogleChrome/devtools-samples
-https://blog.wilsonpage.co.uk/preventing-layout-thrashing/
+- https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+- https://dev.opera.com/articles/efficient-javascript/

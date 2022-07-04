@@ -21,18 +21,16 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1656938619/si
 
 ![レンダリングエンジンの工程](https://res.cloudinary.com/silverbirder/image/upload/v1656816689/silver-birder.github.io/blog/browser_rendering_process.jpg)
 
-各工程の色は、この後使うので、覚えておいてください。
-
 - (図には書いていないけど)Parse
   - HTML と CSS をパース
   - DOM Tree と Style Rules を生成
 - JavaScript
-  - 視覚的な操作を処理される
+  - 視覚的な操作を処理
 - Style
-  - HTML 要素が、どの CSS ルールが割り当たるかを決める
+  - HTML 要素が、どの CSS ルールが割り当たるかを決定
   - DOM Tree と Style Rules を紐付けた Render Tree を生成
 - Layout
-  - HTML 要素の位置と大きさを決める
+  - HTML 要素の位置と大きさを決定
   - Layout Tree を生成
   - Reflow とも呼ぶ
 - Paint
@@ -55,16 +53,16 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1656938619/si
 <div>Hello</div>
 ```
 
-開いたページの DevTools を開き、Performance タブをクリックします。
-reload ボタンを押して、計測してみましょう。
+開いたページで DevTools を開き、Performance タブをクリックします。
+左上にある reload ボタンを押して、計測してみましょう。
 
-![devtools_performance](https://res.cloudinary.com/silverbirder/image/upload/v1656839846/silver-birder.github.io/blog/devtools_performance.png)
+![devtools_performance](https://res.cloudinary.com/silverbirder/image/upload/v1656941210/silver-birder.github.io/blog/devtools_performance.png)
 
-計測結果の Main スレッドを見てみましょう。
+計測の結果、 Main を見てみましょう。
 
-![devtools_performance_1](https://res.cloudinary.com/silverbirder/image/upload/v1656823105/silver-birder.github.io/blog/devtools_performance_1.png)
+![devtools_performance_1](https://res.cloudinary.com/silverbirder/image/upload/v1656941719/silver-birder.github.io/blog/devtools_performance_1.png)
 
-さきほど説明したレンダリングエンジンの工程が、見えると思います。
+さきほど説明したレンダリングエンジンの工程(色も一致)が、見えると思います。
 
 - 青色 `Parse HTML`
 - 紫色 `Recalculate Style`
@@ -73,7 +71,7 @@ reload ボタンを押して、計測してみましょう。
 - (緑色は Paint/Composite 関係)
 
 視覚的に見やすい一方で、全体を網羅してみるのは難しいです。
-そこで、下にある `Event Log` を開きます。
+そこで、 `Event Log` を開きます。
 
 ![devtools_performance_2](https://res.cloudinary.com/silverbirder/image/upload/v1656823105/silver-birder.github.io/blog/devtools_performance_2.png)
 
@@ -84,7 +82,7 @@ reload ボタンを押して、計測してみましょう。
 
 Performance タブには、様々な情報があります。
 
-いきなりプロダクションリリースされているものに対して、Performance 計測すると、何を診たらよいかわからなくなります。
+いきなりプロダクションリリースされているものに対して、Performance 計測すると、何を見たらよいかわからなくなります。
 
 まずは、最小セットの HTML で見ていくと、情報量が絞られて、読みやすくなります。
 
@@ -99,7 +97,7 @@ http://jankfree.org/ というサイトから引用します。
 > Modern browsers try to refresh the content on screen in sync with a device's refresh rate. For most devices today, the screen will refresh 60 times a second, or 60Hz. If there is some motion on screen (such as scrolling, transitions, or animations) a browser should create 60 frames per second to match the refresh rate.
 
 ブラウザは、リフレッシュレートと同期してコンテンツを更新します。
-最近のデバイスは、1 秒間に 60 回更新できるようです。そのため、ブラウザは 60fps で動作すべきです。
+最近のデバイスは、1 秒間に 60 回更新できるようです。そのため、ブラウザは 60fps で動作すべきと書いています。
 
 DevTools から、fps を確認できます。
 Rendering タブにある `Frame Rendering Stats`にチェックを入れます。
@@ -125,13 +123,15 @@ https://googlechrome.github.io/devtools-samples/jank/ が、まさにそのジ�
 ## レイアウトスラッシング
 
 JavaScript や CSS を書いていると、DOM を追加してレイアウトが実行されたり、color を変えて、ペイントを実行されたりします。
-レンダリングエンジンは、シングルスレッドで動いているため、レイアウトの実行やペイントの実行は、できる限り控えたいところです。
+レンダリングエンジンは、シングルスレッドで動いているため、レイアウトの実行やペイントの実行をしていると、他の工程が動作されません。
 
-JavaScript の次のサイトに書いている関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。これがレイアウトスラッシングと呼ばれます。
+次のサイトにある JavaScript の関数を使うと、そのときのレイアウト情報を計算する必要があり、レイアウトが強制的に再計算されます。これがレイアウトスラッシングと呼ばれます。
 レイアウトスラッシングは、FPS の低下につながります。
 
 - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
   - 例えば、clientWidth
+
+例を示しましょう。ボタン要素にスタイル変更し、clientWidth を参照したコードです。
 
 ```html
 <button>click</button>
@@ -144,7 +144,9 @@ JavaScript の次のサイトに書いている関数を使うと、そのとき
 </script>
 ```
 
-![layout_forced](https://res.cloudinary.com/silverbirder/image/upload/v1656856178/silver-birder.github.io/blog/layout_forced.png)
+clientWidth を実行すると、そのときのレイアウト情報が必要になるため、強制的にレイアウトが実行されます。
+
+![layout_forced](https://res.cloudinary.com/silverbirder/image/upload/v1656941215/silver-birder.github.io/blog/layout_forced.png)
 
 強制レイアウトが発生しているのが、みてとれます。
 
@@ -178,7 +180,7 @@ JavaScript の次のサイトに書いている関数を使うと、そのとき
 
 DevTools の Performance タブから見ると、`forced reflow is likely a bottleneck` と警告が出ているのが分かります。
 
-![devtools_warn_forced_reflow](https://res.cloudinary.com/silverbirder/image/upload/v1656858915/silver-birder.github.io/blog/devtools_warn_forced_reflow.png)
+![devtools_warn_forced_reflow](https://res.cloudinary.com/silverbirder/image/upload/v1656941719/silver-birder.github.io/blog/devtools_warn_forced_reflow.png)
 
 対策としては、次があげられます。
 
@@ -193,12 +195,11 @@ DevTools の Performance タブから見ると、`forced reflow is likely a bott
 DEMO は、次のページにもあります。
 
 - https://googlesamples.github.io/web-fundamentals/tools/chrome-devtools/rendering-tools/forcedsync.html
-- https://googlechrome.github.io/devtools-samples/jank/
 
 ## Paint と Composite
 
 Paint もコストがかかります。そこで、Composite に任せることで、メインスレッドを開放し、パフォーマンスが良くなります。
-具体的には、コンポジットで動作する transform や opasity とかですね。
+具体的には、コンポジットで動作する transform や opasity とかがあります。
 
 具体的な例を出しましょう。
 次の例は、四角のボックスを左右に動かすサンプルです。
@@ -240,7 +241,7 @@ Paint もコストがかかります。そこで、Composite に任せること�
 
 transform の場合は、left の部分をコメントアウトし、transform 部分をコメントアウトを外します。
 
-このファイルをブラウザで開き、Performance タブで計測し、Event Log を確認します。
+このファイルをブラウザで開き、Performance タブで計測し、`Event Log` を確認します。
 
 left の場合、layout,paint,composite が発生しています。
 
@@ -260,12 +261,17 @@ transform の場合、composite のみ発生しています。
 left の場合の Layers は、次の画像です。
 数秒経過しただけで、ペイントカウントが、数百を超えました。
 
-![devtools_layout_1](https://res.cloudinary.com/silverbirder/image/upload/v1656938347/silver-birder.github.io/blog/devtools_layout_1.png)
+![devtools_layout_1](https://res.cloudinary.com/silverbirder/image/upload/v1656941210/silver-birder.github.io/blog/devtools_layout_1.png)
 
 transform の場合の Layers は、次の画像です。
 ペイントカウントが、たったの 2 回に留まりました。
 
-![devtools_layout_2](https://res.cloudinary.com/silverbirder/image/upload/v1656938347/silver-birder.github.io/blog/devtools_layout_2.png)
+![devtools_layout_2](https://res.cloudinary.com/silverbirder/image/upload/v1656941210/silver-birder.github.io/blog/devtools_layout_2.png)
+
+## 終わりに
+
+レイアウトやペイントについて、調査をしていると、意図せずレイアウトやペイントを実行させていた人も、いるかもしれません。
+パフォーマンスは、必要になったときにチューニングすればよいと思いますが、基本知識として本記事についての情報は、知っておいて損はないと思います。
 
 ## 参考
 

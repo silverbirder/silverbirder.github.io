@@ -45,55 +45,9 @@ REST API で開発を進めていくと、次の 3 つの課題を抱えてし�
 これらの課題を解決すべく、FaceBook は、スーパーグラフと呼ばれるプロトタイプを開発しました。
 そのベストプラクティスを集めたものが、GraphQL となりました。
 
-## REST API から GraphQL へ
+### 例:複数のリクエストを何度も往復する
 
-REST API から、GraphQL に切り替えた結果、次の 3 つのメリットを享受することができました。
-
-- Fast on network
-  - 必要なものだけを記述できるため、1 回のリクエストで十分です
-- Robust static types
-  - どのようなデータが利用可能か、どのような型か、クライアントは知ることができます
-- Empowering client evolution
-  - レスポンスのフォーマットはクライアントが制御できます。そのため、サーバーサイドはシンプルになり、メンテナンスも容易になります
-  - 古いフィールドを非推奨とし、機能は継続できます。この後方互換性によりバージョニング管理が不要になります
-
-## GraphQL の公式ページ
-
-これらの歴史を知ってから、GraphQL の公式ページを見てみます。
-
-- https://graphql.org/faq/#why-should-i-use-graphql
-
-このページから引用します。
-
-```
-Why should I use GraphQL
-
-It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
-
-1. Aggregate data from multiple UI components.
-
-2. Create a representation of your data that feels familiar and natural (a graph).
-
-3. Ensure that all of your data is statically typed and these types inform what queries the schema supports.
-
-4. Reduce the need for breaking changes, but utilize a built-in mechanism for deprecations when you need to.
-
-5. Access to a powerful tooling ecosystem with GUIs, editor integrations, code generation, linting, analytics, and more.
-```
-
-なぜ、GraphQL を使うべきなのかという話から、GraphQL の特徴について紹介されています。
-これらの特徴は、さきほどの GraphQL のメリット と関連がありそうです。
-
-- 1, 2
-  - `Fast on network`
-- 3
-  - `Robust static types`
-- 4
-  - `Empowering client evolution`
-
-### 少し脱線
-
-次のページから、REST と GraphQL での違いについて、紹介されていました。
+複数のリクエストをする例が、次のページに書いています。
 
 - https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
 
@@ -106,6 +60,18 @@ REST API の場合は、次の画像のように 3 往復することになり�
 GraphQL の場合は、1 回の往復だけでデータが取得できます。
 
 ![GraphQL](https://res.cloudinary.com/silverbirder/image/upload/v1659191675/silver-birder.github.io/blog/graphql_flow.png)
+
+## REST API から GraphQL へ
+
+REST API から、GraphQL に切り替えた結果、次の 3 つのメリットを享受することができました。
+
+- Fast on network
+  - 必要なものだけを記述できるため、1 回のリクエストで十分です
+- Robust static types
+  - どのようなデータが利用可能か、どのような型か、クライアントは知ることができます
+- Empowering client evolution
+  - レスポンスのフォーマットはクライアントが制御できます。そのため、サーバーサイドはシンプルになり、メンテナンスも容易になります
+  - 古いフィールドを非推奨とし、機能は継続できます。この後方互換性によりバージョニング管理が不要になります
 
 ## 3 つの課題を 改めて考える
 
@@ -125,7 +91,7 @@ REST API の 3 つの課題を、2022 年の今、改めて考えてみます。
 
 簡単に書いていますが、3 つの課題は、もっと深い・困難な話だったのかもしれません。
 ですが、今の時代で考えてみると、GraphQL を使うユースケースは、エッジケースなのかなと思ってしまいました。
-本件の課題の根幹の 1 つは、データ構造の複雑さ(再帰的,ネスト)なのじゃないのかなと想像していました。
+本件の課題の根幹の 1 つは、データ構造の複雑さ(再帰的,ネスト)じゃないのかなと想像していました。
 
 ### 参考リンク
 

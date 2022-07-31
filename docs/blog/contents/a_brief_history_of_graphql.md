@@ -1,13 +1,14 @@
 ---
-title: Graphqlの歴史
+title: GraphQLの歴史
 published: true
 date: 2022-07-30
-description: XX
-tags: ["Graphql"]
+description: GraphQL を業務で使い始めました。いつものように、GraphQL の歴史が気になったので、調べてみました。
+tags: ["GraphQL"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1659191668/silver-birder.github.io/blog/graphql_logo.png
 ---
 
-最近、業務で GraphQL を使う機会が増えてきました。
-GraphQL って、なんで生まれたのか歴史が気になりました。
+GraphQL を業務で使い始めました。
+いつものように、GraphQL の歴史が気になったので、調べてみました。
 
 ## 参考資料
 
@@ -20,49 +21,49 @@ GraphQL の共同開発者で、GraphQL Foundation エグゼクティブディ�
 - https://dev.to/tamerlang/a-brief-history-of-graphql-2jhd
 - https://levelup.gitconnected.com/what-is-graphql-87fc7687b042
 
-## 歴史の流れ
+## GraphQL が生まれる前
 
-まず、次のような歴史がありました。
+GraphQL が生まれる前の歴史を、簡単に要約しました。
 
-- 2004 年、FaceBook は Web アプリとして生まれました
-- 2007 年、iPhone の登場により、モバイルが急速に普及し始めましたが、FaceBook は HTML5 に賭けすぎて失敗しました
-- 2012 年、FaceBook はネイティブ iOS のニュースフィードを RESTFul API で開発し始めました
+| 年   | 要約                                                                                                |
+| ---- | --------------------------------------------------------------------------------------------------- |
+| 2004 | ソーシャルメディア Web サイト「Thefacebook」が公開され、後に FaceBook になりました                  |
+| 2007 | iPhone の登場により、モバイルが急速に普及し始めましたが、FaceBook は HTML5 に賭けすぎて失敗しました |
+| 2012 | FaceBook はモバイル(iOS) のニュースフィードを REST API で開発し始めました                           |
 
-開発すると、次の 3 つの課題を抱えたようです。
+## REST API での開発における 3 つの課題
 
-## 3 つの課題
-
-次の 3 つの課題を抱えました。
+REST API で開発を進めていくと、次の 3 つの課題を抱えてしまいました。
 
 - Slow on network
   - 1 つの API から必要なデータが全て返ってこないため、複数のリクエストを何度も往復する必要がありました
 - Fragile client/server relationship
-  - API の変更を、クライアントコードに慎重に引き継がなければ、クラッシュしてしまいます
+  - API の変更を、クライアントコードに慎重に引き継がなければ、クラッシュしてしまいました
 - Tedious code & process
   - クライアントの開発は、API のレスポンスに非常に連動しているので、API のレスポンスの変更があれば、クライアントも変更しなければなりません
 
-その課題を解決すべく、スーパーグラフと呼ばれるプロトタイプを開発しました。
+これらの課題を解決すべく、FaceBook は、スーパーグラフと呼ばれるプロトタイプを開発しました。
 そのベストプラクティスを集めたものが、GraphQL となりました。
 
-## GraphQL のメリット
+## REST API から GraphQL へ
 
-GraphQL により、次のメリットが生まれました。
-※ 課題解決を目的とするため、課題の逆話になります。
+REST API から、GraphQL に切り替えた結果、次の 3 つのメリットを享受することができました。
 
 - Fast on network
   - 必要なものだけを記述できるため、1 回のリクエストで十分です
 - Robust static types
   - どのようなデータが利用可能か、どのような型か、クライアントは知ることができます
 - Empowering client evolution
-
   - レスポンスのフォーマットはクライアントが制御できます。そのため、サーバーサイドはシンプルになり、メンテナンスも容易になります
   - 古いフィールドを非推奨とし、機能は継続できます。この後方互換性によりバージョニング管理が不要になります
 
-## GraphQL の公式ページを見る
+## GraphQL の公式ページ
 
-これらの歴史を知ってから、次の GraphQL の公式ページを見てみます。
+これらの歴史を知ってから、GraphQL の公式ページを見てみます。
 
 - https://graphql.org/faq/#why-should-i-use-graphql
+
+このページから引用します。
 
 ```
 Why should I use GraphQL
@@ -80,7 +81,8 @@ It depends on your use case, but in general, GraphQL has a few key features that
 5. Access to a powerful tooling ecosystem with GUIs, editor integrations, code generation, linting, analytics, and more.
 ```
 
-なぜ、GraphQL を使うべきなのかという話から、GraphQL の特徴について紹介されています。これらは、さきほどの `GraphQL のメリット` の話と関連がありそうですね。
+なぜ、GraphQL を使うべきなのかという話から、GraphQL の特徴について紹介されています。
+これらの特徴は、さきほどの GraphQL のメリット と関連がありそうです。
 
 - 1, 2
   - `Fast on network`
@@ -89,9 +91,7 @@ It depends on your use case, but in general, GraphQL has a few key features that
 - 4
   - `Empowering client evolution`
 
-`Fast on network` について関連する記事も、公式ページにありました。
-
-## GraphQL is the better REST
+### 少し脱線
 
 次のページから、REST と GraphQL での違いについて、紹介されていました。
 
@@ -101,36 +101,43 @@ It depends on your use case, but in general, GraphQL has a few key features that
 
 REST API の場合は、次の画像のように 3 往復することになります。
 
-![REST_API](https://imgur.com/VRyV7Jh.png)
+![REST_API](https://res.cloudinary.com/silverbirder/image/upload/v1659191676/silver-birder.github.io/blog/rest_api_flow.png)
 
 GraphQL の場合は、1 回の往復だけでデータが取得できます。
 
-![GraphQL](https://imgur.com/z9VKnHs.png)
+![GraphQL](https://res.cloudinary.com/silverbirder/image/upload/v1659191675/silver-birder.github.io/blog/graphql_flow.png)
 
-## 2012 年の 3 つの課題を 2022 年で改めて考える
+## 3 つの課題を 改めて考える
 
-2012 年での問題を、2022 年の今で改めて考えてみました。
+REST API の 3 つの課題を、2022 年の今、改めて考えてみます。
 
 - Slow on network
   - 2012 年は、3G 回線が普及していた
     - 複数リクエストや、API のペイロードが大きいと、ネットワークレイテンシに大きく影響していそう
   - 2022 年は、5G 回線が普及している
     - ネットワークレイテンシは、そこまでクリティカルな問題にはならないのでは
-    - もちろん、低ネットワークを利用するユーザーが多いプロダクトなら、考慮が必要
+    - もちろん、低ネットワークを利用するユーザーが多いプロダクトなら、考慮が必要かも
   - 複数リクエストは、BFF のようなファザードを建てることで、解決できないか
 - Fragile client/server relationship
   - バージョニングと後方互換性については、今の REST API も変わりなく課題の 1 つ
 - Tedious code & process
   - スキーマ駆動な開発で、問題解決できるのではないか
 
-※ 簡単に書いていますが、2012 年の問題は、もっと深い・困難な問題だったのかもしれません。
+簡単に書いていますが、3 つの課題は、もっと深い・困難な話だったのかもしれません。
+ですが、今の時代で考えてみると、GraphQL を使うユースケースは、エッジケースなのかなと思ってしまいました。
+本件の課題の根幹の 1 つは、データ構造の複雑さ(再帰的,ネスト)なのじゃないのかなと想像していました。
+
+### 参考リンク
+
+- https://www.apollographql.com/blog/graphql/basics/why-use-graphql/
+- https://wundergraph.com/blog/why_not_use_graphql
 
 ## GraphQL の魅力
 
-### クエリーによるデータの取捨選択
+### データの取捨選択
 
-GraphQL の必要なデータを記述できるクエリーは、確かに魅力的です。
-従来の REST API の開発設計では、次のようなパターンがあります。
+GraphQL の必要なデータを記述できる機能は、魅力的と思います。
+従来の REST API の開発設計では、次のようなパターンを業務で経験してきました。
 
 - レスポンスのデータのバリエーションをグループ分けするクエリパラメータを作る
   - Response group
@@ -142,45 +149,27 @@ GraphQL の必要なデータを記述できるクエリーは、確かに魅力
       - 全てのフィールド
 - データの取捨選択をホワイトリスト/ブラックリストで指定するクエリパラメータを作る
 
-これまで、前者の設計方法を、よく利用していました。これで、開発や運用は、そこまで大きな問題には感じませんでした。
-それよりも、データの取捨選択は、API のスケールがしやすさがメリットのように思います。
+これまで、前者の設計方法を、よく利用していましたし、それでの開発は、そこまで大きな問題には感じませんでした。
+データの取捨選択は、API のスケールのしやすさがメリットのように思います。
 
-### データは、階層構造を表せる
+### データの階層構造
 
 GraphQL は、リクエスト・レスポンスのデータに、階層構造を表せます。
 これも、魅力的です。
 
-従来の REST API では、リクエストのクエリパラメータは、フラットな形で送るしかありませんでした。POST の body を使って、JSON を送るという手段もあります。(まあ、これが GraphQL なんですが)
+従来の REST API では、リクエストのクエリパラメータは、フラットな形で送るしかありませんでした。リクエストボディを使って、JSON を送るという手段もあります。(まあ、これが GraphQL なんですが)
 
-REST API のレスポンスは、JSON で返却できるので、レスポンスには階層構造を表すことができます。
-
-REST API のリクエストに、階層構造を表せるのは、柔軟性が高く良さそうです。
+REST API のリクエストに、階層構造を表せるのは、データの関係性を示せるため、柔軟性が高く良さそうです。
 
 ## ただ、個人的な違和感
 
-- query
-  - GET のような参照
-- mutation
-  - POST,PUT,DELETE のような更新
-- subscribe
-  - データの購読と監視. WebSocket
+### データ参照も POST
 
-post 送信に変わる。
-従来は、HTTP GET のパラメータで、データ参照。
-URL 毎にキャッシュ戦略ができた。(FE と BE の間に redis とか)
-枯れた。
+REST API は、参照なら HTTP GET、更新なら HTTP POST を使うのが当たり前です。
+GraphQL は、参照も更新も HTTP POST を使います。これに違和感があります。
+query は、HTTP GET、mutation は、HTTP POST で使い分けできるようにしたいです。
 
-すべて POST に変わるので、従来のキャッシュ戦略が使いにくい。
-そもそも、HTTP 的にずっと POST ってどうなんだ？(query を body)
-使い方として。
-クライアントライブラリでキャッシュ戦略が様々でてくる。
-HTTP の URL キーは難しく、query などの HTTP POST の body を parse 解析して...
-などコストかかる。
+## 終わりに
 
-が、利用者側としては、使い勝手は良い。
-わざわざ複数 API を叩いて結合する手間が減る。
-
-## 参考: なぜ GraphQL を使うべきか、使わないべきか
-
-- https://www.apollographql.com/blog/graphql/basics/why-use-graphql/
-- https://wundergraph.com/blog/why_not_use_graphql
+GraphQL の歴史を簡単に紹介しました。
+まだそんなに使ったことがないので、良さ・悪さをしっかり理解していきたいと思います。

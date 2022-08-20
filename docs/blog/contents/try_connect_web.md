@@ -2,8 +2,8 @@
 title: connect-webやってみた
 published: true
 date: 2022-08-20
-description: connect-web の記事が、はてブでトレンドになっていました。気になったので、試してみました。
-tags: ["gRPC", "Connect-Web", "React"]
+description: connect-web の記事が、はてブでトレンドになっていました。気になったので、試してみました。サンプルコードは、次のリポジトリに置いています。
+tags: ["gRPC", "Connect", "React"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1660991073/silver-birder.github.io/connect-web-sample.png
 ---
 
@@ -13,14 +13,14 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1660991073/si
 
 - https://github.com/Silver-birder/playground/tree/main/node/connect-web-example/frontend
 
-## gRPC と connect-web の雑な理解
+## 前置き: gRPC と connect-web の雑な理解
 
 RPC (Remote Procedure Call) を実現するためのプロトコルとして、gRPC があります。
 このプロトコルは、ブラウザ側からは使えない(?)ため、gRPC-Web というブラウザ向けの gRPC というものを使うことになります。
 その場合、ブラウザとサーバーとの間に、プロキシを建てる必要があるようです。(たぶん)
 
 そこで、Connect という gRPC 互換の HTTP API を構築するためのライブラリ群が開発されました。
-これのおかげで、プロキシを建てる必要がなくなります。
+これのおかげで、プロキシを建てる必要がなく、ブラウザ側から gRPC を使うことが可能になります。
 
 - https://connect.build/docs/introduction
 
@@ -34,12 +34,12 @@ connect-go は、go で Connect のサービスを作ることができます。
 
 ## やってみた
 
-フロントエンド側は、次の 2 つの作業になります。
+フロントエンド側は、主に、次の 2 つの作業になります。
 
-1. Protocol Buffer スキーマから TypeScript コードに生成
+1. Protocol Buffer スキーマから TypeScript ファイルを生成
 2. 生成された TypeScript ファイルから gRPC クライアントを実装
 
-## 1. Protocol Buffer スキーマから TypeScript コードに生成
+## 1. Protocol Buffer スキーマから TypeScript ファイルを生成
 
 gRPC で通信するためのスキーマ、ProtocolBuffer スキーマが必要です。
 これは、すでにあるものを使います。
@@ -110,23 +110,21 @@ yarn add @bufbuild/connect-web @bufbuild/protobuf
   - bufbuild/protobuf
     - 基本型に対するシリアライズなどを提供
 
-次に、`buf`をインストールしましょう。下記リンクがインストール手順です。
-
-- https://github.com/bufbuild/buf#installation
-
+次に、`buf`をインストールしましょう。
 私は、brew でインストールしました。
 
 ```bash
 brew install bufbuild/buf/buf
+# ref: https://github.com/bufbuild/buf#installation
 ```
 
-では、ProtocolBuffer から TypeScript コードを生成しましょう。
+では、ProtocolBuffer スキーマから TypeScript ファイルを生成しましょう。
 
 ```bash
 buf generate --template buf.gen.yaml buf.build/bufbuild/eliza
 ```
 
-成功すると、次の 2 つの TypeScript コードが生成されます。
+成功すると、次の 2 つの TypeScript ファイルが生成されます。
 
 - gen/buf/connect/demo/eliza/v1/eliza_connectweb.ts
 - gen/buf/connect/demo/eliza/v1/eliza_pb.ts
@@ -197,13 +195,12 @@ export class SayResponse extends Message<SayResponse> {
 ## 2. 生成された TypeScript ファイルから gRPC クライアントを実装
 
 では、gRPC のクライアントを実装しましょう。
-gRPC のクライント生成は、`import { createPromiseClient } from "@bufbuild/connect-web";` でできます。
+gRPC のクライント生成は、`createPromiseClient` でできます。
 生成時の引数に、サービスとトランスポート(?)というものを渡す必要があります。
-コードを見たほうがわかりやすいと思うので、次のようなコードを書きます。
+コードを見たほうがわかりやすいと思うので、次のコードを見てください。
 
 ```typescript
 // client.ts
-
 import { useMemo } from "react";
 import { ServiceType } from "@bufbuild/protobuf";
 import {
@@ -245,7 +242,7 @@ function App() {
 ```
 
 このように、ProtocolBuffers の ElizaService が、型補完として使えるようになります。
-良い感じです。
+良い感じです！
 
 ## 終わりに
 

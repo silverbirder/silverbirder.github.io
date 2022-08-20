@@ -34,3 +34,7 @@
 ## SpreadSheet
 
 * [POV](https://docs.google.com/spreadsheets/d/e/2PACX-1vSpbSeaOPVSKyi36bwbBXQ56DbXNzLEp-anI4PHfXps4pa7gWUMDGHjNmVy1gl945o4aNGCszPWxcKm/pubhtml)
+
+## Slide
+
+* [至宝のミスタードーナツ](https://gamma.app/docs/--gsja1jdqk543srm?token=jg0q3n5ipafqw5v)

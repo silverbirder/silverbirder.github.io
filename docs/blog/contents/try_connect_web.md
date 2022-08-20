@@ -2,24 +2,22 @@
 title: connect-webやってみた
 published: true
 date: 2022-08-20
-description:
+description: connect-web の記事が、はてブでトレンドになっていました。気になったので、試してみました。
 tags: ["gRPC", "Connect-Web", "React"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1660991073/silver-birder.github.io/connect-web-sample.png
 ---
 
-connect-web の記事が、はてブでトレンドになっていました。気になったので、試してみました。
-
-<ogp-me src="https://future-architect.github.io/articles/20220819a/"></ogp-me>
+[connect-web の記事](https://future-architect.github.io/articles/20220819a/)が、はてブでトレンドになっていました。気になったので、試してみました。
 
 サンプルコードは、次のリポジトリに置いています。
 
-<ogp-me src="https://github.com/Silver-birder/playground/tree/main/node/connect-web-example/frontend"></ogp-me>
+- https://github.com/Silver-birder/playground/tree/main/node/connect-web-example/frontend
 
 ## gRPC と connect-web の雑な理解
 
 RPC (Remote Procedure Call) を実現するためのプロトコルとして、gRPC があります。
 このプロトコルは、ブラウザ側からは使えない(?)ため、gRPC-Web というブラウザ向けの gRPC というものを使うことになります。
-その場合、ブラウザとサーバーとの間に、プロキシを建てる必要があるようです。
+その場合、ブラウザとサーバーとの間に、プロキシを建てる必要があるようです。(たぶん)
 
 そこで、Connect という gRPC 互換の HTTP API を構築するためのライブラリ群が開発されました。
 これのおかげで、プロキシを建てる必要がなくなります。
@@ -29,17 +27,49 @@ RPC (Remote Procedure Call) を実現するためのプロトコルとして、g
 上記ページに、バックエンドは connect-go、フロントエンドは connect-web という項目があります。
 connect-web は、ブラウザから RPC を動かすための小さなライブラリです。タイプセーフなライブラリなため、
 型補完が効きます。
+connect-go は、go で Connect のサービスを作ることができます。
+
+そのため、フロントエンドの開発は、connect-web を使うことになります。
+以降は、フロントエンドの作業を、紹介します。ちなみに、React を使います。
 
 ## やってみた
 
-フロントエンド側は、次の 2 つの作業だけです。
+フロントエンド側は、次の 2 つの作業になります。
 
-1. Protocol Buffer スキーマから TypeScript コードに変換する
-2. 生成された TypeScript ファイルから gRPC クライアントを書く
+1. Protocol Buffer スキーマから TypeScript コードに生成
+2. 生成された TypeScript ファイルから gRPC クライアントを実装
 
-## 1. Protocol Buffer スキーマから TypeScript コードに変換する
+## 1. Protocol Buffer スキーマから TypeScript コードに生成
+
+gRPC で通信するためのスキーマ、ProtocolBuffer スキーマが必要です。
+これは、すでにあるものを使います。
+
+- https://buf.build/bufbuild/eliza
+
+具体的には、次のようなスキーマです。
+
+```protobuf
+syntax = "proto3";
+
+service ElizaService {
+  rpc Say(SayRequest) returns (SayResponse) {}
+}
+
+message SayRequest {
+  string sentence = 1;
+}
+
+message SayResponse {
+  string sentence = 1;
+}
+```
+
+TypeScript コードを生成するために、`buf` という CLI を使います。
+buf で利用する、次の定義ファイルを書きます。
 
 ```yaml
+# buf.gen.yaml
+
 # buf.gen.yaml defines a local generation template.
 # For details, see https://docs.buf.build/configuration/v1/buf-gen-yaml
 version: v1
@@ -58,20 +88,122 @@ plugins:
     opt: target=ts
 ```
 
+これは、後述する `buf generate` するときにどういう出力をするかの設定情報です。
+codegen の yaml ファイルみたいなものかなと思います。
+これを動かすために、次の module をインストールしましょう。
+
+```bash
+# plugin
+yarn add --dev @bufbuild/protoc-gen-connect-web @bufbuild/protoc-gen-es
+# runtime
+yarn add @bufbuild/connect-web @bufbuild/protobuf
 ```
-buf generate buf.build/bufbuild/eliza
+
+- plugin
+  - protoc-gen-es
+    - リクエストやレスポンスメッセージのような基本型を生成
+  - protoc-gen-connect-web
+    - Protocol Buffer スキーマからサービスを生成
+- runtime
+  - bufbuild/connect-web
+    - Connect および gRPC-web プロトコルのクライアントを提供
+  - bufbuild/protobuf
+    - 基本型に対するシリアライズなどを提供
+
+次に、`buf`をインストールしましょう。下記リンクがインストール手順です。
+
+- https://github.com/bufbuild/buf#installation
+
+私は、brew でインストールしました。
+
+```bash
+brew install bufbuild/buf/buf
 ```
 
-@see: https://buf.build/bufbuild/eliza
+では、ProtocolBuffer から TypeScript コードを生成しましょう。
 
-↓
+```bash
+buf generate --template buf.gen.yaml buf.build/bufbuild/eliza
+```
 
-protoc-gen-es: ProtocolBuffers の Request/Response の基本セット
-protoc-gen-connect-web: ProtocolBuffers スキーマのサービス
+成功すると、次の 2 つの TypeScript コードが生成されます。
 
-## 2. 生成された TypeScript ファイルから gRPC クライアントを書く
+- gen/buf/connect/demo/eliza/v1/eliza_connectweb.ts
+- gen/buf/connect/demo/eliza/v1/eliza_pb.ts
+
+`eliza_connectweb.ts`は、次のコードが含まれています。
 
 ```typescript
+// eliza_connectweb.ts
+import { SayRequest, SayResponse } from "./eliza_pb.js";
+import { MethodKind } from "@bufbuild/protobuf";
+
+export const ElizaService = {
+  typeName: "ElizaService",
+  methods: {
+    say: {
+      name: "Say",
+      I: SayRequest,
+      O: SayResponse,
+      kind: MethodKind.Unary,
+    },
+  },
+} as const;
+```
+
+`eliza_pb.ts`は、次のコードが含まれています。
+
+```typescript
+export class SayRequest extends Message<SayRequest> {
+  /**
+   * @generated from field: string sentence = 1;
+   */
+  sentence = "";
+
+  constructor(data?: PartialMessage<SayRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime = proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.SayRequest";
+  # ... 省略 ...
+}
+
+/**
+ * SayResponse describes the sentence responded by the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.SayResponse
+ */
+export class SayResponse extends Message<SayResponse> {
+  /**
+   * @generated from field: string sentence = 1;
+   */
+  sentence = "";
+
+  constructor(data?: PartialMessage<SayResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime = proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.SayResponse";
+  # ... 省略 ...
+}
+```
+
+これで、準備はできました。
+
+## 2. 生成された TypeScript ファイルから gRPC クライアントを実装
+
+では、gRPC のクライアントを実装しましょう。
+gRPC のクライント生成は、`import { createPromiseClient } from "@bufbuild/connect-web";` でできます。
+生成時の引数に、サービスとトランスポート(?)というものを渡す必要があります。
+コードを見たほうがわかりやすいと思うので、次のようなコードを書きます。
+
+```typescript
+// client.ts
+
 import { useMemo } from "react";
 import { ServiceType } from "@bufbuild/protobuf";
 import {
@@ -82,7 +214,7 @@ import {
 } from "@bufbuild/connect-web";
 
 const transport = createConnectTransport({
-  baseUrl: "https://demo.connect.build",
+  baseUrl: "https://demo.connect.build", # バックエンド側のURL
 });
 
 export function useClient<T extends ServiceType>(service: T): PromiseClient<T> {
@@ -90,7 +222,11 @@ export function useClient<T extends ServiceType>(service: T): PromiseClient<T> {
 }
 ```
 
+このクライアントを、使ってみましょう。
+
 ```typescript
+// App.tsx
+
 import { createConnectTransport, Interceptor } from "@bufbuild/connect-web";
 import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connectweb";
 import { useClient } from "./client";
@@ -107,3 +243,10 @@ function App() {
   // ...
 }
 ```
+
+このように、ProtocolBuffers の ElizaService が、型補完として使えるようになります。
+良い感じです。
+
+## 終わりに
+
+意外とあっさり動いて、びっくりしました。

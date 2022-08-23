@@ -60,8 +60,8 @@ dagger.#Plan & {
 ```
 
 見慣れない構文かもしれませんが、何をやっているかはなんとなく分かるんじゃないかなと思います。
-actions は、実行するものを定義していて、`dagger do build` のようにして使います。
-`source: core.#Source` の `source` はアクション名で、`core` は実行するパッケージになります。
+actions は、実行するものを定義していて、`dagger do <action名>` のようにして使います。
+上の定義にある`source: core.#Source` は、 `source` がアクション名で、`core` が実行するパッケージになります。
 パッケージは、次の 2 つに分類されます。
 
 - [dagger.io](https://github.com/dagger/dagger/tree/main/pkg/dagger.io)

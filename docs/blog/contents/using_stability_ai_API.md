@@ -1,0 +1,83 @@
+---
+title: Stable Diffusion API 開発
+published: true
+date: 2022-09-03
+description: Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。これを自前で動かそうとすると、GPU が必要になります。
+tags: ["Stable Diffusion", "API"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662177842/silver-birder.github.io/blog/stable-diffusion-api-on-slack.jpg
+---
+
+Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。
+これを自分の PC で動かそうとすると、GPU が必要になります。
+(CPU で動かせる[stable_diffusion.openvino](https://github.com/bes-dev/stable_diffusion.openvino) というのもあります)
+
+できれば、どの PC でも使えるように、かつ、Slack などサービスと連携できるよう API がほしいなと思いました。
+そこで、Stable Diffusion の API を開発しました。
+
+## 結論
+
+[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream)の SDK、 [stability-sdk](https://github.com/Stability-AI/stability-sdk)を使いました。
+
+成果物は、次のリポジトリに置いています。
+
+- https://github.com/Silver-birder/stable-diffusion-API
+
+ローカル環境でも、Docker コンテナでも、動きます。
+
+動かすには、[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream)の API Key が必要になります。
+Docker で動くので、Docker をデプロイできるサービスなら、どこでも動きます。(GPU は不要です)
+
+私は、GCP が好きなので、CloudRun というサービスにデプロイしました。
+API は、とりあえず、`<url>/?prompt=<text>` というパラメータを受け取り、画像を返却します。
+
+Slack で使ってみると、こんな感じになりました。
+
+![stable-diffusion-api-on-slack](https://res.cloudinary.com/silverbirder/image/upload/v1662177842/silver-birder.github.io/blog/stable-diffusion-api-on-slack.jpg)
+
+ひとまず、API で Stable Diffusion を動かせました。
+
+## GPU と設計
+
+[stability-sdk](https://github.com/Stability-AI/stability-sdk)を使う前までは、自前で Stable Diffusion を動かす環境を用意しようと設計を考えました。設計の調査メモは、次のリンクにメモを残しています。
+
+- https://zenn.dev/silverbirder/scraps/3842c715662551
+
+具体的に、次のようなパターンを考えました。
+
+1. Google Colaboratory の GPU を使って Stable Diffusion を動かし、簡易な API で公開する
+2. サーバー(GCE や CloudRun など) で GPU を使って Stable Diffusion を動かし、簡易な API で公開する
+3. バッチ(Cloud Batch)で GPU を使って Stable Diffusion を動かし、必要なときに動かす。(API からバッチ処理をキックする)
+
+1 番目は、Google Colaboratory の利用は 12 時間制限というのがあり、そこを回避する何かが必要なります。ただし、本来の用途と外れていると思うので、却下しました。
+
+2 番目は、金銭的に数万~数十万円以上のランニングコストが発生するので却下です。
+
+3 番目は、一番最初の構想したものです。2 番目のような GPU のサーバを常時起動しているとめちゃくちゃもったいないので、
+バッチ処理として 3 番目の案を考えていました。3 番目で実際に構築してみると、(何が原因か深く調べていないですが) 起動に 30 分以上かかってしまい、使い物にならなさそうでした。
+
+で、悩んだ結果、[stability-sdk](https://github.com/Stability-AI/stability-sdk) がメンテナンスやランニングコストも不要で、シュッとできそうだったことに気づきました。
+
+もちろん、デメリットはあります。
+
+- SDK に依存するので、自身がコントロールできない(img2img できない)
+- 課金制
+
+しかし、個人レベルで利用するという前提でしたので、デメリットよりもメリットの方が大きいと判断しました。
+
+## stability-sdk
+
+[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream) は、Stable Diffusion を使っています。
+API として、[stability-sdk](https://github.com/Stability-AI/stability-sdk) を公開しています。
+使うには、Python で書く必要があります。
+ソースコードを読むと、gRPC を使っているため、別言語で SDK を書くのは比較的簡単だと思います。
+私は、Python でシュッと書けるので、flask と stability-sdk を使いました。
+
+- https://github.com/Silver-birder/stable-diffusion-API
+
+ひとまず、Prompt だけを受け付ける超絶シンプルな API を書きました。
+[stability-sdk](https://github.com/Stability-AI/stability-sdk)は、様々パラメータがあるので、それも受け付けられるようにしようかなと思ったり、Midjourney の discord のボットのようなモノを書いても面白そうだなと思いました。
+
+## 終わりに
+
+マークダウンで、画像を読み込むときに、今回開発した API を指定すると、マークダウンを開いたタイミングで画像が毎回変わります。
+prompt と seed を指定すれば固定できるんですけど、こういうのも面白いなと思っています。

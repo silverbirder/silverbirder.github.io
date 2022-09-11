@@ -2,8 +2,9 @@
 title: turborepo-remote-cache でキャッシュサーバをセルフホストした
 published: true
 date: 2022-09-11
-description: XXX
+description: vercel 製の turborepo という ビルドシステムが爆速なモノレポツールがあります。爆速にする機能の 1 つに、リモートキャッシュというものがあります。この機能は vercel のキャッシュサーバを使うのですが、キャッシュサーバをセルフホストする方法もあります。今回は、それを紹介します。
 tags: ["Turborepo"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662900642/silver-birder.github.io/blog/danny-sleeuwenhoek-YkBaEl7f1C8-unsplash.jpg
 ---
 
 vercel 製の turborepo という ビルドシステムが爆速なモノレポツールがあります。
@@ -43,7 +44,8 @@ Docker イメージが公開されているので、それを使っても良い�
 
 簡単にするため、次の.env ファイルを用意しました。
 
-```.env
+```
+# .env
 TURBO_TOKEN=mytoken
 STORAGE_PATH=/storage/
 ```
@@ -60,6 +62,8 @@ services:
     ports:
       - "3000:3000"
 ```
+
+次のコマンドで、キャッシュサーバを起動しましょう。
 
 ```bash
 $ docker-compose up -d
@@ -136,8 +140,6 @@ total 5392
 -rw-r--r--  1 silverbirder  staff   1.3M Sep 11 16:20 5a55c6367c8caf01
 ```
 
-![turborepo_remote_cache_obj](https://res.cloudinary.com/silverbirder/image/upload/v1662900020/silver-birder.github.io/blog/turborepo_remote_cache_obj.png)
-
 --team オプションで指定した名前で、フォルダが作成されています。
 そのため、team 毎にキャッシュが作成されます。
 
@@ -145,7 +147,7 @@ total 5392
 
 turborepo のキャッシュについては、[公式](https://turborepo.org/docs/core-concepts/caching) を読むと良いでしょう。
 
-ざっくりいうと、次の流れで キャッシュの miss, hit になります。
+ざっくりいうと、次の流れで cache miss,cache hit になります。
 
 1. turbo build を実行
 2. turbo.json の`build`タスクの inputs(ソースコードなど)や環境変数をハッシュ化

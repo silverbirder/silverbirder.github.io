@@ -8,7 +8,7 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1665838875/si
 ---
 
 GraphQL Guild ってご存知ですか？
-GraphQL 界隈だと、Code Generator が有名と思いますが、Guild は、それら GraphQL 関連の OSS を開発しているグループです。([詳しくは、こちら](https://the-guild.dev/about-us))
+GraphQL 界隈だと、Code Generator が有名と思いますが、GraphQL Guild は、それら GraphQL 関連の OSS を開発しているグループです。([詳しくは、こちら](https://the-guild.dev/about-us))
 
 GraphQL Guild のエコシステムって便利だな〜って感じたことがあったので、紹介します。
 試したソースコードは、こちらにあります。
@@ -22,7 +22,7 @@ GraphQL Guild のエコシステムって便利だな〜って感じたことが
 - git submodule で、サーバーリポジトリをクライアントリポジトリに入れる
 - git clone で、GraphQL Schema ファイルをダウンロードするスクリプトを書く
 
-git を扱うと、CI/CD のプロセスやいくつかの面で、面倒なことがあります。
+git を扱うと、CI/CD のプロセスやいくつかの場面で、面倒なことがあります。
 そこで、GraphQL の SchemaURL を指定するだけで、Schema をダウンロードする機能が、`GraphQL CLI` にあります。
 
 - https://www.graphql-cli.com/introduction
@@ -91,9 +91,9 @@ GraphQL を利用する側としては、どのようなクエリが書けるか
 具体的には、次の 3 つです。
 
 - `@graphql-cli/coverage`
-  - Document のオペレーションを元に、Schema がどれくらい使われているかわかる。
+  - Document のオペレーションを元に、Schema がどれくらい使われているかわかる
 - `@graphql-cli/diff`
-  - ローカルのリモートの GraphQL Schema の違いを教えてくれる
+  - ローカルとリモートの GraphQL Schema の違いを教えてくれる
 - `@graphql-cli/validate`
   - Document のオペレーション が、GraphQL Schema 定義に反していないかチェックしてくれる
 

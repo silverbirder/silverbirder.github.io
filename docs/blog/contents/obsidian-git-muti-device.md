@@ -32,6 +32,9 @@ Obsidian v1.0 リリースを機に、もう一度使ってみた。
 
 ありゃ、使ってみて困ったこと
 
-* スマホで、branch pull して、switch branch でmain以外が見つからないぞ...
+
 * pullじゃなくて、fetch ないのか
+* desktop、create branch → push しようとすると、upstreamを求められて、origin、ブランチ名をpromptで入力。select or create ってplaceholderあったから、createしてくれるんかと思ったら、`git fatel bad revision null` と言われた...
+* スマホで、branch pull して、switch branch でmain以外が見つからないぞ...
+* 基本的に、mainブランチでガンガンコミット pull するしか、ないかな。
 * checkoutして、新しいブランチ作れるけど、pushできないな。set-upstream ができない

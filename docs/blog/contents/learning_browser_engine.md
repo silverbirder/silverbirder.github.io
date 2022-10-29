@@ -466,7 +466,7 @@ li {
 
 [askerry/toy-browser](https://github.com/askerry/toy-browser)のメインコード(main.cc)を載せます。
 
-```c++
+```c
 /* https://github.com/askerry/toy-browser/blob/master/src/main.cc */
 namespace {
 
@@ -558,7 +558,7 @@ int main(int argc, char **argv) {
 
 1. HTMLとCSSをパース
 
-```c++
+```c
 // Parse HTML and CSS files.
 const std::string source = io::readFile(FLAGS_html_file);
 std::unique_ptr<dom::Node> root = html_parser::parseHtml(source);
@@ -568,7 +568,7 @@ const std::unique_ptr<css::StyleSheet const> stylesheet = css::parseCss(css);
 
 2. 1の結果からStyle tree(Render tree)を構築
 
-```c++
+```c
 // Align styles with DOM nodes.
 std::unique_ptr<style::StyledNode> styled_node =
     style::styleTree(*root, stylesheet, style::PropertyMap());
@@ -576,7 +576,7 @@ std::unique_ptr<style::StyledNode> styled_node =
 
 3. 2の結果からLayout treeを構築
 
-```c++
+```c
 // Create layout tree for the specified viewport dimensions.
 std::unique_ptr<layout::LayoutElement> layout_root =
     layout::layout_tree(sn, viewport);
@@ -584,7 +584,7 @@ std::unique_ptr<layout::LayoutElement> layout_root =
 
 4. 3をpaintという描画
 
-```c++
+```c
 // Paint to window.
 paint(*layout_root, viewport.content, window);
 ```

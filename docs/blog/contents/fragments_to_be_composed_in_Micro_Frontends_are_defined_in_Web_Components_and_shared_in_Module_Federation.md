@@ -206,7 +206,7 @@ export { SearchButton } from "./SearchButton";
 何をコンテナとして提供するか export します。
 次に、webpack の plugins コードを定義します。
 
-```js
+```javascript
 // .packages/team-search/webpack.config.js
 ...
 const config = {
@@ -246,7 +246,7 @@ const config = {
 
 では、コンテナをロードする組成側のビルド(webpack)を見てみます。
 
-```js
+```javascript
 // ./webpack.config.js
 const URL_MAP = {
   content: process.env.CONTENT_URL || "http://localhost:3001",

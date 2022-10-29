@@ -115,7 +115,7 @@ Chromeは、Chromiumを元に開発されています。
 HTMLはDTD（Document Type Definition）で文脈自由文法なため、機械的に解析できます。
 ただ、HTMLは寛大な仕様で、次のようなパターンも許容するようになっています。
 
-* \<br\>の代わりの\<\/br\>
+* `<br>`の代わりの`</br>`
 * 迷子のテーブル
 * 入れ子のフォーム要素
 * 深すぎるタグ階層
@@ -175,7 +175,7 @@ DOMとレンダーオブジェクトは、1対1という訳ではなく、例え
 CSSボックスモデルの図を参考までに共有しておきます。
 
 <figure title="CSS 基本ボックスモデル">
-<img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3).png" alt="CSS 基本ボックスモデル">
+<img src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model/boxmodel-(3).png" alt="CSS 基本ボックスモデル">
 <figcaption><span><a href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">CSS 基本ボックスモデル - developer.mozilla.org</a></span></figcaption>
 </figure>
 
@@ -235,7 +235,7 @@ Toyブラウザエンジン(mbrubeck)のメインフローが、これまでの�
 Style treeは、これまでの話でいうとRender treeだと思います。
 Toyブラウザエンジン(mbrubeck)に、次のHTMLとCSSを読み込ませると、下記の画像のようなアウトプットになります。
 
-```
+```html
 <!-- https://github.com/mbrubeck/robinson/blob/master/examples/test.html -->
 <html>
   <head>
@@ -252,7 +252,7 @@ Toyブラウザエンジン(mbrubeck)に、次のHTMLとCSSを読み込ませる
 </html>
 ```
 
-```
+```css
 /* https://github.com/mbrubeck/robinson/blob/master/examples/test.css */
 * {
   display: block;
@@ -314,7 +314,7 @@ span#name {
 Toyブラウザエンジン(askerry)に、次のHTMLとCSSを読み込ませると、下記の画像のようなアウトプットになります。
 見たら分かると思いますが、とても高機能です。
 
-```
+```html
 <!-- https://github.com/askerry/toy-browser/blob/master/examples/demo.html -->
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -374,7 +374,7 @@ Toyブラウザエンジン(askerry)に、次のHTMLとCSSを読み込ませる�
 </html>
 ```
 
-```
+```css
 /* https://github.com/askerry/toy-browser/blob/master/examples/demo.css */
 body {
     font-family: Arial, sans-serif;
@@ -466,7 +466,7 @@ li {
 
 [askerry/toy-browser](https://github.com/askerry/toy-browser)のメインコード(main.cc)を載せます。
 
-```
+```c++
 /* https://github.com/askerry/toy-browser/blob/master/src/main.cc */
 namespace {
 
@@ -558,7 +558,7 @@ int main(int argc, char **argv) {
 
 1. HTMLとCSSをパース
 
-```
+```c++
 // Parse HTML and CSS files.
 const std::string source = io::readFile(FLAGS_html_file);
 std::unique_ptr<dom::Node> root = html_parser::parseHtml(source);
@@ -568,7 +568,7 @@ const std::unique_ptr<css::StyleSheet const> stylesheet = css::parseCss(css);
 
 2. 1の結果からStyle tree(Render tree)を構築
 
-```
+```c++
 // Align styles with DOM nodes.
 std::unique_ptr<style::StyledNode> styled_node =
     style::styleTree(*root, stylesheet, style::PropertyMap());
@@ -576,7 +576,7 @@ std::unique_ptr<style::StyledNode> styled_node =
 
 3. 2の結果からLayout treeを構築
 
-```
+```c++
 // Create layout tree for the specified viewport dimensions.
 std::unique_ptr<layout::LayoutElement> layout_root =
     layout::layout_tree(sn, viewport);
@@ -584,7 +584,7 @@ std::unique_ptr<layout::LayoutElement> layout_root =
 
 4. 3をpaintという描画
 
-```
+```c++
 // Paint to window.
 paint(*layout_root, viewport.content, window);
 ```

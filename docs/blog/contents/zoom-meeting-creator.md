@@ -27,7 +27,7 @@ GASからZoomのMeetingを作れるのって、簡単なんだな〜と思いつ
 
 # 作ったもの
 
-<ogp-me src="https://github.com/Silver-birder/zoom-meeting-creator"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/zoom-meeting-creator"></ogp-me>
 
 これをGAS側でライブラリ追加すると使えます。
 このGASでは、

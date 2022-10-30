@@ -14,7 +14,7 @@ Twitterに投稿されているLinkを収集するツール Cotlin を作りま�
 
 から、Cotlinという名前にしました。Androidのアレに似ています。
 
-<ogp-me src="https://github.com/Silver-birder/Cotlin"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/Cotlin"></ogp-me>
 
 <ogp-me src="https://www.npmjs.com/package/@silverbirder/cotlin"></ogp-me>
 
@@ -26,14 +26,14 @@ Twitterに投稿されているLinkを収集するツール Cotlin を作りま�
 
 # 技術スタック
 Google Apps Script ([Clasp](https://github.com/google/clasp/)) + Twitter API ([tweet search API](https://developer.twitter.com/en/docs/tweets/search/overview)) です。
-[ライブラリを公開](https://github.com/Silver-birder/Cotlin#use-by-google-apps-script)していて、それを元に[API](https://github.com/Silver-birder/Cotlin/blob/master/sample/api.js)と[Client](https://github.com/Silver-birder/Cotlin/blob/master/sample/client.js)を簡単に作れるようにサンプルコードも用意しています。使い方は、全て[README.md](https://github.com/Silver-birder/Cotlin/blob/master/README.md)にあります。
+[ライブラリを公開](https://github.com/silverbirder/Cotlin#use-by-google-apps-script)していて、それを元に[API](https://github.com/silverbirder/Cotlin/blob/master/sample/api.js)と[Client](https://github.com/silverbirder/Cotlin/blob/master/sample/client.js)を簡単に作れるようにサンプルコードも用意しています。使い方は、全て[README.md](https://github.com/silverbirder/Cotlin/blob/master/README.md)にあります。
 
 # 困ったこと
 Tweetに記述したリンクは、全て[t.co](https://help.twitter.com/ja/using-twitter/url-shortener)に短縮されてしまいます。
 この短縮URLからオリジナルURLを手に入れるために、リダイレクトする必要があります。
 実際に作ってみると、次のような記事に書いたとおり、GASで書くと、少し困ったことがありました。
 
-<ogp-me src="https://silver-birder.github.io/blog/contents/gas_fetchall_redirect"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/blog/contents/gas_fetchall_redirect"></ogp-me>
 
 そこで、複数のリダイレクトURLへリクエストする処理を並列化するために、Golangで開発していました。
 

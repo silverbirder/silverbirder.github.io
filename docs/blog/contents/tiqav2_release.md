@@ -85,7 +85,7 @@ Algoliaに保存する情報は、主に3つです。画像URLと拡張子、そ
 
 詳しい機能は、次のリポジトリをご確認下さい。
 
-<ogp-me src="https://github.com/Silver-birder/tiqav2"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/tiqav2"></ogp-me>
 
 # SaaSは個人開発には最適
 今回、全文検索であったり画像管理は、SaaSに全て任せました。テキスト抽出はなくてもよかったのですが、Google Cloud Vision APIが、そこそこ使えたため、そちらも使いました。

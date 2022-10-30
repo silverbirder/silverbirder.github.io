@@ -13,12 +13,12 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 # 技術
 ## UseCotlin
 
-2020年3月より、自前で作ったツール [Cotlin](https://github.com/Silver-birder/Cotlin) で技術キャッチアップをはじめました。このツールは、Twitterに投稿された技術資料(ex.speakerdeck,slideshare)を収集するだけのツールです。日本だと、技術勉強会の資料はTwitterで投稿する習慣が（私の観測範囲では）あるため
+2020年3月より、自前で作ったツール [Cotlin](https://github.com/silverbirder/Cotlin) で技術キャッチアップをはじめました。このツールは、Twitterに投稿された技術資料(ex.speakerdeck,slideshare)を収集するだけのツールです。日本だと、技術勉強会の資料はTwitterで投稿する習慣が（私の観測範囲では）あるため
 、この習慣を利用して、様々な技術資料を広く発見できることができます。
 
 下記のスプレッドシートに、技術資料リンクを自動登録しています。
 
-[UseCotlin (github.com/Silver-birder/Cotlin)](https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit)
+[UseCotlin (github.com/silverbirder/Cotlin)](https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit)
 
 日本だけじゃなく、海外の技術資料も発見できるので、色々な観点の技術を知ることができました。例えば、テスト手法、アーキテクチャの考え方、働き方の考え方などです。これを毎日欠かさずキャッチアップし続けていました。
 

@@ -17,7 +17,7 @@ Chrome拡張機能は、Chromeブラウザをカスタマイズするための�
 
 ちなみに、実際に作ったものは次のものです。
 
-* https://github.com/Silver-birder/chrome-extensions-tiktok-scraping-downloader
+* https://github.com/silverbirder/chrome-extensions-tiktok-scraping-downloader
   * 上にある図が、このChrome拡張機能の設計図になります
 
 ※ Chrome拡張機能の概要について詳しく知りたい方は、[What are extensions? - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/overview/)をご覧ください。

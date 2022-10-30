@@ -24,7 +24,7 @@ iframely というサービスを使っていましたが、自前で作りた�
 
 ## ogp-me
 
-<ogp-me src="https://silver-birder.github.io/blog/contents/intro_rocket/"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/blog/contents/intro_rocket/"></ogp-me>
 
 ## 終わりに
 

@@ -7,16 +7,16 @@ module.exports = function () {
     socialLinks: [
       {
         name: 'GitHub',
-        url: 'https://github.com/Silver-birder/Silver-birder.github.io',
+        url: 'https://github.com/silverbirder/silverbirder.github.io',
       },
       {
         name: 'Twitter',
         url: 'https://twitter.com/silver_birder',
       }
     ],
-    gitSiteUrl: 'https://github.com/Silver-birder/Silver-birder.github.io',
+    gitSiteUrl: 'https://github.com/silverbirder/silverbirder.github.io',
     gitBranch: 'main',
-    helpUrl: 'https://github.com/Silver-birder/Silver-birder.github.io/issues',
+    helpUrl: 'https://github.com/silverbirder/silverbirder.github.io/issues',
     logoAlt: 'Rocket Logo',
     iconColorMaskIcon: '#3f93ce',
     iconColorMsapplicationTileColor: '#1d3557',

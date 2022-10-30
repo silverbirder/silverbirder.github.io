@@ -13,7 +13,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144299
 Zalando社が開発したTailorを使って、サンプルWebアプリをMicro Frontendsで構築してみました。Tailorはサーバーサイドで統合するアーキテクチャです。クライアントサイドは、Web Componentsで作られているLit Elementを使って統合しました。どういった内容か、ここに投稿しようと思います。
 
 作ったリポジトリは、下記に残しています。
-<ogp-me src="https://github.com/Silver-birder/micro-frontends-sample-code-4"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/micro-frontends-sample-code-4"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -336,9 +336,9 @@ typescriptの処理をリアクティブな雰囲気でコーディングした�
 # 所感
 これまで、Podium、Ara-Framework, そして Tailor といったMicro Frontendsに関わるサーバーサイド統合ライブラリを使ってみました。
 
-<ogp-me src="https://silver-birder.github.io/blog/contents/microfrontends"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/blog/contents/microfrontends"></ogp-me>
 
-<ogp-me src="https://silver-birder.github.io/blog/contents/ara-framework"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/blog/contents/ara-framework"></ogp-me>
 
 これらは、どれも考え方が良いなと思っています。
 Podiumのフラグメントのインターフェース設計、Ara-FrameworkのRenderとデータ取得の明確な分離、そしてTailorのストリーム統合です。

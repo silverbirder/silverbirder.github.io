@@ -4,15 +4,15 @@ published: true
 date: 2021-01-16
 description: 2021年、あけましておめでとうございます。本年も宜しくおねがいします。最近、体重が増えてしまったため、有酸素運動を頑張っています。本記事は、昨年の冬あたりから検証していた クライアントサイド統合でのMicro Frontendsについて話そうと思います。検証したソースコードは、次のリポジトリにあります。
 tags: ["Client Side", "Es Module", "Micro Frontends"]
-cover_image: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/Silver-birder/micro-frontends-sample-code-6/main/overview.svg
-socialMediaImage: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/Silver-birder/micro-frontends-sample-code-6/main/overview.svg
+cover_image: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg
 ---
 
 2021年、あけましておめでとうございます。本年も宜しくおねがいします。最近、体重が増えてしまったため、有酸素運動を頑張っています。
 
 本記事は、昨年の冬あたりから検証していた クライアントサイド統合でのMicro Frontendsについて話そうと思います。検証したソースコードは、次のリポジトリにあります。
 
-<ogp-me src="https://github.com/Silver-birder/micro-frontends-sample-code-6"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/micro-frontends-sample-code-6"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -20,7 +20,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/fetch/f_auto/htt
 
 全体設計イメージ図は、次のとおりです。
 
-![overview](https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/Silver-birder/micro-frontends-sample-code-6/main/overview.svg)
+![overview](https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg)
 
 サーバーサイドは静的コンテンツを返すだけとし、クライアントサイドでアプリケーションを構築します。
 

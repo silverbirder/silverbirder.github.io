@@ -22,7 +22,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144305
 # あなたは誰？
 詳しくは、私のポートフォリオを参照下さい。
 
-<ogp-me src="https://silver-birder.github.io/"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/"></ogp-me>
 
 Webアプリケーションが大好きなエンジニアです。
 今は、ECサイトのフロントエンドエンジニアをしています。

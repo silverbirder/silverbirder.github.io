@@ -34,9 +34,9 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 当初、(CMでよく目にしていた)ビズリーチで転職先を探していたのですが、次の理由で使うのを諦めました。
 
 * 登録したい情報に、私の成果物をリンクできない
-  * [Github](https://github.com/Silver-birder)
-  * [ポートフォリオ](https://silver-birder.github.io)
-  * [職務経歴書](https://silver-birder.github.io/resume/)
+  * [Github](https://github.com/silverbirder)
+  * [ポートフォリオ](https://silverbirder.github.io)
+  * [職務経歴書](https://silverbirder.github.io/resume/)
     * 必要に応じてPDF化
 
 そこで、Githubと連携が可能なFindyというサービスに乗り換えました。

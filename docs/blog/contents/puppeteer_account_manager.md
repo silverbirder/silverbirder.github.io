@@ -13,7 +13,7 @@ GoogleやGithubなど、様々なサービスのプロフィール情報(画像,
 
 リポジトリは、こちらです。
 
-<ogp-me src="https://github.com/Silver-birder/puppeteer-account-manager"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/puppeteer-account-manager"></ogp-me>
 
 <!--  TODO: TOC -->
 # なんで作ったの？
@@ -97,7 +97,7 @@ Dockerコンテナで動作できるようにしているので、ローカル�
 
 詳しくは、
 
-[https://github.com/Silver-birder/puppeteer-account-manager/blob/master/src/index.ts](https://github.com/Silver-birder/puppeteer-account-manager/blob/master/src/index.ts) をご確認下さい。
+[https://github.com/silverbirder/puppeteer-account-manager/blob/master/src/index.ts](https://github.com/silverbirder/puppeteer-account-manager/blob/master/src/index.ts) をご確認下さい。
 
 # どんな学びがあった？
 

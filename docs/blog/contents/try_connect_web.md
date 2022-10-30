@@ -11,7 +11,7 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1660991073/si
 
 サンプルコードは、次のリポジトリに置いています。
 
-- https://github.com/Silver-birder/playground/tree/main/node/connect-web-example/frontend
+- https://github.com/silverbirder/playground/tree/main/node/connect-web-example/frontend
 
 ## 前置き: gRPC と connect-web の雑な理解
 

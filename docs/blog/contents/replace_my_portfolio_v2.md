@@ -50,7 +50,7 @@ AMPを存分に使ったポートフォリオサイトを作成しました。�
 [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
 ソースコードは、下記のリポジトリにあります。
 
-<ogp-me src="https://github.com/Silver-birder/silver-birder.github.io"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/silverbirder.github.io"></ogp-me>
 
 # 技術選択
 

@@ -2,4 +2,4 @@
 
 Welcome to silverbirder's page!
 
-Go to the https://silver-birder.github.io !
+Go to the https://silverbirder.github.io !

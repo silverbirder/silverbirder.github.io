@@ -10,11 +10,11 @@ Micro Frontends(以降、MFE)で組成するフラグメントを Web Components
 
 サンプルコードは、次のリポジトリにあります。
 
-- https://github.com/Silver-birder/playground/tree/main/node/web-components-is-api-for-micro-frontends
+- https://github.com/silverbirder/playground/tree/main/node/web-components-is-api-for-micro-frontends
 
 ※ MFE については、以下のブログ記事をお読みください。
 
-<ogp-me src="https://silver-birder.github.io/blog/contents/mfe/"></ogp-me>
+<ogp-me src="https://silverbirder.github.io/blog/contents/mfe/"></ogp-me>
 
 ## 用語
 

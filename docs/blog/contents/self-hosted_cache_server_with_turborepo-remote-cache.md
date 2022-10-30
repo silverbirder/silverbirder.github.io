@@ -21,7 +21,7 @@ vercel のキャッシュサーバを使う場合、vercel のアカウントが
 
 実際に試してみました。ソースコードは、次のリンクにあります。
 
-- https://github.com/Silver-birder/turborepo-with-selfhost-remote-cache
+- https://github.com/silverbirder/turborepo-with-selfhost-remote-cache
 
 手元に Git clone して、README に従って動作確認できると思います。必要なソフトウェアは、Docker と Yarn です。
 

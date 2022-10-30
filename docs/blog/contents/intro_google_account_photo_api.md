@@ -10,17 +10,17 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 
 みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)
 
-最近、自身の[ポートフォリオページ](https://silver-birder.github.io/)刷新を検討しており、プロフィール画像をどうするか悩みました。ポートフォリオのベースドキュメントは、Markdownを採用しています。
+最近、自身の[ポートフォリオページ](https://silverbirder.github.io/)刷新を検討しており、プロフィール画像をどうするか悩みました。ポートフォリオのベースドキュメントは、Markdownを採用しています。
 
 プロフィール画像を固定で保持させず、API経由でプロフィール画像を設定できないかと思い、今回、**Googleアカウント画像を返却するだけのAPI、Google Account Photo API**を作成しました。
 
-APIのソースコードは、[こちら(Github)](https://github.com/Silver-birder/Google-Account-Photo-API)です。1時間程度で作ったので、正常パターンしか見ていません。(笑) ご了承ください。
+APIのソースコードは、[こちら(Github)](https://github.com/silverbirder/Google-Account-Photo-API)です。1時間程度で作ったので、正常パターンしか見ていません。(笑) ご了承ください。
 
 # Googleアカウント画像ってどれ？
 
 Googleのアカウント画像は、[www.google.com](https://www.google.com/) で表示されている右上の画像です。(ログインしている方のみ)
 
-![Google Chrome Home Page](https://github.com/Silver-birder/Google-Account-Photo-API/blob/main/assets/i_want_to_that_image.png?raw=true)
+![Google Chrome Home Page](https://github.com/silverbirder/Google-Account-Photo-API/blob/main/assets/i_want_to_that_image.png?raw=true)
 
 # APIの使い方
 

@@ -83,8 +83,8 @@ MFEでは、各フロントエンドのフラグメント(HTML)を、どのタ�
 フラグメントを提供するサーバーを準備し、それらからフラグメント情報を収集し、全体のページHTMLを構築します。それをSSRとしてユーザーへ提供します。
 
 <figure title="cloudflare-worker">
-<img alt="cloudflare-worker" src="https://raw.githubusercontent.com/Silver-birder/micro-frontends-sample-code-5/f3c20954e6196cb578cd16caaf5999e07306fb51/overview.svg">
-<figcaption><a href="https://github.com/Silver-birder/micro-frontends-sample-code-5">github.com/Silver-birder/micro-frontends-sample-code-5</a></figcaption>
+<img alt="cloudflare-worker" src="https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-5/f3c20954e6196cb578cd16caaf5999e07306fb51/overview.svg">
+<figcaption><a href="https://github.com/silverbirder/micro-frontends-sample-code-5">github.com/silverbirder/micro-frontends-sample-code-5</a></figcaption>
 </figure>
 
 サーバーサイドのサンプルコードは、次にまとめています。
@@ -121,15 +121,15 @@ MFEのアプローチを実際に導入した企業は、国内だとまだ比�
 
 * [Micro Frontends を学んだすべて](./microfrontends.md)
 * [Micro Frontends を調べたすべて](./think_micro_frontends.md)
-* [MFE関連資料リンク集](https://github.com/Silver-birder/think-micro-frontends/blob/master/research/docs/read.md)
+* [MFE関連資料リンク集](https://github.com/silverbirder/think-micro-frontends/blob/master/research/docs/read.md)
 * [Ara-Framework で Micro Frontends with SSR](./ara-framework.md)
 * [Zalando tailor で Micro Frontends with ( LitElement & etcetera)](./tailor.md)
 * [Cloudflare Workers (Edge Workers) で Micro Frontends](./cloudflare_workers_mfe.md)
-* [github.com/Silver-birder/micro-frontends-on-kubernetes](https://github.com/Silver-birder/micro-frontends-on-kubernetes)
+* [github.com/silverbirder/micro-frontends-on-kubernetes](https://github.com/silverbirder/micro-frontends-on-kubernetes)
 * [speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial](https://speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial)
-* [github.com/Silver-birder/think-micro-frontends](https://github.com/Silver-birder/think-micro-frontends)
-* [github.com/Silver-birder/micro-frontends-sample-code](https://github.com/Silver-birder/micro-frontends-sample-code)
-* [github.com/Silver-birder/micro-frontends-sample-code-2](https://github.com/Silver-birder/micro-frontends-sample-code-2)
-* [github.com/Silver-birder/micro-frontends-sample-code-3](https://github.com/Silver-birder/micro-frontends-sample-code-3)
-* [github.com/Silver-birder/micro-frontends-sample-code-4](https://github.com/Silver-birder/micro-frontends-sample-code-4)
-* [github.com/Silver-birder/micro-frontends-sample-code-5](https://github.com/Silver-birder/micro-frontends-sample-code-5)
+* [github.com/silverbirder/think-micro-frontends](https://github.com/silverbirder/think-micro-frontends)
+* [github.com/silverbirder/micro-frontends-sample-code](https://github.com/silverbirder/micro-frontends-sample-code)
+* [github.com/silverbirder/micro-frontends-sample-code-2](https://github.com/silverbirder/micro-frontends-sample-code-2)
+* [github.com/silverbirder/micro-frontends-sample-code-3](https://github.com/silverbirder/micro-frontends-sample-code-3)
+* [github.com/silverbirder/micro-frontends-sample-code-4](https://github.com/silverbirder/micro-frontends-sample-code-4)
+* [github.com/silverbirder/micro-frontends-sample-code-5](https://github.com/silverbirder/micro-frontends-sample-code-5)

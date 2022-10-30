@@ -34,7 +34,7 @@ Googleは気を利かせて、次のような予定を勝手に登録してく�
 先程あげた例のメールも、同様のことが勝手にしてくれたら良いな〜と思っていました。
 そこで、rMincというツールを作りました。
 
-※ 昔、[gas-for-amazon-calendar](https://github.com/Silver-birder/gas-for-amazon-calendar)という、アマゾンからのお届け予定日が記載しているメールをGCalendarに登録するツールを作りましたが、
+※ 昔、[gas-for-amazon-calendar](https://github.com/silverbirder/gas-for-amazon-calendar)という、アマゾンからのお届け予定日が記載しているメールをGCalendarに登録するツールを作りましたが、
 アマゾンのメールに特化しすぎてしまい、汎用性がないものとなりました。 
 
 # rMinc is 何？
@@ -53,13 +53,13 @@ Googleは気を利かせて、次のような予定を勝手に登録してく�
     * 配送手配のお知らせ (お届け予定日)
 
 また、これ以外にも対応したいサービスがあると思うので、カスタマイズして使えるようにしました。
-詳しくは、[README.md](https://github.com/Silver-birder/rMinc/blob/master/README.md)をご確認下さい。
+詳しくは、[README.md](https://github.com/silverbirder/rMinc/blob/master/README.md)をご確認下さい。
 
 概要はこんな感じです。
 ![overview](https://res.cloudinary.com/silverbirder/image/upload/v1581769421/rMinc/rMinc_overview.png)
 
 1. 特定キーワードでメールを抽出
-    1. アマゾンなら、[from:(shipment-tracking@amazon.co.jp) 発送](https://github.com/Silver-birder/rMinc/blob/master/src/user/mailRule/amazonMailRule.ts#L61) 
+    1. アマゾンなら、[from:(shipment-tracking@amazon.co.jp) 発送](https://github.com/silverbirder/rMinc/blob/master/src/user/mailRule/amazonMailRule.ts#L61) 
 1. メールの下記を抽出
     1. タイトル
     1. 本文
@@ -73,9 +73,9 @@ Googleは気を利かせて、次のような予定を勝手に登録してく�
 
 小さくて見えないと思いますが、お届け予定日、タイトル、配達先、メールリンクが登録されています。
 
-このツール([sample.js](https://github.com/Silver-birder/rMinc/blob/master/sample/sample.js))をGAS上で<b><span style="color: #d32f2f">定期的に動かしておくだけ</span></b>で、自動的にGCalendarへ予定登録されます。当たり前ですが、無料です。
+このツール([sample.js](https://github.com/silverbirder/rMinc/blob/master/sample/sample.js))をGAS上で<b><span style="color: #d32f2f">定期的に動かしておくだけ</span></b>で、自動的にGCalendarへ予定登録されます。当たり前ですが、無料です。
 
-※ RMincは、[README.md](https://github.com/Silver-birder/rMinc/blob/master/README.md)にあるAPP IDを登録する必要あり
+※ RMincは、[README.md](https://github.com/silverbirder/rMinc/blob/master/README.md)にあるAPP IDを登録する必要あり
 
 # 最後に
 Google Apps Scriptは、エンジニアにとって、とても強力な武器です。特に、G Suiteを積極的に使っている人にとっては、欠かせないものです。

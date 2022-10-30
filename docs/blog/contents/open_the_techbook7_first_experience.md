@@ -342,7 +342,7 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 
 恥ずかしい話になりますが、私は毎朝この数字を見ていました。（笑）
 
-<ogp-me src="https://github.com/Silver-birder/get-checked-number-for-techbook"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/get-checked-number-for-techbook"></ogp-me>
 
 被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
 

@@ -20,7 +20,7 @@ Stable Diffusion は、文章を渡すと画像を生成してくれる AI で O
 
 成果物は、次のリポジトリに置いています。
 
-- https://github.com/Silver-birder/stable-diffusion-API
+- https://github.com/silverbirder/stable-diffusion-API
 
 ローカル環境でも、Docker コンテナでも、動きます。
 
@@ -72,7 +72,7 @@ API として、[stability-sdk](https://github.com/Stability-AI/stability-sdk) �
 ソースコードを読むと、gRPC を使っているため、別言語で SDK を書くのは比較的簡単だと思います。
 私は、Python でシュッと書けるので、flask と stability-sdk を使いました。
 
-- https://github.com/Silver-birder/stable-diffusion-API
+- https://github.com/silverbirder/stable-diffusion-API
 
 ひとまず、Prompt だけを受け付ける超絶シンプルな API を書きました。
 [stability-sdk](https://github.com/Stability-AI/stability-sdk)は、様々パラメータがあるので、それも受け付けられるようにしようかなと思ったり、Midjourney の discord のボットのようなモノを書いても面白そうだなと思いました。

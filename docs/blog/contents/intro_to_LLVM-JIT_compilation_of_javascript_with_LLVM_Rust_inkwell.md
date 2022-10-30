@@ -16,7 +16,7 @@ LLVMの記事は数多くありますが、初心者向けの記事が少なく�
 
 ソースコードは、こちらに置いています。
 
-<ogp-me src="https://github.com/Silver-birder/rustscript"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/rustscript"></ogp-me>
 
 <!--  TODO: TOC -->
 

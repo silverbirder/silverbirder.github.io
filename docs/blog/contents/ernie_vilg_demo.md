@@ -21,7 +21,7 @@ ERNIE-ViLG というのが、"二次元キャラ" に強いという記事を目
 
 実際に作ったものは、次のモノです。
 
-- [DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG](https://colab.research.google.com/github/Silver-birder/DEMO-PaddlePaddle-PaddleHub-ERNIE-ViLG/blob/main/src/DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG.ipynb)
+- [DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG](https://colab.research.google.com/github/silverbirder/DEMO-PaddlePaddle-PaddleHub-ERNIE-ViLG/blob/main/src/DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG.ipynb)
 
 中身については、正直良くわかっていないですが([公式ページ](https://github.com/PaddlePaddle/PaddleHub/tree/develop/modules/image/text_to_image/ernie_vilg) 通りに試しただけ)、簡単に紹介しようと思います。
 

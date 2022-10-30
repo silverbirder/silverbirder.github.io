@@ -125,7 +125,7 @@ apple, banana, orangeという商品を検索するだけのサンプルWebア�
 ![micro frontends sample overview](https://res.cloudinary.com/silverbirder/image/upload/v1588513402/micro-frontends-sample-code/micro_frontends_sample.jpg)
 
 サンプルコードは、ここに置いています。
-<ogp-me src="https://github.com/Silver-birder/micro-frontends-sample-code"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/micro-frontends-sample-code"></ogp-me>
 
 ## サービス
 

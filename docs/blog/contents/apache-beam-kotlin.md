@@ -15,7 +15,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144311
 
 サンプルリポジトリは、下記に載せています。
 
-<ogp-me src="https://github.com/Silver-birder/apache-beam-kotlin-example/tree/master/src/main/kotlin"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/apache-beam-kotlin-example/tree/master/src/main/kotlin"></ogp-me>
 
 <!--  TODO: TOC -->
 
@@ -47,7 +47,7 @@ OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.252-b09, mixed mode)
 IDEとしてintelliJを使用しており、Kotlin SDK(1.3.72)が内蔵しています。
 
 ```shell
-$ git clone https://github.com/Silver-birder/apache-beam-kotlin-example.git && cd apache-beam-kotlin-example
+$ git clone https://github.com/silverbirder/apache-beam-kotlin-example.git && cd apache-beam-kotlin-example
 $ ./gradlew build
 ```
 
@@ -61,7 +61,7 @@ $ ./gradlew build
 
 PCollectionは、ひとかたまりのデータセットだと思って下さい。
 
-よくあるサンプルコード [WordCount](https://github.com/Silver-birder/apache-beam-kotlin-example/blob/master/src/main/kotlin/WordCount.kt) を例に進めます。
+よくあるサンプルコード [WordCount](https://github.com/silverbirder/apache-beam-kotlin-example/blob/master/src/main/kotlin/WordCount.kt) を例に進めます。
 
 ※ 元々は、[ApacheBeam公式のWordCount](https://github.com/apache/beam/blob/master/examples/kotlin/src/main/java/org/apache/beam/examples/kotlin/WordCount.kt)があったのですが、ローカルマシン単体で動かせないため、多少アレンジしました。WordCountは、ある文章から単語を抽出しカウントを取るだけです。
 
@@ -214,7 +214,7 @@ Streaming処理するためには、下記のようにコードにします。
 
 # テストコード
 Apache Beamもテストコードが書けます。
-サンプルコードは、[こちら](https://github.com/Silver-birder/apache-beam-kotlin-example/blob/master/src/test/kotlin/WordCountTest.kt)です。
+サンプルコードは、[こちら](https://github.com/silverbirder/apache-beam-kotlin-example/blob/master/src/test/kotlin/WordCountTest.kt)です。
 
 実行するパイプラインをTestPipelineにすることで、テストができます。
 

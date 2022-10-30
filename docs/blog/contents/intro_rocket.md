@@ -369,8 +369,8 @@ WebComponentsについての入門書をAmazonで、500円で販売していま�
 
 また、私のポートフォリオページをRocketで作成しています。このブログもMarkdownで執筆しています。よければご覧ください。
 
-* [silverbirder's page](https://silver-birder.github.io/)
-  * このブログのMarkdownファイルは、[こちら](https://github.com/Silver-birder/Silver-birder.github.io/blob/main/docs/blog/contents/intro_rocket.md)
+* [silverbirder's page](https://silverbirder.github.io/)
+  * このブログのMarkdownファイルは、[こちら](https://github.com/silverbirder/silverbirder.github.io/blob/main/docs/blog/contents/intro_rocket.md)
 
 ## 終わりに
 

@@ -40,7 +40,7 @@ ArchUnitはJava製です。私はTypescriptのArchUnitがしたいです。
 
 試したソースコードは、下記に置いています。ご参考下さい。
 
-<ogp-me src="https://github.com/Silver-birder/try-archunit"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/try-archunit"></ogp-me>
 
 全体のソースコードツリーは次の構成です。
 

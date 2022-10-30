@@ -247,7 +247,7 @@ Unitテストで、どこをテストできたかのカバレッジを見るこ�
 
 <o-embed src="https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su"></o-embed>
 
-<ogp-me src="https://gist.github.com/Silver-birder/71135913192fbca51a7e26924bd36b8b"></ogp-me>
+<ogp-me src="https://gist.github.com/silverbirder/71135913192fbca51a7e26924bd36b8b"></ogp-me>
 
 ## Visual Regression Test
 

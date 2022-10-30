@@ -39,11 +39,11 @@ callToActionItems:
 
 ## 能力
 
-![GitHub Contribute](https://grass-graph.appspot.com/images/Silver-birder.png)
+![GitHub Contribute](https://grass-graph.appspot.com/images/silverbirder.png)
 
-![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=Silver-birder&count_private=true&show_icons=true)
+![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=silverbirder&count_private=true&show_icons=true)
 
-![Top Languages Card (Compact layout)](https://github-readme-stats.vercel.app/api/top-langs/?username=Silver-birder&layout=compact)
+![Top Languages Card (Compact layout)](https://github-readme-stats.vercel.app/api/top-langs/?username=silverbirder&layout=compact)
 
 ## 資格
 

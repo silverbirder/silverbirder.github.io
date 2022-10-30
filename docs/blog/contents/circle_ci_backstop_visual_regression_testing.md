@@ -12,7 +12,7 @@ CircleCIとBackstopJSを組み合わせて、『継続的にWebページの視�
 
 <!--  TODO: TOC -->
 
-<ogp-me src="https://github.com/Silver-birder/silver-enigma"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/silver-enigma"></ogp-me>
 
 # Motivation
 Webアプリを運用する上で、システム改善は継続的に行われます。
@@ -38,7 +38,7 @@ v12.9.1
 ```
 
 1. backstop.jsonに監視したいURLを設定
-2. CircleCIに必要な環境変数を設定([README.md](https://github.com/Silver-birder/silver-enigma/blob/master/README.md)参照)
+2. CircleCIに必要な環境変数を設定([README.md](https://github.com/silverbirder/silver-enigma/blob/master/README.md)参照)
 3. CircleCIでJobを実行し、Artifactsにあるレポートを閲覧
 
 Puppeteerを使ってWebアプリへリクエストしています。

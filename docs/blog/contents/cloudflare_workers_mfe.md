@@ -11,7 +11,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144306
 今回、またMicro Frontendsの構築を試みようと思います。構築パターンの内、サーバーサイド統合パターン、特にエッジサイド統合を試しました。
 その内容を紹介します。サンプルコードは、下記に残しています。
 
-<ogp-me src="https://github.com/Silver-birder/micro-frontends-sample-code-5/"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/micro-frontends-sample-code-5/"></ogp-me>
 
 <!--  TODO: TOC -->
 

@@ -13,7 +13,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144316
 Micro Frontendsに関わる記事を100件以上読みました(参考記事に記載しています)。そこから得たMicro Frontendsについてこの投稿に記録します。
 また、調査メモについて、次のリポジトリに残しています。
 
-<ogp-me src="https://github.com/Silver-birder/think-micro-frontends"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/think-micro-frontends"></ogp-me>
 
 <!--  TODO: TOC -->
 

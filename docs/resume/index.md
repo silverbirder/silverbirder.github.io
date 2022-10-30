@@ -19,6 +19,6 @@
 
 ## Technical skills
 
-<skill-cards source="https://raw.githubusercontent.com/Silver-birder/Silver-birder.github.io/main/docs/resume/index.json"></skill-cards>
+<skill-cards source="https://raw.githubusercontent.com/silverbirder/silverbirder.github.io/main/docs/resume/index.json"></skill-cards>
 
 <!-- cat index.json | jq '.items | {items: sort_by(.name) }' > index.sort.json  -->

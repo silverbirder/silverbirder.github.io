@@ -145,7 +145,7 @@ Ran all test suites.
 ライブラリとして提供する機能のテストが、たったの**約3秒**で終わります。
 **ストレスフリー**にローカル開発が可能となりました。
 
-詳しくは、実際に作ったライブラリのソースコード([\_\_tests\_\_](https://github.com/Silver-birder/CaAT/tree/master/__tests__))を御覧ください。
+詳しくは、実際に作ったライブラリのソースコード([\_\_tests\_\_](https://github.com/silverbirder/CaAT/tree/master/__tests__))を御覧ください。
 
 # 終わりに
 GASは、とても便利です。生産性が向上します。
@@ -158,7 +158,7 @@ GASを運用する方々には、是非ともテストコードを検討下さ�
 # え、あ、ちょっとまって。ライブラリの紹介！
 アジャイル開発で、かつ、Google Calendarで予定管理しているチームには是非とも使って頂きたいライブラリです。
 
-<ogp-me src="https://github.com/Silver-birder/caat"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/caat"></ogp-me>
 
 > CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar.
 
@@ -171,4 +171,4 @@ GASを運用する方々には、是非ともテストコードを検討下さ�
 
 実際にサンプルコードがあるので、ご参考下さい。
 
-<ogp-me src="https://github.com/Silver-birder/SampleCaat"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/SampleCaat"></ogp-me>

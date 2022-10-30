@@ -99,7 +99,7 @@ Algoliaは、全文検索システムを構築せずとも、お手軽に使え�
 また、作りたいものリストに溜まっていたアプリを作る時間があったので、
 最近では、下記のような書籍管理を作りました。検索はAlgoliaを使っています。
 
-<ogp-me src="https://github.com/Silver-birder/book-store-vue"></ogp-me>
+<ogp-me src="https://github.com/silverbirder/book-store-vue"></ogp-me>
 
 # なぜ会場が、はてな株式会社なの？
 はてなの社長であるid:chris4403さんが、[@shinodogg](https://twitter.com/shinodogg)と前職での知り合いだったからだそうです。

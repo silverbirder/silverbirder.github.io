@@ -13,7 +13,7 @@ GraphQL 界隈だと、Code Generator が有名と思いますが、GraphQL Guil
 GraphQL Guild のエコシステムって便利だな〜って感じたことがあったので、紹介します。
 試したソースコードは、こちらにあります。
 
-- https://github.com/Silver-birder/playground/tree/main/node/supabase-graphql-guild-app
+- https://github.com/silverbirder/playground/tree/main/node/supabase-graphql-guild-app
 
 ## GraphQL Schema をダウンロードできる
 

@@ -1,4 +1,4 @@
-# Silver-birder.github.io
+# silverbirder.github.io
 
 Welcome to silverbirder's page!
 

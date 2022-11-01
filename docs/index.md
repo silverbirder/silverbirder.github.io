@@ -13,7 +13,7 @@ callToActionItems:
 
 ## 自己紹介
 
-<img src="https://res.cloudinary.com/silverbirder/image/fetch/c_fill,g_face,w_100/f_auto/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3D101722346324226588907" style="width: 100px"/>
+<img src="https://google-account-photo.vercel.app/api/?account_id=101722346324226588907" style="width: 100px"/>
 
 大学時代に初めてWebAppを開発し, 目に見える形までアウトプットできたことに感動し, 今の職業を目指すようになる. ふとWebAppのアイデアが浮かんだときは, 素早く,安く, そしてお手軽に リリースできることを目指して個人開発をしている。
 
@@ -36,14 +36,6 @@ callToActionItems:
 |2018/08|ECサービス会社 入社|
 |2021/12|ECサービス会社 退社|
 |2022/01|SaaS会社 入社|
-
-## 能力
-
-![GitHub Contribute](https://grass-graph.appspot.com/images/silverbirder.png)
-
-![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=silverbirder&count_private=true&show_icons=true)
-
-![Top Languages Card (Compact layout)](https://github-readme-stats.vercel.app/api/top-langs/?username=silverbirder&layout=compact)
 
 ## 資格
 

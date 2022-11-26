@@ -20,7 +20,7 @@ iframely というサービスを使っていましたが、自前で作りた�
 
 ## o-embed
 
-<o-embed src="https://twitter.com/silver_birder/status/1475262255818473473" height="1450px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1475262255818473473" height="1450px"></o-embed>
 
 ## ogp-me
 

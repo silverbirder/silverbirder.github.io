@@ -118,7 +118,7 @@ $ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake p
 また、**GoogleDrive上でPDFをレビュー**するのが便利です。
 直接文章にコメントできるので、オススメです。
 
-<o-embed src="https://twitter.com/silver_birder/status/1167314554205786112" height="400px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1167314554205786112" height="400px"></o-embed>
 
 ## 1.5. 本のタイトル
 本を買ってもらうためには、本のタイトルは重要です。
@@ -332,7 +332,7 @@ pixiv ID登録しないとダウンロードできないので、ここが駄目
 
 Twitterで宣伝するために、16:9の画像を用意したりもしました。
 
-<o-embed src="https://twitter.com/silver_birder/status/1172097536510676994"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1172097536510676994"></o-embed>
 
 ## 被チェック数と販売冊数
 被チェック数は、お客さんが気になる本をチェックした数になります。
@@ -346,7 +346,7 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 
 被チェック数を定期的に取得するAPIをサクッと作って、CloudFunctionで稼働させています。
 
-<o-embed src="https://twitter.com/silver_birder/status/1171178281380405248"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1171178281380405248"></o-embed>
 
 このようにどの時間やどの曜日にチェックされるのかがわかるようになります。
 
@@ -378,19 +378,19 @@ Twitterで宣伝するために、16:9の画像を用意したりもしました
 |日付|公式予定|筆者実績|
 | ---- | ---- | ---- |
 |07/10|当落通知日|当選|
-|07/12|-|[入金済](https://twitter.com/silver_birder/status/1149650432039387137)|
+|07/12|-|[入金済](https://twitter.com/silverbirder/status/1149650432039387137)|
 |07/17|入金締切日|入金済|
 |07/20|-|計画立てる＆テーマ確定|
 |07/23|-|castaneaiくんに<br>印刷用サークルカット書いてもらう|
-|07/27|-|[サンプルコード作成完了](https://twitter.com/silver_birder/status/1155089319410843648)|
+|07/27|-|[サンプルコード作成完了](https://twitter.com/silverbirder/status/1155089319410843648)|
 |07/31| 印刷用サークルカット締切日|登録済|
 |08/02|-|原稿作成開始|
 |08/15|-|レビュー対応中(2st)|
-|08/21|サークル配置発表日|[宣伝済](https://twitter.com/silver_birder/status/1164294933752119296)|
-|08/26|一般参加者向け正式サイトオープン|[宣伝済](https://twitter.com/silver_birder/status/1166171153875886080)|
-|08/29|-|[レビュー対応中(3st)](https://twitter.com/silver_birder/status/1167051004308684800)|
-|08/30|-|原稿作成完了, [Booth登録](https://twitter.com/silver_birder/status/1167265421373788161), [製本依頼](https://twitter.com/silver_birder/status/1167379639724994560)|
-|08/31|-|[物品購入](https://twitter.com/silver_birder/status/1167775260139114496)(あの布は事前購入)|
+|08/21|サークル配置発表日|[宣伝済](https://twitter.com/silverbirder/status/1164294933752119296)|
+|08/26|一般参加者向け正式サイトオープン|[宣伝済](https://twitter.com/silverbirder/status/1166171153875886080)|
+|08/29|-|[レビュー対応中(3st)](https://twitter.com/silverbirder/status/1167051004308684800)|
+|08/30|-|原稿作成完了, [Booth登録](https://twitter.com/silverbirder/status/1167265421373788161), [製本依頼](https://twitter.com/silverbirder/status/1167379639724994560)|
+|08/31|-|[物品購入](https://twitter.com/silverbirder/status/1167775260139114496)(あの布は事前購入)|
 |09/06|-|現在|
 |09/07|サークル通行証の割当日|-|
 |09/19|見本誌の提出締切|-|

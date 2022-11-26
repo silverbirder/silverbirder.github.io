@@ -53,7 +53,7 @@ CPCAmerica(?)の田中さんが通訳をされていたのですが、ものす�
 
 ※ 以下、[@‏apstndb](https://twitter.com/apstndb) さんの要約Tweetを参考にしました。神!!!
 
-<o-embed src="https://twitter.com/silver_birder/status/1134406467744804864?s=20" height="400px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1134406467744804864?s=20" height="400px"></o-embed>
 
 ## kubernetesの歴史
 ### Borgの誕生
@@ -147,7 +147,7 @@ Yahooでは、gimbalというOSSを使ってKubernetesを導入したみたい�
 
 参加者からの質問は、どれも鋭いものばかり。
 適度な質問をしたいなとつぶやきました...。届かなかったけど...。
-<o-embed src="https://twitter.com/silver_birder/status/1134412867988480000?s=20" height="300px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1134412867988480000?s=20" height="300px"></o-embed>
 
 # Osaka会場
 会場提供は、株式会社Aimingさんでした。
@@ -192,4 +192,4 @@ Kubernetesのコントリビューターは、ちょっとハードルが高い�
 
 # そのほか
 拙い文章なのに、最後まで読んでいただき、ありがとうございます。
-twitterをしていますので、フォローしてもらえるとうれしいです。([silver_birder](https://twitter.com/silver_birder))
+twitterをしていますので、フォローしてもらえるとうれしいです。([silverbirder](https://twitter.com/silverbirder))

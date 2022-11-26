@@ -152,5 +152,5 @@ Webが大好きな私にとっては、Web Componentsという技術に興味が
 <ogp-me src="https://techbookfest.org/event/tbf07/circle/5117648689954816"></ogp-me>
 
 ## Twitter宣伝
-<o-embed src="https://twitter.com/silver_birder/status/1166171153875886080" height="400px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1166171153875886080" height="400px"></o-embed>
 

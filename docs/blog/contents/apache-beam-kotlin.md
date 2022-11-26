@@ -2,7 +2,7 @@
 title: Apache Beam + Kotlin 開発 実践入門
 published: true
 date: 2020-07-10
-description: どうも、こんにちは。Re:ゼロ2期 始まりましたね、 @silver_birderです。最近、仕事の関係上、Apache Beam + Kotlin を使うことになりました。それらの技術が一切知らなかったので、この記事に学んだことを書いていきます。
+description: どうも、こんにちは。Re:ゼロ2期 始まりましたね、 @silverbirderです。最近、仕事の関係上、Apache Beam + Kotlin を使うことになりました。それらの技術が一切知らなかったので、この記事に学んだことを書いていきます。
 tags: ["Apache Beam", "Kotlin", "Beginner"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614431187/silver-birder.github.io/blog/Photo_by_tian_kuan_on_Unsplash.jpg
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614431187/silver-birder.github.io/blog/Photo_by_tian_kuan_on_Unsplash.jpg
@@ -10,7 +10,7 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144311
 
 <!-- TODO: <span>Photo by <a href="https://unsplash.com/@realaxer?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">tian kuan</a> on <a href="https://unsplash.com/s/photos/pipeline?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> -->
 
-どうも、こんにちは。Re:ゼロ2期 始まりましたね👏、 [@silver_birder](https://twitter.com/silver_birder) です。
+どうも、こんにちは。Re:ゼロ2期 始まりましたね👏、 [@silverbirder](https://twitter.com/silverbirder) です。
 最近、仕事の関係上、Apache Beam + Kotlin を使うことになりました。それらの技術が一切知らなかったので、この記事に学んだことを書いていきます✍️。
 
 サンプルリポジトリは、下記に載せています。

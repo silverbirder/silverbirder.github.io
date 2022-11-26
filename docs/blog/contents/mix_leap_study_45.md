@@ -122,7 +122,7 @@ Swiftであんまり開発したことがないので、ほぼ想像で話しま
 そこを、SwiftUIはわざわざ端末にデータ移動せず、xcode上でpreviewできるという開発者にとって、とてもハッピーな機能がついたようです。
 
 ## SwiftUIってどうやって使うの？
-<o-embed src="https://twitter.com/silver_birder/status/1143475061673717760?s=20" height="400px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1143475061673717760?s=20" height="400px"></o-embed>
 
 この件について登壇者さんに質問してみました。そのとおりとのことです。
 swiftUIを手軽に動かしたい場合は、playgroundでも試せるそうなので、近い内にやってみようかなと思います。

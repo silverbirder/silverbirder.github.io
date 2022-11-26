@@ -11,7 +11,7 @@ module.exports = function () {
       },
       {
         name: 'Twitter',
-        url: 'https://twitter.com/silver_birder',
+        url: 'https://twitter.com/silverbirder',
       }
     ],
     gitSiteUrl: 'https://github.com/silverbirder/silverbirder.github.io',

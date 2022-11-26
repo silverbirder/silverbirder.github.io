@@ -111,7 +111,7 @@ Algoliaは、全文検索システムを構築せずとも、お手軽に使え�
 
 会場では、ピザを提供して頂きました。美味しかったです！ごちそうさまでした！
 
-<o-embed src="https://twitter.com/silver_birder/status/1126841269097865216?s=20" height="400px"></o-embed>
+<o-embed src="https://twitter.com/silverbirder/status/1126841269097865216?s=20" height="400px"></o-embed>
 
 # 最後に
 SaaSは、その専門の技術を持ってサービス提供をされています。

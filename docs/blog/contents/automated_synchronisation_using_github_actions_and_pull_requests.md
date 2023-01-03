@@ -1,0 +1,219 @@
+---
+title: GitHub ActionsとPull Requestを活用した、同期の自動化
+published: true
+date: 2023-01-03
+description: あけまして、おめでとうございます。神社のおみくじで、人生はじめて大吉を引きました、silverbirder です。普段の業務で、FigmaのデザイントークンやAPIのスキーマファイル、i18nのメッセージファイルなどを、フロントエンドへ同期するコミュニケーションが不毛に感じています。そこで、GitHub ActionsとPull Requestを活用して、同期コミュニケーションを削減する仕組みを紹介します。
+tags: ["GitHub Actions"]
+---
+
+あけまして、おめでとうございます。神社のおみくじで、人生はじめて大吉を引きました、silverbirder です。
+
+普段の業務で、FigmaのデザイントークンやAPIのスキーマファイル、i18nのメッセージファイルなどを、フロントエンドへ同期するコミュニケーションが不毛に感じています。そこで、GitHub ActionsとPull Requestを活用して、同期コミュニケーションを削減する仕組みを紹介します。
+
+目新しい情報はないかもしれませんが、同じお困りごとを持つ人へ助けになれば、幸いです。
+
+## GitHub Actionsで使用するもの
+
+今回紹介する仕組みの核となるのが GitHub Actionsのrepository-dispatch トリガーです。
+
+https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event
+
+このトリガーは、GitHub APIを経由して、GitHub Actionsのワークフローを起動することができます。そのため、次のように 異なるリポジトリでのGitHub Actionsワークフローを連携できます。
+
+[![](https://mermaid.ink/img/pako:eNp9kD1rwzAQhv-KuDmmuymeSrbSoaugXKRzLLA-erqDhJD_XslO6RCoBiGO59UrPTdw2ROMUOlbKTl6C3hmjDaZtlAlJ40nYpv2SUGW4ELBJOZDFmKD1ZyDLHr6Yiq5Bsl8fdVKnDDSS-7M9Jw9cm77_9m5M5T89Fu-FQ7TtIVHQxdyKmT-soMPtaC4Zec37pl3TCg0FF3Xgfu3q8ABInHE4JuKW09baGWRLIzt6GlGXcWCTfeGdi2f1-RgFFY6gBbfLnyYg3HGtbYp-f6m913vZvn-A1JSg1Q?type=png)](https://mermaid.live/edit#pako:eNp9kD1rwzAQhv-KuDmmuymeSrbSoaugXKRzLLA-erqDhJD_XslO6RCoBiGO59UrPTdw2ROMUOlbKTl6C3hmjDaZtlAlJ40nYpv2SUGW4ELBJOZDFmKD1ZyDLHr6Yiq5Bsl8fdVKnDDSS-7M9Jw9cm77_9m5M5T89Fu-FQ7TtIVHQxdyKmT-soMPtaC4Zec37pl3TCg0FF3Xgfu3q8ABInHE4JuKW09baGWRLIzt6GlGXcWCTfeGdi2f1-RgFFY6gBbfLnyYg3HGtbYp-f6m913vZvn-A1JSg1Q)
+
+
+repository-dispatchとcreate-pull-requestは、次のGitHub Actionsです。
+
+https://github.com/peter-evans/repository-dispatch
+https://github.com/peter-evans/create-pull-request
+
+- respository-dispatch
+  - repository-dispatch-eventをdispatchするAction
+- create-pull-request
+  - Pull Requestを作成するAction
+
+これらのGitHub Actionsを使わずに `gh` などを使って代替できますが、便利なモノを使って楽をします。
+
+## GitHubリポジトリ以外からのトリガー
+
+GitHubのリポジトリ(username/other)からトリガーだけでなく、他のサービスからでもトリガーできます。例えば、Google Sheets からだと、Google Apps ScriptからGitHub APIを呼べばよいです。
+
+[![](https://mermaid.ink/img/pako:eNplkMtqwzAQRX9l0DqmexMMgdK0i0IhW0OYSDexQK9Ko9IQ8u-V7ZYsqpU03Dm6nJvS0UD1quCzImg8W75k9mOgdrhKDNWfkMewThJnsdomDkKHCRDiQpcYLw7HMr_L_9xLjmHNWZnq6ZiRYrES83VbC3Jgj6fznEEww99HC7wbhmW5J83OkUygvZXXeqLdx9v2wemMLYlFTx2-EGSghvO0X2rRLqVCB51tkhW9IB9ofENXAekMFnSpOtfl2UYRtVEe2bM1zdBt3h5VK-Exqr5dDc5cnYxqDPcWnW0drkGrXnLFRtVkGvBXqOrP7EqbwsyV31fri_z7DxDMiec?type=png)](https://mermaid.live/edit#pako:eNplkMtqwzAQRX9l0DqmexMMgdK0i0IhW0OYSDexQK9Ko9IQ8u-V7ZYsqpU03Dm6nJvS0UD1quCzImg8W75k9mOgdrhKDNWfkMewThJnsdomDkKHCRDiQpcYLw7HMr_L_9xLjmHNWZnq6ZiRYrES83VbC3Jgj6fznEEww99HC7wbhmW5J83OkUygvZXXeqLdx9v2wemMLYlFTx2-EGSghvO0X2rRLqVCB51tkhW9IB9ofENXAekMFnSpOtfl2UYRtVEe2bM1zdBt3h5VK-Exqr5dDc5cnYxqDPcWnW0drkGrXnLFRtVkGvBXqOrP7EqbwsyV31fri_z7DxDMiec)
+
+他にも、Kibelaのoutgoing webhookを、Serverが受けて、ServerがGitHub APIを呼び出す方法があります。
+
+[![](https://mermaid.ink/img/pako:eNplkVtrwzAMhf-K8XPD3k0JDMYujMFgr4ah2Gpi6ttsOVsp_e9z4oxC5wcjDudIH9KZq6CRC57xq6BX-GBgTOCkZ_VBoeCLGzBJ35QIiYwyETyxoxnQwn89Y5qXxK3-mEL9IbPR0FSGz4QxZEMhnfalZjw4vDssHvS6_xvYhnR93wrBStRAuOlMrXbKN-aGIDYUllChmTGz15YKhVRwzviRfeMwhXBs-Wav-RVVMAXWMpqQPRl6LgO7f3_ZX6k7bXIEUlOHc2XoW481em2BP6hK5VUJK3YXi7VdWnadie-4w-TA6Lr_85KWvA5zKLmopcYDFEuSS3-p1uUWHyevuKBUcMfbHrZzcXEAm6uKekF7azddT3v5BVs-q2Y?type=png)](https://mermaid.live/edit#pako:eNplkVtrwzAMhf-K8XPD3k0JDMYujMFgr4ah2Gpi6ttsOVsp_e9z4oxC5wcjDudIH9KZq6CRC57xq6BX-GBgTOCkZ_VBoeCLGzBJ35QIiYwyETyxoxnQwn89Y5qXxK3-mEL9IbPR0FSGz4QxZEMhnfalZjw4vDssHvS6_xvYhnR93wrBStRAuOlMrXbKN-aGIDYUllChmTGz15YKhVRwzviRfeMwhXBs-Wav-RVVMAXWMpqQPRl6LgO7f3_ZX6k7bXIEUlOHc2XoW481em2BP6hK5VUJK3YXi7VdWnadie-4w-TA6Lr_85KWvA5zKLmopcYDFEuSS3-p1uUWHyevuKBUcMfbHrZzcXEAm6uKekF7azddT3v5BVs-q2Y)
+
+Serverは、IFTTTやZapierのようなサービスでも良いですし、自前のサーバーでも良いでしょう。
+
+## 自動commit
+
+schemaファイルから、型を生成したい(yarn codegen)こともあると思います。そういうときは、次のフローを追加します。
+
+[![](https://mermaid.ink/img/pako:eNp9kU9rwzAMxb-K8WmDhNGOHhZGTmO3scOuhqHYSmqI_0yWYaH0u89OOnboqA_CiN-TeHonqYNB2cmEXxm9xhcLE4FTXpQHmYPPbkBSfutEILbaRvAs3vmIJCCJyfIxD5-EMSTLgZbnnJA8OHwIlemvta8USr2tHSuD3vS_y9eFbd-v4k7gN-rMKP60rbEpAuvjxq_cNa8JgbGNeZ5bqrYTbzyhZkHTcLd72jViv38s5XC4_3fYAuRFvd2E_ua2YrCtd2x1cK7-NdtwkRRzspEOyYE1JYRTbStZbDpUsitfgyPkmZVU_lzQOuhj8Vp2TBkbmaMpVi6ZyW6EOZUumnqNty3YNd_zD41uqeo?type=png)](https://mermaid.live/edit#pako:eNp9kU9rwzAMxb-K8WmDhNGOHhZGTmO3scOuhqHYSmqI_0yWYaH0u89OOnboqA_CiN-TeHonqYNB2cmEXxm9xhcLE4FTXpQHmYPPbkBSfutEILbaRvAs3vmIJCCJyfIxD5-EMSTLgZbnnJA8OHwIlemvta8USr2tHSuD3vS_y9eFbd-v4k7gN-rMKP60rbEpAuvjxq_cNa8JgbGNeZ5bqrYTbzyhZkHTcLd72jViv38s5XC4_3fYAuRFvd2E_ua2YrCtd2x1cK7-NdtwkRRzspEOyYE1JYRTbStZbDpUsitfgyPkmZVU_lzQOuhj8Vp2TBkbmaMpVi6ZyW6EOZUumnqNty3YNd_zD41uqeo)
+
+git-auto-commit-actionは、変更したファイルをgit commitするだけのActionです。
+
+https://github.com/stefanzweifel/git-auto-commit-action
+
+create-pull-requestだけでも、自動commitすることができます。私は、次のケースで使用しました。
+
+- Figmaの[Design Tokens](https://github.com/lukasoppermann/design-tokens)で、Figma上からPull Requestを作成する。
+  - GitHub Actionsで、style dictionaryのbuildしたものをcommitしたい
+
+```yml
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  update:
+    if: startsWith(github.head_ref, 'figma/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: npx style-dictionary build
+      - uses: stefanzweifel/git-auto-commit-action@v4
+```
+
+
+## Preview
+
+Figmaのデザイントークンや、i18nのメッセージファイルを更新したとき、Previewできる仕組みがあると、画面の確認ができて、良いです。
+
+[![](https://mermaid.ink/img/pako:eNp9kUtLAzEUhf9KyEqhg7TShYPMqnQnLtwOSJqczgQmD29u1FL6301mFBcVs7iEw3fu8yx1MJCtTHjL8Bo7qwZSrveiPJU5-OwOoN4vSlTEVtuoPItnHkFCJTFYHvPhlRBDshzo9JgTyCuHu1CZ7tq7p1Di_95jZeBN91N8Lth03WxuBT6hM0P8ehtjU1Ssx4WfuWteExSjiXmaGqpjJ154gmZBw-Fm_bBeic3mvoTt9vbPZJHwbvEhdohTODl4TgtXGpYr6UBOWVMWe65yL0vrDr1sy9fgqPLEvez9paB1yS8nr2XLlLGSOZrS3vcdZHtUUyoqTJ3waTnWfLPLF6JHmvQ?type=png)](https://mermaid.live/edit#pako:eNp9kUtLAzEUhf9KyEqhg7TShYPMqnQnLtwOSJqczgQmD29u1FL6301mFBcVs7iEw3fu8yx1MJCtTHjL8Bo7qwZSrveiPJU5-OwOoN4vSlTEVtuoPItnHkFCJTFYHvPhlRBDshzo9JgTyCuHu1CZ7tq7p1Di_95jZeBN91N8Lth03WxuBT6hM0P8ehtjU1Ssx4WfuWteExSjiXmaGqpjJ154gmZBw-Fm_bBeic3mvoTt9vbPZJHwbvEhdohTODl4TgtXGpYr6UBOWVMWe65yL0vrDr1sy9fgqPLEvez9paB1yS8nr2XLlLGSOZrS3vcdZHtUUyoqTJ3waTnWfLPLF6JHmvQ)
+
+例えば、vercelやchromaticのpreviewです。
+
+https://vercel.com/docs/concepts/deployments/preview-deployments
+https://www.chromatic.com/docs/review
+
+## サンプルコード
+
+i18nのメッセージファイルをフロントエンドへ同期するGitHub Actionsを、紹介します。
+
+|repository|やること|
+|---|---|
+|username/frontend|i18nのメッセージファイルを利用|
+|username/message|i18nのメッセージファイルを管理|
+
+[![](https://mermaid.ink/img/pako:eNp9kk9LxDAQxb9KyGFR2CrepEgviuChJ68FmU1m22gziZNELct-d9M_6yKum0MIk_fLPCZvJ5XTKEsZ8D0hKXww0DLYhkRekKKjZDfIDS0VFR2LGkOAFmugvPN844GjUcYDRVELCKI1sUubF0bvgsnUcJcCMoHFazvz1V_ykV3ez9PbUYOkq4Op33aKqqrLkRfKWWviRfIaIgpzc0uHzlevwdGlWK0mnU-hW17K8GShFPiFKmXs6KDQJniIatFOuqN-ACbRIiHnZuXS56Ty8LJizNLCp74veBx_iCf1HkIQ90-n7xg_DH4Kjb53g0WK4Z-ZLIDqUL0JRz9kyDaQzkMWuUUxGhWLUbmWuWjB6Jyd3Ug3MnZosZFlPmrcQupjIxvaZ-mYo-eBlCwjJ1zL-UeWqMlyC33IVdTjmOs5j1Ms9987Oeuw?type=png)](https://mermaid.live/edit#pako:eNp9kk9LxDAQxb9KyGFR2CrepEgviuChJ68FmU1m22gziZNELct-d9M_6yKum0MIk_fLPCZvJ5XTKEsZ8D0hKXww0DLYhkRekKKjZDfIDS0VFR2LGkOAFmugvPN844GjUcYDRVELCKI1sUubF0bvgsnUcJcCMoHFazvz1V_ykV3ez9PbUYOkq4Op33aKqqrLkRfKWWviRfIaIgpzc0uHzlevwdGlWK0mnU-hW17K8GShFPiFKmXs6KDQJniIatFOuqN-ACbRIiHnZuXS56Ty8LJizNLCp74veBx_iCf1HkIQ90-n7xg_DH4Kjb53g0WK4Z-ZLIDqUL0JRz9kyDaQzkMWuUUxGhWLUbmWuWjB6Jyd3Ug3MnZosZFlPmrcQupjIxvaZ-mYo-eBlCwjJ1zL-UeWqMlyC33IVdTjmOs5j1Ms9987Oeuw)
+
+```yml
+# <username/message>/.github/workflows/main.yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'i18n/**'
+jobs:
+  dispath:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: username/frontend
+          token: ${{ secrets.PAT }}
+          event-type: create-pull-request-message
+          client-payload: '{"ref": "${{ github.ref }}"}'
+```
+
+```yml
+# <username/frontend>/.github/workflows/main.yml
+on:
+  repository_dispatch:
+    types: [create-pull-request-message]
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: username/message
+          ref: ${{ github.event.client_payload.ref }}
+          path: "tmp/"
+      - run: |
+          mv tmp/message.json src/message.json
+          rm -rf tmp
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: yarn generate:message
+      - uses: peter-evans/create-pull-request@v4
+```
+
+## 受け入れテストをマークダウンで管理
+
+安心してマージできるように、受け入れテストを整備しておきましょう。
+
+具体的には、[cucumber](https://cucumber.io/)で仕様書を[Markdown(MARKDOWN_WITH_GHERKIN)](https://github.com/cucumber/gherkin/blob/main/MARKDOWN_WITH_GHERKIN.md)で管理します。
+
+例えば、次のような仕様書です。
+
+```markdown
+# Feature: Staying alive
+
+This is about actually staying alive,
+not the [Bee Gees song](https://www.youtube.com/watch?v=I_izvAbhExY).
+
+## Rule: If you don't eat you die
+
+![xkcd](https://imgs.xkcd.com/comics/lunch_2x.png)
+
+`@important` `@essential`
+### Scenario Outline: eating
+
+* Given there are <start> cucumbers
+* When I eat <eat> cucumbers
+* Then I should have <left> cucumbers
+
+#### Examples:
+
+  | start | eat | left |
+  | ----- | --- | ---- |
+  |    12 |   5 |    7 |
+  |    20 |   5 |   15 |
+```
+
+このMarkdownも、GitHub ActionsでPull Requestするフローに載せましょう。新しいシナリオが追加された場合、(cucumberのライブラリ上) テストコードが存在しないとエラーとなります。
+
+機能で担保したいシナリオをMarkdownで管理していくことで、次のメリットがあります。
+
+- 仕様が明確になる
+- CIで受け入れテスト(cucumber)を動かし成功すると、仕様を満たす状態 となる
+
+## ハマったこと
+
+### GitHub Actions Botのcommitで、他のワークフローをトリガーできない
+
+https://github.com/orgs/community/discussions/27028
+
+tokenに、PATを渡すように変更すれば解決します。
+
+他の解決策としては、workflow_run のトリガーを使えます。
+
+https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows#workflow_run
+
+ただし、デフォルトブランチでのみ動作します。
+
+### repository-dispatchのPOSTは、JSONで制限がある
+
+https://github.com/peter-evans/repository-dispatch#client-payload
+
+同期したいファイルをjsonに変換して、dispatchするeventペイロードに含めようと、当初考えていました。ただ、次の懸念があったため、却下しました。
+
+- jsonにしてしまうとコメントが消える
+- JSONのバイトサイズに上限がある
+
+そこで、同期したいリポジトリのgithub.refをeventペイロードに含めて、eventを受けた側がソースコードをチェックアウトして使う方針に切り替えました。
+
+
+## 終わりに
+
+GitHub ActionsとPull Requestを活用することで、自動的にアプリケーションのソースコードを更新する仕組みを簡単に組み立てられます。
+このようなOpsがあれば、Slackでのメッセージラリーをする回数が減らせられます。ぜひ、ご活用ください。

@@ -190,7 +190,6 @@ DevTools の Performance タブから見ると、`forced reflow is likely a bott
 参考までに
 
 - https://web.dev/avoid-large-complex-layouts-and-layout-thrashing/#avoid-forced-synchronous-layouts
-- https://blog.wilsonpage.co.uk/preventing-layout-thrashing
 
 DEMO は、次のページにもあります。
 

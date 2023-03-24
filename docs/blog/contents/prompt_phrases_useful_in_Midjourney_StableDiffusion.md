@@ -13,7 +13,7 @@ Midjourney や StableDiffusion を使っていると、どういうフレーズ�
 ## 練習場
 
 どこで Prompt の練習したら良いか悩むので、まとめておきました。
-お勧めは、[DreamStudio.ai](https://beta.dreamstudio.ai/dream) です。
+お勧めは、DreamStudio.ai です。
 
 - Midjourney
   - [Discord](https://discord.com/app/invite-with-guild-onboarding/midjourney)
@@ -25,7 +25,7 @@ Midjourney や StableDiffusion を使っていると、どういうフレーズ�
     - [text2img](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/stable_diffusion.ipynb)
     - [img2img](https://colab.research.google.com/github/cedro3/others2/blob/main/Stable_Diffusion2.ipynb)
   - WebApp
-    - [DreamStudio.ai](https://beta.dreamstudio.ai/dream)
+    - DreamStudio.ai
       - 課金制(無料枠あり)
         - API
           - [stability-sdk](https://github.com/Stability-AI/stability-sdk)

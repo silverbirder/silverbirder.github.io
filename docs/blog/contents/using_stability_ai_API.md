@@ -16,7 +16,7 @@ Stable Diffusion は、文章を渡すと画像を生成してくれる AI で O
 
 ## 結論
 
-[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream)の SDK、 [stability-sdk](https://github.com/Stability-AI/stability-sdk)を使いました。
+DreamStudio.ai の SDK、 [stability-sdk](https://github.com/Stability-AI/stability-sdk)を使いました。
 
 成果物は、次のリポジトリに置いています。
 
@@ -24,7 +24,7 @@ Stable Diffusion は、文章を渡すと画像を生成してくれる AI で O
 
 ローカル環境でも、Docker コンテナでも、動きます。
 
-動かすには、[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream)の API Key が必要になります。
+動かすには、DreamStudio.aiの API Key が必要になります。
 Docker で動くので、Docker をデプロイできるサービスなら、どこでも動きます。(GPU は不要です)
 
 私は、GCP が好きなので、CloudRun というサービスにデプロイしました。
@@ -66,7 +66,7 @@ Slack で使ってみると、こんな感じになりました。
 
 ## stability-sdk
 
-[beta.dreamstudio.ai](https://beta.dreamstudio.ai/dream) は、Stable Diffusion を使っています。
+DreamStudio.ai は、Stable Diffusion を使っています。
 API として、[stability-sdk](https://github.com/Stability-AI/stability-sdk) を公開しています。
 使うには、Python で書く必要があります。
 ソースコードを読むと、gRPC を使っているため、別言語で SDK を書くのは比較的簡単だと思います。

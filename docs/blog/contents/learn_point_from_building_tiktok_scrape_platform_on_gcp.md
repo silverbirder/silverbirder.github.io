@@ -54,7 +54,7 @@ This is not an official API support and etc. This is just a scraper that is usin
 
 加えて、メタ情報(フォロワー数やいいね数など)も手に入ります。
 
-中には、ユーザー画像や動画カバー画像などのTikTok CDNへのリンクもあります。([https://p16-sign-va.tiktokcdn.com](https://p16-sign-va.tiktokcdn.com))
+中には、ユーザー画像や動画カバー画像などのTikTok CDNへのリンクもあります。(`https://p16-sign-va.tiktokcdn.com`)
 
 リンクには、有効期限を示す文字が含まれており、一定の時間が経過すると `Access Denied` となります。
 

@@ -259,7 +259,7 @@ Eleventyや(話題にしていませんでしたが)Rollup、Modern Webという
 これまでの話で、『EleventyでMarkdownをHTMLに変換して、WebComponentsを読み込ませればよいでしょ？Rocket必要？』と思う方がいるかもしれません。実際、その2つだけあれば充分だと思います。
 
 ただ、Modern Webというプロジェクト支援があると、開発アジリティは向上します。
-具体的には、MarkdownやJavascript変更による自動リロード、[Eleventyの画像変換処理](https://www.11ty.dev/docs/plugins/image/)、[Markdownのリンク先チェック](https://rocket.modern-web.dev/docs/tools/check-html-links/)などがあります。
+具体的には、MarkdownやJavascript変更による自動リロード、[Eleventyの画像変換処理](https://www.11ty.dev/docs/plugins/image/)、[Markdownのリンク先チェック](https://rocket.modern-web.dev/tools/check-html-links/overview/)などがあります。
 まあ、必須ではないので EleventyとWebComponentsでも良いと思いますが、私はRocketを使います。
 
 ## Markdown Javascript

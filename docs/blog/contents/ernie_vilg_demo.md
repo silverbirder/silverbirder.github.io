@@ -8,9 +8,6 @@ cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662181776/si
 ---
 
 ERNIE-ViLG というのが、"二次元キャラ" に強いという記事を目にしました。
-
-<ogp-me src="https://news.yahoo.co.jp/articles/fc688762207216b29ba33e64ca8e831e3181e9c0"></ogp-me>
-
 実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。
 
 - https://huggingface.co/spaces/PaddlePaddle/ERNIE-ViLG

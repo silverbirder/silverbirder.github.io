@@ -28,7 +28,7 @@ Exchanges とは、[公式ページ](https://formidable.com/open-source/urql/doc
 URL とクエリは、次のものを使います。
 
 - url
-  - https://trygql.formidable.dev/graphql/basic-pokedex
+  - `https://trygql.formidable.dev/graphql/basic-pokedex`
 
 ```graphql
 query Pokemons {

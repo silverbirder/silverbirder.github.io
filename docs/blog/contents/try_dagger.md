@@ -64,10 +64,10 @@ actions は、実行するものを定義していて、`dagger do <action名>` 
 上の定義にある`source: core.#Source` は、 `source` がアクション名で、`core` が実行するパッケージになります。
 パッケージは、次の 2 つに分類されます。
 
-- [dagger.io](https://github.com/dagger/dagger/tree/main/pkg/dagger.io)
+- [dagger.io](https://github.com/dagger/dagger/tree/v0.2.0/pkg/dagger.io)
   - 標準機能
     - core
-- [universe.dagger.io](https://github.com/dagger/dagger/tree/main/pkg/universe.dagger.io)
+- [universe.dagger.io](https://github.com/dagger/dagger/tree/v0.2.0/pkg/universe.dagger.io)
   - 非標準機能
     - yarn, netlify, aws, bash, etc
 

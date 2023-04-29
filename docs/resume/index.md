@@ -14,10 +14,10 @@
 |2020/05 ~ 2020/08|ECサービス会社|ドメインロジックの集約と提供<br>(バッチ&API)|GCP|データエンジニア, インフラエンジニア<br>(開発, 検証, 展開)|5名|Kotlin, Docker, Cloud Dataflow, Cloud Scheduler, Cloud Build, PubSub, GCE, Terraform, BigQuery.|仕組み化のPoC完了. バッチリリース|フロントエンドが活用するデータへの理解|
 |2020/09 ~ 2021/12|ECサービス会社|X年先を見据えた 基盤開発 バッチ群担当|GCP|データエンジニア, インフラエンジニア<br>(要件定義, 設計, リリース戦略, PoC, 開発, 検証, 展開, 運用)|30名|Digdag, Cloud Dataflow, BigQuery, Cloud Build, Cloud Monitoring, Logging, Cloud Scheduler, PubSub, GCE, Docker, Ansible, Terraform, Fluentd|[技術選定](https://tech-blog.monotaro.com/entry/2021/06/03/090000), 一部データ提供済み|データのスケーラビリティに対応したリアルタイムデータ構築に挑戦|
 |2022/01 ~ 2022/10|SaaS会社|バックオフィス向けERPプロダクト開発 運用保守|AWS|アプリケーションエンジニア|30名|Ruby on Rails, React.js, MySQL, Terraform|ユーザーフォカスなプロダクト開発と、スピード感ある業務.|
-|2022/06 ~ 2022/07|SaaS会社|バックオフィス向けERPプロダクト開発. React化対応|AWS|フロントエンドエンジニア|30名|React.js, TypeScript, Jest, StoryBook|プロダクトのコアページをReact化. 状態管理の難しさを痛感. パフォーマンスチューニングの実施.|
+|2022/06 ~ 2022/07|SaaS会社|バックオフィス向けERPプロダクト開発. React化対応|AWS|フロントエンドエンジニア|30名|React.js, TypeScript, Jest, StoryBook|プロダクトのコアページをReact化. 状態管理の難しさを痛感. パフォーマンスチューニングの実施. [フロントエンドパフォーマンス改善](https://moneyforward-dev.jp/entry/2022/10/19/improve-web-performance-for-camid/)|
 |2022/07 ~ 2022/08|SaaS会社|バックオフィス向けERPプロダクト開発. フロントエンド刷新PoC|AWS|フロントエンドエンジニア|30名|Next.js, TypeScript, Urql, Turborepo, StoryBook|GraphQLクライアント技術選定. Suspenseの調査. monorepoの調査.|
 |2022/09 ~ 2022/10|SaaS会社|バックオフィス向けERPプロダクト開発. フロントエンド改善活動|AWS|フロントエンドエンジニア|1名|React, TypeScript, Jest, Webpack|ビルド時間短縮、テスト時間短縮、バンドルサイズ削減||
-|2022/11 ~ |SaaS会社|共通基盤プロダクト開発. 開発支援|AWS|フロントエンドエンジニア|10名|React, TypeScript, Urql, StoryBook|Storybook駆動開発, リアーキテクチャ||
+|2022/11 ~ |SaaS会社|共通基盤プロダクト開発. 新規プロダクト開発|AWS|フロントエンドエンジニア|10名|Web Components, Micro Frontends, React, TypeScript, Urql, StoryBook|Storybook駆動開発, リアーキテクチャ|[レイヤードアーキテクチャの導入](https://zenn.dev/moneyforward/articles/e97dd1c0412071).[Webフロントエンドにおける網羅的テストパターンガイド](https://zenn.dev/silverbirder/articles/c3de04c9e6dd58)|
 
 ## Technical skills
 

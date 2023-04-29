@@ -35,6 +35,15 @@
 
 * [POV](https://docs.google.com/spreadsheets/d/e/2PACX-1vSpbSeaOPVSKyi36bwbBXQ56DbXNzLEp-anI4PHfXps4pa7gWUMDGHjNmVy1gl945o4aNGCszPWxcKm/pubhtml)
 
+## Subscribe
+
+* [DeepL Pro](https://www.deepl.com/translator)
+* [GitHub Copilot](https://docs.github.com/ja/copilot/getting-started-with-github-copilot)
+* [ChatGPT Plus](https://openai.com/blog/chatgpt-plus)
+* [Google One 2TB](https://one.google.com/about/plans)
+* [Amazon Prime](https://www.amazon.co.jp/amazonprime)
+* [dアニメストア](https://animestore.docomo.ne.jp/animestore)
+
 ## Slide
 
 * [至宝のミスタードーナツ](https://gamma.app/docs/--gsja1jdqk543srm?token=jg0q3n5ipafqw5v)

@@ -43,6 +43,7 @@
 * [Google One 2TB](https://one.google.com/about/plans)
 * [Amazon Prime](https://www.amazon.co.jp/amazonprime)
 * [dアニメストア](https://animestore.docomo.ne.jp/animestore)
+* [Twitter Blue](https://help.twitter.com/ja/using-twitter/twitter-blue)
 
 ## Slide
 

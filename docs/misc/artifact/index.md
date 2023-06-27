@@ -38,7 +38,6 @@
 ## Subscribe
 
 * [DeepL Pro](https://www.deepl.com/translator)
-* [GitHub Copilot](https://docs.github.com/ja/copilot/getting-started-with-github-copilot)
 * [ChatGPT Plus](https://openai.com/blog/chatgpt-plus)
 * [Google One 2TB](https://one.google.com/about/plans)
 * [Amazon Prime](https://www.amazon.co.jp/amazonprime)

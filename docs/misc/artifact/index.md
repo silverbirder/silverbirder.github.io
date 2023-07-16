@@ -19,12 +19,13 @@
   * Chrome Web Store
     * [searchWordCloud](https://chrome.google.com/webstore/detail/searchwordcloud/dbpmolojnmdfgggfnhlioepakmpjafal?hl=ja)
 * [https://github.com/silverbirder/silver-enigma](https://github.com/silverbirder/silver-enigma)
-* [https://github.com/silverbirder/tiqav2/](https://github.com/silverbirder/tiqav2/)
+* [https://github.com/silverbirder/tiqav2](https://github.com/silverbirder/tiqav2)
 * [https://github.com/silverbirder/zoom-meeting-creator](https://github.com/silverbirder/zoom-meeting-creator)
 * [https://github.com/silverbirder/Google-Account-Photo-API](https://github.com/silverbirder/Google-Account-Photo-API)
 * [https://github.com/silverbirder/chrome-extensions-tiktok-scraping-downloader](https://github.com/silverbirder/chrome-extensions-tiktok-scraping-downloader)
+* [https://github.com/silverbirder/ai-ghost-writer](https://github.com/silverbirder/ai-ghost-writer)
   * Chrome Web Store
-    * [Tiktok-Scraper](https://chrome.google.com/webstore/detail/tiktok-scraper/ghnpllcbadkobhhidgbbffglnhjhfkje?hl=ja)
+    * [AI Ghostwriter](https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa)
 
 ## WebComponents
 
@@ -42,7 +43,7 @@
 * [Google One 2TB](https://one.google.com/about/plans)
 * [Amazon Prime](https://www.amazon.co.jp/amazonprime)
 * [dアニメストア](https://animestore.docomo.ne.jp/animestore)
-* [Twitter Blue](https://help.twitter.com/ja/using-twitter/twitter-blue)
+* ~~[Twitter Blue](https://help.twitter.com/ja/using-twitter/twitter-blue)~~
 
 ## Slide
 

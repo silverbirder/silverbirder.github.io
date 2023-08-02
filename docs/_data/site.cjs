@@ -21,6 +21,6 @@ module.exports = function () {
     iconColorMaskIcon: '#3f93ce',
     iconColorMsapplicationTileColor: '#1d3557',
     iconColorThemeColor: '#1d3557',
-    analytics: 'G-T4N4JRBS10',
+    analytics: 'G-QV2CWHGJB6',
   };
 };

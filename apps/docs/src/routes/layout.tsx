@@ -84,7 +84,8 @@ export default component$(() => {
         class={css({
           gridArea: "content",
           margin: {
-            sm: "5%",
+            sm: "1% 5%",
+            base: "1% 5%",
             lg: "1% 25%",
           },
         })}

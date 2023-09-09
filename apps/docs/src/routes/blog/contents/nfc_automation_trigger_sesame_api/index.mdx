@@ -1,0 +1,105 @@
+---
+title: NFC Automation Trigger + SESAME API による自動解錠と考察
+published: true
+date: 2019-12-28
+description: まえおき これからiOSを前提として話を進めていきますが、話の主題としてはiOSかどうかはあまり関係ありません。 NFC Automation Trigger 13.1のiOSリリース によりNFC Automation Triggerが使えるようになりました。NFCとは、Wikiによると次のようなものです。
+tags: ["NFC", "SESAME"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+# まえおき
+
+これから iOS を前提として話を進めていきますが、話の主題としては iOS かどうかはあまり関係ありません。
+
+# NFC Automation Trigger
+
+[13.1 の iOS リリース](https://support.apple.com/ja-jp/HT210393#131)により NFC Automation Trigger が使えるようになりました。NFC とは、Wiki によると次のようなものです。
+
+> 狭義には Near field communication（NFC）の訳語。NFC は RFID（Radio Frequency IDentification）と呼ばれる無線通信による個体識別の技術の一種で、近距離の無線通信技術を統一化した世界共通の規格である。IC チップを内蔵した NFC タグを NFC のリーダ・ライタ機能を有する機器で読み取ったり書き込んだりする。
+
+※ https://ja.wikipedia.org/wiki/近距離無線通信
+
+有名なものとしては、[モバイル Suica](https://www.jreast.co.jp/mobilesuica/index.html/)でしょうか。AppleWatch がリーダ機として扱われます。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg"
+  width={850}
+  height={1015}
+  layout="constrained"
+  alt="apple_watch_suica"
+/>
+
+今回のリリースである NFC Automation Trigger は、この NFC を読み込むと自動的に特定のアクションを Trigger することができます。
+例えば、特定の NFC タグを iPhone が読み取ると、3 分のタイマーが起動する！とか。ま、表題の件を用意したんですけどね！（笑）
+
+# とりあえずこんなの作ったよ！
+
+登録している NFC タグを iPhone が読み取ると、扉に設置しているスマートロックアイテム SESAME の[SESAME API](https://docs.candyhouse.co/#sesame-api)を Request して扉の鍵が解錠されます。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345607/silver-birder.github.io/blog/sesame_nfc_before.png"
+  width={816}
+  height={936}
+  layout="constrained"
+  alt="sesame_nfc_before"
+/>
+
+↓ 白色の NFC タグにスマホを近づけると...?
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345642/silver-birder.github.io/blog/sesame_nfc_after.png"
+  width={824}
+  height={862}
+  layout="constrained"
+  alt="sesame_nfc_after"
+/>
+
+NFC Automation Trigger が作動！解錠！
+
+https://twitter.com/silverbirder/status/1187016726363299840
+
+作成方法は、とっても**かんたん**です。iPhone 標準アプリ shortcut と、[NFC タグ(１枚 94 円)](https://www.amazon.co.jp/gp/product/B00GXSGL5G/)があれば誰でも作れます。もちろん、**[SESAME](https://www.amazon.co.jp/dp/B0787N1L3M)**が必要ですけどね（笑)。
+
+shortcut で、次の準備をしました。
+
+1. [RESTfulAPI のショートカット](https://support.apple.com/ja-jp/guide/shortcuts/apd58d46713f/ios)を使って[SESAME API](https://docs.candyhouse.co/#sesame-api)を設定する。
+2. [個人用オートメーション](https://reliphone.jp/nfc-automation/)を作成し、用意した NFC タグをスキャンする。
+3. 2 のオートメーションを 1 のショートカットと紐付ける。
+
+これの良いところは、次の２点でしょうか。
+
+- 標準アプリだけで完結
+- NFC タグ自体には何も加工しないため安全
+
+※ SESAME には、扉に近づいたら解錠する**[手ぶら解錠](https://jp.candyhouse.co/blogs/how-to/%E6%89%8B%E3%81%B6%E3%82%89%E8%A7%A3%E9%8C%A0%E6%A9%9F%E8%83%BD-%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)**や、スマホをノックするだけで解錠する**[ノック解錠](https://jp.candyhouse.co/blogs/how-to/%E3%83%8E%E3%83%83%E3%82%AF%E6%A9%9F%E8%83%BD%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)**というものがあります。本来は、これを使いたかったのですが精度が低いため実用性に欠けると思っています。
+
+# 考察
+
+この NFC Automation Trigger は、アイデア次第でいくらでも、便利なことができます。
+今回の目的は 「**個人利用**で、**ライフハック**できるものを作りたい」というものです。
+
+ただ正直、iPhone をわざわざ NFC に近づける動作は**面倒**だと思います。
+
+私の部屋には[VUI](https://en.wikipedia.org/wiki/Voice_user_interface)として[GoogleHome](https://store.google.com/jp/product/google_home_mini)があり、スマートリモコンの[NatureRemo](https://nature.global/)や、物理ボタン自動化の[SwitchBot](https://www.switchbot.jp/)、コンセントのスマート化[TP-Link](https://www.amazon.co.jp/dp/B078HSBNMT/)などが GoogleHome と連携しています。
+手で操作するよりも、声で操作する方が、数ステップですが**遥かに効率的**と感じます。
+
+つまり、VUI で管理できている空間に関しては、NFC の Trigger はあまり役立ちはしないのかなと思っています。逆に、**VUI の管理外の空間**、私の部屋でいうと、トイレとか洗面台、玄関には NFC が役立つかもしれません。また、**声を発するのが躊躇われる環境**においても、NFC の方が役立つと思っています。
+
+外の環境では、どうでしょうか。NFC を貼れる場所なので、限定はされます。
+自宅の郵便ポスト、自転車・車、衣類、カバン、傘、学校や職場のマイ机・椅子とかでしょうか。
+[NFC タグ(１枚 94 円)](https://www.amazon.co.jp/gp/product/B00GXSGL5G/)は、シールのように柔らかいので、コップやボールにも貼れると思います。[アマゾンダッシュボタン](https://ja.wikipedia.org/wiki/Amazon_Dash)が一時流行っていましたが、あれと似たようなこともできます。例えば、「トイレットペーパの入れ物に NFC タグを貼っておいて、なくなりそうになったら NFC タグを読み込んで注文する」みたいな。もちろん、注文する処理は、自前で組む必要がありますよ。アマゾン定期注文には向いていないものには、良いかもですね。
+
+さらに、shortcut では**変数を注入できる**ため、例えば、現在地を NFC トリガーに注入することで、
+「現在地から自宅までのタクシーを予約する」NFC トリガーもできちゃいます。
+
+個人利用という括りであっても、NFC Automation Trigger の使い道はとても多いと思います。
+商用利用と考えると、更にあると思いますが、省略します。
+
+# さいごに
+
+NFC Automation Trigger という機能は、珍しくありません。
+しかし、とても使いやすくカスタマイズ性が高いため、アイデア次第でいくらでも化けれます。
+一攫千金？を目指すのも良いですが、やっぱり**ライフハック**をつきつめたいなと思う私でした。

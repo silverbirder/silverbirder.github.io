@@ -1,0 +1,312 @@
+---
+title: 一足遅れて Kubernetes を学び始める - 07. workloads その3 -
+published: true
+date: 2019-05-06
+description: 前回 一足遅れて Kubernetes を学び始める - 06. workloads その2 -にて、DaemonSetとStatefulSet(一部）を学習しました。今回は、StatefulSetの続きとJob,CronJobを学習します。
+tags: ["Kubernetes", "Story", "Beginner"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+# ストーリー
+
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+
+# 前回
+
+[一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)にて、DaemonSet と StatefulSet(一部）を学習しました。今回は、StatefulSet の続きと Job,CronJob を学習します。
+
+# StatefulSet
+
+```yaml
+# sample-statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sample-statefulset
+spec:
+  serviceName: sample-statefulset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes:
+          - ReadWriteMany
+        storageClassName: managed-nfs-storage
+        resources:
+          requests:
+            storage: 1Gi
+```
+
+永続的にデータが保存されるかどうか確認します。
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 -- df -h
+Filesystem  Size  Used Avail Use% Mounted on
+...
+192.168.3.35:/home/data/default-www-sample-statefulset-0-pvc-*   15G  1.1G   13G   8% /usr/share/nginx/html
+...
+pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 touch /usr/share/nginx/html/sample.html
+```
+
+sample.html というファイルを作りました。こちらが消えるかどうか確認します。
+
+```shell
+pi@raspi001:~/tmp $ k delete pod sample-statefulset-0
+pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 ls /usr/share/nginx/html/sample.html
+/usr/share/nginx/html/sample.html
+```
+
+pod を消してセルフヒーリングで復活した後、確認すると、sample.html 残っています。
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 ls /usr/share/nginx/html/sample.html
+/usr/share/nginx/html/sample.html
+```
+
+こちらも残っていますね。OK です。
+
+## スケーリング
+
+StatefulSet では、スケールアウトするときは、インデックスが小さいものから増えていきます。
+逆にスケールインするときは、インデックスが大きいものから削除されていきます。
+また、１つずつ増減します。そのため、一番始めに作られる Pod は、一番最後に削除されることになります。
+試してみます。
+
+```shell
+pi@raspi001:~ $ k get pod | grep sample-statefulset
+sample-statefulset-0                      1/1     Running   1          10h
+sample-statefulset-1                      1/1     Running   1          10h
+sample-statefulset-2                      1/1     Running   1          10h
+pi@raspi001:~/tmp $ vim sample-statefulset.yaml # replica:3→4
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k get pod | grep sample-statefulset
+sample-statefulset-0                      1/1     Running             1          10h
+sample-statefulset-1                      1/1     Running             1          10h
+sample-statefulset-2                      1/1     Running             1          10h
+sample-statefulset-3                      0/1     ContainerCreating   0          6s
+pi@raspi001:~/tmp $ vim sample-statefulset.yaml # replica:4→2
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k get pod | grep sample-statefulset
+sample-statefulset-0                      1/1     Running       1          10h
+sample-statefulset-1                      1/1     Running       1          10h
+sample-statefulset-2                      1/1     Running       1          10h
+sample-statefulset-3                      0/1     Terminating   0          2m4s
+pi@raspi001:~/tmp $ k get pod | grep sample-statefulset
+sample-statefulset-0                      1/1     Running       1          10h
+sample-statefulset-1                      1/1     Running       1          10h
+sample-statefulset-2                      0/1     Terminating   0          10h
+```
+
+期待通りですね。１つずつではなく、並列して作成したい場合は、spec.podManagementPolicy を parallel にすれば実現できます。
+
+## アップデート戦略
+
+戦略は２通りあり、OnDelete と RollingUpdate があります。前者は、削除された（マニュフェスト更新ではなく、delete）タイミングに更新され、後者は、即時更新します。StatefulSet の更新では、アップデート中の過不足分の調整(maxUnavailable, maxSurge)は一切できません。また、partition というフィールドのによって、どのインデックス以降を更新するかを調整することもできます。これは、ステートフルならではの機能です。
+Deployment では試してませんでしたが、こちらで試してみようと思います。
+
+デフォルトの戦略は RollingUpdate です。これは何度も動作して確認できているので、OnDelete を試そうと思います。(partition は置いとく）
+
+```yaml
+# sample-statefulset.yaml
+---
+spec:
+  updateStrategy:
+    type: OnDelete
+---
+template:
+  spec:
+    containers:
+      - name: nginx-container
+        image: nginx:1.13
+```
+
+アップデート戦略を OnDelete にし、nginx イメージを 1.12 から 1.13 に更新しました。
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k describe pod sample-statefulset-0 | grep "Image:"
+    Image:          nginx:1.12
+pi@raspi001:~/tmp $ k delete pod sample-statefulset-0
+pi@raspi001:~/tmp $ k get pod | grep sample-statefulset
+sample-statefulset-0                      0/1     ContainerCreating   0          5s
+sample-statefulset-1                      1/1     Running             0          2m59s
+pi@raspi001:~/tmp $ k describe pod sample-statefulset-0 | grep "Image:"
+    Image:          nginx:1.13
+```
+
+期待通りですね。明示的に pod を削除すれば nginx が更新されました。
+
+# Job
+
+一度限りの処理を実行させるリソース。
+replicaSet のように複製ができる。
+バッチ処理に向いている。
+
+10 秒 sleep するだけの job を実行してみます。
+
+```yaml
+# sample-job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sample-job
+spec:
+  completions: 1
+  parallelism: 1
+  backoffLimit: 10
+  template:
+    spec:
+      containers:
+        - name: sleep-container
+          image: nginx:1.12
+          command: ["sleep"]
+          args: ["10"]
+      restartPolicy: Never
+```
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-job.yaml
+pi@raspi001:~/tmp $ k get pod
+NAME                                      READY   STATUS      RESTARTS   AGE
+sample-job-d7465                          0/1     Completed   0          3m17s
+pi@raspi001:~/tmp $ k get job
+NAME         COMPLETIONS   DURATION   AGE
+sample-job   1/1           27s        4m8s
+```
+
+job の実行が終わると、pod が消えていますね。そして、job の COMPLETIONS が 1/1 になっているので正常終了したみたいです。逆に正常終了しなかった場合、restartPolicy に沿って再実行することになります。種類として Never と OnFailure があります。Never は、新規に Pod を作って再実行、OnFailure は、既存 Pod を使って再実行するそうです。ただし、データ自体は消失することになるので、ご注意下さい。
+
+completions は目標成功数で、parallelism は並列数、backoffLimit は失敗許容値です。
+目的に合う設定にすれば良いですね。
+また、completions を未指定にすると job を止めるまでずっと動き続けます。backoffLimit を未指定にすると 6 回までとなります。
+
+んー、特に興味が惹かれることもなく、終わります。笑
+
+# CronJob
+
+Job をスケジュールされた時間で実行するリソース。
+Deployment と ReplicaSet の関係と似ていて、Cronjob が job を管理する。
+
+1 分毎に 50%の確率で成功する job を用意して、試してみます。
+
+```yaml
+# sample-cronjob.yaml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: sample-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Allow
+  startingDeadlineSeconds: 30
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 3
+  suspend: false
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 1
+      template:
+        spec:
+          containers:
+            - name: sleep-container
+              image: nginx:1.12
+              command:
+                - "sh"
+                - "-c"
+              args:
+                # 約50%の確率で成功するコマンド
+                - "sleep 40; date +'%N' | cut -c 9 | egrep '[1|3|5|7|9]'"
+          restartPolicy: Never
+```
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-cronjob.yaml
+pi@raspi001:~/tmp $ k get all
+NAME                           SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+cronjob.batch/sample-cronjob   */1 * * * *   False     0        <none>          9s
+```
+
+時間がくるまで、job,pod は作成されないようです。
+数分待ってみました。
+
+```shell
+pi@raspi001:~/tmp $ k get all
+NAME                                          READY   STATUS      RESTARTS   AGE
+pod/sample-cronjob-1557115320-dsdvg           0/1     Error       0          2m18s
+pod/sample-cronjob-1557115320-qkgtp           0/1     Completed   0          87s
+pod/sample-cronjob-1557115380-r57sw           0/1     Completed   0          78s
+pod/sample-cronjob-1557115440-2phzb           1/1     Running     0          17s
+
+NAME                                  COMPLETIONS   DURATION   AGE
+job.batch/sample-cronjob-1557115320   1/1           105s       2m18s
+job.batch/sample-cronjob-1557115380   1/1           52s        78s
+job.batch/sample-cronjob-1557115440   0/1           17s        17s
+
+NAME                           SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+cronjob.batch/sample-cronjob   */1 * * * *   False     1        20s             3m12s
+```
+
+名前の命名ルールがあるので、どう関連しているのか一目瞭然ですね。
+Pod が残っているのは、failedJobsHistoryLimit と successfulJobsHistoryLimit の値の影響ですね。
+log で確認できるように残しておくそうですが、ログ収集基盤に集約した方が良いとも言われています。
+
+途中で止めたいときは、spec.suspend を true にすることで実現可能になります。
+同時実行する制限として、concurrencyPolicy があり、Allow,Forbid,Replace があります。
+Allow は、特に制限しない。
+Forbid は、前の job が終わらない限り実行しない。
+Replace は、前の job を削除し、job を実行する。
+
+遅延がどのぐらい許容できるかは、startingDeadlineSeconds で指定します。
+
+こちらも、特に何事もなく終わりました。笑
+
+# お片付け
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml -f sample-job.yaml -f sample-cronjob.yaml
+pi@raspi001:~/tmp $ k delete pvc www-sample-statefulset-{0,1,2,3}
+```
+
+# 終わりに
+
+ようやく、workloads が終わりました。最後はざっくり進めてしまった感がありました。
+次回は[こちら](../start_the_learning_kubernetes_08/index.mdx)です。

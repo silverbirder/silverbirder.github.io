@@ -1,26 +1,22 @@
 {
   "name": "silverbirder.github.io",
-  "version": "3.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "4.0.0",
+  "description": "silverbirder's blog",
   "scripts": {
-    "start": "rocket start",
-    "docs": "rocket build"
+    "lint": "turbo lint",
+    "build": "turbo build",
+    "test": "turbo test"
   },
   "keywords": [],
   "author": "silverbirder <silverbirder@gmail.com> (https://silverbirder.github.io/)",
   "license": "ISC",
-  "devDependencies": {
-    "@rocket/blog": "^0.4.0",
-    "@rocket/cli": "^0.10.1",
-    "@rocket/launch": "^0.6.0",
-    "@rocket/search": "^0.5.1"
+  "packageManager": "pnpm@8.6.2",
+  "engines": {
+    "npm": "use pnpm please!",
+    "yarn": "use pnpm please!",
+    "pnpm": ">=8.6.2"
   },
-  "type": "module",
-  "dependencies": {
-    "@silverbirder/o-embed": "^0.0.9",
-    "@silverbirder/ogp-me": "^0.0.4",
-    "canvas-confetti": "^1.4.0",
-    "emoji-picker-element": "^1.10.0"
+  "devDependencies": {
+    "turbo": "^1.10.12"
   }
 }

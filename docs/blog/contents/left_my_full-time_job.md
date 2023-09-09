@@ -1,6 +1,6 @@
 ---
 title: 正社員を辞めました
-published: true
+published: false
 date: 2023-07-17
 description: 私は2023年6月末に正社員として勤めていた企業を退職しました。勤務期間は1年6ヶ月で、私にとっては短い期間でした。
 tags: []

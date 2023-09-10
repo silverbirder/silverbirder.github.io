@@ -39,6 +39,7 @@ export const globalCss = defineGlobalStyles({
   "h1, h2, h3, h4, h5, h6, p, ul, ol, dl, table, blockquote, pre, form, fieldset, iframe, hr":
     {
       margin: "1rem 0",
+      overflowWrap: "anywhere",
     },
   "ul, ol, dl": {
     listStyle: "inside",

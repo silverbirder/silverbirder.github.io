@@ -26,16 +26,17 @@ export default component$(() => {
       <section>
         <script
           src="https://giscus.app/client.js"
-          data-repo="silverbirder/qwik-sample-blog"
-          data-repo-id="R_kgDOKCARrA"
-          data-category="General"
-          data-category-id="DIC_kwDOKCARrM4CYpI-"
+          data-repo="silverbirder/silverbirder.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkxNzEwMTQ5MjI="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOCjF7Cs4CZNjT"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"
-          data-emit-metadata="0"
+          data-emit-metadata="1"
           data-input-position="top"
-          data-theme="preferred_color_scheme"
+          data-theme="light"
+          data-lang="ja"
           data-loading="lazy"
           crossOrigin="anonymous"
           async

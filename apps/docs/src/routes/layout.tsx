@@ -37,7 +37,7 @@ export default component$(() => {
             backgroundColor: "bg.quote",
             height: "header.main",
             top: 0,
-            zIndex: 1,
+            zIndex: 2,
             backdropFilter: "blur(23px) saturate(4.5)",
           }),
           hstack({
@@ -83,9 +83,14 @@ export default component$(() => {
       <main
         class={css({
           gridArea: "content",
+          maxWidth: {
+            sm: "350px",
+            base: "350px",
+            lg: "1040px",
+          },
           margin: {
-            sm: "1% 5%",
-            base: "1% 5%",
+            sm: "2%",
+            base: "2%",
             lg: "1% 25%",
           },
         })}

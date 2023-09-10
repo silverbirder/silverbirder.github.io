@@ -101,9 +101,11 @@ export const globalCss = defineGlobalStyles({
     },
     "& th": {
       fontWeight: "bold",
+      padding: "1",
     },
     "& td": {
       fontWeight: "normal",
+      padding: "1",
     },
     "& caption": {
       textAlign: "left",

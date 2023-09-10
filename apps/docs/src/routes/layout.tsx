@@ -46,7 +46,7 @@ export default component$(() => {
         ]}
       >
         <h1>
-          <Link href="/">
+          <Link href="/" aria-label="favicon">
             <ImgFavicon
               class={css({ width: "icon.main", height: "icon.main" })}
             />
@@ -59,12 +59,20 @@ export default component$(() => {
             <Link href="/misc">Misc</Link>
           </nav>
           <nav class={hstack({ gap: 1 })}>
-            <a href="https://github.com/silverbirder" target="_brank">
+            <a
+              href="https://github.com/silverbirder"
+              target="_brank"
+              aria-label="github"
+            >
               <MdiGithub
                 class={css({ width: "icon.main", height: "icon.main" })}
               />
             </a>
-            <a href="https://x.com/silverbirder" target="_brank">
+            <a
+              href="https://x.com/silverbirder"
+              target="_brank"
+              aria-label="twitter"
+            >
               <MdiTwitter
                 class={css({ width: "icon.main", height: "icon.main" })}
               />
@@ -72,6 +80,7 @@ export default component$(() => {
             <a
               href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
               target="_brank"
+              aria-label="amazon"
             >
               <MdiAmazon
                 class={css({ width: "icon.main", height: "icon.main" })}

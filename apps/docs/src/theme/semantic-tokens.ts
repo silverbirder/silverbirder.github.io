@@ -54,10 +54,10 @@ export const semanticTokens = defineSemanticTokens({
         },
       },
       link: {
-        value: { base: "{colors.blue.500}", _dark: "{colors.blue.300}" },
+        value: { base: "{colors.blue.800}", _dark: "{colors.blue.800}" },
       },
       linkActive: {
-        value: { base: "{colors.blue.700}", _dark: "{colors.blue.200}" },
+        value: { base: "{colors.blue.950}", _dark: "{colors.blue.800}" },
       },
     },
   },

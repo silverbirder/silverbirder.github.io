@@ -1,0 +1,23 @@
+name: Continuous Translation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: yunwei37/OpenAI-Continuous-Translator@master
+      with:
+          git_repo_url: https://github.com/silverbirder/silverbirder.github.io
+          api_key: ${{ secrets.OPENAI_API_KEY }}
+          source_language: Japanese
+          target_language: English
+          i18n_surfix: en
+          file_types: mdx
+          file_path_filter: apps/docs/src/routes/blog/contents/2022_furikaeri/
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v9.1.1
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4

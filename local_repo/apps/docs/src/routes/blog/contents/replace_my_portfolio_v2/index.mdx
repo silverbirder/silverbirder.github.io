@@ -1,0 +1,143 @@
+---
+title: silverbirderのポートフォリオページ刷新(v3)
+published: true
+date: 2021-12-23
+description:
+tags: ["Portfolio", "Renewal"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+import { Image } from "~/components/image/image";
+
+この度、私のポートフォリオページを刷新致しました。本記事では、
+刷新することになった動機から、刷新内容、今後について紹介したいと思います。
+
+# 動機
+
+元々、私のポートフォリオページは、静的ページジェネレーターである Hugo を使って
+構築していました。
+
+http://kohki.hatenablog.jp/entry/hugo-portfolio
+
+こちらの記事を参考にして、Hugo でポートフォリオページを作りました。
+その当時、なぜポートフォリオを作ったのかというと、確か次の 3 つの思いがありました。
+
+- 私がどういった人かを知ってもらいたい
+- 自分のサイトを持ちたい
+- 静的ページジェネレーターを使ってみたい
+
+Hugo で記事を管理する対象は、Markdown であるため、エンジニアにとって書きやすいです。
+また、デザインテーマは、公開されているテーマがあるので、好きなものを選びます。
+
+導入当初は、とても快適でした。手軽にオシャレなポートフォリオサイトを公開できて満足でした。
+しかし、ずっと使っていると、かゆいところに手が届ないもどかしさを感じるようになりました。
+これは、便利さとのトレードオフだと思いますが、下記のようなデメリットがあると認識し始めました。
+
+- Javascript で技術的な挑戦が難しい
+- デザインテーマのカスタマイズが難しい
+- SEO のチューニングが難しい
+
+便利さというメリットよりも、デメリットの方が大きいように思い始めました。
+そのため、独自にポートフィリオサイトを作成することにしました。
+
+# やったこと
+
+AMP を存分に使ったポートフォリオサイトを作成しました。全体像は、下記のとおりです。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png"
+  width={532}
+  height={361}
+  layout="constrained"
+  alt="overview"
+/>
+
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
+ソースコードは、下記のリポジトリにあります。
+
+https://github.com/silverbirder/silverbirder.github.io
+
+# 技術選択
+
+今回のポートフォリオサイトに、必要以上の機能を持つ Web フレームワーク(e.g. Next.js)を使うのは、メンテナンスコストが高くなるので、却下としました。
+また、静的ページジェネレーター(e.g. Gatsby)も、動機の理由より却下としました。
+そのため、必要最小限な構成を目指しました。結果、次のような流れとなりました。
+
+1. コンテンツを用意する(Markdown,HTML,JSON)
+2. 1 をインプットとして[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)で AMP 化する
+
+これらの順序を制御するタスクランナーとして、[Gulp](https://www.npmjs.com/package/gulp) を採用しました。
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)は、NPM でインストールするので、Node.js と相性が良いタスクランナーを求めました。
+その選択肢として、Grunt や Gulp があったのですが、[AMP の公式サイトでは Gulp を紹介されていた](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/node-amp-optimizer/)ので、Gulp を選択しました。
+
+大きな技術選択としては、これくらいです。他の細かい所は、下記のとおりです。
+
+- highlightjs
+  - プログラムコードのハイライト機能
+- jsdom
+  - html の各処理
+    - h1~h6 タグの Anchor 設定(anchorJS 風)
+    - HTML のテンプレートとメインコンテンツの Mix
+    - ...etc
+- ampcssframework
+  - Dark Theme や Grid 機能が欲しかった
+- Cloudinary
+  - 画像管理 SaaS。OGP などに利用
+- SEO 向け
+  - Google search console
+  - Google analytics
+
+# ポートフォリオコンテンツ
+
+ポートフォリオサイトにどういったコンテンツを用意しようか悩みました。
+[AMP Optimizer に Markdown オプション](https://github.com/ampproject/amp-toolbox/tree/main/packages/optimizer#markdown)があります。
+これは、HTML だけではなく、Markdown も(HTML 経由で)AMP 化することができるようです。
+そのため、ブログのようなコンテンツもポートフォリオページに加えることができそうと気づきました。
+また、これまで私が書いたブログコンテンツは、Markdown で管理していたので、ちょうど使えそうでした。
+
+結果、次のようなコンテンツを用意しました。
+
+- 自己紹介
+- ブログ
+- 持っている本検索
+- 買ったものリスト
+  - アマゾンで買ったもの、サブスク
+- ウォッチ
+  - チェックしてる RSS
+- プロジェクト
+  - 作ったものの紹介
+
+ウォッチページで、RSS の WebPush 機能を追加しようとしましたが、Push する側である Server が必要となり、開発が伸びそうだったのでやめておきました。
+
+# 刷新してどうだったか
+
+想定通り、Hugo ではできなかったような様々なポートフォリオサイトの機能拡張ができるようになりました。
+
+- Javascript で技術的な挑戦が難しい
+  - AMP や、Web Worker(amp-script)を試せた
+- デザインテーマのカスタマイズが難しい
+  - CSS フレームワークや、CSS のチューニングができた
+- SEO のチューニングが難しい
+  - SearchConsole や GoogleAnalytics が使えた
+  - sitemap や meta タグのチューニングができた
+
+想定通りにできなかったのは、AMP の制約なのですが、WebComponents のような amp-script 上で動かせない技術もあるということでした。
+また、WebWorker(amp-script)上で、ES Module([skypack](https://skypack.dev/))を Import しようとしても、Safari が未対応だったりで、断念したりもしました。
+
+ただ、最終的な感想としては、HTML を柔軟に処理できるようになったので、AMP 上でできることは何でもできるようになり、刷新してよかったと思います。
+
+# 学んだこと
+
+経験学習モデルより、簡単に振り返ります。(はじめて)
+
+| 経験                                                 | 省察                                                                                                       | 概念化                                                 | 試行                                         |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------- |
+| AMP を初めて使ってみた                               | AMP 使ったことなかったけど、思っていたより課題は少なかった。<br />しかし、想定していなかった課題もあった。 | 使ったことがない技術要素の課題は、想定していても未知数 | 未知数な技術は、軽く試してみる               |
+| Next.js や Gatsby など、フレームワークを使わなかった | シンプルな構成にしたかった。<br />必要以上に機能が多いフレームワークを入れたくなかった。                   | 保守性を担保するため、最小限の機能で構成               | 大掛かりな技術の選択は、保守性と天秤にかける |
+
+# 終わりに
+
+ポートフォリオ刷新をしました。これまで 1 から Web サイトを作ったことがなかったので、
+sitemap や JSON-LD など全て手作りで開発したので、良い勉強になりました。
+まだまだポートフォリオの課題は山積みですが、少しずつ改善していきたいと思います。

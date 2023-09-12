@@ -3,7 +3,7 @@ import { globby } from "globby";
 import { readFileSync, writeFileSync } from "fs";
 
 async function parseDoc() {
-  const files = await globby("src/routes/blog/contents/**/*.mdx");
+  const files = await globby("src/routes/\\(ja\\)/blog/contents/**/*.mdx");
   const textForSearch = await Promise.all(
     files.map(async (file) => {
       const readFileData = readFileSync(file, "utf8");

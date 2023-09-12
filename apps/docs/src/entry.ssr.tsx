@@ -27,7 +27,7 @@ export default async function (opts: RenderToStreamOptions) {
     ...opts,
     // Use container attributes to set attributes on the html tag.
     containerAttributes: {
-      lang: "en-us",
+      lang: "ja",
       ...opts.containerAttributes,
     },
   });
@@ -35,7 +35,7 @@ export default async function (opts: RenderToStreamOptions) {
 
 const generateBlogFrontMatter = async () => {
   const modules = await import.meta.glob(
-    "/src/routes/blog/contents/**/**/index.mdx"
+    "/src/routes/\\(ja\\)/blog/contents/**/**/index.mdx"
   );
   const posts = (
     await asyncMap(Object.keys(modules), async (path) => {
@@ -45,7 +45,7 @@ const generateBlogFrontMatter = async () => {
         description:
           data.head.meta.find((m) => m.name === "description")?.content || "",
         permalink: path
-          .replace(/^\/src\/routes/, "")
+          .replace(/^\/src\/routes\/\(ja\)/, "")
           .replace(/\/index.mdx$/, "/"),
         date: data.head.frontmatter.date,
         tags: data.head.frontmatter.tags,
@@ -57,5 +57,5 @@ const generateBlogFrontMatter = async () => {
     const dateB = new Date(b.date).getTime();
     return dateB - dateA;
   });
-  fs.writeFileSync("./src/routes/blog/index.json", JSON.stringify(posts));
+  fs.writeFileSync("./src/routes/(ja)/blog/index.json", JSON.stringify(posts));
 };

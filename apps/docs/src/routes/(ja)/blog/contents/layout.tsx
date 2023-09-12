@@ -2,7 +2,7 @@ import { component$, Slot } from "@builder.io/qwik";
 import { type DocumentHead, useDocumentHead } from "@builder.io/qwik-city";
 import { PostSummaryList } from "~/components/post-summary-list/post-summary-list";
 import { Tag } from "~/components/tag/tag";
-import data from "~/routes/blog/index.json";
+import data from "~/routes/(ja)/blog/index.json";
 import { HStack } from "~/styled-system/jsx";
 
 export default component$(() => {

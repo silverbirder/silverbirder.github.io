@@ -52,10 +52,12 @@ const generateBlogFrontMatter = async () => {
         published: data.head.frontmatter.published,
       };
     })
-  ).sort((a, b) => {
-    const dateA = new Date(a.date).getTime();
-    const dateB = new Date(b.date).getTime();
-    return dateB - dateA;
-  });
+  )
+    .filter(({ published }) => published)
+    .sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateB - dateA;
+    });
   fs.writeFileSync("./src/routes/(ja)/blog/index.json", JSON.stringify(posts));
 };

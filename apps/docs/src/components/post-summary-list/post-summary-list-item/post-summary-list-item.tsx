@@ -6,7 +6,8 @@ import { Tag } from "~/components/tag/tag";
 import { stringToSlug } from "~/util";
 
 export const PostSummaryListItem = component$(
-  ({ title, permalink, description, tags, date }: PostSummary) => {
+  ({ title, permalink, description, tags, date, published }: PostSummary) => {
+    if (!published) return <></>;
     return (
       <div>
         <a href={permalink}>

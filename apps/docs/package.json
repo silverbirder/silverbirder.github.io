@@ -11,7 +11,7 @@
   "private": true,
   "scripts": {
     "generate:search": "node ./scripts/parseDoc.mjs",
-    "build": "pnpm generate:search && qwik build",
+    "build": "qwik build",
     "build-storybook": "storybook build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",

@@ -78,6 +78,7 @@ const RelatedTags = component$(
 export const head: DocumentHead = ({ head }) => {
   const description = head.meta.find((m) => m.name === "description")?.content;
   const currentPost = data.filter((post) => post.title === head.title)[0];
+  const permalink = currentPost ? currentPost.permalink : "";
   return {
     ...head,
     meta: [
@@ -96,7 +97,7 @@ export const head: DocumentHead = ({ head }) => {
       { property: "og:type", content: "article" },
       {
         property: "og:url",
-        content: "https://silverbirder.github.io" + currentPost.permalink,
+        content: "https://silverbirder.github.io" + permalink,
       },
       {
         property: "og:image",

@@ -77,8 +77,8 @@ const RelatedTags = component$(
 
 export const head: DocumentHead = ({ head }) => {
   const description = head.meta.find((m) => m.name === "description")?.content;
-  const currentPost = data.filter((post) => post.title === head.title)[0];
-  const permalink = currentPost ? currentPost.permalink : "";
+  const currentPosts = data.filter((post) => post.title === head.title);
+  const permalink = currentPosts.length > 0 ? currentPosts[0].permalink : "";
   return {
     ...head,
     meta: [

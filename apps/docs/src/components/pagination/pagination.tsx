@@ -1,5 +1,5 @@
-import { component$, $, useSignal, type NoSerialize } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
+import { component$, $, useSignal, type QRL } from "@builder.io/qwik";
+import { css } from "~/styled-system/css";
 
 export interface PaginationProps {
   page: number;
@@ -9,25 +9,41 @@ export interface PaginationProps {
 }
 
 export const Pagination = component$<PaginationProps>((props) => {
-  const { page, pageSize, total } = props;
+  const { page, pageSize, total, onPageChange } = props;
   const pages = Math.ceil(total / pageSize);
   const pagesArray = Array.from({ length: pages }, (_, i) => i + 1);
-  const location = useLocation();
-
-  const handleClick = $((p: number) => {
-    location.url.searchParams.set("page", p.toString());
-    window.history.pushState({}, "", location.url);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    props.onPageChange(p);
-  });
 
   return (
-    <div>
+    <div
+      class={css({
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+      })}
+    >
       {pagesArray.map((p) => (
         <button
           key={p}
-          onClick$={() => handleClick(p)}
-          style={{ fontWeight: p === page ? "bold" : "normal" }}
+          onClick$={() => onPageChange(p)}
+          class={[
+            css({
+              padding: "2",
+              margin: "2",
+              borderRadius: "base",
+              backgroundColor: "bg.quote",
+              borderColor: "bg.quote",
+              borderWidth: "medium",
+              cursor: "pointer",
+            }),
+            p === page
+              ? css({
+                  fontWeight: "bold",
+                })
+              : css({
+                  fontWeight: "normal",
+                }),
+          ]}
         >
           {p}
         </button>
@@ -40,28 +56,30 @@ export type UsePaginationProps = {
   page: number;
   pageSize: number;
   items: any[];
-  onPageChange: NoSerialize<(page: number) => void>;
+  onPageChangeAfter: QRL<(page: number) => void>;
 };
 
 export const usePagination = (props: UsePaginationProps) => {
-  const { page, items, pageSize, onPageChange: propsOnPageChange } = props;
+  const { page, pageSize, onPageChangeAfter } = props;
   const pageState = useSignal(page);
-  const itemsState = useSignal(items.slice(0, pageSize));
   const total = props.items.length;
 
   const onPageChange = $((p: number) => {
     pageState.value = p;
-    const startIdx = (pageState.value - 1) * pageSize;
-    const endIdx = startIdx + pageSize;
-    itemsState.value = items.slice(startIdx, endIdx);
-    propsOnPageChange && propsOnPageChange(p);
+    onPageChangeAfter(p);
   });
+
+  const calculatedItems = (page: number, pageSize: number, data: any[]) => {
+    const startIdx = (page - 1) * pageSize;
+    const endIdx = startIdx + pageSize;
+    return data.slice(startIdx, endIdx);
+  };
 
   return {
     page: pageState.value,
-    items: itemsState.value,
     total,
     pageSize,
     onPageChange,
+    calculatedItems,
   };
 };

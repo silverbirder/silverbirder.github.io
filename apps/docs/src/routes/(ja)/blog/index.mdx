@@ -3,6 +3,7 @@ title: Blog
 description: silverbirder's blog
 ---
 
-import { PostSummaryListWithPagination } from "./_index";
+import data from "./index.json";
+import { PostSummaryListWithPagination } from "~/components/post-summary-list/post-summary-list";
 
-<PostSummaryListWithPagination />
+<PostSummaryListWithPagination data={data} />

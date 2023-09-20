@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { type StaticGenerateHandler, useLocation } from "@builder.io/qwik-city";
 import data from "../../index.json";
-import { PostSummaryListWithPagination } from "~/components/post-summary-list/post-summary-list";
+import { PostSummaryList } from "~/components/post-summary-list/post-summary-list";
 import { stringToSlug } from "~/util";
 
 export default component$(() => {
@@ -10,11 +10,7 @@ export default component$(() => {
     ({ tags }) =>
       tags.map((tag) => stringToSlug(tag)).indexOf(loc.params.tag) !== -1
   );
-  return (
-    <PostSummaryListWithPagination
-      data={tagPosts}
-    ></PostSummaryListWithPagination>
-  );
+  return <PostSummaryList data={tagPosts}></PostSummaryList>;
 });
 
 export const onStaticGenerate: StaticGenerateHandler = async () => {

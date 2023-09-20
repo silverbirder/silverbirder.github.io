@@ -1,7 +1,7 @@
 import { component$, $ } from "@builder.io/qwik";
 import { PostSummaryListItem } from "./post-summary-list-item/post-summary-list-item";
 import { type PostSummary } from "~/models";
-import { useLocation } from "@builder.io/qwik-city";
+import { useNavigate } from "@builder.io/qwik-city";
 import { usePagination, Pagination } from "../pagination/pagination";
 
 export interface PostSummaryListProps {
@@ -26,21 +26,25 @@ export const PostSummaryList = component$(({ data }: PostSummaryListProps) => {
   );
 });
 
+export interface PostSummaryListWithPaginationProps {
+  data: PostSummary[];
+  page?: number;
+  urlPath?: string;
+}
+
 export const PostSummaryListWithPagination = component$(
-  ({ data }: PostSummaryListProps) => {
-    const location = useLocation();
-    const initialPage = parseInt(
-      location.url.searchParams.get("page") || "1",
-      10
-    );
+  ({
+    data,
+    page = 1,
+    urlPath = "/blog/pages",
+  }: PostSummaryListWithPaginationProps) => {
+    const nav = useNavigate();
     const onPageChangeAfter = $((page: number) => {
-      location.url.searchParams.set("page", page.toString());
-      window.history.pushState({}, "", location.url);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      nav(`${urlPath}/${page}/`);
     });
 
     const { calculatedItems, ...paginationProps } = usePagination({
-      page: initialPage,
+      page,
       pageSize: 10,
       items: data,
       onPageChangeAfter,

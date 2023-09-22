@@ -93,14 +93,17 @@ export default component$(() => {
         class={css({
           gridArea: "content",
           maxWidth: {
-            sm: "350px",
-            base: "350px",
-            lg: "1040px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
           },
           margin: {
-            sm: "2%",
-            base: "2%",
-            lg: "1% 25%",
+            base: "3%",
+            sm: "1% 20%",
+            md: "1% 20%",
+            lg: "1% 20%",
+            xl: "1% 20%",
           },
         })}
       >

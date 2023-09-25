@@ -25,6 +25,9 @@ export const tokens = defineTokens({
     "4xl": { value: "2.25rem" },
     "5xl": { value: "3rem" },
     "6xl": { value: "4rem" },
+    "7xl": { value: "5rem" },
+    "8xl": { value: "6rem" },
+    "9xl": { value: "8rem" },
   },
   fontWeights: {
     thin: { value: 100 },

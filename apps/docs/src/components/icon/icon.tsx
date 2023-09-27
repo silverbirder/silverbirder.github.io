@@ -199,3 +199,21 @@ export function MaterialSymbolsShoppingBag(
     </svg>
   );
 }
+
+export function MdiArrowDown(props: QwikIntrinsicElements["svg"], key: string) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+      key={key}
+    >
+      <path
+        fill="currentColor"
+        d="M11 4h2v12l5.5-5.5l1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5L11 16V4Z"
+      ></path>
+    </svg>
+  );
+}

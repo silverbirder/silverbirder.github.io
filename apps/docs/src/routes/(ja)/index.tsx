@@ -1,5 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
+import {
+  DeviconGitbook,
+  DeviconGithubcodespaces,
+  DeviconGitpod,
+  DeviconPytest,
+} from "~/components/icon/devicon";
+import {
+  FileIconsDigdag,
+  FileIconsOpenpolicyagent,
+} from "~/components/icon/file";
 import { LogosGoogleCloudPlatform } from "~/components/icon/icon";
 import {
   LogosAlgolia,
@@ -17,6 +27,7 @@ import {
   LogosC,
   LogosCakephpIcon,
   LogosChromaticIcon,
+  LogosChromeWebStore,
   LogosCircleci,
   LogosCloudflareWorkersIcon,
   LogosCloudinaryIcon,
@@ -108,7 +119,17 @@ import {
   LogosWebcomponents,
   LogosWebpack,
 } from "~/components/icon/logos";
-import { OriginalBigQuery, OriginalUrql } from "~/components/icon/original";
+import {
+  OriginalApacheBeam,
+  OriginalBigQuery,
+  OriginalUrql,
+  OriginalVarnish,
+} from "~/components/icon/original";
+import {
+  SimpleIconsBackstage,
+  SimpleIconsFluentd,
+  SimpleIconsGoogleappsscript,
+} from "~/components/icon/simple";
 import ImgFavicon from "~/media/favicon.svg?jsx";
 import { css } from "~/styled-system/css";
 
@@ -425,6 +446,9 @@ const KnowledgesSection = component$(() => {
           class={css({ width: "icon.main", height: "icon.main" })}
         />
         <LogosVitest class={css({ width: "icon.main", height: "icon.main" })} />
+        <DeviconPytest
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
       </div>
       <h4>Data</h4>
       <div
@@ -444,6 +468,15 @@ const KnowledgesSection = component$(() => {
         <OriginalBigQuery
           class={css({ width: "icon.main", height: "icon.main" })}
         />
+        <OriginalApacheBeam
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <FileIconsDigdag
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <SimpleIconsFluentd
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
       </div>
       <h4>Infra</h4>
       <div
@@ -460,6 +493,9 @@ const KnowledgesSection = component$(() => {
         />
         <LogosNginx class={css({ width: "icon.main", height: "icon.main" })} />
         <LogosAnsible
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <OriginalVarnish
           class={css({ width: "icon.main", height: "icon.main" })}
         />
         <LogosTerraformIcon
@@ -523,6 +559,12 @@ const KnowledgesSection = component$(() => {
         />
         <LogosSnyk class={css({ width: "icon.main", height: "icon.main" })} />
         <LogosSonarqube class={css({ height: "icon.main" })} />
+        <SimpleIconsBackstage
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <FileIconsOpenpolicyagent
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
       </div>
       <h4>SaaS</h4>
       <div
@@ -614,6 +656,21 @@ const KnowledgesSection = component$(() => {
           class={css({ width: "icon.main", height: "icon.main" })}
         />
         <LogosSlackIcon
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <DeviconGitbook
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <DeviconGithubcodespaces
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <DeviconGitpod
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <LogosChromeWebStore
+          class={css({ width: "icon.main", height: "icon.main" })}
+        />
+        <SimpleIconsGoogleappsscript
           class={css({ width: "icon.main", height: "icon.main" })}
         />
       </div>

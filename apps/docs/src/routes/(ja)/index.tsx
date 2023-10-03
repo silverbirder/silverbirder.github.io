@@ -1,5 +1,6 @@
 import { Slot, component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
+import { Image } from "~/components/image/image";
 import {
   DeviconGitbook,
   DeviconGithubcodespaces,
@@ -10,7 +11,7 @@ import {
   FileIconsDigdag,
   FileIconsOpenpolicyagent,
 } from "~/components/icon/file";
-import { LogosGoogleCloudPlatform } from "~/components/icon/icon";
+import { LogosGoogleCloudPlatform, MdiApi } from "~/components/icon/icon";
 import {
   LogosAlgolia,
   LogosAmpIcon,
@@ -144,8 +145,8 @@ export default component$(() => {
           base: `
           "side main"`,
           smDown: `
-          "main"
           "side"
+          "main"
           `,
         },
         gridTemplateColumns: {
@@ -174,7 +175,6 @@ export default component$(() => {
       <div
         class={css({
           gridArea: "main",
-          padding: "0 2rem",
         })}
       >
         <WorkExperiencesSection />
@@ -276,19 +276,41 @@ const WorkExperiencesSection = component$(() => {
         })}
       >
         <WorkExperience
-          between="2016/04 ~ 2018/07"
+          from="2016/04"
+          to="2018/07"
           industry="System Integration"
+          description="新卒でWebアプリ開発・保守・運用に従事。上流から下流工程まで経験。"
         />
-        <WorkExperience between="2018/08 ~ 2021/12" industry="E-Commerce" />
-        <WorkExperience between="2022/01 ~ 2022/06" industry="Fintech" />
-        <WorkExperience between="2022/07 ~ now" industry="Restaurant" />
+        <WorkExperience
+          from="2018/08"
+          to="2021/12"
+          industry="E-Commerce"
+          description="フルスタックエンジニアとして、大規模アプリのアーキテクチャとモダナイゼーションに貢献。"
+        />
+        <WorkExperience
+          from="2021/01"
+          to="2022/06"
+          industry="Fintech"
+          description="フロントエンドエンジニアとして、プロダクト改修と新規開発に携わる。"
+        />
+        <WorkExperience
+          from="2021/07"
+          to="now"
+          industry="Restaurant"
+          description="業務委託で飲食店向けSaaSプロダクトのクロスプラットフォーム開発を担当。"
+        />
       </div>
     </section>
   );
 });
 
 const WorkExperience = component$(
-  (props: { between: string; industry: string }) => {
+  (props: {
+    from: string;
+    to: string;
+    industry: string;
+    description: string;
+  }) => {
     return (
       <div
         class={css({
@@ -297,13 +319,25 @@ const WorkExperience = component$(
           padding: "8px",
           width: {
             base: "40%",
-            smDown: "100%",
+            smDown: "95%",
           },
           borderRadius: 8,
         })}
       >
-        <h4>{props.between}</h4>
-        <div>{props.industry}</div>
+        <h4>{props.industry}</h4>
+        <div
+          class={css({
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "center",
+          })}
+        >
+          <p>{props.from}</p>
+          <div>~</div>
+          <p>{props.to}</p>
+        </div>
+        <div>{props.description}</div>
       </div>
     );
   }
@@ -696,6 +730,106 @@ const ArtifactsSection = component$(() => {
   return (
     <section>
       <h3>Artifacts</h3>
+      <h4>Main</h4>
+      <div
+        class={css({
+          display: "flex",
+          alignItems: "center",
+        })}
+      >
+        <Image
+          src="https://res.cloudinary.com/silverbirder/image/upload/v1696334257/silver-birder.github.io/artifacts/Introduction-to-webcomponents-for-beginners.jpg"
+          width={1057 / 5}
+          height={1500 / 5}
+          layout="constrained"
+          alt="はじめてのWeb Components入門 - Amazon"
+          href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
+        />
+        <Image
+          src="https://res.cloudinary.com/silverbirder/image/upload/v1696335110/silver-birder.github.io/artifacts/AI-GHOST-WRITER.jpg"
+          width={640 / 3}
+          height={400 / 3}
+          layout="constrained"
+          alt="AIゴーストライター - Chrome ウェブストア"
+          href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
+        />
+        <a
+          href="https://github.com/silverbirder/Google-Account-Photo-API"
+          target="_blank"
+        >
+          <figure
+            title={"Google Account Photo API - GitHub"}
+            class={css({
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              textAlign: "center",
+            })}
+          >
+            <MdiApi
+              class={css({
+                width: "100px",
+                height: "100px",
+              })}
+            />
+            <figcaption
+              class={css({
+                fontSize: "0.8rem",
+                color: "gray.500",
+              })}
+            >
+              Google Account Photo API - GitHub
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+      <h4>Others</h4>
+      <div>
+        <div>
+          <a
+            href="https://www.webcomponents.org/element/silverbirder/o-embed"
+            target="_brank"
+          >
+            o-embed - webcomponents.org
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.webcomponents.org/element/silverbirder/ogp-me"
+            target="_brank"
+          >
+            ogp-me - webcomponents.org
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/silverbirder/CaAT" target="_brank">
+            CaAT - GitHub
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/silverbirder/Cotlin" target="_brank">
+            Cotlin - GitHub
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/silverbirder/rMinc" target="_brank">
+            rMinc - GitHub
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/silverbirder/tiqav2" target="_brank">
+            tiqav2 - GitHub
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://github.com/silverbirder/zoom-meeting-creator"
+            target="_brank"
+          >
+            zoom-meeting-creator - GitHub
+          </a>
+        </div>
+      </div>
     </section>
   );
 });

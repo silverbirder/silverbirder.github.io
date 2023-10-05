@@ -55,8 +55,6 @@ export default component$(() => {
         <div class={hstack({ gap: 10 })}>
           <nav class={hstack({ gap: 1 })}>
             <Link href="/blog">Blog</Link>
-            <Link href="/resume">Resume</Link>
-            <Link href="/misc">Misc</Link>
           </nav>
           <nav class={hstack({ gap: 1 })}>
             <a

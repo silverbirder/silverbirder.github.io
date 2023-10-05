@@ -11,7 +11,8 @@ export const ArtifactsSection = component$(() => {
       <div
         class={css({
           display: "flex",
-          alignItems: "center",
+          alignItems: "end",
+          gap: 4,
         })}
       >
         <Image

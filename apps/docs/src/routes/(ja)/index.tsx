@@ -2,7 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import ImgFavicon from "~/media/favicon.svg?jsx";
 import { css } from "~/styled-system/css";
-import { MessageSection } from "./MessageSection";
 import { BiographySection } from "./BiographySection";
 import { PreferencesSection } from "./PreferencesSection";
 import { ArtifactsSection } from "./ArtifactsSection";
@@ -41,7 +40,6 @@ export default component$(() => {
             height: "avatar.main",
           })}
         />
-        <MessageSection />
         <BiographySection />
         <PreferencesSection />
       </div>

@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -9,6 +9,14 @@ import { QwikPartytown } from "./components/partytown/partytown";
 import "~/global.css";
 
 export default component$(() => {
+  useVisibleTask$(async () => {
+    const Tracker = await import("@openreplay/tracker");
+    const tracker = new Tracker.default({
+      projectKey: import.meta.env.PUBLIC_OPEN_REPLAY_PROJECT_KEY,
+      __DISABLE_SECURE_MODE: true,
+    });
+    tracker.start();
+  });
   return (
     <QwikCityProvider>
       <head>

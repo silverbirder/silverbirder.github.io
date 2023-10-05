@@ -26,6 +26,9 @@ importers:
       '@builder.io/vite-plugin-macro':
         specifier: ~0.0.7
         version: 0.0.7(@types/node@20.5.0)
+      '@openreplay/tracker':
+        specifier: ^9.0.9
+        version: 9.0.9
       '@orama/plugin-parsedoc':
         specifier: ^1.2.1
         version: 1.2.1
@@ -2566,6 +2569,10 @@ packages:
       react: 18.2.0
     dev: true
 
+  /@medv/finder@3.1.0:
+    resolution: {integrity: sha512-ojkXjR3K0Zz3jnCR80tqPL+0yvbZk/lEodb6RIVjLz7W8RVA2wrw8ym/CzCpXO9SYVUIKHFUpc7jvf8UKfIM3w==}
+    dev: true
+
   /@ndelangen/get-tarball@3.0.9:
     resolution: {integrity: sha512-9JKTEik4vq+yGosHYhZ1tiH/3WpUS0Nh0kej4Agndhox8pAdWhEx5knFVRcb/ya9knCRCs1rPxNrSXTDdfVqpA==}
     dependencies:
@@ -2593,6 +2600,15 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@openreplay/tracker@9.0.9:
+    resolution: {integrity: sha512-t0+2a0P1UZwP7SWiddr1XWOEH98dPPBvb+DAr+eq3KMUO3njUaXi5KBM0Njrd240QLgeTrA5QV2Aa0mvUfwm0A==}
+    engines: {node: '>=14.0'}
+    dependencies:
+      '@medv/finder': 3.1.0
+      error-stack-parser: 2.1.4
+      fflate: 0.7.4
     dev: true
 
   /@orama/orama@1.2.1:
@@ -7168,6 +7184,12 @@ packages:
       is-arrayish: 0.2.1
     dev: true
 
+  /error-stack-parser@2.1.4:
+    resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
+    dependencies:
+      stackframe: 1.3.4
+    dev: true
+
   /es-abstract@1.22.1:
     resolution: {integrity: sha512-ioRRcXMO6OFyRpyzV3kE1IIBd4WG5/kltnzdxSCqoP8CMGs/Li+M1uF5o7lOkZVFjDs+NLesthnF66Pg/0q0Lw==}
     engines: {node: '>= 0.4'}
@@ -7744,6 +7766,10 @@ packages:
 
   /fetch-retry@5.0.6:
     resolution: {integrity: sha512-3yurQZ2hD9VISAhJJP9bpYFNQrHHBXE2JxxjY5aLEcDi46RmAzJE2OC9FAde0yis5ElW0jTTzs0zfg/Cca4XqQ==}
+    dev: true
+
+  /fflate@0.7.4:
+    resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
     dev: true
 
   /fflate@0.8.0:
@@ -11997,6 +12023,10 @@ packages:
 
   /stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
+    dev: true
+
+  /stackframe@1.3.4:
+    resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
     dev: true
 
   /statuses@2.0.1:

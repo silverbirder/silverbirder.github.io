@@ -13,6 +13,7 @@ import {
 import { Tag } from "~/components/tag/tag";
 import data from "~/routes/(ja)/blog/index.json";
 import { css } from "~/styled-system/css";
+import { stringToSlug } from "~/util";
 
 export default component$(() => {
   const head = useDocumentHead();
@@ -197,7 +198,7 @@ const RelatedTags = component$(
           if (relatedTagPosts.length === 0) return <></>;
           return (
             <section key={tag}>
-              <Tag url={`/blog/tags/${tag}`} name={tag} />
+              <Tag url={`/blog/tags/${stringToSlug(tag)}`} name={tag} />
               <ul>
                 {relatedTagPosts.map((post) => (
                   <li key={post.title}>

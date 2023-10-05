@@ -13,7 +13,6 @@ import {
 import { Tag } from "~/components/tag/tag";
 import data from "~/routes/(ja)/blog/index.json";
 import { css } from "~/styled-system/css";
-import { HStack } from "~/styled-system/jsx";
 
 export default component$(() => {
   const head = useDocumentHead();

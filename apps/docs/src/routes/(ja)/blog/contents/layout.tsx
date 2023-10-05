@@ -1,6 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
 import { type DocumentHead, useDocumentHead } from "@builder.io/qwik-city";
-import { PostSummaryList } from "~/components/post-summary-list/post-summary-list";
 import { Tag } from "~/components/tag/tag";
 import data from "~/routes/(ja)/blog/index.json";
 import { HStack } from "~/styled-system/jsx";
@@ -63,10 +62,14 @@ const RelatedTags = component$(
           if (relatedTagPosts.length === 0) return <></>;
           return (
             <section key={tag}>
-              <h3>
-                <Tag url={`/blog/tags/${tag}`} name={tag} />
-              </h3>
-              <PostSummaryList data={relatedTagPosts} />
+              <Tag url={`/blog/tags/${tag}`} name={tag} />
+              <ul>
+                {relatedTagPosts.map((post) => (
+                  <li key={post.title}>
+                    <a href={post.permalink}>{post.title}</a>
+                  </li>
+                ))}
+              </ul>
             </section>
           );
         })}

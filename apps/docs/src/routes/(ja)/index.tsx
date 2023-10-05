@@ -223,38 +223,88 @@ const PreferencesSection = component$(() => {
         })}
       >
         <LogosJavascript
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "advancedIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosNodejsIcon
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "advancedIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosWebcomponents
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosStorybookIcon
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
-        <LogosJest class={css({ width: "icon.main", height: "icon.main" })} />
+        <LogosJest
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
+        />
         <LogosPlaywright
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosGoogleCloudPlatform
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <OriginalBigQuery
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosGoogleMaps
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <LogosOpenaiIcon
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <OriginalMisterDonuts
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
         <OriginalBeardPapas
-          class={css({ width: "icon.main", height: "icon.main" })}
+          class={css({
+            layerStyle: "beginnerIcon",
+            width: "icon.main",
+            height: "icon.main",
+          })}
         />
       </div>
     </section>
@@ -360,340 +410,828 @@ const KnowledgesSection = component$(() => {
       >
         <Knowledge name="Frontend">
           <LogosAmpIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosBootstrap
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosElectron
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosEslint
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosFigma
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosGulp class={css({ width: "icon.main", height: "icon.main" })} />
-          <LogosHugo class={css({ height: "icon.main" })} />
-          <LogosJquery class={css({ height: "icon.main" })} />
+          <LogosGulp
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
+          <LogosHugo
+            class={css({ layerStyle: "beginnerIcon", height: "icon.main" })}
+          />
+          <LogosJquery
+            class={css({ layerStyle: "middleIcon", height: "icon.main" })}
+          />
           <LogosJavascript
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "advancedIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosLitIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosMadge
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosMaterialUi
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosNextjsIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosPandacssIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosPartytownIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosPwa class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosPwa
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosQwikIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosReact
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosReactRouter
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosReduxSaga
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosStorybookIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosSwr class={css({ height: "icon.main" })} />
+          <LogosSwr
+            class={css({ layerStyle: "beginnerIcon", height: "icon.main" })}
+          />
           <LogosTurborepoIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosTypescriptIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <OriginalUrql
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosVitejs
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosVue class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosVue
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosWebpack
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosWebcomponents
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="Backend">
           <LogosBashIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosCakephpIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosC class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosC
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosDjangoIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosExpress
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosFlask
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosGo class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosGo
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosGraphql
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosKotlinIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosNodejsIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "advancedIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
 
-          <LogosPhp class={css({ width: "icon.main", height: "icon.main" })} />
-          <LogosPython
-            class={css({ width: "icon.main", height: "icon.main" })}
+          <LogosPhp
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosRails class={css({ height: "icon.main" })} />
-          <LogosRuby class={css({ width: "icon.main", height: "icon.main" })} />
-          <LogosRust class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosPython
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
+          <LogosRails
+            class={css({ layerStyle: "beginnerIcon", height: "icon.main" })}
+          />
+          <LogosRuby
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
+          <LogosRust
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
         </Knowledge>
         <Knowledge name="Testing">
           <LogosCucumber
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <DeviconPytest
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosJest class={css({ width: "icon.main", height: "icon.main" })} />
-          <LogosMsw class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosJest
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
+          <LogosMsw
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosPlaywright
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosPuppeteer
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosSelenium
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosSonarqube class={css({ height: "icon.main" })} />
+          <LogosSonarqube
+            class={css({ layerStyle: "beginnerIcon", height: "icon.main" })}
+          />
           <LogosTestingLibrary
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosVitest
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="Data">
           <OriginalApacheBeam
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <OriginalBigQuery
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosMongodbIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosMysqlIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="Infra/Middleware">
           <LogosAnsible
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosApache
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosAws class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosAws
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <FileIconsDigdag
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosDockerIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <SimpleIconsFluentd
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosGoogleCloudPlatform
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosKubernetes
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosMemcached
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosNginx
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <OriginalVarnish
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosTerraformIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="DevOps">
           <SimpleIconsBackstage
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosCircleci
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosDatadog
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosDependabot
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <FileIconsOpenpolicyagent
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosGithubActions
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosArgoIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosJenkins
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosLighthouse
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosRollbarIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosSentryIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosSnyk class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosSnyk
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
         </Knowledge>
         <Knowledge name="SaaS">
-          <LogosAlgolia class={css({ height: "icon.main" })} />
+          <LogosAlgolia
+            class={css({ layerStyle: "middleIcon", height: "icon.main" })}
+          />
           <DeviconGitbook
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosChromaticIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosCloudflareWorkersIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosCloudinaryIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosCodecovIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosContentful
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosExpoIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosGithubCopilot
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosGravatarIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosHerokuIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosNetlifyIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosNow class={css({ width: "icon.main", height: "icon.main" })} />
+          <LogosNow
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
+          />
           <LogosOpenaiIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosSurge
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
-          <LogosVercel class={css({ height: "icon.main" })} />
+          <LogosVercel
+            class={css({ layerStyle: "beginnerIcon", height: "icon.main" })}
+          />
         </Knowledge>
         <Knowledge name="Editor">
           <LogosAtomIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosBrackets
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <DeviconGithubcodespaces
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <DeviconGitpod
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosEclipseIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosIntellijIdea
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosVisualStudioCode
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="Development">
           <LogosFfmpegIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <SimpleIconsGoogleappsscript
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosOpenapiIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosPostmanIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosSwagger
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
         <Knowledge name="Business">
           <LogosAtlassian
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosBitbucket
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosChromeWebStore
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosDiscordIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosDropbox
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosGithubIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosObsidianIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosRocketChatIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "beginnerIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
           <LogosSlackIcon
-            class={css({ width: "icon.main", height: "icon.main" })}
+            class={css({
+              layerStyle: "middleIcon",
+              width: "icon.main",
+              height: "icon.main",
+            })}
           />
         </Knowledge>
       </div>
@@ -784,52 +1322,88 @@ const ArtifactsSection = component$(() => {
         </a>
       </div>
       <h4>Others</h4>
-      <div>
-        <div>
+      <ul>
+        <li>
           <a
             href="https://www.webcomponents.org/element/silverbirder/o-embed"
             target="_brank"
           >
             o-embed - webcomponents.org
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>o-embed is Web Components for oEmbed generated by open-wc</li>
+          </ul>
+        </li>
+        <li>
           <a
             href="https://www.webcomponents.org/element/silverbirder/ogp-me"
             target="_brank"
           >
             ogp-me - webcomponents.org
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>
+              ogp-me is a WebComponent that displays Facebook-like information
+              based on Open Graph Protocol (OGP)
+            </li>
+          </ul>
+        </li>
+        <li>
           <a href="https://github.com/silverbirder/CaAT" target="_brank">
             CaAT - GitHub
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>
+              CaAT is the Google Apps Script Library that Calculate the Assigned
+              Time in Google Calendar
+            </li>
+          </ul>
+        </li>
+        <li>
           <a href="https://github.com/silverbirder/Cotlin" target="_brank">
             Cotlin - GitHub
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>
+              Cotlin is tools that collect links in tweet by using the Twitter
+              API(Search Tweets)
+            </li>
+          </ul>
+        </li>
+        <li>
           <a href="https://github.com/silverbirder/rMinc" target="_brank">
             rMinc - GitHub
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>
+              rMinc is the Google Apps Script Library that register Mail in
+              Calendar
+            </li>
+          </ul>
+        </li>
+        <li>
           <a href="https://github.com/silverbirder/tiqav2" target="_brank">
             tiqav2 - GitHub
           </a>
-        </div>
-        <div>
+          <ul>
+            <li>Tiqav2 is the platform that provide image search API</li>
+          </ul>
+        </li>
+        <li>
           <a
             href="https://github.com/silverbirder/zoom-meeting-creator"
             target="_brank"
           >
             zoom-meeting-creator - GitHub
           </a>
-        </div>
-      </div>
+          <ul>
+            <li>
+              zoom-meeting-creator is a Google Apps Script for creating zoom
+              meetings
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
   );
 });

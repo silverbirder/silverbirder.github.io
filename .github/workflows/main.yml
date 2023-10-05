@@ -27,6 +27,8 @@ jobs:
         run: pnpm install
       - name: build
         run: pnpm build
+        env:
+          PUBLIC_OPEN_REPLAY_PROJECT_KEY: ${{ secrets.PUBLIC_OPEN_REPLAY_PROJECT_KEY }}
       - name: setup pages
         uses: actions/configure-pages@v3
       - name: upload artifact

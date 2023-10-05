@@ -90,20 +90,14 @@ export default component$(() => {
       <main
         class={css({
           gridArea: "content",
-          maxWidth: {
-            base: "100vw",
+          width: {
+            base: "95vw",
             sm: "640px",
             md: "768px",
             lg: "1024px",
             xl: "1280px",
           },
-          margin: {
-            base: "3%",
-            sm: "1% 20%",
-            md: "1% 20%",
-            lg: "1% 20%",
-            xl: "1% 20%",
-          },
+          margin: "1% auto",
         })}
       >
         <Slot />

@@ -22,11 +22,18 @@ export default component$(() => {
     <article>
       <section>
         <h1>{head.title}</h1>
-        <HStack gap={1}>
+        <div
+          class={css({
+            display: "flex",
+            flexDirection: "row",
+            gap: 1,
+            flexWrap: "wrap",
+          })}
+        >
           {tags.map((tag) => (
             <Tag url={`/blog/tags/${tag}`} name={tag} key={tag} />
           ))}
-        </HStack>
+        </div>
         <Slot />
       </section>
       <section>

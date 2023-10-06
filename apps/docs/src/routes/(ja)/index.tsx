@@ -40,6 +40,35 @@ export default component$(() => {
             height: "avatar.main",
           })}
         />
+        <div
+          class={css({
+            padding: "2px 4px",
+            marginTop: {
+              base: "-10px",
+              smDown: "0",
+            },
+            textAlign: "center",
+            borderColor: "text.link",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              backgroundColor: "text.link",
+              "& a": {
+                color: "white",
+              },
+            },
+          })}
+        >
+          <a
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vR87UtY887Tx1R_Y4eVSwMq-12YCD2iHgtxAIz5D88PYZdrIZXZhLRuTeFcLgYs2xWrxJaCJyhGRzAr/pubhtml"
+            target="_blank"
+            class={css({
+              display: "block",
+            })}
+          >
+            Detail Work Experiences
+          </a>
+        </div>
         <BiographySection />
         <PreferencesSection />
       </div>

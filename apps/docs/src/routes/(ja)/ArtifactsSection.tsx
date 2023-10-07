@@ -10,56 +10,95 @@ export const ArtifactsSection = component$(() => {
       <h4>Main</h4>
       <div
         class={css({
-          display: "flex",
-          alignItems: "end",
-          gap: 4,
+          display: "grid",
+          gridTemplateAreas: `
+          "book chrome"
+          "book api"`,
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "auto auto",
         })}
       >
-        <Image
-          src="https://res.cloudinary.com/silverbirder/image/upload/v1696334257/silver-birder.github.io/artifacts/Introduction-to-webcomponents-for-beginners.jpg"
-          width={1057 / 5}
-          height={1500 / 5}
-          layout="constrained"
-          alt="はじめてのWeb Components入門 - Amazon"
-          href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
-        />
-        <Image
-          src="https://res.cloudinary.com/silverbirder/image/upload/v1696335110/silver-birder.github.io/artifacts/AI-GHOST-WRITER.jpg"
-          width={640 / 3}
-          height={400 / 3}
-          layout="constrained"
-          alt="AIゴーストライター - Chrome ウェブストア"
-          href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
-        />
-        <a
-          href="https://github.com/silverbirder/Google-Account-Photo-API"
-          target="_blank"
+        <div
+          class={css({
+            gridArea: "book",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
         >
-          <figure
-            title={"Google Account Photo API - GitHub"}
-            class={css({
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              textAlign: "center",
-            })}
+          <Image
+            src="https://res.cloudinary.com/silverbirder/image/upload/v1696334257/silver-birder.github.io/artifacts/Introduction-to-webcomponents-for-beginners.jpg"
+            width={1057 / 3}
+            height={1500 / 3}
+            layout="constrained"
+            alt="はじめてのWeb Components入門 - Amazon"
+            href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
+          />
+        </div>
+        <div
+          class={css({
+            gridArea: "chrome",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
+        >
+          <Image
+            src="https://res.cloudinary.com/silverbirder/image/upload/v1696643993/silver-birder.github.io/artifacts/ai-ghost-writer-logo.png"
+            width={2000 / 3}
+            height={1500 / 3}
+            layout="constrained"
+            alt="AIゴーストライター - Chrome ウェブストア"
+            href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
+          />
+        </div>
+        <div
+          class={css({
+            gridArea: "api",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
+        >
+          <a
+            href="https://github.com/silverbirder/Google-Account-Photo-API"
+            target="_blank"
           >
-            <MdiApi
+            <figure
+              title={"Google Account Photo API - GitHub"}
               class={css({
-                width: "100px",
-                height: "100px",
-              })}
-            />
-            <figcaption
-              class={css({
-                fontSize: "0.8rem",
-                color: "gray.500",
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                textAlign: "center",
               })}
             >
-              Google Account Photo API - GitHub
-            </figcaption>
-          </figure>
-        </a>
+              <MdiApi
+                class={css({
+                  width: "100px",
+                  height: "100px",
+                })}
+              />
+              <figcaption
+                class={css({
+                  fontSize: "0.8rem",
+                  color: "gray.500",
+                })}
+              >
+                Google Account Photo API - GitHub
+              </figcaption>
+            </figure>
+          </a>
+        </div>
       </div>
       <h4>Others</h4>
       <ul>

@@ -2,6 +2,8 @@ import { component$, $ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { SpeakLocale } from "qwik-speak";
 import { useSpeakConfig } from "qwik-speak";
+import { UilLetterEnglishA, UilLetterJapaneseA } from "../icon/icon";
+import { css } from "~/styled-system/css";
 
 export const ChangeLocale = component$(() => {
   const loc = useLocation();
@@ -27,15 +29,44 @@ export const ChangeLocale = component$(() => {
   });
 
   return (
-    <div>
-      {config.supportedLocales.map((value) => (
-        <button
-          key={value.lang}
-          onClick$={async () => await navigateByLocale$(value)}
-        >
-          {value.lang}
-        </button>
-      ))}
+    <div
+      class={css({
+        display: "flex",
+        flexDirection: "row",
+        borderColor: "text.link",
+        borderWidth: "1px",
+      })}
+    >
+      <UilLetterJapaneseA
+        class={css({
+          width: "icon.mini",
+          height: "icon.mini",
+          cursor: "pointer",
+          color: "text.link",
+          borderRightColor: "text.link",
+          borderRightWidth: "1px",
+          _hover: {
+            color: "text.linkActive",
+          },
+        })}
+        onClick$={async () =>
+          await navigateByLocale$(config.supportedLocales[0])
+        }
+      />
+      <UilLetterEnglishA
+        class={css({
+          width: "icon.mini",
+          height: "icon.mini",
+          cursor: "pointer",
+          color: "text.link",
+          _hover: {
+            color: "text.linkActive",
+          },
+        })}
+        onClick$={async () =>
+          await navigateByLocale$(config.supportedLocales[1])
+        }
+      />
     </div>
   );
 });

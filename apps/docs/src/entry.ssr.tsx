@@ -10,7 +10,7 @@
  * - npm run build
  *
  */
-import { type isDev } from "@builder.io/qwik/build";
+import { isDev } from "@builder.io/qwik/build";
 import type { RenderOptions } from "@builder.io/qwik/server";
 import {
   renderToStream,

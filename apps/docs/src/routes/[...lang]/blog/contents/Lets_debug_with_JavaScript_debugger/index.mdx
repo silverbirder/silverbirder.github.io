@@ -1,0 +1,161 @@
+---
+title: JavaScriptのdebuggerを使ってデバッグしよう (Browser/Node.js/Jest)
+published: true
+lang: "ja-JP"
+date: 2022-07-09
+description: JavaScript の標準機能 `debugger` を使って、デバッグをしましょう。標準機能なので、React などのライブラリでも使えます。
+tags: ["JavaScript", "Debugger"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1657366278/silver-birder.github.io/blog/timothy-dykes-LhqLdDPcSV8-unsplash.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+JavaScript の標準機能 `debugger` を使って、デバッグをしましょう。
+標準機能なので、React などのライブラリでも使えます。
+
+## Browser
+
+次の HTML ファイルを Chrome で開きます。
+
+```html
+<button>Button</button>
+<script>
+  document.querySelector("button").addEventListener("click", () => {
+    debugger;
+    alert("Hello World");
+  });
+</script>
+```
+
+開いたページで、DevTools も開いておきます。
+その状態で、Button をクリックしましょう。
+
+そうすると、次の画像のようになります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/browser_debugger.png"
+  width={3104}
+  height={1974}
+  layout="constrained"
+  alt="browser_debugger"
+/>
+
+`debugger`と書いた箇所で、処理が停止されます。
+そのブレークポイントから、ステップイン、ステップアウト、ステップオーバーといった操作ができます。
+Console タブで、変数や関数などの実行結果を確認できます。
+
+このように、簡単にデバッグができるようになります。
+
+## Node.js
+
+Node.js でも、同様に `debugger` が使えます。
+次の JavaScript コードを用意します。
+
+```javascript
+// main.js
+debugger;
+console.log("Hello World");
+```
+
+このファイルを次のコマンドで実行します。
+
+```bash
+node --inspect-brk main.js
+```
+
+実行すると、次の画像のような出力になります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_1.png"
+  width={1364}
+  height={990}
+  layout="constrained"
+  alt="node_debugger_1"
+/>
+
+その後、Chrome から `chrome://inspect` にアクセスしてください。
+アクセスすると、次の画像の画面になります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_2.png"
+  width={1662}
+  height={974}
+  layout="constrained"
+  alt="node_debugger_2"
+/>
+
+`Open dedicated DevTools for Node` を Click したら、次の画像のようになります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342289/silver-birder.github.io/blog/node_debugger_3.png"
+  width={1664}
+  height={1534}
+  layout="constrained"
+  alt="node_debugger_3"
+/>
+
+そうです、さきほどと同じように、`debugger` の箇所で、処理が停止されます。
+簡単ですね。
+
+## Jest
+
+テストフレームワークの Jest も、同じように `debugger` が使えます。
+次のテストコードを用意します。
+
+```javascript
+// main.test.js
+test("1 equal 1", () => {
+  debugger;
+  expect(1).toBe(1);
+});
+```
+
+このファイルに対して、次のコマンドを実行します。
+
+```bash
+# mac
+node --inspect-brk node_modules/.bin/jest --runInBand main.test.js
+# windows
+node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand main.test.js
+```
+
+実行すると、次の画像のような出力になります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_1.png"
+  width={1364}
+  height={990}
+  layout="constrained"
+  alt="jest_debugger_1"
+/>
+
+また、同じく Chrome から`chrome://inspect` にアクセスすると、同様にデバッグできます。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_2.png"
+  width={1664}
+  height={1228}
+  layout="constrained"
+  alt="jest_debugger_2"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_3.png"
+  width={1706}
+  height={1252}
+  layout="constrained"
+  alt="jest_debugger_3"
+/>
+
+Browser,Node.js と同じ使い方になります。
+わかりやすいですね。
+
+## 終わりに
+
+IDE やエディタでデバッグ設定することもできますが、こちらの方が断然楽ですね。
+
+## 参考
+
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/debugger
+- https://nodejs.org/ja/docs/guides/debugging-getting-started/
+- https://jestjs.io/ja/docs/troubleshooting

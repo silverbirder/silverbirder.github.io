@@ -5,4 +5,5 @@ export interface PostSummary {
   date: string;
   tags: string[];
   published: boolean;
+  lang: string;
 }

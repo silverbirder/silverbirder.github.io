@@ -1,0 +1,298 @@
+---
+title: Webアプリのテスト観点を調べてまとめてみた (25選)
+published: true
+lang: "ja-JP"
+date: 2020-06-18
+description: 最近、Property Based Test という言葉を知りました。他にどういうテストの種類があるのか気になったので、調べてみました。本記事は、テストの種類を列挙します。※ 使用する技術は、私の都合上、node.jsで選んでいます。
+tags: ["Web", "Test"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614429879/silver-birder.github.io/blog/WebApp_Test.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614429879/silver-birder.github.io/blog/WebApp_Test.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+最近、Property Based Test という言葉を知りました。
+他にどういうテストの種類があるのか気になったので、調べてみました。
+本記事は、テストの種類を列挙します。
+※ 使用する技術は、私の都合上、node.js で選んでいます。
+
+# テスト観点一覧
+
+## Cache Test
+
+Web アプリでは、様々な Cache が使われます。
+例えば、ブラウザ Cache、CDN Cache、プロキシ Cache、バックエンド Cache などなどです。
+Cache は、便利な反面、使いすぎると、どこがどう Cache しているのか迷子になってしまいます。
+Web アプリでも、Cache をテストする必要がありそうです。
+
+https://github.com/http-tests/cache-tests
+
+## Code Size Test
+
+大きなサイズの JS ライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。
+
+https://github.com/ai/size-limit
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png"
+  width={1200}
+  height={506}
+  layout="constrained"
+  alt="https://github.com/ai/size-limit"
+  href="https://github.com/ai/size-limit"
+/>
+
+## Complexity Test
+
+循環的複雑度(Cyclomatic complexity)は、制御文(if や for)の複雑さを計測します。
+複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。
+
+https://eslint.org/docs/rules/complexity
+
+## Copy&Paste Test
+
+Copy&Paste は、DRY の原則に反するため、特別な理由がない限りは、してはいけません。Copy&Paste を検出するツールがあるみたいです。
+
+https://github.com/kucherenko/jscpd
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png"
+  width={1200}
+  height={794}
+  layout="constrained"
+  alt="jscpd"
+  href="https://github.com/kucherenko/jscpd"
+/>
+
+## Cross Browser/Platform Test
+
+サポートするブラウザや、プラットフォーム(iOS,Android,Desktop など)の動作検証が必要です。
+そのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。
+そういう環境を手軽に使えるサービスがあったりします。
+
+https://github.com/browserstack
+
+## E2E Test
+
+Web アプリを、端から端まで (End To End: E2E)を検証します。
+例えば、ユーザーが Web アプリを訪れて、クリックや入力するなど、使ってみることです。
+このテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。
+例えば、操作する処理の抽象化や、データ固定などです。
+
+https://github.com/cypress-io/cypress
+
+## Exception Test
+
+正常系、準正常系、異常系などのテストが必要です。
+準正常系は、システムが意図的にエラーとしているものです。例えば、フォーム入力値エラーとかです。
+異常系は、システムが意図せずエラーとなるものです。例えば、Timeout エラーとかです。
+
+また、Java が得意な人なら知っているであろう、検査例外や非検査例外という例外の扱い方があります。
+基本的には検査例外はエラーハンドリングし、非検査例外はエラーハンドリングしない方針が良いです。
+
+## Flaky Test
+
+不安定なテストのことを指します。これに対するアプローチ方法の１つに、Google 社の資料があります。
+
+[https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf](https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf)
+
+日本人がまとめて頂いたものが、次の資料です。
+https://speakerdeck.com/nihonbuson/flakytests
+
+## Integration Test
+
+Integration Test は、Unit Test のような単一機能を統合した検証になります。
+定義によりますが、私は『Unit Test では発見できないようなもの』かなと思います。
+Unit Test でカバーできていなくても、他のテストで検証できていれば、Integration Test は不要になります。
+
+## Logging Test
+
+ログ出力が適切なレベルで出力されているか検証する必要があります。
+INFO, WARN, ERROR などがルールに基づいて使い分けされているか気になります。
+ログを出すことができるかどうかは、ログライブラリの検証になりますので、必要ないかもしれませんが、
+意図したタイミングで、意図したログレベルで、意図したメッセージが出力されるかは、テストしても良いと思います。
+
+## Monkey Test
+
+お猿さんがランダムにテストするような、モンキーテストです。
+テストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。
+
+https://github.com/marmelab/gremlins.js/
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif"
+  width={689}
+  height={626}
+  layout="constrained"
+  alt="gremlins.js"
+  href="https://github.com/marmelab/gremlins.js"
+/>
+
+## Multi Tenanct Test
+
+マルチテナントは、企業者（利用者）毎に区別した、同一のシステムを提供する方式です。
+これは、企業毎にサブドメインを分けたりするため、その環境毎のテストが必要になります。
+
+## Mutation Test
+
+テストを検証するため、突然変異テストというものがあります。
+プロダクトコードを破壊することで、テストも壊れるかどうかを検証します。
+もし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。
+
+https://github.com/stryker-mutator/stryker
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif"
+  width={1144}
+  height={298}
+  layout="constrained"
+  alt="https://stryker-mutator.io/stryker/quickstart"
+  href="https://stryker-mutator.io/stryker/quickstart"
+/>
+
+## Chaos Test
+
+障害を注入した際に、どういった動きになるのかを検証するテストです。
+
+https://github.com/goldbergyoni/node-chaos-monkey
+
+## Performance Test
+
+パフォーマンスと言っても、
+CPU 使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。
+これらを計測し、SLO などの基準値を満たせているかを検証しておく必要があります。
+
+https://github.com/bestiejs/benchmark.js/
+
+## Property Based Test
+
+データを半自動生成し、テストをする手法です。
+
+https://github.com/dubzzz/fast-check
+
+## Regression Test
+
+Regression Test は、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。
+このテストは幅広い意味を持つので、ここに内容されるテスト種類は多いと思います。
+
+## Robustness Test
+
+Web アプリは、ロバストであるべきです。
+何かしら Web アプリ内で障害が発生したとしても、最低限のサービスだけでも提供するのが好まれます。
+もちろん、その際の HTTP ステータスを 200 にせず、障害にあったステータスを返しましょう。
+
+## Security Test
+
+セキュリティのテストは、どんな Web アプリでも必須になります。
+セキュリティの専門家ではないので、どういうテストが必要なのかは、ここでは割愛します。
+
+依存するパッケージ脆弱性検査には、下記のコマンドが有効です。
+
+```
+npm audit fix
+```
+
+## SEO Test
+
+Web アプリへ流入数を改善するためには、SEO は不可欠です。
+lighthouse というツールで SEO スコアを見ることができるみたいです。
+
+https://github.com/GoogleChrome/lighthouse-ci
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png"
+  width={1200}
+  height={863}
+  layout="constrained"
+  alt="https://github.com/GoogleChrome/lighthouse-ci"
+  href="https://github.com/GoogleChrome/lighthouse-ci"
+/>
+
+## Smoke Test
+
+Smoke Test は、Web アプリが最低限動作するために必要なケースを確保する検証です。
+例えば、トップページへリクエストしたら、レスポンスが HTTP 200 で返却されるとかです。
+
+この最低限の動作保証がなければ、これ以上の詳細なテストができません。
+個人的には、Smoke Test → E2E Test の順で進むのかなと思っています。
+
+## Snapshot Test
+
+Web アプリへリクエストし、そのレスポンスである HTML(スナップショット)を保存します。
+この HTML が、変更前と比較して変化がないかの検証をするのが、Snapshot test です。
+リファクタリングなど、変化がない修正に対して有効です。
+
+https://jestjs.io/docs/ja/snapshot-testing
+
+## Static Test
+
+Static Test は、Web アプリを動かさなくても検証できるテストです。
+よくあるのが、Linter です。
+
+- HTML
+  https://github.com/htmlhint/HTMLHint
+
+- CSS
+
+https://github.com/CSSLint/csslint
+
+- JS
+
+https://github.com/eslint/eslint
+
+- SVG
+
+https://github.com/birjolaxew/svglint
+
+- Commit
+
+https://github.com/conventional-changelog/commitlint
+
+- Docker
+
+https://github.com/RedCoolBeans/dockerlint/
+
+これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。
+
+https://github.com/danger/danger
+
+## Unit Test
+
+単一機能をテストする Unit Test があります。この Unit Test が全て PASS したら、
+他のテストを進めるのが一般的かなと思います。
+
+https://github.com/facebook/jest
+
+### Code Coverage
+
+Unit テストで、どこをテストできたかのカバレッジを見ることができます。
+感覚としては、全体の 8 割を満たしていれば良いかなと思います。
+
+[https://jestjs.io/docs/en/cli.html#--coverageboolean](https://jestjs.io/docs/en/cli.html#--coverageboolean)
+
+実際に動作している JS や CSS のカバレッジを収集することもできます。
+
+https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su
+
+https://gist.github.com/silverbirder/71135913192fbca51a7e26924bd36b8b
+
+## Visual Regression Test
+
+見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。
+
+https://github.com/garris/BackstopJS
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png"
+  width={794}
+  height={404}
+  layout="constrained"
+  alt="https://github.com/garris/BackstopJS"
+  href="https://github.com/garris/BackstopJS"
+/>
+# 最後に
+
+どういうテストの観点があるのか、調べたり、経験則よりざっと書いてみました。
+全てをテストする必要はなく、『どういう動作の品質を担保したいか』を意識して、
+取捨選択するのが良いと思います。
+最後まで読んでいただき、ありがとございます。

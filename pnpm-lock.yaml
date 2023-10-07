@@ -92,12 +92,18 @@ importers:
       globby:
         specifier: ^13.2.2
         version: 13.2.2
+      gpt-translate-json:
+        specifier: ^0.1.0
+        version: 0.1.0
       lottie-web:
         specifier: ^5.12.2
         version: 5.12.2
       prettier:
         specifier: 2.8.8
         version: 2.8.8
+      qwik-speak:
+        specifier: ^0.16.0
+        version: 0.16.0(@builder.io/qwik@1.2.7)
       storybook:
         specifier: 7.3.1
         version: 7.3.1
@@ -6145,6 +6151,14 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /axios@0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /axios@1.5.0:
     resolution: {integrity: sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==}
     dependencies:
@@ -8254,6 +8268,16 @@ packages:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
       get-intrinsic: 1.2.1
+    dev: true
+
+  /gpt-translate-json@0.1.0:
+    resolution: {integrity: sha512-wbG6mzff1o4DAVN9tBDOA+qmfPsUYu4z3RW7j44Z8KpiZ9MIjkvq5hhLthLDenBALA25vb1A/mmwPohlUfgRmg==}
+    engines: {node: '>=16.0.0'}
+    hasBin: true
+    dependencies:
+      openai: 3.3.0
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /graceful-fs@4.2.11:
@@ -10408,6 +10432,15 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
+  /openai@3.3.0:
+    resolution: {integrity: sha512-uqxI/Au+aPRnsaQRe8CojU0eCR7I0mBiKjD3sNMzY6DaC1ZVrc85u98mtJW6voDug8fgGN+DIZmTDxTthxb7dQ==}
+    dependencies:
+      axios: 0.26.1
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /optionator@0.9.3:
     resolution: {integrity: sha512-JjCoypp+jKn1ttEFExxhetCKeJt9zhAgAve5FXHixTvFDW/5aEktX9bufBKLRRMdU7bNtpLfcGu94B3cdEJgjg==}
     engines: {node: '>= 0.8.0'}
@@ -11035,6 +11068,16 @@ packages:
 
   /queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
+    dev: true
+
+  /qwik-speak@0.16.0(@builder.io/qwik@1.2.7):
+    resolution: {integrity: sha512-k0ibVDBiifbcKPRmO4f9UqL9t1t5VFqchwBLr63GRUG2ZQeP+edddHVWx2Ds9Gz68THZu9nQgREEZWEnxSp+WQ==}
+    engines: {node: '>=16.0.0'}
+    hasBin: true
+    peerDependencies:
+      '@builder.io/qwik': '>=1.1.4'
+    dependencies:
+      '@builder.io/qwik': 1.2.7(undici@5.22.1)
     dev: true
 
   /ramda@0.29.0:

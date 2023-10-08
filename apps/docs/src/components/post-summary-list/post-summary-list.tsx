@@ -3,6 +3,7 @@ import { PostSummaryListItem } from "./post-summary-list-item/post-summary-list-
 import { type PostSummary } from "~/models";
 import { useNavigate } from "@builder.io/qwik-city";
 import { usePagination, Pagination } from "../pagination/pagination";
+import { useUrlWithLocale } from "../link/link";
 
 export interface PostSummaryListProps {
   data: PostSummary[];
@@ -39,8 +40,9 @@ export const PostSummaryListWithPagination = component$(
     urlPath = "/blog/pages",
   }: PostSummaryListWithPaginationProps) => {
     const nav = useNavigate();
+    const urlWithLocal = useUrlWithLocale(urlPath);
     const onPageChangeAfter = $((page: number) => {
-      nav(`${urlPath}/${page}/`);
+      nav(`${urlWithLocal}/${page}/`);
     });
 
     const { calculatedItems, ...paginationProps } = usePagination({

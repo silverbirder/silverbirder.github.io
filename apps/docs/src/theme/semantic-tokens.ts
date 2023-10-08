@@ -69,6 +69,12 @@ export const semanticTokens = defineSemanticTokens({
           _dark: "{sizes.4xl}",
         },
       },
+      mini: {
+        value: {
+          base: "{sizes.2xl}",
+          _dark: "{sizes.2xl}",
+        },
+      },
     },
     avatar: {
       main: {

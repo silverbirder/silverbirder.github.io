@@ -1,6 +1,7 @@
 ---
 title: iframeでTwitterの埋め込みコンテンツの描画後に、画面表示する方法
 published: true
+lang: "ja-JP"
 date: 2022-05-22
 description: 結論 `iframe.contentWindow` から `twttr` オブジェクトを見つけて、`event.bind("rendered", () => {})` の第二引数に、表示処理を書くことです。 背景 `https://twitter.com/openwc/status/1427617679427440643` のような URL から、埋め込みコンテンツをブログサイトなどに表示したいです。 `https://publish.twitter.com/oembed?url=${URL}` のレスポンスの中の html が、埋め込みコンテンツになります。これを iframe の srcdoc に設定することで、埋め込みコンテンツを表示することができます。
 tags: ["Twitter", "Survey", "iframe"]

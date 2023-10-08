@@ -4,15 +4,16 @@ import { HStack } from "~/styled-system/jsx";
 import { css } from "~/styled-system/css";
 import { Tag } from "~/components/tag/tag";
 import { stringToSlug } from "~/util";
+import { Link } from "~/components/link/link";
 
 export const PostSummaryListItem = component$(
   ({ title, permalink, description, tags, date, published }: PostSummary) => {
     if (!published) return <></>;
     return (
       <div>
-        <a href={permalink}>
+        <Link href={permalink}>
           <div class={css({ textStyle: "h4" })}>{title}</div>
-        </a>
+        </Link>
         <p>{date}</p>
         <HStack
           class={css({

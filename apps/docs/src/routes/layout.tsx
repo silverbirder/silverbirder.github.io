@@ -1,9 +1,12 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { Link, type RequestHandler } from "@builder.io/qwik-city";
+import { type RequestHandler } from "@builder.io/qwik-city";
 import { css } from "~/styled-system/css";
 import { hstack } from "~/styled-system/patterns";
 import ImgFavicon from "~/media/favicon.svg?jsx";
 import { MdiAmazon, MdiGithub, MdiTwitter } from "~/components/icon/icon";
+import { ChangeLocale } from "~/components/change-locale/change-locale";
+import { useTranslate } from "qwik-speak";
+import { Link } from "~/components/link/link";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -17,6 +20,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
+  const t = useTranslate();
   return (
     <div
       class={css({
@@ -54,8 +58,9 @@ export default component$(() => {
         </h1>
         <div class={hstack({ gap: 5 })}>
           <nav>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog">{t("app.blog@@ブログ")}</Link>
           </nav>
+          <ChangeLocale />
           <nav class={hstack({ gap: 1 })}>
             <a
               href="https://github.com/silverbirder"

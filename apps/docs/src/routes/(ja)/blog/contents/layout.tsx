@@ -10,6 +10,7 @@ import {
   SimpleIconsReddit,
   SimpleIconsTwitter,
 } from "~/components/icon/simple";
+import { Link } from "~/components/link/link";
 import { Tag } from "~/components/tag/tag";
 import data from "~/routes/(ja)/blog/index.json";
 import { css } from "~/styled-system/css";
@@ -202,7 +203,7 @@ const RelatedTags = component$(
               <ul>
                 {relatedTagPosts.map((post) => (
                   <li key={post.title}>
-                    <a href={post.permalink}>{post.title}</a>
+                    <Link href={post.permalink}>{post.title}</Link>
                   </li>
                 ))}
               </ul>

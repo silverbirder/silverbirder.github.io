@@ -4,6 +4,7 @@ import { type PostSummary } from "~/models";
 import { useNavigate } from "@builder.io/qwik-city";
 import { usePagination, Pagination } from "../pagination/pagination";
 import { useSpeakLocale } from "qwik-speak";
+import { useLinkHref } from "../link/link";
 
 export interface PostSummaryListProps {
   data: PostSummary[];
@@ -44,10 +45,11 @@ export const PostSummaryListWithPagination = component$(
   }: PostSummaryListWithPaginationProps) => {
     const nav = useNavigate();
     const l = useSpeakLocale();
+    const navHref = useLinkHref(urlPath);
     const lData = data.filter((d) => d.lang === l.lang);
 
     const onPageChangeAfter = $((page: number) => {
-      nav(`${urlPath}/${page}/`);
+      nav(`${navHref}/${page}/`);
     });
 
     const { calculatedItems, ...paginationProps } = usePagination({

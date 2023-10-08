@@ -1,5 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import { type DocumentHead, useDocumentHead } from "@builder.io/qwik-city";
+import { useSpeakLocale } from "qwik-speak";
 import { BuyMeACoffee } from "~/components/buy-me-a-coffee/buy-me-a-coffee";
 import { IonLogoHackernews } from "~/components/icon/ion";
 import {
@@ -10,6 +11,7 @@ import {
   SimpleIconsReddit,
   SimpleIconsTwitter,
 } from "~/components/icon/simple";
+import { Link } from "~/components/link/link";
 import { Tag } from "~/components/tag/tag";
 import data from "~/routes/[...lang]/blog/index.json";
 import { css } from "~/styled-system/css";
@@ -17,6 +19,7 @@ import { stringToSlug } from "~/util";
 
 export default component$(() => {
   const head = useDocumentHead();
+  const sl = useSpeakLocale();
   const tags: string[] = head.frontmatter.tags || [];
   return (
     <article>
@@ -171,7 +174,7 @@ export default component$(() => {
           data-emit-metadata="1"
           data-input-position="top"
           data-theme="light"
-          data-lang="ja"
+          data-lang={sl.lang.substring(0, 2)}
           data-loading="lazy"
           crossOrigin="anonymous"
           async
@@ -188,13 +191,16 @@ interface RelatedTagsProps {
 
 const RelatedTags = component$(
   ({ currentTags, currentTitle }: RelatedTagsProps) => {
+    const sl = useSpeakLocale();
     return (
       <>
         {currentTags.map((tag) => {
-          const relatedTagPosts = data.filter(
-            (post) =>
-              post.tags.indexOf(tag) !== -1 && currentTitle !== post.title
-          );
+          const relatedTagPosts = data
+            .filter(
+              (post) =>
+                post.tags.indexOf(tag) !== -1 && currentTitle !== post.title
+            )
+            .filter(({ lang }) => lang === sl.lang);
           if (relatedTagPosts.length === 0) return <></>;
           return (
             <section key={tag}>
@@ -202,7 +208,7 @@ const RelatedTags = component$(
               <ul>
                 {relatedTagPosts.map((post) => (
                   <li key={post.title}>
-                    <a href={post.permalink}>{post.title}</a>
+                    <Link href={post.permalink}>{post.title}</Link>
                   </li>
                 ))}
               </ul>

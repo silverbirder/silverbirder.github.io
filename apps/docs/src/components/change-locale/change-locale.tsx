@@ -1,12 +1,13 @@
 import { component$, $ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { SpeakLocale } from "qwik-speak";
-import { useSpeakConfig } from "qwik-speak";
+import { useSpeakConfig, useSpeakLocale } from "qwik-speak";
 import { UilLetterEnglishA, UilLetterJapaneseA } from "../icon/icon";
 import { css } from "~/styled-system/css";
 
 export const ChangeLocale = component$(() => {
   const loc = useLocation();
+  const sl = useSpeakLocale();
   const config = useSpeakConfig();
 
   // Replace the locale and navigate to the new URL
@@ -28,6 +29,9 @@ export const ChangeLocale = component$(() => {
     location.href = url.toString();
   });
 
+  const ja = config.supportedLocales[0];
+  const en = config.supportedLocales[1];
+
   return (
     <div
       class={css({
@@ -37,36 +41,60 @@ export const ChangeLocale = component$(() => {
         borderWidth: "1px",
       })}
     >
-      <UilLetterJapaneseA
-        class={css({
-          width: "icon.mini",
-          height: "icon.mini",
-          cursor: "pointer",
-          color: "text.link",
-          borderRightColor: "text.link",
-          borderRightWidth: "1px",
-          _hover: {
-            color: "text.linkActive",
-          },
-        })}
-        onClick$={async () =>
-          await navigateByLocale$(config.supportedLocales[0])
-        }
-      />
-      <UilLetterEnglishA
-        class={css({
-          width: "icon.mini",
-          height: "icon.mini",
-          cursor: "pointer",
-          color: "text.link",
-          _hover: {
-            color: "text.linkActive",
-          },
-        })}
-        onClick$={async () =>
-          await navigateByLocale$(config.supportedLocales[1])
-        }
-      />
+      {sl.lang === ja.lang ? (
+        <UilLetterJapaneseA
+          class={css({
+            width: "icon.mini",
+            height: "icon.mini",
+            borderRightColor: "text.link",
+            borderRightWidth: "1px",
+            color: "white",
+            backgroundColor: "text.link",
+          })}
+        />
+      ) : (
+        <UilLetterJapaneseA
+          class={css({
+            cursor: "pointer",
+            width: "icon.mini",
+            height: "icon.mini",
+            borderRightColor: "text.link",
+            borderRightWidth: "1px",
+            color: "text.link",
+            _hover: {
+              color: "white",
+              backgroundColor: "text.link",
+            },
+          })}
+          onClick$={async () => await navigateByLocale$(ja)}
+        />
+      )}
+      {sl.lang === en.lang ? (
+        <UilLetterEnglishA
+          class={css({
+            width: "icon.mini",
+            height: "icon.mini",
+            color: "white",
+            backgroundColor: "text.link",
+          })}
+        />
+      ) : (
+        <UilLetterEnglishA
+          class={css({
+            cursor: "pointer",
+            width: "icon.mini",
+            height: "icon.mini",
+            borderRightColor: "text.link",
+            borderRightWidth: "1px",
+            color: "text.link",
+            _hover: {
+              color: "white",
+              backgroundColor: "text.link",
+            },
+          })}
+          onClick$={async () => await navigateByLocale$(en)}
+        />
+      )}
     </div>
   );
 });

@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { css } from "~/styled-system/css";
 import { HStack } from "~/styled-system/jsx";
 import { MdiTagOutline } from "../icon/icon";
+import { Link } from "../link/link";
 
 export interface TagProps {
   name: string;
@@ -15,7 +16,7 @@ export const Tag = component$<TagProps>(({ name, url }) => {
         display: "inline-block",
       })}
     >
-      <a href={url}>
+      <Link href={url}>
         <HStack
           gap="1"
           class={css({
@@ -35,7 +36,7 @@ export const Tag = component$<TagProps>(({ name, url }) => {
             {name}
           </span>
         </HStack>
-      </a>
+      </Link>
     </div>
   );
 });

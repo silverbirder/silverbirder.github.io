@@ -1,11 +1,12 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { Link, type RequestHandler } from "@builder.io/qwik-city";
+import { type RequestHandler } from "@builder.io/qwik-city";
 import { css } from "~/styled-system/css";
 import { hstack } from "~/styled-system/patterns";
 import ImgFavicon from "~/media/favicon.svg?jsx";
 import { MdiAmazon, MdiGithub, MdiTwitter } from "~/components/icon/icon";
 import { ChangeLocale } from "~/components/change-locale/change-locale";
 import { useTranslate } from "qwik-speak";
+import { Link } from "~/components/link/link";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:

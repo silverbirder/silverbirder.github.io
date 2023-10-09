@@ -1,4 +1,5 @@
 import { Slot, component$ } from "@builder.io/qwik";
+import { useTranslate } from "qwik-speak";
 import {
   DeviconGitbook,
   DeviconGithubcodespaces,
@@ -130,9 +131,10 @@ import {
 import { css } from "~/styled-system/css";
 
 export const KnowledgesSection = component$(() => {
+  const t = useTranslate();
   return (
     <section>
-      <h3>Knowledges</h3>
+      <h3>{t("top.knowledges")}</h3>
       <div
         class={css({
           display: "flex",

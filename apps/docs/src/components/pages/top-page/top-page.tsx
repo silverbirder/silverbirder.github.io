@@ -6,10 +6,12 @@ import { PreferencesSection } from "./preferences-section";
 import { ArtifactsSection } from "./artifacts-section";
 import { KnowledgesSection } from "./knowledges-section";
 import { WorkExperiencesSection } from "./work-experiences-section";
+import { useTranslate } from "qwik-speak";
 
 export interface TopPageProps {}
 
 export const TopPage = component$<TopPageProps>(() => {
+  const t = useTranslate();
   return (
     <div
       class={css({
@@ -67,7 +69,7 @@ export const TopPage = component$<TopPageProps>(() => {
               display: "block",
             })}
           >
-            Detail Work Experiences
+            {t("top.detailedBackground")}
           </a>
         </div>
         <BiographySection />

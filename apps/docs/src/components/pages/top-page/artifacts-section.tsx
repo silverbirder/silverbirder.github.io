@@ -2,12 +2,14 @@ import { component$ } from "@builder.io/qwik";
 import { Image } from "~/components/image/image";
 import { MdiApi } from "~/components/icon/icon";
 import { css } from "~/styled-system/css";
+import { useTranslate } from "qwik-speak";
 
 export const ArtifactsSection = component$(() => {
+  const t = useTranslate();
   return (
     <section>
-      <h3>Artifacts</h3>
-      <h4>Main</h4>
+      <h3>{t("top.artifacts")}</h3>
+      <h4>{t("top.main")}</h4>
       <div
         class={css({
           display: "grid",
@@ -34,7 +36,7 @@ export const ArtifactsSection = component$(() => {
             width={1057 / 3}
             height={1500 / 3}
             layout="constrained"
-            alt="はじめてのWeb Components入門 - Amazon"
+            alt={t("top.introToWebComponentsForBeginners")}
             href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
           />
         </div>
@@ -54,7 +56,7 @@ export const ArtifactsSection = component$(() => {
             width={2000 / 3}
             height={1500 / 3}
             layout="constrained"
-            alt="AIゴーストライター - Chrome ウェブストア"
+            alt={t("top.aiGhostWriter")}
             href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
           />
         </div>
@@ -100,7 +102,7 @@ export const ArtifactsSection = component$(() => {
           </a>
         </div>
       </div>
-      <h4>Others</h4>
+      <h4>{t("top.others")}</h4>
       <ul>
         <li>
           <a

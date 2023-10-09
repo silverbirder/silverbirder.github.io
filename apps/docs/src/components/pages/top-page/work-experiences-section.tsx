@@ -1,4 +1,5 @@
 import { Slot, component$ } from "@builder.io/qwik";
+import { useTranslate } from "qwik-speak";
 import { FileIconsDigdag } from "~/components/icon/file";
 import { LogosGoogleCloudPlatform } from "~/components/icon/icon";
 import {
@@ -51,9 +52,10 @@ import { SimpleIconsBackstage } from "~/components/icon/simple";
 import { css } from "~/styled-system/css";
 
 export const WorkExperiencesSection = component$(() => {
+  const t = useTranslate();
   return (
     <section>
-      <h3>Work Experiences</h3>
+      <h3>{t("top.background")}</h3>
       <div
         class={css({
           display: "flex",
@@ -68,7 +70,7 @@ export const WorkExperiencesSection = component$(() => {
           from="2016/04"
           to="2018/07"
           industry="System Integration"
-          description="新卒でWebアプリ開発・保守・運用に従事。上流から下流工程まで経験。"
+          description={t("top.backgroundDescription1")}
         >
           <LogosJquery
             class={css({
@@ -145,7 +147,7 @@ export const WorkExperiencesSection = component$(() => {
           from="2018/08"
           to="2021/12"
           industry="E-Commerce"
-          description="フルスタックエンジニアとして、大規模アプリのアーキテクチャとモダナイゼーションに貢献。"
+          description={t("top.backgroundDescription2")}
         >
           <LogosGulp
             class={css({
@@ -267,7 +269,7 @@ export const WorkExperiencesSection = component$(() => {
           from="2021/01"
           to="2022/06"
           industry="Fintech"
-          description="フロントエンドエンジニアとして、プロダクト改修と新規開発に携わる。"
+          description={t("top.backgroundDescription3")}
         >
           <LogosFigma
             class={css({
@@ -396,7 +398,7 @@ export const WorkExperiencesSection = component$(() => {
           from="2021/07"
           to="now"
           industry="Restaurant"
-          description="業務委託で飲食店向けSaaSプロダクトのクロスプラットフォーム開発を担当。"
+          description={t("top.backgroundDescription4")}
         >
           <LogosFigma
             class={css({

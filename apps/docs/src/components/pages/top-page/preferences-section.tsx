@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { useTranslate } from "qwik-speak";
 import { LogosGoogleCloudPlatform } from "~/components/icon/icon";
 import {
   LogosGoogleMaps,
@@ -18,9 +19,10 @@ import {
 import { css } from "~/styled-system/css";
 
 export const PreferencesSection = component$(() => {
+  const t = useTranslate();
   return (
     <section>
-      <h3>Preferences</h3>
+      <h3>{t("top.preferences")}</h3>
       <div
         class={css({
           display: "flex",

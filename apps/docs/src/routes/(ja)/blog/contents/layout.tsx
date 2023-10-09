@@ -1,13 +1,16 @@
 import { Slot, component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
+import { Speak } from "qwik-speak";
 import { BlogContentsLayout } from "~/components/pages/blog-contents-layout/blog-contents-layout";
 import data from "~/routes/(ja)/blog/index.json";
 
 export default component$(() => {
   return (
-    <BlogContentsLayout>
-      <Slot />
-    </BlogContentsLayout>
+    <Speak assets={["blog"]}>
+      <BlogContentsLayout>
+        <Slot />
+      </BlogContentsLayout>
+    </Speak>
   );
 });
 

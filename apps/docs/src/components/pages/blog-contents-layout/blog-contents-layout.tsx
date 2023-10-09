@@ -1,5 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import { useDocumentHead } from "@builder.io/qwik-city";
+import { useSpeakLocale, useTranslate } from "qwik-speak";
 import { BuyMeACoffee } from "~/components/buy-me-a-coffee/buy-me-a-coffee";
 import { IonLogoHackernews } from "~/components/icon/ion";
 import {
@@ -18,6 +19,8 @@ import { stringToSlug } from "~/util";
 
 export const BlogContentsLayout = component$(() => {
   const head = useDocumentHead();
+  const sl = useSpeakLocale();
+  const t = useTranslate();
   const tags: string[] = head.frontmatter.tags || [];
   return (
     <article>
@@ -65,7 +68,7 @@ export const BlogContentsLayout = component$(() => {
             </p>
           </div>
         </div>
-        <h2>Share</h2>
+        <h2>{t("blog.share@@シェアしよう")}</h2>
         <div
           class={css({
             display: "flex",
@@ -156,7 +159,7 @@ export const BlogContentsLayout = component$(() => {
         </div>
       </section>
       <section>
-        <h2>関連するタグ</h2>
+        <h2>{t("blog.relatedTag@@関連するタグ")}</h2>
         <RelatedTags currentTags={tags} currentTitle={head.title} />
       </section>
       <section>
@@ -172,7 +175,7 @@ export const BlogContentsLayout = component$(() => {
           data-emit-metadata="1"
           data-input-position="top"
           data-theme="light"
-          data-lang="ja"
+          data-lang={sl.lang.substring(0, 2)}
           data-loading="lazy"
           crossOrigin="anonymous"
           async

@@ -1,9 +1,9 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 16. コンポーネント -
+title: Starting to Learn Kubernetes a Step Behind - 16. Components -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-06-10
-description: 前回 一足遅れて Kubernetes を学び始める - 15. セキュリティ -では、RBACによる権限について学習しました。今回は最後にKubernetesのコンポーネントについて学習します。
+description: In the previous "Starting to Learn Kubernetes a Step Behind - 15. Security -", we learned about permissions by RBAC. This time, we will learn about the components of Kubernetes at the end.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1639816831/silver-birder.github.io/blog/kubernetes_master.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1639816831/silver-birder.github.io/blog/kubernetes_master.png
@@ -11,32 +11,32 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16398168
 
 import { Image } from "~/components/image/image";
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last Time
 
-[一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)では、RBAC による権限について学習しました。今回は最後に Kubernetes のコンポーネントについて学習します。
+In [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx), we learned about permissions through RBAC. This time, we will finally learn about the components of Kubernetes.
 
-# コンポーネント
+# Components
 
-Kubernetes では、下記のような構成になっています。
+In Kubernetes, the configuration is as follows.
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1639816831/silver-birder.github.io/blog/kubernetes_master.png"
@@ -48,9 +48,9 @@ Kubernetes では、下記のような構成になっています。
 
 ※ [https://kubernetes.io/docs/concepts/architecture/cloud-controller/](https://kubernetes.io/docs/concepts/architecture/cloud-controller/)
 
-それぞれのコンポーネントについて学習します。
+We will learn about each component.
 
-# 現状確認
+# Current Status
 
 ```shell
 pi@raspi001:~/tmp $ k get nodes
@@ -74,77 +74,77 @@ kube-proxy-zvmqf                   1/1     Running   28         42d   192.168.3.
 kube-scheduler-raspi001            1/1     Running   87         42d   192.168.3.32   raspi001   <none>           <none>
 ```
 
-下記は、MasterNode で動いています。
+The following are running on the MasterNode.
 
 - etcd-raspi001
 - kube-apiserver-raspi001
 - kube-controller-manager-raspi001
 - kube-scheduler-raspi001
 
-下記は、全 Node で動いています。
+The following are running on all Nodes.
 
 - kube-flannel-ds
 - kube-proxy
 
-coredns は、Master1 台と Worker1 台で動いています。
+coredns is running on one Master and one Worker.
 
-※ [このとき](../start_the_learning_kubernetes_03/index.mdx)に設定しました。
+※ We set this up [at this time](../start_the_learning_kubernetes_03/index.mdx).
 
 # etcd
 
-MasterNode に存在するコンポーネントです。
-分散 Key-ValueStore である etcd は、Kubernetes のクラスタにある全情報が保存されています。そのため、単一障害にならないようクラスタを組むことが推奨されているみたいです。ここのデータにアクセスするのは kube-apiserver から経由しなければなりません。
-直接確認したい場合は、etcdctl を使ってみると良いです。
+This is a component that exists on the MasterNode.
+The distributed Key-ValueStore, etcd, stores all the information in the Kubernetes cluster. Therefore, it seems to be recommended to form a cluster so that it does not become a single point of failure. Access to the data here must be via the kube-apiserver.
+If you want to check directly, it would be good to use etcdctl.
 
 # kube-apiserver
 
-MasterNode に存在するコンポーネントです。
-KubernetesAPI を提供するコンポーネントです。kube-scheduler や kube-controller-manager,kubelet から呼ばれます。
-etcd に対してリソースを管理するだけで、Pod の起動はしません。
+This is a component that exists on the MasterNode.
+This is a component that provides the KubernetesAPI. It is called from kube-scheduler, kube-controller-manager, and kubelet.
+It only manages resources for etcd and does not start Pods.
 
 # kube-scheduler
 
-MasterNode に存在するコンポーネントです。
-Node 情報が未割り当ての Pod を検知して、その Pod に Node を割り当てるリクエストを kube-apiserver に送ります。
-割り当てるだけであって、Pod を起動させません。Node を割り当てる際、NodeAffinity や Taints などを考慮に入れます。
+This is a component that exists on the MasterNode.
+It detects unassigned Pods from Node information and sends a request to assign a Node to the Pod to the kube-apiserver.
+It only assigns, it does not start the Pod. When assigning a Node, it takes into account NodeAffinity and Taints.
 
 # kubelet
 
-各 Node 上で動作するコンポーネントです。未割り当てだった Node が割り当てられたことを検知し、
-実際に Pod を起動します。
+This is a component that operates on each Node. It detects that an unassigned Node has been assigned,
+and actually starts the Pod.
 
 # kube-controller-manager
 
-MasterNode に存在するコンポーネントです。
-様々なコントローラを実行するコンポーネントです。Deployment や ControllerReplicaSetController では、
-状態を監視し、期待する Pod 数と現在の Pod 数を見ます。kube-apiserver に対して、過不足分の Pod を調整するよう要求します。
-その後は、さきほどの kube-scheduler,kubelet の一連の流れになります。
+This is a component that exists on the MasterNode.
+This is a component that runs various controllers. In Deployment or ControllerReplicaSetController,
+it monitors the state and looks at the expected number of Pods and the current number of Pods. It requests the kube-apiserver to adjust the excess or deficiency of Pods.
+After that, it becomes the flow of kube-scheduler and kubelet mentioned earlier.
 
 # kube-proxy
 
-各 Node 上で動作するコンポーネントです。NodePort や ClusterIP 宛のトラフィックを転送します。
+This is a component that operates on each Node. It forwards traffic to NodePort or ClusterIP.
 
 # kube-dns
 
-kubernetes クラスタ内の名前解決やサービスディスカバリに利用される DNS サーバです。
-私の環境では、CoreDNS を使っていました。
+This is a DNS server used for name resolution and service discovery within the kubernetes cluster.
+In my environment, I was using CoreDNS.
 
-# そのほか
+# Others
 
-## CustomResourceDefinition(CRD)と Operator
+## CustomResourceDefinition(CRD) and Operator
 
-CRD は独自のリソースを定義できるリソースです。このような拡張性をもたせることで、様々な開発が進められます。
-CRD は、単なる Kubernetes オブジェクトなだけなので、Operator というカスタムコントローラをセットで作る必要があります。
-Operator Framework と呼ばれるもので簡単に作成できるそうです。
+CRD is a resource that allows you to define your own resources. This extensibility allows various developments to proceed.
+Since CRD is just a Kubernetes object, you need to create a custom controller called Operator as a set.
+It seems that it can be easily created with something called the Operator Framework.
 
-# 最後に
+# Finally
 
-ようやく Kubernetes 完全ガイドの内容を読み切ることができました。
-当初は、ここまで記事にアウトプットし続けるつもりはなかったです。
-実際に kubernetes を raspberryPi 上で動かしてみると、
-いろいろな発見があってのめり込んでしまいました。
+Finally, we have been able to finish reading the contents of the Complete Guide to Kubernetes.
+Initially, I didn't intend to continue outputting articles to this extent.
+When I actually ran Kubernetes on a Raspberry Pi,
+I made various discoveries and got hooked.
 
-ただ、[一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)ぐらいから、いろいろとあって、
-書籍の内容を、ほぼそのまま使わさせてもらいました。（笑)
+However, from around [Starting to learn Kubernetes a step behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx), for various reasons,
+I ended up using the content of the book almost as it was. (laughs)
 
-これからは、実際に GKE を使ってアプリケーション開発をしてみようと思います。
+From now on, I'm thinking of trying to develop applications using GKE.

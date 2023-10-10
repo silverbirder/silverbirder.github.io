@@ -1,0 +1,91 @@
+---
+title: Knowing the History Before Learning React
+published: true
+lang: "en-US"
+date: 2022-03-11
+description: What is this? I will briefly introduce the history of why React was born. (Just a little research) Background Recently, I started learning React. In the process, I wondered why I should learn React and what features it has.
+tags: ["React", "Learn", "History"]
+---
+
+I will briefly introduce the history of why React was born. (Just a little research)
+
+## Background
+
+Recently, I started learning React. In the process, I wondered why I should learn React and what features it has.
+
+## History
+
+Regardless of the language or framework, I think it's important to know the history and background of what you're learning.
+
+It's good to read `Background`, `Motivation`, `History`, `Under the roof` in the official documentation of the target software.
+
+However, I couldn't find such information in the official React documentation.
+
+I found an [article about React](https://hackernoon.com/the-evolution-of-react-48409fac2efd) by Jordan Walke, the creator of React, and read it.
+
+To summarize roughly,
+
+1. The codebase of Facebook's advertising product (Ads) grew
+2. Changes in the lower part of the codebase tree (DOM tree? CSSOM tree?) required a complete redraw (cascade update), making maintenance difficult
+3. FaxJS (later React), which utilized reactive characteristics (automatic updates based on state changes), was born
+
+## Cascade Update
+
+Cascade is, from [Cascade (Cascading) - IT Glossary e-Words](https://e-words.jp/w/%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89.html)
+
+> Cascade refers to a series of small waterfalls lined up in stages. By extension, it represents a structure where the same thing is connected in a string of beads, or a situation where things occur in a chain or in stages.
+
+> In CSS (Cascading Style Sheet), which defines the appearance of web pages, the style applied to an element is cascaded or cascaded from globally defined ones to locally defined ones.
+
+Updates to CSS and DOM in the browser are exactly cascades.
+For example, in the case of DOM, data is propagated from parent Node to child Node (prop).
+When there is a data change, it is redrawn from the parent Node to the child Node in order. (According to the processing of the rendering engine)
+
+As the vertical and horizontal size of the CSS or DOM tree grows, it's easy to imagine that cascade updates become difficult.
+
+## Purpose of React
+
+I thought React was a framework aimed at making **cascade updates easy when the codebase size becomes large**.
+
+In other words,
+
+If **Not codebase size is large** OR **Not cascade update**, I think React may not be necessary.
+
+## Virtual DOM and Reconciliation
+
+Rendering of the DOM itself depends on the browser's rendering engine.
+React created a concept called virtual DOM.
+
+From [Virtual DOM and Internal Processing - React](https://ja.reactjs.org/docs/faq-internals.html)
+
+> What is the virtual DOM?
+> The virtual DOM (VDOM) is a programming concept where an in-memory representation of the UI, or "virtual" UI, is synchronized with the "actual" DOM by libraries like ReactDOM. This process is called reconciliation.
+> This approach enables React's declarative API. You tell React what state you want the UI to be in, and React ensures the DOM matches that state. This abstracts away the attribute manipulation, event handling, and manual **DOM updating that would otherwise be unavoidable when building an application without React**.
+
+Rather than leaving cascade updates to the browser, I believe the framework (React) manages the virtual DOM and updates (redraws) only the necessary parts of the DOM without the need to redraw the entire thing.
+
+## React and Cascade Updates
+
+Before learning React, it's a good idea to **keep the term "cascade updates" in the back of your mind**.
+
+For example, there is a function called React.memo.
+
+[Top-Level API - React](https://ja.reactjs.org/docs/react-api.html#reactmemo)
+
+> If a component renders the same result given the same props, you can wrap it in a React.memo for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+
+I think this function is also for improving cascade updates, which is the purpose of React.
+
+## Side Story
+
+When learning something, it's good to consider the following three axes.
+
+- Time
+  - Past, present, future
+    - How did we get to the present? What do we want the future to be like?
+- Surroundings
+  - Similar things, competitors.
+    - For example, component-based frameworks like Vue.js in the case of React.
+- Society
+  - Team, group, company, society.
+    - Why was React chosen by the team? Organizational reasons (such as adoption) are also included.

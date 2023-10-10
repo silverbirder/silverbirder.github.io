@@ -1,0 +1,116 @@
+---
+title: Crawlee is Handy for Quick Crawling
+published: true
+lang: "en-US"
+date: 2022-09-14
+description: There are times when you want to scrape data. I found the OSS Crawlee to be useful, so I'm sharing it.
+tags: ["Crawlee", "Crawler", "Survey"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1663163849/silver-birder.github.io/blog/hans-peter-gauster-3y1zF4hIPCg-unsplash.jpg
+---
+
+There are times when you want to scrape data. I found the OSS Crawlee to be useful, so I'm sharing it.
+
+## Background
+
+When you want to scrape data, you might write a crawling program in your preferred language and scrape the HTML.
+I'm good at Node.js, so I often write with fetch + jsdom. If browser rendering is necessary, I sometimes use a headless browser.
+I find it a bit troublesome to set this up every time. That's when I found the OSS Crawlee to be useful.
+
+## Crawlee
+
+Quoted from https://crawlee.dev/.
+
+> Crawlee is a web scraping and browser automation library.
+> It helps you build reliable crawlers. Fast.
+> Crawlee won't fix broken selectors for you (yet), but it helps you build and maintain your crawlers faster.
+
+Crawlee can't fix broken selectors, but it can help you build crawlers quickly.
+
+## Good Points of Crawlee
+
+I will list the features of Crawlee that I found to be good.
+
+### Crawlee has a template
+
+Crawlee can generate code with `npx crawlee create`.
+
+```bash
+$ npx crawlee create my-crawler
+? Please select the template for your new Crawlee project (Use arrow keys)
+❯ Getting started example [TypeScript]
+  Getting started example [JavaScript]
+  CheerioCrawler template project [TypeScript]
+  PlaywrightCrawler template project [TypeScript]
+  PuppeteerCrawler template project [TypeScript]
+  CheerioCrawler template project [JavaScript]
+  PlaywrightCrawler template project [JavaScript]
+```
+
+It supports TypeScript.
+Also, by default, the Crawler adopts Cherrio, which is a plain HTTP crawler.
+If necessary, you can use Playwright or Puppeteer, and switching Crawlers is easy because the interfaces are aligned.
+
+- https://crawlee.dev/docs/quick-start#choose-your-crawler
+
+### The RequestQueue Mechanism
+
+In a crawler, it's common to access multiple URLs.
+Requests are managed by a queue called RequestQueue, and the crawler automatically accesses them.
+The queue manages unique URLs, so there is no duplicate access.
+
+- https://crawlee.dev/api/core/class/RequestQueue
+
+This mechanism can be implemented with the following simple code.
+
+```javascript
+import { RequestQueue } from "crawlee";
+const requestQueue = await RequestQueue.open();
+await requestQueue.addRequest({ url: "https://crawlee.dev" });
+```
+
+Furthermore, there is a feature called enqueueLinks. This adds the URL of the anchor on the page you are accessing to the RequestQueue.
+The following code is an example of enqueueLinks.
+
+```javascript
+import { CheerioCrawler } from "crawlee";
+const crawler = new CheerioCrawler({
+  async requestHandler({ enqueueLinks }) {
+    await enqueueLinks();
+  },
+});
+await crawler.run(["https://crawlee.dev"]);
+```
+
+enqueueLinks has various options.
+
+- https://crawlee.dev/api/core/function/enqueueLinks
+
+For example, you can filter links with globs, or specify the selector of the anchor.
+
+### Data is Saved in JSON
+
+The data obtained by scraping can be saved in json.
+
+- https://crawlee.dev/docs/introduction/saving-data
+
+For example, if you want to collect the requested URLs, the code would be like this.
+
+```javascript
+import { CheerioCrawler, Dataset } from "crawlee";
+
+const crawler = new CheerioCrawler({
+  async requestHandler({ request }) {
+    await Dataset.pushData({ url: request.url });
+  },
+});
+await crawler.run(["https://crawlee.dev"]);
+```
+
+The save destination will be `{PROJECT_FOLDER}/storage/datasets/default/`.
+You can save data very easily.
+
+## In conclusion
+
+There is Apify as a SaaS of Crawlee. You might want to try it casually.
+
+- https://apify.com/

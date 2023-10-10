@@ -13,7 +13,7 @@ export const config: SpeakConfig = {
   assets: [
     "app", // Translations shared by the pages
   ],
-//   runtimeAssets: [
-//     "runtime", // Translations with dynamic keys or parameters
-//   ],
+  //   runtimeAssets: [
+  //     "runtime", // Translations with dynamic keys or parameters
+  //   ],
 };

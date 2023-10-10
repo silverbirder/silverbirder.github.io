@@ -1,0 +1,102 @@
+---
+title: I tried creating rMinc, a service that registers GMail to GCalendar
+published: true
+lang: "en-US"
+date: 2020-02-17
+description: Target user * People using GMail and GCalendar Isn't it troublesome to open emails? For example, suppose you received the following emails. * An email with the expected delivery date when you purchased a product on Amazon * An email with the screening date when you made an online reservation at a movie theater (TOHO CINEMA) * An email with the stay date when you made an online reservation at a hotel
+tags: ["Artifact", "Learn", "Google Apps Script", "GCalendar", "GMail", "rMinc"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614431016/silver-birder.github.io/blog/rMinc.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614431016/silver-birder.github.io/blog/rMinc.png
+---
+
+import { Image } from "~/components/image/image";
+
+# Target user
+
+- People using GMail and GCalendar
+
+# Isn't it troublesome to open emails?
+
+For example, suppose you received the following emails.
+
+- An email with the expected delivery date when you purchased a product on Amazon
+- An email with the screening date when you made an online reservation at a movie theater (TOHO CINEMA)
+- An email with the stay date when you made an online reservation at a hotel
+
+"Don't you find it **troublesome** to think, 'When will the product arrive? Let's check the email'?" I find it troublesome.
+Google, being considerate, sometimes registers the following schedule for you. (There are pros and cons...)
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614431051/silver-birder.github.io/blog/unknownorganizer_google_calendar.png"
+  width={680}
+  height={820}
+  layout="constrained"
+  alt="unknownorganizer@calendar.google.com"
+/>
+
+Whether or not to be considerate depends on Google's judgment, so it's unpredictable.
+I was hoping that the same thing would be done for the emails I mentioned earlier.
+So, I created a tool called rMinc.
+
+※ In the past, I created a tool called [gas-for-amazon-calendar](https://github.com/silverbirder/gas-for-amazon-calendar) that registers emails with the expected delivery date from Amazon to GCalendar, but it was too specialized for Amazon's emails and lacked versatility.
+
+# What is rMinc?
+
+https://www.npmjs.com/package/@silverbirder/rminc
+
+> rMinc is the Google Apps Script Library that register Mail in Calendar.
+
+When you receive GMail from the following services, it extracts the content and registers it in GCalendar.
+
+- [Amazon](https://www.amazon.co.jp/)
+  - Shipping notification (expected delivery date)
+- [TOHO CINEMAS](https://www.tohotheater.jp/)
+  - Ticket purchase completion notification (screening date)
+- [Shokutakubin](https://shokutakubin.com/)
+  - Delivery arrangement notification (expected delivery date)
+
+In addition, I think there are other services you want to support, so I made it customizable.
+For more details, please check [README.md](https://github.com/silverbirder/rMinc/blob/master/README.md).
+
+Here is an overview.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1581769421/rMinc/rMinc_overview.png"
+  width={1852}
+  height={1036}
+  layout="constrained"
+  alt="overview"
+/>
+
+1. Extract emails with specific keywords
+   1. For Amazon, [from:(shipment-tracking@amazon.co.jp) shipment](https://github.com/silverbirder/rMinc/blob/master/src/user/mailRule/amazonMailRule.ts#L61)
+1. Extract the following from the email
+   1. Title
+   1. Body
+      1. Event start & end date (scheduled date, etc.)
+      1. Location (delivery destination, etc.)
+   1. Email link
+1. Register the extracted content in GCalendar
+
+When you actually use it, it looks like this.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1581760683/rMinc/rMinc_sample.png"
+  width={1854}
+  height={1032}
+  layout="constrained"
+  alt="example"
+/>
+
+It's small and hard to see, but the expected delivery date, title, delivery destination, and email link are registered.
+
+Just by <b><span style="color: #d32f2f">running this tool ([sample.js](https://github.com/silverbirder/rMinc/blob/master/sample/sample.js)) regularly</span></b> on GAS, it will automatically register the schedule in GCalendar. Of course, it's free.
+
+※ RMinc requires you to register the APP ID in the [README.md](https://github.com/silverbirder/rMinc/blob/master/README.md)
+
+# Finally
+
+Google Apps Script is a very powerful weapon for engineers. Especially for those who actively use G Suite, it is indispensable.
+
+Being able to <b><span style="color: #d32f2f">reach the itchy places</span></b> is one of the attractive points of Google Apps Script.
+I definitely want to actively utilize it!

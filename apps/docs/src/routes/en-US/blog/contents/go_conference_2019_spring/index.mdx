@@ -1,0 +1,130 @@
+---
+title: Go Conference 2019 Spring - Participation Report on May 18, 2019
+published: true
+lang: "en-US"
+date: 2019-05-21
+description: I participated in https://gocon.jp and here is my report!
+tags: ["Report", "Go Conference", "Tokyo"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/silver-birder.github.io/blog/go_conference_2019_spring_coffee.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614428902/silver-birder.github.io/blog/go_conference_2019_spring_coffee.jpg
+---
+
+https://gocon.connpass.com/event/124530/
+
+https://gocon.jp/
+
+I participated in this event and here is my report!
+
+```
+// Location
+Recruit Lifestyle Headquarters
+1-9-2 Marunouchi, Chiyoda-ku, Tokyo, Gran Tokyo South Tower
+```
+
+# Good Sessions
+
+## H1 (S): Hacking Go Compiler Internals 2
+
+### Overview
+
+> Since the previous talk at Go Con 2014 Autumn, lots of things in the internals have changed. In this talk, I will try to give an overview of Go compiler internals and update the information as much as possible, along with my new hacks.
+
+### Materials
+
+#### This time
+
+https://speakerdeck.com/moriyoshi/hacking-go-compiler-internals-2nd-season
+
+#### Last time
+
+https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-autumn
+
+### Impressions
+
+In this session, the steps from Golang source code to machine language, in other words, the operation of the compiler, were introduced.
+There are 11 steps in total, and roughly summarized, they are as follows.
+
+1. Divide the code into tokens
+2. Build a syntax tree
+3. Type check
+4. Inline
+5. Generate intermediate language (SSA)
+6. Generate machine language
+
+Honestly, as someone who has only used high-level languages and lacks knowledge of low-level languages close to machine language,
+this talk was explained in a way that even beginners could understand.
+One question I had after listening to this talk was "where does it take the most time?".
+Someone with the same question asked, and the answer was "type checking".
+There seems to be a benchmark tool in golang to actually investigate this, and you can use it
+to tune your code. I thought I would like to write some simple code and try it out.
+
+## A4 (S): Design considerations for container-based Go applications
+
+### Overview
+
+I will talk about design considerations when developing applications in Go, especially when assuming containers. For example, when developing an API in Go, I often feel that many cases assume it will run as a container. When assuming operation based on a container, there will be points to consider in creating container images and monitoring applications. In this talk, I will discuss design considerations for container-based applications, delving into implementation in Go.
+
+### Materials
+
+https://speakerdeck.com/hgsgtk/design-considerations-for-container-based-go-application
+
+https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper
+
+### Impressions
+
+This was more about tips for developing with containers rather than about Golang.
+Three tips were introduced: "Configuration", "Logging", and "Monitoring".
+All of them were good methods that followed the best practices in the materials, and I learned a lot from them.
+
+・Configuration  
+Use environment variables instead of managing configuration information in source code  
+→ The source does not change even in production/verification, etc.  
+・Logging  
+Stream to an external service instead of outputting to a file  
+→ Makes it easier to dispose of containers  
+・Monitoring  
+Provide a health check endpoint  
+→ Makes it easier to integrate with external services
+
+There are other best practices in the materials, so I would like to read them when I have time.
+
+## B8 (L): CPU, Memory and Go
+
+### Overview
+
+This will briefly touch on basic CPU and memory, and introduce the behavior of CPU and memory when implemented in Go, optimization of Go, and optimization of the compiler. We will also check these optimizations and performance using Go's standard tools.
+
+### Materials
+
+https://speakerdeck.com/sonatard/cpu-memory-and-go
+
+### Impressions
+
+I learned a lot about performance tuning in Golang.
+I'm not sure if this is just about Golang, but I think it's something to keep in mind when coding.
+
+・Use static arrays instead of dynamic arrays  
+→ Dynamic arrays increase the cost of memory allocation, slowing things down
+
+・Use constants instead of environment variables  
+→ The process is not determined until runtime, and compiler optimization is not performed
+
+・When allocating memory, make sure it is divisible by 8 bytes (in the case of 64bit)  
+→ If there is a gap, padding occurs and slows down (memory alignment)
+
+I'm someone who doesn't know anything about the lower layers, so it was good to learn about CPU and Memory.
+
+# Overall Impressions
+
+This was my first time attending a Golang seminar.
+Listening to the sponsors, the reasons for adopting Golang seemed to be "good performance and low learning cost" for most companies.
+Also, with Docker and Kubernetes being written in Golang, I expect Golang to become an increasingly popular language.
+
+Also, among the sponsors, I heard that some have "reconstructed existing systems in Golang" and "held study groups to gain knowledge of Golang". It seems that each company is actively trying to work with Golang.
+
+# Reflections
+
+I couldn't understand most of Katie Hockman's speaking because it was in English, which is a real shame.
+
+※ Summary of materials
+https://engineer-fumi.hatenablog.com/entry/2019/05/18/172000

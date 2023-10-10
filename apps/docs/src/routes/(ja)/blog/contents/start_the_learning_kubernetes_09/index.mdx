@@ -1,9 +1,9 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 09. discovery&LB その2 -
+title: Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-05-15
-description: 前回 一足遅れて Kubernetes を学び始める - 08. discovery&LB その1 -でServiceについての概要を学びました。今回は下記を一気に学びます。
+description: Last time, we learned about the overview of Service in Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -. This time, we will learn the following all at once.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_1.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_1.png
@@ -11,28 +11,28 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16398166
 
 import { Image } from "~/components/image/image";
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)で Service についての概要を学びました。今回は下記を一気に学びます。
+We learned about the overview of Service in [Starting to learn Kubernetes a step behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx). This time, we will learn all of the following at once:
 
 - ExternalIP
 - NodePort
@@ -42,11 +42,11 @@ import { Image } from "~/components/image/image";
 - None-Selector
 - Ingress
 
-※ ClusterIP を飛ばしたのは、前回使った内容で十分だと思ったため。
+※ I skipped ClusterIP because I thought the content used last time was sufficient.
 
 # ExternalIP
 
-こちらは、外向けの IP アドレスを割り振ります。
+This assigns an outward-facing IP address.
 
 ```yaml
 # sample-externalip.yaml
@@ -67,7 +67,7 @@ spec:
     app: sample-app
 ```
 
-私の Node 情報では、下記の状態です。
+In my Node information, the status is as follows:
 
 | host             | ip           |
 | :--------------- | :----------- |
@@ -76,8 +76,8 @@ spec:
 | raspi003(worker) | 192.168.3.34 |
 | nfspi(NFS)       | 192.168.3.35 |
 
-ここで、spec. externalIPs に、公開したい IP アドレスを上記 Node の IP アドレスより設定します。
-今回は、１つだけ(raspi002:193.168.3.33)にしました。
+Here, in spec.externalIPs, set the IP address you want to publish from the above Node's IP address.
+This time, I set it to only one (raspi002:193.168.3.33).
 
 ```yaml
 # sample-deployment.yaml
@@ -104,7 +104,7 @@ spec:
           image: redis:3.2
 ```
 
-前回同様のファイルを用意します。
+Prepare a file similar to last time.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-deployment.yaml -f sample-externalip.yaml
@@ -118,14 +118,14 @@ NAME                TYPE        CLUSTER-IP       EXTERNAL-IP    PORT(S)    AGE
 sample-externalip   ClusterIP   10.104.170.220   192.168.3.33   8080/TCP   15m
 ```
 
-externalIP が設定されました。
+The externalIP has been set.
 
 ```shell
 pi@raspi001:~/tmp $ for PODNAME in `k get pods -l app=sample-app -o jsonpath='{.items[*].metadata.name}'`; do k exec -it ${PODNAME} -- cp /etc/hostname /usr/share/nginx/html/index.html; done
 ```
 
-どこの pod かどうかわかりやすいくするため、index.html を書き換えます。
-では、ブラウザからアクセスしてみます。
+To make it easy to understand which pod it is, rewrite index.html.
+Now, let's access it from the browser.
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_1.png"
@@ -143,13 +143,13 @@ pi@raspi001:~/tmp $ for PODNAME in `k get pods -l app=sample-app -o jsonpath='{.
   alt="sample_deployment_2"
 />
 
-raspi002 を公開したので、その Node に存在する Pod がランダムに出力されている、つまりロードバランサが動作していることがわかります。
+Since I published raspi002, you can see that the Pod existing on that Node is randomly output, in other words, the load balancer is working.
 
 # NodePort
 
-ExternalIP のような特定 Node を公開するのと違って、NodePort は、**全て**の Node を公開します。
+Unlike ExternalIP, which publishes a specific Node, NodePort publishes **all** Nodes.
 
-試してみます。
+Let's try it.
 
 ```yaml
 # sample-nodeport.yaml
@@ -177,23 +177,23 @@ NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 sample-nodeport   NodePort    10.96.173.243   <none>        8080:30080/TCP   66s
 ```
 
-内向けには、10.96.173.243:8080 でアクセスでき、外向けには、各 Node の IP アドレス:30080 にアクセスします。
-どちらも正常にアクセスできています。もちろん、アクセス先の Pod は、ロードバランシングされます。ロードバランシングさせるのが嫌な場合にも対応できます。アクセスされた Node の先は、その Node 内にある Pod のみにアクセスさせる「spec.externalTrafficPolicy：Local」に設定すれば大丈夫です。
-注意点として、nodePort は、30000~32767 の範囲と決まっています。
+You can access it internally at 10.96.173.243:8080, and externally at each Node's IP address:30080.
+Both are accessible normally. Of course, the destination Pod is load balanced. It can also handle cases where you don't want to load balance. If you set "spec.externalTrafficPolicy: Local", only the Pod in that Node will be accessed by the accessed Node.
+Please note that the range of nodePort is fixed from 30000 to 32767.
 
 # LoadBalancer
 
-ExternalIP や NodePort の場合、ロードバランシングするのはクラスタ内の Node になります。そのため、アクセスが集中することで、Node 単一障害が発生しやすいそうです。そこで、LoadBalancer を使うことで、**クラスタ外**にロードバランサを作成します。
+In the case of ExternalIP or NodePort, the load balancing is done by the Nodes within the cluster. Therefore, it seems that a single Node failure is likely to occur due to concentrated access. Therefore, by using LoadBalancer, we create a load balancer **outside the cluster**.
 
-ただ、クラスタ外にロードバランサを作成する際は、プラットフォームによって対応しているか確認が必要です。私のような raspberryPi 環境では、もちろんそういった機能がないため、準備する必要があります。
+However, when creating a load balancer outside the cluster, it is necessary to check whether it is supported by the platform. In my raspberryPi environment, of course, such a function does not exist, so it needs to be prepared.
 
-master(raspi001)に移動
+Move to master(raspi001)
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f https://raw.githubusercontent.com/google/metallb/v0.7.3/manifests/metallb.yaml
 ```
 
-metallb と呼ばれるロードバランサを適用します。
+Apply a load balancer called metallb.
 
 https://metallb.universe.tf
 
@@ -219,7 +219,7 @@ data:
 pi@raspi001:~/tmp $ k apply -f l2-config.yaml
 ```
 
-これで、raspberryPi 環境でも loadBalancer が使えます。さっそくつかってみましょう。
+Now, even in the raspberryPi environment, you can use the loadBalancer. Let's try it right away.
 
 ```yaml
 # sample-lb.yaml
@@ -251,9 +251,9 @@ kubernetes   ClusterIP      10.96.0.1       <none>          443/TCP          16d
 sample-lb    LoadBalancer   10.106.253.65   192.168.3.100   8080:30082/TCP   8m4s
 ```
 
-お、192.168.3.100:8080 にアクセス可能みたいです。
+Oh, it seems that you can access 192.168.3.100:8080.
 
-iMac に移動
+Move to iMac
 
 ```shell
 ~ $ curl -s http://192.168.3.100:8080
@@ -265,10 +265,10 @@ OK
 
 # Headless
 
-今までのロードバランスと違い、公開する IP アドレスは提供されません。
-DNS ラウンドロビンによる転送先の Pod の IP アドレスを取得できます。
-つまり、Headless のサービスへ問い合わせすると、spec.selector で登録した Pod の IP アドレスが手に入ります。
-Pod の IP アドレスがほしいときには便利です。（Envoy とか?）
+Unlike the previous load balancing, no public IP address is provided.
+You can get the IP address of the destination Pod by DNS round robin.
+In other words, when you query a Headless service, you can get the IP address of the Pod registered with spec.selector.
+It's convenient when you want the IP address of a Pod. (Like Envoy?)
 
 ```yaml
 # sample-statefulset-headless.yaml
@@ -310,7 +310,7 @@ spec:
     app: sample-app
 ```
 
-spec.type が ClusterIP であり、spec.clusterIP が None、そして、metadata.name が statefulset の spec.serviceName と同じことで、Headless Service と呼ぶそうです。
+It is called a Headless Service because spec.type is ClusterIP, spec.clusterIP is None, and metadata.name is the same as spec.serviceName of statefulset.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-statefulset-headless.yaml
@@ -325,12 +325,12 @@ sample-headless.default.svc.cluster.local. 5 IN	A 10.244.1.76
 sample-headless.default.svc.cluster.local. 5 IN	A 10.244.2.70
 ```
 
-たしかに、headless のサービスに問い合わせると、IP アドレスが返ってきました。
+Indeed, when I queried the headless service, I got an IP address.
 
 # ExternalName
 
-外部のドメイン宛の CNAME を返すサービスです。
-例えば、Pod から外部の[example.com](http://example.com/)へアクセスする場合、下記のように設定します。
+This is a service that returns a CNAME for an external domain.
+For example, if you want to access [example.com](http://example.com/) from a Pod, you set it as follows.
 
 ```yaml
 # sample-externalname.yaml
@@ -353,11 +353,11 @@ sample-externalname.default.svc.cluster.local. 5 IN CNAME example.com.
 example.com.		5	IN	A	93.184.216.34
 ```
 
-確かに、`sample-externalname.default.svc.cluster.local`と問い合わせすることで、外部の[example.com](http://example.com/)への CNAME を取得できます。また、外部のサイトを切り替えたいときは、問い合わせ先は**変わらず**に、sample-externalname.yaml の spec.externalName を変更するだけで済みます。これは切り替えが楽ですね。
+Indeed, by querying `sample-externalname.default.svc.cluster.local`, you can get a CNAME for the external [example.com](http://example.com/). Also, when you want to switch to an external site, you only need to change spec.externalName of sample-externalname.yaml, and the query destination remains **unchanged**. This makes switching easy.
 
 # None-Selector
 
-外部のサービスに対してロードバランシングします。
+It load balances for external services.
 
 ```yaml
 # sample-none-selector.yaml
@@ -386,7 +386,7 @@ subsets:
         port: 80
 ```
 
-172.217.31.164 と 172.217.31.165 は、どちらも[www.google.com](https://www.google.com/)を指します。
+Both 172.217.31.164 and 172.217.31.165 point to [www.google.com](https://www.google.com/).
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-none-selector.yaml
@@ -404,7 +404,7 @@ Endpoints:         172.217.31.164:80,172.217.31.165:80
 ...
 ```
 
-ClusterIP なので、内部で公開されていますね。
+It's a ClusterIP, so it's published internally.
 
 ```shell
 pi@raspi001:~/tmp $ curl 10.102.225.99:8080
@@ -417,40 +417,39 @@ The document has moved
 ...
 ```
 
-少し結果が不自然だったのですが、確かに google.com へアクセスしました。
-外部サービスへのロードバランシングも容易に実現できます。
+The result was a bit unnatural, but it certainly accessed google.com.
+Load balancing to external services can also be easily achieved.
 
-※ [172.217.31.164](http://172.217.31.164)へアクセスすると、リダイレクトがかかります。`Status Code:  301`
+※ If you access [172.217.31.164](http://172.217.31.164), you will be redirected. `Status Code:  301`
 
 # Ingress
 
-今までのロードバランサは、l4 レイヤーのロードバランサです。(IP アドレスとポート番号による負荷分散)
-Ingress では、l7 レイヤーのロードバランサを提供します。(URL や HTTP ヘッダーで負荷分散が可能)
+The load balancers we've used so far are l4 layer load balancers. (Load balancing by IP address and port number)
+Ingress provides an l7 layer load balancer. (Load balancing is possible with URL and HTTP headers)
 
-Ingress を置く場所は、クラスタ内、外の２つあります。
-クラスタ外の場合は、使うプラットフォームによります。
-クラスタ内の場合は、Nginx Ingress を使うことができます。
+There are two places to put Ingress, inside and outside the cluster.
+If it's outside the cluster, it depends on the platform you use.
+If it's inside the cluster, you can use Nginx Ingress.
 
-raspberryPi 環境では、Ingress-Nginx-Controller を使うことで、Ingress を使えるそうです。
-[NGINX Ingress Controller - Installation Guide](https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal)
-を参考にして進めたのですが、arm64 環境では動きませんでした。
+In a raspberryPi environment, it seems that you can use Ingress by using Ingress-Nginx-Controller.
+I tried to proceed with reference to [NGINX Ingress Controller - Installation Guide](https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal), but it did not work in the arm64 environment.
 
-そこで、下記の yaml を発見し、試してみると動作します。ぜひ、お試しあれ。
+So, I found the following yaml and it works when I tried it. Please give it a try.
 [hectcastro/mandatory.yaml](https://gist.github.com/hectcastro/097ba8e9759689b6b29dd164cd116eeb)
 
-※ namespace を削除できない場合は、[こちら](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.1/troubleshoot/ns_terminating.html)を参考下さい。
+※ If you cannot delete the namespace, please refer to [here](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.1/troubleshoot/ns_terminating.html).
 
-# お片付け
+# Cleaning up
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-externalip.yaml -f sample-deployment.yaml -f sample-nodeport.yaml -f sample-lb.yaml -f sample-statefulset-headless.yaml -f sample-headless.yaml -f sample-none-selector.yaml -f sample-externalname.yaml
 ```
 
-# 最後に
+# Finally
 
-Service について学びました。
-様々な用途に応じて、エンドポイントを公開する手段を学びました。
-手を動かして確認してみると、理解が深まりました。
-本番で k8s を使った経験はありませんが、今後必要に迫られた際に、こちらの記事を思い返そうと思います。
+We learned about Service.
+We learned how to publish endpoints according to various purposes.
+Moving my hands and checking it deepened my understanding.
+I have no experience using k8s in production, but when I am forced to need it in the future, I will recall this article.
 
-次回は[こちら](../start_the_learning_kubernetes_10/index.mdx)です。
+The next one is [here](../start_the_learning_kubernetes_10/index.mdx).

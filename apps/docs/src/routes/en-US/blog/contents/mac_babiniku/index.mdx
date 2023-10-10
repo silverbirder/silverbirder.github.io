@@ -1,0 +1,241 @@
+---
+title: Want to be a Virtual Beauty on Mac! (Zoom + Gachikoe + 3Tene or Reality)
+published: true
+lang: "en-US"
+date: 2020-03-08
+description: The trigger. Are you all doing remote work (telework)? I think the opportunities to use video conferencing tools like Hangouts Meet and Zoom have increased. Amidst this, the following article became popular. Virtual Beauty (Babiniku) is an abbreviation for Virtual Beautiful Girl Incarnation or Virtual Beautiful Girl Self-Incarnation.
+tags: ["Mac", "Virtual Girl", "Zoom", "Gachikoe", "3Tene", "Reality", "Survey"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614412301/silver-birder.github.io/blog/バ美肉.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614412301/silver-birder.github.io/blog/バ美肉.png
+---
+
+import { Image } from "~/components/image/image";
+
+# The trigger
+
+Are you all doing remote work (telework)?
+I think the opportunities to use video conferencing tools like Hangouts Meet and Zoom have increased.
+
+Amidst this, the following article became popular.
+
+https://level69.net/archives/26902
+
+> Virtual Beauty (Babiniku) is an abbreviation for Virtual Beautiful Girl Incarnation or Virtual Beautiful Girl Self-Incarnation.
+
+> https://ja.wikipedia.org/wiki/バ美肉
+
+With this, in video conferences (example is Zoom), the following virtual beautiful girl (me pretending to be) can participate. Of course, you can also change your voice.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428127/silver-birder.github.io/blog/virtual_beautiful_girl_me.png"
+  width={312}
+  height={223}
+  layout="constrained"
+  alt="Virtual Beautiful Girl (me)"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428171/silver-birder.github.io/blog/whiteboard_in_zoom.png"
+  width={1200}
+  height={745}
+  layout="constrained"
+  alt="Whiteboard in Zoom"
+/>
+
+On Windows, it seems you can easily build it with an app called [Facerig](https://store.steampowered.com/app/274920/FaceRig/?l=japanese).
+
+I'm going to introduce how to build this on Mac.
+I think you can do it with Mac + Bootcamp → Windows10 + Facering, but I decided to avoid it as much as possible because it might become unstable.
+
+# Configuration
+
+I ended up with the following configuration.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428221/silver-birder.github.io/blog/virtual_beautiful_girl_structure.png"
+  width={1052}
+  height={916}
+  layout="constrained"
+  alt="Babiniku's structure"
+/>
+
+It is divided into two parts: audio and video.
+Also, virtual devices (Soundflower, CamTwist) are needed to link with the video conferencing tool.
+
+# Audio
+
+## Voice Changer: Gachikoe
+
+You want to hear a cute voice, not a deep one, right? That's right. Yes.
+
+I used [Gachikoe](https://booth.pm/ja/items/1236505).
+
+I set Gachikoe as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428254/silver-birder.github.io/blog/gachikoe.png"
+  width={216}
+  height={542}
+  layout="constrained"
+  alt="Gachikoe"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428287/silver-birder.github.io/blog/gachikoe_settings.png"
+  width={536}
+  height={612}
+  layout="constrained"
+  alt="Gachikoe settings"
+/>
+
+The output is set to soundflower (2ch).
+
+## Virtual Microphone
+
+For the virtual microphone, we use Soundflower.
+https://github.com/mattingalls/Soundflower/tags
+
+We also used LadioCast to control the routing of audio output.
+https://apps.apple.com/jp/app/ladiocast/id411213048?mt=12
+
+The settings for LadioCast are as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428329/silver-birder.github.io/blog/ladio_cast.png"
+  width={741}
+  height={710}
+  layout="constrained"
+  alt="LadioCast"
+/>
+
+The input is set to soundflower (2ch) and the output to soundflower (64ch).
+
+# Video
+
+## Application for VTuber
+
+### Desktop: 3tene
+
+When running on a desktop, we used 3tene.
+
+https://3tene.com/
+
+3tene does not require any particular settings.
+Before shooting, make sure to activate the webcam and lip sync (synchronization of mouth movements).
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428380/silver-birder.github.io/blog/3tene.png"
+  width={912}
+  height={614}
+  layout="constrained"
+  alt="3tene"
+/>
+
+#### Assets
+
+The crucial character must be in VRM format for 3tene (I'm not sure about this).  
+I downloaded it from the following sites.
+
+https://hub.vroid.com/
+
+https://3d.nicovideo.jp/
+
+### Mobile: Reality
+
+When running on mobile, we used Reality.
+
+https://apps.apple.com/jp/app/reality-%E3%83%90%E3%83%BC%E3%83%81%E3%83%A3%E3%83%AB%E3%83%A9%E3%82%A4%E3%83%96%E9%85%8D%E4%BF%A1%E3%82%A2%E3%83%97%E3%83%AA/id1404176564
+
+Reality does not require any particular settings.
+You can easily create your favorite character by customizing it.
+
+This is mine.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428417/silver-birder.github.io/blog/reality_me.jpg"
+  width={839}
+  height={1200}
+  layout="constrained"
+  alt="reality me"
+  href="https://reality.wrightflyer.net/profile/443e9213"
+/>
+
+You need to reflect the screen being shot on the iPhone to the Mac.
+Connect the Mac and iPhone and output to QuickTime Player. It looks like this.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428459/silver-birder.github.io/blog/iPhone_to_quick_time_player.png"
+  width={486}
+  height={1057}
+  layout="constrained"
+  alt="iPhone To QuickTime Player"
+/>
+
+"none" is the name of my iPhone device.
+
+## Virtual Camera
+
+I used a virtual camera called CamTwist.
+http://camtwiststudio.com/download/
+
+CamTwist was set as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428498/silver-birder.github.io/blog/cam_twist.png"
+  width={887}
+  height={571}
+  layout="constrained"
+  alt="CamTwist"
+/>
+
+In the example, the QuickTime Player application is selected. If you are using 3tene, you should select the 3tene option.
+
+# How to use (Zoom)
+
+With everything explained so far launched, start Zoom.
+Zoom was set as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428582/silver-birder.github.io/blog/zoom_settings_video.png"
+  width={834}
+  height={694}
+  layout="constrained"
+  alt="Zoom > Settings > Video"
+/>
+
+The video will be obtained from CamTwist.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614428625/silver-birder.github.io/blog/zoom_settings_audio.png"
+  width={834}
+  height={694}
+  layout="constrained"
+  alt="Zoom > Settings > Audio"
+/>
+
+The audio will be obtained from Soundflower (64ch).
+
+Now, <b>I was able to "beautify" on Mac!</b>
+
+# In conclusion
+
+In teleconferences, is it actually useful to "hide your real appearance and show a different person"?
+In teleconferencing tools, such as Zoom, there are features to hide audio and video.
+The demand to "hide your real appearance" has already been solved.
+
+What are the benefits of "beautifying" like this time, I wondered.
+As a joke, "talking to a cute girl increases productivity"... it's mind-boggling.
+
+# Reference links
+
+https://kumak1.hatenablog.com/entry/2018/09/27/234203
+
+http://kuroyam.hatenablog.com/entry/2020/02/27/204246
+
+https://mzyy94.com/blog/2020/02/25/virtual-bishoujo-meeting/
+
+https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/
+
+https://www.cg-method.com/entry/gachikoe/#Gachikoe
+
+https://vtuberkaibougaku.site/2019/01/31/post-3176/

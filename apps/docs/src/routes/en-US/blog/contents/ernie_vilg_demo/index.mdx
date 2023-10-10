@@ -1,0 +1,115 @@
+---
+title: Tried Running ERNIE-ViLG on Google Colaboratory
+published: true
+lang: "en-US"
+date: 2022-09-03
+description: I came across an article stating that ERNIE-ViLG is strong with "2D characters". I tried to use it on the next page, but the response was not very good. So, I referred to the following article and started running ERNIE-ViLG on Google Colaboratory.
+tags: ["ERNIE-ViLG", "AI", "Google Colaboratory", "Scrap"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662181776/silver-birder.github.io/blog/ERNIE-ViLG-DEMO.png
+---
+
+import { Image } from "~/components/image/image";
+
+I came across an article stating that ERNIE-ViLG is strong with "2D characters".
+I tried to use it on the next page, but the response was not very good.
+
+- https://huggingface.co/spaces/PaddlePaddle/ERNIE-ViLG
+
+So, I thought I would write ERNIE-ViLG on Google Colaboratory, referring to the [official page](https://github.com/PaddlePaddle/PaddleHub/tree/develop/modules/image/text_to_image/ernie_vilg).
+
+## Running on Google Colaboratory
+
+The thing I actually made is the following.
+
+- [DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG](https://colab.research.google.com/github/silverbirder/DEMO-PaddlePaddle-PaddleHub-ERNIE-ViLG/blob/main/src/DEMO_PaddlePaddle_PaddleHub_ERNIE_ViLG.ipynb)
+
+I honestly don't understand the contents well (I just tried it according to the [official page](https://github.com/PaddlePaddle/PaddleHub/tree/develop/modules/image/text_to_image/ernie_vilg)), but I'll introduce it briefly.
+
+## Preparation
+
+Run the following command to prepare ERNIE-ViLG. (It does not work without a GPU environment)
+
+```bash
+$ pip install paddlepaddle-gpu -U
+$ pip install paddlehub==2.1.0
+```
+
+```python
+import paddlehub
+paddlehub.server_check()
+```
+
+```bash
+$ hub install ernie_vilg
+```
+
+## Using ERNIE-ViLG
+
+There are two patterns to use.
+
+1. Execute with CLI (hub command)
+2. Execute with Python (hub library)
+
+In the case of CLI, it is as follows.
+
+```bash
+$ hub run ernie_vilg --text_prompts "A quiet town" --style "Oil painting" --output_dir ernie_vilg_out
+```
+
+In the case of Python, it is as follows.
+
+```python
+import paddlehub as hub
+
+module = hub.Module(name="ernie_vilg")
+text_prompts = ["宁静的小镇"]
+images = module.generate_image(text_prompts=text_prompts, style='油画', output_dir='./ernie_vilg_out/')
+```
+
+The options are as follows.
+
+- text_prompts
+  - Input text describing the content of the image you want to generate
+- style
+  - It is possible to generate images with style
+    - Oil painting
+    - Watercolor
+    - Pastel
+    - Cartoon
+    - For children
+    - Crayon
+    - Exploring infinity
+- topk
+  - Number of images to generate (up to 6)
+- output_dir
+  - Directory to save (default:ernievilg_output)
+
+※ [ERNIE-ViLG#API](https://github.com/PaddlePaddle/PaddleHub/tree/develop/modules/image/text_to_image/ernie_vilg#3api)
+
+The text_prompts and style must be written in Chinese.
+
+## Easily View Images in Google Colaboratory
+
+When you run ERNIE-ViLG, the output files go into a folder in Google Colaboratory.
+To view the images, you have to go through the hassle of downloading and opening them.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/download_image_on_browser.png"
+  width={1854}
+  height={1152}
+  layout="constrained"
+  alt="download_image_on_browser"
+/>
+
+Therefore, there is a feature to sync the folder with Google Drive.
+If you use this, you can set the save destination to Google Drive and view the images from the UI of Google Drive.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/mount_google_drive.png"
+  width={2030}
+  height={1254}
+  layout="constrained"
+  alt="mount_google_drive"
+/>
+
+It's incredibly convenient, so please give it a try.

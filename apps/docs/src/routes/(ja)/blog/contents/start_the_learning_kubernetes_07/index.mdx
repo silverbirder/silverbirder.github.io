@@ -1,36 +1,36 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 07. workloads その3 -
+title: Starting to Learn Kubernetes a Step Behind - 07. Workloads Part 3 -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-05-06
-description: 前回 一足遅れて Kubernetes を学び始める - 06. workloads その2 -にて、DaemonSetとStatefulSet(一部）を学習しました。今回は、StatefulSetの続きとJob,CronJobを学習します。
+description: In the previous post, Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -, we learned about DaemonSet and StatefulSet (partially). This time, we will continue with StatefulSet and learn about Job, CronJob.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. Workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. Workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. Discovery & LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. Discovery & LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. Config & Storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. Config & Storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)にて、DaemonSet と StatefulSet(一部）を学習しました。今回は、StatefulSet の続きと Job,CronJob を学習します。
+In [Starting to learn Kubernetes a step behind - 06. workloads part 2 -](../start_the_learning_kubernetes_06/index.mdx), we learned about DaemonSet and StatefulSet (partially). This time, we will continue with StatefulSet and learn about Job and CronJob.
 
 # StatefulSet
 
@@ -71,7 +71,7 @@ spec:
             storage: 1Gi
 ```
 
-永続的にデータが保存されるかどうか確認します。
+We will check whether the data is saved persistently.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
@@ -83,7 +83,7 @@ Filesystem  Size  Used Avail Use% Mounted on
 pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 touch /usr/share/nginx/html/sample.html
 ```
 
-sample.html というファイルを作りました。こちらが消えるかどうか確認します。
+We created a file named sample.html. We will check if this disappears.
 
 ```shell
 pi@raspi001:~/tmp $ k delete pod sample-statefulset-0
@@ -91,7 +91,7 @@ pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 ls /usr/share/nginx/html/sam
 /usr/share/nginx/html/sample.html
 ```
 
-pod を消してセルフヒーリングで復活した後、確認すると、sample.html 残っています。
+After deleting the pod and reviving it with self-healing, we check and find that sample.html remains.
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml
@@ -100,14 +100,14 @@ pi@raspi001:~/tmp $ k exec -it sample-statefulset-0 ls /usr/share/nginx/html/sam
 /usr/share/nginx/html/sample.html
 ```
 
-こちらも残っていますね。OK です。
+This also remains. OK.
 
-## スケーリング
+## Scaling
 
-StatefulSet では、スケールアウトするときは、インデックスが小さいものから増えていきます。
-逆にスケールインするときは、インデックスが大きいものから削除されていきます。
-また、１つずつ増減します。そのため、一番始めに作られる Pod は、一番最後に削除されることになります。
-試してみます。
+In StatefulSet, when scaling out, the index increases from the smaller ones.
+Conversely, when scaling in, the larger indexes are deleted first.
+Also, it increases and decreases one by one. Therefore, the first Pod created will be the last one to be deleted.
+Let's try it.
 
 ```shell
 pi@raspi001:~ $ k get pod | grep sample-statefulset
@@ -134,14 +134,14 @@ sample-statefulset-1                      1/1     Running       1          10h
 sample-statefulset-2                      0/1     Terminating   0          10h
 ```
 
-期待通りですね。１つずつではなく、並列して作成したい場合は、spec.podManagementPolicy を parallel にすれば実現できます。
+As expected. If you want to create not one by one, but in parallel, you can achieve this by setting spec.podManagementPolicy to parallel.
 
-## アップデート戦略
+## Update strategy
 
-戦略は２通りあり、OnDelete と RollingUpdate があります。前者は、削除された（マニュフェスト更新ではなく、delete）タイミングに更新され、後者は、即時更新します。StatefulSet の更新では、アップデート中の過不足分の調整(maxUnavailable, maxSurge)は一切できません。また、partition というフィールドのによって、どのインデックス以降を更新するかを調整することもできます。これは、ステートフルならではの機能です。
-Deployment では試してませんでしたが、こちらで試してみようと思います。
+There are two strategies, OnDelete and RollingUpdate. The former is updated at the time of deletion (not manifest update, but delete), and the latter is updated immediately. In the update of StatefulSet, you cannot adjust the excess or deficiency during the update (maxUnavailable, maxSurge) at all. Also, by the field of partition, you can adjust which index to update from. This is a feature unique to stateful.
+We didn't try it in Deployment, but I think we'll try it here.
 
-デフォルトの戦略は RollingUpdate です。これは何度も動作して確認できているので、OnDelete を試そうと思います。(partition は置いとく）
+The default strategy is RollingUpdate. Since this has been confirmed to work many times, I think I'll try OnDelete. (Leave partition)
 
 ```yaml
 # sample-statefulset.yaml
@@ -157,7 +157,7 @@ template:
         image: nginx:1.13
 ```
 
-アップデート戦略を OnDelete にし、nginx イメージを 1.12 から 1.13 に更新しました。
+We set the update strategy to OnDelete and updated the nginx image from 1.12 to 1.13.
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml
@@ -172,15 +172,15 @@ pi@raspi001:~/tmp $ k describe pod sample-statefulset-0 | grep "Image:"
     Image:          nginx:1.13
 ```
 
-期待通りですね。明示的に pod を削除すれば nginx が更新されました。
+As expected. If you explicitly delete the pod, nginx has been updated.
 
 # Job
 
-一度限りの処理を実行させるリソース。
-replicaSet のように複製ができる。
-バッチ処理に向いている。
+A resource that allows you to run a one-time process.
+It can replicate like a replicaSet.
+Suitable for batch processing.
 
-10 秒 sleep するだけの job を実行してみます。
+Let's run a job that only sleeps for 10 seconds.
 
 ```yaml
 # sample-job.yaml
@@ -212,20 +212,20 @@ NAME         COMPLETIONS   DURATION   AGE
 sample-job   1/1           27s        4m8s
 ```
 
-job の実行が終わると、pod が消えていますね。そして、job の COMPLETIONS が 1/1 になっているので正常終了したみたいです。逆に正常終了しなかった場合、restartPolicy に沿って再実行することになります。種類として Never と OnFailure があります。Never は、新規に Pod を作って再実行、OnFailure は、既存 Pod を使って再実行するそうです。ただし、データ自体は消失することになるので、ご注意下さい。
+When the job execution is finished, the pod has disappeared. And since the COMPLETIONS of the job is 1/1, it seems to have finished normally. Conversely, if it does not finish normally, it will be re-executed according to the restartPolicy. The types are Never and OnFailure. Never creates a new Pod and re-executes, and OnFailure re-executes using the existing Pod. However, please note that the data itself will be lost.
 
-completions は目標成功数で、parallelism は並列数、backoffLimit は失敗許容値です。
-目的に合う設定にすれば良いですね。
-また、completions を未指定にすると job を止めるまでずっと動き続けます。backoffLimit を未指定にすると 6 回までとなります。
+completions is the target success number, parallelism is the number of parallels, and backoffLimit is the failure tolerance.
+You should set it according to your purpose.
+Also, if you do not specify completions, the job will continue to run until you stop it. If you do not specify backoffLimit, it will be up to 6 times.
 
-んー、特に興味が惹かれることもなく、終わります。笑
+Hmm, nothing particularly interesting, and that's it. Lol
 
 # CronJob
 
-Job をスケジュールされた時間で実行するリソース。
-Deployment と ReplicaSet の関係と似ていて、Cronjob が job を管理する。
+A resource that runs Jobs at scheduled times.
+It's similar to the relationship between Deployment and ReplicaSet, with Cronjob managing the job.
 
-1 分毎に 50%の確率で成功する job を用意して、試してみます。
+Let's prepare a job that has a 50% chance of success every minute and try it out.
 
 ```yaml
 # sample-cronjob.yaml
@@ -266,8 +266,8 @@ NAME                           SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   
 cronjob.batch/sample-cronjob   */1 * * * *   False     0        <none>          9s
 ```
 
-時間がくるまで、job,pod は作成されないようです。
-数分待ってみました。
+It seems that jobs and pods are not created until the time comes.
+I waited for a few minutes.
 
 ```shell
 pi@raspi001:~/tmp $ k get all
@@ -286,28 +286,28 @@ NAME                           SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   
 cronjob.batch/sample-cronjob   */1 * * * *   False     1        20s             3m12s
 ```
 
-名前の命名ルールがあるので、どう関連しているのか一目瞭然ですね。
-Pod が残っているのは、failedJobsHistoryLimit と successfulJobsHistoryLimit の値の影響ですね。
-log で確認できるように残しておくそうですが、ログ収集基盤に集約した方が良いとも言われています。
+There's a naming rule for the names, so it's clear how they're related.
+The reason why the Pods are left is due to the values of failedJobsHistoryLimit and successfulJobsHistoryLimit.
+It seems that they are left for checking with logs, but it is also said that it is better to aggregate them into a log collection infrastructure.
 
-途中で止めたいときは、spec.suspend を true にすることで実現可能になります。
-同時実行する制限として、concurrencyPolicy があり、Allow,Forbid,Replace があります。
-Allow は、特に制限しない。
-Forbid は、前の job が終わらない限り実行しない。
-Replace は、前の job を削除し、job を実行する。
+If you want to stop in the middle, you can do so by setting spec.suspend to true.
+There is a concurrencyPolicy for limiting simultaneous execution, with options of Allow, Forbid, and Replace.
+Allow means no particular restrictions.
+Forbid means not to execute until the previous job is finished.
+Replace means to delete the previous job and execute the job.
 
-遅延がどのぐらい許容できるかは、startingDeadlineSeconds で指定します。
+You specify how much delay you can tolerate with startingDeadlineSeconds.
 
-こちらも、特に何事もなく終わりました。笑
+This also ended without any particular incident. Lol
 
-# お片付け
+# Cleaning up
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-statefulset.yaml -f sample-job.yaml -f sample-cronjob.yaml
 pi@raspi001:~/tmp $ k delete pvc www-sample-statefulset-{0,1,2,3}
 ```
 
-# 終わりに
+# In conclusion
 
-ようやく、workloads が終わりました。最後はざっくり進めてしまった感がありました。
-次回は[こちら](../start_the_learning_kubernetes_08/index.mdx)です。
+Finally, the workloads are over. I felt like I rushed through the end.
+Next time is [here](../start_the_learning_kubernetes_08/index.mdx).

@@ -13,7 +13,9 @@ import {
 } from "~/components/icon/simple";
 import { Link } from "~/components/link/link";
 import { Tag } from "~/components/tag/tag";
-import data from "~/routes/(ja)/blog/index.json";
+import JaData from "~/routes/(ja)/blog/index.json";
+import EnData from "~/routes/en-US/blog/index.json";
+import { config } from "~/speak-config";
 import { css } from "~/styled-system/css";
 import { stringToSlug } from "~/util";
 
@@ -192,6 +194,8 @@ interface RelatedTagsProps {
 
 const RelatedTags = component$(
   ({ currentTags, currentTitle }: RelatedTagsProps) => {
+    const sl = useSpeakLocale();
+    const data = sl.lang === config.defaultLocale.lang ? JaData : EnData;
     return (
       <>
         {currentTags.map((tag) => {

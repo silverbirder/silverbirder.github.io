@@ -1,0 +1,163 @@
+---
+title: Committing to Git from iPhone using Obsidian
+published: true
+lang: "en-US"
+date: 2022-10-18
+description: I like the concept of WikiWikiWeb, and I like Obsidian and Scrapbox, which include this concept. Obsidian has a Git integration plugin called obsidian-git. With this, you can now Git Commit not only from your desktop but also from your mobile.
+tags: ["Obsidian", "Git", "iPhone", "Scrap"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1666099520/silver-birder.github.io/blog/anton-maksimov-5642-su-Noza-4b1xOo-unsplash.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+I like the concept of WikiWikiWeb, and I like Obsidian and Scrapbox, which include this concept. Obsidian has a [obsidian-git](https://github.com/denolehov/obsidian-git) Git integration plugin. With this, you can Git Commit not only from your desktop but also from your mobile.
+So, I will introduce the procedure to Git Commit in Obsidian using the iPhone I have.
+
+## Procedure
+
+1. Access https://obsidian.md/ from iPhone and download the app
+
+2. Open the app and tap on Create new vault
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_1.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_1"
+/>
+
+3. Enter an appropriate name in Vault name (can be changed later) and tap on Create
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_2.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_2"
+/>
+
+4. Tap on the sidebar icon in the upper left → settings icon → community plugins → enable community plugins in that order
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_3.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_3"
+/>
+
+5. Browse community plugins → Enter Git → Tap on Obsidian Git, then tap on Install → Enable
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_4.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_4"
+/>
+
+6. Tap on Options
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_5.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_5"
+/>
+
+7. Enter your Github account and [Personal Access Token](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (you only need repo permissions). Tap the cross button to return to the screen in step 4.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_6.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_6"
+/>
+
+8. Scroll down, display the command palette → Enter "Clone" and tap the displayed option.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_7.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_7"
+/>
+
+9. Enter the repository URL you want to clone.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_8.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_8"
+/>
+
+10. Tap Vault Root.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_9.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_9"
+/>
+
+11. Tap NO (if the .obsidian folder is in the repository, tap YES).
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_10.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_10"
+/>
+
+12. Once the clone is successful, you can view the files in the repository.
+
+13. In Obisidian Git's Advanced, enter the Author name and Author email, then tap the cross.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_12.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_12"
+/>
+
+14. Make some changes to the file.
+
+15. Scroll down, open the command palette → Enter "Git Open source" and tap the displayed option.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_16.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_16"
+/>
+
+15. You can Stage with the + button, Commit with the check button, and Push with the upload button.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_15.png"
+  width={400}
+  height={866}
+  layout="constrained"
+  alt="obsidian_15"
+/>
+
+## Problems
+
+- You can create a branch from your smartphone, but you can't Push
+- You can't Switch to a remote branch that doesn't exist locally (even if you pull) from your smartphone
+
+Basically, it seems that all you can do from your smartphone is commit and push on the main branch.
+
+## In conclusion
+
+I'm thinking of writing various notes from my smartphone from now on!

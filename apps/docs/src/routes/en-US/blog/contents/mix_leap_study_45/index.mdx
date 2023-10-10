@@ -1,0 +1,191 @@
+---
+title: 【Increase】Mix Leap Study 45 - Google I/O, WWDC Summary Report! Participation report for June 15, 2019
+published: true
+lang: "en-US"
+date: 2019-06-27
+description: This time, I participated in the following seminar sponsored by Yahoo Corporation. I love both Google and Apple, but I couldn't attend the overseas conference, so this report was full of <b>fresh content</b> for me. I'm going to write about it in this article.
+tags: ["Report", "Mix Leap Study", "Google I/O", "WWDC", "Osaka"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614430881/silver-birder.github.io/blog/Google_I_O_WWDC_1.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614430881/silver-birder.github.io/blog/Google_I_O_WWDC_1.png
+---
+
+import { Image } from "~/components/image/image";
+
+This time, I participated in the following seminar sponsored by Yahoo Corporation.
+I love both Google and Apple, but I couldn't attend the overseas conference, so this report was full of <b>fresh content</b> for me.
+I'm going to write about it in this article.
+
+https://yahoo-osaka.connpass.com/event/132601/
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430881/silver-birder.github.io/blog/Google_I_O_WWDC_1.png"
+  width={307}
+  height={436}
+  layout="constrained"
+  alt="Google I/O WWDC Summary Report Sign"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430948/silver-birder.github.io/blog/Yahoo_japan.png"
+  width={515}
+  height={483}
+  layout="constrained"
+  alt="YAHOO!Japan"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430980/silver-birder.github.io/blog/kensaku_to_enjin.png"
+  width={509}
+  height={457}
+  layout="constrained"
+  alt="Search and Engine"
+/>
+
+The hashtag is here [#mixleap](https://twitter.com/hashtag/mixleap)
+
+# What is Google I/O?
+
+It is a developer-oriented event organized by Google.
+At Google I/O, sessions are held on various technical information such as WEB and gadgets released by Google.
+
+https://events.google.com/io/
+
+※ [https://yahoo-osaka.connpass.com/event/132601/](https://yahoo-osaka.connpass.com/event/132601/)
+
+# What is WWDC (Worldwide Developers Conference)?
+
+It is a developer-oriented event that Apple develops every year.
+At WWDC, new product introductions and announcements about new technologies are made.
+
+[https://developer.apple.com/wwdc19/](https://developer.apple.com/wwdc19/)
+
+※ [https://yahoo-osaka.connpass.com/event/132601/](https://yahoo-osaka.connpass.com/event/132601/)
+
+At Yahoo, about 30 employees participated in both Google I/O and WWDC.
+That's a lot.
+
+# Overview of Google I/O and MLKit Updates by Mr. Takaharu Kato
+
+## Overview of Google I/O
+
+Google I/O started in 2008 and has been held annually.
+This year, 2019, marks the 11th time.
+
+This time, there were a total of 164 sessions.
+The top 3 were as follows:
+
+- Android 64
+- Web 39
+- ML/AI 32
+
+As a web enthusiast, I'm a bit disappointed to be in the top 2. (laughs)
+It's surprising that ML/AI is in third place.
+
+### Duplex on the web
+
+https://www.gizmodo.jp/2019/05/190305.html
+
+This is about Google Assistant, which can also be used on the web, and it seems to be able to make reservations for rental cars and movies.
+The amazing thing about this is that it seems to <b>automatically input</b> all the steps to make a car rental reservation.
+I was surprised that it had become so convenient.
+By the way, it is not yet available in Japan.
+
+### WebAuthn
+
+It seems to refer to passwordless biometric authentication.
+The session on this is as follows.
+https://developers.google.com/web/updates/2018/05/webauthn
+
+I'm glad I was able to learn about it.
+
+## ML
+
+It seems that ML Kit was announced.
+https://developers.google.com/ml-kit/
+
+Among them, the translation API was hotly discussed at the report meeting.
+
+### ML On-Device Translate API
+
+You can now translate on the device.
+Therefore, you can translate even in environments where you cannot interact with the outside world.
+In other words, it works offline.
+
+Also, it supports an amazing number of 59 languages.
+
+[https://firebase.google.com/docs/ml-kit/translation-language-support](https://firebase.google.com/docs/ml-kit/translation-language-support)
+
+It seems that it can be used for free in part, and I really love this stance.
+https://firebase.google.com/docs/ml-kit/android/translate-text
+
+※ It seems that when translating, English is inserted in the middle.
+
+### AutoML Vision Edge
+
+This is also a service that allows you to create custom machine learning models that run on Edge devices, i.e., Android devices.
+What I want to focus on here is again the fact that it operates on the device (On-Device).
+I wonder if Google will continue to pursue this policy of completing everything on the device.
+
+With On-Device, you inevitably need to store data on the device.
+Therefore, there is a problem of how to make the data to be stored as lightweight as possible.
+If it can operate in an offline environment, it will be useful in emergencies and disasters.
+As a web enthusiast, you may know about a technology called PWA.
+It also has a feature called OfflineMode, and I wonder if it was a precursor to these On-Device features.
+
+# Introduction to Google Assistant's Expansion to Other Platforms by Mr. Shinji Ichien
+
+There were various discussions, but the following content was the most shocking.
+https://japanese.engadget.com/2019/05/08/google-web-duplex/
+
+> Google has developed a completely new voice recognition and language understanding model, reducing the learning model that required 100GB to less than 0.5GB. As a result, the learning model can be stored inside the smartphone, eliminating the need for a network connection to operate the AI function. As a result, voice recognition can be performed on the device with almost no delay.
+
+Again, it's on the device, but it seems that model creation is necessary to run Google Assistant.
+There was a shocking announcement that the capacity required for this, which used to require as much as 100GB, has been reduced to 0.5GB.
+Also, since the AI function does not require a network connection, if you can download the necessary data, it can operate in an offline environment.
+
+# What’s WWDC? / Swift UI ’n Siri Recap by Mr. Tatsuya Tanaka
+
+## About SwiftUI
+
+SwiftUI, announced at WWDC, seems to have excited everyone who attended WWDC. I haven't developed much with Swift, so I'll speak mostly from imagination, but traditional Swift development required building the source code, transferring the built data to the device, and verifying its operation. SwiftUI seems to have added a very happy feature for developers, where you can preview on xcode without having to transfer data to the device.
+
+## How to use SwiftUI?
+
+https://twitter.com/silverbirder/status/1143475061673717760?s=20
+
+I asked the speaker about this matter. It seems to be true. If you want to easily run swiftUI, you can try it on the playground, so I think I'll try it soon.
+
+https://qiita.com/shtnkgm/items/387132cd9633a59e7390
+
+## Shortcut App
+
+It's an app that comes standard on the iPhone, and honestly, I don't remember using it much. It seems to have become easier to collaborate with other apps, which will broaden the scope of app development. (Sorry, I was thinking about SwiftUI all the time (laughs))
+
+# AR・ML・Other Apple Platform Updates by Kazuhiro Hayashi
+
+In terms of content, it would be easier to understand if there were videos, but due to circumstances, all the things I couldn't show were somewhat vague. (laughs)
+
+## About AR
+
+It has evolved in the order of ARKit→ARKit2→ARKit3, but without videos, I was just like, "Hmm...".
+
+## Authentication
+
+I was attracted to the content called "sign in with apple". You can authenticate with Apple's ID. In particular, it seems that there are also JS libraries and REST API offerings.
+
+JS Library
+https://developer.apple.com/documentation/signinwithapplejs
+
+REST API
+https://developer.apple.com/documentation/signinwithapplerestapi
+
+Nice! This has increased the types of authentication!
+
+# Finally
+
+I want to attend Google I/O and WWDC, but I still lack confidence in my English skills. I will gradually study to be able to understand.
+https://note.mu/silverbirder/m/mcad08e0f384b
+
+The phrase "operating on the device, offline environment" that I heard many times at this report meeting, I thought that Google might want to focus on it in the future. What I can do now is probably to try the free ML On-Device Translate API. Other than that, I guess I'll just keep my antenna up for technical information as I do now.
+
+I think the employees of Yahoo have a positive attitude towards catching up with new technologies. I want to do my best not to lose to them.

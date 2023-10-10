@@ -1,55 +1,55 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 10. config&storage その1 -
+title: Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-05-23
-description: 前回 一足遅れて Kubernetes を学び始める - 09. discovery&LB その2 -では、様々なserviceを学習しました。今回は、config&storageのconfigを学びます。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -, we learned about various services. This time, we will learn about the config in config&storage.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last Time
 
-[一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)では、様々な service を学習しました。
-今回は、config&storage の config を学びます。
+In [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx), we learned about various services.
+This time, we will learn about the config in config&storage.
 
 # config&storage
 
-Kubernetes には、下記のようにリソースの種類が存在します。
+In Kubernetes, there are types of resources as follows.
 
-| リソースの分類           | 内容                                                         |
-| :----------------------- | :----------------------------------------------------------- |
-| Workloads リソース       | コンテナの実行に関するリソース                               |
-| Discovery＆LB リソース   | コンテナを外部公開するようなエンドポイントを提供するリソース |
-| Config＆Storage リソース | 設定・機密情報・永続化ボリュームなどに関するリソース         |
-| Cluster リソース         | セキュリティやクォータなどに関するリソース                   |
-| Metadata リソース        | リソースを操作する系統のリソース                             |
+| Classification of Resources | Content                                                                          |
+| :-------------------------- | :------------------------------------------------------------------------------- |
+| Workloads Resources         | Resources related to the execution of containers                                 |
+| Discovery＆LB Resources     | Resources that provide endpoints to expose containers externally                 |
+| Config＆Storage Resources   | Resources related to configuration, secret information, persistent volumes, etc. |
+| Cluster Resources           | Resources related to security and quotas                                         |
+| Metadata Resources          | Resources for operating resources                                                |
 
-※ [Kubernetes の Workloads リソース（その 1）](https://thinkit.co.jp/article/13610)
+※ [Kubernetes Workloads Resources (Part 1)](https://thinkit.co.jp/article/13610)
 
-# 環境変数
+# Environment Variables
 
-静的設定や、Pod やコンテナの情報を設定、シークレットでの設定があるみたいです。
+It seems there are static settings, settings for Pods and containers, and settings for secrets.
 
 ```yaml
 # sample-env.yaml
@@ -88,25 +88,25 @@ LIMITS_CPU=4
 ...
 ```
 
-MAX_CONNECTION は、静的に設定できています。
-Pod やコンテナの設定は、POD_IP,KIMITS_CPU で設定できています。
-Pod やコンテナの情報は、`k get pods sample-env -o yaml`で得ることができます。ふむふむ。
+MAX_CONNECTION can be set statically.
+Pod or container settings can be set with POD_IP,KIMITS_CPU.
+Pod or container information can be obtained with `k get pods sample-env -o yaml`. I see.
 
 # Secret
 
-パスワードなどの機密情報を Secret で暗号化してくれます。
-手段の種類が下記のようにいくつかあります。
+Secret encrypts confidential information such as passwords.
+There are several types of methods as follows.
 
 - Generic
 - TLS
 - Docker Repository
 - Service Account
 
-Generic の場合は、スキーマレスなため、汎用性の高い指定が可能になります。それを使ってみようと思います。(TLS の場合は、tls.crt,tls.key が必要）
+In the case of Generic, it is schema-less, so it allows for highly versatile specification. I think I'll try using that. (In the case of TLS, tls.crt,tls.key are required）
 
-使い方して、ファイル参照、envfile 参照、直接指定、マニュフェスト指定の４パターンです。それぞれ試してみます。
+The ways to use it are file reference, envfile reference, direct specification, and manifest specification. I'll try each one.
 
-## ファイル参照
+## File Reference
 
 ```shell
 pi@raspi001:~/tmp $ echo -n "root" > ./username
@@ -120,7 +120,7 @@ pi@raspi001:~/tmp $ k get secrets sample-db-auth -o json | jq .data
 }
 ```
 
-## envfile 参照
+## envfile Reference
 
 ```
 # env-secret.txt
@@ -137,7 +137,7 @@ pi@raspi001:~/tmp $ k get secrets sample-db-auth2 -o json | jq .data
 }
 ```
 
-## 直接指定
+## Direct Specification
 
 ```shell
 pi@raspi001:~/tmp $ k create secret generic --save-config sample-db-auth3 --from-literal=username=root --from-literal=password=rootpassword
@@ -148,7 +148,7 @@ pi@raspi001:~/tmp $ k get secrets sample-db-auth3 -o json | jq .data
 }
 ```
 
-## マニュフェスト指定
+## Manifest Specification
 
 ```yaml
 # sample-db-auth.yaml
@@ -171,16 +171,15 @@ pi@raspi001:~/tmp $ k get secrets sample-db-auth4 -o json | jq .data
 }
 ```
 
-どれも、正しく動きましたね。プロダクトとしては使わないと思いますが、お試しで確認するには
-Generic は扱いやすくて良いですね。
+All of them worked correctly. I don't think I'll use it as a product, but it's easy to handle and good for checking out Generic.
 
-では、設定した値を使ってみましょう。
+Now, let's use the values we set.
 
-# Secret の利用
+# Using Secret
 
-手段として、環境変数か Volume かの 2 つです。
+The methods are either environment variables or Volume.
 
-## 環境変数から Secret を使う
+## Using Secret from Environment Variables
 
 ```yaml
 # sample-secret-single-env.yaml
@@ -206,9 +205,9 @@ pi@raspi001:~/tmp $ k exec -it sample-secret-single-env env | grep DB_USERNAME
 DB_USERNAME=root
 ```
 
-環境変数から使う場合、値が固定されてしまいます。（静的）
+When using from environment variables, the value becomes fixed. (static)
 
-## Volume から Secret を使う
+## Using Secret from Volume
 
 ```yaml
 # sample-secret-single-volume.yaml
@@ -238,7 +237,7 @@ pi@raspi001:~/tmp $ k exec -it sample-secret-single-volume cat /config/username.
 root
 ```
 
-こちらは、動的に書き換えることができるそうです。逐次 Volume を見ているんでしょうね。（環境変数の場合、コンテン起動した時点で固定される）
+It seems that you can dynamically rewrite this. It must be looking at the Volume sequentially. (In the case of environment variables, they are fixed at the time of content startup)
 
 ```shell
 pi@raspi001:~/tmp $ cat << EOF | k apply -f -
@@ -255,15 +254,15 @@ pi@raspi001:~/tmp $ k exec -it sample-secret-single-volume cat /config/username.
 amin
 ```
 
-動的に書き換わっていますね。OK!
+It's being rewritten dynamically. OK!
 
-※ admin の a が文字化けしていた...
+※ The 'a' in admin was garbled...
 
 # ConfigMap
 
-設定情報を Key-Value 形式で登録することができます。
-こちらも手段としては、ファイル参照、直接参照、マニフェスト参照があります。
-さっきと同じなので、ファイル参照のみ試してみます。
+You can register configuration information in Key-Value format.
+The methods are the same as before: file reference, direct reference, and manifest reference.
+Since it's the same as before, let's try only file reference.
 
 ```
 # sample.txt
@@ -279,10 +278,10 @@ pi@raspi001:~/tmp $ k get configmaps sample-configmap -o json | jq .data
 }
 ```
 
-secret と同じ感じですね。これって、どんなファイルでも(1MB まで)保存できちゃうそうです。
-secret と同様で、設定したデータは環境変数、Volume の２つから参照可能です。
+It feels the same as secret. Apparently, you can save any file (up to 1MB).
+Like secret, the data you set can be referenced from two places: environment variables and Volume.
 
-# お片付け
+# Cleaning up
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-env.yaml -f sample-db-auth.yaml -f sample-secret-single-env.yaml -f sample-secret-single-volume.yaml
@@ -290,13 +289,13 @@ pi@raspi001:~/tmp $ k delete secret sample-db-auth sample-db-auth2 sample-db-aut
 pi@raspi001:~/tmp $ k delete configmap sample-configmap
 ```
 
-# 最後に
+# Finally
 
-環境変数の設定方法について、学びました。
-個人開発で、外部サービスをアプリケーションに組み込む際、
-API_KEY を環境変数として登録して開発しています。
-今回は、Generic で Secret を保存しましたが、プロダクトでは、
-service_account を使うのが一般的なのでしょうか？
+We learned about how to set environment variables.
+In personal development, when incorporating external services into an application,
+I develop by registering the API_KEY as an environment variable.
+This time, we saved the Secret as Generic, but in a product,
+Is it common to use service_account?
 
-次回は、Storage について学習します。
-[こちら](../start_the_learning_kubernetes_11/index.mdx)です。
+Next time, we will learn about Storage.
+[Here](../start_the_learning_kubernetes_11/index.mdx) it is.

@@ -1,9 +1,9 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 02. Docker For Mac -
+title: Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-04-27
-description: 前回 一足遅れて Kubernetes を学び始める - 01. 環境選択編 -にて、Kubernetesを学ぶ環境を考えてみました。いきなりGKEを使うんじゃなくて、お手軽に試せるDockerForMacを使おうとなりました。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -, we considered the environment for learning Kubernetes. Instead of using GKE right away, we decided to use DockerForMac, which is easy to try.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png
@@ -11,32 +11,32 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16398167
 
 import { Image } from "~/components/image/image";
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limit -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Check and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)にて、Kubernetes を学ぶ環境を考えてみました。いきなり GKE を使うんじゃなくて、お手軽に試せる DockerForMac を使おうとなりました。
+In [Starting to learn Kubernetes a step behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx), we considered the environment for learning Kubernetes. Instead of using GKE right away, we decided to use DockerForMac, which is easy to try.
 
-# Docker For Mac を試す
+# Trying Docker For Mac
 
-## 環境
+## Environment
 
 ```
 # Machine
@@ -53,9 +53,9 @@ Kubernetes:
   Version: v1.10.3
 ```
 
-## 実践
+## Practice
 
-さっそく、使ってみます。 ([入門 Kubernetes](https://www.oreilly.co.jp/books/9784873118406/)参考)
+Let's use it right away. (Referenced from [Introduction to Kubernetes](https://www.oreilly.co.jp/books/9784873118406/))
 
 ```shell
 ~ $ kubectl get componentstatuses
@@ -65,18 +65,17 @@ scheduler            Healthy   ok
 etcd-0               Healthy   {"health": "true"}
 ```
 
-Kubernetes では、MasterNode と WorkerNode の 2 種類の Node が存在しており、
-そのうちの MasterNode にあるコンポーネントの一覧が上記よりわかります。詳細については、[こちら](https://qiita.com/tkusumi/items/c2a92cd52bfdb9edd613)にあります。
-要は、`kubectl apply -f nginx.yaml` とすると
+In Kubernetes, there are two types of Nodes, MasterNode and WorkerNode, and the list of components in the MasterNode can be seen from the above. For details, see [here](https://qiita.com/tkusumi/items/c2a92cd52bfdb9edd613).
+In other words, when you do `kubectl apply -f nginx.yaml`, it means
 
-1. etcd にマニュフェスト(nginx.yaml)を登録
-1. controller-manager が etcd にあるマニュフェストと既存 pod を比べて pod が少ないことを検知
-1. scheduler が適切な数の pod に調整
+1. Register the manifest (nginx.yaml) in etcd
+1. The controller-manager detects that there are fewer pods by comparing the manifest in etcd and the existing pods
+1. The scheduler adjusts to the appropriate number of pods
 
-という理解になりました。また、全てのやり取りは、api-server を経由しているそうです。
+That's what I understood. Also, all interactions seem to go through the api-server.
 
-私なりの理解をアウトプットしたものが下記になります。
-(ほとんど真似した感じです。しかし、アウトプットするだけで理解が深まるため実施。 **アウトプット大事！** )
+Below is what I output based on my understanding.
+(It's mostly a copy. However, just outputting deepens understanding, so I did it. **Output is important!** )
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1639816747/silver-birder.github.io/blog/Kubernetes_learning.png"
@@ -94,9 +93,9 @@ docker-for-desktop   Ready     master    120d      v1.10.3
 No resources found.
 ```
 
-使い始めたばかりだと、pod が１つもない状態ですね。
-また、DockerForMac では、もちろん動かしているマシンは一台（VM とか使えば増やせますが）なので、
-MasterNode と WorkerNode が同一になっているはずです。試してみます。
+When you first start using it, there are no pods.
+Also, in DockerForMac, of course, there is only one machine running (you can increase it with VM, etc.), so
+The MasterNode and WorkerNode should be the same. Let's try it.
 
 ```yaml
 # nginx.yaml
@@ -122,11 +121,11 @@ NAME      READY     STATUS    RESTARTS   AGE       IP           NODE
 nginx     1/1       Running   0          3m        10.1.0.157   docker-for-desktop
 ```
 
-WorkerNode に Pod が作られていますね。んー、これだとある程度の学習には繋がりそう（Pod の動き）ですが、
-後の学ぶ ReplicaSet や Daemonset など Node 横断した機能を経験したい場合には不向きのようですね。
-まあ、簡単に使えるので良いっちゃ良いのですが...
+A Pod is created on the WorkerNode. Hmm, this seems to lead to some learning (Pod movement), but
+It seems unsuitable if you want to experience features that cross Nodes, such as learning ReplicaSet and Daemonset later.
+Well, it's easy to use, so it's good...
 
-次は、いくつかのコマンド(cp,exec, port-forward)を試してみます。
+Next, let's try some commands (cp, exec, port-forward).
 
 ```shell
 ~ $ touch memo.txt
@@ -145,19 +144,19 @@ exit
 ~ $
 ```
 
-ローカルと Pod との双方向コピー、仮想的なターミナルを体験していました。
-「ふ〜ん、で？」ってなっちゃいました。(笑)
+I experienced bidirectional copy between local and Pod, and virtual terminal.
+I was like, "Hmm, so what?" (laughs)
 
-# お片付け
+# Cleaning up
 
 ```shell
 ~ $ kubectl delete -f nginx.yaml
 pod "nginx" deleted
 ```
 
-# ものたりない
+# Not enough
 
-やっぱり Node 増やしたい！！
-[Raspberry Pi でおうち Kubernetes 構築【論理編】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778)を見て、これをやるっきゃない！
-すごく今更だけど、試してみようと思います。
-次回は[こちら](../start_the_learning_kubernetes_03/index.mdx)です。
+I want to increase the Node after all!!
+Looking at [Building home Kubernetes with Raspberry Pi【Logical Edition】](https://qiita.com/go_vargo/items/29f6d832ea0a289b4778), I have to do this!
+It's very late, but I'm going to try it.
+The next one is [here](../start_the_learning_kubernetes_03/index.mdx).

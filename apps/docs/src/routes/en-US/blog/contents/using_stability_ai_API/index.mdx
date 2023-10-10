@@ -1,0 +1,91 @@
+---
+title: Development of Stable Diffusion API
+published: true
+lang: "en-US"
+date: 2022-09-03
+description: Stable Diffusion is an open-source AI that generates images when you give it text. If you want to run it on your own, you will need a GPU.
+tags: ["Stable Diffusion", "API", "AI", "Artifact"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662177842/silver-birder.github.io/blog/stable-diffusion-api-on-slack.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+Stable Diffusion is an open-source AI that generates images when you give it text.
+If you want to run it on your own PC, you will need a GPU.
+(There is also [stable_diffusion.openvino](https://github.com/bes-dev/stable_diffusion.openvino) that can run on a CPU)
+
+I wanted an API that could be used on any PC and could be integrated with services like Slack.
+So, I developed an API for Stable Diffusion.
+
+## Conclusion
+
+I used the SDK of DreamStudio.ai, [stability-sdk](https://github.com/Stability-AI/stability-sdk).
+
+The artifact is placed in the following repository.
+
+- https://github.com/silverbirder/stable-diffusion-API
+
+It works in both local environments and Docker containers.
+
+To run it, you will need the API Key of DreamStudio.ai.
+Since it runs on Docker, it can run anywhere if the service can deploy Docker. (No GPU is required)
+
+I like GCP, so I deployed it to a service called CloudRun.
+The API accepts parameters in the form of `<url>/?prompt=<text>` and returns an image.
+
+When I used it on Slack, it looked like this.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1662177842/silver-birder.github.io/blog/stable-diffusion-api-on-slack.jpg"
+  width={900}
+  height={778}
+  layout="constrained"
+  alt="stable-diffusion-api-on-slack"
+/>
+
+For now, I was able to run Stable Diffusion with the API.
+
+## GPU and Design
+
+Before using [stability-sdk](https://github.com/Stability-AI/stability-sdk), I thought about designing an environment to run Stable Diffusion on my own. I have left a memo of the design research in the following link.
+
+- https://zenn.dev/silverbirder/scraps/3842c715662551
+
+Specifically, I considered the following patterns.
+
+1. Run Stable Diffusion using the GPU of Google Colaboratory and publish it with a simple API
+2. Run Stable Diffusion using a GPU on a server (such as GCE or CloudRun) and publish it with a simple API
+3. Run Stable Diffusion using a GPU in a batch (Cloud Batch) and run it when necessary. (Kick the batch process from the API)
+
+The first one has a 12-hour limit on the use of Google Colaboratory, and something is needed to circumvent that. However, I rejected it because I think it deviates from the original purpose.
+
+The second one is rejected because it would cost tens to hundreds of thousands of yen in running costs.
+
+The third one was the first one I conceived. It would be a waste to have a GPU server running all the time like the second one, so I thought about the third option as a batch process. When I actually built it with the third option, (I haven't investigated the cause in depth) it took more than 30 minutes to start up, and it didn't seem to be usable.
+
+So, after some consideration, I realized that [stability-sdk](https://github.com/Stability-AI/stability-sdk) seemed to be a quick solution that required no maintenance or running costs.
+
+Of course, there are disadvantages.
+
+- Dependence on the SDK, which you can't control (you can't do img2img)
+- Pay-as-you-go system
+
+However, assuming it was for personal use, I judged the advantages to outweigh the disadvantages.
+
+## stability-sdk
+
+DreamStudio.ai uses Stable Diffusion.
+They publish [stability-sdk](https://github.com/Stability-AI/stability-sdk) as an API.
+You need to write in Python to use it.
+Reading the source code, I think it's relatively easy to write the SDK in another language because it uses gRPC.
+I wrote it quickly in Python, using flask and stability-sdk.
+
+- https://github.com/silverbirder/stable-diffusion-API
+
+For now, I wrote an ultra-simple API that only accepts Prompts.
+[stability-sdk](https://github.com/Stability-AI/stability-sdk) has various parameters, so I thought about making it accept those as well, and I thought it would be interesting to write something like a bot for Midjourney's discord.
+
+## In conclusion
+
+In Markdown, when you load an image, if you specify the API I developed this time, the image changes every time you open the Markdown.
+You can fix it by specifying the prompt and seed, but I think this is interesting too.

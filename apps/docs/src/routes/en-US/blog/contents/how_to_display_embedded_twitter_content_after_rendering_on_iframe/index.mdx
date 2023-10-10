@@ -1,0 +1,111 @@
+---
+title: How to display Twitter embedded content in an iframe after rendering
+published: true
+lang: "en-US"
+date: 2022-05-22
+description: The conclusion is to find the `twttr` object from `iframe.contentWindow` and write the display process as the second argument of `event.bind("rendered", () => {})`. The background is that you want to display embedded content from a URL like `https://twitter.com/openwc/status/1427617679427440643` on a blog site. The html in the response of `https://publish.twitter.com/oembed?url=${URL}` becomes the embedded content. By setting this to the srcdoc of the iframe, you can display the embedded content.
+tags: ["Twitter", "Survey", "iframe"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1653222658/silver-birder.github.io/blog/jeremy-bezanger-Jm1YUfYjpHI-unsplash.jpg
+---
+
+## Conclusion
+
+Find the `twttr` object from `iframe.contentWindow` and write the display process as the second argument of `event.bind("rendered", () => {})`.
+
+```javascript
+iframe.addEventListener("load", () =>
+  iframe.contentWindow.twttr.events.bind("rendered", () =>
+    iframe.setAttribute("style", "opacity: 1;")
+  )
+);
+```
+
+## Background
+
+You want to display embedded content from a URL like `https://twitter.com/openwc/status/1427617679427440643` on a blog site.
+
+The html in the response of `https://publish.twitter.com/oembed?url=${URL}` becomes the embedded content.
+By setting this to the srcdoc of the iframe, you can display the embedded content.
+
+```html
+<iframe></iframe>
+```
+
+```javascript
+/*
+const url = "https://twitter.com/openwc/status/1427617679427440643";
+const oembedUrl = `https://publish.twitter.com/oembed?url=${url}`;
+// response.html of `fetch(oembedUrl)` is html.
+*/
+const html =
+  '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">`npm init @‌open-wc` now supports lit v2!<br /><br />Give it a try and let us know what you think<a href="https://t.co/9191LFIYHZ">https://t.co/9191LFIYHZ</a></p>&mdash; Open Web Components (@OpenWc) <a href="https://twitter.com/OpenWc/status/1427617679427440643?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>\n<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n';
+
+const iframe = document.querySelector("iframe");
+iframe.setAttribute("srcdoc", html);
+```
+
+## Problem
+
+After loading the srcdoc in the iframe, only the string of the Tweet you want to embed is briefly visible.
+In the example below, you should briefly see `npm init @‌open-wc now supports lit v2!`. You will understand if you reload.
+
+<iframe
+  src="https://codesandbox.io/embed/display-embedded-twitter-content-5tx92y?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Display embedded twitter content"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+You want to prevent this from being briefly visible.
+
+## Solution
+
+There is a post-rendering event for embedded content called `rendered`. Use this.
+
+https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/javascript-api
+
+The order of implementation is as follows:
+
+1. Detect the `load` event from the iframe
+2. Find the `twttr` object from `iframe.contentWindow`
+3. Write the post-rendering process with `twttr.events.bind("rendered", () => {})`
+
+In practice, the code looks like this.
+
+```javascript
+/*
+const url = "https://twitter.com/openwc/status/1427617679427440643";
+const oembedUrl = `https://publish.twitter.com/oembed?url=${url}`;
+// response.html of `fetch(oembedUrl)` is html.
+*/
+const html =
+  '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">`npm init @‌open-wc` now supports lit v2!<br /><br />Give it a try and let us know what you think<a href="https://t.co/9191LFIYHZ">https://t.co/9191LFIYHZ</a></p>&mdash; Open Web Components (@OpenWc) <a href="https://twitter.com/OpenWc/status/1427617679427440643?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>\n<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n';
+
+const iframe = document.querySelector("iframe");
+iframe.addEventListener("load", () =>
+  iframe.contentWindow.twttr.events.bind("rendered", () =>
+    iframe.setAttribute("style", "opacity: 1;")
+  )
+);
+
+iframe.setAttribute("srcdoc", html);
+```
+
+The html is hidden with `style`. (The method doesn't matter)
+
+```html
+<iframe style="opacity: 0;"></iframe>
+```
+
+Here is the result of the solution.
+
+<iframe
+  src="https://codesandbox.io/embed/display-embedded-twitter-content-after-l6l3h7?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Display embedded twitter content after rendered event"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+You should no longer be able to see a glimpse of `npm init @‌open-wc now supports lit v2!`.

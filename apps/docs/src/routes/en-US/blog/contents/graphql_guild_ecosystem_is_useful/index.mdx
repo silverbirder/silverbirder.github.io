@@ -1,0 +1,106 @@
+---
+title: The GraphQL Guild Ecosystem is Convenient, Isn't It?
+published: true
+lang: "en-US"
+date: 2022-10-15
+description: Do you know about the GraphQL Guild? In the GraphQL community, Code Generator is well-known, but...
+tags: ["GraphQL", "Survey"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1665838875/silver-birder.github.io/blog/sangga-rima-roman-selia-LjbjWeXRbs0-unsplash.jpg
+---
+
+Do you know about the GraphQL Guild?
+In the GraphQL community, Code Generator is well-known, but the GraphQL Guild is a group that develops these GraphQL-related OSS. ([For more details, click here](https://the-guild.dev/about-us))
+
+I've found the ecosystem of the GraphQL Guild to be quite convenient, so I thought I'd introduce it.
+The source code I tried is available here.
+
+- https://github.com/silverbirder/playground/tree/main/node/supabase-graphql-guild-app
+
+## You can download the GraphQL Schema
+
+When doing schema-driven development, the repositories of the GraphQL client and server (where the GraphQL Schema is located) may be separated. In that case, you might want the GraphQL Schema from the server repository in the client repository. In such a situation, you can imagine the following solutions.
+
+- Put the server repository in the client repository with git submodule
+- Write a script to download the GraphQL Schema file with git clone
+
+Handling git can be troublesome in the CI/CD process and in some situations.
+Therefore, there is a feature in `GraphQL CLI` that allows you to download the Schema just by specifying the SchemaURL of GraphQL.
+
+- https://www.graphql-cli.com/introduction
+
+Specifically, you create a `GraphQL Config` and execute `graphql codegen`.
+
+- https://the-guild.dev/graphql/config/docs
+
+To download the Schema, specify the endpoint URL of GraphQL.
+
+You can choose the format of the Config file from yml, json, js, or ts.
+In my case, I chose Typescript(ts) because I wanted to load the authentication information to access the GraphQL endpoint from environment variables.
+
+Specifically, you generate the following Config file.
+
+```typescript
+// graphql.config.ts
+import type { IGraphQLConfig } from "graphql-config";
+import { config } from "dotenv";
+
+config();
+
+/** @type {import('graphql-config').IGraphQLConfig} */
+const graphqlConfig: IGraphQLConfig = {
+  schema: [
+    {
+      [`${process.env.SUPABASE_URL}/graphql/v1`]: {
+        headers: {
+          apikey: process.env.SUPABASE_ANON_KEY || "",
+          authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+        },
+      },
+    },
+  ],
+  extensions: {
+    codegen: {
+      generates: {
+        "generated/schema.graphql": {
+          plugins: ["schema-ast"],
+        },
+      },
+    },
+  },
+};
+
+export default graphqlConfig;
+```
+
+If you have installed the necessary packages and run `graphql codegen`, `generated/schema.graphql` will be generated!
+
+## GraphiQL works with just Config
+
+As a user of GraphQL, you might want a place to try out what kind of queries you can write.
+It's perfectly fine to have GraphiQL prepared by the server side, but you can easily do it with something called `GraphQL Yoga`.
+
+- https://the-guild.dev/graphql/yoga-server
+
+After `yarn add graphql-yoga`, if the previous `graphql.config.ts` exists, all you have to do is `yarn yoga` and you have GraphiQL! You haven't written any code to serve. It was the best.
+
+## GraphQL CLI has various useful features
+
+`GraphQL CLI` has useful features related to GraphQL.
+
+- https://github.com/Urigo/graphql-cli
+
+Specifically, there are the following three.
+
+- `@graphql-cli/coverage`
+  - Based on the operation of the Document, you can see how much the Schema is being used
+- `@graphql-cli/diff`
+  - Tells you the difference between the local and remote GraphQL Schema
+- `@graphql-cli/validate`
+  - Checks if the operation of the Document is not contrary to the GraphQL Schema definition
+
+## In Conclusion
+
+It seems that GraphQL Guild is centered around GraphQL Config.
+With Config, other ecosystems can function by looking at it, reducing the amount of preparation needed.
+
+Unrelated, but it's also very easy and appreciated to use GraphQL with supabase.

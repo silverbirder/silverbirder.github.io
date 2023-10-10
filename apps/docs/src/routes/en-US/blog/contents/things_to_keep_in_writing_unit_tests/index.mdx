@@ -1,0 +1,194 @@
+---
+title: Things to Keep in Mind When Writing Unit Tests
+published: true
+lang: "en-US"
+date: 2020-01-12
+description: I usually write and review unit tests at work. Having unit tests is a good thing, but there is a problem. That is, the rules for unit tests are not clear.
+tags: ["Unit Test", "Test"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+# Background
+
+I usually write and review unit tests at work.
+Having unit tests is a good thing, but there is a problem.
+
+That is, the rules for unit tests are not clear.
+Therefore, depending on the person, the way of writing unit tests is different, and I am troubled by this.
+
+- There are multiple Asserts in one test case, and they are scattered.
+- Similar test data construction is found in various test cases.
+- The name of the function to be tested is not immediately clear.
+
+In this article, I have picked up things that I want you to keep in mind when writing unit tests.
+
+# Things to Keep in Mind
+
+## 1. Readable Test Code
+
+### 1.1. Unification of Test Method Names
+
+It is better to have a naming rule for test methods.
+In the execution results of the test runner tool, the function name may be displayed.
+From there, if you can read "what kind of test was being done", there is no need to look at the contents of the test.
+
+The following naming rules seem to be good.
+
+- The name of the method to be tested.
+- The scenario in which it is tested.
+- The behavior expected when the scenario is invoked.
+
+```
+// Bad
+Test_Single
+```
+
+```
+// Good
+Add_SingleNumber_ReturnsSameNumber
+```
+
+※Quoted from [Naming Your Tests](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#naming-your-tests)
+
+※Let's avoid the expected value of "correctly displayed" as much as possible. Let's set a specific value as the expected value.
+
+### 1.2. Avoid Logical Control
+
+Controls such as if and for make the test code hard to read, so avoid them as much as possible.
+It is easier to read if you write it straightforwardly. You don't have to worry too much about performance.
+
+### 1.3. Avoid Magic Numbers
+
+Even if you avoid magic numbers in product code,
+There are times when you use magic numbers in test code.
+Don't be lazy, let's express it with an appropriate variable name.
+
+### 1.4. Extract Test Data to External Files
+
+When writing test code, you need to construct test data necessary for testing.
+You can write it for each test case, but let's separate the test data into a different file to improve visibility.
+However, let's do it only when it is referenced in two or more test cases.
+
+Test data is good to use a structured file that is compatible with the programming language.
+
+- JSON
+- CSV
+- XML
+- YAML
+
+### 1.5. Unify the Composition of Test Cases
+
+Test cases are easy to read when described in three configurations.
+
+- Arrange (Preparation)
+- Act (Execution)
+- Assert (Verification)
+
+Let's write the test code so that these are executed in order from the top.
+
+```
+// Bad
+Arrange => Act => Arrange => Act => Assert
+```
+
+Rather than mixing the order like this,
+
+```
+// Good
+Arrange => Arrange => Act => => Act => Assert
+```
+
+It is easier to read if you align the order like this.
+
+### 1.6. Do Not Verify Multiple Items in One Test Case
+
+If you perform multiple verifications in one test case, it becomes difficult to understand what the test case is. Therefore, let's limit the verification to one. An exception is the verification of the constructor. There may be a need to verify the attribute (property) values of the instantiated object, so multiple verifications are allowed in that case.
+
+### 1.7. Keep test code to a minimum
+
+Setting **unverified and unnecessary** data on the test target instance can cause unnecessary confusion, so let's avoid it. Also, the data to be set should not be meaningless values like hoge, but data close to the real thing.
+
+## 2. Utilization of Matcher
+
+### 2.1. Assert in a form close to natural language
+
+There are many cases where the variable to be verified is converted into a Boolean form and AssertTrue is performed. However, from the viewpoint of readability, it is easier to read if you use the functions that come standard with Matcher.
+
+```
+// Bad
+assertTrue(actual.contains('hello'))
+```
+
+```
+// Good
+assertThat(actual, hasItems('hello'))
+-> assert that actual has items "hello".
+```
+
+### 2.2. Make variable names easy to understand
+
+When writing test code, let's name the expected value Expect and the actual value Actual. This makes it easier to understand what is being verified.
+
+Also, when using terms that often appear in test code, such as mocks, stubs, and spies, as variable names, be sure to use them properly. It is troublesome to cause misunderstanding by using the variable name mock, but actually using it like a stub.
+
+## 3. Test Patterns
+
+### 3.1. White Box Test and Black Box Test
+
+People who write test code are basically supposed to understand the internal specifications, so I think they often write tests in white boxes. Also, to increase coverage, it may be a good idea to write black box tests such as parameter tests (combination tests) and equivalence, boundary values.
+
+### 3.2. Normal, Semi-Normal, and Abnormal
+
+| Type             | Content                                       |
+| ---------------- | --------------------------------------------- |
+| Normal Test      | Test standard behavior                        |
+| Semi-Normal Test | Test for errors such as validation errors     |
+| Abnormal Test    | Test for errors such as API connection errors |
+
+### 3.3. Fail Test
+
+In test code, it is also important to force a Fail if an unexpected process is run. For example, "If a deprecated feature is used, make it Fail" is useful.
+
+### 3.4. Verification of private methods
+
+Verify private methods via public methods.
+
+## 4. A large amount of test code
+
+### 4.1. Same hierarchical structure as product code
+
+Like product code, it may be a good idea to group test code by folder. This is because it is difficult to read when test code is lined up side by side.
+
+For example, it might be a good idea to have the same folder structure as the product code.
+
+### 4.2. Test code divided into units
+
+It is a good idea to group them in the following units.
+
+- Group by unit including initialization process
+  - ex. When the product in stock is "empty", "only one", "multiple"
+
+There are cases where a test class is created by inheriting a common test class, but it is better to avoid it. Before you know it, it has more than necessary large features. Set the necessary processes in Setup or Teardown.
+
+### 4.3. If the test execution time has become long
+
+You may want to try one of the following.
+
+- Enhance the test execution environment (machine specs)
+- Make it parallel
+- Narrow down the tests to be executed
+
+If the performance of the product code itself is poor, it is best to improve it.
+
+# In conclusion
+
+What I felt while writing is that "readability is important for test code". The way to write product code and the way to write test code are similar but different. In product code, there may be demands for sophisticated class design with high maintainability and high performance processing. However, I don't think test code is required for those.
+
+Test code should be treated as a **document that honestly expresses the specifications** of the product code.
+If there is test code that is difficult to understand, you may wonder, "This test case is failing, but why?" and fall into suspicion, "Is it correct that it's failing?" That's very unfortunate. To prevent such a situation, I believe that test code should be designed with an emphasis on "readability".
+
+# References
+
+- [JUnit Practical Guide ~Systematic Learning of Unit Test Techniques (WEB+DB PRESS plus)](https://www.amazon.co.jp/dp/477415377X)
+- [.NET Core and .NET Standard Best Practices for Unit Testing](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices)

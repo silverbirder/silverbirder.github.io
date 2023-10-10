@@ -1,9 +1,9 @@
 ---
-title: Algolia Community Party in 京都 - 2019年5月10日 参加レポート
+title: Algolia Community Party in Kyoto - 10 May 2019 Participation Report
 published: true
 lang: "en-US"
 date: 2019-05-11
-description: Algolia Community Party in 京都 - 2019年5月10日。こちらに参加しましたので、ご報告までに記事を書こうと思います。
+description: I participated here and I will write an article to report back.
 tags: ["Report", "Algolia", "Kyoto"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614431407/silver-birder.github.io/blog/Algolia_Community_Party_in_Kyoto_2019_5_10.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614431407/silver-birder.github.io/blog/Algolia_Community_Party_in_Kyoto_2019_5_10.png
@@ -11,114 +11,114 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16144314
 
 https://algolia.connpass.com/event/128524/
 
-こちらに参加しましたので、ご報告までに記事を書こうと思います。
+I participated here and I will write an article to report back.
 
-# Algolia って？
+## What is Algolia?
 
-## 百聞は一見にしかず
+## Seeing is believing!
 
-まずは下記サイトで、色々検索してみて下さい！
+First of all, please visit the following website and search for more information!
 
 - Algolia Community Sample
-  - [https://community.algolia.com/instantsearch.js/v2/examples/e-commerce/](https://community.algolia.com/instantsearch.js/v2/examples/e-commerce/)
-  - [https://community.algolia.com/instantsearch.js/v2/examples/tourism/](https://community.algolia.com/instantsearch.js/v2/examples/tourism/)
-  - [https://community.algolia.com/instantsearch.js/v2/examples/media/](https://community.algolia.com/instantsearch.js/v2/examples/media/)
-- 実際に Product として使われているサイト
+  - [https://community.algolia.com/instantsearch.js/v2/examples/e-commerce/](https://community.algolia.com/instantsearch.js/v2/ examples/e-commerce/)
+  - [https://community.algolia.com/instantsearch.js/v2/examples/tourism/](https://community.algolia.com/instantsearch.js/v2/examples/ tourism/)
+  - [https://community.algolia.com/instantsearch.js/v2/examples/media/](https://community.algolia.com/instantsearch.js/v2/examples/ media/)
+- Sites actually used as Product.
   - [https://www.bringmeister.de/](https://www.bringmeister.de/)
   - [https://8tracks.com/explore/all](https://8tracks.com/explore/all)
 
-どれも**爆速**に結果が返ってきませんか !?
-これ、 実は**SaaS**で動いているんですよ ?
+Don't all of them return results **explosively** fast!
+This is actually powered by **SaaS** ?
 
-## 概要
+## Overview
 
 https://www.algolia.com/
 
 > Products to accelerate search and discovery experiences across any device and platform.
 
-Algolia は、全文検索を提供してくれる SaaS です。
-全文検索を使う場合、一般的には Elastic Search や Solr といったものをサーバに乗せて管理することが多いかと思います。
-使い始めると、「カテゴリ選択、ファセット絞り込み、ハイライト」等の機能がほしくなり、独自開発することもあると思います。
-Aloglia では、そういった全文検索に関わる機能を SaaS として提供してくれます。
+Algolia is a SaaS that provides full-text search.
+When you use full-text search, you generally use something like Elastic Search or Solr on your server to manage it.
+Once you start using it, you may want features such as 'category selection, facet refinement, highlighting', etc., and may want to develop your own.
+Aloglia provides such full-text search-related functions as a SaaS service.
 
-使われているところでは、ブログサービスである[medium](https://medium.com/)や、オンライン決算処理である[Stripe のドキュメント](https://stripe.com/docs/api)がメジャーでしょうか。
-エンジニア向けとしては、[Docker Hub](https://hub.docker.com/)にも使われています。また、Firebase の公式でも使用事例として紹介されています。これは驚きですね。
+The most popular places to use it are [medium](https://medium.com/), which is a blogging service, and [Stripe's documentation](https://stripe.com/docs/api), which is an online financial statement processing system.
+For engineers, [Docker Hub](https://hub.docker.com/) is also used. It is also officially mentioned as a use case by Firebase. This is surprising.
 
 https://firebase.google.com/docs/firestore/solutions/search?hl=ja
 
-Algolia の会社としては、フランスから 2012 年よりスタートしました。
-ベンチャー企業であり、日本人のエンジニア募集もあるそうです。
+Algolia as a company started in 2012 from France.
+It is a venture company and they are looking for Japanese engineers.
 
-SaaS コミュニティ用のイベントがあるそうで、こちらに Algolia さんも登壇されています。
+They have an event for the SaaS community, where Algolia is also a speaker.
 
 https://www.saastr.com/
 
 https://www.saastr.com/watch-the-saastr-masterclass-from-0-to-10m-in-arr-from-algolia-in-paris-video/
 
-## どんな機能があるの？
+## What features do you have?
 
-お話を Algolia の Solution Architect である[@shinodogg](https://twitter.com/shinodogg)から説明があったものとして、下記のような機能があるそうです。
+Algolia's Solution Architect, [@shinodogg](https://twitter.com/shinodogg), explained the following features.
 
-- 検索時の表記ゆれ
-- タイプミス補助
-- カテゴリ、ファセットによる絞り込み
-- 検索キーワードのハイライト
-- パーソナライゼーション
-- A/B テスト
-- GEO 検索
-- 画像検索
-- 音声検索
+- Notation distortion when searching
+- Typing error assistance
+- Refinement by category and facet
+- Highlighting of search terms
+- Personalisation
+- A/B testing
+- GEO search
+- Image search
+- Audio search
 
-他にも「安い」と検索すると設定次第で「500 円以下の商品」を表示させるような
-こともできるそうです。あとは、チャットボットにも使えるとのことです。
+Other search options include the ability to display 'products under 500 yen' when you search for 'cheap'.
+It can also be used as a chatbot. It can also be used as a chatbot.
 
-※ ただ、まだ日本語には対応していないみたいで、現在開発中とのこと。
+The only thing is, it doesn't seem to support Japanese yet, and is currently under development.
 
-## どうやって使うの？
+## How do I use it?
 
 https://github.com/algolia
-OSS としてライブラリを提供されています。
-手っ取り早く使いたいときは、instantsearch.js でしょうか。
+Libraries are provided as OSS.
+If you want to use it quickly, you can use instantsearch.js.
 
 https://community.algolia.com
 
-こちらも参考になるかと思います。
+You may also find this useful.
 
-## Algolia は知っていたの？
+## Did you know about Algolia?
 
-知っていました。
-Algolia を知ったきっかけは、大学時代の友人(id:castaneai)からでした。
-Algolia は、全文検索システムを構築せずとも、お手軽に使えて、しかも高機能な SaaS ということで、
-個人開発をする私にとって興味を持ち始めました。
+I knew about it.
+The first time I heard about Algolia was from a friend from university (id:castaneai).
+Algolia is a SaaS that is easy to use and highly functional, without the need to build a full-text search system,
+As a personal developer, I started to be interested in Algolia.
 
-その後、下記の記事で書いた通り OSS Gate の対象にもさせてもらいました。
+After that, as I wrote in the following article, I was also made a target of OSS Gate.
 
 https://tech-blog.monotaro.com/entry/2018/10/17/115442
 
-また、作りたいものリストに溜まっていたアプリを作る時間があったので、
-最近では、下記のような書籍管理を作りました。検索は Algolia を使っています。
+I also had time to make some apps that had accumulated on my list of things I wanted to make,
+Recently, I created the following book management. I use Algolia for searching.
 
 https://github.com/silverbirder/book-store-vue
 
-# なぜ会場が、はてな株式会社なの？
+# Why is the venue Hatena Corporation?
 
-はてなの社長である id:chris4403 さんが、[@shinodogg](https://twitter.com/shinodogg)と前職での知り合いだったからだそうです。
+Because Hatena's president, id:chris4403, knew [@shinodogg](https://twitter.com/shinodogg) from a previous job.
 
 https://mackerel.io/ja/
 
-はてなも、サーバー監視サービスである mackerel（鯖）を SaaS として提供しています。
-このお二方が、前職を離れてからも、同様の事業に携わっているということに、不思議な縁だな〜と思いました。
+Hatena also provides a server monitoring service, mackerel, as a SaaS service.
+I thought it was a strange coincidence that these two people have been involved in similar businesses since leaving their previous jobs.
 
-会場では、ピザを提供して頂きました。美味しかったです！ごちそうさまでした！
+Pizza was provided at the venue. It was delicious! Thank you for the food!
 
 https://twitter.com/silverbirder/status/1126841269097865216?s=20
 
-# 最後に
+# Finally.
 
-SaaS は、その専門の技術を持ってサービス提供をされています。
-独自に開発するよりも、そういった専門の SaaS を駆使することで、
-開発コストや運用コストの削減につながります。
-そもそも、そういった専門技術を持っていない環境は、独自開発することとなり、
-学習コストもかかりますし、非機能要件を考えないといけないので大変です。
+SaaS is a service offering with its own specialised technology.
+By using such specialised SaaS rather than developing your own,
+development and operating costs.
+If you don't have such specialised technology to begin with, you will have to develop it yourself, which is expensive to learn and requires non-functional requirements,
+It's expensive to learn and you have to think about non-functional requirements, which is hard.
 
-「かけるべき部分に時間を割いて、それ以外は SaaS に移す」というのは今の時代の効率良い開発スタイルだなと思います。
+I think it is an efficient development style in this day and age to "spend time on what needs to be spent and move the rest to SaaS".

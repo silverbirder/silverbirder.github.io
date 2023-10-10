@@ -1,62 +1,62 @@
 ---
-title: GraphQLの歴史
+title: History of GraphQL
 published: true
 lang: "en-US"
 date: 2022-07-30
-description: GraphQL を業務で使い始めました。いつものように、GraphQL の歴史が気になったので、調べてみました。
+description: I started using GraphQL in my work. As usual, I was curious about the history of GraphQL, so I looked into it.
 tags: ["GraphQL", "History"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1659191668/silver-birder.github.io/blog/graphql_logo.png
 ---
 
 import { Image } from "~/components/image/image";
 
-GraphQL を業務で使い始めました。
-いつものように、GraphQL の歴史が気になったので、調べてみました。
+I started using GraphQL in my work.
+As usual, I was curious about the history of GraphQL, so I looked into it.
 
-## 参考資料
+## References.
 
 https://www.youtube.com/watch?v=VjHWkBr3tjI
 
-GraphQL の共同開発者で、GraphQL Foundation エグゼクティブディレクターである Lee Byron さんから、GraphQL の歴史について、紹介されています。
+Lee Byron, co-creator of GraphQL and Executive Director of the GraphQL Foundation, gives an introduction to the history of GraphQL.
 
-次の資料も参考になります。
+The following documents are also useful.
 
 - https://dev.to/tamerlang/a-brief-history-of-graphql-2jhd
 - https://levelup.gitconnected.com/what-is-graphql-87fc7687b042
 
-## GraphQL が生まれる前
+## Before GraphQL was created
 
-GraphQL が生まれる前の歴史を、簡単に要約しました。
+A brief summary of the history of GraphQL before it was born.
 
-| 年   | 要約                                                                                                |
-| ---- | --------------------------------------------------------------------------------------------------- |
-| 2004 | ソーシャルメディア Web サイト「Thefacebook」が公開され、後に FaceBook になりました                  |
-| 2007 | iPhone の登場により、モバイルが急速に普及し始めましたが、FaceBook は HTML5 に賭けすぎて失敗しました |
-| 2012 | FaceBook はモバイル(iOS) のニュースフィードを REST API で開発し始めました                           |
+| year | summary                                                                                                             |
+| ---- | ------------------------------------------------------------------------------------------------------------------- |
+| 2004 | Thefacebook social media website was launched and later became FaceBook.                                            |
+| 2007 | With the introduction of the iPhone, mobile began to spread rapidly, but FaceBook bet too much on HTML5 and failed. |
+| 2012 | FaceBook began developing a mobile (iOS) newsfeed with a REST API.                                                  |
 
-## REST API での開発における 3 つの課題
+## Three challenges of developing with the REST API
 
-REST API で開発を進めていくと、次の 3 つの課題を抱えてしまいました。
+We faced three challenges when developing with the REST API
 
 - Slow on network
-  - 1 つの API から必要なデータが全て返ってこないため、複数のリクエストを何度も往復する必要がありました
+  - Not all the data we needed was returned from a single API, so we had to make multiple requests back and forth.
 - Fragile client/server relationship
-  - API の変更を、クライアントコードに慎重に引き継がなければ、クラッシュしてしまいました
+  - API changes had to be carefully passed on to the client code or it would crash.
 - Tedious code & process
-  - クライアントの開発は、API のレスポンスに非常に連動しているので、API のレスポンスの変更があれば、クライアントも変更しなければなりません
+  - Client development is very tied to the API response, so if the API response changes, the client must change too.
 
-これらの課題を解決すべく、FaceBook は、スーパーグラフと呼ばれるプロトタイプを開発しました。
-そのベストプラクティスを集めたものが、GraphQL となりました。
+To solve these challenges, FaceBook developed a prototype called Supergraph.
+The collection of best practices became GraphQL.
 
-### 例:複数のリクエストを何度も往復する
+### Example: multiple requests over and over again
 
-複数のリクエストをする例が、次のページに書いています。
+An example of making multiple requests is given on the following page.
 
 - https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
 
-例として、ユーザー情報、ユーザーが投稿したコンテンツ、ユーザーのフォロワーという 3 つの情報を取得するケースです。
+As an example, the case is to retrieve three pieces of information: user information, content posted by the user and the user's followers.
 
-REST API の場合は、次の画像のように 3 往復することになります。
+In the case of the REST API, the three round trips would be as shown in the following image.
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1659191676/silver-birder.github.io/blog/rest_api_flow.png"
@@ -66,7 +66,7 @@ REST API の場合は、次の画像のように 3 往復することになり�
   alt="REST_API"
 />
 
-GraphQL の場合は、1 回の往復だけでデータが取得できます。
+For GraphQL, data can be retrieved in just one round trip.
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1659191675/silver-birder.github.io/blog/graphql_flow.png"
@@ -76,80 +76,80 @@ GraphQL の場合は、1 回の往復だけでデータが取得できます。
   alt="GraphQL"
 />
 
-## REST API から GraphQL へ
+## From REST API to GraphQL
 
-REST API から、GraphQL に切り替えた結果、次の 3 つのメリットを享受することができました。
+The switch from the REST API to GraphQL has resulted in the following three benefits
 
 - Fast on network
-  - 必要なものだけを記述できるため、1 回のリクエストで十分です
+  - Only one request is needed, as only what is needed can be written
 - Robust static types
-  - どのようなデータが利用可能か、どのような型か、クライアントは知ることができます
+  - Clients know what data is available and what type it is
 - Empowering client evolution
-  - レスポンスのフォーマットはクライアントが制御できます。そのため、サーバーサイドはシンプルになり、メンテナンスも容易になります
-  - 古いフィールドを非推奨とし、機能は継続できます。この後方互換性によりバージョニング管理が不要になります
+  - The format of the response can be controlled by the client. This makes the server side simpler and easier to maintain
+  - Old fields can be deprecated and functionality can continue. This backwards compatibility eliminates versioning management.
 
-## 3 つの課題を 改めて考える
+## Revisiting the three challenges
 
-REST API の 3 つの課題を、2022 年の今、改めて考えてみます。
+Three challenges for the REST API, now that we are in the year 2022
 
 - Slow on network
-  - 2012 年は、3G 回線が普及していた
-    - 複数リクエストや、API のペイロードが大きいと、ネットワークレイテンシに大きく影響していそう
-  - 2022 年は、5G 回線が普及している
-    - ネットワークレイテンシは、そこまでクリティカルな問題にはならないのでは
-    - もちろん、低ネットワークを利用するユーザーが多いプロダクトなら、考慮が必要かも
-  - 複数リクエストは、BFF のようなファザードを建てることで、解決できないか
+  - In 2012, 3G lines were widespread.
+    - Multiple requests and large API payloads will have a significant impact on network latency
+  - In 2022, 5G lines are widespread
+    - Network latency will not be such a critical issue
+    - Of course, if a product has many users with low network latency, it may need to be considered.
+  - Could multiple requests be solved by building a BFF-like fuzzer?
 - Fragile client/server relationship
-  - バージョニングと後方互換性については、今の REST API も変わりなく課題の 1 つ
+  - Versioning and backwards compatibility is still one of the challenges of the current REST API.
 - Tedious code & process
-  - スキーマ駆動な開発で、問題解決できるのではないか
+  - Can schema-driven development solve the problem?
 
-簡単に書いていますが、3 つの課題は、もっと深い・困難な話だったのかもしれません。
-ですが、今の時代で考えてみると、GraphQL を使うユースケースは、エッジケースなのかなと思ってしまいました。
-本件の課題の根幹の 1 つは、ニュースフィードにおけるデータ構造の複雑さ(再帰的,ネスト)じゃないのかなと想像していました。
+Although written briefly, the three issues may have been deeper and more difficult to address.
+But thinking about it in today's world, I wondered if the use case for GraphQL is an edge case.
+I imagined that one of the root causes of the challenges in this case might be the complexity of data structures (recursive, nested) in news feeds.
 
-### 参考リンク
+### Reference links
 
 - https://www.apollographql.com/blog/graphql/basics/why-use-graphql/
 - https://wundergraph.com/blog/why_not_use_graphql
 
-## GraphQL の魅力
+## GraphQL Appeal.
 
-### データの取捨選択
+### Data selection
 
-GraphQL の必要なデータを記述できる機能は、魅力的と思います。
-従来の REST API の開発設計では、次のようなパターンを業務で経験してきました。
+We find GraphQL's ability to describe the data we need attractive.
+In traditional REST API development design, we have experienced the following patterns in our work.
 
-- レスポンスデータのバリエーションをグループ分けするクエリパラメータ Response group
+- Query parameters to group response data variations Response group
   - Response group
     - small
-      - 最小セット
+      - Minimum set
     - middle
-      - small と large の中間
+      - Between small and large
     - large
-      - 全てのフィールド
+      - All fields
 
-Response group での開発で、特に大きな課題と感じたことはありませんでした。
-データの取捨選択は、API のスケールのしやすさがメリットのように思います。
+We have not experienced any major challenges in developing with the Response group.
+I think the advantage of the API's ease of scaling is in the selection of data.
 
-### データの階層構造
+### Data hierarchy
 
-GraphQL は、リクエスト・レスポンスのデータに、階層構造を表せます。
-これも、魅力的です。
+GraphQL allows a hierarchical structure to be expressed in the request and response data.
+This is also attractive.
 
-従来の REST API では、リクエストのクエリパラメータは、フラットな形で送るしかありませんでした。リクエストボディを使って、JSON を送るという手段もあります。(まあ、これが GraphQL なんですが)
+With traditional REST APIs, query parameters in a request could only be sent in a flat form. There is also the possibility of sending JSON using the request body. (Well, this is GraphQL).
 
-REST API のリクエストに、階層構造を表せるのは、データの関係性を示せるため、柔軟性が高く良さそうです。
+The ability to express a hierarchical structure in a REST API request seems to be a good and flexible way to show the relationship between data.
 
-## ただ、個人的な違和感
+## However, I personally feel uncomfortable.
 
-### データ参照も POST
+### Data references are also POST
 
-REST API は、参照なら HTTP GET、更新なら HTTP POST を使うのが当たり前です。
-GraphQL は、参照も更新も HTTP POST を使います。これに違和感があります。
-query は、HTTP GET、mutation は、HTTP POST で使い分けできるようにしたいです。
+The REST API uses HTTP GET for references and HTTP POST for updates.
+GraphQL uses HTTP POST for both references and updates. This is not quite right.
+I would like to be able to use HTTP GET for queries and HTTP POST for mutations.
 
-## 終わりに
+## Conclusion
 
-GraphQL の歴史を簡単に紹介しました。
-まだそんなに使ったことがないので、良さ・悪さをしっかり理解していきたいと思います。
+This is a brief introduction to the history of GraphQL.
+I have not used it that much yet, so I would like to understand its good and bad points.

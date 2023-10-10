@@ -1,49 +1,49 @@
 ---
-title: BigQueryだけで完結するモック可能なユニットテスト手法
+title: Mockable unit testing methodology completed only with BigQuery
 published: true
 lang: "en-US"
 date: 2021-11-26
-description: BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。
+description: BigQuery, do you use it? I am building data using BigQuery in my work. For quality assurance, I want to test against BigQuery SQL.
 tags: ["HTML", "BigQuery", "Mock", "Test", "Survey"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-BigQuery、皆さん使っていますか？
-私は、業務で BigQuery を使ったデータ構築をしています。
-品質担保のため、BigQuery の SQL に対してテストをしたいと考えています。
-本記事では、BigQuery だけで完結し、かつ、Mock データを差し替え可能なユニットテスト手法について、紹介します。
+BigQuery, do you use it?
+I am building data using BigQuery in my work.
+For quality assurance, I want to test against BigQuery SQL.
+In this article, I will introduce a unit testing method that can be completed only with BigQuery and can replace Mock data.
 
-## 動機
+## Motivation
 
-端的に言うと、BigQuery の SQL 改修時にデグレが発生していないか確認したいです。
+To put it simply, we want to check whether degregation occurs when modifying BigQuery SQL.
 
-業務で BigQuery の SQL を書いているのですが、それに対するユニットテストがありません。
+We write BigQuery SQL in our work, but we don't have unit tests for it.
 
-Python や Javascript のような言語でアプリケーション開発する場合、XUnit 等のユニットテストフレームワークでユニットテストを書くのは、よくあると思います。
-しかし、SQL に対するユニットテストというのは、(私の観測範囲上) あまり聞いたことがありません。
+When developing applications in languages such as Python or Javascript, it is common to write unit tests using unit testing frameworks such as XUnit.
+However, I have not heard of unit tests for SQL (as far as I have observed).
 
-dbt(Data Build Tool)というツールを使えば、SQL へユニットテストをかけるようですが、私はそれの良さ・悪さを知りません。(興味本位で、試してみたい)
+It seems that you can use a tool called dbt (Data Build Tool) to apply unit tests to SQL, but I don't know the pros and cons of that. (Out of curiosity, I'd like to give it a try).
 
-それよりも、新しいライブラリ・ツールを覚えるのではなく、その言語の**標準的な技術**を用いて、SQL のユニットテストが書けないかと悩みました。
+Instead, I was wondering if I could write unit tests for SQL using the **standard techniques** of the language, rather than learning a new library/tool.
 
-そこで、私なりに BigQuery の SQL に対するユニットテスト方法を考えてみました。
+So I came up with my own unit test method for BigQuery SQL.
 
 ## xUnit
 
-xUnit は、ユニットテストのためのフレームワークです。
+xUnit is a framework for unit testing.
 
 > xUnit is the collective name for several unit testing frameworks that derive their structure and functionality from Smalltalk's SUnit.
 
-※ https://en.wikipedia.org/wiki/XUnit
+- https://en.wikipedia.org/wiki/XUnit
 
-xUnit は、各プログラミング言語に影響を与えました。
-Java なら JUnit、Python なら unittest(厳密には JUnit から触発)のユニットテストができます。
+xUnit has influenced each programming language.
+It allows unit testing of JUnit for Java and unittest (strictly inspired by JUnit) for Python.
 
 ## xUnit x Python
 
-BigQuery の前に、まず Python を使ったユニットテストを紹介します。
+Before BigQuery, we first introduce unit tests using Python.
 
-『100 円未満の果物を取得する』関数、`get_less_than`があったとします。
+Suppose you have a function `get_less_than`, which `get_less_than` fruits that cost less than 100 yen.
 
 ```python
 # fruits.py
@@ -57,22 +57,21 @@ class Fruits(object):
             {"price": 90, "name": "orange"},
         ]
 
+
     def get_less_than(self, price):
         fruits = self._get_fruits()
         return list(filter(lambda x: x["price"] < price, fruits))
 ```
 
-`_get_fruits`関数は、簡易的なモノで、実際には実データを参照する箇所になります。
+The `_get_fruits` function is a simplified one, where the actual data is referenced.
 
-`get_less_than`関数に対してユニットテストを書くとすれば、次のコードになります。
+If you were to write unit tests for the `get_less_than` function, the code would look like this.
 
 ```python
 # test_fruits.py
 import unittest
 from unittest.mock import patch
-
 from fruits import Fruits
-
 
 class TestFruits(unittest.TestCase):
     @patch("fruits.Fruits._get_fruits")
@@ -85,33 +84,37 @@ class TestFruits(unittest.TestCase):
         ]
         fruits = Fruits()
 
+
         # Act
         actual = fruits.get_less_than(price=100)
+
 
         # Assert
         assert len(actual) == 1
 ```
 
-[単体テストを記述するためのベストプラクティス#テストの配置](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests)にあるように、ユニットテストは、次の 3 段階で分けて書くと、分かりやすいです。
+[Best Practices for Writing Unit Tests#Placement of tests](https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#arranging-your- tests), unit tests are easier to understand if they are written in the following three phases.
 
-1. Arrange: 配置, 準備
-1. Act: 実行
-1. Assert: 検証
+1. Arrange: placement, preparation
+1. Act: execute
+   Assert: verification
 
-ユニットテストは、次のコマンドで実行できます。
+Unit tests can be run with the command
 
 ```shell
 $ python -m unittest test_fruits
 .
-----------------------------------------------------------------------
+
+---
+
 Ran 1 test in 0.001s
 
-OK
+OK.
 ```
 
-テストは成功しました。今度は、失敗させてみましょう。
-fruits.py のコードにある `get_less_than`のロジックを誤ったものに変更します。
-コードは、次のとおりです。
+The test succeeded. Now let's make it fail.
+Change the `get_less_than` logic in the fruits.py code to the wrong one.
+The code is as follows.
 
 ```python
 # fruits.py
@@ -123,7 +126,7 @@ class Fruits(object):
         return list(filter(lambda x: x["price"] <= price, fruits))
 ```
 
-この状態で、さきほどのユニットテストを実施してみます。
+With this in place, let's run the unit test we just ran.
 
 ```shell
 $ python3 -m unittest test_fruits
@@ -138,71 +141,73 @@ Traceback (most recent call last):
     assert len(actual) == 1
 AssertionError
 
+
 ----------------------------------------------------------------------
 Ran 1 test in 0.005s
+
 
 FAILED (failures=1)
 ```
 
-期待通り、失敗しました。
-**ロジックを誤る**というのは、保守を続けていくと、**ほぼ間違いなく発生**します。
-その際、**ロジックが誤っている** と気付ける、つまりデグレを気づける事が大切です。
-ユニットテストを書くメリットの 1 つは、この **デグレを検知できるところ** だと思っています。
+Failed, as expected.
+**Missing logic** is **almost certain** to occur in the course of continued maintenance.
+When this happens, it is important to be able to recognise that **logic is wrong**, i.e. to recognise degreasing.
+One of the advantages of writing unit tests is that you can detect **degrees**.
 
 ## xUnit x BigQuery
 
-BigQuery の場合、どのようにテストすればよいのでしょうか。
-まず、BigQuery の SQL を書くために元データを用意します。
+How do we test BigQuery?
+First, you need to prepare your source data for writing BigQuery SQL.
 
 ```sql
 -- fruits_ct.sql
--- destination:
---   dataset: shop
---   table: fruits
+-- destination: shop
+-- dataset: shop
+-- table: fruits
 CREATE OR REPLACE TABLE
   shop.fruits AS
 SELECT
-  price,
-  name
+  price, name
+  SELECT price, name
 FROM (
   SELECT
-    130 AS price,
+    130 AS price, "apple" AS name
     "apple" AS name
   UNION ALL
   SELECT
-    120 AS price,
+    120 AS price, "apple" AS name
     "banana" AS name
   UNION ALL
   SELECT
-    110 AS price,
+    110 AS price, "grape" AS name
     "grape" AS name
   UNION ALL
   SELECT
-    100 AS price,
+    100 AS price, "lemon" AS name
     "lemon" AS name
   UNION ALL
   SELECT
-    90 AS price,
+    90 AS price, "orange" AS name )
     "orange" AS name )
 ```
 
-shop.fruits テーブルから、先程の Python コードにあった`get_less_than`関数相当の SQL を用意します。
+From the shop.fruits table, prepare the SQL equivalent of the `get_less_than` function from the Python code above.
 
 ```sql
 -- fruits_less_than_100.sql
--- destination
---   dataset: shop
---   table: fruits_less_than_100
+-- destination.
+-- dataset: shop
+-- table: fruits_less_than_100
 SELECT
-  price,
-  name
+  price, name
+  SELECT price, name
 FROM
   shop.fruits
 WHERE
   price < 100
 ```
 
-出力された`fruits_less_than_100`テーブルに対して、ユニットテストを書いてみます。
+Write unit tests against the output `fruits_less_than_100` table.
 
 ```sql
 -- test_fruits_less_than_100.sql
@@ -214,36 +219,36 @@ ASSERT
     shop.fruits_less_than_100) AS "There's one fruit less than 100."
 ```
 
-このテストにより `fruits_less_than_100`テーブルに対して、次のことを保証できました。
+This test ensured that for the `fruits_less_than_100` table
 
-- price が 100 未満の fruit は 1 つ
+- There's one fruit with a price less than 100.
 
-ただし、これは実データ(shop.fruits テーブル)を参照して生成されたデータです。
-そのため、次の問題があります。
+However, this is data generated by reference to real data (shop.fruits table).
+Therefore, the following problems exist
 
-- 実データを参照しているため、テストが不安定になる
-  - 実データに`orange`がなくなると、テストが失敗する
-- フィードバックサイクルが長い
-  - 実データが多くなると、テスト実行時間が長くなる
+- The test is unstable because it refers to real data
+  - The test fails if `orange` is missing in the real data
+- Long feedback cycles.
+  - The more real data there is, the longer the test execution time becomes.
 
-そこで、テーブル関数というものを活用し、実データをモックデータに差し替えるようにします。
+Therefore, table functions are used to replace real data with mock data.
 
-## テーブル関数とは
+## What is a table function?
 
-BigQuery の公式ページより、テーブル関数について、次のことが書かれています。
+From the official BigQuery page, the following is written about table functions.
 
-> テーブル関数（テーブル値関数、TVF とも呼ばれます）は、テーブルを返すユーザー定義関数です。テーブル関数は、テーブルを使用できる場所であればどこでも使用できます。テーブル関数はビューと似ていますが、テーブル関数ではパラメータを取得できます。
+> A table function (also known as a table value function or TVF) is a user-defined function that returns a table. Table functions can be used wherever tables can be used. Table functions are similar to views, but table functions can take parameters.
 
-※ [テーブル関数|BigQuery|Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/table-functions)
+- [Table functions|BigQuery|Google Cloud](https://cloud.google.com/bigquery/docs/reference/standard-sql/table-functions)
 
-テーブル関数の定義は、次のようなサンプルコードがあります。
+The definition of a table function has the following sample code.
 
 ```sql
 -- names_by_year.tvf.sql
 CREATE OR REPLACE TABLE
   FUNCTION mydataset.names_by_year(y INT64) AS
 SELECT
-  year,
+  YEAR,
   name,
   SUM(number) AS total
 FROM
@@ -251,13 +256,13 @@ FROM
 WHERE
   year = y
 GROUP BY
-  year,
-  name
+  year, y
+  NAME
 ```
 
-特徴は、`CREATE OR REPLACE TABLE FUNCTION` です。関数を定義し、テーブル情報を返り値とします。今回のケースでは、`year, name, total` のフィールドを持つテーブルです。
+Features `CREATE OR REPLACE TABLE FUNCTION`. It defines a function and takes the table information as the return value. In this case, it is a table with fields `year, name, total`.
 
-定義したテーブル関数は、次のように使います。
+The defined table function is used as follows.
 
 ```sql
 -- names_by_year.sql
@@ -271,32 +276,32 @@ LIMIT
   5
 ```
 
-テーブル関数は、`FROM句`に使えます。私は、ここに着目しました。
-FROM 句で関数呼び出しする際、モックデータを返却できるようにできないかと考えました。
+Table functions can be used in the `FROM clause`. This is where I focused my attention.
+I wondered if it would be possible to return mock data when calling a function in a FROM clause.
 
-そこで、次の章にある手段を発見しました。
+I found a means to do this in the following chapter.
 
 ## xUnit x BigQuery (Mock)
 
-どのように差し替えるかというと、次の 2 つの順番にテーブル関数化していきます。
+How to replace the data is to turn it into a table function in the following two orders.
 
-1. 元データを Mock 差し替えできるように、テーブル関数化
-1. ロジックを含んだ SQL の FROM 句を、① のテーブル関数に差し替えて、テーブル関数化
+1. make the original data into a table function so that it can be replaced by Mock
+1. replace the FROM clause of the SQL containing the logic with the table function in (1) and convert it to a table function.
 
-順を追って説明します。
+The following steps are explained in order.
 
----
+---The first is to replace the `source data' with the `source data'.
 
-① 番目は、`元データをMock差し替えできるように、テーブル関数化` です。
+The first step is to convert the `original data into a table function so that it can be replaced with Mock.
 
-元データは、今回`shop.fruits`テーブルですので、Mock で差し替えられるようにテーブル関数化します。
-次のコードが、Mock 差し替え可能なテーブル関数です。
+The original data is the `shop.fruits` table, so it is converted to a table function so that it can be replaced by Mock.
+The following code is a Mock replaceable table function.
 
 ```sql
 -- fruits_tvf.sql
---   function:
---    - shop.fruits_inject()
---    - shop.fruits(is_test BOOL)
+-- function:.
+-- - shop.fruits_inject().
+-- - shop.fruits(is_test BOOL)
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_inject() AS
 SELECT
@@ -311,7 +316,7 @@ CREATE OR REPLACE TABLE
   FUNCTION shop.fruits(is_test BOOL) AS
 SELECT
   name,
-  price
+  SELECT name, price
 FROM
   shop.fruits
 WHERE
@@ -319,67 +324,67 @@ WHERE
 UNION ALL
 SELECT
   name,
-  price
+  SELECT name, price
 FROM
   shop.fruits_inject()
 WHERE
   is_test
 ```
 
-この SQL には、2 つのステートメントがあります。
+This SQL contains two statements.
 
-1. テーブル関数 shop.fruits_inject の定義
-1. テーブル関数 shop.fruits の定義
+1. definition of the table function shop.fruits_inject
+1. definition of the table function shop.fruits
 
-1 つ目は、後で Mock 差し替え(上書き)するための関数です。
+The first is a function for later Mock replacement (overwriting).
 
-2 つ目は、`is_test BOOL` という値を引数とした関数で、次の条件分岐があります。
+The second is a function with the value `is_test BOOL` as an argument, with the following conditional branch.
 
-- is_test が True の場合
-  - モックデータ(shop.fruits_inject)を返却
-- is_test が False の場合
-  - 実データ(shop.fruits)を返却
+- If `is_test` is True
+  - Mock data (shop.fruits_inject) is returned
+- If is_test is False
+  - Real data (shop.fruits) is returned.
 
-プロダクションコード時は、is_test を False とし、テストコード時は、is_test を True として使う想定です。
+It is assumed that is_test is False for production code and is_test is True for test code.
 
 ---
 
-② 番目は、`ロジックを含んだSQLのFROM句を、①のテーブル関数に差し替えて、テーブル関数化` です。
+The second one is `replacing the FROM clause of SQL containing logic with the table function in (1) to make it a table function`.
 
-ロジックを含んだ SQL、今回は、`fruits_less_than_100`テーブルを関数化します。
-次のコードが、① のテーブル関数で差し替えたテーブル関数です。
+The SQL containing logic, in this case the `fruits_less_than_100` table, is converted to a function.
+The following code is the table function replaced by the table function in (1).
 
 ```sql
 -- fruits_less_than_tvf.sql
---  function:
---    - shop.fruits_less_than(is_test BOOL, p INT)
+-- function:
+-- - shop.fruits_less_than(is_test BOOL, p INT)
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_less_than(is_test BOOL,
     p INT) AS
 SELECT
-  price,
-  name
+  price, name, p INT
+  FUNCTION shop.fruits_less_than(is_test BOOL p INT)
 FROM
   shop.fruits(is_test)
 WHERE
   price < p
 ```
 
-FROM 句に、先程 ① 番で定義した shop.fruits テーブル関数を呼び出します。
-shop.fruits テーブル関数の引数は、shop.fruits_less_than 関数から渡ってくる`is_test BOOL`をそのままセットします。
-また、shop.fruits_less_than 関数には、`p INT`という引数も持ち、less_than の price を柔軟に対応できるようにします。
+In the FROM clause, call the shop.fruits table function defined in item (i) above.
+The arguments of the shop.fruits table function are set to the `is_test BOOL` passed from the shop.fruits_less_than function.
+The shop.fruits_less_than function also has an argument `p INT` to allow flexibility in the price of the less_than.
 
 ---
 
-これにて、テーブル関数化を終えました。次は、プロダクトコードとテストコードを紹介します。
+This completes the table functionisation. Next, I will show you the product code and test code.
 
-では、まずプロダクションコードを書きます。
+Let's write the production code first.
 
 ```sql
 -- fruits_less_than_100.sql
--- destination
---   dataset: shop
---   table: fruits_less_than_100
+-- destination.
+-- dataset: shop
+-- table: fruits_less_than_100
 SELECT
   price,
   name,
@@ -387,9 +392,9 @@ FROM
   shop.fruits_less_than(False, 100)
 ```
 
-取り上げて重要なことは、ありません。プロダクションコードは、is_test を False とします。
+There is nothing important to take away. The production code sets is_test to False.
 
-次が、本記事のメインである、**BigQuery の SQL に対するユニットテストコード**です。
+The following is the main part of this article, the unit test code for **BigQuery's SQL**.
 
 ```sql
 -- test_fruits_less_than_100.sql
@@ -401,13 +406,13 @@ SELECT
   "grape" AS name
 UNION ALL
 SELECT
-  100 AS price,
+  100 AS price, "lemon" AS name
   "lemon" AS name
 UNION ALL
 SELECT
-  90 AS price,
+  90 AS price, "lemon" AS name; "orange" AS name; "lemon" AS name
   "orange" AS name;
--- act
+-- ACT
   CREATE TEMP TABLE fruits_less_than_100 AS
 SELECT
   price,
@@ -424,29 +429,29 @@ ASSERT
     fruits_less_than_100) AS "There's one fruit less than 100."
 ```
 
-この SQL は、3 つのステートメントがあります。
+This SQL has three statements.
 
-1. shop.fruits_inject 関数の上書き(**モックの差し込み**)
-1. shop.fruits_less_than 関数で、is_test=True として生成し、一時テーブルで保存
-1. ② の一時テーブルに対してアサーション
+1. shop.fruits_inject function override (**mock insert**)
+1. shop.fruits_less_than function, generated with is_test=True and saved in a temporary table
+1. assertion against the temporary table in (ii)
 
-重要なのが、① 番です。shop.fruits_inject 関数を上書きします。
-そうすると、shop.fruits 関数で参照する shop.fruits_inject 関数結果が、上書きされたものに切り替わります。
+Importantly, number (i) overrides the shop.fruits_inject function.
+Then the shop.fruits_inject function result referenced by the shop.fruits function is switched to the overwritten one.
 
-後は、② 番で shop.fruits_less_than 関数を呼んで一時テーブル保存し、③ 番でアサーションします。
+Afterwards, call the shop.fruits_less_than function at (ii) to save the temporary table, and make an assertion at (iii).
 
-では、テストを失敗させてみましょう。ロジックを含んでいる shop.fruits_less_than 関数を、次のように書き換えます。
+Now let's make the test fail. Rewrite the shop.fruits_less_than function, which contains the logic, as follows.
 
 ```sql
 -- fruits_less_than_tvf.sql
---  function:
---    - shop.fruits_less_than(is_test BOOL, p INT)
+-- function:
+-- - shop.fruits_less_than(is_test BOOL, p INT)
 CREATE OR REPLACE TABLE
   FUNCTION shop.fruits_less_than(is_test BOOL,
     p INT) AS
 SELECT
-  price,
-  name
+  price, name, p INT
+  FUNCTION shop.fruits_less_than(is_test BOOL p INT)
 FROM
   shop.fruits(is_test)
 WHERE
@@ -454,22 +459,22 @@ WHERE
   price <= p
 ```
 
-WHERE 句の price が 100 未満ではなく、100 以下になっているので、`orange`と`lemon`の 2 つが抽出されます。
+Since the price in the WHERE clause is less than or equal to 100 instead of less than 100, two items are extracted, `orange` and `lemon`.
 
-この関数を再度定義し、もう一度テストを実行してみましょう。
-そうすると、次のようなメッセージが出力されます。
+Let's redefine this function and run the test again.
+If you do so, you will get the following message.
 
 ```
-Query error: There's one fruit less than 100. at [25:1]
+Query error: there's one fruit less than 100. at [25:1].
 ```
 
-期待通り、テストは失敗しました！🎉
+As expected, the test failed! 🎉
 
 ---
 
-BigQuery のユニットテストができるようになれば、次は CI に組み込みたいと思うはずです。
-BigQuery は、GCP のサービスなので、GCP の CI サービスとして有名な Cloud Build を活用しようと思います。
-Cloud Build の定義ファイルを、次に示します。
+Once you are able to unit test BigQuery, you will next want to incorporate it into your CI.
+Since BigQuery is a GCP service, we will make use of Cloud Build, a well-known GCP CI service.
+The definition file for Cloud Build is shown below.
 
 ```yaml
 -- cloudbuild.yaml
@@ -508,7 +513,7 @@ steps:
 ```
 
 ```shell
-#!/bin/bash
+#! /bin/bash
 # run_query.sh
 if [ $# -eq 0 ]; then
   echo "No arguments supplied"
@@ -516,55 +521,55 @@ fi
 bq query --use_legacy_sql=false < $1
 ```
 
-Cloud Build を Github 等の Git プラットフォームと連携すれば、Git のイベント毎(Push,Merge,etc)にユニットテストを動かすことができます。
+If you integrate Cloud Build with Git platforms such as Github, you can run unit tests on every Git event (Push, Merge, etc.).
 
-※ サンプルの cloudbuild.yaml にある、`id:fruits_ct`や`id:fruits_tvf`、`id:fruits_less_than_tvf`は何度も実行するものではないのですが、
-記事をわかりやすくするために書いています。
+- The `id:fruits_ct`, `id:fruits_tvf` and `id:fruits_less_than_tvf` in the sample cloudbuild.yaml are not meant to run many times,
+  I write this for clarity of the article.
 
-## xUnit x BigQuery メリット・デメリット
+## xUnit x BigQuery advantages and disadvantages
 
-BigQuery の Mock を差し替え可能なユニットテストについて、メリット・デメリットを列挙します。
+This section lists the advantages and disadvantages of BigQuery's Mock replaceable unit tests.
 
-- メリット
-  - BigQuery だけ学習すればよい
-    - BigQuery の標準機能だけで、完結しているため
-  - フィードバックサイクルが短い
-    - 実データを参照するのではなく、モックデータを参照しているため
-  - テストが安定する
-    - 実データを参照するのではなく、モックデータを参照しているため
-- デメリット
-  - BigQuery の SQL 実行順序を制御する必要あり
-    - 今回でいうと、次の順番でクエリ実行する必要がある
+- Advantages.
+  - You only need to learn BigQuery.
+    - Complete with only the standard BigQuery functionality
+  - Short feedback cycle
+    - Because it does not refer to real data, but mock data
+  - Testing is stable
+    - Because it references mock data instead of real data
+- Disadvantages
+  - Need to control SQL execution order of BigQuery
+    - In this case, it is necessary to execute queries in the following order
       - 1. fruits_tvf.sql
       - 2. fruits_less_than_tvf.sql
       - 3. test_fruits_less_than_100.sql
-    - 回避案
-      - BigQuery の Scripting を利用
-      - Cloud Build の`waitFor`を利用
-  - 並列実行すると、予期せぬ動作になる
-    - テーブル関数は、`CREATE OR REPLACE TABLE FUNCTION`で定義
-      - shop.fruits_inject 関数が、何度も再定義されている
-    - `CREATE TEMP TABLE FUNCTION` は未サポート
-    - 回避案
-      - BigQuery のトランザクションを利用
-        - テーブル関数は未サポート
-  - 汎用性がない
-    - 他のデータベースエンジン(MySQL,PostgreSQL,etc)に、同じ手法(テーブル関数)は使えない
-      - 回避案
-        - dbt の利用(多分)
+    - Workaround.
+      - Use BigQuery Scripting
+      - Use `waitFor` in Cloud Build
+  - Unexpected behaviour when running in parallel
+    - Define table functions with `CREATE OR REPLACE TABLE FUNCTION
+      - shop.fruits_inject function is redefined many times
+    - `CREATE TEMP TABLE FUNCTION` is not supported
+    - Workaround.
+      - Use BigQuery transactions
+        - Table functions not supported
+  - Not versatile
+    - Cannot use the same technique (table functions) for other database engines (MySQL, PostgreSQL, etc.)
+      - Workaround
+        - Use dbt (maybe).
 
-## 終わりに
+## Conclusion
 
-今回、この手法を使うことで、BigQuery の SQL に対してユニットテストを書けることがわかりました。
-これにより、データに対する品質を一定担保しながら、安全に開発できるようになります。
+This time, we found that we can write unit tests for BigQuery SQL by using this technique.
+This makes it possible to develop safely while ensuring a certain level of quality for the data.
 
-他にも、次のようなテスト手法についても検討して良いかもしれません。
+Other testing techniques you may also want to consider include
 
-- dbt によるデータモデルテスト
-- Open Policy Agent(OPA)によるポリシーテスト
-  - SQL を AST 分解 →JSON 化し、OPA でテスト
-- BigQuery のクライアントライブラリを使った、ユニットテスト
+- Data model testing with dbt
+- Policy testing with Open Policy Agent (OPA)
+  - SQL decomposition into AST → JSON and testing with OPA
+- Unit testing using BigQuery client library
 
 ## P.S.
 
-dbt を試したいと思っています。
+I would like to try dbt.

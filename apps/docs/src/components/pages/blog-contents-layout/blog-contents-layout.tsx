@@ -64,7 +64,7 @@ export const BlogContentsLayout = component$(() => {
                 color: "gray.500",
               })}
             >
-              役立ったら、☕でサポートしてね！
+              {t("blog.support")}
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -9,21 +9,11 @@ import { config } from "./speak-config";
 import { translationFn } from "./speak-functions";
 import { RouterHead } from "./components/router-head/router-head";
 import { QwikPartytown } from "./components/partytown/partytown";
+import { OneSignal } from "./components/one-signal/one-signal";
+import { OpenReplay } from "./components/open-replay/open-replay";
 import "~/global.css";
 
 export default component$(() => {
-  useVisibleTask$(async () => {
-    const { default: Tracker } = await import("@openreplay/tracker");
-    const { default: trackerAssist } = await import(
-      "@openreplay/tracker-assist"
-    );
-    const tracker = new Tracker({
-      projectKey: import.meta.env.PUBLIC_OPEN_REPLAY_PROJECT_KEY,
-      __DISABLE_SECURE_MODE: true,
-    });
-    tracker.use(trackerAssist());
-    tracker.start();
-  });
   return (
     <QwikSpeakProvider config={config} translationFn={translationFn}>
       <QwikCityProvider>
@@ -57,6 +47,8 @@ export default component$(() => {
             href="/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
+          <OpenReplay />
+          <OneSignal />
           <RouterHead />
         </head>
         <body lang="ja">

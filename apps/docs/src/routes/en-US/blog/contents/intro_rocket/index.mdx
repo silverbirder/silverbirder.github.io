@@ -271,7 +271,7 @@ Rocket has a feature called Markdown Javascript. This internally uses a library 
 
 Markdown Javascript allows you to write Javascript in Markdown and execute it interactively. For example, suppose you write the following Markdown.
 
-``````markdown
+```````markdown
 ```js script
 console.log("Hello, World");
 ```
@@ -279,7 +279,7 @@ console.log("Hello, World");
 これを書いて、Rocket で実行すると、ブラウザの開発ツールのコンソール画面に `Hello, World`と表示されます。
 これを応用して、WebComponents を定義することもできます。
 
-``````markdown
+```````markdown
 ```js script
 class MyDiv extends HTMLElement {
   constructor() {
@@ -341,8 +341,12 @@ document.querySelector("#trigger").addEventListener("click", () => {
 import "emoji-picker-element";
 `````
 ``````
-``````
-``````
+```````
+```````
+
+```
+
+```
 
 <emoji-picker></emoji-picker>
 

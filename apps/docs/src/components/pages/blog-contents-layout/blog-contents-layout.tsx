@@ -8,6 +8,7 @@ import {
   SimpleIconsHatenabookmark,
   SimpleIconsLinkedin,
   SimpleIconsMastodon,
+  SimpleIconsPocket,
   SimpleIconsReddit,
   SimpleIconsTwitter,
 } from "~/components/icon/simple";
@@ -108,6 +109,17 @@ export const BlogContentsLayout = component$(() => {
             class={css({ color: "red.500", _hover: { color: "red.900" } })}
           >
             <SimpleIconsReddit
+              class={css({ width: "icon.main", height: "icon.main" })}
+            />
+          </a>
+          <a
+            href={`https://getpocket.com/edit?url=${encodeURIComponent(
+              head.frontmatter.permalink
+            )}`}
+            target="_blank"
+            class={css({ color: "red.500", _hover: { color: "red.900" } })}
+          >
+            <SimpleIconsPocket
               class={css({ width: "icon.main", height: "icon.main" })}
             />
           </a>

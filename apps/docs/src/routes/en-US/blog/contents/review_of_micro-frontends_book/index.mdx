@@ -1,0 +1,64 @@
+---
+title: "I read 'Micro Frontends'"
+published: true
+lang: "en-US"
+date: 2022-11-13
+description: I read Micro Frontends written by Luca Mezzalira from DAZN. I thought I'd leave a simple book review.
+tags: ["Micro Frontends", "Review"]
+---
+
+I read [Micro Frontends](https://www.oreilly.co.jp/books/9784814400027/) written by Luca Mezzalira from DAZN. I thought I'd leave a simple book review.
+
+## Why use Micro Frontends
+
+What value does replacing the traditional monolithic frontend with micro frontends bring? I will list below, mixing the content written in the book and my own opinion.
+
+- Shorter iterations of feature development
+  - Due to the small scope of one subdomain per team
+- Easier decision-making within the team
+  - Because the codebase is small
+- Faster release speed
+  - Because each team is independent
+
+By having one team independently operate in a small subdomain, it is possible to reduce costs for development, communication, and release. This ultimately leads to shortening the cycle of providing value to customers.
+
+## How to introduce Micro Frontends
+
+The book includes a story about migrating an existing application to micro frontends as an example. Micro frontends, by their design nature, are basically a set with migration from an existing application. Therefore, how to proceed with the migration is very important.
+
+Among them, there are the following patterns as the first step to micro frontends.
+
+- Release shared components as micro frontends
+- Release new features as micro frontends
+- Release part of an existing application as micro frontends
+
+In other words, the story is about introducing it step by step. Also, vertical slicing, which is similar to traditional SPA development, seems to be recommended as the first step to micro frontends.
+
+- Vertical slicing
+  - One micro frontend per screen
+- Horizontal slicing
+  - Multiple micro frontends on one screen
+
+By the way, micro frontends and components are distinguished as follows.
+
+- Micro Frontends
+  - Business representation of subdomains
+  - Encapsulate logic and communicate events
+- Components
+  - Technical solutions used for the purpose of reusability
+  - Easy to extend and expose multiple properties
+
+## Favorite words in the book
+
+In the appendix, there is an interview article with Erik Grijzen, who works at New Relic, where,
+
+- Q. If you express micro frontends in 3 words
+- A. Scaling UI Development
+
+There was such an answer. I really liked the words `Scaling UI Development`.
+
+Micro frontends allow you to divide the frontend into subdomains and enable small, independent development. I think micro frontends are effective for large-scale single application development or application development that provides various products within a single brand.
+
+## In conclusion
+
+As an aside, the time to write a blog is gradually decreasing. A year ago, I used to spend a day, but today it's about 30 minutes. It's not that I've become more efficient, I just feel that I'm running out of time.

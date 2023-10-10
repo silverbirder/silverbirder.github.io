@@ -1,50 +1,51 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 14. スケジューリング -
+title: Starting to Learn Kubernetes a Step Behind - 14. Scheduling -
 published: true
+lang: "en-US"
 date: 2019-06-05
-description: 前回 一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -では、requestsやlimitといったヘルスチェックの仕方を学びました。今回は、Affinityなどによるスケジューリングについて学習します。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -, we learned about health checks such as requests and limits. This time, we will learn about scheduling using Affinity and others.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)では、requests や limit といったヘルスチェックの仕方を学びました。今回は、Affinity などによるスケジューリングについて学習します。
+In [Starting to learn Kubernetes a step behind - 13. Health checks and container lifecycle -](../start_the_learning_kubernetes_13/index.mdx), we learned about health checks such as requests and limits. This time, we will learn about scheduling through Affinity and others.
 
-# スケジューリング
+# Scheduling
 
-これから学ぶスケジューリングでは、大きく分けて２つに分類します。
+The scheduling we are about to learn can be broadly classified into two types.
 
-- Pod のスケジューリング時に特定の Node を選択する方法
+- How to select a specific Node at the time of Pod scheduling
   - Affinity
   - Anti-Affinity
-- Node に対して汚れをつけて、それを許容できる Pod のみスケジューリングを許可する方法
-  - 汚れ = Taints
-  - 許容 = Tolerations
+- How to mark a Node as tainted and only allow Pods that can tolerate it to be scheduled
+  - Taint = Taints
+  - Tolerance = Tolerations
 
-# Node のラベル確認
+# Checking Node Labels
 
-デフォルトで設定されている Node のラベルを見てみます。
+Let's take a look at the labels of the Node that are set by default.
 
 ```shell
 pi@raspi001:~/tmp $ k get nodes -o json | jq ".items[] | .metadata.labels"
@@ -74,8 +75,8 @@ pi@raspi001:~/tmp $ k get nodes -o json | jq ".items[] | .metadata.labels"
 }
 ```
 
-arch や os はデフォルトで設定されているみたいです。
-次以降の学習のため、ラベルをはります。
+It seems that arch and os are set by default.
+For future learning, let's label them.
 
 ```shell
 pi@raspi001:~/tmp $ k label node raspi002 cputype=low disksize=200
@@ -84,10 +85,10 @@ pi@raspi001:~/tmp $ k label node raspi003 cputype=low disksize=300
 
 # NodeSelector
 
-最も簡単な NodeAffinity の設定です。
-指定するラベルに属する Node に Pod を割り当てるようスケジューリングします。簡易なので、equality-base のみしか指定できません。
+This is the simplest NodeAffinity setting.
+It schedules to assign Pods to Nodes that belong to the specified label. Because it's simple, it can only specify equality-base.
 
-では、disksize が 300 の Node(raspi003)に Pod を配置しましょう。
+Now, let's place a Pod on a Node (raspi003) with a disksize of 300.
 
 ```yaml
 # sample-nodeselector.yaml
@@ -112,13 +113,13 @@ NAME                  READY   STATUS    RESTARTS   AGE   IP             NODE    
 sample-nodeselector   1/1     Running   0          21s   10.244.2.130   raspi003   <none>           <none>
 ```
 
-期待通りですね。OK です。
-nodeSelector はイコールでしか表現できないので、柔軟性に欠けます。
+It's as expected. OK.
+nodeSelector can only be expressed in equals, so it lacks flexibility.
 
 # Affinity
 
-Affinity は、NodeSelector よりも柔軟に設定できます。つまり、set-based の指定方法です。
-詳しくは[こちら](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#set-based-requirement)を参照下さい。今回は In オペレータを使います。
+Affinity can be set more flexibly than NodeSelector. In other words, it's a set-based specification method.
+For more details, please refer to [here](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#set-based-requirement). This time we will use the In operator.
 
 ```yaml
 # sample-node-affinity.yaml
@@ -149,15 +150,15 @@ spec:
       image: nginx:1.12
 ```
 
-NodeAffinity では、required と preferred の 2 つ設定できます。
+In NodeAffinity, you can set two: required and preferred.
 
 - required
-  - 必須スケジューリングポリシー
+  - Mandatory scheduling policy
 - preferred
-  - 優先的に考慮されるスケジューリングポリシー
+  - Scheduling policy to be considered preferentially
 
-必須条件が「cputype=low である Node(raspi002,raspi003)」で、優先条件が「hostname=raspi002 である Node」です。
-適用してみましょう。
+The mandatory condition is "Node (raspi002, raspi003) with cputype=low", and the preferred condition is "Node with hostname=raspi002".
+Let's apply it.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-node-affinity.yaml
@@ -166,7 +167,7 @@ NAME                   READY   STATUS              RESTARTS   AGE   IP       NOD
 sample-node-affinity   0/1     ContainerCreating   0          5s    <none>   raspi002   <none>           <none>
 ```
 
-確かに raspi002 に配置されました。では、raspi002 をスケジューリングできなくするとどうなるのでしょうか。
+Indeed, it was placed on raspi002. So, what happens if raspi002 cannot be scheduled?
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-node-affinity.yaml
@@ -177,18 +178,18 @@ NAME                   READY   STATUS              RESTARTS   AGE   IP       NOD
 sample-node-affinity   0/1     ContainerCreating   0          11s   <none>   raspi003   <none>           <none>
 ```
 
-今度は、raspi002 を cordon したので、raspi003 に移りました。優先なので、満たされなくても良いのですね。必須条件が満たされなかったら、Pending になります。
+This time, since raspi002 was cordoned, it moved to raspi003. It's preferred, so it's okay if it's not met. If the mandatory condition is not met, it will be Pending.
 
-元に戻します。
+Let's return it to the original.
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-node-affinity.yaml
 pi@raspi001:~/tmp $ k uncordon raspi002
 ```
 
-## AND と OR
+## AND and OR
 
-nodeSelectorTerms や matchExpressions は配列なので複数指定できます。
+nodeSelectorTerms and matchExpressions are arrays, so you can specify multiple.
 
 ```yaml
 # sample.yaml
@@ -201,19 +202,18 @@ nodeSelectorTerms:
       - D
 ```
 
-上記の場合は、 (A and B) OR (C and D)という条件になります。
+In the above case, it becomes a condition of (A and B) OR (C and D).
 
 # Anti-Affinity
 
-Anti-Affinity は、Affinity の逆です。つまり、特定 Node 以外の Node に割り当てるよう
-スケジューリングします。特別な指定はなく、単に Affinity の否定形式にするだけです。言葉だけですね。
+Anti-Affinity is the opposite of Affinity. In other words, it schedules to assign to Nodes other than a specific Node. There is no special specification, it is simply the negative form of Affinity. It's just a matter of words.
 
 # Inter-Pod Affinity
 
-特定の Pod が実行されているドメイン上へ Pod をスケジューリングするポリシーです。
-Pod 間を近づけることができるので、レイテンシを下げることができます。
+This is a policy for scheduling Pods on the domain where a specific Pod is running.
+It can bring Pods closer together, which can reduce latency.
 
-まず、特定の Pod は、先程の NodeSelector で使ったものとします。
+First, a specific Pod is the one used in the NodeSelector we used earlier.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-node-affinity.yaml
@@ -244,7 +244,7 @@ spec:
       image: nginx:1.12
 ```
 
-これだと、sample-app がある Node で kubernetes.io/hostname(=raspi003)と同じ Node に Pod を割り振ります。つまり、raspi003 にできるはずです。
+With this, the sample-app assigns Pods to the same Node as kubernetes.io/hostname(=raspi003) where it is. In other words, it should be possible on raspi003.
 
 ```
 pi@raspi001:~/tmp $ k apply -f sample-pod-affinity-host.yaml
@@ -253,8 +253,8 @@ NAME                       READY   STATUS              RESTARTS   AGE   IP      
 sample-pod-affinity-host   0/1     ContainerCreating   0          11s   <none>   raspi003   <none>           <none>
 ```
 
-期待通り raspi003 にできています。
-また、required だけでなく、preferred も設定できます。
+As expected, it was created on raspi003.
+In addition to required, you can also set preferred.
 
 ```yaml
 # sample-pod-affinity-arch.yaml
@@ -288,16 +288,16 @@ spec:
       image: nginx:1.12
 ```
 
-必須条件としては、下記のとおりです。
+The mandatory conditions are as follows:
 
-- 「label が app=sample-app である Pod が動いている Node(raspi003)で、kubernetes.io/arch が同じ Node(arm)」
+- "On the Node(raspi003) where the Pod with the label app=sample-app is running, kubernetes.io/arch is the same Node(arm)"
 
-これは raspi002(arm),raspi003(arm)どちらにも当てはまります。
-そして、優先条件として、下記のとおりです。
+This applies to both raspi002(arm) and raspi003(arm).
+And the preferred condition is as follows:
 
-- 「label が app=sample-app である Pod が動いている Node(raspi003)で、kubernetes.io/hostname が同じ Node(raspi003)」
+- "On the Node(raspi003) where the Pod with the label app=sample-app is running, kubernetes.io/hostname is the same Node(raspi003)"
 
-これにより、raspi003 が選ばれるはずです。
+This should select raspi003.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-pod-affinity-arch.yaml
@@ -306,28 +306,28 @@ NAME                       READY   STATUS              RESTARTS   AGE   IP      
 sample-pod-affinity-arch   0/1     ContainerCreating   0          13s   <none>   raspi003   <none>           <none>
 ```
 
-期待通り raspi003 で動いていますね。
+As expected, it is running on raspi003.
 
 # Inter-Pod Anti-Affinity
 
-Inter-Pod Affinity の否定形です。以上。
+This is the negation of Inter-Pod Affinity. That's all.
 
-今まで紹介した Affinity、AntiAffinity,Inter-Pod Affinity, Inter-Pod AntiAffinity は、組み合わせることができます。
+The Affinity, AntiAffinity, Inter-Pod Affinity, and Inter-Pod AntiAffinity introduced so far can be combined.
 
 # Taints
 
-Node に対して汚れをつけていきます。汚れた Node に対して、許容する Pod のみがスケジューリングできるようになります。
+This taints the Node. Only Pods that tolerate the tainted Node can be scheduled.
 
-汚れの種類(Effect)は、３つあります。
+There are three types of taints (Effects):
 
 - PreferNoSchedule
-  - 可能な限りスケジューリングしない
+  - Avoid scheduling as much as possible
 - NoSchedule
-  - スケジューリングしない（既にスケジューリングされている Pod はそのまま）
+  - Do not schedule (Pods already scheduled remain as they are)
 - NoExecute
-  - 実行を許可しない（既にスケジューリングされている Pod は停止される）
+  - Do not allow execution (Pods already scheduled will be stopped)
 
-それでは、まず Node を汚しましょう。
+Now, let's first taint the Node.
 
 ```shell
 pi@raspi001:~/tmp $ k taint node raspi003 env=prd:NoSchedule
@@ -335,13 +335,13 @@ pi@raspi001:~/tmp $ k describe node raspi003 | grep Taints
 Taints:             env=prd:NoSchedule
 ```
 
-これで raspi003 に Pod をスケジューリングできなくなりました。
+This has made it impossible to schedule Pods on raspi003.
 
 # Tolerations
 
-さきほど汚した Node に対して、許容(Tolerations)できる Pod を作成しましょう。
+Let's create Pods that can tolerate the Node we just tainted.
 
-key と value(env=prd)と Effect(NoSchedule)が設定された Pod のみ許容されます。作ってみます。
+Only Pods with the key and value(env=prd) and Effect(NoSchedule) set are allowed. Let's create one.
 
 ```yaml
 # sample-tolerations.yaml
@@ -362,16 +362,16 @@ spec:
     disksize: "300"
 ```
 
-※ nodeSelector で汚れた Node である raspi003 を指定するようにしています。
+※ I have set the nodeSelector to specify the tainted Node, raspi003.
 
-operator には、2 種類あります。
+There are two types of operators:
 
 - Equal
-  - key と value が等しい
+  - The key and value are equal
 - Exists
-  - key が存在する
+  - The key exists
 
-では、適用してみます。
+Now, let's apply it.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-tolerations.yaml
@@ -380,16 +380,16 @@ NAME                 READY   STATUS    RESTARTS   AGE   IP             NODE     
 sample-tolerations   1/1     Running   0          27s   10.244.2.140   raspi003   <none>           <none>
 ```
 
-汚れた Node に許容される Pod が適用されましたね。
-許容を一部変えてみる(env=stg)と、もちろん Pending になりました。
+A Pod that can tolerate the tainted Node has been applied.
+If you change the toleration part (env=stg), it will of course become Pending.
 
-もとに戻しておきます。
+Let's return it to the original state.
 
 ```shell
 pi@raspi001:~/tmp $ k taint node raspi003 env-
 ```
 
-# お片付け
+# Cleanup
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-nodeselector.yaml -f sample-node-affinity.yaml -f sample-pod-affinity-host.yaml -f sample-pod-affinity-arch.yaml -f sample-tolerations.yaml
@@ -397,9 +397,9 @@ pi@raspi001:~/tmp $ k label node raspi002 cputype- disksize-
 pi@raspi001:~/tmp $ k label node raspi003 cputype- disksize-
 ```
 
-# 最後に
+# Finally
 
-Pod をどの Node にスケジューリングするのか学習しました。
-汚れ(taint)と許容(tolerations)という考えは面白いなと思いました。
-ただ、あまり使いすぎると複雑に陥りやすそうなので、注意が必要ですね。
-次回は、[こちら](../start_the_learning_kubernetes_15/index.mdx)です。
+We have learned how to schedule Pods to which Node.
+The concept of taints and tolerations is interesting.
+However, if you use it too much, it seems easy to fall into complexity, so be careful.
+Next time, it is [here](../start_the_learning_kubernetes_15/index.mdx).

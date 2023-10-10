@@ -1,0 +1,91 @@
+---
+title: Developing an oEmbed component with WebComponents and what I learned
+published: true
+lang: "en-US"
+date: 2022-03-25
+description: I developed and released an oEmbed component with WebComponents. I would like to list what I learned during the development.
+tags: ["Web Components", "OEmbed", "Learn"]
+---
+
+I developed and released an oEmbed component with WebComponents.
+
+- https://www.webcomponents.org/element/Silver-birder/o-embed
+- https://www.npmjs.com/package/@silverbirder/o-embed
+
+I would like to list what I learned during the development.
+
+## Starter Kit
+
+When developing Web Components, it seems good to use one of the following starter kits.
+
+- [webcomponents.dev](https://webcomponents.dev/)
+- [open-wc](https://open-wc.org/)
+
+Even without these, you can develop Web Components, but to write in Typescript or to test,
+you need a certain amount of preparation. Therefore, if you want to increase the initial speed of development, use a starter kit.
+
+Or, you might appreciate the benefits of using a starter kit after first creating Web Components with just plain Javascript.
+
+Personally, I recommend open-wc. Because it has the following tools.
+
+- Testing
+- Demoing
+- Building
+- Linting
+
+Of course, it also supports Typescript.
+
+## Catch Up
+
+To catch up on what Web Components are, the MDN site is a good reference.
+
+- [Web Components | MDN](https://developer.mozilla.org/ja/docs/Web/Web_Components)
+
+There is also a Japanese specification for WebComponents (Custom Elements).
+
+- [HTML Standard — Custom elements (Japanese translation)](https://triple-underscore.github.io/HTML-custom-ja.html)
+
+The implementation code for the rendering engine blink in Chromium, which is in Chrome, is also available.
+
+- [chromium/third_party/blink/renderer/core/html/custom/README.md](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/html/custom/README.md)
+
+## Best Practices
+
+Google has published best practices for Custom Elements.
+
+[Custom Element Best Practices  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/web-components/best-practices)
+
+For example
+
+> Always accept primitive data (strings, numbers, booleans) as either attributes or properties.
+
+As stated above, only pass primitive data to HTML attributes.
+Rich data like objects and arrays need to be serialized and lose object references.
+
+## Testing
+
+To write tests for Web Components, you need to support Shadow DOM.
+You can use a library that wraps the browser API like JSDOM, but it is more appropriate to use a headless browser.
+Therefore, [@web/test-runner](https://www.npmjs.com/package/@web/test-runner) is useful.
+This test library is one of the same Modern Web as open-wc.
+@web/test-runner supports Puppeteer, Playwright, and Selenium.
+
+## Publish
+
+If you want to publish the Web Components you've created, it's a good idea to read the following article.
+
+[Developing Components: Publishing: Open Web Components](https://open-wc.org/guides/developing-components/publishing/)
+
+In particular, reading what you should not do will make you go, "I see."
+
+> ❌ Do not optimize  
+> ❌ Do not bundle  
+> ❌ Do not minify  
+> ❌ Do not use .mjs file extensions  
+> ❌ Do not import polyfills
+
+For more details, please read the above article.
+
+## In conclusion
+
+I hope to be able to use Web Components at a production level.

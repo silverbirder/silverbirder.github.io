@@ -1,0 +1,38 @@
+---
+title: Created a GAS Library, zoom-meeting-creator, to Automatically Generate Zoom Meetings
+published: true
+lang: "en-US"
+date: 2020-06-06
+description: Are you using Zoom? I have released a GAS library that automatically generates Zoom meetings, and I would like to introduce the background and how to use it.
+tags: ["Artifact", "Google Apps Script", "Zoom", "Slack"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+Are you using Zoom?
+I have released a GAS library that automatically generates Zoom meetings,
+and I would like to introduce the background and how to use it.
+
+# Background
+
+I learned about the following Qiita article on my company's Slack.
+
+https://qiita.com/kudota/items/b480610cc3f575a8ec6f
+
+While thinking that it's easy to create a Zoom meeting from GAS,
+I saw a comment on Slack saying "I want to use it like cron", so I decided to create it in a day.
+
+There must be companies that regularly update Zoom meetings (ID and password).
+For such companies, this tool may be useful.
+
+# What I created
+
+https://github.com/silverbirder/zoom-meeting-creator
+
+You can use it by adding this library on the GAS side.
+With this GAS, you can:
+
+- Create a Zoom meeting
+- Integrate with Slack
+
+By combining these features with the regular execution of GAS, you can "use the creation of Zoom meetings like cron".

@@ -1,0 +1,100 @@
+---
+title: Introducing AI Ghostwriter - A Tool to Improve Writing Efficiency
+published: true
+lang: "en-US"
+date: 2023-07-17
+description: Recently, I, silverbirder, have been hooked on Beard Papa's baked cheesecake puff. As someone who struggles with writing, I developed a Chrome extension called "AI Ghostwriter" that allows AI to write on my behalf. In this article, I will introduce this handy tool.
+tags: ["Chrome Extension", "ChatGPT", "AI", "Artifact"]
+---
+
+import { Image } from "~/components/image/image";
+
+Recently, I, silverbirder, have been hooked on Beard Papa's baked cheesecake puff. As someone who struggles with writing, I developed a Chrome extension called "AI Ghostwriter" that allows AI to write on my behalf. In this article, I will introduce this handy tool.
+
+It is available on the Chrome Web Store. If you're interested, please download it from the link below! It's free!
+https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa
+
+## What is AI Ghostwriter?
+
+AI Ghostwriter is a Chrome extension that uses ChatGPT to assist authors in their writing tasks and improve their quality. It is a tool that can perform various actions on text selected in the browser, solving all problems in writing.
+
+By default, the following three actions are available. (As mentioned later, it is customizable!)
+
+- **Proofreading**
+- **Generate title**
+- **Generate following text**
+
+The mechanism is very simple. It simply sends a request with the selected text specified as a parameter to the [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create), and displays the response in the side panel.
+
+Seeing is believing, so let me introduce a demo video. Click on the image below to play the demo video.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1693381103/silver-birder.github.io/blog/ai_ghost_writer_demo.gif"
+  width={640}
+  height={389}
+  layout="constrained"
+  alt="AI Ghostwriter DEMO"
+/>
+
+Here are the steps to operate AI Ghostwriter introduced in the demo video.
+
+1. Click the AI Ghostwriter icon in the upper right to open the side panel
+2. Select text on the browser
+3. Right-click to open the context menu and click on actions such as proofreading
+4. Comments from AI Ghostwriter will be displayed in the side panel
+
+## Customize Context Menu Actions
+
+The actions in the context menu can be freely customized to suit the user's needs. Specifically, you can add, delete, and edit actions. As shown in the image below. Actions can be registered on the options page.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1693364104/silver-birder.github.io/blog/088188b02d18-20230716.png"
+  width={1300}
+  height={1030}
+  layout="constrained"
+  alt="Options page of Chrome extension"
+/>
+
+※ The options page can be accessed by right-clicking the AI Ghostwriter icon in the upper right and selecting "Options".
+
+By customizing, you can get writing assistance tailored to your preferences. In other words, **you can create your own actions and achieve more efficient writing**. If the comments from AI are not quite right, try tweaking the text of the content parameter a bit. Also, **translation and summarization** actions may be useful. Please try using these features and experience a more efficient writing experience.
+
+## Other Features
+
+In addition to the above, we also provide the following features for user convenience.
+
+- **Multilingual support**
+  - Supports English and Japanese.
+- **Feedback link**
+  - A link is set up to accept feedback from users.
+- **Prevention of misoperation**
+  - Prevents misoperation through Chrome notifications when the API token is undefined or the side panel is not open.
+- **Stop generation**
+  - A button is also provided to stop the action to stop unnecessary generation processing.
+- **Shortcut key setup**
+  - The side panel is set to open with a shortcut key.
+  - You can check it at `chrome://extensions/shortcuts`.
+
+## In Conclusion
+
+Thanks to AI Ghostwriter, my writing efficiency has improved greatly. I already have 6 actions (laughs). I hope your writing efficiency will also improve!
+
+## Digression: Development Background
+
+From here, it's a digression. I will briefly introduce why I came to develop this app.
+
+1. **Starting point of the idea**: From my daily experience of using ChatGPT for blog writing, I started thinking about creating something new.
+
+2. **Market research**: I researched AI writing assistance services, but existing services did not have the specific text correction function I was looking for, such as generating email templates.
+
+3. **Image of the app**: I wanted to create an app with specific actions for specific texts, specifically a correction function.
+
+4. **Consideration of development methods**: I considered trying new web frameworks and technologies, but considering continuity, I decided to utilize my existing experience and knowledge.
+
+5. **Vercel's template**: I found something called [novel](https://vercel.com/templates/next.js/novel) in Vercel's templates, and I felt this was the ideal tool. This editor can be embedded with OpenAI in a Notion-like format and can execute actions on selected text.
+
+6. **Abandonment of editor development**: However, creating an editor was difficult and I gave up due to the extended development time. All I wanted was to know the result of correcting any text.
+
+7. **Use of Chrome extension**: Based on that thought, I remembered Deepl's Chrome extension. The Chrome extension has a built-in context menu API, and with the recently released side panel feature, you can display another window next to the currently open tab. I thought it would be good to display the corrected text there.
+
+That's all about my simple development background. Thank you for reading to the end.

@@ -1,0 +1,46 @@
+---
+title: The Goodness of Web Components
+published: true
+lang: "en-US"
+date: 2022-03-01
+description: I want to recommend Web Components to people. I would like to summarize the advantages and disadvantages simply. I will quote from Web Components is what https://www.webcomponents.org/specs.
+tags: ["Web Components", "Goodness"]
+---
+
+I want to recommend Web Components to people. I would like to summarize the advantages and disadvantages simply.
+
+## What is Web Components
+
+I will quote from https://www.webcomponents.org/specs.
+
+> Web components is a meta-specification made possible by four other specifications:  
+> The Custom Elements specification  
+> The shadow DOM specification  
+> The HTML Template specification  
+> The ES Module specification
+
+WebComponents is a meta-specification that can be realized with four browser APIs.
+
+> These four specifications can be used on their own but combined allow developers to define their own tags (custom element), whose styles are encapsulated and isolated (shadow dom), that can be restamped many times (template), and have a consistent way of being integrated into applications (es module).
+
+There are standard browser HTML tags such as div and span, but with WebComponents, you can define your own tags.
+
+## Advantages
+
+- Environmental compatibility
+  - It does not depend on the framework, so it is easy to apply to web frameworks such as Rails.
+- Lightweight
+  - Since it only uses browser APIs, there are no assets to load.
+- Simple
+  - You use WebComponents in the same way you use HTML tags.
+- Sandbox
+  - Thanks to Shadow DOM, CSS styles do not leak outside of your own tags.
+
+## Disadvantages
+
+- Performance
+  - There is no rendering optimization like React.
+- Functionality
+  - It is affected by the browser API.
+- SEO
+  - Web Components require Javascript execution. Therefore, SSR cannot be realized.

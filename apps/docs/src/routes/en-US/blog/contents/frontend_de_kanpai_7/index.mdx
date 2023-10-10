@@ -1,0 +1,123 @@
+---
+title: 【Expansion】Frontend de KANPAI! 7 - Going on Reiwa - Participation Report for July 19, 2019
+published: true
+lang: "en-US"
+date: 2019-07-20
+description: This time, I participated in a Frontend event hosted by DeNA, and I would like to report on it. The hashtag is here frokan. Event Overview "Frontend de KANPAI!" (hereinafter, FROKAN) aims to be a community where frontend engineers and those interested in frontend gather, and can exchange ideas and technology in a relaxed manner with a drink in hand.
+tags: ["Report", "Frontend", "Tokyo"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1613819448/silver-birder.github.io/blog/20190720095423.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1613819448/silver-birder.github.io/blog/20190720095423.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+This time, I participated in a Frontend event hosted by DeNA,
+and I would like to report on it. The hashtag is here [#frokan](https://twitter.com/hashtag/frokan)
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429379/silver-birder.github.io/blog/frontend_de_kanpai_tech_board.jpg"
+  width={1200}
+  height={900}
+  layout="constrained"
+  alt="frontend de kanpai tech board"
+/>
+
+The momentum of firebase is amazing. Also, now is somewhat popular, which makes me, a believer in now, happy.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429431/silver-birder.github.io/blog/frontend_de_kanpai_novelty.jpg"
+  width={1200}
+  height={801}
+  layout="constrained"
+  alt="frontend de kanpai novelty"
+/>
+
+※ [https://twitter.com/DeNACreators/status/1152199891860389888](https://twitter.com/DeNACreators/status/1152199891860389888)  
+※ [https://twitter.com/antidotech/status/1152154690617872384](https://twitter.com/antidotech/status/1152154690617872384)  
+※ [https://twitter.com/wanami3103/status/1152202843618603008](https://twitter.com/wanami3103/status/1152202843618603008)
+
+https://frokan.connpass.com/event/135584/
+
+# Event Overview
+
+> "Frontend de KANPAI!" (hereinafter, FROKAN) aims to be a community where frontend engineers and those interested in frontend gather, and can exchange ideas and technology in a relaxed manner with a drink in hand.
+
+※ [https://frokan.connpass.com/event/135584/](https://frokan.connpass.com/event/135584/)
+
+What was characteristic was the standing buffet style.
+Although there were some chairs prepared at the venue, most people were standing with a drink in hand, listening to the speakers.
+
+When I'm sitting, I'm not much of a communicator with other participants.
+If there's a chair, it becomes my territory and I feel like I'm shutting myself in.
+However, when standing, there's no such restriction, so I felt like I could communicate more easily.
+I think the fact that the lighting was dim also played a part. By the way, I didn't drink any alcohol at all. (laughs)
+
+However, the next day was a bit tough...
+
+https://twitter.com/silverbirder/status/1152348180643627008
+
+Normally, I write extensive notes and post them on Twitter, but this time I didn't do anything like that. Therefore, I will report the event content based on almost memory. Please understand. If there are any mistakes, please point them out.
+
+# Memorable Talks
+
+## Vanilla Development with React and WebComponents
+
+### Mr. Masaru Miyamoto from Nikkei Inc.
+
+As someone interested in WebComponents, I was curious about this presentation.
+
+https://twitter.com/silverbirder/status/1149648900627693572
+
+To briefly explain the content, it was about "We were using CustomElements as a product, but it was tough, so we decided to constrain it with typescript". CustomElements is a web standard technology, but it does not have type constraints by prop like react or vue. Everything is expressed as a string, so the talk about the difficulty of validation checks was impressive. Therefore, it seems that the above problem was solved by using react(JSX) + typescript to wrap CustomElements.
+
+The "pain" of actually introducing it was a valuable story for me, who is considering introducing the product.
+
+First of all, there was a story about why CustomElements was introduced. At Nikkei, it seems to be a product closer to a Static Website than a WebApplication. Therefore, frameworks like react or vue were rejected because they have more features than necessary, and it seems that there was a process of proceeding with CustomElements in Vanilla JS. We should choose components according to the characteristics of the product.
+
+※ CustomElements are supported in various frameworks.
+
+https://custom-elements-everywhere.com/
+
+## Real Fugu Cooking
+
+### Takepepe from DeNA Co., Ltd.
+
+At first, I thought, "Oh, is this a joke slot?", but it was more interesting than I expected.
+
+There is something called Project Fugu.
+
+https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html
+
+> Unter dem Codenamen Fugu plant Google die Einführung zahlreicher Webschnittstellen in seinem Webbrowser Chrome, welche die Lücke zwischen Progressive Web Apps und ihren nativen Gegenstücken schließen wollen.
+
+When translated by Google,
+
+> Under the codename Fugu, Google plans to launch numerous web interfaces in its Chrome web browser. This will bridge the gap between Progressive Web Apps and their native counterparts.
+
+In other words, the goal is to be able to operate the native part from the Chrome web browser. This time, what Takepepe introduced was the Shape Detection API. There was a presentation of a demo that detects the shape of barcodes, text, and faces. All of them worked quickly and easily, but there are still experimental features and some parts are not stable.
+
+The next image is a demo of putting a mosaic in the face detection area. This made me laugh.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429340/silver-birder.github.io/blog/Shape_Detection_API_Demo.jpg"
+  width={1164}
+  height={1200}
+  layout="constrained"
+  alt="Shape Detection API Demo"
+/>
+
+※ [https://twitter.com/antidotech/status/1152180161413931008](https://twitter.com/antidotech/status/1152180161413931008)
+
+By the way, the origin of the name Fugu is from the story that "operating the native part can do various things and expand dreams, but it is dangerous if you misuse it". It became Fugu with a sense of caution that "Fugu becomes a delicious dish depending on how it is cooked, but it is dangerous if you make a mistake in cooking because it has poison". Being able to operate the native part means that you can obtain sensitive information. Depending on how you use it, it can become a "poison".
+
+## New API
+
+### Dena Co., Ltd. feb19
+
+https://speakerdeck.com/feb19/xin-sii-api
+
+Feb19, who suddenly started reciting a poem. I was watching with interest, wondering, "Are all DeNA people like this?" In this presentation, HTML, CSS, JS APIs were introduced. From the famous LazyLoad to the slightly maniac inverted-color, I was surprised to know such a thing.
+
+# In conclusion
+
+This may be the first time for a front-end event. Many of the participants were more of "people of the sun", and they were all fun people. I had a technical conversation with the participants, but I had the impression that there were many words like react, vue, and angular. I'm tired of hearing it, but I realized again that there is such a demand.

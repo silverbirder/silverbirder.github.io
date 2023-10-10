@@ -1,0 +1,102 @@
+---
+title: Automatic Unlocking and Considerations with NFC Automation Trigger + SESAME API
+published: true
+lang: "en-US"
+date: 2019-12-28
+description: Introduction From now on, we will proceed with the discussion assuming iOS, but whether it is iOS or not is not very relevant to the topic of the discussion. With the release of iOS 13.1, NFC Automation Trigger has become available. According to Wiki, NFC is as follows.
+tags: ["NFC", "SESAME", "IoT", "Life Hack"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+# Introduction
+
+From now on, we will proceed with the discussion assuming iOS, but whether it is iOS or not is not very relevant to the topic of the discussion.
+
+# NFC Automation Trigger
+
+With the [release of iOS 13.1](https://support.apple.com/ja-jp/HT210393#131), NFC Automation Trigger has become available. According to Wiki, NFC is as follows.
+
+> In a narrow sense, it is the translation of Near field communication (NFC). NFC is a type of technology for individual identification by wireless communication called RFID (Radio Frequency IDentification), and is a global standard that unifies short-range wireless communication technology. An NFC tag with an IC chip is read or written by a device with an NFC reader/writer function.
+
+※ https://ja.wikipedia.org/wiki/近距離無線通信
+
+A famous example would be [Mobile Suica](https://www.jreast.co.jp/mobilesuica/index.html/). The AppleWatch is treated as a reader device.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg"
+  width={850}
+  height={1015}
+  layout="constrained"
+  alt="apple_watch_suica"
+/>
+
+The NFC Automation Trigger released this time can automatically trigger a specific action when this NFC is read.
+For example, when a specific NFC tag is read by the iPhone, a 3-minute timer starts! Well, I prepared the subject of the title! (laughs)
+
+# I made something like this for now!
+
+When the iPhone reads the registered NFC tag, it requests the [SESAME API](https://docs.candyhouse.co/#sesame-api) of the smart lock item SESAME installed on the door, and the door lock is unlocked.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345607/silver-birder.github.io/blog/sesame_nfc_before.png"
+  width={816}
+  height={936}
+  layout="constrained"
+  alt="sesame_nfc_before"
+/>
+
+↓ When you bring your smartphone close to the white NFC tag...?
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345642/silver-birder.github.io/blog/sesame_nfc_after.png"
+  width={824}
+  height={862}
+  layout="constrained"
+  alt="sesame_nfc_after"
+/>
+
+NFC Automation Trigger Activated! Unlocked!
+
+https://twitter.com/silverbirder/status/1187016726363299840
+
+Creating this is **very simple**. Anyone can do it if they have the iPhone's standard app shortcut and an [NFC tag (94 yen per piece)](https://www.amazon.co.jp/gp/product/B00GXSGL5G/). Of course, you need **[SESAME](https://www.amazon.co.jp/dp/B0787N1L3M)** too (laughs).
+
+In the shortcut, I prepared the following.
+
+1. Set up the [SESAME API](https://docs.candyhouse.co/#sesame-api) using the [RESTfulAPI shortcut](https://support.apple.com/ja-jp/guide/shortcuts/apd58d46713f/ios).
+2. Create a [personal automation](https://reliphone.jp/nfc-automation/) and scan the prepared NFC tag.
+3. Link the automation in 2 with the shortcut in 1.
+
+The good points of this are probably the following two.
+
+- Complete with standard apps
+- Safe because nothing is processed on the NFC tag itself
+
+※ SESAME has features like **[hands-free unlocking](https://jp.candyhouse.co/blogs/how-to/%E6%89%8B%E3%81%B6%E3%82%89%E8%A7%A3%E9%8C%A0%E6%A9%9F%E8%83%BD-%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)** and **[knock unlocking](https://jp.candyhouse.co/blogs/how-to/%E3%83%8E%E3%83%83%E3%82%AF%E6%A9%9F%E8%83%BD%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)** where you just knock on your smartphone. Originally, I wanted to use these, but I think they lack practicality because of their low accuracy.
+
+# Considerations
+
+This NFC Automation Trigger can be useful in many ways depending on the idea.
+The purpose this time is to create something that can be **life-hacked** for **personal use**.
+
+But honestly, I think the action of bringing the iPhone close to NFC is **troublesome**.
+
+In my room, I have a [GoogleHome](https://store.google.com/jp/product/google_home_mini) as a [VUI](https://en.wikipedia.org/wiki/Voice_user_interface), and the smart remote [NatureRemo](https://nature.global/), the physical button automation [SwitchBot](https://www.switchbot.jp/), and the smart socket [TP-Link](https://www.amazon.co.jp/dp/B078HSBNMT/) are linked with GoogleHome.
+I feel that operating with voice is **much more efficient** than operating with hands, even if it is a few steps.
+
+In other words, I think that NFC Triggers may not be very useful in spaces that can be managed by VUI. On the contrary, in **spaces outside the control of VUI**, in my room, for example, the toilet, washbasin, and entrance, NFC might be useful. Also, I think NFC is more useful in **environments where you hesitate to make a sound**.
+
+In the outside environment, I wonder. The places where you can stick NFC are limited.
+Your home mailbox, bicycle/car, clothes, bag, umbrella, your desk/chair at school or work, etc.
+[NFC tags (94 yen per piece)](https://www.amazon.co.jp/gp/product/B00GXSGL5G/) are soft like stickers, so I think you can stick them on cups and balls. [Amazon Dash Button](https://ja.wikipedia.org/wiki/Amazon_Dash) was popular for a while, and you can do something similar. For example, "Stick an NFC tag on the toilet paper container and order when it's about to run out by reading the NFC tag". Of course, you need to build the ordering process yourself. It might be good for things that are not suitable for Amazon regular orders.
+
+Furthermore, with shortcuts, you can **inject variables**, so for example, you can inject your current location into an NFC trigger to create a trigger that books a taxi from your current location to your home.
+
+Even within the scope of personal use, I think there are many uses for NFC Automation Triggers. I think there are even more if you consider commercial use, but I will omit that.
+
+# In conclusion
+
+The NFC Automation Trigger feature is not uncommon. However, because it is very easy to use and highly customizable, it can transform as much as you want depending on your ideas. It's good to aim for a big fortune, but I was thinking that I really want to pursue **life hacking**.

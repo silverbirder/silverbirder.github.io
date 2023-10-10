@@ -1,0 +1,128 @@
+---
+title: I Tried Making a One-Frame Comic Search Service Tiqav2 (Algolia + Cloudinary + Google Cloud Vision API)
+published: true
+lang: "en-US"
+date: 2020-02-08
+description: Conversations with images are fun. Do you use emojis or images when communicating with chat tools? I use them often. When communicating with people, it feels stiff if it's just text. For example, if it's just a phrase like "OK, please proceed with that.", it's hard to understand what kind of emotion the other person has.
+tags: ["Artifact", "Learn", "Algolia", "Cloudinary"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1580997144/LGTM/golia.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1580997144/LGTM/golia.png
+---
+
+import { Image } from "~/components/image/image";
+
+# Conversations with images are fun
+
+Do you use emojis or images when communicating with chat tools?
+I use them often. When communicating with people, it feels **stiff** if it's just text.
+For example,
+
+"OK, please proceed with that."
+
+If it's just this phrase, it's hard to understand what kind of emotion the other person has.
+
+Therefore, if you communicate with the following image, you can give a soft impression.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1580997144/LGTM/golia.png"
+  width={600}
+  height={600}
+  layout="constrained"
+  alt="golia LGTM"
+/>
+
+# Tiqav2
+
+## What is Tiqav?
+
+There is a service called Tiqav for having conversations using images.
+
+[http://dev.tiqav.com/](http://dev.tiqav.com/)
+
+Currently, the service has ended.
+Tiqav2 was created with reference to that Tiqav.
+
+## What is Tiqav2?
+
+Tiqav2 has two main features.
+
+1. Save images and text
+1. Search & display images
+
+## Two features
+
+### Save images and text
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429484/silver-birder.github.io/blog/saving_flow_by_tiqav2.png"
+  width={1200}
+  height={652}
+  layout="constrained"
+  alt="Saving flow by Tiqav2"
+/>
+
+To search, we use the full-text search service Algolia.
+
+https://www.algolia.com/
+
+The information to be saved in Algolia is mainly three things: image URL and extension, and text.
+Images are saved in the image conversion & management service Cloudinary. After saving, you can get the image URL and extension from Cloudinary.
+
+https://cloudinary.com/
+
+Text is extracted by passing the image to the Google Cloud Vision API.
+Of course, you can also manually set the text.
+
+https://cloud.google.com/vision/
+
+### Search & display images
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429523/silver-birder.github.io/blog/searching_flow_by_tiqav2.png"
+  width={679}
+  height={680}
+  layout="constrained"
+  alt="Searching Flow  By Tiqav2"
+/>
+
+Perform a full-text search with text. By combining the result ID and Extension,
+you can display the image. The types of Extensions are all those supported by Cloudinary.
+
+```
+"gif", "png", "jpg", "bmp", "ico", "pdf", "tiff", "eps", "jpc", "jp2", "psd", "webp", "zip", "svg", "mp4", "webm", "wdp", "hpx", "djvu", "ai", "flif", "bpg", "miff", "tga", "heic"
+```
+
+https://cloudinary.com/documentation/image_transformations#supported_image_formats
+
+By using this image display feature, you can send images on Slack as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614429563/silver-birder.github.io/blog/send_tiqav2_URL_on_slack.png"
+  width={716}
+  height={569}
+  layout="constrained"
+  alt="Send Tiqav2 URL on Slack"
+/>
+
+For detailed features, please check the following repository.
+
+https://github.com/silverbirder/tiqav2
+
+# SaaS is Ideal for Individual Development
+
+This time, I left everything to SaaS for full-text search and image management. Text extraction was not necessary, but I used Google Cloud Vision API because it was quite usable.
+
+When developing individually, resources (time, money, people) are **very small** compared to organizations.
+SaaS does one thing well, and many are free within the range of individual use.
+Unless you have a niche customization request, SaaS will meet most of your needs.
+If you want to know what kind of SaaS is available, please take a look at the site below. It should be helpful.
+
+https://saasblocks.io/
+
+**Leaving the hassle to SaaS and focusing on product code** is very important to me.
+By the way, the product code this time was made with CleanArchitecture + InversifyJS.
+
+# In Conclusion
+
+Tiqav2 is released as OSS, so anyone can build it for free.
+Please give it a try. Let's aim for comfortable communication!

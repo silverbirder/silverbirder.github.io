@@ -1,0 +1,155 @@
+---
+title: AWS Summit Osaka 2019 Participation Report on June 27, 2019
+published: true
+lang: "en-US"
+date: 2019-06-29
+description: I participated in the "AWS Summit Osaka 2019" held at Grand Front Osaka in Osaka, and I would like to introduce three sessions that I found particularly good.
+tags: ["AWS", "Report", "Osaka"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614430707/silver-birder.github.io/blog/AWS_Summit_Osaka_2019.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614430707/silver-birder.github.io/blog/AWS_Summit_Osaka_2019.png
+---
+
+import { Image } from "~/components/image/image";
+
+I participated in the "AWS Summit Osaka 2019" held at Grand Front Osaka in Osaka, and I would like to introduce three sessions that I found particularly good.
+
+https://aws.amazon.com/jp/summits/osaka-2019/
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430752/silver-birder.github.io/blog/AWS_Summit_Osaka_2019_Novelty.png"
+  width={488}
+  height={658}
+  layout="constrained"
+  alt="What I got"
+/>
+
+The hashtag is here [#AWSSummit](https://twitter.com/hashtag/AWSSummit)
+
+My notes are here
+
+https://scrapbox.io/silverbirder-memo/AWS_Summit_Osaka_2019
+
+# Development of VR/AR/MR applications with Amazon Sumerian
+
+## Positioning of Amazon Sumerian
+
+There was an explanation about the three Rs called xR.
+
+- xR
+  - VR (virtual reality)
+    - Immersion in a virtual world
+  - AR (augmented reality)
+    - Overlaying virtual on physical
+  - MR(mixed reality)
+    - Physical and virtual interaction
+
+I think VR and AR are widely known, but I heard MR for the first time.
+
+VR allows you to immerse yourself in a virtual world with a headset like Oculus Quest.
+
+https://www.youtube.com/watch?v=BqM27iLnDJs
+
+AR allows you to project virtual characters into the real world with apps like Pokemon Go.
+
+MR is like a mix of VR and AR. You can see a view where the virtual world is mixed with the real world while wearing a headset.  
+A typical example is Microsoft HoloLens.
+
+Amazon Sumerian is a service focused on this VR/AR.
+
+## Challenges of xR apps
+
+The challenges are as follows:
+
+- Hardware is not widespread
+- What is needed?
+- How to make it?
+- Not sure if it will be used
+
+I myself have made an xR app only once, but I have struggled with the same challenges. You inevitably need dedicated hardware, which raises the hurdle for users.
+
+## Features of Sumerian
+
+There are four features.
+
+- Web browser-based development environment
+  - The development environment is web browser-based, so there is no need to prepare anything special. That's nice.
+- Multi-platform
+  - It supports mobile, desktop, VR headsets, and AR platforms. I think this is the <b>most attractive</b> feature. It's appreciated by both developers and users.
+- Sumerian Host
+  - There are eight characters who move their mouths and gesture according to the lines. I guess you develop with these characters?
+- Integration with AWS services
+  - You can use various services using the AWS SDK. Therefore, you can develop more flexible applications.
+
+## Impressions
+
+xR is a technology that interests me, even as a web enthusiast. I felt that using Sumerian allows us to speed up the development of xR. I'm not sure if I'll actually use it (since I've used up the free tier...), but I think it was good to learn about one way to develop xR.  
+(Are there no xR services on other cloud services...?)
+
+https://aws.amazon.com/jp/sumerian/pricing/
+
+https://aws.amazon.com/jp/sumerian/
+
+※ Please refer to the report below as well
+https://dev.classmethod.jp/cloud/aws/awssummit-2019-tokyo-h2-01/
+
+# Introduction to Cloud Native Modern Application Development
+
+## Design Patterns of Modern Applications
+
+The patterns introduced this time refer to the design patterns of microservices, right?
+https://microservices.io/patterns/microservices.html
+
+Speaking of design patterns, the GoF design patterns are famous.
+https://en.wikipedia.org/wiki/Software_design_pattern
+Recently, there are [distributed system design patterns](https://www.oreilly.co.jp/books/9784873118758/) that focus on distributed systems.
+
+Rather than me explaining the content that was talked about in this session, the following has a sufficient explanation, so please refer to that.
+https://qiita.com/yasuabe2613/items/3bff44e662c922083264
+
+## Impressions
+
+In this session, I had the impression that I couldn't catch everything because it was a bit rushed. However, I'm glad I learned about the existence of microservice design patterns. I remember researching the CQRS pattern for work, but I didn't know it was one of the microservice design patterns. Design patterns are wonderful catalogs where the wisdom of our predecessors is accumulated, so I thought I'd take a look at them once.
+
+※ Please refer to the report below as well
+https://dev.classmethod.jp/cloud/aws-summit-2019-day3-a03-06/
+
+# Scalable Development, Infrastructure, and Organization Brought by Cloud Native
+
+## Current Situation of Nulab
+
+### Nulab's Services
+
+Nulab has three products: [backlog](https://backlog.com/ja/), [cacoo](https://cacoo.com/ja/), and [typetalk](https://www.typetalk.com/ja/). In backlog, the number of users has been growing steadily, and this year it has exceeded 1 million.
+
+### About backlog
+
+Backlog is divided into four services: Issues, Wiki, Gantt, and Git. The first three services were created in Monolith, and the last service was created in three languages (Perl, Python, Java) (it was re-implemented in Go).
+
+As for the infrastructure part (not limited to the story of backlog...?), there are 6 clusters in Japan and 2 overseas, and there are as many as 200 instances. They were managed with Terraform+Ansible, but there was a problem that <b>the maintenance of physical hosts cost a lot</b>. Also, as the codebase became larger, it took time for developers, especially new ones, to understand.
+
+## Introduction of Kubernetes・EKS
+
+From the problems of Backlog, we started considering Kubernetes to scale development and infrastructure. So, we tried to operate Cacco (which is relatively small?) to run on Kubernetes. At Nulab, we have accumulated knowledge about containers, so we were able to proceed efficiently. However, when operating with Kubernetes, it becomes troublesome to take care of the ControlPlane. So, we started using EKS, a managed service.
+
+To know what benefits/drawbacks there are, we provided the existing and new ones in parallel through Nginx. By advancing the operation, we accumulate knowledge about Kubernetes and EKS, and we can get the material to consider EKS for Backlog.
+
+## Impressions
+
+What I learned from Nulab's approach is the idea of "introducing technologies you want to consider from small things and accumulating know-how".
+To introduce a technology with no track record in-house as a product, you need to do a fair amount of research.  
+Also, if there are people who are familiar with the technology, the man-hours to introduction will be shorter, but in most cases, there are few such people.
+Therefore, by taking an approach like Nulab, you can get a high return with low risk.  
+Starting from small things, the risk is minimal even if you fail, and  
+if you can accumulate operational know-how, you can expand.  
+I have proposed to the product several times, but I would like to consider this point as well.
+
+※ Please refer to the following report as well
+https://aws.amazon.com/jp/blogs/startup/summit-osaka-2019-racap/
+
+# Overall Impressions
+
+This seems to be the first AWS Summit Osaka. It seems that the previous one was cancelled due to the earthquake.  
+AWS was the first cloud service I touched, so I decided to participate this time.  
+I didn't know about Sumerian, and I didn't know about microservice design patterns.  
+In such large-scale seminars, there are sessions from various genres, so it's interesting to try sessions in completely unknown areas or more deep sessions.  
+As someone living in Kansai, such large-scale seminars are quite rare, so I was very grateful.

@@ -1,55 +1,56 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 12. リソース制限 -
+title: Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -
 published: true
+lang: "en-US"
 date: 2019-05-29
-description: 前回 一足遅れて Kubernetes を学び始める - 11. config&storage その2 -では、storageについて学習しました。今回は、リソース制限について学習します。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -, we learned about storage. This time, we will learn about resource limits.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Choosing the Environment -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)では、storage について学習しました。
-今回は、リソース制限について学習します。
+In [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx), we learned about storage.
+This time, we will learn about resource limits.
 
-※ リソースの種類から、次は「Metadata」だったのですが、kubernetes 完全ガイドによると直接説明するのではなく、内容ベースで説明されていましたので、それに準拠します。
+※ According to the Kubernetes Complete Guide, instead of explaining "Metadata" directly from the type of resources, it was explained based on the content, so I will follow that.
 
-# リソース制限
+# Resource Limits
 
-kubernetes で管理するコンテナに対して、リソース制限をかけることができます。主に CPU やメモリに対して制限をかけることができますが、Device Plugins を使うことで GPU にも制限をかけることもできます。
+In Kubernetes, you can impose resource limits on the containers you manage. You can mainly limit resources such as CPU and memory, but you can also limit GPU by using Device Plugins.
 
-※ CPU の指定方法は、1vCPU を 1000millicores(m)とする単位となります。
+※ The way to specify CPU is in units of 1vCPU = 1000millicores(m).
 
-# requests と limits
+# Requests and Limits
 
-request は、使用するリソースの下限値です。
-limits は、使用するリソースの上限値です。
+A request is the minimum value of the resources to be used.
+Limits are the maximum value of the resources to be used.
 
-request は、空きノードに指定するリソースがなければスケジューリングされませんが、limits は、関係なくスケジューリングされます。
+If there are no resources specified on the free node, the request will not be scheduled, but the limits will be scheduled regardless.
 
-とにもかくにも、試してみましょう。
+Anyway, let's try it out.
 
-まず、現状確認です。
+First, let's check the current situation.
 
 ```shell
 pi@raspi001:~/tmp $ k get node
@@ -68,10 +69,10 @@ pi@raspi001:~/tmp $ k get nodes -o jsonpath='{.items[?(@.metadata.name!="raspi00
 
 ```
 
-jsonpath の使い方は、[こちら](https://kubernetes.io/docs/reference/kubectl/jsonpath/)にあります。
+The usage of jsonpath is [here](https://kubernetes.io/docs/reference/kubectl/jsonpath/).
 
-allocatable が Pod に配置できるリソース量で、capacity は Node 全体での配置できるリソース量です。
-これだけだと、現在使っているリソース量が不明なので個別に調べます。
+Allocatable is the amount of resources that can be allocated to a Pod, and capacity is the amount of resources that can be allocated on the entire Node.
+This alone does not tell us how much resources are currently being used, so we will check individually.
 
 ```shell
 pi@raspi001:~/tmp $ k describe node raspi002
@@ -96,14 +97,14 @@ Allocated resources:
 ...
 ```
 
-現状のリソース状況を表にすると下記のとおりです。
+The current resource situation is as follows when put into a table.
 
 | node     | allocatable<br />(memory/cpu) | capacity<br />(memory/cpu) | used<br />(memory/cpu) | remain<br />(memory/cpu) |
 | -------- | ----------------------------- | -------------------------- | ---------------------- | ------------------------ |
 | raspi002 | 847,048Ki/4000m               | 949,448Ki/4000m            | 150,000Ki/200m         | 697,048Ki/3800m          |
 | raspi003 | 847,048Ki/4000m               | 949,448Ki/4000m            | 320,000Ki/400m         | 527,048Ki/3600m          |
 
-では、リソース制限を試してみましょう。
+Now, let's try resource limits.
 
 ```yaml
 # sample-resource.yaml
@@ -133,8 +134,8 @@ spec:
               cpu: "600m"
 ```
 
-apply する pod で要求する memory の下限合計は 384Mi(128Mi×3),cpu は 900m(300m×3)です。
-これだと、pod が run するはずです。
+The total minimum memory requested by the pod to be applied is 384Mi(128Mi×3), and the cpu is 900m(300m×3).
+With this, the pod should run.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-resource.yaml
@@ -145,16 +146,16 @@ sample-resource-785cd54844-9b5f9          1/1     Running   0          108s
 sample-resource-785cd54844-whj7x          1/1     Running   0          108s
 ```
 
-期待通りですね。
-今度はリソース制限になる状態を試してみます。
+As expected.
+Now let's try a situation where resource limits are reached.
 
-全 WorkerNode の memory 下限合計は 1,224Mi(697,048Ki+527,048Ki)です。
-これを超えるように先程のマニフェストを更新します。
-replica 数を 3 にしましたが、10 にすれば良いですね（1,280Mi)
+The total minimum memory of all WorkerNodes is 1,224Mi(697,048Ki+527,048Ki).
+We will update the previous manifest to exceed this.
+We set the number of replicas to 3, but it should be 10 (1,280Mi)
 
-期待動作として、9 個(128Mi\*9=1,152Mi)は Running で、1 個(128Mi)は Pending になるはずです。
+As expected, 9 (128Mi\*9=1,152Mi) should be Running and 1 (128Mi) should be Pending.
 
-sample-resource.yaml の replica を 10 に変更したあと ↓
+After changing the replica of sample-resource.yaml to 10 ↓
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-resource.yaml
@@ -172,8 +173,8 @@ sample-resource-785cd54844-whj7x          1/1     Running   0          6m19s
 sample-resource-785cd54844-xclsk          1/1     Running   0          60s
 ```
 
-あれ、2 つ Pending になっていますね。もしかして、Node の空きリソースが中途半端にないからですかね。
-確認してみましょう。
+Oh, two are Pending. Maybe it's because there are no spare resources on the Node.
+Let's check.
 
 ```shell
 pi@raspi001:~/tmp $ k describe node raspi002
@@ -198,54 +199,54 @@ Allocated resources:
 ...
 ```
 
-raspi002 は、847Mi 中 790Mi 使っています。１つの Pod を追加するためのリソース（128Mi）はないですね。
-raspi003 は、847Mi 中 704Mi 使っています。こちらは空いている気がするのですが、なぜでしょうか。
+raspi002 is using 790Mi out of 847Mi. There are no resources to add one Pod (128Mi).
+raspi003 is using 704Mi out of 847Mi. It seems to be free here, but why?
 
-ここで、memory の`704Mi (85%) `というところに着目すると、100%だった場合は 828Mi ということになります。
-確かに、それだと 704Mi+128Mi=832Mi でオーバーしています。
+Here, if you focus on the `704Mi (85%)` of memory, it would be 828Mi if it was 100%.
+Indeed, 704Mi+128Mi=832Mi would be over.
 
-では、allocatable で表示されていた 847Mi との違いは何でしょうか。
-allocatable というのは、全ての namespace にある pod も込みのリソース配置可能量だからです。
-default だけでなく、kube-system など他の namespace にある pod も、もちろんリソースを消費しています。
-828Mi というのは、default で使えるリソース配置可能量ではないでしょうか。（現在の namespace は default)
+So, what's the difference between the 847Mi that was displayed as allocatable?
+Allocatable refers to the amount of resources that can be allocated, including all pods in all namespaces.
+Not only default, but also pods in other namespaces such as kube-system are of course consuming resources.
+Isn't 828Mi the amount of resources that can be allocated for use in default? (The current namespace is default)
 
-ちなみに、Limits は、100%を超えていますね...。ひぇ〜...。
+By the way, the Limits are exceeding 100%... Oh my...
 
 # Cluster Autoscaler
 
-需要に応じて Kubernetes Node を自動的に追加されていく機能です。
-これが動作するタイミングは、Pod が Pending になったときに動作します。
-つまり、先程の例であったように、requests の下限によってスケールします。
+This is a feature that automatically adds Kubernetes Nodes as needed.
+It operates when a Pod becomes Pending.
+In other words, it scales according to the lower limit of requests.
 
-そのため、requests が高すぎるために、実際はロードアベレージが低くてもスケールしてしまったり、
-requests が低すぎるために、実際は高負荷でもスケールしなくなったりします。
-requests は、パフォーマンステストをしつつ最適化していきましょう。
+Therefore, if the requests are too high, it may scale even if the actual load average is low, or
+if the requests are too low, it may not scale even under high load.
+Let's optimize the requests while performance testing.
 
 # LimitRange
 
-さっきの例でもあったように、それぞれに対して requests,limit を設定しても良いのですが、
-もっと便利なものがあります。それが LimitRange です。
-これは、Namespace に対して CPU やメモリのリソースの最小値や最大値を設定できます。
-設定可能な制限項目として、下記があります。
+As in the previous example, you can set requests and limits for each, but
+there is something more convenient. That's LimitRange.
+This allows you to set the minimum and maximum values of CPU and memory resources for a Namespace.
+The following are the limit items that can be set.
 
 - default
-  - デフォルトの Limits
+  - Default Limits
 - defaultRequest
-  - デフォルトの Requests
+  - Default Requests
 - max
-  - 最大リソース
+  - Maximum resources
 - min
-  - 最小リソース
+  - Minimum resources
 - maxLimitRequestRatio
-  - Limits/Requests の割合
+  - Ratio of Limits/Requests
 
-また、制限する対象は、Container,Pod,PersistentVolumeClaim があります。
-実運用する際は、きちんと定義しておきましょう。（プロバイダーによってはデフォルトで設定されているものもあるそうです）
+Also, the targets to be limited are Container, Pod, PersistentVolumeClaim.
+When actually operating, let's define it properly. (It seems that some providers have it set by default)
 
 # ResourceQuota
 
-ResourceQuota を使うことで、Namespace ごとに「作成可能なリソース数の制限」と「リソース使用量の制限」ができます。
-「作成可能なリソース数の制限」を試そうと思います。
+By using ResourceQuota, you can limit the "number of resources that can be created" and "resource usage" for each Namespace.
+I'm going to try limiting the "number of resources that can be created".
 
 ```yaml
 # sample-resourcequota.yaml
@@ -273,41 +274,41 @@ sample-resource-785cd54844-sb6sq          1/1     Running   0          38s
 sample-resource-785cd54844-3ffeg          1/1     Running   0          38s
 ```
 
-こうすると、pods が 5 個までしか作成できないので、sample-resource.yaml を適用しても 5 個までしか作成されません。
-replica のような場合は、特に警告がなく単純に作られませんでした。
-configmap を 5 個までに制限して、1 つずつ configmap を apply すると、警告がでるそうです。
+By doing this, only up to 5 pods can be created, so even if you apply sample-resource.yaml, only up to 5 will be created.
+In the case of replicas, it simply wasn't created without any warning.
+If you limit the configmap to 5 and apply one configmap at a time, a warning will appear.
 
 # HorizontalPodAutoscaler(HPA)
 
-HPA は、Deployment,ReplicaSet で管理する Pod の CPU 負荷などに応じて自動的にスケールするリソースです。
-30 秒に１回の頻度でスケールするかチェックしています。
+HPA is a resource that automatically scales according to the CPU load of Pods managed by Deployment, ReplicaSet.
+It checks whether to scale every 30 seconds.
 
-必要なレプリカ数は、下記の数式で表します。
+The required number of replicas is represented by the following formula.
 
-- 必要なレプリカ数 = ceil(sum(Pod の現在の CPU 使用率)/targetAverageUtilization)
+- Required number of replicas = ceil(sum(current CPU usage of Pod)/targetAverageUtilization)
 
-[Kubernetes の Pod と Node の Auto Scaling について](https://qiita.com/sheepland/items/37ea0b77df9a4b4c9d80)で、
+In [About Auto Scaling of Pods and Nodes in Kubernetes](https://qiita.com/sheepland/items/37ea0b77df9a4b4c9d80),
 
-> auto scaling は target value に近づくように pod 数が調整されるということ。
+> auto scaling adjusts the number of pods to approach the target value.
 
-という文がわかりやすかったです。つまり、targetAverageUtilization が 50 なら、全体の CPU 使用率が 50%になるよう調整されます。
-今回、試そうと考えたのですが、metrics-server を install していないため、動作確認できませんでした。
-また今度 install して試してみようと思います。
+This sentence was easy to understand. In other words, if the targetAverageUtilization is 50, the overall CPU usage is adjusted to be 50%.
+This time, I wanted to try it, but I couldn't verify it because I didn't install the metrics-server.
+I'll try to install it and try it again next time.
 
 # VerticalPodAutoscaler(VPA)
 
-VPA は、コンテナに割り当てる CPU やメモリのリソース割当をスケールさせるリソースです。
-これは、HPA のスケールアウトではなく、Pod のスケールアップを行うものです。
+VPA is a resource that scales the resource allocation of CPU and memory assigned to containers.
+This is not a scale-out of HPA, but a scale-up of Pod.
 
-# お片付け
+# Cleanup
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-resource.yaml -f sample-resourcequota.yaml
 ```
 
-# 最後に
+# Finally
 
-今回は、Requests や Limits を操作してリソース制限をしてみました。
-どれがいくらリソースを消費しているのか確認する術を学び、
-ついでに jsonpath の使い方も知りました。
-次回は、[こちら](../start_the_learning_kubernetes_13/index.mdx)です。
+This time, we tried to limit resources by operating Requests and Limits.
+We learned how to check how much resources each is consuming,
+and also learned how to use jsonpath.
+The next one is [here](../start_the_learning_kubernetes_13/index.mdx).

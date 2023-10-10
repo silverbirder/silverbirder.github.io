@@ -1,73 +1,73 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 11. config&storage その2 -
+title: Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -
 published: true
+lang: "en-US"
 date: 2019-05-27
-description: 前回 一足遅れて Kubernetes を学び始める - 10. config&storage その1 -では、configについて学習しました。今回は、storageを学びます。
+description: In the last time, Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -, we learned about config. This time, we will learn about storage.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)では、config について学習しました。
-今回は、storage を学びます。
+In [Starting to Learn Kubernetes Late - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx), we learned about config. This time, we will learn about storage.
 
-# Volume と PresistentVolume
+# Volume and PresistentVolume
 
-Volume は、あらかじめ決められた利用可能なボリュームを指します。こちらは、ボリュームの削除や新規作成ができません。
-PresistentVolume は、外部にある永続ボリュームを指します。こちらは、ボリュームの削除や新規作成ができます。
-DB のようなステートフルなものは PresistentVolume を使います。
-一時的なものなら、Volume を使うのですかね？
+A Volume refers to a predetermined available volume. You cannot delete or create new volumes here.
+PresistentVolume refers to a persistent volume located externally. Here, you can delete or create new volumes.
+For stateful things like DB, use PresistentVolume.
+For temporary things, do you use Volume?
 
-※ PresistentVolumeClaim は、PresistentVolume をアサインするためのリソース。
+※ PresistentVolumeClaim is a resource for assigning PresistentVolume.
 
-# Volume の種類
+# Types of Volume
 
-書籍（kubernetes 完全ガイド）で紹介されていた Volume の種類は、下記のとおりです。
+The types of Volume introduced in the book (Kubernetes Complete Guide) are as follows:
 
 - emptyDir
-  - 一時的なディスク領域を利用
-  - pod 削除されると、emptyDir も削除
-  - マウント先を指定できない
+  - Uses temporary disk space
+  - When the pod is deleted, emptyDir is also deleted
+  - Cannot specify the mount destination
 - hostPath
-  - emptyDir のマウント先を指定できる版
+  - A version of emptyDir where you can specify the mount destination
 - downwardAPI
-  - Pod の情報をファイルとして配置したファイルをマウント
+  - Mounts a file that has placed Pod information as a file
 - projected
-  - secret/configMap/downwardAPI/serviceAccountToken を１つにまとめたディレクトを作成し、マウント
+  - Creates a directory that combines secret/configMap/downwardAPI/serviceAccountToken and mounts it
 
 ※ [types-of-volumes](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes)
 
-Volume を残すことができないので、Pod を削除する際は気をつけないとダメですね。
-ログをファイルとして保存するなら、一時的に Volume が良いのですかね。
-ただ、定期的に外部ストレージに移さないといけないですので、手間です。
-（そもそも、ログはストリームにして外部サービスに流すのがベスト）
+Since you can't keep the Volume, you have to be careful when deleting the Pod.
+If you save logs as files, is it good to have a temporary Volume?
+However, you have to regularly move it to external storage, which is a hassle.
+(After all, it's best to stream logs and flow them to an external service)
 
-プロダクトとしては、あんまり使い道ない...?
+As a product, there's not much use...?
 
-# PresistentVolume の種類
+# Types of PresistentVolume
 
-外部の永続ボリュームを利用します。例えば、下記の種類があります。
+Use an external persistent volume. For example, the following types are available:
 
 - GCE Persistent Disk
 - AWS Elastic Block Store
@@ -77,55 +77,54 @@ Volume を残すことができないので、Pod を削除する際は気をつ
 - OpenStack Cinder
 - GlusterFS
 
-[一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)では、NFS を使いましたね。
-PersistentVolume の作成方法は、外部の永続ボリュームによって違うのですが、共通して言えるところもあるみたいなので、
-そこを書いてみます。
+In [Starting to Learn Kubernetes Late - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx), we used NFS.
+The method of creating a PersistentVolume varies depending on the external persistent volume, but there seem to be common points, so I'll write about them here.
 
-- ラベル
-  - PersistentVolume をラベリングすることで、指定しやすくする
-- 容量
-  - Volume で要求する容量。最も小さい容量からアサインされる。
-- アクセスモード
+- Label
+  - Make it easier to specify by labeling the PersistentVolume
+- Capacity
+  - The capacity required by the Volume. Assigned from the smallest capacity.
+- Access Mode
   - ReadWriteOnce
-    - 単一ノードから Read/Write が可能
+    - Read/Write is possible from a single node
   - ReadOnlyMany
-    - 複数ノードから Read が可能
+    - Read is possible from multiple nodes
   - ReadWriteMany
-    - 複数ノードから Read/Write が可能
+    - Read/Write is possible from multiple nodes
 - Reclaim Policy
-  - Volume を使い終わったあと、破棄するか再利用するかのポリシー
+  - Policy on whether to discard or reuse the Volume after use
     - Delete
-      - PersistentVolume の実体を削除
+      - Delete the entity of the PersistentVolume
     - Retain
-      - PersistentVolume の実体を残さず保持
-      - 再度マウントされない
+      - Keep the entity of the PersistentVolume without leaving it
+      - Not mounted again
     - Recycle
-      - PersistentVolume のデータを削除し、再利用可能にする
-      - 再度マウントされる
-      - （廃止予定で、DynamicProvisioning を利用すること)
+      - Delete the data of the PersistentVolume and make it reusable
+      - Mounted again
+      - (Scheduled to be abolished, use DynamicProvisioning)
 - StorageClass
-  - 各プロバイザーが提供するストレージの型
-    - 基本的に自動作成されている
+  - The type of storage provided by each provider
+    - Basically, it is created automatically
 
 # PersistentVolumeClaim
 
-実際に、PresistentVolume を使うためには、PresistentVolumeClaim で要求を出す必要があります。
-必要な項目は、下記です。
+In fact, to use PresistentVolume, you need to make a request with PresistentVolumeClaim.
+The necessary items are as follows:
 
-- ラベルセレクタ
-  - ラベルでフィルタリング
-- 容量
-  - 求めている容量
-- アクセスモード
-  - PresistentVolume のアクセスモードを参照
+- Label Selector
+  - Filtering by label
+- Capacity
+  - The capacity you are asking for
+- Access Mode
+  - Refer to the Access Mode of PresistentVolume
 - StorageClass
-  - PresistentVolume の StorageClass を参照
+  - Refer to the StorageClass of PresistentVolume
 
-要求を満たした Volume が RetainPolicy だった場合、Claim を削除した時点で「Released」になります。
+If the Volume that meets the requirements was RetainPolicy, it will become "Released" when the Claim is deleted.
 
-# 最後に
+# Finally
 
-今回は、書籍をそのまま書いた感じになりました。
-実際に試したのは、[一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)です。
-まあ、あんまり深くはハマらない方が良いのではと思いました。
-次回は、[こちら](../start_the_learning_kubernetes_12/index.mdx)です。
+This time, it felt like I just wrote the book as it is.
+What I actually tried is [Starting to learn Kubernetes a step behind - 06. workloads part 2 -](../start_the_learning_kubernetes_06/index.mdx).
+Well, I thought it would be better not to get too deeply involved.
+Next time is [here](../start_the_learning_kubernetes_12/index.mdx).

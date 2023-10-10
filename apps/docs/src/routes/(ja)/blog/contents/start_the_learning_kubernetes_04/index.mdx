@@ -1,41 +1,42 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 04. kubectl -
+title: Starting to Learn Kubernetes a Step Behind - 04. kubectl -
 published: true
+lang: "en-US"
 date: 2019-05-02
-description: 前回 一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -では、RaspberryPiの環境にKubernetesを導入しました。無事、動作確認ができたので、さっそく学習していきたいです。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -, we introduced Kubernetes to the RaspberryPi environment. Now that we have successfully confirmed its operation, we would like to start learning right away.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last Time
 
-[一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)では、RaspberryPi の環境に Kubernetes を導入しました。無事、動作確認ができたので、さっそく学習していきたいです。
+In [Starting to Learn Kubernetes Late - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx), we introduced Kubernetes to the RaspberryPi environment. Now that we've confirmed it's working properly, we want to start learning right away.
 
-# 参考
+# References
 
-「[Kubernetes 完全ガイド](https://www.amazon.co.jp/Kubernetes%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89-impress-top-gear-%E9%9D%92%E5%B1%B1/dp/4295004804/)」を読んで進めてみます。ソースコードは[こちら](https://github.com/MasayaAoyama/kubernetes-perfect-guide)。
+I will proceed by reading the "[Kubernetes Complete Guide](https://www.amazon.co.jp/Kubernetes%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89-impress-top-gear-%E9%9D%92%E5%B1%B1/dp/4295004804/)". The source code is [here](https://github.com/MasayaAoyama/kubernetes-perfect-guide).
 
-以前の投稿では、[入門 Kubernetes](https://www.amazon.co.jp/%E5%85%A5%E9%96%80-Kubernetes-Kelsey-Hightower/dp/4873118409/)を参考にしていましたが、Kubernetes 完全ガイドの方が網羅的に学べて良かったで、そちらを使いました。
+In previous posts, I was referring to [Introduction to Kubernetes](https://www.amazon.co.jp/%E5%85%A5%E9%96%80-Kubernetes-Kelsey-Hightower/dp/4873118409/), but the Kubernetes Complete Guide was better for comprehensive learning, so I used that.
 
 # kubectl
 
@@ -43,9 +44,9 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16111287
 
 ※ https://kubernetes.io/docs/reference/kubectl/overview/
 
-kubernetes を操作するための CLI です。
+It is a CLI for operating Kubernetes.
 
-よく使うものを私なりに整理し、入門時に最小限覚えておけば良いものをまとめました。
+I have organized the ones I often use and summarized the ones that should be minimally remembered when starting.
 
 ## 1. apply
 
@@ -64,9 +65,9 @@ pi@raspi001:~ $ kubectl apply -f sample-pod.yaml
 pod/sample-pod created
 ```
 
-Kubernetes では、基本的にはマニフェストファイルを作成し、`apply`で適用するのが一般的のようです。それは、新規作成だけでなく、更新や削除も同様です。`create`や`replace`,`delete`といった CLI もありますが、`apply`でも同様の操作ができるため、使い分ける必要はあまりありません。`apply`で登録したマニュフェストファイルは履歴として保存されています。
+In Kubernetes, it seems common to create a manifest file and apply it with `apply`. This is not only for new creation, but also for updates and deletions. There are other CLIs such as `create`, `replace`, and `delete`, but there is not much need to distinguish them because the same operations can be done with `apply`. The manifest files registered with `apply` are saved as history.
 
-※ [Kubernetes: kubectl apply の動作](https://qiita.com/tkusumi/items/0bf5417c865ef716b221)
+※ [Kubernetes: Operation of kubectl apply](https://qiita.com/tkusumi/items/0bf5417c865ef716b221)
 
 ## 2. set, get
 
@@ -78,8 +79,8 @@ NAME         READY   STATUS    RESTARTS   AGE
 sample-pod   1/1     Running   1          13m
 ```
 
-kubectl では、どのリソース種類（`pod`,`service`,etc）で、どのリソース名なのかを教えてあげる必要があります。
-また、フィルタリングする機能として`label`があります。
+In kubectl, you need to tell which resource type (`pod`,`service`,etc) and which resource name it is.
+There is also a `label` as a filtering function.
 
 ```yaml
 # sample-pod-label.yaml
@@ -106,7 +107,7 @@ NAME         READY   STATUS    RESTARTS   AGE
 sample-pod   1/1     Running   0          7m23s
 ```
 
-更に詳細の情報が必要な場合は、`describe`を使います。
+If you need more detailed information, use `describe`.
 
 ```shell
 pi@raspi001:~ $ kubectl describe pod sample-pod
@@ -114,11 +115,11 @@ Name:               sample-pod
 ...
 ```
 
-※ `edit`という直接編集する方法もありますが、一時的な対応のみに利用するべきとのことです。
-せっかくの宣言的ファイルが意味ないですよね。
+※ There is also a method called `edit` that allows you to edit directly, but it should only be used for temporary measures.
+It would be meaningless to have a declarative file.
 
-余談ですが、`service`を`svc`という風に省略できたりします。
-※ [（備忘）kubectl コマンドでの短縮リソース名](https://qiita.com/nagase/items/3b8f905f432abba15b5a)
+By the way, you can abbreviate `service` as `svc`.
+※ [(Memo) Short resource name in kubectl command](https://qiita.com/nagase/items/3b8f905f432abba15b5a)
 
 ## 3. debug
 
@@ -132,28 +133,28 @@ Forwarding from 127.0.0.1:8888 -> 80
 Forwarding from [::1]:8888 -> 80
 ```
 
-どれも`pod`に対する操作なためリソース種類の指定はありません。どれも開発時に必要が迫られれば使う感じですね。
+All of them are operations against `pod`, so there is no need to specify the resource type. You will use them when you need them in development.
 
 ## 99. top
 
-こちら、どうしても動作できませんでした... 😥😥
-今はそこまで必要としないので、一旦見送ります。
-`calico`だか`flannel`とかが関係しているっぽいのですが、理解が浅いため未解決です。
+Unfortunately, I couldn't get this to work... 😥😥
+I don't need it that much right now, so I'll put it off for now.
+It seems to have something to do with `calico` or `flannel`, but I don't understand it well enough to solve it.
 
-# お片付け
+# Cleaning Up
 
 ```shell
 pi@raspi001:~ $ kubectl delete pod sample-pod
 pod "sample-pod" deleted
 ```
 
-複数の pod を扱っているなら、`delete`よりも`apply --prune`の方が良いですが、今回は単体 pod なので、直接`delete`しました。
+If you are dealing with multiple pods, `apply --prune` is better than `delete`, but this time it's a single pod, so I directly `delete` it.
 
-# おわりに
+# Conclusion
 
-入門当初は、どれほど覚えなくてはいけないのかと不安になっていたのですが、
-蓋を開けてみると、そこまで多くはありませんでした。（まだ知らないものは多いと思いますが）
-規則性として、 リソース種類とリソース名を指定する習慣にも徐々に慣れてきました。
-面倒なときは、`kubectl get all`で全部出すという荒業も覚えました。（笑）
+At the beginning, I was anxious about how much I had to learn,
+but when I actually started, it wasn't as much as I thought. (I believe there are still many things I don't know)
+I gradually got used to the habit of specifying the resource type and resource name as a rule.
+I also learned the rough technique of displaying everything with `kubectl get all` when it's troublesome. (laughs)
 
-次回は[こちら](../start_the_learning_kubernetes_05/index.mdx)です。
+The next one is [here](../start_the_learning_kubernetes_05/index.mdx).

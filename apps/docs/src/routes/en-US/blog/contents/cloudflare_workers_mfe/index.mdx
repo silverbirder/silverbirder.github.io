@@ -1,0 +1,120 @@
+---
+title: Building Micro Frontends with Cloudflare Workers (Edge Worker)
+published: true
+lang: "en-US"
+date: 2020-11-15
+description: This time, I'm going to try building Micro Frontends again. I tried the server-side integration pattern, especially edge-side integration. I will introduce its content. The sample code is left below.
+tags: ["Cloudflare Workers", "Edge Worker", "Micro Frontends"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png
+---
+
+import { Image } from "~/components/image/image";
+
+This time, I'm going to try building Micro Frontends again. I tried the server-side integration pattern, especially edge-side integration.
+I will introduce its content. The sample code is left below.
+
+https://github.com/silverbirder/micro-frontends-sample-code-5/
+
+# What is Edge Side Include (ESI)?
+
+https://www.w3.org/TR/esi-lang/
+
+ESI is similar to SSI, and it's one of the mechanisms to insert content on the server-side. In the case of ESI, I understand that the content (page fragment) to be inserted is on the Edge side.
+Therefore, there is a benefit that Edge cache can be applied for each content.
+Currently, the ESI language specification has been submitted to W3C, but it has not been approved. CDN companies like Akamai and cache proxy servers like Varnish have partially implemented ESI.
+
+It's financially difficult to try Akamai personally, and I don't want to describe Varnish's VCL (I don't like it).
+So, I'm going to try a mechanism called Edge Worker.
+
+The following quote is from the Akamai blog.
+
+> EdgeWorkers is a new service that allows you to run custom program code on Akamai's Edge servers distributed around the world
+
+※ [https://blogs.akamai.com/jp/2019/10/edgeworker.html](https://blogs.akamai.com/jp/2019/10/edgeworker.html)
+
+In other words, Edge Workers is a service that allows you to run program code, such as Javascript, on the platform provided by CDN.
+
+# Edge Workers
+
+For personal use, there are Edge Workers such as [fly.io](https://fly.io) and [Cloudflare Workers](https://developers.cloudflare.com/workers/). The latter, Cloudflare Workers, has a feature called [HTMLRewriter](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter) that rewrites HTML, which seemed to be useful for Micro Frontends, so I will use Cloudflare Workers this time.
+
+# Configuration
+
+I thought about the following configuration.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png"
+  width={1200}
+  height={711}
+  layout="constrained"
+  alt="Cloudflare worker + Micro Frontends"
+/>
+
+※ Influenced by [Podium](https://podium-lib.io/) and [Ara-Framework](https://ara-framework.github.io/website/).  
+※ Written in sketch style of [draw.io](https://draw.io/).
+
+Each block becomes Cloud Workers.
+
+Simply put, I will explain from left to right of the diagram.
+The Router manages the routing of the web application.
+In routing, based on the content of the HTTP request, it determines which page to distribute.
+On the distributed page, HTML is constructed including the fragments mentioned later.
+This HTML is processed by HTMLRewiter, and if there are fragments in the Proxy, they are replaced with the HTML of the fragments.
+In the fragment, the PATH to get HTML, CSS, JS is returned in JSON format.
+The URL to return JSON is unified as /manifest.json.
+
+By adopting such a configuration, it is possible to divide the responsible areas.
+For example, Team 1 manages Fragment A and Page X, and Team 2 manages Fragment B, C, and Page Y.
+
+Also, Rust's WebAssembly can be incorporated with the following template.
+
+https://github.com/cloudflare/rustwasm-worker-template
+
+You can mix fragments that process specific heavy processing with Rust's WebAssembly into the page.
+
+# Problems Encountered During Construction
+
+## Communication between Edge Workers within the same domain is not possible
+
+Cloudflare Workers will run on any domain.
+For example, if there are multiple Cloudflare Workers X and Y within Domain A,
+Communication from X to Y is not possible.
+
+https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/94472/37
+
+Therefore, if you use multiple Cloudflare Workers, you will need multiple domains.
+In the previous example, Cloudflare Workers X belonging to Domain A can communicate with Cloudflare Workers Y belonging to Domain B.
+I purchased multiple tk domains (free) from freenom.
+
+https://freenom.com/
+
+## Cannot request directly to IP address
+
+I had a problem during local development.
+When developing Cloudflare Workers locally, you verify with a command called [wrangler:dev](https://github.com/cloudflare/wrangler#-dev).
+During verification, even if you try to access the URL (localhost:XXXX) of another Cloudflare Workers, it fails because it becomes a direct IP.
+
+https://support.cloudflare.com/hc/ja/articles/360029779472-Cloudflare-1XX-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#error1003
+
+Therefore, I solved it using the following services.
+
+https://ngrok.com/
+
+https://github.com/localtunnel/localtunnel
+
+## The constraints by Cloudflare Workers are large
+
+On Cloudflare's platform, the following runtime APIs are available.
+
+https://developers.cloudflare.com/workers/runtime-apis
+
+I don't understand the mechanism of Cloudflare Workers, but I think I couldn't use anything other than these provided APIs.
+
+# In conclusion
+
+Edge, in my impression, was something to just place static content.
+Knowing the existence of dynamic content, namely Edge Workers, I feel that the world of Edge has expanded.
+If you place a web application closer to the user, like Edge, you can expect improved response speed.
+
+It was more about Edge Workers than Micro Frontends, wasn't it? (laughs)

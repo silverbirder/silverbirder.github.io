@@ -1,0 +1,433 @@
+---
+title: Sharing All Experiences of First-time Writing at Techbook Fest 7
+published: true
+lang: "en-US"
+date: 2019-09-06
+description: I wrote for the first time at Techbook Fest 7. The purpose of this article * A memorandum of what I did in writing * I want to help those who are considering writing The actual book for sale is the one below.
+tags: ["Book", "Learn"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png
+---
+
+import { Image } from "~/components/image/image";
+
+I wrote for the first time at Techbook Fest 7.
+
+# Purpose of the article
+
+- A memorandum of what I did in writing
+- I want to help <b>those who are considering writing</b>
+
+The actual book for sale is the one below.
+
+https://techbookfest.org/event/tbf07/circle/5117648689954816
+
+## Opportunity
+
+My college friend, castaneai, wrote for the first time at Techbook Fest 6.
+
+https://castaneai.hatenablog.com/entry/2019/04/24/093514
+
+Listening to castaneai's story, I learned that the benefits (achievements, interactions) are significant and that the flow to bookbinding is not that difficult.
+From there, I felt like participating as well.
+It seems that castaneai will also participate in this Techbook Fest 7. If you are interested, please stop by.
+
+https://techbookfest.org/event/tbf07/circle/5182251830607872
+
+# What to do
+
+It can be divided into three major steps.
+
+1. Writing
+1. Bookbinding
+1. Preparing for sale
+
+I will explain each.
+
+# 1. Writing
+
+Books need text above all.
+Just writing text does not make it a book.
+Using tools for bookmaking can make the process more efficient.
+
+## 1.1. Bookmaking tool
+
+You need to write text and make it look like a book.
+With a tool called Re:VIEW Starter, you can create a good-looking book with zero learning cost.
+
+https://kauplan.org/reviewstarter/
+
+The following single command creates a PDF of the book.
+
+```shell
+$ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake pdf"
+```
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png"
+  width={757}
+  height={1200}
+  layout="constrained"
+  alt="ReViewStarter sample page"
+/>
+
+A PDF of a **good-looking book** has been created, which is great.
+
+## 1.2. Other tools
+
+There are also tools like the following.
+
+- [textlint](https://github.com/textlint/textlint)
+  - Prevents inconsistencies in text notation
+- [CircleCI](https://circleci.com)
+  - GitOps-like writing is possible
+- [Review Live Reload](https://github.com/yoshiko-pg/review-live-reload)
+  - Automatic Preview after text update
+
+At the beginning of writing, I was researching these tools.
+However, I thought it was not particularly necessary to write a book of less than 100 pages by myself, so I did not introduce it.
+In fact, I didn't have any trouble without it.
+
+## 1.3. Review
+
+It's not just about writing text.
+You need to check whether the composition and expression of the text are properly conveyed.
+Find someone close to the target reader you want to read and have them review it.
+
+### 1.3.1. 1st Review
+
+A review is conducted once a rough draft of the text is completed.
+The image is that each chapter and about the first section of each are finished.
+
+The structure of each chapter is reviewed to ensure it is not strange. If the structure is strange, the reader will be confused.
+Changing the structure later on results in a high **cost of backtracking**.
+
+※ Actually, due to time constraints, it is not done.
+
+### 1.3.2. 2nd Review
+
+A review is conducted once the text of each chapter is **roughly** finished.
+This also serves the same purpose as the 1st review.
+In the 2nd review, the chapter (section) structure is reviewed at a slightly more detailed level.
+
+### 1.3.3. 3rd Review
+
+If there are no problems with the structure of the content, finally the content of the text is reviewed.
+For example, the following were checked:
+
+- Consistency of tone (polite form)
+- Consistency of words (book, publication)
+- Clarification of the subject
+- Shortening sentences
+- Correction of content errors
+- Typos and omissions
+- Insertion of figures and tables
+
+Also, it is convenient to **review the PDF on GoogleDrive**.
+Since you can comment directly on the text, it is recommended.
+
+https://twitter.com/silverbirder/status/1167314554205786112
+
+## 1.5. Book Title
+
+The title of the book is important in order to get people to buy it.
+I thought about making the title easy to guess the content of the book and also to attract attention.
+Since I wrote an introductory book on a specific technology, I thought about combining "specific technology + introduction".
+As a result, I titled it "Introduction to WebComponents for the First Time".
+
+## 1.6. Creating Illustrations
+
+In addition to text, illustrations are needed for the book.
+For example, the following illustrations are needed:
+
+- Front cover
+- Back cover
+- Spine
+- Illustrations to be inserted in the text
+
+Also, although the content is slightly different, the following illustrations are also needed:
+
+- Circle layout diagram guide
+- Circle cut
+- Circle cut (grayscale)
+
+There is a template for the cover, so I will use that.
+
+http://www.nikko-pc.com/offset/template/tonbo.html
+
+**The width of the spine varies depending on the number of pages**.
+I planned about 70 pages, so I drew the spine with a width of 4mm.
+The width calculation is detailed in the template, so please refer to it.
+(I was pointed out by the lady at Nikko Planning)
+
+### 1.6.1. First Illustration
+
+I have never used Photoshop or Illustrator.
+First of all, I need to prepare the environment.
+
+- iPad
+- Magic Pencil
+
+I bought these.
+With the iPad and Magic Pencil, you can draw illustrations as if you are writing on paper.
+What was particularly good was that "even if the side of the little finger of the hand touches the iPad, it is ignored", so
+you can draw illustrations while sticking the side of the little finger of your hand to the iPad.
+Buying the iPad and Magic Pencil was the right decision.
+The software is as follows:
+
+- [Clip Studio](https://apps.apple.com/jp/app/clip-studio-paint-%E6%BC%AB%E7%94%BB-%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E5%88%B6%E4%BD%9C/id1262985592)
+  - Main illustration tool
+  - iPad
+- [Good Notes](https://apps.apple.com/jp/app/goodnotes-5/id1444383602)
+  - Illustration tool for explanation
+  - iPad
+- [AnyFont](https://apps.apple.com/jp/app/anyfont/id821560738)
+  - Font for Japanese
+  - iPad
+- [Fire Alpaca](https://firealpaca.com/ja/)
+  - Adjustment of illustrations
+  - iMac
+
+I was not good at drawing, so I got help from a friend and managed to create it.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430433/silver-birder.github.io/blog/front_cover_of_web_component_for_the_first_time.png"
+  width={911}
+  height={1200}
+  layout="constrained"
+  alt="Front cover"
+/>
+
+# 2. Binding
+
+For the binding, we asked Nikko Planning, which is recommended by Technical Book Festival. When binding, you need to decide on things like the type of paper and the binding method.
+
+I'm not too particular, so I chose the general ones.
+Here's what I chose:
+
+| Type                            | Selection                                           |
+| ------------------------------- | --------------------------------------------------- |
+| Reservation set or specs?       | Early discount set                                  |
+| Paper size                      | A5                                                  |
+| Number of pages including cover | 72 pages (front cover+back cover+main text(70page)) |
+| Number of copies                | 300 copies                                          |
+| Book closing direction          | Left                                                |
+| Book closing type               | Flat binding                                        |
+| Cover paper                     | NP White 200kg                                      |
+| Cover printing type             | Normal 4 color clear PP                             |
+| Main text paper                 | High quality 90kg                                   |
+| Main text printing type         | Data 150 line printing                              |
+| Start page of main text         | Page 1                                              |
+| Flyleaf                         | Yes, High quality 90kg/Yellow/Before                |
+
+I referred to https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634.
+
+The start page of the main text needs to set something called a nombre. Re:VIEW Starter supports nombre, and all you have to do is run the following command.
+
+```shell
+$ docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake pdf:nombre"
+```
+
+If you want to be particular about the paper, it would be good to get a sample as shown in the following link.
+
+https://natuna.jp/marcket/10282/
+
+# 3. Preparing for Sale
+
+## 3.1. Purchasing Goods
+
+At the Technical Book Festival, you will be selling books at the venue. To make the circle booth stand out, I prepared some items.
+
+| Name                                                                                                                                  | Store            | Purpose                   | Size         | Illustration |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------- | ------------ | ------------ |
+| [Folding Card Stand](https://iemonocatalog.com/wp-content/uploads/2019/05/daiso-100yen-card-stand01b.jpg)                             | Daiso            | Price tag                 | 110mm×60mm   | Yes          |
+| [Soft Clear Book Cover](https://stripehome.net/wp-content/uploads/2018/05/daisobookcover11.jpg)                                       | Daiso            | Sample magazine cover     | A5           | No           |
+| [T-type Card Stand](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)                                                       | Daiso            | Official postpaid QR code | 90mm×128mm   | Yes          |
+| [T-type Card Stand](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)                                                       | Daiso            | PixivPayQR code           | 90mm×128mm   | Yes          |
+| [T-type Card Stand](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)                                                       | Daiso            | Product introduction      | 90mm×128mm   | Yes          |
+| [T-type Card Stand](http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg)                                                       | Daiso            | TwitterQR code            | 90mm×128mm   | Yes          |
+| [That Cloth](http://anonuno.shop-pro.jp/)                                                                                             | Official Site    | Table work                | -            | No           |
+| Tablecloth Front Paper                                                                                                                | Printing Company | Advertising               | 900mm×600mm  | Yes          |
+| [Tablecloth](https://iemonocatalog.com/wp-content/uploads/2019/01/table-cloth-100yen-main03.jpg)                                      | Daiso            | Hide that cloth           | 900mm×1200mm | No           |
+| [Tablecloth Non-slip Sheet](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7H8zYedCGI_RtVMpgjakWWv5Gt6PT76gu93WcAUqx5e5XOxtH) | Daiso            | That cloth                | -            | No           |
+| [Book Stand](https://www.instagram.com/p/BibVAdbFcAN/media/?size=l)                                                                   | Daiso            | Sample magazine           | -            | No           |
+| Tapestry Paper                                                                                                                        | Printing Company | Advertising               | 728mm×1030mm | Yes          |
+| [Tapestry Stand](https://www.amazon.co.jp/gp/product/B0052QLJEI/)                                                                     | Daiso            | Advertising               | -            | No           |
+| [Name Tag](https://iemonocatalog.com/wp-content/uploads/2018/12/namecard-cliptyle-100yen-main.jpg)                                    | Daiso            | Author, Salesperson       | 50mm×25mm    | Yes          |
+| [Hard Card Case](https://i2.wp.com/zatsuknowledge.com/wp-content/uploads/2019/04/IMG_4649.jpg)                                        | Daiso            | Menu                      | A5           | No           |
+| Duplicate Receipt                                                                                                                     | Daiso            | Customer                  | -            | No           |
+| Memo, Sticky Note                                                                                                                     | Daiso            | Work                      | -            | No           |
+| Masking Tape                                                                                                                          | Daiso            | Work                      | -            | No           |
+| Sketchbook                                                                                                                            | Daiso            | Work                      | -            | No           |
+| Cardboard Cutter                                                                                                                      | Daiso            | Work                      | -            | No           |
+
+There are 3 ways to print.
+
+- Small items
+  - Print as a single file at [Seven-Eleven](https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#登壇ブログなどによる宣伝活動)
+- Large items
+  - Print at [Sokupri](https://www.ooban-senmon.com)
+- Bulk printing
+  - Print at [Printpac](https://www.printpac.co.jp/)
+
+## 3.2. Preparation of E-books
+
+I used Booth, a service by Pixiv.
+
+https://booth.pm/en
+
+There's no need for any specialized knowledge, you just register the PDF of the book.
+I thought about making a difference between the e-book and the physical book for those who took the trouble to come to the venue.
+(The data inside is the same)
+So, I decided to **give the e-book for free** to those who purchased the physical book.
+It seems to be a common method at Techbook Fest.
+
+Also, by uploading a sample book and making it available for free download,
+I made it possible to check the contents of the book in advance.
+
+[[Sample Magazine] Introduction to Web Components for the First Time -From 4 Basic Functions to Related Libraries-](https://silverbirder.booth.pm/items/1536228)
+
+However, looking at the number of downloads, there weren't many.
+I found out the sad result that the bounce rate was 86% because Google Analytics (**first registration**) and Booth can be linked to see the number of inflows.
+There seems to be room for improvement here.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614430470/silver-birder.github.io/blog/booth_on_google_analytics.png"
+  width={1200}
+  height={731}
+  layout="constrained"
+  alt="Booth on Google Analytics"
+/>
+
+You can't download without registering a pixiv ID, so if this is not good, you might be better off not using the service.
+For sample magazines, maybe you could deliver them via GoogleDrive.
+
+## 3.3. Preparation of Payment Methods
+
+At Techbook Fest, I prepared the following payment methods.
+
+- Official Easy Postpay
+- pixiv pay
+
+The former can be used by registering your bank account information at Techbook Fest.
+The latter just requires you to download the app and register the product. It's free.
+
+I was also considering preparing other methods such as PayPay and Kyash, but I decided against it.
+The reason is that the payment method seemed a bit complicated.
+
+# 4. Others
+
+## Advertising
+
+In order to get the word out about this book, advertising is necessary.
+The advertising methods I took are as follows.
+
+1. Twitter with "#Techbook Fest 7" tag
+1. LINE's OpenChat and TL
+1. Facebook
+1. Study group hashtags related to the content of the book
+1. Company
+1. Friends
+
+Also, there is the option of attending study groups to advertise.
+
+You need to find a **place where there are "many" people who "might be interested"**.
+For example, for number 4, I searched for related study groups in advance on [connpass](https://connpass.com),
+and advertised with the relevant hashtags.
+Also, actively implementing number 1 was very helpful as other circle participants would retweet it.
+
+I also prepared a 16:9 image for advertising on Twitter.
+
+https://twitter.com/silverbirder/status/1172097536510676994
+
+## Number of Checks and Number of Books Sold
+
+The number of checks is the number of books that customers have checked because they are interested.
+This number is a major factor in determining the number of copies to print.
+
+https://note.mu/yagitch/n/n2b5576363f4e
+
+Embarrassingly, I was looking at this number every morning. (laughs)
+
+https://github.com/silverbirder/get-checked-number-for-techbook
+
+I have quickly created an API to regularly fetch the number of checks, and it is running on CloudFunction.
+
+https://twitter.com/silverbirder/status/1171178281380405248
+
+This way, you can see at what time and on what day you are being checked.
+
+This time, I decided to print 300 copies. I think there will definitely be some left over, so I'm considering consigning them to Toranoana.
+
+https://news.toranoana.jp/107460
+
+I'm thinking of taking home a few of the remaining books for storage. (laughs)
+
+## Official Twitter
+
+It's convenient to follow the official Twitter account.
+
+https://twitter.com/techbookfest
+
+## Google Calendar Registration
+
+I recommend adding the Google Calendar, which has the schedule of the Technical Book Exhibition, to your own calendar.
+
+https://twitter.com/techbookfest/status/1083948257095503872
+
+Knowing when you need to do what by can help you plan backwards, so it's better to know.
+
+## Schedule and Achievements
+
+The official schedule and my achievements are as follows.
+
+| Date  | Official Schedule                           | Author's Achievements                                                                                                                                                                       |
+| ----- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 07/10 | Notification of Acceptance Day              | Selected                                                                                                                                                                                    |
+| 07/12 | -                                           | [Payment completed](https://twitter.com/silverbirder/status/1149650432039387137)                                                                                                            |
+| 07/17 | Payment Deadline Day                        | Payment completed                                                                                                                                                                           |
+| 07/20 | -                                           | Planning & Theme Confirmation                                                                                                                                                               |
+| 07/23 | -                                           | Have castaneai write<br />the print circle cut                                                                                                                                              |
+| 07/27 | -                                           | [Sample code creation completed](https://twitter.com/silverbirder/status/1155089319410843648)                                                                                               |
+| 07/31 | Print Circle Cut Deadline Day               | Registered                                                                                                                                                                                  |
+| 08/02 | -                                           | Started creating manuscript                                                                                                                                                                 |
+| 08/15 | -                                           | Reviewing (2st)                                                                                                                                                                             |
+| 08/21 | Circle Layout Announcement Day              | [Promoted](https://twitter.com/silverbirder/status/1164294933752119296)                                                                                                                     |
+| 08/26 | Official Site Open for General Participants | [Promoted](https://twitter.com/silverbirder/status/1166171153875886080)                                                                                                                     |
+| 08/29 | -                                           | [Reviewing (3st)](https://twitter.com/silverbirder/status/1167051004308684800)                                                                                                              |
+| 08/30 | -                                           | Manuscript completed, [Booth registration](https://twitter.com/silverbirder/status/1167265421373788161), [Bookbinding request](https://twitter.com/silverbirder/status/1167379639724994560) |
+| 08/31 | -                                           | [Purchased goods](https://twitter.com/silverbirder/status/1167775260139114496)(That cloth was pre-purchased)                                                                                |
+| 09/06 | -                                           | Present                                                                                                                                                                                     |
+| 09/07 | Circle Pass Assignment Day                  | -                                                                                                                                                                                           |
+| 09/19 | Sample Magazine Submission Deadline         | -                                                                                                                                                                                           |
+| 09/22 | Event Day                                   | -                                                                                                                                                                                           |
+
+※ While waiting for the review, I was also working on creating illustrations for the cover and so on.
+
+When I was writing the sample code, I felt happy thinking, "Should I add more stories like this?"
+When I was writing the manuscript, there was a tough period when I thought, "I have to finish by the scheduled day of ◯◯..."
+All in all, I'm satisfied because I managed to get an early bird ticket from Nikko Planning.
+
+# In Conclusion
+
+I have openly shared all my experiences from my first time writing.
+The good things about trying to write are as follows:
+
+- Making a book is surprisingly easy
+  - There are enough tools and services
+- You will love the book you wrote
+  - I want various people to see it
+  - The knowledge written is very well established
+- The community is fun
+  - The hashtag "#techbookfest" is recommended
+  - The number of followers increased
+
+On the other hand, the hard things were as follows:
+
+- Always thinking about the book
+- Being chased by the deadline
+- Feeling the lack of writing skills
+
+I hope this can be of some help to those who are thinking of writing for the first time.
+
+All that's left is to enjoy the day of Techbookfest 7!!

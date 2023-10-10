@@ -1,58 +1,59 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -
+title: Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -
 published: true
+lang: "en-US"
 date: 2019-05-30
-description: 前回 一足遅れて Kubernetes を学び始める - 12. リソース制限 -では、requestsやlimitなどのリソース制限について学習しました。今回は、ヘルスチェックとコンテナライフサイクルについて学習します。
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -, we learned about resource limits such as requests and limits. This time, we will learn about health checks and the container lifecycle.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last time
 
-[一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)では、requests や limit などのリソース制限について学習しました。今回は、ヘルスチェックとコンテナライフサイクルについて学習します。
+In [Starting to learn Kubernetes a step behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx), we learned about resource limits such as requests and limits. This time, we will learn about health checks and container lifecycle.
 
-# ヘルスチェック
+# Health Check
 
-Kubernetes では、Pod の正常生判断のためのヘルスチェックが 2 種類用意されています。
+In Kubernetes, there are two types of health checks prepared for determining the health of a Pod.
 
 - Liveness Probe
-  - Pod が正常か判断。異常だった場合、Pod を再起動。
+  - Determines if the Pod is healthy. If it is not, the Pod is restarted.
 - Readiness Probe
-  - Pod がサービスインする準備ができているか判断。準備できていなかったら、トラフィックを流さない。
+  - Determines if the Pod is ready to serve. If it is not ready, it does not allow traffic.
 
-たとえば、Pod 内でメモリリークが発生し応答しなくなった場合に有効です。
-LoadBalancer のサービスは、ICMP による簡易ヘルスチェックがデフォルトで用意されています。
+For example, it is effective when a memory leak occurs in the Pod and it becomes unresponsive.
+The LoadBalancer service has a simple health check by ICMP prepared by default.
 
-また、Liveness、Readiness どちらにも３つの方式があります。
+Also, there are three methods for both Liveness and Readiness.
 
 - exec
-  - コマンドを実行し、終了コードが 0 でなければ失敗
+  - Executes a command, and if the exit code is not 0, it fails.
 - httpGet
-  - HTTP GET リクエストを実行し、statusCode が 200~399 でなければ失敗
+  - Executes an HTTP GET request, and if the statusCode is not between 200~399, it fails.
 - tcpSocket
-  - TCP セッションが確立できなければ失敗
+  - Fails if a TCP session cannot be established.
 
-では、試してみましょう。
+Let's try it out.
 
 ```yaml
 # sample-healthcheck.yaml
@@ -89,15 +90,15 @@ spec:
 ```
 
 - timeoutSeconds
-  - タイムアウトまでの秒数
+  - The number of seconds until timeout.
 - successThreshold
-  - 成功と判断するまでのチェック回数
+  - The number of checks until it is determined to be successful.
 - failureThreshold
-  - 失敗と判断するまでのチェック回数
+  - The number of checks until it is determined to be a failure.
 - initialDelaySeconds
-  - 初回ヘルスチェック開始までの遅延
+  - The delay until the first health check starts.
 - periodSeconds
-  - ヘルスチェックの間隔
+  - The interval of health checks.
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f sample-healthcheck.yaml
@@ -106,9 +107,9 @@ pi@raspi001:~/tmp $ k describe pod sample-healthcheck | egrep "Liveness|Readines
     Readiness:      exec [ls /usr/share/nginx/html/50x.html] delay=5s timeout=1s period=3s #success=2 #failure=1
 ```
 
-設定どおりに動作していますね。では、失敗させましょう。
+It's working as expected. Now, let's make it fail.
 
-liveness を失敗させるには index.html を削除すれば良いですね。
+To fail the liveness, you just need to delete the index.html.
 
 ```shell
 pi@raspi001:~/tmp $ k exec -it sample-healthcheck rm /usr/share/nginx/html/index.html
@@ -119,8 +120,8 @@ sample-healthcheck                        0/1     Running   2          10m
 sample-healthcheck                        1/1     Running   2          10m
 ```
 
-一度削除されて、再起動しましたね。
-今度は、readiness を失敗させましょう。こちらは 50x.html を削除すれば良いですね。
+It was deleted once and then restarted.
+Next, let's fail the readiness. Here, you just need to delete the 50x.html.
 
 ```shell
 pi@raspi001:~/tmp $ k exec -it sample-healthcheck rm /usr/share/nginx/html/50x.html
@@ -135,21 +136,21 @@ sample-healthcheck                        0/1     Running   2          17m
 sample-healthcheck                        1/1     Running   2          17m
 ```
 
-期待通り、50x.html を削除すると、READY から外れて、追加すると READY に戻りました。
+As expected, when you delete the 50x.html, it is removed from READY, and when you add it, it returns to READY.
 
-# コンテナの再起動
+# Restarting Containers
 
-コンテナのプロセスが停止、またはヘルスチェックの失敗によってコンテナを再起動するかどうかは、spec.restartPolicy によって決まります。
-種類は下記３つです。
+Whether to restart a container when the container process stops or fails a health check is determined by spec.restartPolicy.
+There are three types.
 
 - Always
-  - 常に Pod を再起動させる
+  - Always restart the Pod.
 - OnFailure
-  - 終了コード 0 以外の予期せぬ停止の場合、Pod を再起動させる
+  - Restart the Pod in case of unexpected stop with an exit code other than 0.
 - Never
-  - 再起動させない
+  - Do not restart.
 
-試してみましょう。
+Let's try it out.
 
 ```yaml
 # sample-restart-always.yaml
@@ -186,7 +187,7 @@ sample-restart-always   0/1     CrashLoopBackOff    1          18s
 sample-restart-always   0/1     Error               2          37s
 ```
 
-成功、失敗どちらも再起動していることがわかります。
+You can see that both success and failure are restarting.
 
 ```yaml
 # sample-restart-onfailure.yaml
@@ -220,16 +221,16 @@ sample-restart-onfailure   0/1     CrashLoopBackOff    1          29s
 sample-restart-onfailure   0/1     Error               2          50s
 ```
 
-成功時は、Completed の終了していますね。CrashLoopBackOff していません。失敗時は、Error となり、CrashLoopBackOff しています。
-期待通りですね。
+When successful, it ends with Completed. It's not CrashLoopBackOff. When it fails, it becomes Error and is CrashLoopBackOff.
+It's as expected.
 
 # initContainers
 
-Pod のメインとなるコンテナを起動する前に別のコンテナを起動させるための機能です。
-spec.containers がもともとありますが、こちらは同時並列で起動するので、順序が必要な場合には向いていません。
-initContainers は、spec.initContainers で設定でき、複数指定できます。複数の場合は上から順に起動します。
+This is a feature to start another container before starting the main container of a Pod.
+There is originally spec.containers, but this starts in parallel, so it is not suitable when order is required.
+initContainers can be set with spec.initContainers, and multiple can be specified. If there are multiple, they start in order from the top.
 
-試してみましょう。
+Let's try it out.
 
 ```yaml
 # sample-initcontainer.yaml
@@ -278,12 +279,12 @@ pi@raspi001:~/tmp $ k exec -it sample-initcontainer cat /usr/share/nginx/html/in
 2nd
 ```
 
-確かに、initContainers が順序通り起動できています。ふむふむ。
+Indeed, the initContainers are starting in order. Hmm, hmm.
 
-# 起動時と終了時のコマンド実行(postStart,preStop)
+# Command execution at startup and termination (postStart, preStop)
 
-コンテナ起動後に実行するコマンドを postStart,
-コンテナ終了前に実行するコマンドを preStop という機能で実現できます。
+You can execute a command after container startup with postStart,
+and a command before container termination with preStop.
 
 ```yaml
 # sample-lifecycle.yaml
@@ -318,28 +319,27 @@ pi@raspi001:~/tmp $ k exec -it sample-lifecycle ls /tmp
 poststart  prestop  started
 ```
 
-たしかに、postStart, preStop が動いています。
-注意しないといけないのが、postStart は、spec.containers[].command の実行とほぼ同じだそうです。（非同期)
+Indeed, postStart and preStop are working.
+What we need to be careful about is that postStart seems to be almost the same as the execution of spec.containers[].command. (asynchronous)
 
-# Pod の安全な停止とタイミング
+# Safe termination of Pods and timing
 
-terminationGracePeriodSeconds に指定した秒数は、pod が削除開始時からの猶予です。
-デフォルトで 30 秒となっています。30 秒の間に preStop+SIGTERM の処理が終わらなければ、
-強制的に SIGKILL されて停止されます。ただし、preStop が終わっていなくて 30 秒たった場合、
-SIGTERM 処理を 2 秒だけ実施できます。
-terminationGracePeriodSeconds の値は、prePost を必ず終える秒数に設定しましょう。
+The number of seconds specified in terminationGracePeriodSeconds is the grace period from the start of pod deletion.
+By default, it is set to 30 seconds. If the preStop+SIGTERM process does not finish within 30 seconds,
+it will be forcibly stopped with SIGKILL. However, if preStop has not finished and 30 seconds have passed,
+you can perform the SIGTERM process for only 2 seconds.
+The value of terminationGracePeriodSeconds should be set to the number of seconds to always finish prePost.
 
-# Node をスケジューリング対象から外す
+# Excluding Nodes from scheduling
 
-Node を kubernetes のスケジューリング対象から外す cordon というコマンドがあります。
-Node の状態には、SchedulingEnabled と SchedulingDisabled があり、後者の状態になると、
-kubernetes からのスケジューリング対象外となり、たとえば ReplicaSet の更新などが機能しなくなります。
+There is a command called cordon to exclude Nodes from kubernetes scheduling.
+There are two states of Node, SchedulingEnabled and SchedulingDisabled, and when it is in the latter state,
+it is excluded from scheduling by kubernetes, and functions such as updating ReplicaSet will not work.
 
-cordon コマンドを使うと、指定する Node が SchedulingDisabled になります。(uncordon は逆)
-ただし、現在動作している Pod はスケジューリング対象になったままで、新たに追加するものが
-スケジューリング対象外になります。現在動作しているものも対象にしたい場合は、drain コマンド
-を使います。
-実際に試してみます。
+When you use the cordon command, the specified Node becomes SchedulingDisabled. (uncordon is the opposite)
+However, the currently running Pods remain scheduled, and the newly added ones
+will be excluded from scheduling. If you want to include the currently running ones as well, use the drain command.
+Let's actually try it.
 
 ```shell
 pi@raspi001:~/tmp $ k get nodes
@@ -368,19 +368,18 @@ There are pending nodes to be drained:
 error: cannot delete DaemonSet-managed Pods (use --ignore-daemonsets to ignore): kube-system/kube-flannel-ds-arm-7nnbj, kube-system/kube-proxy-wgjdq, metallb-system/speaker-tsxdk
 ```
 
-drain すると、ReplicaSet のように管理した Pod であれば、別 Node に作成されるので良いのですが、
-単体 Pod など管理されていないものは、削除されてしまいます。上記の警告は、DaemonSet で管理されている Pod は、
-削除するしかないけど、良いですか？というものです。
-そのため、drain をすると、いくつか警告されます。警告内容に従って適宜操作する必要があります。
+When you drain, it's fine if it's a Pod managed like a ReplicaSet, as it will be created on another Node,
+but unmanaged ones like standalone Pods will be deleted. The above warning is,
+"Do you mind if Pods managed by DaemonSet have to be deleted?"
+Therefore, when you drain, you will receive several warnings. You need to operate appropriately according to the warning content.
 
-# お片付け
+# Cleaning up
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-healthcheck.yaml -f sample-restart-always.yaml -f sample-restart-onfailure.yaml -f sample-initcontainer.yaml -f sample-lifecycle.yaml
 ```
 
-# 最後に
+# Finally
 
-今回は、ヘルスチェックの動作と、コンテナを停止するまでのステップを学習しました。
-わざわざヘルスチェックの処理をアプリケーションに用意せずとも、kubernetes に機能として
-存在することに、驚きました。次回は、[こちら](../start_the_learning_kubernetes_14/index.mdx)です。
+This time, we learned about the operation of health checks and the steps to stop containers.
+I was surprised that there is a function in kubernetes that does not require us to prepare a health check process in the application. Next time is [here](../start_the_learning_kubernetes_14/index.mdx).

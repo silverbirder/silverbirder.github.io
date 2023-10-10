@@ -1,0 +1,161 @@
+---
+title: Debugging with JavaScript's debugger (Browser/Node.js/Jest)
+published: true
+lang: "en-US"
+date: 2022-07-09
+description: Let's debug using the standard JavaScript feature `debugger`. Since it's a standard feature, it can be used in libraries like React.
+tags: ["JavaScript", "Debugger"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1657366278/silver-birder.github.io/blog/timothy-dykes-LhqLdDPcSV8-unsplash.jpg
+---
+
+import { Image } from "~/components/image/image";
+
+Let's debug using the standard JavaScript feature `debugger`.
+Since it's a standard feature, it can be used in libraries like React.
+
+## Browser
+
+Open the following HTML file in Chrome.
+
+```html
+<button>Button</button>
+<script>
+  document.querySelector("button").addEventListener("click", () => {
+    debugger;
+    alert("Hello World");
+  });
+</script>
+```
+
+With the page open, also open DevTools.
+In this state, click the Button.
+
+Then, it will look like the following image.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/browser_debugger.png"
+  width={3104}
+  height={1974}
+  layout="constrained"
+  alt="browser_debugger"
+/>
+
+At the point where `debugger` is written, the process is stopped.
+From that breakpoint, you can perform operations such as step in, step out, and step over.
+In the Console tab, you can check the execution results of variables, functions, etc.
+
+In this way, you can easily debug.
+
+## Node.js
+
+In Node.js, you can use `debugger` in the same way.
+Prepare the following JavaScript code.
+
+```javascript
+// main.js
+debugger;
+console.log("Hello World");
+```
+
+Run this file with the following command.
+
+```bash
+node --inspect-brk main.js
+```
+
+When you run it, the output will look like the following image.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_1.png"
+  width={1364}
+  height={990}
+  layout="constrained"
+  alt="node_debugger_1"
+/>
+
+Then, please access `chrome://inspect` from Chrome.
+When you access it, the screen will look like the following image.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_2.png"
+  width={1662}
+  height={974}
+  layout="constrained"
+  alt="node_debugger_2"
+/>
+
+When you click `Open dedicated DevTools for Node`, it will look like the following image.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342289/silver-birder.github.io/blog/node_debugger_3.png"
+  width={1664}
+  height={1534}
+  layout="constrained"
+  alt="node_debugger_3"
+/>
+
+Yes, just like before, the process is stopped at the point where `debugger` is written.
+It's simple, isn't it?
+
+## Jest
+
+The test framework Jest can also use `debugger` in the same way.
+Prepare the following test code.
+
+```javascript
+// main.test.js
+test("1 equal 1", () => {
+  debugger;
+  expect(1).toBe(1);
+});
+```
+
+For this file, execute the following command.
+
+```bash
+# mac
+node --inspect-brk node_modules/.bin/jest --runInBand main.test.js
+# windows
+node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand main.test.js
+```
+
+When executed, the output will be as shown in the following image.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_1.png"
+  width={1364}
+  height={990}
+  layout="constrained"
+  alt="jest_debugger_1"
+/>
+
+Also, if you access `chrome://inspect` from Chrome, you can debug in the same way.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_2.png"
+  width={1664}
+  height={1228}
+  layout="constrained"
+  alt="jest_debugger_2"
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_3.png"
+  width={1706}
+  height={1252}
+  layout="constrained"
+  alt="jest_debugger_3"
+/>
+
+It works the same way as Browser, Node.js.
+It's easy to understand, isn't it?
+
+## In conclusion
+
+You can set up debugging in your IDE or editor, but this way is much easier.
+
+## References
+
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/debugger
+- https://nodejs.org/ja/docs/guides/debugging-getting-started/
+- https://jestjs.io/ja/docs/troubleshooting

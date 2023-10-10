@@ -1,0 +1,153 @@
+---
+title: Things I learned when I started using React at work
+published: true
+lang: "en-US"
+date: 2022-06-25
+description: Until now, I had only used React in my private life. Recently, I've had more opportunities to use React at work, so I thought I'd document what I've learned.
+tags: ["React", "Learn", "History"]
+---
+
+Until now, I had only used React in my private life.
+Recently, I've had more opportunities to use React at work, so I thought I'd document what I've learned.
+
+## History of React
+
+I was curious about why React was created.
+I did a little research and summarized it in the following article.
+
+- [Knowing the history before learning React](../know_the_history_before_learning_React/index.mdx)
+
+I think React was created to solve the following problem:
+
+- As the DOM tree grows, the load of cascade updates due to lower changes increases
+
+So, I think React created a mechanism called virtual DOM to solve this problem.
+
+## Virtual DOM, Difference Detection Process, and Fiber
+
+React operates on the virtual DOM, not directly on the DOM. The virtual DOM is, as the name suggests, a virtual DOM.
+To reflect the virtual DOM to the DOM, there is an algorithm called difference detection process (reconciliation), and there seems to be an algorithm called Fiber aimed at optimizing rendering (priority). I think these reduce the load of rendering. (I don't know though)
+
+My understanding is still shallow, so I want to learn more in the future.
+
+- [Virtual DOM and internal processing – React](https://ja.reactjs.org/docs/faq-internals.html)
+- [Difference detection process – React](https://ja.reactjs.org/docs/reconciliation.html)
+- [acdlite/react-fiber-architecture: A description of React's new core algorithm, React Fiber](https://github.com/acdlite/react-fiber-architecture)
+- [About React Fiber Architecture | POSTD](https://postd.cc/react-fiber-architecture/)
+
+When is the rendering timing?
+
+## Rendering Timing
+
+Basically, when React renders a parent component, it also renders the child components.
+
+When you call a function that queues re-rendering, such as setState or forUpdate, the component will be rendered.
+
+- [Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior · Mark's Dev Blog](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)
+
+As the codebase grows, rendering performance deteriorates.
+Therefore, performance optimization is required.
+
+## Performance Optimization
+
+There is no need to optimize performance from the beginning, but it may be necessary depending on the requirements.
+As a means of optimization, you can use the following three functions in React.
+
+- [memo](https://ja.reactjs.org/docs/react-api.html#reactmemo)
+  - Can skip the rendering of a component
+    - If there is no change between the previous props and the current props
+- [useMemo](https://ja.reactjs.org/docs/hooks-reference.html#usememo)
+  - Can [memoize](https://en.wikipedia.org/wiki/Memoization) a value
+- [useCallback](https://ja.reactjs.org/docs/hooks-reference.html#usecallback)
+  - Can [memoize](https://en.wikipedia.org/wiki/Memoization) a function
+    - Used in conjunction with memo
+
+[Performance Optimization – React](https://ja.reactjs.org/docs/optimizing-performance.html) can also be a reference.
+
+## Comparison Algorithm
+
+In React, it seems that [Object.is()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/is) is used to determine whether a component or state has changed.
+The sample code for Object.is is as follows.
+
+```javascript
+Object.is("foo", "foo"); // true
+Object.is("foo", "bar"); // false
+Object.is([], []); // false
+
+var foo = { a: 1 };
+var bar = { a: 1 };
+Object.is(foo, foo); // true
+Object.is(foo, bar); // false
+```
+
+Primitive values such as strings or integers are fine, but non-primitive values (Objects) require consideration.
+For example, in the case of [memo](https://ja.reactjs.org/docs/react-api.html#reactmemo), you can pass a comparison function as the second argument.
+For example, it looks like this.
+
+```javascript
+function MyComponent(props) {}
+function areEqual(prevProps, nextProps) {
+  return JSON.stringify(prevProps.foo) === JSON.stringify(nextProps.foo);
+}
+export default React.memo(MyComponent, areEqual);
+```
+
+As [written on the official page](https://ja.reactjs.org/docs/react-api.html#reactmemo), use it only for performance optimization.
+
+### Tips
+
+Due to the use of `Object.is()`, ingenuity is required for state updates of non-primitive values.
+
+```javascript
+const [items, setItems] = useState(["a", "b"]);
+
+// NG
+items.push("c");
+setItems(items); // 変更されない(Object.is()→true)
+
+// OK
+const newItems = [...items, "c"];
+setItems(newItems); // 変更される(Object.is()→false)
+```
+
+The NG side is reusing the same object, while the OK side is creating a new object.
+
+## Performance Investigation
+
+I think it's better to investigate performance from the top down.
+
+1. Use Chrome Developer Tools > Lighthouse to check the performance score
+2. Use Chrome Developer Tools > Performance to find areas where processing takes time
+3. Use React Developer Tools > Profiler to investigate areas where rendering of React components takes time
+
+## React Component Design Patterns
+
+When implementing components in React, there seem to be the following three patterns.
+
+- Container and presentation
+  - Separate logic and UI
+  - Often named XxxContainer, Xxx
+- Higher order component
+  - Higher-order components
+  - Often named withXxx
+- Function as child
+  - Pass a function, not a component, as a child
+
+### Extract Logic as Custom Hooks
+
+From the perspective of testability and reusability, it seems better to extract logic as hooks.
+
+- [Creating a Custom Hook – React](https://ja.reactjs.org/docs/hooks-custom.html)
+
+Naming often starts with use.
+
+## Others
+
+- I want to place the following files in the same folder as the component code
+  - Test code (test)
+    - To know the specifications
+  - Catalog code (storybook)
+    - To see the UI
+  - Style code (scss)
+- Use debounce for onChange of input elements, etc.
+  - When the processing of onChange is heavy

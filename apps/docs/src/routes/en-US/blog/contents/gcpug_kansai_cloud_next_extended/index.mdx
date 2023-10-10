@@ -1,0 +1,189 @@
+---
+title: Osaka GCPUG Kansai ~ Cloud Next Extended ~ - Participation Report on May 14, 2019
+published: true
+lang: "en-US"
+date: 2019-05-22
+description: I participated in this event and would like to report on it. The hashtag is here. next19extended Purpose The main event will be explanations and reviews of new Google Cloud services announced at Google Cloud Next '19 San Francisco, held in San Francisco from 04/09 to 04/11 in 2019!
+tags: ["Report", "GCP", "Osaka"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1614429188/silver-birder.github.io/blog/GCPUG_Kansai_Cloud_Next_Extended_guide.jpg
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1614429188/silver-birder.github.io/blog/GCPUG_Kansai_Cloud_Next_Extended_guide.jpg
+---
+
+https://gcpug-osaka.connpass.com/event/128130/
+
+I participated in this event and would like to report on it. The hashtag is here. [#next19extended](https://twitter.com/hashtag/next19extended)
+
+# Purpose
+
+> The main event will be explanations and reviews of new Google Cloud services announced at Google Cloud Next '19 San Francisco, held in San Francisco from 04/09 to 04/11 in 2019!
+
+# Session Introduction
+
+## GCPUG Kansai Introduction
+
+```
+GCPUG Osaka
+GCPUG Kobe
+GCPUG Kyoto
+GCPUG Nara
+GCPUG Shiga
+GCPUG Wakayama
+FJUG Osaka (firebase)
+```
+
+It seems that there are so many GCPUG communities in Kansai. Amazing, so many!
+I think I will continue to participate in Osaka. I love GCP.
+
+## Cloud Next Recap 1
+
+### Presenter
+
+Ian Lewis(Google)
+
+### Content
+
+He seems to be in charge of Kubernetes at Google.
+He also seems to be involved in Pycon and connpass.
+
+#### Anthos
+
+It seems to be pronounced as "Anthos". Difficult...
+
+The following features are mentioned...  
+・Modernize applications  
+・Policy automation  
+・Consistent experience
+
+I didn't understand it well, so I googled it.
+
+https://www.publickey1.jp/blog/19/googleanthoskubernetesgoogle_cloud_next_19.html
+
+> A platform for hybrid cloud and multi-cloud that allows containerized applications to run on either on-premises or cloud.
+
+> Regardless of where the application is deployed on the cloud, including on-premises, it can be centrally managed from the Anthos management screen.
+
+I see, Anthos is a platform for realizing multi-cloud.
+Hmm, it's easy to understand.
+
+Also, it was announced that Anthos was created based on Istio.
+Please check [here](https://cloud.google.com/istio/?hl=ja) for Istio.  
+The following are said to be the features of Istio's functions.
+
+https://twitter.com/nankouyuukichi/status/1128245474215858176?s=20
+
+In k8s, it manages the target cluster. As the scale expands,
+there may be cases where the service becomes complex. In that case, I understand that Istio will manage that area nicely (roughly).  
+※ Multi-cluster was already possible(?)
+
+Anthos, I think, has expanded its scope to include not only the cloud but also on-premises (GKE on Prem).
+
+## CloudRun
+
+I have tried this once before at the following.
+
+https://silverbirder.github.io/blog/contents/cloud_run_3_step_glang
+
+You will be able to deploy as a container.
+Honestly, with the increase in deployment services like AppEngine, CloudFunction, and CloudRun,
+it's becoming hard to understand which one is good for what... Below is a summary.
+
+https://docs.google.com/presentation/d/1DCJlrXQKWN63pAz9vtdVNFhMPHceyiKHK0IrFjcwOcU/edit#slide=id.g5693476139_0_155
+
+## CloudRun on GKE
+
+It seems that you can deploy CloudRun on k8s.
+I don't know the details.
+
+## Knative
+
+https://cloud.google.com/knative/?hl=ja
+
+> Knative is a set of middleware components essential for building modern, container-based, source-centric applications that can run anywhere, such as on-premises, in the cloud, or in third-party data centers.
+
+Hmm, I kind of understand, but I'll look at other sites.
+
+https://www.apps-gcp.com/knative-overview/
+
+> To use Knative, you need to prepare a cluster with Kubernetes installed, but Knative is the same as Kubernetes in that it is for orchestrating containers, which does not change.
+> Knative can realize architectures like PaaS and FaaS in the cloud anywhere if Knative is installed (i.e., in a Kubernetes cluster).
+
+I see. In other words, it's container orchestration that doesn't depend on cloud services.
+Whether you use GCP or AWS, it's not particularly important to engineers,
+what's important is the product code of the application. So, you can use k8s without being conscious of cloud services.
+
+## gVisor
+
+https://www.publickey1.jp/blog/18/gvisorgoogle.html
+Traditionally, containers had the following problems.
+
+> Because containers share the OS kernel, the level of isolation between containers is not high, they are easily affected by the load of other containers running on the same OS, and they can directly call OS system calls from the container, which can easily cause security issues.
+
+That's where gVisor comes in.
+
+> While maintaining the lightness of traditional containers, it provides a new implementation for container isolation, providing a more secure isolation close to paravirtualization, a container runtime.
+
+I see! (But I just read the article lol)
+
+## Cloud Next Recap 2
+
+### Presenter
+
+Kazunori Sato (Google)
+
+### Content
+
+He introduced AutoML for machine learning.
+I'm not good at such things, so I don't remember well...
+
+## Cloud Next Recap 3
+
+### Presenter
+
+Kirill Tropin (Google)
+
+### Content
+
+The speaking was in English, so I don't remember well...
+
+## Cloud Run Stuff
+
+### Presenter
+
+Chimame@rito
+
+### Presentation Material
+
+https://speakerdeck.com/chimame/cloud-run-one-step-ahead
+
+### Content
+
+It's so easy that you can do cloudrun with just 2 commands!
+However, there seem to be some problems when handling it as a product.
+
+1. It's slow like doing a full docker build
+   → It seems that cache works with kaniko.  
+   https://github.com/GoogleContainerTools/kaniko
+
+2. memoryStore is not yet supported (VPC)
+
+## GCP Osaka Region and Latency
+
+### Presenter
+
+Mr. Salamander
+
+### Content
+
+He introduced about the latency of the Osaka region.
+https://docs.google.com/presentation/d/1dbGgjr3Z9o-bOxmT5SQ5bRHMEI0Jzh0BQUQkXlEGyYE/edit?usp=sharing
+
+# Finally
+
+At Google, it seemed like a matter of course to promote Kubernetes services.
+Platforms like Anthos, which can run regardless of cloud or on-premises, and
+Knative, a container orchestration that can run on any cloud service,
+are being promoted to run Kubernetes anywhere.
+This means, we have to be able to use Kubernetes!
+I'm studying it in the link below!
+
+https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03

@@ -1,0 +1,143 @@
+---
+title: Refreshing Silverbirder's Portfolio Page
+published: true
+lang: "en-US"
+date: 2021-03-03
+description: I have refreshed my portfolio page. In this article, I would like to introduce the motivation for the refresh, the content of the refresh, and the future.
+tags: ["Portfolio", "Artifact", "AMP"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png
+---
+
+import { Image } from "~/components/image/image";
+
+I have refreshed my portfolio page. In this article,
+I would like to introduce the motivation for the refresh, the content of the refresh, and the future.
+
+# Motivation
+
+Originally, my portfolio page was built using Hugo, a static page generator.
+
+http://kohki.hatenablog.jp/entry/hugo-portfolio
+
+I referred to this article and created a portfolio page with Hugo.
+At that time, I think I had the following three thoughts about why I created a portfolio.
+
+- I want people to know what kind of person I am
+- I want to have my own site
+- I want to try using a static page generator
+
+Managing articles with Hugo is easy for engineers because it's done in Markdown.
+Also, there are publicly available design themes, so you can choose the one you like.
+
+At first, it was very comfortable. I was satisfied with being able to easily publish a stylish portfolio site.
+However, as I continued to use it, I began to feel frustrated that I couldn't reach the parts that were itching.
+I think this is a trade-off with convenience, but I began to recognize the following disadvantages.
+
+- Technical challenges with Javascript are difficult
+- Customizing the design theme is difficult
+- SEO tuning is difficult
+
+I began to think that the disadvantages outweighed the advantages of convenience.
+Therefore, I decided to create a portfolio site on my own.
+
+# What I did
+
+I created a portfolio site that makes full use of AMP. The overall picture is as follows.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png"
+  width={532}
+  height={361}
+  layout="constrained"
+  alt="overview"
+/>
+
+The structure is centered around [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer).
+The source code is in the following repository.
+
+https://github.com/silverbirder/silverbirder.github.io
+
+# Technology selection
+
+For this portfolio site, I decided against using a web framework (e.g. Next.js) with more features than necessary, as it would increase maintenance costs.
+Also, I decided against a static page generator (e.g. Gatsby) for the reasons mentioned in the motivation section.
+Therefore, I aimed for a minimal necessary configuration. As a result, the flow became as follows.
+
+1. Prepare the content (Markdown, HTML, JSON)
+2. AMP-ify 1 as input with [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)
+
+I adopted [Gulp](https://www.npmjs.com/package/gulp) as a task runner to control these orders.
+[AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer) is installed via NPM, so I looked for a task runner that works well with Node.js.
+The options were Grunt and Gulp, but since [Gulp was introduced on the official AMP site](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/node-amp-optimizer/), I chose Gulp.
+
+Here are the major technical choices. Other minor details are as follows:
+
+- highlightjs
+  - Program code highlighting feature
+- jsdom
+  - Various html processing
+    - Setting of h1~h6 tag Anchors (like anchorJS)
+    - Mix of HTML template and main content
+    - ...etc
+- ampcssframework
+  - Wanted Dark Theme and Grid functionality
+- Cloudinary
+  - Image management SaaS. Used for OGP, etc.
+- For SEO
+  - Google search console
+  - Google analytics
+
+# Portfolio Content
+
+I was wondering what kind of content to prepare for the portfolio site.
+There is a [Markdown option in AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/main/packages/optimizer#markdown).
+It seems that not only HTML but also Markdown can be converted to AMP (via HTML).
+Therefore, I realized that I could add blog-like content to the portfolio page.
+Also, the blog content I have written so far was managed in Markdown, so it seemed to be just usable.
+
+As a result, I prepared the following content:
+
+- Self-introduction
+- Blog
+- Book search
+- Purchased item list
+  - Things bought on Amazon, subscriptions
+- Watch
+  - RSS I'm checking
+- Projects
+  - Introduction of what I made
+
+I tried to add a WebPush function for RSS on the watch page, but it required a server to push, and the development seemed to be prolonged, so I gave up.
+
+# How was it after the renewal?
+
+As expected, I was able to extend various portfolio site functions that could not be done with Hugo.
+
+- Technical challenges with Javascript are difficult
+  - I was able to try AMP and Web Worker (amp-script)
+- Customizing design themes is difficult
+  - I was able to do CSS framework and CSS tuning
+- SEO tuning is difficult
+  - I was able to use SearchConsole and GoogleAnalytics
+  - I was able to tune sitemap and meta tags
+
+What I couldn't do as expected was the constraint of AMP, but there were technologies that couldn't be moved on amp-script like WebComponents.
+Also, I tried to import ES Module ([skypack](https://skypack.dev/)) on WebWorker (amp-script), but Safari was not supported, so I gave up.
+
+However, my final impression is that I was able to process HTML flexibly, so I think it was good to renew because I can do anything on AMP.
+
+# What I learned
+
+I will briefly look back from the experiential learning model. (for the first time)
+
+| Experience                                       | Reflection                                                                                                                          | Conceptualization                                                                                       | Trial                                                  |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Tried AMP for the first time                     | I had never used AMP before, but there were fewer issues than I thought.<br />However, there were also issues I hadn't anticipated. | The challenges of technical elements that have never been used are unknown even if they are anticipated | Try new technologies lightly                           |
+| Did not use frameworks such as Next.js or Gatsby | I wanted a simple configuration.<br />I didn't want to put in a framework with more features than necessary.                        | To ensure maintainability, configure with minimal features                                              | Weigh maintainability when choosing major technologies |
+
+# In Conclusion
+
+I have refreshed my portfolio. Since I had never built a website from scratch before,
+it was a good study for me to develop everything by hand, including sitemap and JSON-LD.
+There are still many issues with my portfolio, but I would like to improve it little by little.

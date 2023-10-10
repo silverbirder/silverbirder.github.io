@@ -31,7 +31,9 @@
     "test.e2e": "playwright test",
     "test.unit": "vitest run components",
     "test.unit.ui": "vitest --ui components",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "qwik-speak-extract": "qwik-speak-extract --supportedLangs=ja-JP,en-US --assetsPath=i18n",
+    "gpt-translate-json": "source .env && gpt-translate-json --apiKey=$PUBLIC_OPEN_API_API_KEY --model=gpt-4 --maxTokens=3000 --langs=ja-JP,en-US --originalLang=ja-JP"
   },
   "devDependencies": {
     "@builder.io/partytown": "^0.8.0",
@@ -60,8 +62,10 @@
     "eslint-plugin-storybook": "^0.6.13",
     "fuse.js": "^6.6.2",
     "globby": "^13.2.2",
+    "gpt-translate-json": "^0.1.0",
     "lottie-web": "^5.12.2",
     "prettier": "2.8.8",
+    "qwik-speak": "^0.16.0",
     "storybook": "7.3.1",
     "storybook-framework-qwik": "0.2.3",
     "typescript": "5.1.6",

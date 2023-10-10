@@ -1,0 +1,140 @@
+---
+title: Deploying Cloud Run in Just 3 Steps (golang)
+published: true
+lang: "en-US"
+date: 2019-04-11
+description: What is Cloud Run? Cloud Run is a managed compute platform that enables you to run stateless containers that are invocable via HTTP requests. Cloud Run is serverless ※ https://cloud.google.com/run/ More details will be omitted, but it operates serverlessly like Cloud Functions and App Engine. It can also be controlled from GKE because it deploys containers.
+tags: ["GCP", "Cloud Run", "Golang", "Deploy", "Scrap"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1693376921/silver-birder.github.io/blog/190410-abrigednews-02-google-devops-with-serverless.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1693376921/silver-birder.github.io/blog/190410-abrigednews-02-google-devops-with-serverless.png
+---
+
+import { Image } from "~/components/image/image";
+
+# What is Cloud Run?
+
+> Cloud Run is a managed compute platform that enables you to run stateless containers that are invocable via HTTP requests. Cloud Run is serverless
+
+※ [https://cloud.google.com/run/](https://cloud.google.com/run/)
+
+More details will be omitted, but it operates serverlessly like Cloud Functions and App Engine. It can also be controlled from GKE because it deploys containers.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1693376921/silver-birder.github.io/blog/190410-abrigednews-02-google-devops-with-serverless.png"
+  width={1000}
+  height={576}
+  layout="constrained"
+  alt="Cloud Run Deploy"
+  href="https://japan.zdnet.com/article/35135525/"
+/>
+
+# I tried to deploy
+
+[https://cloud.google.com/run/docs/quickstarts/build-and-deploy](https://cloud.google.com/run/docs/quickstarts/build-and-deploy)
+
+I will proceed with reference to this.
+
+By the way, the operating environment is done inside the following container.
+
+[https://hub.docker.com/r/google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk)
+
+## step1. Various settings of gcloud
+
+```shell
+$ gcloud components update
+$ gcloud components install beta
+$ gcloud config set run/region us-central1
+```
+
+※ As of 2019/04/11, Cloud Run is beta.
+
+## step2. Creating application code
+
+```shell
+$ mkdir helloworld-go && cd helloworld-go
+$ touch helloworld.go Dockerfile
+```
+
+```go
+package main
+
+import (
+        "fmt"
+        "log"
+        "net/http"
+        "os"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+        log.Print("Hello world received a request.")
+        target := os.Getenv("TARGET")
+        if target == "" {
+                target = "World"
+        }
+        fmt.Fprintf(w, "Hello %s!\n", target)
+}
+
+func main() {
+        log.Print("Hello world sample started.")
+
+        http.HandleFunc("/", handler)
+
+        port := os.Getenv("PORT")
+        if port == "" {
+                port = "8080"
+        }
+
+        log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+}
+```
+
+```Dockerfile
+# Use the offical Golang image to create a build artifact.
+# This is based on Debian and sets the GOPATH to /go.
+# https://hub.docker.com/_/golang
+FROM golang:1.12 as builder
+
+# Copy local code to the container image.
+WORKDIR /go/src/github.com/knative/docs/helloworld
+COPY . .
+
+# Build the command inside the container.
+# (You may fetch or manage dependencies here,
+# either manually or with a tool like "godep".)
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o helloworld
+
+# Use a Docker multi-stage build to create a lean production image.
+# https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
+FROM alpine
+
+# Copy the binary to the production image from the builder stage.
+COPY --from=builder /go/src/github.com/knative/docs/helloworld/helloworld /helloworld
+
+# Run the web service on container startup.
+CMD ["/helloworld"]
+```
+
+## step3. Registration & Deployment
+
+```shell
+$ gcloud builds submit --tag gcr.io/[PROJECT-ID]/helloworld
+$ gcloud beta run deploy --image gcr.io/[PROJECT-ID]/helloworld
+```
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1613818551/silver-birder.github.io/blog/D34Fl0ZU4AA-dhU.png"
+  width={482}
+  height={195}
+  layout="constrained"
+  alt="result"
+/>
+
+# Impressions
+
+I usually use a Serverless Deployments called [now.sh](https://zeit.co/now) when I'm doing personal development. This service used to support docker containers in v1, but it no longer does in v2. However, I felt this was the best service when choosing something that can be deployed easily for free.
+
+However, I learned that CloudRun was released in Beta version at the GoogleCloudNext19 announcement, and I tried it out immediately.
+I was able to proceed with the steps this time without any problems and deploy within 3 minutes.
+I was impressed by how easy and convenient it was.
+Also, looking at the [price table](https://cloud.google.com/run/pricing), it's a pay-as-you-go system like CloudFunctions, and it's free up to 2 million requests per month. For personal development, this is much more cost-effective than the instance startup time-based pricing of AppEngine.
+I have no choice but to quit now.sh and switch to this one!!

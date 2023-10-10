@@ -1,0 +1,171 @@
+---
+title: Self-hosting a Cache Server with turborepo-remote-cache
+published: true
+lang: "en-US"
+date: 2022-09-11
+description: Vercel's build system, turborepo, is a super-fast monorepo tool. One of the features that make it super-fast is the remote cache. This feature uses Vercel's cache server, but there is also a way to self-host the cache server. In this article, I will introduce that.
+tags: ["Turborepo", "Monorepo", "Vercel", "Survey"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1662900642/silver-birder.github.io/blog/danny-sleeuwenhoek-YkBaEl7f1C8-unsplash.jpg
+---
+
+Vercel's build system, turborepo, is a super-fast monorepo tool.
+One of the features that make it super-fast is the remote cache.
+This feature uses Vercel's cache server, but there is also a way to self-host the cache server.
+In this article, I will introduce that.
+
+## Why would you want to self-host?
+
+When using Vercel's cache server, you need a Vercel account.
+Looking at [Vercel's pricing](https://vercel.com/pricing), it's free for personal use (Hobby), but if you're using it for a company (Pro), it costs `$20 per user / month`. It might be worth it if the cost-effectiveness is right, but there may be situations where you can't afford the cost at a stage where you don't know that yet. Therefore, as [officially written](https://turborepo.org/docs/core-concepts/remote-caching#custom-remote-caches), there is a way to self-host the cache server.
+
+## I tried it locally
+
+I actually tried it. The source code is available at the following link.
+
+- https://github.com/silverbirder/turborepo-with-selfhost-remote-cache
+
+You can clone it to your local machine and follow the README to check its operation. The necessary software is Docker and Yarn.
+
+### Preparing the cache server
+
+When self-hosting, you need to set up a cache server.
+For the cache server, it's good to use https://github.com/fox1t/turborepo-remote-cache.
+A Docker image is available, so you can use that, or you can `docker build` it yourself.
+
+- Docker image
+  - https://hub.docker.com/r/fox1t/turborepo-remote-cache
+
+At the very least, you need to set the following two environment variables for the cache server.
+
+- TURBO_TOKEN
+  - TOKEN to connect turborepo and api
+- STORAGE_PATH
+  - Path to save cache objects
+  - If STORAGE_PROVIDER specifies `s3`, it's the bucket name
+
+To simplify, I prepared the following .env file.
+
+```
+# .env
+TURBO_TOKEN=mytoken
+STORAGE_PATH=/storage/
+```
+
+Then, write docker-compose to start the cache server.
+
+```yml
+# docker-compose.yml
+services:
+  remote-cache:
+    image: fox1t/turborepo-remote-cache:latest
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+```
+
+Let's start the cache server with the following command.
+
+```bash
+$ docker-compose up -d
+```
+
+With this, the cache server will start at PORT:3000.
+
+### turbo build
+
+Now, let's see if it actually connects from turborepo.
+
+You can create turborepo with `npx create-turbo@latest`.
+After creation, execute the following command in the created folder.
+
+```bash
+$ yarn
+$ yarn turbo run build --team="team_myteam" --token="mytoken" --api="http://localhost:3000"
+```
+
+In the turbo command options, three are specified.
+
+- team
+  - Role of the namespace when saving the cache
+- token
+  - The environment variable defined earlier
+- api
+  - URL of the cache server
+
+When executed, the following log should be displayed.
+
+```bash
+yarn run v1.22.19
+turbo run build --team=team_myteam --token=mytoken --api=http://localhost:3000
+• Packages in scope: docs, eslint-config-custom, tsconfig, ui, web
+• Running build in 5 packages
+• Remote computation caching enabled
+web:build: cache miss, executing 082bae5de9b1745f
+docs:build: cache miss, executing 5a55c6367c8caf01
+...
+```
+
+With `Remote computation caching enabled`, remote caching has been enabled.
+In the first instance, it will be a cache miss. The hash values will be `web: 082bae5de9b1745f` and `docs:5a55c6367c8caf01`.
+The cache is saved locally, so delete it.
+
+```bash
+$ rm -rf node_modules/.cache/turbo
+```
+
+Now let's try turbo build again.
+
+```bash
+$ yarn turbo run build --team="team_myteam" --token="mytoken" --api="http://localhost:3000"
+yarn run v1.22.19
+$ /Users/silverbirder/docker/node/turborepo-with-selfhost-remote-cache/node_modules/.bin/turbo run build --team=team_myteam --token=mytoken --api=http://localhost:3000
+• Packages in scope: docs, eslint-config-custom, tsconfig, ui, web
+• Running build in 5 packages
+• Remote computation caching enabled
+docs:build: cache hit, replaying output 5a55c6367c8caf01
+web:build: cache hit, replaying output 082bae5de9b1745f
+```
+
+How about that, it says `cache hit`. Even though there is no cache on hand, there is a cache on the remote cache server, so it's a `cache hit`!
+
+### Cache Objects
+
+Cache objects are binary outputs (files or logs) named by hash values.
+Inside a Docker container, files are placed like this:
+
+```bash
+$ ls -hl storage/team_myteam/
+total 5392
+-rw-r--r--  1 silverbirder  staff   1.3M Sep 11 16:20 082bae5de9b1745f
+-rw-r--r--  1 silverbirder  staff   1.3M Sep 11 16:20 5a55c6367c8caf01
+```
+
+A folder is created with the name specified by the --team option.
+Therefore, a cache is created for each team.
+
+### About Cache
+
+For turborepo's cache, it would be good to read the [official](https://turborepo.org/docs/core-concepts/caching) documentation.
+
+Roughly speaking, it becomes a cache miss, cache hit in the following flow.
+
+1. Execute turbo build
+2. Hash the inputs (source code, etc.) and environment variables of the `build` task in turbo.json
+3. If the cache does not already exist locally or remotely, it's a cache miss
+4. Binary the outputs (dist folder, standard output, etc.) of the `build` task in turbo.json and save it with a hash name
+
+In step 3, if the cache exists, it becomes a `cache hit` and the outputs are restored.
+
+## Trying it in the Cloud
+
+Let's deploy the cache server to computing resources in cloud vendors such as AWS or GCP.
+Since there is a Docker image, it seems easy to do AppRunner or CloudRun.
+
+As for cache storage, currently only AWS S3 is supported.
+The AWS S3 client is [compatible with GCS because it uses S3Client](https://zenn.dev/mizchi/articles/s3-compatible-client). Well, if you follow the README, it's better to place it in S3. Add READ/WRITE permissions to storage resources to the IAM that runs computing resources.
+
+## Conclusion
+
+We have self-hosted and are now able to use remote cache.
+I haven't operated it yet, so I haven't felt the challenges. I will continue to try using it.

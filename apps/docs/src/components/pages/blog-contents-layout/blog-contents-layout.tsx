@@ -38,7 +38,7 @@ export const BlogContentsLayout = component$(() => {
           })}
         >
           {tags.map((tag) => (
-            <Tag url={`/blog/tags/${tag}`} name={tag} key={tag} />
+            <Tag url={stringToSlug(`/blog/tags/${tag}`)} name={tag} key={tag} />
           ))}
         </div>
         <Slot />

@@ -6,8 +6,8 @@ on:
       - main
       - web-push
     paths:
-      - "../../apps/docs/src/routes/en-US/blog/index.json"
-      - "../../apps/docs/src/routes/(ja)/blog/index.json"
+      - "apps/docs/src/routes/en-US/blog/index.json"
+      - "apps/docs/src/routes/(ja)/blog/index.json"
 
 jobs:
   notify:
@@ -32,7 +32,7 @@ jobs:
       - name: Send Notification
         if: env.NEW_ARTICLES
         run: |
-          cd publish-notification/
+          cd .github/workflows/publish-notification/
           npm install
           IFS=$'\n'
           for article in $NEW_ARTICLES; do

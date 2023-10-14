@@ -1,0 +1,43 @@
+name: Publish Notification
+
+on:
+  push:
+    branches:
+      - main
+      - web-push
+    paths:
+      - "../../apps/docs/src/routes/en-US/blog/index.json"
+      - "../../apps/docs/src/routes/(ja)/blog/index.json"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.15.0
+      - name: Check for new published articles
+        id: check-published
+        run: |
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+          for file in $CHANGED_FILES; do
+            NEW_PUBLISHED=$(jq -c '.[] | select(.published == true)' $file)
+            for article in $NEW_PUBLISHED; do
+              echo "NEW_ARTICLES+=\"$article\n\"" >> $GITHUB_ENV
+            done
+          done
+      - name: Send Notification
+        if: env.NEW_ARTICLES
+        run: |
+          cd publish-notification/
+          npm install
+          IFS=$'\n'
+          for article in $NEW_ARTICLES; do
+            node index.mjs "$article"
+          done
+        env:
+          ONE_SIGNAL_API_KEY: ${{ secrets.PUBLIC_ONE_SIGNAL_API_KEY }}
+          ONE_SIGNAL_APP_ID: ${{ secrets.PUBLIC_ONE_SIGNAL_APP_ID }}

@@ -24,12 +24,12 @@ jobs:
       - name: Check for new published articles
         id: check-published
         run: |
-          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
-          for file in $CHANGED_FILES; do
-            NEW_PUBLISHED=$(jq -c '.[] | select(.published == true)' $file)
-            for article in $NEW_PUBLISHED; do
-              echo "NEW_ARTICLES+=\"$article\n\"" >> $GITHUB_ENV
-            done
+          CHANGED_JSON_FILES=$(git diff --name-only HEAD^ HEAD | grep '\.json$')
+          for file in $CHANGED_JSON_FILES; do
+              NEW_PUBLISHED=$(jq -c '.[] | select(.published == true)' $file)
+              if [[ ! -z "$NEW_PUBLISHED" ]]; then
+                  echo "NEW_ARTICLES+=\"$NEW_PUBLISHED\n\"" >> $GITHUB_ENV
+              fi
           done
       - name: Send Notification
         if: env.NEW_ARTICLES

@@ -29,6 +29,8 @@ jobs:
         run: pnpm build
         env:
           PUBLIC_OPEN_REPLAY_PROJECT_KEY: ${{ secrets.PUBLIC_OPEN_REPLAY_PROJECT_KEY }}
+          PUBLIC_ONE_SIGNAL_APP_ID: ${{ secrets.PUBLIC_ONE_SIGNAL_APP_ID }}
+          PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID: ${{ secrets.PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID }}
       - name: setup pages
         uses: actions/configure-pages@v3
       - name: upload artifact

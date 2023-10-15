@@ -1,16 +1,10 @@
 import { component$ } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
 import { useTranslate } from "qwik-speak";
 import { token } from "~/styled-system/tokens/index.mjs";
 
 export interface OneSignalProps {}
 
 export const OneSignal = component$<OneSignalProps>(() => {
-  const l = useLocation();
-  const debug = l.url.searchParams.get("debug") === "1";
-  if (!debug) {
-    return <></>;
-  }
   const appId = import.meta.env.PUBLIC_ONE_SIGNAL_APP_ID;
   const safariWebId = import.meta.env.PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID;
   const t = useTranslate();

@@ -3,7 +3,7 @@ import { type RequestHandler } from "@builder.io/qwik-city";
 import { css } from "~/styled-system/css";
 import { hstack } from "~/styled-system/patterns";
 import ImgFavicon from "~/media/favicon.svg?jsx";
-import { MdiAmazon, MdiGithub, MdiTwitter } from "~/components/icon/icon";
+import { MdiGithub, MdiRss, MdiTwitter } from "~/components/icon/icon";
 import { ChangeLocale } from "~/components/change-locale/change-locale";
 import { useTranslate } from "qwik-speak";
 import { Link } from "~/components/link/link";
@@ -80,15 +80,11 @@ export default component$(() => {
                 class={css({ width: "icon.main", height: "icon.main" })}
               />
             </a>
-            <a
-              href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
-              target="_brank"
-              aria-label="amazon"
-            >
-              <MdiAmazon
+            <Link href="/feed.xml" target="_blank">
+              <MdiRss
                 class={css({ width: "icon.main", height: "icon.main" })}
-              ></MdiAmazon>
-            </a>
+              ></MdiRss>
+            </Link>
           </nav>
         </div>
       </header>

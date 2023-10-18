@@ -22,6 +22,8 @@ import { type DocumentHeadProps } from "@builder.io/qwik-city";
 import { config } from "./speak-config";
 import { asyncMap } from "./util";
 import fs from "fs";
+import { Builder } from "xml2js";
+import { type PostSummary } from "./models";
 
 /**
  * Determine the base URL to use for loading the chunks in the browser.
@@ -82,6 +84,8 @@ const generateBlogJaFrontMatter = async () => {
       return dateB - dateA;
     });
   fs.writeFileSync("./src/routes/(ja)/blog/index.json", JSON.stringify(posts));
+  const rssContent = generateRSSFeed(posts, "ja-JP");
+  fs.writeFileSync("./public/feed.xml", rssContent);
 };
 
 const generateBlogEnFrontMatter = async () => {
@@ -114,4 +118,32 @@ const generateBlogEnFrontMatter = async () => {
       return dateB - dateA;
     });
   fs.writeFileSync("./src/routes/en-US/blog/index.json", JSON.stringify(posts));
+  const rssContent = generateRSSFeed(posts, "en-US");
+  fs.writeFileSync("./public/en-US/feed.xml", rssContent);
+};
+
+const generateRSSFeed = (posts: PostSummary[], locale: "ja-JP" | "en-US") => {
+  const builder = new Builder();
+  const urlPrefix = locale === "ja-JP" ? "" : "/en-US";
+  const xml = builder.buildObject({
+    rss: {
+      $: {
+        version: "2.0",
+      },
+      channel: {
+        title: "silverbirder",
+        link: `https://silverbirder.github.io${urlPrefix}/blog/`,
+        description: "silverbirder's blog",
+        language: locale,
+        item: posts.map((post) => ({
+          title: post.title,
+          link: `https://silverbirder.github.io${urlPrefix}${post.permalink}`,
+          description: post.description,
+          pubDate: new Date(post.date).toUTCString(),
+          category: post.tags,
+        })),
+      },
+    },
+  });
+  return xml;
 };

@@ -4,13 +4,14 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
-import { QwikSpeakProvider } from "qwik-speak";
+import { QwikSpeakProvider, Speak } from "qwik-speak";
 import { config } from "./speak-config";
 import { translationFn } from "./speak-functions";
 import { RouterHead } from "./components/router-head/router-head";
 import { QwikPartytown } from "./components/partytown/partytown";
 import { OpenReplay } from "./components/open-replay/open-replay";
 import "~/global.css";
+import { OneSignal } from "./components/one-signal/one-signal";
 
 export default component$(() => {
   return (
@@ -47,6 +48,9 @@ export default component$(() => {
           />
           <link rel="manifest" href="/manifest.json" />
           <OpenReplay />
+          <Speak assets={["notification"]}>
+            <OneSignal />
+          </Speak>
           <RouterHead />
         </head>
         <body lang="ja">

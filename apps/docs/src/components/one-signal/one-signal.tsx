@@ -10,7 +10,6 @@ export const OneSignal = component$<OneSignalProps>(() => {
   const t = useTranslate();
   return (
     <>
-      <div class="onesignal-customlink-container"></div>
       <script
         src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
         defer

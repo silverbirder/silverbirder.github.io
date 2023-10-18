@@ -47,6 +47,18 @@ export default component$(() => {
             href="/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="silverbirder's blog (Japanese)"
+            href="/feed.xml"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="silverbirder's blog (English)"
+            href="/en-US/feed.xml"
+          />
           <OpenReplay />
           <Speak assets={["notification"]}>
             <OneSignal />

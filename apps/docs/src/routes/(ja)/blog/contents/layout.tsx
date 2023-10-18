@@ -45,6 +45,7 @@ export const head: DocumentHead = ({ head }) => {
       {
         property: "og:image",
         content:
+          head.frontmatter.socialMediaImage ||
           "https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png",
       },
       { property: "og:description", content: description },

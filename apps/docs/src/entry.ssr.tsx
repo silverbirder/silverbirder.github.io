@@ -70,6 +70,7 @@ const generateBlogJaFrontMatter = async () => {
         tags: data.head.frontmatter.tags,
         published: data.head.frontmatter.published,
         lang: data.head.frontmatter.lang,
+        socialMediaImage: data.head.frontmatter.socialMediaImage,
       };
     })
   )
@@ -101,6 +102,7 @@ const generateBlogEnFrontMatter = async () => {
         tags: data.head.frontmatter.tags,
         published: data.head.frontmatter.published,
         lang: data.head.frontmatter.lang,
+        socialMediaImage: data.head.frontmatter.socialMediaImage,
       };
     })
   )

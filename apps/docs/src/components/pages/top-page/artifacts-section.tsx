@@ -8,8 +8,8 @@ export const ArtifactsSection = component$(() => {
   const t = useTranslate();
   return (
     <section>
-      <h3>{t("top.artifacts")}</h3>
-      <h4>{t("top.main")}</h4>
+      <h2>{t("top.artifacts")}</h2>
+      <h3>{t("top.main")}</h3>
       <div
         class={css({
           display: "grid",
@@ -102,7 +102,7 @@ export const ArtifactsSection = component$(() => {
           </a>
         </div>
       </div>
-      <h4>{t("top.others")}</h4>
+      <h3>{t("top.others")}</h3>
       <ul>
         <li>
           <a

@@ -22,7 +22,7 @@ export const PreferencesSection = component$(() => {
   const t = useTranslate();
   return (
     <section>
-      <h3>{t("top.preferences")}</h3>
+      <h2>{t("top.preferences")}</h2>
       <div
         class={css({
           display: "flex",

@@ -55,7 +55,7 @@ export const WorkExperiencesSection = component$(() => {
   const t = useTranslate();
   return (
     <section>
-      <h3>{t("top.background")}</h3>
+      <h2>{t("top.background")}</h2>
       <div
         class={css({
           display: "flex",
@@ -505,7 +505,7 @@ const WorkExperience = component$(
           borderRadius: 8,
         })}
       >
-        <h4>{props.industry}</h4>
+        <h3>{props.industry}</h3>
         <div
           class={css({
             display: "flex",

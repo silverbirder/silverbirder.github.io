@@ -28,7 +28,7 @@ export const BlogContentsLayout = component$(() => {
   return (
     <article>
       <section>
-        <h1>{head.title}</h1>
+        <h2>{head.title}</h2>
         <div
           class={css({
             display: "flex",
@@ -71,7 +71,7 @@ export const BlogContentsLayout = component$(() => {
             </p>
           </div>
         </div>
-        <h2>{t("blog.share@@シェアしよう")}</h2>
+        <h3>{t("blog.share@@シェアしよう")}</h3>
         <div
           class={css({
             display: "flex",
@@ -183,7 +183,7 @@ export const BlogContentsLayout = component$(() => {
         <div class="onesignal-customlink-container"></div>
       </section>
       <section>
-        <h2>{t("blog.relatedTag@@関連するタグ")}</h2>
+        <h3>{t("blog.relatedTag@@関連するタグ")}</h3>
         <RelatedTags currentTags={tags} currentTitle={head.title} />
       </section>
       <section>

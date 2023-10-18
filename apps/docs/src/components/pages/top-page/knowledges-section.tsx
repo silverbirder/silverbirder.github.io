@@ -134,7 +134,7 @@ export const KnowledgesSection = component$(() => {
   const t = useTranslate();
   return (
     <section>
-      <h3>{t("top.knowledges")}</h3>
+      <h2>{t("top.knowledges")}</h2>
       <div
         class={css({
           display: "flex",
@@ -978,7 +978,7 @@ const Knowledge = component$((props: { name: string }) => {
         },
       })}
     >
-      <h4>{props.name}</h4>
+      <h3>{props.name}</h3>
       <div
         class={css({
           display: "flex",

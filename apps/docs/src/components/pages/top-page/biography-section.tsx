@@ -5,7 +5,7 @@ export const BiographySection = component$(() => {
   const t = useTranslate();
   return (
     <section>
-      <h3>{t("top.biography")}</h3>
+      <h2>{t("top.biography")}</h2>
       <div>{t("top.biographyMessage")}</div>
     </section>
   );

@@ -28,7 +28,7 @@ export const BlogContentsLayout = component$(() => {
   return (
     <article>
       <section>
-        <h2>{head.title}</h2>
+        <h1>{head.title}</h1>
         <div
           class={css({
             display: "flex",

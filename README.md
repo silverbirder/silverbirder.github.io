@@ -55,3 +55,6 @@
 - [x] **icones.js** 📌🌈
   - Library of versatile icons.
   - [🔗 icones.js](https://icones.js.org)
+- [x] **lottiefiles** 🎬📁
+  - Library of animations.
+  - [🔗 lottiefiles](https://lottiefiles.com/)

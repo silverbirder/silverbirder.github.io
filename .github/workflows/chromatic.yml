@@ -1,0 +1,25 @@
+name: "Chromatic"
+
+on: push
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install pnpm
+        run: npm i pnpm@8.6.2 -g
+      - name: install dependencies
+        run: pnpm install
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: apps/docs

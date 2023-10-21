@@ -24,6 +24,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "prebuild.pandacss": "panda codegen --silent",
+    "prepare": "panda codegen",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "storybook": "storybook dev -p 6006",

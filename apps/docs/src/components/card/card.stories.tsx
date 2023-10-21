@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "storybook-framework-qwik";
 import { Card, type CardProps } from "./card";
-import { css } from "~/styled-system/css";
+import { css } from "../../styled-system/css";
 
 const meta: Meta<CardProps> = {
   component: Card,

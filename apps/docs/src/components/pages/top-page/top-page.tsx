@@ -6,7 +6,7 @@ import { PreferencesSection } from "./preferences-section";
 import { ArtifactsSection } from "./artifacts-section";
 import { KnowledgesSection } from "./knowledges-section";
 import { WorkExperiencesSection } from "./work-experiences-section";
-import { useSpeakConfig, useSpeakLocale, useTranslate } from "qwik-speak";
+import { useSpeakLocale, useTranslate } from "qwik-speak";
 
 export interface TopPageProps {}
 

@@ -6,12 +6,13 @@ import { PreferencesSection } from "./preferences-section";
 import { ArtifactsSection } from "./artifacts-section";
 import { KnowledgesSection } from "./knowledges-section";
 import { WorkExperiencesSection } from "./work-experiences-section";
-import { useTranslate } from "qwik-speak";
+import { useSpeakConfig, useSpeakLocale, useTranslate } from "qwik-speak";
 
 export interface TopPageProps {}
 
 export const TopPage = component$<TopPageProps>(() => {
   const t = useTranslate();
+  const sl = useSpeakLocale();
   return (
     <div
       class={css({
@@ -63,7 +64,11 @@ export const TopPage = component$<TopPageProps>(() => {
           })}
         >
           <a
-            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vR87UtY887Tx1R_Y4eVSwMq-12YCD2iHgtxAIz5D88PYZdrIZXZhLRuTeFcLgYs2xWrxJaCJyhGRzAr/pubhtml"
+            href={
+              sl.lang === "ja-JP"
+                ? "https://docs.google.com/spreadsheets/d/e/2PACX-1vR87UtY887Tx1R_Y4eVSwMq-12YCD2iHgtxAIz5D88PYZdrIZXZhLRuTeFcLgYs2xWrxJaCJyhGRzAr/pubhtml"
+                : "https://docs-google-com.translate.goog/spreadsheets/d/e/2PACX-1vR87UtY887Tx1R_Y4eVSwMq-12YCD2iHgtxAIz5D88PYZdrIZXZhLRuTeFcLgYs2xWrxJaCJyhGRzAr/pubhtml?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=ja&_x_tr_pto=wapp"
+            }
             target="_blank"
             class={css({
               display: "block",

@@ -3,81 +3,107 @@ title: Qwikでブログページを刷新して学んだこと
 published: true
 lang: "ja-JP"
 date: 2023-10-23
-description: こんにちは。[@silverbirder](https://x.com/silverbirder)です。私は、自身のポートフォリオページ兼ブログページを Qwik というフレームワークを使って刷新しました。これで 4 度目の刷新になります。刷新を通して学んだことを書こうと思います。
+description: こんにちは。@silverbirderです。私は、自身のポートフォリオページ兼ブログページを Qwik というフレームワークを使って刷新しました。これで 4 度目の刷新になります。刷新を通して学んだことを書こうと思います。
 tags: ["Portfolio", "Artifact", "Qwik"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
 こんにちは。[@silverbirder](https://x.com/silverbirder)です。
-最近、私のポートフォリオページとブログページを Qwik フレームワークでリニューアルしました。これで、全体のリニューアルは 4 回目になります。この記事では、その過程で得た学びや経験を共有します。
+最近、私のポートフォリオページとブログページを Qwik フレームワークでリニューアルしました。
+これで、私のブログページのリニューアルは 4 回目になります。この記事では、その過程で得た学びや経験を共有します。
 
-ちなみに、これまでのリニューアルに関する記事は、`Portfolio`タグで検索してみてください。また、GitHub のリリースタグも利用していますので、以下のリンクから過去のソースコードを参照できます。
+ちなみに、これまでのリニューアルに関する記事は、`Portfolio`タグで検索してみてください。
+また、GitHub のリリースタグも利用していますので、以下のリンクから過去のソースコードを参照できます。
 
 [https://github.com/silverbirder/silverbirder.github.io/tags](https://github.com/silverbirder/silverbirder.github.io/tags)
 
+また、ソースコードは公開しているので、よければ参考にしてみてください。
+
+https://github.com/silverbirder/silverbirder.github.io
+
 ## なぜ刷新したのか
 
-刷新の動機は主に好奇心です。それに続いて、自分の技術的知見を広げるためでもあります。過去には静的サイトジェネレータの Hugo や Google の AMP、Rocket などを試してきました。それぞれの技術には当時の流行や興味を反映していました。今回も、現在のトレンドや興味を持っている技術を中心に選択しました。
+刷新の動機は主に好奇心です。
+それに続いて、自分の技術的知見を広げるためでもあります。
+過去には静的サイトジェネレータの Hugo や Google が推奨する AMP、WebComponents を活用できる Rocket などを試してきました。
+それぞれの技術には当時の流行や興味を反映していました。今回も、現在のトレンドや興味を持っている技術を中心に選択しました。
 
 ## Qwik フレームワークの選択
 
-Qwik はパフォーマンスを重視したフレームワークですが、私がそれを選んだ主な理由は Markdown のサポートが充実しているからです。さらに、`State of JS`での高い評価や、React に近い構文も魅力的でした。ブログの Markdown にはタグ情報をメタデータとして持っていたので、それを活用したいと考えました。そんな中、[https://github.com/doganozturk/blog-qwik](https://github.com/doganozturk/blog-qwik) というリポジトリを発見しました。これを参考にブログページの構築を開始しました。
+Qwik はパフォーマンスを重視したフレームワークですが、そこはあまり重要視していませんでした。
+私がそれを選んだ主な理由は 以下の点です。
+
+- Markdown のサポート
+  - ブログを書くのに Markdown が使うため
+- `State of JS`での高い評価
+  - 評価が高いからこそ、学ぶ価値があると思った
+- React に近い構文
+  - 学習コストを下げたかった
+
+ブログの Markdown の Frontmatter にタグ情報を記入していたので、それを活用したいと考えました。
+そんな中、[doganozturk/blog-qwik - GitHub](https://github.com/doganozturk/blog-qwik) というリポジトリを発見しました。
+そこから、`import.meta.glob` という構文を知り(Vite の機能)、Frontmatter を抽出する方法を発見しました。
+これを参考にブログページの構築を開始しました。
 
 ## 機能実装したこと
 
-実際にブログで実装した機能は、[https://github.com/silverbirder/silverbirder.github.io](https://github.com/silverbirder/silverbirder.github.io) の README に詳しく記載しています。主な機能や導入技術を以下に列挙します。
+実際にブログで実装した機能は、[silverbirder/silverbirder.github.io - GitHub](https://github.com/silverbirder/silverbirder.github.io) の README に詳しく記載しています。
+主な機能や導入技術を以下に列挙します。
 
-- [x] **@unpic/qwik** 🚀📸
-- [x] **Partytown** 🥳🌐
-- [x] **PandaCSS** 🐼💃
-- [x] **Playwright & Vitest** 🎭🔬
-- [x] **Qwik** ⚡🕸️
-- [x] **qwik-speack** 🌏🔊
-- [x] **Storybook** 📓🌟
-- [x] **Buy me a coffee** ☕💖
-- [x] **Chromatic** 🌈📊
-- [x] **Cloudinary** 🌌🖼️
-- [x] **giscus** 🐦🗨️
-- [x] **Google Analytics** 🕵️‍♂️📈
-- [x] **icones.js** 📌🌈
-- [x] **lottiefiles** 🎬📁
-- [x] **OpenAI** 🧠🌐
-- [x] **OpenReplay** 🎥🔄
-- [x] **OneSignal** 📡💌
+- **@unpic/qwik** 🚀📸
+- **Partytown** 🥳🌐
+- **PandaCSS** 🐼💃
+- **Playwright & Vitest** 🎭🔬
+- **Qwik** ⚡🕸️
+- **qwik-speack** 🌏🔊
+- **Storybook** 📓🌟
+- **Buy me a coffee** ☕💖
+- **Chromatic** 🌈📊
+- **Cloudinary** 🌌🖼️
+- **giscus** 🐦🗨️
+- **Google Analytics** 🕵️‍♂️📈
+- **icones.js** 📌🌈
+- **lottiefiles** 🎬📁
+- **OpenAI** 🧠🌐
+- **OpenReplay** 🎥🔄
+- **OneSignal** 📡💌
 
-国際化対応やタグに基づく記事のフィルタリングなどの機能も追加しました。
+また、Frontmatter を抽出し JSON 化し、それを使ってブログページを構築しています。(RSS フィードも同様)
 
 ## 学んだこと
 
-Qwik を使用することで、フレームワーク自体だけでなく、関連する技術やツールにも触れることができました。
+元々は、Qwik というフレームワークのコンセプトを知り学びを深めようと考えていました。
+しかし、Qwik でブログ構築する過程で、フレームワーク自体ではなく、関連する技術やツールに興味関心が移りました。
+私の知る範囲でキャッチアップするよりも、こういった伸び代ある技術を学ぼうすることで、知らない技術を知る良い機会となりました。
+以下は、その中で学んだことです。
 
 ### PandaCSS
 
-例えば、PandaCSS というものがありました。私は、これまで Bootstrap や materialUI のような CSS フレームワークを
-使うことが多かったのです。
-けど、最近業務でランディングページの開発をする経験から、CSS を書いてみたくなりました。
-そこで、PandaCSS を使って、自分で CSS を書いていきました。
+PandaCSS というスタイルエンジンを知りました。
+私は、これまで Bootstrap や materialUI のような CSS フレームワークを使うことが多かったのです。
+しかし、最近業務でランディングページの開発をする経験から、CSS を書いてみたくなりました。
+そこで、PandaCSS を使って、自分で CSS を書いてみたいなと思うようになりました。
 
-もっと、こうすべきだという手段もあるのですが、まずは使ってみることです。
-次に、テキストやスペーシング、カラーなどを定義していき、それらを使い回すようにやろうと思いました。
-最初から、primary や secondary、テキストのよく使うもの、スペーシング、レイアウト、などもそうです。
-これらを PandaCSS で定義し、使っていきたいなと思ってます。
+global-css を初めて書いてみましたし、font-size や font-weight などのをタイポグラフィ定義して使いまわしたり、
+その他にはカラーを primary という表現でセマンティック token に定義して使いまわしたりしました。(できていないけど)
+
+もっと改善したいポイントは山ほどありますが、こういった再利用性の高い CSS を書けるのは良いなと思いました。
+CSS-in-JS の記法が使えつつ、CSS ファイルを生成できていて、便利だなと思いました。
 
 ### 多言語対応
 
-多言語対応も、初めてチャレンジしました。といってもなんちゃってです。
-多言語対応する場合、Markdown の日本語記事とトップページなどにある日本語の文言をどうしたら良いかとなりました。
+多言語対応、初めてチャレンジしました。といってもなんちゃってです。
+多言語対応する場合、Markdown の日本語記事やコンポーネントに含まれる日本語をどうしたら良いかとなりました。
 
-本来の運用としては、日本語の記事を Push した後、英語に詳しい人が翻訳するのが大筋かなと思います。
+本来の運用は、日本語を英語に詳しい人が翻訳するのが大筋かなと思います。
 Localization の SaaS を調べて、それを使うのもありかなと思いました。
-が、個人レベルなら、そこまでやる必要はないかなと思いました。
+しかし、個人レベルなら、そこまでやる必要はないかなと思いました。
 そこで、qwik-speack、chatgpt-md-translator の 2 つを使って翻訳しました。
 内部では、OpenAI の使っているようです。
 
-多言語対応をすると、Push 通知するときやリンクするコンテンツにも気を使うようになりました。
-実際に業務として使うならば、最初の段階からあると良いかもなぁと思います。
-もちろん、後から埋めることも可能だと思います。
+多言語対応をすると、WebPushする通知コンテンツやリンクコンテンツにも気を使うようになりました。
+実際に業務として使うならば、最初の段階からあると良いかもなぁと思います。(仕組みだけでもあると良い)
 
 ### SaaS の利用
 
@@ -85,7 +111,7 @@ Localization の SaaS を調べて、それを使うのもありかなと思い�
 
 #### OpenReplay
 
-例えば、OpenReplay というものを導入しました。
+OpenReplay というものを導入しました。
 これは、ユーザーの行動を監視するものです。
 実際の運用としては、トラブルシュートや UX 改善などに使えそうなものに思いました。
 
@@ -93,7 +119,7 @@ Localization の SaaS を調べて、それを使うのもありかなと思い�
 
 #### OneSignal
 
-次に、Push 通知もやってみたいと思いました。
+Push 通知もやってみたいと思いました。
 しかし、Push 通知するサーバー側の用意が必要と思うのですが、それを掛けるコストはなくしたいと思い、
 よく知られている OneSignal というものを入れてみました。
 
@@ -108,11 +134,6 @@ Qwik を選ぶ前、何を使うか調べていたときに `Material for MkDocs
 
 ブログへのコメントをもらう機能も、楽に入れられたので良いなぁと思いました。
 
-#### その他
-
-その他には、Buy me a coffee なんてものを入れてみたり、
-lottie という軽量アニメーションを入れてみたり、知らないことを多く知る機会となりました。
-
 ## 途中で諦めたもの
 
 ### Changesets
@@ -121,7 +142,7 @@ lottie という軽量アニメーションを入れてみたり、知らない�
 
 ### Turborepo
 
-`turborepo`での monorepo 構成も夢見ていましたが、挫折しました。考えていた構成は以下の通りです：
+`turborepo`での monorepo 構成も夢見ていましたが、挫折しました。考えていた構成は以下の通りです。
 
 - apps/docs
 - packages/ui

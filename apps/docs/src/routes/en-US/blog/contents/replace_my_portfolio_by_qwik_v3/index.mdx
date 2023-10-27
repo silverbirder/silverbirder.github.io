@@ -1,0 +1,171 @@
+---
+title: What I Learned from Refreshing My Blog Page with Qwik
+published: true
+lang: "en-US"
+date: 2023-10-23
+description: Hello, I'm @silverbirder. I've refreshed my portfolio and blog page using a framework called Qwik. This is the fourth time I've refreshed it. I thought I'd write about what I learned through the refresh.
+tags: ["Portfolio", "Artifact", "Qwik"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+Hello, I'm [@silverbirder](https://x.com/silverbirder).
+Recently, I've renewed my portfolio and blog pages using the Qwik framework.
+This is the fourth time I've renewed my blog page. In this article, I will share the knowledge and experiences I gained in the process.
+
+By the way, you can search for articles about previous renewals with the `Portfolio` tag.
+I also use GitHub's release tags, so you can refer to the past source code from the link below.
+
+[https://github.com/silverbirder/silverbirder.github.io/tags](https://github.com/silverbirder/silverbirder.github.io/tags)
+
+Also, the source code is public, so feel free to refer to it.
+
+https://github.com/silverbirder/silverbirder.github.io
+
+## Why I refreshed
+
+The main motivation for the refresh is curiosity.
+Following that, it's also to broaden my technical knowledge.
+In the past, I've tried static site generators like Hugo, AMP recommended by Google, and Rocket that can utilize WebComponents.
+Each technology reflected the trends and interests of the time. This time too, I chose mainly based on current trends and technologies I'm interested in.
+
+## Choosing the Qwik Framework
+
+Qwik is a performance-focused framework, but that wasn't very important to me.
+The main reasons I chose it are as follows:
+
+- Markdown support
+  - Because I use Markdown to write blogs
+- High evaluation in `State of JS`
+  - I thought it was worth learning because it was highly rated
+- Syntax close to React
+  - I wanted to reduce the learning cost
+
+I had been entering tag information in the Frontmatter of the blog's Markdown, so I wanted to utilize that.
+In the meantime, I found a repository called [doganozturk/blog-qwik - GitHub](https://github.com/doganozturk/blog-qwik).
+From there, I learned about the `import.meta.glob` syntax (a Vite feature) and found a way to extract Frontmatter.
+I started building the blog page based on this.
+
+## What I implemented
+
+The features I actually implemented in the blog are detailed in the README of [silverbirder/silverbirder.github.io - GitHub](https://github.com/silverbirder/silverbirder.github.io).
+I will list the main features and introduced technologies below.
+
+- **@unpic/qwik** 🚀📸
+- **Partytown** 🥳🌐
+- **PandaCSS** 🐼💃
+- **Playwright & Vitest** 🎭🔬
+- **Qwik** ⚡🕸️
+- **qwik-speack** 🌏🔊
+- **Storybook** 📓🌟
+- **Buy me a coffee** ☕💖
+- **Chromatic** 🌈📊
+- **Cloudinary** 🌌🖼️
+- **giscus** 🐦🗨️
+- **Google Analytics** 🕵️‍♂️📈
+- **icones.js** 📌🌈
+- **lottiefiles** 🎬📁
+- **OpenAI** 🧠🌐
+- **OpenReplay** 🎥🔄
+- **OneSignal** 📡💌
+
+Also, I extract the Frontmatter from Markdown and convert it to JSON, which I use to build blog pages. (The same applies to RSS feeds)
+
+## What I Learned
+
+Originally, I wanted to deepen my understanding of the concept of a framework called Qwik.
+However, in the process of building a blog with Qwik, my interest shifted from the framework itself to related technologies and tools.
+Rather than catching up with what I know, trying to learn such promising technologies provided a good opportunity to learn about unknown technologies.
+Here are some things I learned.
+
+### PandaCSS
+
+I learned about a style engine called PandaCSS.
+I've often used CSS frameworks like Bootstrap and materialUI.
+However, from my recent experience developing landing pages at work, I wanted to try writing CSS.
+So, I wanted to try writing CSS myself using PandaCSS.
+
+I wrote global-css for the first time, and defined typography such as font-size and font-weight to reuse,
+and also defined colors as semantic tokens with expressions like primary to reuse. (though not yet done)
+
+There are many points I want to improve, but I thought it was good to be able to write such reusable CSS.
+I thought it was convenient to be able to use CSS-in-JS notation and generate CSS files.
+
+### Multilingual Support
+
+I tried multilingual support for the first time. It's just a trial though.
+When supporting multiple languages, I wondered what to do with the Japanese in the Markdown Japanese articles and components.
+
+The main operation would be to have someone proficient in English translate the Japanese.
+I thought it might be possible to use a localization SaaS that I researched.
+However, I thought that at the individual level, there was no need to go that far.
+So, I used two tools, qwik-speack and chatgpt-md-translator, for translation.
+It seems to use OpenAI internally.
+
+When supporting multiple languages, I became more careful about the content of WebPush notifications and link content.
+I thought it would be good to have it from the beginning if it is actually used in business. (Even just the system would be good)
+
+### Use of SaaS
+
+This time, I tried using various SaaS.
+
+#### OpenReplay
+
+I introduced something called OpenReplay.
+This is a tool to monitor user behavior.
+In actual operation, I thought it could be used for troubleshooting and UX improvement.
+
+I put this on the blog page, so I could see where the mouse is on which page, and it made me think about link placement and flow.
+
+#### OneSignal
+
+I also wanted to try push notifications.
+However, I thought it was necessary to prepare the server side for push notifications, but I wanted to eliminate the cost of doing that,
+so I tried using a well-known tool called OneSignal.
+
+When sending notifications, the language selection and best practices for receiving notifications were written in OneSignal, which was educational.
+
+https://documentation.onesignal.com/docs/permission-requests#what-are-some-best-practices-around-web-push-prompting
+
+#### Giscus
+
+Before choosing Qwik, when I was researching what to use, I found something called `Material for MkDocs`,
+and in it, I found something called giscus.
+
+I thought it was nice to be able to easily add a feature to receive comments on the blog.
+
+## Things I Gave Up On The Way
+
+### Changesets
+
+I tried to manage versions using `changesets`, but I gave up halfway.
+
+### Turborepo
+
+I dreamed of a monorepo structure with `turborepo`, but I gave up. The structure I had in mind is as follows.
+
+- apps/docs
+- packages/ui
+- packages/blog-contents
+- packages/translate
+
+However, it was difficult to combine PandaCSS and Qwik's UI library well, and I couldn't realize it.
+
+### Fuse.js
+
+I considered implementing a search function for the blog, but I gave up because it was troublesome to implement it myself.
+
+## Future Prospects
+
+For example, I thought I would like to create a function that supports dark mode or allows changing the theme color.
+Also, I'm thinking of trying cucumber using Playwright.
+As for the design, I did it from scratch with CSS for the first time, so I want to become stronger in design.
+In addition, vercel has announced something called v0, so it seems good to try this.
+Also, although I introduced turbo as a monorepo, I haven't fully utilized it, so I want to try speeding up CI by caching.
+I also want to try using bun to see if it speeds up.
+
+## In conclusion
+
+Through this renewal, I was able to come into contact with many new technologies and tools.
+Each technology has its own charm and learning, and it was a very fulfilling experience.
+I would like to continue pursuing new technologies and ideas in the future.

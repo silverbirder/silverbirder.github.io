@@ -1,6 +1,6 @@
 import { Task } from "../Task";
 import { Actor } from "../Actor";
-import { ClickOn } from "../interactions/ClickOn";
+import { NavigateTo } from "../interactions/NavigateTo";
 
 export class VisitWebsite implements Task {
   constructor(private url: string) {}
@@ -10,6 +10,6 @@ export class VisitWebsite implements Task {
   }
 
   async performAs(actor: Actor): Promise<void> {
-    actor.attemptsTo(ClickOn.selector(""));
+    actor.attemptsTo(NavigateTo.url(this.url));
   }
 }

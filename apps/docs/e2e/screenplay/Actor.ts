@@ -23,7 +23,7 @@ export class Actor {
     return Promise.all(tasks.map((task) => task.performAs(this)));
   }
 
-  ask<T>(question: Question<T>): Promise<T> {
-    return question.answeredBy(this);
+  async ask<T>(question: Question<T>): Promise<T> {
+    return await question.answeredBy(this);
   }
 }

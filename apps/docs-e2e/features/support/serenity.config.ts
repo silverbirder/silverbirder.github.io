@@ -40,7 +40,7 @@ BeforeAll(async () => {
   configure({
     // Configure Serenity/JS actors to use Playwright browser
     actors: new Actors(browser, {
-      baseURL: process.env.BASE_URL || "http://localhost:5173",
+      baseURL: process.env.BASE_URL || "http://localhost:5173", // the URL of the website under test
       defaultNavigationTimeout:
         timeouts.playwright.defaultNavigationTimeout.inMilliseconds(),
       defaultTimeout: timeouts.playwright.defaultTimeout.inMilliseconds(),

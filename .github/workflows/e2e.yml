@@ -1,0 +1,30 @@
+name: Playwright Tests
+
+on:
+  deployment_status:
+jobs:
+  run-e2es:
+    defaults:
+      run:
+        shell: bash
+        working-directory: ["apps/docs-e2e"]
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v3
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install pnpm
+        run: npm i pnpm@8.6.2 -g
+      - uses: actions/checkout@v4
+      - run: pnpm install
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+      - run: pnpm lint
+      - run: pnpm test
+        env:
+          CI: true
+          BASE_URL: ${{ github.event.deployment_status.environment_url }}

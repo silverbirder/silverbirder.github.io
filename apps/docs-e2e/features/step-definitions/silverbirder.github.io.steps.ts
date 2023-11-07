@@ -29,7 +29,7 @@ export const VerifyEnglishPage = Task.where(
 Given(
   "{actor} goes to the silverbirder.github.io website",
   async (actor: Actor) =>
-    actor.attemptsTo(GoToWebsite.called("http://localhost:5173/"))
+    actor.attemptsTo(GoToWebsite.called("/"))
 );
 
 When("{actor} changes the language to English", async (actor: Actor) =>

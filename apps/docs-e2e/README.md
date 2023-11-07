@@ -1,111 +1,91 @@
-# cucumber-playwright
+# Serenity/JS Cucumber Playwright Template
 
-![Test](https://github.com/Tallyb/cucumber-playwright/workflows/Test/badge.svg)
+[![Build Status](https://github.com/serenity-js/serenity-js-cucumber-playwright-template/workflows/build/badge.svg)](https://github.com/serenity-js/serenity-js-cucumber-playwright-template/actions)
+[![Serenity/JS on GitHub](https://img.shields.io/badge/github-serenity--js-yellow?logo=github)](https://github.com/serenity-js/serenity-js)
+[![Serenity/JS on StackOverflow](https://img.shields.io/badge/stackoverflow-serenity--js-important?logo=stackoverflow)](https://stackoverflow.com/questions/tagged/serenity-js)
+[![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/from-referrer/)
 
-A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript.
+[![Follow Serenity/JS on LinkedIn](https://img.shields.io/badge/Follow-Serenity%2FJS%20-0077B5?logo=linkedin)](https://www.linkedin.com/company/serenity-js)
+[![Watch Serenity/JS on YouTube](https://img.shields.io/badge/Watch-@serenity--js-E62117?logo=youtube)](https://www.youtube.com/@serenity-js)
+[![Join Serenity/JS Community Chat](https://img.shields.io/badge/Chat-Serenity%2FJS%20Community-FBD30B?logo=matrix)](https://matrix.to/#/#serenity-js:gitter.im)
+[![Support Serenity/JS on GitHub](https://img.shields.io/badge/Support-@serenity--js-703EC8?logo=github)](https://github.com/sponsors/serenity-js)
 
-## The Why
-[Read](https://tally-b.medium.com/e2e-testing-with-cucumber-and-playwright-9584d3ef3360) or [watch](https://www.youtube.com/watch?v=PUVFmhYJNJA&list=PLwwCtx3xQxlVMZzS4oi2TafVRngQ1wF_0&index=2). 
+Use this [template repository](https://help.github.com/en/articles/creating-a-repository-from-a-template)
+to get started with acceptance testing your web applications using [Serenity/JS](https://serenity-js.org),
+[Cucumber](https://github.com/cucumber/cucumber-js) and [Playwright](https://playwright.dev/).
 
-## Can we use XXX from playwright in the playwright-cucumber project? 
-
-The playwright-cucumber project started when playwright was a browser automation library. It did not have a test runner, hence cucumber-js was used as the test runner and PW used for the automation.
-Since then PW added their amazing PW test library which is a test runner. But, sadly, it overlaps the functionality provided by cucumber-js. Therefore you need to make the decision now of which runner you want to run: cucumber for BDD style tests or PW test for “normal” tests. 
-Some of the features provided by PW test are also available in cucumber-js, such as parallel run and different configurations (profiles in cucumber-js terms), but may require a different configuration. 
-
-## Kudos
-
-This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/) repo.
-
-## What's inside
-
-- Typescript setup for writing steps with eslint/typescript and prettier
-- Launching of Playwright browser before running all tests
-- Launching new context and page for each scenario
-- Running feature with video recording option
-- Report generated with last good image attached
-- Allure reports
-- Utilies function to help you with writing steps
-- VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
+Learn more:
+- [Serenity BDD reports for this project](https://serenity-js.github.io/serenity-js-cucumber-playwright-template/)
+- [Serenity/JS website, tutorials, and API docs](https://serenity-js.org/)
 
 ## Usage
 
-Create a repo based on this template and start writing your tests.
+This repository is a GitHub template. You can use it to [create a new GitHub repository](https://help.github.com/en/articles/creating-a-repository-from-a-template), [clone it to your computer](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
-## To run your tests
+You can also launch it in a virtual Gitpod workspace without having to install anything on your machine:
 
-`npm run test` or `npx cucumber-js` runs all tests
-`npm run test <feature name>` or `npx cucumber-js <feature name>` run the single feature
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
-## Browser selection
+### Installation
 
-By default we will use chromium. You can define an envrionment variable called BROWSER and
-set the name of the browser. Available options: chromium, firefox, webkit
-
-On Linux and Mac you can write:
-
-`BROWSER=firefox npm run test` or `BROWSER=firefox npx cucumber-js` runs all tests using Firefox
-
-One Windows you need to write
-
+Once you have the code on your computer, use your computer terminal to run the following command in the directory where you've cloned the project:
 ```
-set BROWSER=firefox
-npm run test
+npm ci
 ```
 
-## Working with Page Objects
+Running [`npm ci`](https://docs.npmjs.com/cli/v6/commands/npm-ci) downloads the [Node modules](https://docs.npmjs.com/about-packages-and-modules) this project depends on,
+as well the [Serenity BDD CLI](https://github.com/serenity-bdd/serenity-cli) reporter jar. 
 
-I am not fond of the Page Object Model (POM) for testing. It feels like a leftover from Java world, and I do not think it fits the Javascript world. However, you can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
+### Corporate networks
 
-## Debugging Features
+If your network administrators require you to use proxy servers or an internal artifact registry (Artifactory, Nexus, etc.), your development environment might require some additional configuration.
 
-### From CLI
+The easiest way to do it is to create an [`.npmrc` file](https://docs.npmjs.com/cli/v6/configuring-npm/npmrc) in your home directory: 
 
-- `npm run debug` - headful mode with APIs enables both APIs and debug options
-- `npm run api` - headless mode with debug apis
-- `npm run video` - headless mode vith video
-
-## In Visual Studio Code
-
-- Open the feature
-- Select the debug options in the VSCode debugger
-- Set breakpoints in the code
-
-To stop the feature, you can add the `Then debug` step inside your feature. It will stop your debugger.
-
-## To choose a reporter
-
-The last reporter/formatter found on the cucumber-js command-line wins:
-
-```text
---format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter
+```
+proxy=http://user:password@host.mycompany.com:8080/
+https-proxy=http://user:password@host.mycompany.com:8080/
+strict-ssl=false
+registry=https://artifactory.mycompany.com/artifactory/
 ```
 
-In [cucumber.mjs](cucumber.mjs) file, modify the options.
+If you encounter issues downloading the Serenity BDD CLI jar, please follow the [detailed instructions in the Serenity/JS Handbook](https://serenity-js.org/api/serenity-bdd/#downloading-the-serenity-bdd-reporting-cli).
 
+Similar instructions are available for the [`chromedriver` module](https://www.npmjs.com/package/chromedriver).
 
-To use Allure reporting, you can run with env param: `USE_ALLURE=1`, and then use the `npm run allure` to show the report.
+### Execution
 
-## To ignore a scenario
+The project provides several [NPM scripts](https://docs.npmjs.com/cli/v6/using-npm/scripts) defined in [`package.json`](package.json):
 
-- tag the scenario with `@ignore`
+```
+npm run lint            # runs code linter
+npm run lint:fix        # attempts to automatically fix linting issues
+npm run clean           # removes reports from any previous test run
+npm test                # executes the example test suite
+                        # and generates the report under ./target/site/serenity
+npm start               # starts a mini HTTP server and serves the test reports
+                        # at http://localhost:8080
+```
 
-## To check for typescript, linting and gherkin errors
+## Your feedback matters!
 
-- run the command `npm run build`.
+Do you find Serenity/JS useful? Give it a ⭐ star on GitHub!
 
-## To view the steps usage
+[![GitHub stars](https://img.shields.io/github/stars/serenity-js/serenity-js)](https://github.com/serenity-js/serenity-js)
 
-- run the command `npm run steps-usage`.
+Found a bug? Need a feature? Raise [an issue](https://github.com/serenity-js/serenity-js/issues?state=open)
+or submit a pull request.
 
-## To view the html report of the last run
+Have feedback? Let me know on [LinkedIn](https://www.linkedin.com/in/janmolak/) or leave a comment in [Serenity/JS discussions on GitHub](/serenity-js/serenity-js/discussions/categories/comments).
 
-- run the command `npm run report`.
+And if you have any questions about the framework, or simply want to say hello to other Serenity/JS developers, join us on [Serenity/JS Community Chat](https://matrix.to/#/#serenity-js:gitter.im).
 
-### At least in Lubuntu 20.04 to open the html report
+## Support Serenity/JS
 
-- Modify the `package.json` in `"report": "xdg-open reports/report.html"`
+Serenity/JS is a free open-source framework, so we rely on our [wonderful GitHub sponsors](https://github.com/sponsors/serenity-js) to keep the lights on.
 
-## To view allure report
-- run the command `npm run allure`.
+If you appreciate all the effort that goes into making sophisticated tools easy to work with, please support our work and [become a Serenity/JS GitHub Sponsor](https://github.com/sponsors/serenity-js) today!
 
+[![LinkedIn Follow](https://img.shields.io/badge/Follow%20Serenity%2FJS-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/serenity-js)
+[![YouTube Follow](https://img.shields.io/badge/Watch%20@serenity&#8212;JS-FA120F?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@serenity-js)
+[![GitHub Sponsors](https://img.shields.io/badge/Support%20@serenity%2FJS-703EC8?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/serenity-js)

@@ -27,8 +27,9 @@ jobs:
         env:
           CI: true
           BASE_URL: ${{ github.event.deployment_status.environment_url }}
-      - name: HTML Preview
-        id: html_preview
-        uses: pavi2410/html-preview-action@v2
+      - name: GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
-          html_file: "apps/docs-e2e/target/site/serenity/index.html"
+          BRANCH: gh-pages
+          FOLDER: apps/docs-e2e/target/site/serenity
+          CLEAN: true

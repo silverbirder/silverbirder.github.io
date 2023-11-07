@@ -28,6 +28,7 @@ jobs:
           CI: true
           BASE_URL: ${{ github.event.deployment_status.environment_url }}
       - name: Deploy to Netlify
+        if: always()
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './apps/docs-e2e/target/site/serenity'

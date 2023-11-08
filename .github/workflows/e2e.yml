@@ -1,11 +1,6 @@
 name: Playwright Tests
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - update-e2e # debug
+on: [pull_request]
 
 jobs:
   run-e2es:
@@ -25,6 +20,7 @@ jobs:
         run: npm i pnpm@8.6.2 -g
       - uses: actions/checkout@v4
       - run: pnpm install
+      - run: pnpm lint
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps
       - name: Waiting for 200 from the Netlify Preview

@@ -41,6 +41,7 @@ export const ChangeLocale = component$(() => {
             color: "white",
             backgroundColor: "text.link",
           })}
+          data-testid="ja"
         />
       ) : (
         <UilLetterJapaneseA
@@ -57,6 +58,7 @@ export const ChangeLocale = component$(() => {
             },
           })}
           onClick$={async () => await navigateByLocale$(ja)}
+          data-testid="ja"
         />
       )}
       {sl.lang === en.lang ? (
@@ -67,6 +69,7 @@ export const ChangeLocale = component$(() => {
             color: "white",
             backgroundColor: "text.link",
           })}
+          data-testid="en"
         />
       ) : (
         <UilLetterEnglishA
@@ -83,6 +86,7 @@ export const ChangeLocale = component$(() => {
             },
           })}
           onClick$={async () => await navigateByLocale$(en)}
+          data-testid="en"
         />
       )}
     </div>

@@ -1,0 +1,43 @@
+name: Playwright Tests
+
+on: [pull_request]
+
+jobs:
+  run-e2es:
+    defaults:
+      run:
+        shell: bash
+        working-directory: apps/docs-e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v3
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install pnpm
+        run: npm i pnpm@8.6.2 -g
+      - uses: actions/checkout@v4
+      - run: pnpm install
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+      - name: Waiting for 200 from the Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: "silverbirder-docs"
+      - run: pnpm test
+        env:
+          CI: true
+          BASE_URL: ${{ steps.wait-for-netflify-preview.outputs.url }}
+      - name: Deploy to Netlify
+        if: always()
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './apps/docs-e2e/target/site/serenity'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1

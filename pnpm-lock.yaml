@@ -19,7 +19,7 @@ importers:
         version: 0.8.0
       '@builder.io/qwik':
         specifier: ^1.2.7
-        version: 1.2.7(undici@5.22.1)
+        version: 1.2.7(undici@5.26.2)
       '@builder.io/qwik-city':
         specifier: ^1.2.7
         version: 1.2.7
@@ -108,8 +108,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       undici:
-        specifier: 5.22.1
-        version: 5.22.1
+        specifier: 5.26.2
+        version: 5.26.2
       vite:
         specifier: 4.4.9
         version: 4.4.9(@types/node@20.5.0)
@@ -402,7 +402,7 @@ packages:
       dset: 3.1.2
       is-docker: 3.0.0
       is-wsl: 2.2.0
-      undici: 5.22.1
+      undici: 5.26.2
       which-pm-runs: 1.1.0
     transitivePeerDependencies:
       - supports-color
@@ -418,7 +418,7 @@ packages:
       dset: 3.1.2
       is-docker: 3.0.0
       is-wsl: 3.0.0
-      undici: 5.24.0
+      undici: 5.26.2
       which-pm-runs: 1.1.0
     transitivePeerDependencies:
       - supports-color
@@ -427,7 +427,7 @@ packages:
   /@astrojs/webapi@2.2.0:
     resolution: {integrity: sha512-mHAOApWyjqSe5AQMOUD9rsZJqbMQqe3Wosb1a40JV6Okvyxj1G6GTlthwYadWCymq/lbgwh0PLiY8Fr4eFxtuQ==}
     dependencies:
-      undici: 5.22.1
+      undici: 5.26.2
     dev: true
 
   /@aw-web-design/x-default-browser@1.4.126:
@@ -1762,7 +1762,7 @@ packages:
       - supports-color
     dev: true
 
-  /@builder.io/qwik@1.2.7(undici@5.22.1):
+  /@builder.io/qwik@1.2.7(undici@5.26.2):
     resolution: {integrity: sha512-jTaJ/LaifUD7UvvSg1JGSySiUl/RxQaul/QrXVr+jbky+hpa6jk0HHQ9Hv21MptAqwU+EPKL81Wqfws4CsHkaQ==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     hasBin: true
@@ -1770,7 +1770,7 @@ packages:
       undici: ^5.14.0
     dependencies:
       csstype: 3.1.2
-      undici: 5.22.1
+      undici: 5.26.2
     dev: true
 
   /@builder.io/vite-plugin-macro@0.0.7(@types/node@20.5.0):
@@ -2634,6 +2634,11 @@ packages:
 
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
+    dev: true
+
+  /@fastify/busboy@2.0.0:
+    resolution: {integrity: sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==}
+    engines: {node: '>=14'}
     dev: true
 
   /@floating-ui/core@1.4.1:
@@ -5595,7 +5600,7 @@ packages:
     peerDependencies:
       '@builder.io/qwik': '*'
     dependencies:
-      '@builder.io/qwik': 1.2.7(undici@5.22.1)
+      '@builder.io/qwik': 1.2.7(undici@5.26.2)
     dev: true
 
   /@vitest/expect@0.33.0:
@@ -6688,7 +6693,7 @@ packages:
       string-width: 6.1.0
       strip-ansi: 7.1.0
       tsconfig-resolver: 3.0.1
-      undici: 5.24.0
+      undici: 5.26.2
       unist-util-visit: 4.1.2
       vfile: 5.3.7
       vite: 4.4.9(@types/node@20.5.0)
@@ -7074,13 +7079,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       run-applescript: 5.0.0
-    dev: true
-
-  /busboy@1.6.0:
-    resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
-    engines: {node: '>=10.16.0'}
-    dependencies:
-      streamsearch: 1.1.0
     dev: true
 
   /bytes@3.0.0:
@@ -12275,7 +12273,7 @@ packages:
     peerDependencies:
       '@builder.io/qwik': '>=1.1.4'
     dependencies:
-      '@builder.io/qwik': 1.2.7(undici@5.22.1)
+      '@builder.io/qwik': 1.2.7(undici@5.26.2)
     dev: true
 
   /ramda@0.29.0:
@@ -13259,7 +13257,7 @@ packages:
     peerDependencies:
       '@builder.io/qwik': '>=0.15.2'
     dependencies:
-      '@builder.io/qwik': 1.2.7(undici@5.22.1)
+      '@builder.io/qwik': 1.2.7(undici@5.26.2)
       '@storybook/builder-vite': 7.3.1(typescript@5.1.6)(vite@4.4.9)
       '@storybook/docs-tools': 7.4.0
       magic-string: 0.30.3
@@ -13290,11 +13288,6 @@ packages:
 
   /stream-shift@1.0.1:
     resolution: {integrity: sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==}
-    dev: true
-
-  /streamsearch@1.1.0:
-    resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
-    engines: {node: '>=10.0.0'}
     dev: true
 
   /streamx@2.15.1:
@@ -14049,18 +14042,11 @@ packages:
     resolution: {integrity: sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==}
     dev: true
 
-  /undici@5.22.1:
-    resolution: {integrity: sha512-Ji2IJhFXZY0x/0tVBXeQwgPlLWw13GVzpsWPQ3rV50IFMMof2I55PZZxtm4P6iNq+L5znYN9nSTAq0ZyE6lSJw==}
+  /undici@5.26.2:
+    resolution: {integrity: sha512-a4PDLQgLTPHVzOK+x3F79/M4GtyYPl+aX9AAK7aQxpwxDwCqkeZCScy7Gk5kWT3JtdFq1uhO3uZJdLtHI4dK9A==}
     engines: {node: '>=14.0'}
     dependencies:
-      busboy: 1.6.0
-    dev: true
-
-  /undici@5.24.0:
-    resolution: {integrity: sha512-OKlckxBjFl0oXxcj9FU6oB8fDAaiRUq+D8jrFWGmOfI/gIyjk/IeS75LMzgYKUaeHzLUcYvf9bbJGSrUwTfwwQ==}
-    engines: {node: '>=14.0'}
-    dependencies:
-      busboy: 1.6.0
+      '@fastify/busboy': 2.0.0
     dev: true
 
   /unherit@3.0.1:

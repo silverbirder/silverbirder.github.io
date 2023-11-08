@@ -1,6 +1,11 @@
 name: Playwright Tests
 
-on: [pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - update-e2e # debug
 
 jobs:
   run-e2es:
@@ -35,7 +40,7 @@ jobs:
         if: always()
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './apps/docs-e2e/target/site/serenity'
+          publish-dir: "./apps/docs-e2e/target/site/serenity"
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

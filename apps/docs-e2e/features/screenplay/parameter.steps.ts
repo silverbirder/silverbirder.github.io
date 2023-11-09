@@ -10,6 +10,14 @@ defineParameterType({
 });
 
 defineParameterType({
+    regexp: /Japanese|English/,
+    transformer(name: string) {
+        return name;
+    },
+    name: 'language',
+});
+
+defineParameterType({
     regexp: /he|she|they|his|her|their/,
     transformer() {
         return actorInTheSpotlight();

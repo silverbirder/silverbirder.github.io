@@ -9,7 +9,7 @@ import {
 } from '@serenity-js/web';
 import * as playwright from 'playwright';
 
-import { Actors } from '../../test';
+import { Actors } from '../screenplay';
 
 const timeouts = {
     cucumber: {

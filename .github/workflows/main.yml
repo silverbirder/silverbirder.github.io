@@ -41,3 +41,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Run E2E Testing
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: run-e2e-testing

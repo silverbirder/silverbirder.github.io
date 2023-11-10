@@ -1,9 +1,8 @@
 name: Playwright Tests for Main
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [run-e2e-testing]
 
 jobs:
   run-e2es:
@@ -36,6 +35,7 @@ jobs:
         with:
           publish-dir: "./apps/docs-e2e/target/site/serenity"
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          production-deploy: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

@@ -1,6 +1,9 @@
 Feature: Internationalization
 
-  Scenario Outline: Language Change
+  My page is available in multiple languages.
+  Support languages are English and Japanese.
+
+  Scenario Outline: Changing Language
 
     Given Alice is on the homepage in the <language> language
     When Alice selects <change_language> from the language menu

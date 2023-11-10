@@ -11,7 +11,7 @@ export const PostSummaryListItem = component$(
     if (!published) return <></>;
     return (
       <div>
-        <Link href={permalink}>
+        <Link href={permalink} data-testid="blog-title">
           <div class={css({ textStyle: "h4" })}>{title}</div>
         </Link>
         <p>{date}</p>

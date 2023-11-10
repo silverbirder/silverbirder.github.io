@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests for PR
 
 on: [pull_request]
 
@@ -20,6 +20,7 @@ jobs:
         run: npm i pnpm@8.6.2 -g
       - uses: actions/checkout@v4
       - run: pnpm install
+      - run: pnpm lint
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps
       - name: Waiting for 200 from the Netlify Preview
@@ -35,7 +36,7 @@ jobs:
         if: always()
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './apps/docs-e2e/target/site/serenity'
+          publish-dir: "./apps/docs-e2e/target/site/serenity"
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

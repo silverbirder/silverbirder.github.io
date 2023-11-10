@@ -2,11 +2,20 @@ import { defineParameterType } from '@cucumber/cucumber';
 import { actorCalled, actorInTheSpotlight } from '@serenity-js/core';
 
 defineParameterType({
-    regexp: /[A-Z][a-z]+/,
+    regexp: /Alice|Bob/,
     transformer(name: string) {
         return actorCalled(name);
     },
     name: 'actor',
+});
+
+export type Language = 'Japanese' | 'English';
+defineParameterType({
+    regexp: /Japanese|English/,
+    transformer(name: string) {
+        return name as Language;
+    },
+    name: 'language',
 });
 
 defineParameterType({

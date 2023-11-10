@@ -49,13 +49,13 @@ export default component$(() => {
           }),
         ]}
       >
-        <h1>
+        <div>
           <Link href="/" aria-label="favicon">
             <ImgFavicon
               class={css({ width: "icon.main", height: "icon.main" })}
             />
           </Link>
-        </h1>
+        </div>
         <div class={hstack({ gap: 5 })}>
           <nav>
             <Link href="/blog">{t("app.blog@@ブログ")}</Link>

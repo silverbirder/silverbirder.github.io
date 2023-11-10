@@ -12,6 +12,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: write
     steps:
       - name: checkout code repository
         uses: actions/checkout@v3

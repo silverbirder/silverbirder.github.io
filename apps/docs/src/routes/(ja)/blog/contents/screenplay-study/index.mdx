@@ -1,0 +1,186 @@
+---
+title: ScreenPlay設計を学ぶ
+published: true
+lang: "ja-JP"
+date: 2023-11-21
+description: XXX
+tags: ["Cucumber", "Playwright", "ScreenPlay"]
+---
+
+import { Image } from "~/components/image/image";
+
+Web アプリケーション開発において、自動化テストは不可欠です。特にリリース前の E2E テストの重要性は高く、今回は Cucumber と Playwright を用い、ScreenPlay 設計手法を取り入れた経験を紹介します。
+
+## テスト設計のアプローチ
+
+E2E テストの設計には複数のアプローチが存在します。
+
+- **ユーザーストーリーに基づくテスト**：アジャイル開発で頻繁に使用され、ユーザーの視点を反映した要件記述に基づいてテストを設計します。
+- **ビジネス要件に基づくテスト**：ビジネスの目的や要求を直接反映したテストをデザインし、ビジネスの価値と目標に焦点を当てます。
+- **シナリオテスト**：実世界の業務プロセスやユーザーシナリオを模倣したテストケースを用いて、システムの振る舞いを評価します。
+
+私の経験上、アジャイル開発においてユーザーストーリーに基づくテストの作成が多いです。
+
+## 開発駆動のテスト設計手法
+
+開発プロセスと密接な関係があるテスト設計手法には以下のようなものがあります。
+
+- **ATDD (受け入れテスト駆動開発)**：開発前に受け入れ基準を定義し、それを満たすテストケースを作成してから開発を進めるアプローチです。
+- **BDD (振る舞い駆動開発)**：「Given-When-Then」形式の振る舞いシナリオを用いて、システムの振る舞いを定義し、それに基づいてテストケースを作成します。
+
+私の場合は、ユーザーストーリーを満たすための基準を開発前に定義し、ATDD のアプローチで進めつつ、Given-When-Then の形式を扱える BDD のアプローチを組み合わせて使用しています。
+
+### 例：Gherkin 形式のシナリオ
+
+```gherkin
+Feature: Online Store
+
+  Scenario: customer finds product by name
+
+    Given Apisitt sets up product catalogue with:
+      | name    | price |
+      | Apples  | £2.50 |
+    When Wendy looks for 'Apples'
+    Then she should see top search result of:
+      | name  | Apples |
+      | price | £2.50  |
+```
+
+このシナリオを満たすテストを書き、実装し、テストが PASS すれば受け入れ OK、リリース GO という流れです。
+このシナリオは、日本語で書くこともできます。([Gherkin Syntax > Localisation](https://cucumber.io/docs/gherkin/languages/))
+
+## テスト実装手法
+
+テストの実装方法には、以下のようなものがあります。
+
+- **ページオブジェクトモデル**：ウェブアプリケーションの各ページをオブジェクトとしてモデル化し、UI テストのメンテナンスと再利用性を向上させるデザインパターン。
+- **キーワード駆動テスト**：キーワード（アクションや操作）を用いてテストスクリプトを記述し、非技術者でも理解しやすく、メンテナンスしやすいテストを実現する方法。
+- **スクリーンプレイ**：「アクター」と「タスク」に基づいてテストシナリオをモデル化し、テストの可読性と柔軟性を向上させるデザインパターン。
+
+私はスクリーンプレイパターンに魅了され、ユーザーストーリーに基づくテストとの相性の良さを感じ選択しました。
+
+## ScreenPlay の実装
+
+ScreenPlay の実装方法を調査したところ、serenity-js というライブラリに出会いました。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1699704842/silver-birder.github.io/blog/serenity-js-screenplay-pattern.5eead28.1200.png"
+  width={1200}
+  height={578}
+  layout="constrained"
+  alt="Five elements of the Screenplay Pattern - https://serenity-js.org"
+  href="https://serenity-js.org/handbook/design/screenplay-pattern/"
+/>
+
+serenity-js は、情報が豊富であったため、[cucumber/screenplay.js](https://github.com/cucumber/screenplay.js)よりも採用しました。
+
+5 つの要素について紹介します。
+
+```ts
+import { BrowseTheWebWithPlaywright } from '@serenity-js/playwright'
+import { Navigate } from '@serenity-js/web'.
+
+const actor = await actorCalled('Wendy').whoCan(BrowseTheWebWithPlaywright.using(browser))
+```
+
+```ts
+import { Navigate } from "@serenity-js/web";
+
+actor.attemptsTo(
+  Navigate.to("https://example.org") // Interaction
+);
+```
+
+```ts
+await actorCalled("Wendy")
+  .whoCan(BrowseTheWebWithPlaywright.using(browser))
+  .attemptsTo(
+    Navigate.to("https://example.org"),
+    Ensure.that(Page.current().title(), endsWith("My Example Shop"))
+  );
+```
+
+```ts
+const openOnlineStore = () =>
+  Task.where(
+    `#actor opens the online store`,
+    Navigate.to("https://example.org"),
+    Ensure.that(Page.current().title(), endsWith("My Example Shop"))
+  );
+
+await actorCalled("Wendy")
+  .whoCan(BrowseTheWebWithPlaywright.using(browser))
+  .attemptsTo(openOnlineStore());
+```
+
+5 つの要素以外に、Note というものがあります。
+これは、Actor が何かを覚えておくためのものです。
+
+## Cucumber と組み合わせる
+
+ScreenPlay 設計をシナリオテストツールである Cucumber に組み込んでみます。以下はその例です。
+
+```gherkin
+Feature: Online Store
+
+  Scenario: customer finds product by name
+
+    Given Apisitt sets up product catalogue with:
+      | name    | price |
+      | Apples  | £2.50 |
+    When Wendy looks for 'Apples'
+    Then she should see top search result of:
+      | name  | Apples |
+      | price | £2.50  |
+```
+
+このシナリオでは、Apisitt という Actor が API を用いて商品を登録します。
+
+```ts
+import { Given, When, Then, DataTable } from "@cucumber/cucumber";
+import { Actor } from "@serenity-js/core";
+// ...
+
+Given(
+  "{actor} sets up product catalogue with:",
+  (actor: Actor, products: DataTable) =>
+    actor.attemptsTo(setupProductCatalogue(products.hashes()))
+);
+
+When("{actor} looks for {string}", (actor: Actor, productName: string) =>
+  actor.attemptsTo(openOnlineStore(), findProductCalled(productName))
+);
+
+Then(
+  "{pronoun} should see top search result of",
+  (actor: Actor, expectedResult: string) =>
+    actor.attemptsTo(
+      Ensure.that(
+        topSearchResult().name,
+        equals(expectedResult.rowsHash().name)
+      ),
+      Ensure.that(
+        topSearchResult().price,
+        equals(expectedResult.rowsHash().price)
+      )
+    )
+);
+```
+
+## ちなみに
+
+初めて ScreenPlay 設計を試した際、[Tallyb/cucumber-playwright](https://github.com/Tallyb/cucumber-playwright)を用いましたが、以下の理由から serenity-js を選択しました。
+
+- ScreenPlay の五つの要素を自身で実装する必要がある。
+- 各シナリオごとに Actor を管理する必要が生じる。
+
+## アンチパターン
+
+BDD に関するアンチパターンについては、[Cucumber のブログ](https://cucumber.io/blog/bdd/anti-patterns/)に詳しい情報があります。
+特に、UI 操作を中心に書かれたシナリオではなく、ビジネス観点からの記述が重要です。
+
+### 不安定さ
+
+E2E テストでは、Web アプリケーションへの UI 要素アクセスが不可欠です。
+UI 要素の変更はテストを壊す原因となりますが、ScreenPlay では Task の再利用が可能です。
+ただし、プラットフォーム固有の問題、データやネットワークの問題、タイミングの問題など、不安定さに関する問題は多岐にわたります。

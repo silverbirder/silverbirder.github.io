@@ -46,3 +46,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: run-e2e-testing
+      - name: Publish notification
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: publish-notification

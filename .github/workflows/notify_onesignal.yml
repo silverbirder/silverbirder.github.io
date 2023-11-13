@@ -1,9 +1,8 @@
 name: Notify OneSignal
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [publish-notification]
 
 jobs:
   notify:

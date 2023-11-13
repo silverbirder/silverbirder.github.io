@@ -67,6 +67,9 @@ export const globalCss = defineGlobalStyles({
   code: {
     overflowX: "auto",
   },
+  "p > code": {
+    backgroundColor: "bg.quote",
+  },
   a: {
     color: "text.link",
     textDecoration: "none",
@@ -113,9 +116,12 @@ export const globalCss = defineGlobalStyles({
       fontWeight: "bold",
     },
   },
-  "address, caption, cite, code, dfn, em, strong, var": {
+  "address, caption, cite, code, dfn, em, var": {
     fontStyle: "normal",
     fontWeight: "normal",
+  },
+  strong: {
+    fontWeight: "bold",
   },
   "input, textarea, select, button": {
     margin: 0,

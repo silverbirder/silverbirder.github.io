@@ -198,6 +198,18 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  packages/md-image:
+    devDependencies:
+      cloudinary:
+        specifier: ^1.40.0
+        version: 1.40.0
+      dotenv:
+        specifier: ^16.3.1
+        version: 16.3.1
+      image-size:
+        specifier: ^1.0.2
+        version: 1.0.2
+
   packages/migrate:
     devDependencies:
       axios:
@@ -9619,6 +9631,14 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /image-size@1.0.2:
+    resolution: {integrity: sha512-xfOoWjceHntRb3qFCrh5ZFORYH8XCdYpASltMhZ/Q0KZiOwjdE/Yl2QCiWdwD+lygV5bMCvauzgu5PxBX/Yerg==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      queue: 6.0.2
+    dev: true
+
   /imagetools-core@4.0.5:
     resolution: {integrity: sha512-sNRVfUwkUcsVWNn5inTHDXWzpPRWPWbSgGkuQmlsFCWXAR2+K5R5vG5tC3Qs4LeJaMugKB8hGVm6rvZjFHQrUw==}
     engines: {node: '>=12.0.0'}
@@ -12266,6 +12286,12 @@ packages:
 
   /queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
+    dev: true
+
+  /queue@6.0.2:
+    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
+    dependencies:
+      inherits: 2.0.4
     dev: true
 
   /qwik-speak@0.16.0(@builder.io/qwik@1.2.7):

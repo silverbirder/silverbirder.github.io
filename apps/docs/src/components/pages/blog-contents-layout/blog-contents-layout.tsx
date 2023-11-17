@@ -172,16 +172,6 @@ export const BlogContentsLayout = component$(() => {
           </a>
         </div>
       </section>
-      <section
-        class={css({
-          display: "flex",
-          marginTop: 10,
-          alignItems: "center",
-          justifyContent: "center",
-        })}
-      >
-        <div class="onesignal-customlink-container"></div>
-      </section>
       <section>
         <h3>{t("blog.relatedTag@@関連するタグ")}</h3>
         <RelatedTags currentTags={tags} currentTitle={head.title} />

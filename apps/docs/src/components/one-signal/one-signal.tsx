@@ -79,48 +79,7 @@ export const OneSignal = component$<OneSignalProps>(() => {
                   'dialog.button.background': '${token("colors.text.link")}',
                   'dialog.button.foreground': 'white'
               },
-            },
-            promptOptions: {
-              slidedown: {
-                prompts: [
-                  {
-                    type: "push",
-                    autoPrompt: true,
-                    text: {
-                      actionMessage: "${t(
-                        "notification.slidedown.prompt.push.text.actionMessage"
-                      )}",
-                      acceptButton: "${t(
-                        "notification.slidedown.prompt.push.text.acceptButton"
-                      )}",
-                      cancelButton: "${t(
-                        "notification.slidedown.prompt.push.text.cancelButton"
-                      )}",
-                    },
-                    delay: {
-                      pageViews: 1,
-                      timeDelay: 1
-                    }
-                  }
-                ]
-              },
-              customlink: {
-                enabled: true,
-                style: "button",
-                size: "medium",
-                color: {
-                  button: '${token("colors.text.link")}',
-                  text: 'white',
-                },
-                text: {
-                  subscribe: "${t("notification.customlink.text.subscribe")}",
-                  unsubscribe: "${t(
-                    "notification.customlink.text.unsubscribe"
-                  )}",
-                },
-                unsubscribeEnabled: true,
-              }
-            },
+            }
           })
         })
         `}

@@ -266,8 +266,8 @@ export const WorkExperiencesSection = component$(() => {
           />
         </WorkExperience>
         <WorkExperience
-          from="2021/01"
-          to="2022/06"
+          from="2022/01"
+          to="2023/06"
           industry="Fintech"
           description={t("top.backgroundDescription3")}
         >
@@ -395,8 +395,8 @@ export const WorkExperiencesSection = component$(() => {
           />
         </WorkExperience>
         <WorkExperience
-          from="2021/07"
-          to="now"
+          from="2023/07"
+          to="2023/11"
           industry="Restaurant"
           description={t("top.backgroundDescription4")}
         >
@@ -481,6 +481,12 @@ export const WorkExperiencesSection = component$(() => {
             })}
           />
         </WorkExperience>
+        <WorkExperience
+          from="2023/12"
+          to="now"
+          industry="Food Delivery"
+          description={t("top.backgroundDescription5")}
+        ></WorkExperience>
       </div>
     </section>
   );

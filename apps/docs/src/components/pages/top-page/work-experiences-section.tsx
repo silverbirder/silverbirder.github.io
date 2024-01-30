@@ -483,7 +483,7 @@ export const WorkExperiencesSection = component$(() => {
         </WorkExperience>
         <WorkExperience
           from="2023/12"
-          to="now"
+          to="2024/01"
           industry="Food Delivery"
           description={t("top.backgroundDescription5")}
         ></WorkExperience>

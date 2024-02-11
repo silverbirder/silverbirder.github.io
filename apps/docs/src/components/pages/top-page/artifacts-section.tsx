@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { Image } from "~/components/image/image";
-import { MdiApi } from "~/components/icon/icon";
 import { css } from "~/styled-system/css";
 import { useTranslate } from "qwik-speak";
 

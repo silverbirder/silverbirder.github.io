@@ -29,6 +29,15 @@ export default component$(() => {
             type="text/partytown"
             src="https://www.googletagmanager.com/gtag/js?id=G-QV2CWHGJB6"
           />
+          <script
+            type="text/partytown"
+            dangerouslySetInnerHTML="
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QV2CWHGJB6');
+            "
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

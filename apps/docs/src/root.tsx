@@ -27,7 +27,7 @@ export default component$(() => {
           <script
             async
             type="text/partytown"
-            src="https://www.googletagmanager.com/gtag/js?id=G-QV2CWHGJB6"
+            src="https://www.googletagmanager.com/gtag/js?id=G-V6PXKPV3CQ"
           />
           <script
             type="text/partytown"
@@ -35,7 +35,7 @@ export default component$(() => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-QV2CWHGJB6');
+              gtag('config', 'G-V6PXKPV3CQ');
             "
           />
           <link

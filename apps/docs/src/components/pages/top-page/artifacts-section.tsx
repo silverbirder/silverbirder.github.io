@@ -14,12 +14,9 @@ export const ArtifactsSection = component$(() => {
           display: "grid",
           gridTemplateAreas: `
           "book chrome"
-          "book bochi"`,
+          "book api"`,
           gridTemplateColumns: "1fr 1fr",
           gridTemplateRows: "auto auto",
-          lg: {
-            width: "640px",
-          },
         })}
       >
         <div
@@ -64,7 +61,7 @@ export const ArtifactsSection = component$(() => {
         </div>
         <div
           class={css({
-            gridArea: "bochi",
+            gridArea: "api",
             borderColor: "bg.quote",
             borderWidth: "1px",
             borderRadius: "4px",
@@ -73,14 +70,35 @@ export const ArtifactsSection = component$(() => {
             },
           })}
         >
-          <Image
-            src="https://res.cloudinary.com/silverbirder/image/upload/v1707629480/silver-birder.github.io/artifacts/bochi-bochi.png"
-            width={1500 / 5}
-            height={1500 / 5}
-            layout="constrained"
-            alt={t("top.bochi")}
-            href="https://bochi-bochi.vercel.app"
-          />
+          <a
+            href="https://github.com/silverbirder/Google-Account-Photo-API"
+            target="_blank"
+          >
+            <figure
+              title={"Google Account Photo API - GitHub"}
+              class={css({
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                textAlign: "center",
+              })}
+            >
+              <MdiApi
+                class={css({
+                  width: "100px",
+                  height: "100px",
+                })}
+              />
+              <figcaption
+                class={css({
+                  fontSize: "0.8rem",
+                  color: "gray.500",
+                })}
+              >
+                Google Account Photo API - GitHub
+              </figcaption>
+            </figure>
+          </a>
         </div>
       </div>
       <h3>{t("top.others")}</h3>
@@ -107,20 +125,6 @@ export const ArtifactsSection = component$(() => {
             <li>
               ogp-me is a WebComponent that displays Facebook-like information
               based on Open Graph Protocol (OGP)
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a
-            href="https://github.com/silverbirder/Google-Account-Photo-API"
-            target="_brank"
-          >
-            Google Account Photo API - GitHub
-          </a>
-          <ul>
-            <li>
-              Google Account Photo API just returns the image of your Google
-              account
             </li>
           </ul>
         </li>

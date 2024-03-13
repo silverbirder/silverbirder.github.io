@@ -22,7 +22,6 @@ import { stringToSlug } from "~/util";
 
 export const BlogContentsLayout = component$(() => {
   const head = useDocumentHead();
-  const sl = useSpeakLocale();
   const t = useTranslate();
   const tags: string[] = head.frontmatter.tags || [];
   return (
@@ -42,6 +41,29 @@ export const BlogContentsLayout = component$(() => {
           ))}
         </div>
         <Slot />
+      </section>
+      <section>
+        <div id="disqus_thread"></div>
+        <script
+          dangerouslySetInnerHTML={`
+          var disqus_config = function () {
+            this.page.url = "https://silverbirder.github.io";
+            this.page.identifier = "${head.title}";
+          };
+          (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://https-silverbirder-github-io.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+          `}
+        ></script>
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">
+            comments powered by Disqus.
+          </a>
+        </noscript>
       </section>
       <section>
         <div
@@ -175,25 +197,6 @@ export const BlogContentsLayout = component$(() => {
       <section>
         <h3>{t("blog.relatedTag@@関連するタグ")}</h3>
         <RelatedTags currentTags={tags} currentTitle={head.title} />
-      </section>
-      <section>
-        <script
-          src="https://giscus.app/client.js"
-          data-repo="silverbirder/silverbirder.github.io"
-          data-repo-id="MDEwOlJlcG9zaXRvcnkxNzEwMTQ5MjI="
-          data-category="Announcements"
-          data-category-id="DIC_kwDOCjF7Cs4CZNjT"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="1"
-          data-input-position="top"
-          data-theme="light"
-          data-lang={sl.lang.substring(0, 2)}
-          data-loading="lazy"
-          crossOrigin="anonymous"
-          async
-        ></script>
       </section>
     </article>
   );

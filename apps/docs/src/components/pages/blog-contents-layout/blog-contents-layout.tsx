@@ -46,10 +46,6 @@ export const BlogContentsLayout = component$(() => {
         <div id="disqus_thread"></div>
         <script
           dangerouslySetInnerHTML={`
-          var disqus_config = function () {
-            this.page.url = "https://silverbirder.github.io";
-            this.page.identifier = "${head.title}";
-          };
           (function() {
           var d = document, s = d.createElement('script');
           s.src = 'https://https-silverbirder-github-io.disqus.com/embed.js';

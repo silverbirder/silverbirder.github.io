@@ -1,0 +1,227 @@
+---
+title: Trying the Playwright Component Test
+published: true
+lang: "en-US"
+date: 2024-03-20
+description: I learned about "Playwright Component Test" (hereafter referred to as "playwright-ct"), which allows you to run component tests in the browser directly on Playwright, and tried it out. In this article, we share our experience. The actual repository used is as follows
+tags: ["Test", "Playwright"]
+---
+
+About [Playwright Component Test](https://playwright.dev/docs/test-components) ("playwright-ct"), which allows you to run component tests in the browser directly on Playwright I learned about it and tried it out.
+In this article, we share our experience. The repository we actually used is as follows
+
+https://github.com/silverbirder/react-todoMVC-2
+
+## Preparation
+
+playwright-ct supports multiple frameworks such as React.
+In this case, we used Next.js to build the application because `create-react-app` is deprecated.
+We incorporated [TodoMVC](https://todomvc.com/) as an example.
+
+The playwright-ct setup is done with `npm init playwright@latest -- --ct` and several files are generated.
+Of the generated files, I added the following code to `playwright-ct.config.ts`.
+This is to reflect the paths setting in tsconfig of Next.js in playwright-ct as well.
+
+```ts
+// playwright-ct.config.ts
+export default defineConfig({
+  ...
+  use: {
+    ...
+    ctViteConfig: {
+      resolve: {
+        alias: {
+          '#': resolve(__dirname, './'),
+        },
+      },
+    },
+  },
+});
+```
+
+We also added the following code to the file `playwright/index.tsx` to apply the todoMVC style.
+
+```ts
+// playwright/index.tsx
+import "todomvc-app-css/index.css";.
+```
+
+The way playwright-ct works is that it **compiles the code, serves it on a local web server, loads it into playwright/index.html, draws it, and tests it** .
+
+## Example test code
+
+The code for the Todo list component looks like this
+
+```ts
+// todo-list.tsx
+import React from "react";
+import { Todo } from "./types";
+
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
+  <ul className="todo-list">
+    {todos.map((todo) => (
+      <li key={todo.id} className={todo.completed ? "completed" : ""}>
+        <div className="view">
+          <input
+            type="checkbox"
+            className="toggle"
+            checked={todo.completed}
+            onChange={() => toggleTodo(todo.id)}
+          />
+          <label>{todo.text}</label>
+          <button className="destroy" onClick={() => deleteTodo(todo.id)}></button>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
+
+export default TodoList;
+```
+
+The test case is written as follows.
+
+```ts
+// test case
+import { test, expect } from "@playwright/experimental-ct-react";
+import TodoList from "./todo-list";
+
+test.use({ viewport: { width: 500, height: 500 } });
+
+test("todo display differently in completed state", async ({ mount, page }) => {
+  await mount(
+    <TodoList
+      todos={[
+        { id: 1, text: "My Todo 1", completed: true },
+        { id: 2, text: "My Todo 2", completed: false },
+      ]}
+      toggleTodo={() => {}}
+      deleteTodo={() => {}}
+    />
+  );
+  await expect(page).toHaveScreenshot();
+});
+```
+
+The beauty of playwright-ct is that you can test in a **real browser environment**, handling viewports, window objects, and WebAPI's. You can also test cross-browser (chromium, firefox, webkit).
+
+Tests can be run with `playwright test -c playwright-ct.config.ts`.
+
+Next is the code for the Next.js page component. (Not React Server Components)
+
+```ts
+// page.tsx
+"use client";
+
+import TodoList from "@/ui/todo-list";
+import { Todo } from "@/ui/types";
+import { useState, type KeyboardEvent } from "react";
+
+export default function Home() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [text, setText] = useState("");
+
+  const addTodo = () => {
+    if (!text) return;
+    const newTodo: Todo = { id: Date.now(), text, completed: false };
+    setTodos([...todos, newTodo]);
+    setText("");
+    const params = new URLSearchParams("");
+    params.set("added", "true");
+    window.history.pushState(null, "", `?${params.toString()}`);
+  };
+
+  const toggleTodo = (id: number) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      })
+    );
+  };
+
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const handleKeydown = (e: KeyboardEvent) => {
+    if (e.key !== "Enter") {
+      return;
+    }
+    addTodo();
+  };
+
+  return (
+    <section className="todoapp">
+      <header className="header">
+        <h1>todos</h1>
+        <input
+          className="new-todo"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => handleKeydown(e)}
+          placeholder="What needs to be done?"
+          autoFocus
+        />
+      </header>
+      <main className="main">
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+        />
+      </main>
+    </section>
+  );
+}
+```
+
+The `addTodo` function dares to use `window.history`.
+In order to use a function like useRouter in Next.js, some preparation is required.
+In traditional testing, it is common to mock (imitate) the parts related to such a window object.
+With playwright-ct, however, it is possible to test using these real browser functions.
+
+An example test code for a page component is shown below.
+
+```ts
+// page.test.tsx
+import { test, expect } from "@playwright/experimental-ct-react";
+import App from "./page";
+
+test.use({ viewport: { width: 500, height: 500 } });
+
+test("todos text should be displayed", async ({ mount }) => {
+  // Act
+  const component = await mount(<App />);
+
+  // Assert
+  await expect(component).toContainText("todos");
+});
+
+test("adding todo will add the added query parameter to the URL", async ({
+  mount,
+  page,
+}) => {
+  // Arrange
+  const component = await mount(<App />);
+  await component.getByRole("textbox").fill("My Todo 1");
+
+  // Act
+  await page.keyboard.press("Enter");
+
+  // Assert
+  expect(page).toHaveURL(/added/);
+});
+```
+
+With playwright-ct, it is possible to operate not only on components, but also directly on Playwright's page object.
+This greatly expands the testing variation and allows for more multifaceted test scenarios to be executed.
+
+## Summary
+
+playwright-ct enables testing in a way that more closely resembles the actual browser environment and plays the role of a coupled test.
+Playwright does not have the mocking capabilities of Jest, making it difficult to verify that, for example, the handler functions in `todo-list.tsx` were executed correctly.
+Detailed verification at the unit test level still requires a tool like Jest, but for testing the components that make up a screen, playwright-ct would be very useful.
+We intend to continue to actively utilize such tools to develop quality web applications.

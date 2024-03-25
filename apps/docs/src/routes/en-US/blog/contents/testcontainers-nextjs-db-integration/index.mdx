@@ -1,0 +1,279 @@
+---
+title: Integration Testing for Next.js and DB using Testcontainers
+published: true
+lang: "en-US"
+date: 2024-03-25
+description: I learned about Testcontainers. Testcontainers is a tool that allows you to build a test environment using containers and easily perform integration testing.Using this convenient tool, I conducted integration testing combining Next.js and a database (DB).It seems promising for implementing disposable end-to-end (E2E) tests, and I found it very useful. I'll briefly introduce what I tried.
+tags: ["Test", "Testcontainers"]
+---
+
+I learned about [Testcontainers](https://testcontainers.com/). 
+Testcontainers is a tool that allows you to build a test environment using containers and easily perform integration testing.
+Using this convenient tool, I conducted integration testing combining Next.js and a database (DB).
+It seems promising for implementing disposable end-to-end (E2E) tests, and I found it very useful. I'll briefly introduce what I tried.
+
+You can check the code I'm introducing in the following GitHub repository.
+
+- https://github.com/silverbirder/testcontainers-nextjs
+
+## Implementation Steps
+
+Here's a brief summary of what I tried:
+
+* **Test Setup**
+  * Set up Vitest as the test framework
+  * Created a MySQL container as the database and performed the necessary migrations and seeding
+* **Application Setup**
+  * Launched a Next.js application using a Dockerfile
+  * Configured the application to properly connect to the MySQL database
+* **Conducting the Test**
+  * Used Playwright, a browser automation tool, to access and test the Next.js application
+
+This setup does not require a special environment and has been confirmed to work with GitHub Actions as well.
+
+## Let's Look at an Example Implementation
+
+Here, I introduce the code I wrote based on the experimental procedure mentioned above. The specific implementation is available on [GitHub](https://github.com/silverbirder/testcontainers-nextjs).
+
+### Test Setup
+
+First, let's set up the test. This begins with setting up the test framework Vitest. For detailed setup instructions for Vitest, please refer to the [official Vitest guide](https://vitest.dev/guide/).
+
+The following sample code shows the basic structure of the test:
+
+```ts
+// sample.test.ts
+import { afterAll, beforeAll, describe, vi } from "vitest";
+
+describe("App and Database Containers Integration Test", () => {
+  vi.setConfig({ testTimeout: 600_000, hookTimeout: 600_000 });
+  beforeAll(async () => {});
+  afterAll(async () => {});
+});
+```
+
+When using Testcontainers, the execution time of tests may be extended, so we increase the `testTimeout` and `hookTimeout` values. 
+For running the test, use the following command:
+
+```bash
+DEBUG=testcontainers* vitest
+```
+
+This command specifies `DEBUG=testcontainers*`, enabling detailed log output from Testcontainers. For more information on log configuration, refer to the [Testcontainers configuration page](https://node.testcontainers.org/configuration/).
+
+Next, let's prepare the database required for the test. The following sample code launches a MySQL container, and performs migrations and seeding of dummy data:
+
+```ts
+// sample.test.ts
+import { afterAll, beforeAll, describe } from "vitest";
+import { MySqlContainer, StartedMySqlContainer } from "@testcontainers/mysql";
+import { createPool } from "mysql2";
+import { drizzle } from "drizzle-orm/mysql2";
+import { migrate } from "drizzle-orm/mysql2/migrator";
+import { faker } from "@faker-js/faker";
+import * as schema from "../server/db/schema";
+
+describe("App and Database Containers Integration Test", () => {
+  // ...
+  let mysqlContainer: StartedMySqlContainer;
+  beforeAll(async () => {
+    mysqlContainer = await new MySqlContainer()
+      .withDatabase("t3-app-nextjs-testcontainers")
+      .start();
+    const databaseUrl = `mysql://${mysqlContainer.getUsername()}:${mysqlContainer.getUserPassword()}@${mysqlContainer.getHost()}:${mysqlContainer.getFirstMappedPort()}/${mysqlContainer.getDatabase()}`;
+    const db = drizzle(
+      createPool({
+        uri: databaseUrl,
+      }),
+      {
+        schema,
+        mode: "default",
+      },
+    );
+    await migrate(db, { migrationsFolder: "src/server/db/out" });
+    const data: (typeof schema.posts.$inferInsert)[] = [];
+    for (let i = 0; i < 20; i++) {
+      data.push({
+        name: faker.internet.userName(),
+      });
+    }
+    await db.insert(schema.posts).values(data);
+  });
+  afterAll(async () => {
+    await mysqlContainer.stop();
+  });
+});
+```
+
+After the test is completed, the `afterAll` hook is used to stop the MySQL container. This ensures that the test environment is kept in a clean state.
+
+Testcontainers allows the use of both supported containers (e.g., MySQL) and generic containers (Generic), and you may choose whichever suits your needs. For details on supported containers, refer to the [Testcontainers modules page](https://testcontainers.com/modules/).
+
+### Application Setup
+
+The application setup efficiently progresses using the Next.js framework. First, use the `npm create t3-app@latest` command to easily create a foundation for an application with Next.js that includes a database. In this project, we are using `drizzle` as the ORM. For Dockerizing Next.js, we follow the [official T3 stack guide](https://create.t3.gg/en/deployment/docker) and create a Dockerfile.
+
+Below is the continuation of the test code `sample.test.ts`, integrating the application and database containers:
+
+```ts
+// sample.test.ts
+import { afterAll, beforeAll, describe } from "vitest";
+import { MySqlContainer, StartedMySqlContainer } from "@testcontainers/mysql";
+import { GenericContainer, StartedTestContainer } from "testcontainers";
+
+describe("App and Database Containers Integration Test", () => {
+  // ...
+  let mysqlContainer: StartedMySqlContainer;
+  let appContainer: StartedTestContainer;
+  beforeAll(async () => {
+    mysqlContainer = await new MySqlContainer()
+      .withDatabase("t3-app-nextjs-testcontainers")
+      .start();
+    // ...
+    const innerDatabaseUrl = `mysql://${mysqlContainer.getUsername()}:${mysqlContainer.getUserPassword()}@${mysqlContainer.getIpAddress(mysqlContainer.getNetworkNames()[0] ?? "")}:3306/${mysqlContainer.getDatabase()}`;
+    const appImage = await GenericContainer.fromDockerfile("./")
+      .withBuildArgs({ NEXT_PUBLIC_CLIENTVAR: "clientvar" })
+      .withCache(true)
+      .build("app", { deleteOnExit: false });
+    appContainer = await appImage
+      .withEnvironment({ DATABASE_URL: innerDatabaseUrl, PORT: "3000" })
+      .withExposedPorts(3000)
+      .start();
+  });
+  afterAll(async () => {
+    await appContainer.stop();
+    await mysqlContainer.stop();
+  });
+});
+```
+
+In this code, `GenericContainer.fromDockerfile` is used to build the application's Docker image from the Dockerfile in the current directory. The build arguments are passed through `withBuildArgs`, and the container's environment variables are set using `withEnvironment`. This setup is similar to using Docker CLI, and Docker Compose can also be utilized.
+
+Additionally, the `innerDatabaseUrl` must use the container's port (in this case, 3306) instead of the host side for the database connection information. This setting is made with container-to-container communication in mind.
+
+With this setup, the database and application containers are ready, moving on to conducting the integration test.
+
+### Conducting the Test
+
+In the final stage of testing, we perform application tests through the browser using Playwright. For setup and basic usage of Playwright, refer to the [official Playwright documentation](https://playwright.dev/docs/intro).
+
+The following code snippet demonstrates an example of integrating Playwright into the test file `sample.test.ts`.
+
+```ts
+// sample.test.ts
+import { afterAll, beforeAll, describe, it } from "vitest";
+import { MySqlContainer, StartedMySqlContainer } from "@testcontainers/mysql";
+import { GenericContainer, StartedTestContainer } from "testcontainers";
+import { type Browser, type Page, chromium } from "@playwright/test";
+
+describe("App and Database Containers Integration Test", () => {
+  // ...
+  let mysqlContainer: StartedMySqlContainer;
+  let appContainer: StartedTestContainer;
+  let browser: Browser;
+  let page: Page;
+  beforeAll(async () => {
+    mysqlContainer = await new MySqlContainer()
+      .withDatabase("t3-app-nextjs-testcontainers")
+      .start();
+    // ...
+    appContainer = await appImage
+      .withEnvironment({ DATABASE_URL: innerDatabaseUrl, PORT: "3000" })
+      .withExposedPorts(3000)
+      .start();
+    browser = await chromium.launch();
+    page = await browser.newPage();
+  });
+  afterAll(async () => {
+    await appContainer.stop();
+    await mysqlContainer.stop();
+    await browser.close();
+  });
+  it("should interact with the app through the browser", async () => {
+    const url = `http://${appContainer.getHost()}:${appContainer.getFirstMappedPort()}`;
+    await page.goto(url);
+    await page.screenshot({ path: "screenshots/screenshot-1.png" });
+    await page.getByPlaceholder("Title").fill("Hello World");
+    await page.screenshot({ path: "screenshots/screenshot-2.png" });
+    await page.getByRole("button", { name: "Submit" }).click();
+    await page.screenshot({ path: "screenshots/screenshot-3.png" });
+    await page.locator("button").isEnabled();
+    await page.waitForSelector("text=Your most recent post: Hello World");
+    await page.screenshot({ path: "screenshots/screenshot-4.png" });
+  });
+});
+```
+
+In this code, we first launch the Chromium browser and open a new page. Then, we access the application under test and simulate user actions such as form input and button clicks. As you can see from the screenshots, POST and GET to the database are also functional, making it close to an actual operating application.
+
+This test can also be automated using GitHub Actions. The following code is an example configuration for GitHub Actions:
+
+```yml
+name: Node.js CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npx playwright install --with-deps
+    - run: npm test
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: screenshots
+        path: ./screenshots/
+        retention-days: 30
+```
+
+Thus, we can realize a disposable integration test environment that combines Next.js and a database through GitHub Actions.
+
+## Advantages and Disadvantages of Testing
+
+Using Testcontainers for testing offers several advantages and disadvantages.
+
+### Advantages
+
+1. **Immediate Environment Setup**  
+
+You can build a test environment from scratch using Docker images, including data seeding. This allows for easy implementation of tests that mimic real-world environments.
+    
+2. **Lightweight and Fast**  
+
+Since it only requires launching Docker containers, it reduces the time and effort needed for environment setup. This can accelerate the development cycle.
+    
+3. **Disposable**  
+
+The environment can be easily discarded after testing, allowing each test to start in a clean state. This guarantees the reproducibility and reliability of tests.
+    
+4. **Execution with GitHub Actions**  
+
+Utilizing GitHub Actions enables the automation of the testing process and its integration into the CI/CD pipeline. This allows for efficient development even in small-scale projects.
+    
+### Disadvantages
+
+1. **Increased Setup Time**  
+
+As the size of the containers grows, the time required for setup may increase. This is a consideration when seeking to speed up the testing process.
+    
+2. **Consumption of Machine Resources**  
+
+Running multiple containers simultaneously can consume a significant amount of machine resources. This is especially a concern when testing in environments with limited resources.
+    
+The disposable nature of the tests and these trade-offs are something to consider. As the application scales, the complexity of container setup may increase. However, pre-preparation of Docker images and the use of Docker Compose can mitigate these challenges to some extent.
+
+## Conclusion
+
+The use of Testcontainers has made it clear that it can be effectively combined with test libraries such as Vitest in a Node.js environment. Until now, the cost and effort associated with preparing and maintaining a test environment for end-to-end (E2E) testing have been significant challenges. However, by utilizing Testcontainers, it has become possible to easily construct a disposable integration test environment, presenting a new viable option.
+
+While still in the validation phase and considering practical application may present its challenges, I personally find this approach very appealing!

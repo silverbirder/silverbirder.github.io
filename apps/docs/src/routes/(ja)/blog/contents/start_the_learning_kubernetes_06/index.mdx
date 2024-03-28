@@ -1,44 +1,44 @@
 ---
-title: Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -
+title: 一足遅れて Kubernetes を学び始める - 06. workloads その2 -
 published: true
-lang: "en-US"
+lang: "ja-JP"
 date: 2019-05-05
-description: In the previous article, Starting to Learn Kubernetes a Step Behind - 05. Workloads Part 1 -, we learned about Pod, ReplicaSet, and Deployment. This time, we will learn about DaemonSet and StatefulSet (partially).
+description: 前回 一足遅れて Kubernetes を学び始める - 05. workloads その1 -では、Pod,ReplicaSet,Deploymentの３つを学習しました。今回はDaemonSet,StatefulSet(一部)を学びます。
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# Story
+# ストーリー
 
-1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 05. Workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 07. Workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 08. Discovery & LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 09. Discovery & LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 10. Config & Storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 11. Config & Storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
 
-# Last time
+# 前回
 
-In [Starting to learn Kubernetes a step behind - 05. workloads part 1 -](../start_the_learning_kubernetes_05/index.mdx), we learned about Pod, ReplicaSet, and Deployment. This time, we will learn about DaemonSet and StatefulSet (partially).
+[一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)では、Pod,ReplicaSet,Deployment の３つを学習しました。今回は DaemonSet,StatefulSet(一部)を学びます。
 
 # DaemonSet
 
-A resource with almost the same functionality as ReplicaSet.
-The difference from ReplicaSet is that DaemonSet deploys one on each node, while ReplicaSet deploys them randomly.
-It is said to be used for monitoring tools and log collection Pods.
+ReplicaSet とほぼ同じ機能のリソース。
+ReplicaSet との違いは、各ノードに 1 つずつ配置するのが DaemonSet,バラバラなのが ReplicaSet。
+用途として、モニタリングツールやログ収集の Pod に使うそうです。
 
-Let's try it out.
+さっそく、試してみます。
 
 ```yaml
 # sample-ds.yaml
@@ -77,12 +77,12 @@ NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   
 daemonset.apps/sample-ds   2         2         2       2            2           <none>          60s   nginx-container   nginx:1.12   app=sample-app
 ```
 
-There is no significant difference from ReplicaSet.
-Also, you can see that a pod is created for each node.
+ReplicaSet と大きく違いはありません。
+また、各ノードに対して pod が作られていることがわかります。
 
-There are update strategies similar to Deployment, OnDelete and RollingUpdate (default). The former is a strategy to update when the pod is explicitly deleted (`k delete`). DaemonSet is used for monitoring and log collection, so OnDelete, which allows manual timing, is preferred. The latter is a strategy to update immediately, just like Deployment.
+Deployment と似ているアップデート戦略があり、OnDelete と RollingUpdate(デフォルト)があります。前者は、pod を明示的に削除した(`k delete`)際に更新する戦略です。DaemonSet は、死活監視やログ収集に使うので、手動でのタイミングが効く OnDelete が好まれます。後者は、Deployment と同じ動きで、即時更新していく戦略です。
 
-It seems similar to ReplicaSet, but functionally it feels closer to Deployment. ReplicaSet replicates when a pod is deleted, but it does not update. DaemonSet replicates when a pod is deleted and also updates. Let's try it out.
+ReplicaSet と似ているようで、機能的には Deployment に近い感じですね。ReplicaSet は pod が削除されたら複製されますけど、アップデートされません。DaemonSet は pod が削除されたら複製するし、アップデートもされます。試してみます。
 
 ```yaml
 # sample-ds.yaml
@@ -106,7 +106,7 @@ spec:
             - containerPort: 80
 ```
 
-The version of nginx has been changed from 1.12 to 1.13.
+nginx のバージョンを 1.12 から 1.13 に変更しました。
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f . --all --prune
@@ -123,7 +123,7 @@ NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   
 daemonset.apps/sample-ds   2         2         1       1            1           <none>          12m   nginx-container   nginx:1.13   app=sample-app
 ```
 
-If you apply it, it is updated one by one (containerCreating). The difference from Deployment is that the maximum number of pods is one, so there is a moment when the pod temporarily stops functioning (excess settings are not possible).
+apply してみると、一台ずつ update されています(containerCreating)。Deployment と違うのは、最大 pod 数が１のために、一時的に pod が機能しなくなるタイミングが生まれます(超過分の設定不可)。
 
 ```shell
 pi@raspi001:~/tmp $ k delete pod sample-ds-sx4mv
@@ -140,15 +140,15 @@ NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   
 daemonset.apps/sample-ds   2         2         1       2            1           <none>          17m   nginx-container   nginx:1.13   app=sample-app
 ```
 
-Even if the pod is deleted, it will be revived by self-healing.
+pod を削除しても、セルフヒーリングで復活します。
 
 # StatefulSet
 
-A resource for stateful pods like DB, not stateless pods.
-Even if the pod is deleted, there is a mechanism to permanently save the data.
-The operation itself is similar to replicaSet.
+ステートレスな pod ではなく、DB のようなステートフルな pod 向けのリソース。
+pod を削除しても、データを永続的に保存する仕組みが存在。
+動作自体は、replicaSet と似ています。
 
-Let's try it out.
+さっそく、試してみます。
 
 ```yaml
 # sample-statefulset.yaml
@@ -186,9 +186,9 @@ spec:
             storage: 1G
 ```
 
-The path you want to mount specified by mountPath is mounted by volumeClaimTemplates. Where?
-I will study Storage separately.
-For now, apply it.
+mountPath で指定したマウントしたいパスを、volumeClaimTemplates でマウントしてくれます。 どこに？
+Storage に関しては別で学習することにします。
+ひとまず、apply します。
 
 ```shell
 pi@raspi001:~/tmp $ k apply -f . --all --prune
@@ -207,55 +207,55 @@ Events:
   Warning  FailedScheduling  70s (x3 over 2m28s)  default-scheduler  pod has unbound immediate PersistentVolumeClaims (repeated 2 times)
 ```
 
-Oh, it has become Pending. `pod has unbound immediate PersistentVolumeClaims`
+おや、Pending になってしまいました。 `pod has unbound immediate PersistentVolumeClaims`
 
-## PersistentVolume and PersistentVolumeClaims
+## PersistentVolume と PersistentVolumeClaims
 
-PersistentVolume is a resource for a place to permanently store data, as the name suggests.
-If you use a managed service, PresistentVolume is prepared by default.
-My environment is not a managed service, but a self-made environment, so I need to prepare PresistentVolume.
+PersistentVolume(永続的ボリューム)は、名前の通りで、データを永続的に保存しておく場所のリソースです。
+マネージドサービスを利用すると、デフォルトで PresistentVolume が用意されているそうです。
+私の環境は、マネージドサービスではなく、自作環境であるので、PresistentVolume を用意する必要があります。
 
-PersistentVolumeClaims is a resource that says "Let me use PresistentVolume", as the name suggests.
-With this resource, you can specify the name of PresistentVolume and apply it to mount it for the first time.
-For example, if a Pod specifies the name of PersistentVolumeClaims, that Pod can mount the Claimed PersistentVolume.
-volumeClaimTemplates is something like "You can claim according to the template without defining PersistentVolumeClaims".
+PersistentVolumeClaims(永続的ボリューム要求)は、これも名前の通りで、「PresistentVolume を使わせて」というリソースです。
+このリソースで、PresistentVolume の name を指定し、apply することで、初めてマウントができます。
+例えば、Pod から PersistentVolumeClaims の名前を指定してあげると、その Pod は Claim した PersistentVolume をマウントすることができます。
+volumeClaimTemplates というのは、「わざわざ PersistentVolumeClaims を定義しなくてもテンプレートに沿って書けば Claims できるよ」というものです。
 
-## So, what was the problem?
+## で、何が問題だったの？
 
-As indicated by `pod has unbound immediate PersistentVolumeClaims`, it means "I requested a PersistentVolume, but I couldn't allocate a Volume."
+`pod has unbound immediate PersistentVolumeClaims`のとおりで、「PersistentVolume の要求をしたけど、Volume 割当できなかったよ」とのことです。
 
-Let's check if there is a PersistentVolume(pv).
+PersistentVolume(pv)があるのか確認してみます。
 
 ```shell
 pi@raspi001:~/tmp $ k get pv
 No resources found.
 ```
 
-Indeed, there isn't. We need to prepare a PersistentVolume, but what should we do?
-I thought of three solutions.
+たしかにないです。PersistentVolume を用意しないといけないのですが、どうしましょう。
+解決手段として考えたのは 3 点です。
 
-1. Use services like GCP, AWS, Azure
-1. Use LocalVolume
-1. Use NFS
+1. GCP や AWS,Azure のサービスを使う
+1. LocalVolume を使う
+1. NFS を使う
 
 ※ [types-of-persistent-volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes)
 
-1, although I'm writing it down, is rejected. The reason is that I don't want to use cloud services since I've built it with raspberryPi.
+1 は、書いておいてなんですが、却下です。理由は、せっかく raspberryPi で構築したのでクラウドサービスを利用したくないからです。
 
-2, I **tried** referring to [Kubernetes: Verification of Local Volume](https://qiita.com/ysakashita/items/67a452e76260b1211920), but as written in the article, "Local Volume cannot be shared and used by other Pods", so it won't work unless the statefulset has `replica:1`. It's good for learning as it works in its own way, but I want to make it without replica restrictions if possible (I want to make it ReadWriteMany).
+2 は、[Kubernetes: Local Volume の検証](https://qiita.com/ysakashita/items/67a452e76260b1211920)の参考にして**試した**のですが、 記事にも書いてあるとおり「Local Volume は他の Pod から共有で利用することができない」ため、statefulset が`replica:1`でなければ動きません。それはそれで動くので学習になり良いのですが、せっかくなら replica の制限なしにしたいです(ReadWriteMany にしたい)。
 
-3 is a method of preparing another raspberryPi and treating it as NFS to make it a PersistentVolume.
+3 は、もう一台 raspberryPi を用意して、それを NFS と見立てて PersistentVolume にしてみる方法です。
 
-I think I'll proceed with 3.
+3 を進めようと思います。
 
-## NFS Introduction
+## NFS 導入
 
-### Server Configuration
+### サーバ設定
 
-Prepare a new raspberryPi for NFS. The configuration procedure was referred from [here](../start_the_learning_kubernetes_03/index.mdx).
-The continuation is as follows.
+NFS 用の新たな raspberryPi を用意します。設定手順は[こちら](../start_the_learning_kubernetes_03/index.mdx)を参考にしました。
+その後の続きは下記です。
 
-The hostname of NFS is `nfspi`.
+NFS のホスト名は`nfspi`とします。
 
 ```shell
 ~ $ slogin pi@nfspi.local
@@ -267,7 +267,7 @@ pi@nfspi:~ $ sudo vim /etc/exports
 /home/data/ 192.168.3.0/255.255.255.0(rw,sync,no_subtree_check,fsid=0)
 ```
 
-The meaning is "Allow mounts from the specified range of IP addresses". For options, refer to [here](https://linuxjm.osdn.jp/html/nfs-utils/man5/exports.5.html).
+意味としては、「指定範囲の IP アドレスからのマウントを許可する」。オプションは、[こちら](https://linuxjm.osdn.jp/html/nfs-utils/man5/exports.5.html)を参照。
 
 | host             | ip           |
 | ---------------- | ------------ |
@@ -286,7 +286,7 @@ pi@nfspi:~ $ service rpcbind status
 pi@nfspi:~ $ systemctl status nfs-server.service
 ```
 
-Let's check if it's set up correctly from iMac.
+正しく設定されたか、iMac から確認してみます。
 
 ```shell
 ~ $ mkdir share
@@ -296,17 +296,17 @@ Let's check if it's set up correctly from iMac.
 
 OK
 
-### Client Configuration
+### クライアント設定
 
-Execute the following for each node.
+各ノードに対して下記を実行します。
 
 ```shell
 pi@raspi001:~ $ sudo apt-get install nfs-common
 ```
 
-## nfs-client Introduction
+## nfs-client 導入
 
-In the raspberryPi environment, it's a blank state, so you need to prepare a PersistentVolume from scratch. For that, you also need to prepare the type of Storage that will be the Volume, but looking at [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner), there is no type for NFS as standard. So, we will create a StorageClass for NFS using [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client).
+raspberryPi 環境では、真っ白な状態なので、一から PersistentVolume を用意する必要があります。それには Volume となる Storage の型を用意する必要もあるのですが、[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner)を見る限り、NFS 用の型は標準で存在しません。そこで、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)を使って NFS 用の StorageClass を作成します。
 
 ```shell
 pi@raspi001:~ $ git clone https://github.com/kubernetes-incubator/external-storage.git && cd cd external-storage/nfs-client/
@@ -316,44 +316,44 @@ pi@raspi001:~/external-storage/nfs-client $ sed -i'' "s/namespace:.*/namespace: 
 pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/rbac.yaml
 ```
 
-Replace the namespace in rbac.yaml with the namespace of the environment you are currently running, and apply it.
+rbac.yaml にある namespace を現在動かしている環境の namespace に置換して、apply しています。
 
 ```shell
 pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/deployment-arm.yaml
 pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/class.yaml
 ```
 
-In deployment-arm.yaml, I set the IP address (192.168.3.35) and mount path (/home/data) of the NFS server.
-class.yaml is the NFS storageClass(managed-nfs-storage) I wanted this time.
+deployment-arm.yaml では、NFS サーバの IP アドレス(192.168.3.35)とマウントパス(/home/data)を設定しました。
+class.yaml が、今回欲していた NFS の storageClass(managed-nfs-storage)になります。
 
-※ Since the image of raspberryPi uses Raspbian, I use deployment-arm.yaml for arm. [Wiki](https://ja.wikipedia.org/wiki/Raspbian)
-I got stuck on this for a while...
+※ raspberryPi のイメージは Raspbian を使っているので、arm 用の deployment-arm.yaml を使います。[Wiki](https://ja.wikipedia.org/wiki/Raspbian)
+これに随分とハマってしまいました...
 
 ```shell
 pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/test-claim.yaml -f deploy/test-pod.yaml
 ```
 
-I'm testing to see if a file can be created at the mount point. Let's check.
+試しにマウント先にファイルが作成できているのかテストしています。確認します。
 
-Move to nfspi
+nfspi に移動
 
 ```shell
 pi@nfspi:~ $ ls /home/data
 ```
 
-If it's there, you're successful. If it is, clean up with the following.
+あれば成功です。あれば、下記で片付けます。
 
 ```shell
 pi@raspi001:~/external-storage/nfs-client $ k delete -f deploy/test-pod.yaml -f deploy/test-claim.yaml
 ```
 
-## Retry statefulset
+## statefulset をリトライ
 
-With the above, we have prepared the StorageClass. So, I was planning to create a PersistentVolume, create a PersistentVolumeClaim...
-However, [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client) has a feature called **dynamic provisioning**, so you don't have to create a PersistentVolume, you can just make a PersistentVolumeClaim. I will write about this when I study storage.
+以上で、StorageClass を用意できました。よって後は、PersistentVolume 作って、PersistentVolumeClaim 作って...となる予定でした。
+しかし、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)には、**dynamic provisioning**という機能が備わっており、PersistentVolume を作らなくても、PersistentVolumeClaim するだけで良くなります。この件については、storage を学習する際に書きます。
 
-Move to raspi001 and apply sample-statefulset.yaml again.
-(Add storageClassName: managed-nfs-storage, change ReadWriteOnce→ReadWriteMany)
+raspi001 に移動して、sample-statefulset.yaml をもう一度 apply します。
+(storageClassName: managed-nfs-storage を追加, ReadWriteOnce→ReadWriteMany に変更)
 
 ```yaml
 # sample-statefulset.yaml
@@ -396,7 +396,7 @@ spec:
 pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
 ```
 
-Move to nfapi and check if it exists.
+nfapi に移動して、あるか確認。
 
 ```shell
 pi@nfspi:~ $ ls -la /home/data
@@ -408,23 +408,21 @@ drwxrwxrwx 2 nobody nogroup 4096 May  5 17:18 default-www-sample-statefulset-1-p
 drwxrwxrwx 2 nobody nogroup 4096 May  5 17:18 default-www-sample-statefulset-2-pvc-69bee568-6f51-11e9-bb47-b827eb8ccd80
 ```
 
-It's there! It's mounted!
+ありました！ マウントできています！
 
-# Cleaning up
+# お片付け
 
-`--prune` is also good, but the following was easier to use.
+`--prune`でも良いのですが、下記のほうが使いやすかったです。
 
 ```shell
 pi@raspi001:~/tmp $ k delete -f sample-ds.yaml -f sample-statefulset.yaml
 pi@raspi001:~/tmp $ k delete pvc www-sample-statefulset-{0,1,2}
 ```
 
-※ Please try `k get pv` and `k get pvc`, and if there are any resources created this time, please delete them.
+※ `k get pv`と`k get pvc`を試して頂き、今回作ったリソースがありましたら削除お願いします。
 
-# Conclusion
+# おわりに
 
-The article has become large until it is in a state where StatefulSet can be used. I think I will learn more about it next time. lol
-Also, looking at [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client), I thought it would be much more convenient to introduce helm, the package manager of kubernetes, but I set it manually...
-Next time is [here](../start_the_learning_kubernetes_07/index.mdx).
-
-I'm sorry, but you didn't provide any Markdown content to translate. Could you please provide the content you want to translate?
+StatefulSet を使える状態にするまでに記事が大きくなってしまいました。次回に詳しく学んでいこうと思います。笑
+あと、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)を見て思ったのが、kubernetes のパッケージマネージャである helm を導入した方が、遥かに便利だと思いつつ、手動設定しました。。。
+次回は、[こちら](../start_the_learning_kubernetes_07/index.mdx)です。

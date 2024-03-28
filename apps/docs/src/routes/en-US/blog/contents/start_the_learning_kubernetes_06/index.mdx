@@ -1,0 +1,430 @@
+---
+title: Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -
+published: true
+lang: "en-US"
+date: 2019-05-05
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 05. Workloads Part 1 -, we learned about Pod, ReplicaSet, and Deployment. This time, we will learn about DaemonSet and StatefulSet (partially).
+tags: ["Kubernetes"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+# Story
+
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. Workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. Workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. Workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. Discovery & LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. Discovery & LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. Config & Storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. Config & Storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
+
+# Last time
+
+In [Starting to learn Kubernetes a step behind - 05. workloads part 1 -](../start_the_learning_kubernetes_05/index.mdx), we learned about Pod, ReplicaSet, and Deployment. This time, we will learn about DaemonSet and StatefulSet (partially).
+
+# DaemonSet
+
+A resource with almost the same functionality as ReplicaSet.
+The difference from ReplicaSet is that DaemonSet deploys one on each node, while ReplicaSet deploys them randomly.
+It is said to be used for monitoring tools and log collection Pods.
+
+Let's try it out.
+
+```yaml
+# sample-ds.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sample-ds
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+```
+
+```shell
+pi@raspi001:~/tmp $ k apply -f . --all --prune
+daemonset.apps/sample-ds created
+pi@raspi001:~/tmp $ k get all -o=wide
+NAME                  READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+pod/sample-ds-wxzbw   1/1     Running   0          60s   10.244.2.24   raspi003   <none>           <none>
+pod/sample-ds-xjjtp   1/1     Running   0          60s   10.244.1.37   raspi002   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE    SELECTOR
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6d1h   <none>
+
+NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE   CONTAINERS        IMAGES       SELECTOR
+daemonset.apps/sample-ds   2         2         2       2            2           <none>          60s   nginx-container   nginx:1.12   app=sample-app
+```
+
+There is no significant difference from ReplicaSet.
+Also, you can see that a pod is created for each node.
+
+There are update strategies similar to Deployment, OnDelete and RollingUpdate (default). The former is a strategy to update when the pod is explicitly deleted (`k delete`). DaemonSet is used for monitoring and log collection, so OnDelete, which allows manual timing, is preferred. The latter is a strategy to update immediately, just like Deployment.
+
+It seems similar to ReplicaSet, but functionally it feels closer to Deployment. ReplicaSet replicates when a pod is deleted, but it does not update. DaemonSet replicates when a pod is deleted and also updates. Let's try it out.
+
+```yaml
+# sample-ds.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sample-ds
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.13
+          ports:
+            - containerPort: 80
+```
+
+The version of nginx has been changed from 1.12 to 1.13.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f . --all --prune
+daemonset.apps/sample-ds configured
+pi@raspi001:~/tmp $ k get all -o=wide
+NAME                  READY   STATUS              RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+pod/sample-ds-sx4mv   0/1     ContainerCreating   0          5s    <none>        raspi003   <none>           <none>
+pod/sample-ds-xjjtp   1/1     Running             0          12m   10.244.1.37   raspi002   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE    SELECTOR
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6d2h   <none>
+
+NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE   CONTAINERS        IMAGES       SELECTOR
+daemonset.apps/sample-ds   2         2         1       1            1           <none>          12m   nginx-container   nginx:1.13   app=sample-app
+```
+
+If you apply it, it is updated one by one (containerCreating). The difference from Deployment is that the maximum number of pods is one, so there is a moment when the pod temporarily stops functioning (excess settings are not possible).
+
+```shell
+pi@raspi001:~/tmp $ k delete pod sample-ds-sx4mv
+pod "sample-ds-sx4mv" deleted
+pi@raspi001:~/tmp $ k get all -o=wide
+NAME                  READY   STATUS              RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/sample-ds-hgvtv   0/1     ContainerCreating   0          6s      <none>        raspi003   <none>           <none>
+pod/sample-ds-k8cfx   1/1     Running             0          4m38s   10.244.1.38   raspi002   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE    SELECTOR
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6d2h   <none>
+
+NAME                       DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE   CONTAINERS        IMAGES       SELECTOR
+daemonset.apps/sample-ds   2         2         1       2            1           <none>          17m   nginx-container   nginx:1.13   app=sample-app
+```
+
+Even if the pod is deleted, it will be revived by self-healing.
+
+# StatefulSet
+
+A resource for stateful pods like DB, not stateless pods.
+Even if the pod is deleted, there is a mechanism to permanently save the data.
+The operation itself is similar to replicaSet.
+
+Let's try it out.
+
+```yaml
+# sample-statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sample-statefulset
+spec:
+  serviceName: sample-statefulset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1G
+```
+
+The path you want to mount specified by mountPath is mounted by volumeClaimTemplates. Where?
+I will study Storage separately.
+For now, apply it.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f . --all --prune
+daemonset.apps/sample-ds unchanged
+statefulset.apps/sample-statefulset created
+pi@raspi001:~/tmp $ k get pod
+NAME                   READY   STATUS    RESTARTS   AGE
+sample-ds-hgvtv        1/1     Running   0          54m
+sample-ds-k8cfx        1/1     Running   0          58m
+sample-statefulset-0   0/1     Pending   0          5m19s
+pi@raspi001:~/tmp $ k describe pod sample-statefulset-0
+...
+Events:
+  Type     Reason            Age                  From               Message
+  ----     ------            ----                 ----               -------
+  Warning  FailedScheduling  70s (x3 over 2m28s)  default-scheduler  pod has unbound immediate PersistentVolumeClaims (repeated 2 times)
+```
+
+Oh, it has become Pending. `pod has unbound immediate PersistentVolumeClaims`
+
+## PersistentVolume and PersistentVolumeClaims
+
+PersistentVolume is a resource for a place to permanently store data, as the name suggests.
+If you use a managed service, PresistentVolume is prepared by default.
+My environment is not a managed service, but a self-made environment, so I need to prepare PresistentVolume.
+
+PersistentVolumeClaims is a resource that says "Let me use PresistentVolume", as the name suggests.
+With this resource, you can specify the name of PresistentVolume and apply it to mount it for the first time.
+For example, if a Pod specifies the name of PersistentVolumeClaims, that Pod can mount the Claimed PersistentVolume.
+volumeClaimTemplates is something like "You can claim according to the template without defining PersistentVolumeClaims".
+
+## So, what was the problem?
+
+As indicated by `pod has unbound immediate PersistentVolumeClaims`, it means "I requested a PersistentVolume, but I couldn't allocate a Volume."
+
+Let's check if there is a PersistentVolume(pv).
+
+```shell
+pi@raspi001:~/tmp $ k get pv
+No resources found.
+```
+
+Indeed, there isn't. We need to prepare a PersistentVolume, but what should we do?
+I thought of three solutions.
+
+1. Use services like GCP, AWS, Azure
+1. Use LocalVolume
+1. Use NFS
+
+※ [types-of-persistent-volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#types-of-persistent-volumes)
+
+1, although I'm writing it down, is rejected. The reason is that I don't want to use cloud services since I've built it with raspberryPi.
+
+2, I **tried** referring to [Kubernetes: Verification of Local Volume](https://qiita.com/ysakashita/items/67a452e76260b1211920), but as written in the article, "Local Volume cannot be shared and used by other Pods", so it won't work unless the statefulset has `replica:1`. It's good for learning as it works in its own way, but I want to make it without replica restrictions if possible (I want to make it ReadWriteMany).
+
+3 is a method of preparing another raspberryPi and treating it as NFS to make it a PersistentVolume.
+
+I think I'll proceed with 3.
+
+## NFS Introduction
+
+### Server Configuration
+
+Prepare a new raspberryPi for NFS. The configuration procedure was referred from [here](../start_the_learning_kubernetes_03/index.mdx).
+The continuation is as follows.
+
+The hostname of NFS is `nfspi`.
+
+```shell
+~ $ slogin pi@nfspi.local
+pi@nfspi:~ $ sudo apt-get install nfs-kernel-server
+pi@nfspi:~ $ sudo vim /etc/exports
+```
+
+```shell
+/home/data/ 192.168.3.0/255.255.255.0(rw,sync,no_subtree_check,fsid=0)
+```
+
+The meaning is "Allow mounts from the specified range of IP addresses". For options, refer to [here](https://linuxjm.osdn.jp/html/nfs-utils/man5/exports.5.html).
+
+| host             | ip           |
+| ---------------- | ------------ |
+| iMac             | 192.168.3.3  |
+| raspi001(master) | 192.168.3.32 |
+| raspi002(worker) | 192.168.3.33 |
+| raspi003(worker) | 192.168.3.34 |
+| nfspi(NFS)       | 192.168.3.35 |
+
+```shell
+pi@nfspi:~ $ sudo mkdir -p /home/data
+pi@nfspi:~ $ sudo chmod 755 /home/data
+pi@nfspi:~ $ sudo chown pi:pi /home/data
+pi@nfspi:~ $ sudo /etc/init.d/nfs-kernel-server restart
+pi@nfspi:~ $ service rpcbind status
+pi@nfspi:~ $ systemctl status nfs-server.service
+```
+
+Let's check if it's set up correctly from iMac.
+
+```shell
+~ $ mkdir share
+~ $ sudo mount_nfs -P nfspi.local:/home/data ./share/
+~ $ sudo umount share
+```
+
+OK
+
+### Client Configuration
+
+Execute the following for each node.
+
+```shell
+pi@raspi001:~ $ sudo apt-get install nfs-common
+```
+
+## nfs-client Introduction
+
+In the raspberryPi environment, it's a blank state, so you need to prepare a PersistentVolume from scratch. For that, you also need to prepare the type of Storage that will be the Volume, but looking at [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner), there is no type for NFS as standard. So, we will create a StorageClass for NFS using [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client).
+
+```shell
+pi@raspi001:~ $ git clone https://github.com/kubernetes-incubator/external-storage.git && cd cd external-storage/nfs-client/
+pi@raspi001:~/external-storage/nfs-client $ NS=$(kubectl config get-contexts|grep -e "^\*" |awk '{print $5}')
+pi@raspi001:~/external-storage/nfs-client $ NAMESPACE=${NS:-default}
+pi@raspi001:~/external-storage/nfs-client $ sed -i'' "s/namespace:.*/namespace: $NAMESPACE/g" ./deploy/rbac.yaml
+pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/rbac.yaml
+```
+
+Replace the namespace in rbac.yaml with the namespace of the environment you are currently running, and apply it.
+
+```shell
+pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/deployment-arm.yaml
+pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/class.yaml
+```
+
+In deployment-arm.yaml, I set the IP address (192.168.3.35) and mount path (/home/data) of the NFS server.
+class.yaml is the NFS storageClass(managed-nfs-storage) I wanted this time.
+
+※ Since the image of raspberryPi uses Raspbian, I use deployment-arm.yaml for arm. [Wiki](https://ja.wikipedia.org/wiki/Raspbian)
+I got stuck on this for a while...
+
+```shell
+pi@raspi001:~/external-storage/nfs-client $ k apply -f deploy/test-claim.yaml -f deploy/test-pod.yaml
+```
+
+I'm testing to see if a file can be created at the mount point. Let's check.
+
+Move to nfspi
+
+```shell
+pi@nfspi:~ $ ls /home/data
+```
+
+If it's there, you're successful. If it is, clean up with the following.
+
+```shell
+pi@raspi001:~/external-storage/nfs-client $ k delete -f deploy/test-pod.yaml -f deploy/test-claim.yaml
+```
+
+## Retry statefulset
+
+With the above, we have prepared the StorageClass. So, I was planning to create a PersistentVolume, create a PersistentVolumeClaim...
+However, [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client) has a feature called **dynamic provisioning**, so you don't have to create a PersistentVolume, you can just make a PersistentVolumeClaim. I will write about this when I study storage.
+
+Move to raspi001 and apply sample-statefulset.yaml again.
+(Add storageClassName: managed-nfs-storage, change ReadWriteOnce→ReadWriteMany)
+
+```yaml
+# sample-statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sample-statefulset
+spec:
+  serviceName: sample-statefulset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes:
+          - ReadWriteMany
+        storageClassName: managed-nfs-storage
+        resources:
+          requests:
+            storage: 1Gi
+```
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-statefulset.yaml
+```
+
+Move to nfapi and check if it exists.
+
+```shell
+pi@nfspi:~ $ ls -la /home/data
+total 20
+drwxrwxrwx 5 pi     pi      4096 May  5 17:18 .
+drwxr-xr-x 4 root   root    4096 May  4 15:50 ..
+drwxrwxrwx 2 nobody nogroup 4096 May  5 17:17 default-www-sample-statefulset-0-pvc-5911505b-6f51-11e9-bb47-b827eb8ccd80
+drwxrwxrwx 2 nobody nogroup 4096 May  5 17:18 default-www-sample-statefulset-1-pvc-5f2fd68e-6f51-11e9-bb47-b827eb8ccd80
+drwxrwxrwx 2 nobody nogroup 4096 May  5 17:18 default-www-sample-statefulset-2-pvc-69bee568-6f51-11e9-bb47-b827eb8ccd80
+```
+
+It's there! It's mounted!
+
+# Cleaning up
+
+`--prune` is also good, but the following was easier to use.
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-ds.yaml -f sample-statefulset.yaml
+pi@raspi001:~/tmp $ k delete pvc www-sample-statefulset-{0,1,2}
+```
+
+※ Please try `k get pv` and `k get pvc`, and if there are any resources created this time, please delete them.
+
+# Conclusion
+
+The article has become large until it is in a state where StatefulSet can be used. I think I will learn more about it next time. lol
+Also, looking at [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client), I thought it would be much more convenient to introduce helm, the package manager of kubernetes, but I set it manually...
+Next time is [here](../start_the_learning_kubernetes_07/index.mdx).
+
+I'm sorry, but you didn't provide any Markdown content to translate. Could you please provide the content you want to translate?

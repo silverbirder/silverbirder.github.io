@@ -1,9 +1,9 @@
 ---
-title: Starting to Learn Kubernetes a Step Behind - 01. Choosing the Environment -
+title: 一足遅れて Kubernetes を学び始める  - 01. 環境選択編 -
 published: true
-lang: "en-US"
+lang: "ja-JP"
 date: 2019-04-18
-description: Background I want to be able to use Kubernetes (undefined) But, I have other things I want to do (app development) so I'll put it off for now! So far, I've always put off learning Kubernetes properly, but now I'm going to give it a serious try.
+description: 経緯 Kubernetesを使えるようになりたいな〜（定義不明） けど、他にやりたいこと（アプリ開発）あるから後回しにしちゃえ〜！！と、今までずっと、ちゃんと学ばなかったKubernetesを、本腰入れて使ってみようと思います。
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_1.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_1.png
@@ -11,43 +11,43 @@ socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v16398165
 
 import { Image } from "~/components/image/image";
 
-# Story
+# ストーリー
 
-1. [Starting to Learn Kubernetes a Step Behind - 01. Choosing the Environment -](../start_the_learning_kubernetes_01/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
-1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
 
-# Background
+# 経緯
 
-I want to learn how to use Kubernetes (undefined)
-But, I have other things I want to do (app development) so I'll put it off~
-So, I'm going to seriously try to use Kubernetes, which I haven't really learned until now. ✨
+Kubernetes を使えるようになりたいな〜（定義不明）
+けど、他にやりたいこと（アプリ開発）あるから後回しにしちゃえ〜！！
+と、今までずっと、ちゃんと学ばなかった Kubernetes を、本腰入れて使ってみようと思います。✨
 
-# Environment
+# 環境
 
 ```
 iMac (21.5-inch, 2017)
 ```
 
-My knowledge level is,
-"I know Kubernetes is a container orchestration tool," and I've heard related terms, but I don't understand them well.
+私の知識レベルは、
+「Kubernetes はコンテナオーケストレーションしてくれるやつでしょ」というざっくり認識で、関連用語は耳にしたことがあるだけで、よく理解できていません。
 
-# Where to start?
+# 最初、何から始めよう？
 
-It seems easier and simpler to start with the managed service GKE. 😍
+マネージドサービスの GKE 使ったほうが、最初は楽で簡単だから、そっちを使ったほうが良いみたいです。 😍
 
 ## GKE SetUp
 
@@ -56,34 +56,34 @@ It seems easier and simpler to start with the managed service GKE. 😍
   width={465}
   height={779}
   layout="constrained"
-  alt="GKE Standard Cluster Template 1"
+  alt="GKE 標準クラスタ テンプレート 1"
 />
 
-Nodes are the machines that hold pods (containers), right? ([Pod and Node](https://nownabe.github.io/kubernetes-doc/tutorials/kubernetes_basics/3_explore_your_app.html))
+ノードってのは、ポッド（コンテナ）を入れるマシンなんだっけな。 ([Pod と Node](https://nownabe.github.io/kubernetes-doc/tutorials/kubernetes_basics/3_explore_your_app.html))
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_2.png"
   width={454}
   height={731}
   layout="constrained"
-  alt="GKE Standard Cluster Template 2"
+  alt="GKE 標準クラスタ テンプレート 2"
 />
 
-Well, the default is fine, right? 🤔
+まあ、デフォルトで良いよね 🤔
 
 <Image
   src="https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_3.png"
   width={457}
   height={720}
   layout="constrained"
-  alt="GKE Standard Cluster Template 3"
+  alt="GKE 標準クラスタ テンプレート 3"
 />
 
-I don't understand any of the words...(Istio? Auto-provisioning? Vertical pod auto-scaling?) 🤔🤔🤔
+単語がどれも分からなさすぎる...(Istio?自動プロビジョニング?垂直ポッド自動スケーリング？) 🤔🤔🤔
 
-# Let's learn on Mac where we can try Kubernetes...
+# Mac で Kubernetes 試せるから、そっちで学んでいこう...
 
-It's a waste to run GKE in a state where I don't understand the meaning, because it costs money and I don't know what I'm doing.
-It seems that Kubernetes can be used on Docker For Mac, so I think I'll start learning there... 💪
+ちょっと意味がわからない状態で、GKE 動かしたらお金がかかる上に、何してるのか分からないから、もったいない。
+Docker For Mac に Kubernetes 使えるみたいだから、まずはそっちを使って学んでいこうかな。。。 💪
 
-The next one is [here](../start_the_learning_kubernetes_02/index.mdx).
+次回は[こちら](../start_the_learning_kubernetes_02/index.mdx)です。

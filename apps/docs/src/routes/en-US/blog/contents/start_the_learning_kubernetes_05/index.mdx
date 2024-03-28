@@ -1,54 +1,54 @@
 ---
-title: 一足遅れて Kubernetes を学び始める - 05. workloads その1 -
+title: Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -
 published: true
-lang: "ja-JP"
+lang: "en-US"
 date: 2019-05-03
-description: 前回 一足遅れて Kubernetes を学び始める - 04. kubectl -では、kubenetesのCLIツールkubectlを学習しました。今回は、目玉機能であるworkloadsについて学習します。
+description: In the previous "Starting to Learn Kubernetes a Step Behind - 04. kubectl -", we learned about the kubenetes CLI tool kubectl. This time, we will learn about the main feature, workloads.
 tags: ["Kubernetes"]
 cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
 ---
 
-# ストーリー
+# Story
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](../start_the_learning_kubernetes_01/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](../start_the_learning_kubernetes_05/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](../start_the_learning_kubernetes_06/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](../start_the_learning_kubernetes_07/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](../start_the_learning_kubernetes_08/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](../start_the_learning_kubernetes_09/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](../start_the_learning_kubernetes_10/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](../start_the_learning_kubernetes_11/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](../start_the_learning_kubernetes_12/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](../start_the_learning_kubernetes_13/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](../start_the_learning_kubernetes_14/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](../start_the_learning_kubernetes_15/index.mdx)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](../start_the_learning_kubernetes_16/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 01. Choosing the Environment -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limitations -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
 
-# 前回
+# Last Time
 
-[一足遅れて Kubernetes を学び始める - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)では、kubenetes の CLI ツール kubectl を学習しました。
-今回は、目玉機能である workloads について学習します。
+In [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx), we learned about kubectl, the CLI tool for Kubernetes.
+This time, we will learn about workloads, a key feature.
 
-# workloads
+# Workloads
 
-Kubernetes には、下記のようにリソースの種類が存在します。
-今回は、Workloads を学習します。
+In Kubernetes, there are types of resources as follows.
+This time, we will learn about Workloads.
 
-| リソースの分類           | 内容                                                         |
-| :----------------------- | :----------------------------------------------------------- |
-| Workloads リソース       | コンテナの実行に関するリソース                               |
-| Discovery＆LB リソース   | コンテナを外部公開するようなエンドポイントを提供するリソース |
-| Config＆Storage リソース | 設定・機密情報・永続化ボリュームなどに関するリソース         |
-| Cluster リソース         | セキュリティやクォータなどに関するリソース                   |
-| Metadata リソース        | リソースを操作する系統のリソース                             |
+| Classification of resources | Content                                                                          |
+| :-------------------------- | :------------------------------------------------------------------------------- |
+| Workloads resources         | Resources related to the execution of containers                                 |
+| Discovery & LB resources    | Resources that provide endpoints to expose containers externally                 |
+| Config & Storage resources  | Resources related to configuration, secret information, persistent volumes, etc. |
+| Cluster resources           | Resources related to security and quotas                                         |
+| Metadata resources          | Resources for operating other resources                                          |
 
-※ [Kubernetes の Workloads リソース（その 1）](https://thinkit.co.jp/article/13610)
+※ [Kubernetes Workloads Resources (Part 1)](https://thinkit.co.jp/article/13610)
 
-Workloads には、下記 8 つの種類があります。
+There are 8 types of Workloads.
 
 - Pod
 - ReplicationController
@@ -59,14 +59,14 @@ Workloads には、下記 8 つの種類があります。
 - Job
 - CronJob
 
-Pod,ReplicationController,ReplicaSet,Deployment までを見ていきます。
+We will look at Pod, ReplicationController, ReplicaSet, and Deployment.
 
 # Pod
 
-コンテナを 1 つ以上含めた最小単位のリソース。
-Pod 毎に IP アドレスが振られる。ボリュームは共有。
-基本的に、Pod にコンテナを詰め込めるのではなく、「分離できるなら、分離する」方針がマイクロサービスとして良いそうです。
-さっそく、動かしてみます。
+The smallest unit of resource that includes one or more containers.
+Each Pod is assigned an IP address. Volumes are shared.
+Basically, it's not about stuffing containers into a Pod, but "if you can separate, separate" seems to be a good policy for microservices.
+Let's get it running.
 
 ※ `alias k=kubectl`
 
@@ -92,8 +92,8 @@ NAME          READY   STATUS    RESTARTS   AGE
 sample-2pod   2/2     Running   0          101s
 ```
 
-期待通り複数のコンテナが動いていますね。(READY 2/2)
-exec で中に入る場合、どうなるのでしょうか。
+As expected, multiple containers are running. (READY 2/2)
+What happens when you enter with exec?
 
 ```shell
 pi@raspi001:~/tmp $ k exec -it sample-2pod /bin/sh
@@ -102,8 +102,8 @@ Use 'kubectl describe pod/sample-2pod -n default' to see all of the containers i
 #
 ```
 
-なるほど、デフォルトのコンテナ（spec.containers の先頭)に入るみたいです。
-redis-container に入る場合は、
+I see, it seems to enter the default container (the first one in spec.containers).
+To enter the redis-container,
 
 ```shell
 pi@raspi001:~/tmp $ k exec -it sample-2pod -c redis-container /bin/sh
@@ -112,15 +112,15 @@ pi@raspi001:~/tmp $ k exec -it sample-2pod -c redis-container /bin/sh
 #
 ```
 
-`-c`でコンテナを指定するだけみたいです。
-他にも説明したいことがありますが、長くなりそうなので切り上げます。
+It seems that you just need to specify the container with `-c`.
+There are other things I want to explain, but it's getting long, so I'll wrap it up.
 
 # ReplicaSet, ReplicationController
 
-レプリカという名前だけあって、Pod を複製するリソース。
-過去の経緯から ReplicationController から ReplicaSet へ名前変更があったため、ReplicaSet を使うことが推奨
+As the name suggests, these are resources that replicate Pods.
+Due to historical reasons, the name was changed from ReplicationController to ReplicaSet, so it is recommended to use ReplicaSet.
 
-さっそく、動かしてみます。
+Let's get it running.
 
 ```yaml
 # sample-rs.yaml
@@ -157,11 +157,11 @@ sample-rs-nsc5b   0/2     ContainerCreating   0          103s
 sample-rs-wk7vl   0/2     ContainerCreating   0          103s
 ```
 
-確かに、replica3 つ(sample-rs)で、それぞれコンテナが２つ(READY 2/2)作れていますね。
-書いて気になるのは、 pod の apiVersion は、`v1`に対して、replicaSet の apiVersion は、 `apps/v1`というのが気になりましたので、調べてみたところ、[Kubernetes の apiVersion に何を書けばいいか](https://qiita.com/soymsk/items/69aeaa7945fe1f875822)という記事を見つけました。
-Core となる機能は、`v1`で良いみたいです。
+Indeed, there are three replicas (sample-rs), each with two containers (READY 2/2).
+What I noticed while writing is that the apiVersion of the pod is `v1`, while the apiVersion of the replicaSet is `apps/v1`. So I looked it up and found an article called [What to write in Kubernetes apiVersion](https://qiita.com/soymsk/items/69aeaa7945fe1f875822).
+It seems that `v1` is fine for core features.
 
-Kubernetes の目玉機能であるオーケストレーションの機能であるセルフヒーリングを試してみます。
+Let's try the self-healing feature of Kubernetes, which is one of its key features.
 
 ```shell
 pi@raspi001:~/tmp $ k get pods
@@ -180,8 +180,8 @@ sample-rs-gq2hs   0/2     ContainerCreating   0          13s
 sample-rs-nsc5b   2/2     Running             0          11m
 ```
 
-おー、ContainerCreating されています。良いですね〜。
-ちなみに、気になったのは node 自体が故障してダウンした場合は、どうなるのでしょうか。試してみます。
+Oh, it's in ContainerCreating. That's good.
+By the way, I was wondering what would happen if the node itself failed and went down. Let's try it.
 
 ```shell
 pi@raspi001:~/tmp $ k get pods -o=wide
@@ -192,9 +192,9 @@ sample-rs-gq2hs   2/2     Running   0          114s   10.244.1.27   raspi002   <
 sample-rs-nsc5b   2/2     Running   0          13m    10.244.2.15   raspi003   <none>           <none>
 ```
 
-raspi003 の電源を落としてみます。
+Let's turn off the power to raspi003.
 
-worker(raspi003)に移動
+Move to worker(raspi003)
 
 ```shell
 ~ $ slogin pi@raspi003.local
@@ -206,7 +206,7 @@ Connection to raspi003.local closed.
 ~ $
 ```
 
-master(raspi001)に移動
+Move to master(raspi001)
 
 ```shell
 pi@raspi001:~/tmp $ k get nodes
@@ -222,7 +222,7 @@ sample-rs-gq2hs   2/2     Running   0          5m38s   10.244.1.27   raspi002   
 sample-rs-nsc5b   2/2     Running   0          17m     10.244.2.15   raspi003   <none>           <none>
 ```
 
-ん？ raspi003 で動いている？ 数十秒後...
+Huh? Is it running on raspi003? A few tens of seconds later...
 
 ```shell
 pi@raspi001:~/kubernetes-perfect-guide/samples/chapter05/tmp $ k get pods -o=wide
@@ -234,23 +234,23 @@ sample-rs-nsc5b   2/2     Terminating   0          22m   10.244.2.15   raspi003 
 sample-rs-p2jsc   2/2     Running       0          53s   10.244.1.28   raspi002   <none>           <none>
 ```
 
-おー、期待通り raspi003 にある pod が消えて、raspi002 に作り直されました。sample-rs-nsc5b は node が落ちちゃっているので、消すこともできず残り続けます。
+Oh, as expected, the pod on raspi003 disappeared and was recreated on raspi002. sample-rs-nsc5b will continue to remain because the node is down and cannot be deleted.
 
-## 少し待ち時間が長いような？
+## Does it seem to take a bit of time to wait?
 
-[Kubernetes はクラスタで障害があったとき、どういう動きをするのか](http://dr-asa.hatenablog.com/entry/2018/04/02/174006)という記事によれば、kube-controller-manager が検知して、kube-scheduler が正しい数に揃えているみたいです。**数十秒待たされた**のは、検知の間隔のせいでしょうか。
+According to the article [What does Kubernetes do when there is a failure in the cluster?](http://dr-asa.hatenablog.com/entry/2018/04/02/174006), it seems that the kube-controller-manager detects it and the kube-scheduler aligns it to the correct number. **Was I made to wait for a few tens of seconds** because of the detection interval?
 
-[kube-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)のオプションで、`--attach-detach-reconcile-sync-period duration Default: 1m0s`とあります。**1 分間隔**なのですかね。
+In the options of [kube-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/), it says `--attach-detach-reconcile-sync-period duration Default: 1m0s`. **Is it an interval of 1 minute**?
 
-## Pod を特定の Node で動かさないようにしたい
+## I want to prevent Pods from running on a specific Node
 
-みたいな要望を叶えれるのでしょうか。
+Can such a request be fulfilled?
 
-[Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)によると、nodeSelector フィールドでアサインされる node を指定できるそうです。（除外ではなく、指定）
-ただし、[Editing nodeSelector doesn't rearrange pods in ReplicaSet](https://stackoverflow.com/questions/48640806/editing-nodeselector-doesnt-rearrange-pods-in-replicaset)によると、それは replicaSet ではなく、deployment で行うべきとのことです。replicaSet で動くかどうか、念の為試してみます。
+According to [Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/), you can specify the node to be assigned with the nodeSelector field. (Not exclusion, but specification)
+However, according to [Editing nodeSelector doesn't rearrange pods in ReplicaSet](https://stackoverflow.com/questions/48640806/editing-nodeselector-doesnt-rearrange-pods-in-replicaset), this should be done in deployment, not in replicaSet. I'll try it just in case to see if it works with replicaSet.
 
-まず、先程落とした raspi003 を電源を入れ直して起動させます。
-その後、master(raspi001)に移動。
+First, restart and boot up raspi003, which I turned off earlier.
+Then, move to master(raspi001).
 
 ```shell
 pi@raspi001:~/tmp $ k label nodes raspi002 type=AWS
@@ -270,13 +270,13 @@ sample-rs-gq2hs   2/2     Running   0          44m   10.244.1.27   raspi002   <n
 sample-rs-p2jsc   2/2     Running   0          35m   10.244.1.28   raspi002   <none>           <none>
 ```
 
-node にラベルを貼って、nodeSelector しやすいようにしました。
-sample-rs は、全て raspi002 で動いているので、下記を試してみます。
+I've labeled the node to make it easier to use nodeSelector.
+Since all sample-rs are running on raspi002, I'll try the following.
 
-1. sample-rs は raspi002 でのみ動くよう設定
-2. raspi002 をシャットダウン
+1. Configure sample-rs to run only on raspi002
+2. Shut down raspi002
 
-その結果、「sample-rs は raspi002 が動いていないので、セルフヒーリングしない」ことを期待します。
+As a result, I expect that "sample-rs will not self-heal because raspi002 is not running".
 
 ```yaml
 # sample-rs.yaml
@@ -309,10 +309,10 @@ replicaset.apps/sample-rs configured
 pod/sample-2pod unchanged
 ```
 
-nodeSelector を追加しました。
-今回は単純な指定なのでこれで良いですが、より柔軟に指定したい場合は nodeAffinity を使うそうです。
+I added a nodeSelector.
+This is a simple specification, so it's fine this time, but if you want to specify more flexibly, you should use nodeAffinity.
 
-worker(raspi002)に移動
+Move to worker(raspi002)
 
 ```shell
 ~ $ slogin pi@raspi002.local
@@ -324,10 +324,10 @@ Connection to raspi002.local closed.
 ~ $
 ```
 
-数十秒待つ...
-結果は...!
+Wait a few tens of seconds...
+The result is...!
 
-master(raspi001)に移動
+Move to master(raspi001)
 
 ```shell
 pi@raspi001:~/tmp $ k get nodes -L type
@@ -346,19 +346,19 @@ sample-rs-lc225   0/2     Pending       0          36s   <none>        <none>   
 sample-rs-p2jsc   2/2     Terminating   0          49m   10.244.1.28   raspi002   <none>           <none>
 ```
 
-期待通りでした。つまり、sample-rs は raspi002 以外で作り直せないので、Pending,Terminating 状態です。
-また、単純な pod である sample-2pod は replicaSet ではないので、セルフヒーリングされずに Terminating になっています。
-面白いですね。これ。
+It worked as expected. In other words, since sample-rs can only be rebuilt on raspi002, it is in a Pending, Terminating state.
+Also, the simple pod, sample-2pod, is not a replicaSet, so it is not self-healing and is in a Terminating state.
+Interesting, isn't it?
 
 # Deployment
 
-複数の ReplicaSet を管理。
-ReplicaSet にない「ローリングアップデート、ロールバック」機能が存在。
-Pod や ReplicaSet ではなく、Deployment が最も推奨されるリソース種類。
+Manages multiple ReplicaSets.
+There are features such as "rolling update, rollback" that are not in ReplicaSet.
+Deployment is the most recommended resource type, not Pod or ReplicaSet.
 
-ReplicaSet では、指定したコンテナイメージを更新した場合(アップデート)、どうなるのでしょうか。すべて更新されるのか、一部だけなのでしょうか。試してみます。
+What happens if you update the specified container image in ReplicaSet (update)? Will all be updated, or only some? Let's try it.
 
-sample-2pod-replica.yaml の nginx イメージを 1.12 から 1.13 に更新しました。
+The nginx image of sample-2pod-replica.yaml has been updated from 1.12 to 1.13.
 
 ```shell
 pi@raspi001:~/tmp $ k get all
@@ -384,7 +384,7 @@ Name:         sample-rs
 ...
 ```
 
-replicaset のマニュフェストは更新されました。
+The manifest of replicaset has been updated.
 
 ```shell
 pi@raspi001:~/tmp $ k describe pod sample-rs-4srpp
@@ -396,8 +396,8 @@ Name:               sample-rs-4srpp
 ...
 ```
 
-pod は変化なしのようです。
-では、Deployment を使ってみます。
+There seems to be no change in the pod.
+Now, let's use Deployment.
 
 ```yaml
 # sample-deployment.yaml
@@ -429,7 +429,7 @@ pod/sample-2pod configured
 deployment.apps/sample-deployment created
 ```
 
-`--record`をつけることで、履歴を保持することができます。ロールバックに使います。
+By adding `--record`, you can keep a history. This is used for rollback.
 
 ```shell
 pi@raspi001:~/tmp $ k get all
@@ -453,9 +453,9 @@ replicaset.apps/sample-deployment-6cd85bd5f   3         3         3       2m
 replicaset.apps/sample-rs                     3         3         3       8h
 ```
 
-sample-deployment が、deployment,replicaset,pod を作成しました。
+sample-deployment has created deployment, replicaset, and pod.
 
-では、sample-deployment の nginx コンテナを 1.12 から 1.13 に更新してみます。
+Now, let's update the nginx container of sample-deployment from 1.12 to 1.13.
 
 ```yaml
 # sample-deployment.yaml
@@ -497,22 +497,22 @@ sample-rs-6mgcr                      2/2     Running             0          7h31
 sample-rs-lc225                      2/2     Running             0          7h31m
 ```
 
-おー、deployment の pod が作り変わっていっています。これが**ローリングアップデート**です。
-ローリングアップデートは、spec.template 以下が更新されると変化したとみなすそうです。
-また、ロールバックは、rollout コマンドで実施できますし、revision 指定で戻すこともできます。
-しかし、基本的にはマニュフェストを戻して apply すべきです。
+Oh, the pod of the deployment is being rebuilt. This is a **rolling update**.
+A rolling update is considered to have changed when spec.template is updated.
+Also, rollback can be done with the rollout command, and you can also go back with revision specification.
+However, you should basically revert the manifest and apply it.
 
-アップデート戦略というものがあり、デフォルトは RollingUpdate です。過不足分の Pod 考慮した更新戦略になります。
-アップデート中に許容される不足分と超過分を設定できます。(maxUnavailable, maxSurge)
-他の戦略として、Recreate 戦略があります。こちらは、全て同時に作り直しになります。ですので、一時的にアクセス不可になってしまいます。
+There is something called an update strategy, and the default is RollingUpdate. It is an update strategy that considers the excess and deficiency of Pod.
+You can set the allowable deficiency and excess during the update. (maxUnavailable, maxSurge)
+Another strategy is the Recreate strategy. This one rebuilds all at once. Therefore, it will be temporarily inaccessible.
 
-１つ不安に感じたものとして、「フロントエンドのバージョンを１から２にアップデートしたら、バージョン 1 のコンテナにアクセスしたユーザがバージョン 2 のコンテナに遷移したら大丈夫なのかな」と思いました。しかし、これはローリングアップデートに限った話ではないので、それは考えないこととしました。ちゃんと設計すれば良い話ですね。
+One thing I was worried about was, "If I update the version of the frontend from 1 to 2, will it be okay if a user who accessed the version 1 container transitions to the version 2 container?" However, this is not limited to rolling updates, so I decided not to think about it. It's a good story if you design it properly.
 
-ちなみに、マニュフェストを書かずに deployment ができます。`k run sample-deployment-cli --image nginx:1.12 --replicas 3 --port 80`です。お試しなら、便利ですね。
+By the way, you can do deployment without writing a manifest. It's `k run sample-deployment-cli --image nginx:1.12 --replicas 3 --port 80`. It's convenient for trying out.
 
-# お片付け
+# Cleanup
 
-試しに、prune で削除しています。
+I tried deleting with prune.
 
 ```shell
 pi@raspi001:~/tmp $ ls
@@ -531,23 +531,25 @@ NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6d1h
 ```
 
-んー、こうすると消せるのですが、どうしても１ファイル残してしまいます...。
-すべて org にすると、`k apply -f .`が失敗しますし...。
+Hmm, I can delete it this way, but I always leave one file... .
+If everything is org, `k apply -f .` fails... .
 
 ```shell
 pi@raspi001:~/tmp $ k delete pod sample-2pod
 pod "sample-2pod" deleted
 ```
 
-結局、こうしました...。
+In the end, I did this... .
 
 ```shell
 pi@raspi001:~/tmp $ k label node raspi002 type-
 pi@raspi001:~/tmp $ k label node raspi003 type-
 ```
 
-# おわりに
+# Conclusion
 
-思った以上に、ReplicaSet にハマってしまいました。
-次は、残りの workloads を試します。
-次回は[こちら](../start_the_learning_kubernetes_06/index.mdx)です。
+I got more into ReplicaSet than I thought.
+Next, I will try the remaining workloads.
+The next one is [here](../start_the_learning_kubernetes_06/index.mdx).
+
+Sure, please paste the Markdown content you want to translate.

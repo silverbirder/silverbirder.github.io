@@ -1,0 +1,405 @@
+---
+title: Starting to Learn Kubernetes a Step Behind - 14. Scheduling -
+published: true
+lang: "en-US"
+date: 2019-06-05
+description: In the previous article, Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -, we learned about health checks such as requests and limits. This time, we will learn about scheduling using Affinity and others.
+tags: ["Kubernetes"]
+cover_image: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+socialMediaImage: https://res.cloudinary.com/silverbirder/image/upload/v1611128736/silver-birder.github.io/assets/logo.png
+---
+
+# Story
+
+1. [Starting to Learn Kubernetes a Step Behind - 01. Environment Selection -](../start_the_learning_kubernetes_01/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 02. Docker For Mac -](../start_the_learning_kubernetes_02/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 03. Raspberry Pi -](../start_the_learning_kubernetes_03/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 04. kubectl -](../start_the_learning_kubernetes_04/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 05. workloads Part 1 -](../start_the_learning_kubernetes_05/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 06. workloads Part 2 -](../start_the_learning_kubernetes_06/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 07. workloads Part 3 -](../start_the_learning_kubernetes_07/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 08. discovery&LB Part 1 -](../start_the_learning_kubernetes_08/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 09. discovery&LB Part 2 -](../start_the_learning_kubernetes_09/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 10. config&storage Part 1 -](../start_the_learning_kubernetes_10/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 11. config&storage Part 2 -](../start_the_learning_kubernetes_11/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 12. Resource Limits -](../start_the_learning_kubernetes_12/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 13. Health Checks and Container Lifecycle -](../start_the_learning_kubernetes_13/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 14. Scheduling -](../start_the_learning_kubernetes_14/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 15. Security -](../start_the_learning_kubernetes_15/index.mdx)
+1. [Starting to Learn Kubernetes a Step Behind - 16. Components -](../start_the_learning_kubernetes_16/index.mdx)
+
+# Last time
+
+In [Starting to learn Kubernetes a step behind - 13. Health checks and container lifecycle -](../start_the_learning_kubernetes_13/index.mdx), we learned about health checks such as requests and limits. This time, we will learn about scheduling through Affinity and others.
+
+# Scheduling
+
+The scheduling we are about to learn can be broadly classified into two types.
+
+- How to select a specific Node at the time of Pod scheduling
+  - Affinity
+  - Anti-Affinity
+- How to mark a Node as tainted and only allow Pods that can tolerate it to be scheduled
+  - Taint = Taints
+  - Tolerance = Tolerations
+
+# Checking Node Labels
+
+Let's take a look at the labels of the Node that are set by default.
+
+```shell
+pi@raspi001:~/tmp $ k get nodes -o json | jq ".items[] | .metadata.labels"
+{
+  "beta.kubernetes.io/arch": "arm",
+  "beta.kubernetes.io/os": "linux",
+  "kubernetes.io/arch": "arm",
+  "kubernetes.io/hostname": "raspi001",
+  "kubernetes.io/os": "linux",
+  "node-role.kubernetes.io/master": ""
+}
+{
+  "beta.kubernetes.io/arch": "arm",
+  "beta.kubernetes.io/os": "linux",
+  "kubernetes.io/arch": "arm",
+  "kubernetes.io/hostname": "raspi002",
+  "kubernetes.io/os": "linux",
+  "node-role.kubernetes.io/worker": "worker"
+}
+{
+  "beta.kubernetes.io/arch": "arm",
+  "beta.kubernetes.io/os": "linux",
+  "kubernetes.io/arch": "arm",
+  "kubernetes.io/hostname": "raspi003",
+  "kubernetes.io/os": "linux",
+  "node-role.kubernetes.io/worker": "worker"
+}
+```
+
+It seems that arch and os are set by default.
+For future learning, let's label them.
+
+```shell
+pi@raspi001:~/tmp $ k label node raspi002 cputype=low disksize=200
+pi@raspi001:~/tmp $ k label node raspi003 cputype=low disksize=300
+```
+
+# NodeSelector
+
+This is the simplest NodeAffinity setting.
+It schedules to assign Pods to Nodes that belong to the specified label. Because it's simple, it can only specify equality-base.
+
+Now, let's place a Pod on a Node (raspi003) with a disksize of 300.
+
+```yaml
+# sample-nodeselector.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-nodeselector
+  labels:
+    app: sample-app
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+  nodeSelector:
+    disksize: "300"
+```
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-nodeselector.yaml
+pi@raspi001:~/tmp $ k get pods sample-nodeselector -o wide
+NAME                  READY   STATUS    RESTARTS   AGE   IP             NODE       NOMINATED NODE   READINESS GATES
+sample-nodeselector   1/1     Running   0          21s   10.244.2.130   raspi003   <none>           <none>
+```
+
+It's as expected. OK.
+nodeSelector can only be expressed in equals, so it lacks flexibility.
+
+# Affinity
+
+Affinity can be set more flexibly than NodeSelector. In other words, it's a set-based specification method.
+For more details, please refer to [here](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#set-based-requirement). This time we will use the In operator.
+
+```yaml
+# sample-node-affinity.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-node-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                  - hdd
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  - raspi002
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+```
+
+In NodeAffinity, you can set two: required and preferred.
+
+- required
+  - Mandatory scheduling policy
+- preferred
+  - Scheduling policy to be considered preferentially
+
+The mandatory condition is "Node (raspi002, raspi003) with cputype=low", and the preferred condition is "Node with hostname=raspi002".
+Let's apply it.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-node-affinity.yaml
+pi@raspi001:~/tmp $ k get pods sample-node-affinity -o wide
+NAME                   READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES
+sample-node-affinity   0/1     ContainerCreating   0          5s    <none>   raspi002   <none>           <none>
+```
+
+Indeed, it was placed on raspi002. So, what happens if raspi002 cannot be scheduled?
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-node-affinity.yaml
+pi@raspi001:~/tmp $ k cordon raspi002
+pi@raspi001:~/tmp $ k apply -f sample-node-affinity.yaml
+pi@raspi001:~/tmp $ k get pods sample-node-affinity -o wide
+NAME                   READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES
+sample-node-affinity   0/1     ContainerCreating   0          11s   <none>   raspi003   <none>           <none>
+```
+
+This time, since raspi002 was cordoned, it moved to raspi003. It's preferred, so it's okay if it's not met. If the mandatory condition is not met, it will be Pending.
+
+Let's return it to the original.
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-node-affinity.yaml
+pi@raspi001:~/tmp $ k uncordon raspi002
+```
+
+## AND and OR
+
+nodeSelectorTerms and matchExpressions are arrays, so you can specify multiple.
+
+```yaml
+# sample.yaml
+nodeSelectorTerms:
+  - matchExpressions:
+      - A
+      - B
+  - matchExpressions:
+      - C
+      - D
+```
+
+In the above case, it becomes a condition of (A and B) OR (C and D).
+
+# Anti-Affinity
+
+Anti-Affinity is the opposite of Affinity. In other words, it schedules to assign to Nodes other than a specific Node. There is no special specification, it is simply the negative form of Affinity. It's just a matter of words.
+
+# Inter-Pod Affinity
+
+This is a policy for scheduling Pods on the domain where a specific Pod is running.
+It can bring Pods closer together, which can reduce latency.
+
+First, a specific Pod is the one used in the NodeSelector we used earlier.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-node-affinity.yaml
+pi@raspi001:~/tmp $ k get pods sample-nodeselector -o wide
+NAME                  READY   STATUS    RESTARTS   AGE   IP             NODE       NOMINATED NODE   READINESS GATES
+sample-nodeselector   1/1     Running   0          36m   10.244.2.130   raspi003   <none>           <none>
+```
+
+```yaml
+# sample-pod-affinity-host.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod-affinity-host
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - sample-app
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+```
+
+With this, the sample-app assigns Pods to the same Node as kubernetes.io/hostname(=raspi003) where it is. In other words, it should be possible on raspi003.
+
+```
+pi@raspi001:~/tmp $ k apply -f sample-pod-affinity-host.yaml
+pi@raspi001:~/tmp $  k get pods sample-pod-affinity-host -o wide
+NAME                       READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES
+sample-pod-affinity-host   0/1     ContainerCreating   0          11s   <none>   raspi003   <none>           <none>
+```
+
+As expected, it was created on raspi003.
+In addition to required, you can also set preferred.
+
+```yaml
+# sample-pod-affinity-arch.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod-affinity-arch
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - sample-app
+          topologyKey: kubernetes.io/arch
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - sample-app
+            topologyKey: kubernetes.io/hostname
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+```
+
+The mandatory conditions are as follows:
+
+- "On the Node(raspi003) where the Pod with the label app=sample-app is running, kubernetes.io/arch is the same Node(arm)"
+
+This applies to both raspi002(arm) and raspi003(arm).
+And the preferred condition is as follows:
+
+- "On the Node(raspi003) where the Pod with the label app=sample-app is running, kubernetes.io/hostname is the same Node(raspi003)"
+
+This should select raspi003.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-pod-affinity-arch.yaml
+pi@raspi001:~/tmp $ k get pods sample-pod-affinity-arch -o wide
+NAME                       READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES
+sample-pod-affinity-arch   0/1     ContainerCreating   0          13s   <none>   raspi003   <none>           <none>
+```
+
+As expected, it is running on raspi003.
+
+# Inter-Pod Anti-Affinity
+
+This is the negation of Inter-Pod Affinity. That's all.
+
+The Affinity, AntiAffinity, Inter-Pod Affinity, and Inter-Pod AntiAffinity introduced so far can be combined.
+
+# Taints
+
+This taints the Node. Only Pods that tolerate the tainted Node can be scheduled.
+
+There are three types of taints (Effects):
+
+- PreferNoSchedule
+  - Avoid scheduling as much as possible
+- NoSchedule
+  - Do not schedule (Pods already scheduled remain as they are)
+- NoExecute
+  - Do not allow execution (Pods already scheduled will be stopped)
+
+Now, let's first taint the Node.
+
+```shell
+pi@raspi001:~/tmp $ k taint node raspi003 env=prd:NoSchedule
+pi@raspi001:~/tmp $ k describe node raspi003 | grep Taints
+Taints:             env=prd:NoSchedule
+```
+
+This has made it impossible to schedule Pods on raspi003.
+
+# Tolerations
+
+Let's create Pods that can tolerate the Node we just tainted.
+
+Only Pods with the key and value(env=prd) and Effect(NoSchedule) set are allowed. Let's create one.
+
+```yaml
+# sample-tolerations.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-tolerations
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+  tolerations:
+    - key: "env"
+      operator: "Equal"
+      value: "prd"
+      effect: "NoSchedule"
+  nodeSelector:
+    disksize: "300"
+```
+
+※ I have set the nodeSelector to specify the tainted Node, raspi003.
+
+There are two types of operators:
+
+- Equal
+  - The key and value are equal
+- Exists
+  - The key exists
+
+Now, let's apply it.
+
+```shell
+pi@raspi001:~/tmp $ k apply -f sample-tolerations.yaml
+pi@raspi001:~/tmp $ k get pod sample-tolerations -o=wide
+NAME                 READY   STATUS    RESTARTS   AGE   IP             NODE       NOMINATED NODE   READINESS GATES
+sample-tolerations   1/1     Running   0          27s   10.244.2.140   raspi003   <none>           <none>
+```
+
+A Pod that can tolerate the tainted Node has been applied.
+If you change the toleration part (env=stg), it will of course become Pending.
+
+Let's return it to the original state.
+
+```shell
+pi@raspi001:~/tmp $ k taint node raspi003 env-
+```
+
+# Cleanup
+
+```shell
+pi@raspi001:~/tmp $ k delete -f sample-nodeselector.yaml -f sample-node-affinity.yaml -f sample-pod-affinity-host.yaml -f sample-pod-affinity-arch.yaml -f sample-tolerations.yaml
+pi@raspi001:~/tmp $ k label node raspi002 cputype- disksize-
+pi@raspi001:~/tmp $ k label node raspi003 cputype- disksize-
+```
+
+# Finally
+
+We have learned how to schedule Pods to which Node.
+The concept of taints and tolerations is interesting.
+However, if you use it too much, it seems easy to fall into complexity, so be careful.
+Next time, it is [here](../start_the_learning_kubernetes_15/index.mdx).

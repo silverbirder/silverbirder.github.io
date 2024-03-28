@@ -41,7 +41,7 @@ export default defineConfig({
 
 また、todoMVCのスタイルを適用するために、`playwright/index.tsx` というファイルに、以下のコードを追加しました。
 
-```ts
+```tsx
 // playwright/index.tsx
 import "todomvc-app-css/index.css";
 ```
@@ -52,7 +52,7 @@ playwright-ctの仕組みは、**コードをコンパイルし、それをロ�
 
 Todoリストコンポーネントのコードは以下のようになります。
 
-```ts
+```tsx
 // todo-list.tsx
 import React from "react";
 import { Todo } from "./types";
@@ -81,7 +81,7 @@ export default TodoList;
 
 テストケースは、以下のように書きました。
 
-```ts
+```tsx
 // テストケース
 import { test, expect } from "@playwright/experimental-ct-react";
 import TodoList from "./todo-list";
@@ -110,7 +110,7 @@ playwright-ctでは **本物のブラウザ環境でテストができる** の�
 
 次は、Next.jsのページコンポーネントのコードです。(React Server Components ではありません)
 
-```ts
+```tsx
 // page.tsx
 "use client";
 
@@ -186,7 +186,7 @@ Next.jsのuseRouterのような機能を使うためには、ある程度の準�
 
 ページコンポーネントのテストコード例を、以下に示します。
 
-```ts
+```tsx
 // page.test.tsx
 import { test, expect } from "@playwright/experimental-ct-react";
 import App from "./page";

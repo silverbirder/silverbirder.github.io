@@ -41,7 +41,7 @@ export default defineConfig({
 
 We also added the following code to the file `playwright/index.tsx` to apply the todoMVC style.
 
-```ts
+```tsx
 // playwright/index.tsx
 import "todomvc-app-css/index.css";.
 ```
@@ -52,7 +52,7 @@ The way playwright-ct works is that it **compiles the code, serves it on a local
 
 The code for the Todo list component looks like this
 
-```ts
+```tsx
 // todo-list.tsx
 import React from "react";
 import { Todo } from "./types";
@@ -81,7 +81,7 @@ export default TodoList;
 
 The test case is written as follows.
 
-```ts
+```tsx
 // test case
 import { test, expect } from "@playwright/experimental-ct-react";
 import TodoList from "./todo-list";
@@ -109,7 +109,7 @@ Tests can be run with `playwright test -c playwright-ct.config.ts`.
 
 Next is the code for the Next.js page component. (Not React Server Components)
 
-```ts
+```tsx
 // page.tsx
 "use client";
 
@@ -185,7 +185,7 @@ With playwright-ct, however, it is possible to test using these real browser fun
 
 An example test code for a page component is shown below.
 
-```ts
+```tsx
 // page.test.tsx
 import { test, expect } from "@playwright/experimental-ct-react";
 import App from "./page";

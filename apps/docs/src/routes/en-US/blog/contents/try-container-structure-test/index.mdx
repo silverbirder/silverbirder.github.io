@@ -1,0 +1,141 @@
+---
+title: Trying Out container-structure-test on a Docker Image
+published: true
+lang: "en-US"
+date: 2024-03-29
+description: Discovered `container-structure-test` for verifying if the structure and settings within a Docker image are as expected. Check out the container-structure-test GitHub repository. Decided to give it a try.
+tags: ["Test", "Docker"]
+---
+
+I discovered `container-structure-test`, a tool for verifying whether the structure and settings within a Docker image are as expected.
+
+[container-structure-test GitHub Repository](https://github.com/GoogleContainerTools/container-structure-test)
+
+Decided to give it a try.
+
+## Setup
+
+First, install `container-structure-test`. For MacOS, it can be easily installed using Homebrew.
+
+```sh
+brew install container-structure-test
+```
+
+Next, prepare a Dockerfile for building the test target Docker image as shown below and build the image.
+
+```Dockerfile
+# ./Dockerfile
+# @see: https://github.com/silverbirder/testcontainers-nextjs/blob/main/Dockerfile
+
+# ...
+
+##### RUNNER
+
+FROM --platform=linux/amd64 node:18.17-alpine3.18 AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+
+CMD ["node", "server.js"]
+```
+
+The build command is as follows:
+
+```sh
+docker build . -t app:latest
+```
+
+This command builds the Docker image with the tag `app:latest`.
+
+## Testing with container-structure-test
+
+`container-structure-test` allows for executing various tests on the built Docker image. 
+You can start the tests with the following command:
+
+```sh
+container-structure-test test \
+  --image app:latest \
+  --platform linux/amd64 \
+  --config config.yml
+```
+
+`config.yml` contains the settings for the tests you want to execute. Below is an example:
+
+```yml
+# config.yml
+schemaVersion: "2.0.0"
+commandTests:
+  - name: "cat server.js"
+    command: "cat"
+    args: ["server.js"]
+    expectedOutput: [".*startServer.*"]
+fileContentTests:
+  - name: "package.json"
+    expectedContents: ["testcontainers-nextjs"]
+    path: "/app/package.json"
+fileExistenceTests:
+  - name: "package.json"
+    path: "/app/package.json"
+    shouldExist: true
+    permissions: '-rw-r--r--'
+    uid: 1001
+    gid: 1001
+metadataTest:
+  envVars:
+    - key: PORT
+      value: 3000
+    - key: NODE_ENV
+      value: production
+  exposedPorts: ["3000"]
+  cmd: ["node", "server.js"]
+  workdir: "/app"
+  user: "nextjs"
+# licenseTests:
+# - debian: true
+#   files: ["/foo/bar", "/baz/bat"]
+```
+
+`container-structure-test` can execute the following types of tests:
+
+* **commandTests**
+  * Executes commands from the image and verifies if the expected output is obtained.
+* **fileContentTests**
+  * Tests whether specific files contain the expected content.
+* **fileExistenceTests**
+  * Verifies the existence, permissions, and ownership of files.
+* **metadataTest**
+  * Validates metadata such as environment variables, exposed ports, the executing user, etc.
+* **licenseTests**
+  * Checks the list of copyright files to ensure that only licenses approved by Google are used.
+
+For more details, please visit the [container-structure-test GitHub Repository](https://github.com/GoogleContainerTools/container-structure-test).
+
+**commandTests** seem to create a Docker container to execute the CMD for testing. It looks promising for ensuring that errors, warnings, or security logs do not occur.
+
+**fileContentTests** didn't immediately suggest a use case.
+
+**fileExistenceTests** seem useful for checking things that should not be allowed by verifying permissions, uid, and gid.
+
+**metadataTest** appears suitable for testing the application's necessary environment variables with regular expressions.
+
+**licenseTests** did not immediately suggest a use case either.
+
+## Conclusion
+
+`container-structure-test` is a tool for automatically verifying whether a Docker image meets the expected specifications. Take advantage of the basic usage and test examples introduced in this article to build a safe and reliable container environment.

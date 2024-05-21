@@ -1,0 +1,289 @@
+---
+title: Frontend Development Techniques in the Age of Generative AI
+published: true
+lang: "en-US"
+date: 2024-05-22
+description: ChatGPT was released in November 2022, and about a year and a half has passed. I have been continuously using ChatGPT since it became a hot topic. Using ChatGPT has proven to be beneficial for frontend development of web applications. Therefore, in this article, I have summarized three patterns for efficiently advancing frontend development by utilizing ChatGPT. I hope that these patterns will be useful to readers in their development projects. Below are the Figma, source code, and deployment URLs introduced in this article.
+tags: ["AI", "Figma"]
+---
+
+import { Image } from "~/components/image/image";
+
+ChatGPT was released in November 2022, and about a year and a half has passed. I have been continuously using ChatGPT since it became a hot topic. Using ChatGPT has proven to be beneficial for frontend development of web applications.
+
+Therefore, in this article, I have summarized three patterns for efficiently advancing frontend development by utilizing ChatGPT. I hope that these patterns will be useful to readers in their development projects.
+
+Below are the Figma, source code, and deployment URLs introduced in this article.
+
+- [Wireframing photo - Figma](https://www.figma.com/design/aYRsXAqHD2AQp2OHbrnDn1/Wireframing-in-Figma)
+- [silverbirder/figma-photo-sample-app-for-ai - GitHub](https://github.com/silverbirder/figma-photo-sample-app-for-ai)
+- https://figma-photo-sample-app-for-ai.vercel.app
+
+## Before Using ChatGPT
+
+To prevent ChatGPT from learning your frontend source code, make sure to turn off data controls.
+
+[Data Controls FAQ | OpenAI Help Center](https://help.openai.com/en/articles/7730893-data-controls-faq)
+
+## Prerequisites
+
+The methods introduced here are not limited to a specific tech stack. You can adapt them to your preferred technologies. In this article, we will use the following tools and tech stack:
+
+- Design tool: Figma
+- Web application framework: Next.js
+- Styling: CSS Module
+- Testing: Vitest
+
+### Demo Target
+
+The target screen is a page from a service called Photo, available in [Wireframing in Figma](https://www.figma.com/design/aYRsXAqHD2AQp2OHbrnDn1/Wireframing-in-Figma).
+
+<Image
+  src="http://res.cloudinary.com/silverbirder/image/upload/v1716296631/xmpiivtyzkq5wnelcwde.png"
+  width={750}
+  height={500}
+  layout="constrained"
+  alt="Photo - Wireframing in Figma"
+/>
+
+The source code is available at [silverbirder/figma-photo-sample-app-for-ai - GitHub](https://github.com/silverbirder/figma-photo-sample-app-for-ai).
+
+## Contents to be Introduced
+
+Here is the flow of frontend development introduced in this article.
+
+① Creating React components from Figma designs  
+② Implementing business logic that meets specifications  
+③ Writing test code for the developed React components  
+
+This flow doesn't change much whether it's new development or modifying an existing project. We will proceed in the above order this time.
+
+## Creating React Components from Figma Designs
+
+Here's how to generate React code from Figma designs.
+
+By the way, there are many plugins and services that generate code from Figma designs available online, but the quality of the generated code was not very good.
+
+### Exporting CSS from Figma
+
+As shown in the image below, extract the CSS from the target design in Figma. Also, take a screenshot of the design.
+
+<Image
+  src="http://res.cloudinary.com/silverbirder/image/upload/v1716296634/cccbdmvxlhbr0pkkbskn.png"
+  width={750}
+  height={500}
+  layout="constrained"
+  alt="Figma > Copy as code > CSS (all layers)"
+/>
+
+### Passing the Exported CSS to ChatGPT to Generate React and Style Code
+
+Send the following message to ChatGPT (GPT-4):
+
+```plaintext
+Below is the CSS extracted from Figma.
+---
+<copied CSS> (Please confirm the content.)
+---
+
+The attached image is a screenshot of the above CSS.
+From these, please generate React and CSS Module code.
+Please refer to the following sample code for code generation.
+---
+import React from "react";
+import styles from "./Hoge.module.css";
+
+const Hoge = () => {
+  return ();
+};
+
+export default Hoge;
+---
+
+```plaintext
+Below is the CSS extracted from Figma.
+---
+<copied CSS> (Please confirm the content.)
+---
+
+The attached image is a screenshot of the above CSS.
+From these, please generate React and CSS Module code.
+Please refer to the following sample code for code generation.
+---
+import React from "react";
+import styles from "./Hoge.module.css";
+
+const Hoge = () => {
+  return ();
+};
+
+export default Hoge;
+---
+```
+
+Based on the returned code, create the React component. To faithfully reproduce the Figma design, give instructions such as "without using position" and "without fixing the width" as needed. Adjustments for responsive design, animations, and hovers are also made as needed.
+
+The image below shows what was actually created using the generated code. Although not perfect, **a screen from Figma was constructed in just a few minutes**. (About two adjustments)
+
+<Image
+  src="http://res.cloudinary.com/silverbirder/image/upload/v1716297392/nlcwjvbsbsnv2oaya43e.png"
+  width={120}
+  height={90}
+  layout="constrained"
+  alt="React Photo - Wireframing in Figma"
+/>
+
+Creating a template code saves time compared to developing from scratch. Additionally, it is an opportunity to learn new methods that you may not be familiar with.
+
+## Implementing Business Logic that Meets Specifications
+
+Implement the required business logic for the frontend of the web application. This includes form validation, API communication, and interactions such as clicks. ChatGPT is frequently used to inquire about these implementation methods.
+
+The usual process involves sending React code and specification documents to ChatGPT and receiving responses. Although the responses may not always meet the specifications, they are primarily used to verify my design.
+
+Below is an example of asking to fix the navigation header and apply a transparent gradient.
+
+```plaintext
+Please fix the header and apply a transparent gradient using the following React code and style.
+---
+<React code>
+---
+<Style code>
+---
+```
+
+Here is an example of the generated CSS and the screen.
+
+```css
+.navbar {
+  position: fixed; /* Fix the display */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 1000; /* Add z-index to display it in front of other elements */
+  backdrop-filter: blur(10px); /* Blur and pass through the background */
+}
+```
+
+<Image
+  src="http://res.cloudinary.com/silverbirder/image/upload/v1716341355/eqolmpun1a5o34wclgxf.png"
+  width={600}
+  height={500}
+  layout="constrained"
+  alt="Photo Navbar"
+/>
+
+This is just an example, but it is a **good opportunity to learn new methods and get design ideas** from the generated code.
+
+Since this process depends on the specifications, specific methods are rarely introduced.
+
+## Writing Test Code for Developed React Components
+
+Hand over the product code (React code) to ChatGPT and have it write unit tests. If you also provide a reference test code, it will generate code similar to that. If the tests do not work or there are type errors, give instructions to correct them.
+
+```plaintext
+Please write test code for the following React code.
+---
+<React code>
+---
+
+Refer to the following code for test code generation.
+---
+import { expect, it, describe } from "vitest";
+import { render } from "@testing-library/react";
+import Hoge from "./Hoge";
+
+describe("Hoge", () => {
+  const setup = () => {
+    const utils = render(<Hoge />);
+
+    return { ...utils };
+  };
+
+  it("should render correctly and match snapshot", () => {
+    // Act
+    const { asFragment } = setup();
+
+    // Assert
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
+---
+```
+
+Below is an example of the generated test code.
+
+```tsx
+import { expect, it, describe } from "vitest";
+import { render } from "@testing-library/react";
+import Navbar from "./Navbar";
+
+describe("Navbar Component", () => {
+  const setup = () => {
+    const utils = render(<Navbar />);
+
+    return { ...utils };
+  };
+
+  it("should render correctly and match snapshot", () => {
+    // Act
+    const { asFragment } = setup();
+
+    // Assert
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render the logo", () => {
+    // Act
+    const
+
+ { getByText } = setup();
+
+    // Assert
+    expect(getByText("photo")).toBeDefined();
+  });
+
+  it("should render all navigation links", () => {
+    // Act
+    const { getByText } = setup();
+
+    // Assert
+    const navLinks = ["Features", "Pricing", "Community", "Support"];
+    navLinks.forEach((linkText) => {
+      expect(getByText(linkText)).toBeDefined();
+    });
+  });
+
+  it("should render the login and register buttons", () => {
+    // Act
+    const { getByRole } = setup();
+
+    // Assert
+    expect(getByRole("button", { name: "Log in" })).toBeDefined();
+    expect(getByRole("button", { name: "Register" })).toBeDefined();
+  });
+});
+```
+
+As the specifications become more complex, the number of test cases increases, and the convenience of ChatGPT becomes more apparent.
+
+Personally, I believe that product code that is easy to write test code for tends to have better design visibility. Therefore, if the test code is hard to read, I adjust the product code accordingly.
+
+## Why Choose ChatGPT
+
+I have been using ChatGPT since generative AI became a hot topic. GitHub Copilot is also a good tool, but **ChatGPT is particularly useful when visual information such as design is needed**.
+
+Recently, the ChatGPT MacOS app was released, improving the ease of taking screenshots.
+
+[Using the ChatGPT MacOS App | OpenAI Help Center](https://help.openai.com/en/articles/9275200-using-the-chatgpt-macos-app)
+
+## Conclusion
+
+As shown, utilizing ChatGPT can greatly enhance the efficiency of frontend development. It not only saves time but also provides opportunities to learn new things, making it doubly beneficial. I highly recommend incorporating it into your development process.

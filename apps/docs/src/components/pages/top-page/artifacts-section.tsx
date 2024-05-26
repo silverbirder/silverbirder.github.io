@@ -8,23 +8,11 @@ export const ArtifactsSection = component$(() => {
   return (
     <section>
       <h2>{t("top.artifacts")}</h2>
-      <h3>{t("top.main")}</h3>
-      <div
-        class={css({
-          display: "grid",
-          gridTemplateAreas: `
-          "book chrome"
-          "book bochi"`,
-          gridTemplateColumns: "1fr 1fr",
-          gridTemplateRows: "auto auto",
-          lg: {
-            width: "640px",
-          },
-        })}
-      >
+      <h3>{t("top.book")}</h3>
+      <div>
         <div
           class={css({
-            gridArea: "book",
+            padding: "4px",
             borderColor: "bg.quote",
             borderWidth: "1px",
             borderRadius: "4px",
@@ -42,29 +30,12 @@ export const ArtifactsSection = component$(() => {
             href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
           />
         </div>
+      </div>
+      <h3>{t("top.web")}</h3>
+      <div>
         <div
           class={css({
-            gridArea: "chrome",
-            borderColor: "bg.quote",
-            borderWidth: "1px",
-            borderRadius: "4px",
-            _hover: {
-              borderColor: "text.link",
-            },
-          })}
-        >
-          <Image
-            src="https://res.cloudinary.com/silverbirder/image/upload/v1696643993/silver-birder.github.io/artifacts/ai-ghost-writer-logo.png"
-            width={2000 / 3}
-            height={1500 / 3}
-            layout="constrained"
-            alt={t("top.aiGhostWriter")}
-            href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
-          />
-        </div>
-        <div
-          class={css({
-            gridArea: "bochi",
+            padding: "4px",
             borderColor: "bg.quote",
             borderWidth: "1px",
             borderRadius: "4px",
@@ -75,11 +46,54 @@ export const ArtifactsSection = component$(() => {
         >
           <Image
             src="https://res.cloudinary.com/silverbirder/image/upload/v1707629480/silver-birder.github.io/artifacts/bochi-bochi.png"
-            width={1500 / 5}
-            height={1500 / 5}
+            width={1500 / 10}
+            height={1500 / 10}
             layout="constrained"
             alt={t("top.bochi")}
             href="https://bochi-bochi.vercel.app"
+          />
+        </div>
+        <div
+          class={css({
+            padding: "4px",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
+        >
+          <Image
+            src="https://res.cloudinary.com/silverbirder/image/upload/v1716716859/silver-birder.github.io/artifacts/kotsu-kotsu.png"
+            width={515 / 5}
+            height={512 / 5}
+            layout="constrained"
+            alt={t("top.kotsu")}
+            href="https://kotsu-kotsu.vercel.app"
+          />
+        </div>
+      </div>
+      <h3>{t("top.chrome")}</h3>
+      <div>
+        <div
+          class={css({
+            padding: "4px",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
+        >
+          <Image
+            src="https://res.cloudinary.com/silverbirder/image/upload/v1696643993/silver-birder.github.io/artifacts/ai-ghost-writer-logo.png"
+            width={2000 / 10}
+            height={1500 / 10}
+            layout="constrained"
+            alt={t("top.aiGhostWriter")}
+            href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
           />
         </div>
       </div>

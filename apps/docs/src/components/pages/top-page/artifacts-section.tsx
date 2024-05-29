@@ -23,8 +23,8 @@ export const ArtifactsSection = component$(() => {
         >
           <Image
             src="https://res.cloudinary.com/silverbirder/image/upload/v1696334257/silver-birder.github.io/artifacts/Introduction-to-webcomponents-for-beginners.jpg"
-            width={1057 / 3}
-            height={1500 / 3}
+            width={1057 / 4}
+            height={1500 / 4}
             layout="constrained"
             alt={t("top.introToWebComponentsForBeginners")}
             href="https://www.amazon.co.jp/gp/product/B08CY2QCFV/"
@@ -71,29 +71,6 @@ export const ArtifactsSection = component$(() => {
             layout="constrained"
             alt={t("top.kotsu")}
             href="https://kotsu-kotsu.vercel.app"
-          />
-        </div>
-      </div>
-      <h3>{t("top.chrome")}</h3>
-      <div>
-        <div
-          class={css({
-            padding: "4px",
-            borderColor: "bg.quote",
-            borderWidth: "1px",
-            borderRadius: "4px",
-            _hover: {
-              borderColor: "text.link",
-            },
-          })}
-        >
-          <Image
-            src="https://res.cloudinary.com/silverbirder/image/upload/v1696643993/silver-birder.github.io/artifacts/ai-ghost-writer-logo.png"
-            width={2000 / 10}
-            height={1500 / 10}
-            layout="constrained"
-            alt={t("top.aiGhostWriter")}
-            href="https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
           />
         </div>
       </div>

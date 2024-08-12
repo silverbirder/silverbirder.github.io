@@ -1,0 +1,211 @@
+---
+title: My First Mobile App Development Attempt and Why I Gave Up
+published: true
+lang: "en-US"
+date: 2024-08-13
+description: After working on a mobile app for about three months, I ultimately decided to abandon the project. In short, the restrictions on iOS background execution made it impossible to create what I envisioned. In this article, I’ll share the development process and explain why I gave up. Whew, it was exhausting!
+tags: ["React Native", "Learn"]
+---
+
+import { Image } from "~/components/image/image";
+
+After working on a mobile app for about three months, I ultimately decided to abandon the project.
+In short, the **restrictions on iOS background execution** made it impossible to create what I envisioned.
+In this article, I’ll share the development process and explain why I gave up. Whew, it was exhausting!
+
+## Overview of the App I Wanted to Develop
+
+The app I aimed to develop was a **shared alarm app**.
+Since my family and I often wake up at the same time, I thought it would be convenient to have an app where we could share alarm times and days within a group.
+While there are a few similar apps available, none fully met my needs, so I decided to create one myself.
+
+Here’s a screenshot of the shared alarm app I actually built:
+
+<Image
+  src="http://res.cloudinary.com/silverbirder/image/upload/v1723344679/ypmvtlw47psksvdapsg2.png"
+  width={270}
+  height={270}
+  layout="constrained"
+  alt="Shared Alarm (iOS)"
+/>
+
+This shared alarm app allows you to set the alarm ON/OFF, time, days, sound, and volume.
+You can also preview the sound and volume.
+
+You can **share alarms without logging in**.
+The person who creates the alarm becomes the owner and can share the alarm code with friends, allowing them to join the alarm.
+When the owner changes the alarm time or days, all shared alarms are synced in real time.
+
+## Technical Selection: Why React Native?
+
+I chose React Native as the development language, primarily because **I’m familiar with React**.
+Although there were other options like Flutter, Kotlin, or Swift, I didn’t want to invest the time in learning a new language.
+Even if catching up is easy, the time required to learn the surrounding knowledge would be significant.
+I simply wanted to focus on building the features I needed.
+
+## Setting Up the Development Environment
+
+I used React Native and adopted Expo, a framework for both Android and iOS.
+The goal was to develop efficiently.
+I primarily used the Expo SDK and added third-party libraries as needed.
+
+The following libraries were added using the Expo SDK:
+
+- **expo-background-fetch**: For background processing
+- **expo-clipboard**: For copying the shared code
+- **expo-task-manager**: For managing background tasks
+
+The following third-party libraries were added:
+
+- **@react-native-async-storage/async-storage**: For storing data locally
+- **@react-native-firebase/\***: Realtime Database, Messaging, Function
+- **@notifee/react-native**: For notification management
+- **@rneui/\***: UI toolkit
+- **react-native-background-timer**: For background timers
+- **react-native-modal-datetime-picker**: For date selection
+- **react-native-picker-select**: For select boxes
+- **react-native-notification-sounds**: To retrieve device sounds
+- **react-native-track-player**: For audio playback
+- **react-native-volume-manager**: For managing volume
+
+I conducted tests using Android/iOS emulators.
+However, some features (e.g., volume management) didn’t work on the emulator and required testing on a real device.
+
+To run the app on a device, you can use an app called Expo Go, but some libraries do not work.
+Therefore, I needed to build the app using EAS (Expo Application Services) and install it directly on the device.
+
+On iOS, **a paid Apple Developer Program membership** is required to install apps on a device, and this process was quite cumbersome.
+After applying, I didn’t receive a response for over a week, and only after following up did I get a reply two days later.
+(Why do they respond so quickly when you follow up…?)
+
+## Data and Alarm Triggers
+
+The alarm time and volume data are stored in the following two places:
+
+- Local storage
+- Firebase Realtime Database
+
+The reason for using Firebase Realtime Database is that it allows for easy synchronization of alarms across all users when alarms are shared.
+
+Next, I’ll explain the triggers that cause the alarm to go off at the set time, divided into the following scenarios:
+
+### When the App Is in the Background
+
+Background refers to any of the following states:
+
+- The device is locked
+- The app is running but not visible on the screen
+- The app is not running (shut down)
+
+In this state, it’s difficult for the app to operate independently (especially on iOS…!!!),
+so it needs to be triggered externally.
+For this, I used FCM (Firebase Cloud Messaging) and scheduled Firebase Function (internally using Cloud Scheduler) to run every minute,
+sending a message to the target to trigger the alarm.
+
+※ As mentioned later, sending a message every minute on iOS will trigger rate limits.
+
+### When the App Is in the Foreground
+
+Foreground means the app is open and visible on the screen.
+In this state, the React Native components are mounted,
+so the app checks the local storage data every five seconds and triggers the alarm accordingly.
+
+## Functional Requirements and Challenges
+
+The goal of the shared alarm app development was to meet the following requirements:
+
+- **The ability to adjust the volume only during the alarm, even when the device is on mute (silent) or the volume is set to zero**
+  - Reason: I don’t want to have to manually turn off mute and set the volume to maximum before using the alarm
+- **The ability to sound the alarm even in the background**
+  - Reason: I don’t want users to have to keep the app in the foreground to use the alarm
+- **Support for both Android and iOS platforms**
+  - Reason: My family uses both Android and iOS devices
+
+### Issues with Alarm Sound
+
+The alarm notification sound was implemented using `react-native-notification-sounds`, which used the device's built-in sounds.
+However, a problem arose where the notification sound wouldn’t play in silent mode or when the volume was low.
+
+To address this issue, I used `react-native-volume-manager` to control the volume.
+While this worked in the foreground, the sound still wouldn’t play in the background.
+I then introduced `react-native-track-player` to play audio,
+which allowed for repeat playback and background audio playback.
+
+This method partially solved the sound issue, but when adding sound to notifications (`@notifee/react-native`),
+the problem of being inaudible in silent mode or at low volume persisted, so I ultimately abandoned this approach.
+
+### iOS Background Execution Limitations
+
+This was the **biggest reason I gave up**.
+Running an app in the background on iOS is extremely challenging.
+
+As described in the [Background Tasks - Apple Developer Documentation](https://developer.apple.com/documentation/backgroundtasks),
+using `BGAppRefreshTaskRequest` or `BGProcessingTaskRequest` makes it possible to perform certain tasks in the background.
+However, I couldn’t find a way to keep the alarm running every minute for hours in the background.
+
+I then tried using the method outlined in [Choosing Background Strategies - Apple Developer Documentation](https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app),
+which involves waking the app with a background push.
+I scheduled Firebase Function to run every minute and used FCM to push data to wake the app.
+I configured the push notification headers based on the following advice:
+
+> When sending a background push, set content-available: to 1 without alert, sound, or badge.
+> The system decides when to launch the app to download the content.
+> To ensure your app launches, set apns-priority to 5, and apns-push-type to background.
+
+However, the following limitation prevented this method from functioning as intended:
+
+> If you send background pushes more frequently than three times per hour, the system imposes rate limitations.
+> See Pushing background updates to your App for more information.
+
+Due to this limitation, it was difficult to reliably trigger the alarm after a few minutes,
+and I couldn’t achieve stable alarm operation.
+
+It’s possible to avoid this by keeping the app in the foreground,
+but I personally use Pokémon Sleep, so it’s not practical to use both apps simultaneously at night.
+Pokémon Sleep requires you to leave the app in the foreground before going to bed.
+
+Looking at [Configuring background execution modes | Apple Developer Documentation](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes),
+there are potential methods to leverage location services or Bluetooth for alarms,
+but I couldn’t come up with specific ideas.
+It may be necessary to add background features like snoring recording or rolling-over detection.
+There’s also the option of playing silent audio continuously, but this would likely drain the battery.
+
+Here are some other useful links:
+
+- [How do you allow tasks that take longer than the 30 seconds allowed in the background thread to continue performing until done? - Apple Developer Forums](https://forums.developer.apple.com/forums/thread/695910)
+- [iOS Background Execution Limits | Apple Developer Forums](https://forums.developer.apple.com/forums/thread/685525)
+
+For these reasons, I concluded that it’s extremely difficult to reliably trigger an alarm in the background on iOS.
+
+By the way, I’m very curious about how the “Alarmy” app (known as “Alarmy - Wake Up Tasks”) manages to work effectively on iOS and how it solves this problem.
+
+- [swift - Wake up application in background using AudioSession like Alarmy iOS app - Stack Overflow](https://stackoverflow.com/questions/55546865/wake-up-application-in-background-using-audiosession-like-alarmy-ios-app)
+
+## What I Would Do Differently Next Time
+
+This time, I chose React Native, and while the initial development speed was relatively fast,
+I spent a lot of time troubleshooting.
+I struggled to isolate whether issues were due to the app itself, the libraries, or native specifications.
+I believe this is a common challenge with other cross-platform frameworks as well.
+
+On the other hand, if I had used native languages like Kotlin or Swift,
+some of these issues might have been easier to resolve.
+Of course, even in native development, libraries are commonly used,
+but I learned a lot from this experience.
+
+Additionally, changing the requirements might have allowed for a different development approach.
+For example, the app could have been developed by using notification sounds for the alarm.
+By disabling mute and increasing the volume, it’s possible to use notification sounds.
+However, since notification sounds only play once,
+and considering the need for repeat play and compatibility with silent mode,
+I wasn’t willing to compromise on the user experience I wanted.
+As a result, I couldn’t change the requirements.
+Perhaps a different perspective would have helped in finding a solution.
+(I wish there was an alarm API...)
+
+## Conclusion
+
+Through this three-month experience, I realized the challenges of mobile app development.
+The restrictions on iOS background execution were particularly stringent,
+and they became a major obstacle to implementing the intended features.
+If I come up with another idea I want to build, I’ll definitely give it another try!

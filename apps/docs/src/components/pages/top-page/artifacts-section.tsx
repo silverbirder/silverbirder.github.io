@@ -73,6 +73,26 @@ export const ArtifactsSection = component$(() => {
             href="https://kotsu-kotsu.vercel.app"
           />
         </div>
+        <div
+          class={css({
+            padding: "4px",
+            borderColor: "bg.quote",
+            borderWidth: "1px",
+            borderRadius: "4px",
+            _hover: {
+              borderColor: "text.link",
+            },
+          })}
+        >
+          <Image
+            src="https://res.cloudinary.com/silverbirder/image/upload/v1726033783/silver-birder.github.io/artifacts/review-connect.png"
+            width={515 / 5}
+            height={512 / 5}
+            layout="constrained"
+            alt={t("top.review-connect")}
+            href="https://review-connect.vercel.app"
+          />
+        </div>
       </div>
       <h3>{t("top.others")}</h3>
       <ul>

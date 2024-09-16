@@ -1,0 +1,130 @@
+---
+
+title: GPT-Driven Development： Efficient App Development with GPTs  
+published: true  
+lang: "en-US"  
+date: 2024-09-15  
+description: In GPT-driven development, the ability to assess the accuracy of AI-generated outputs is essential. Rather than relying entirely on GPT, active involvement from developers is required.  
+tags: ["GPT", "ChatGPT", "V0", "LogoAI", "DiagramGPT"]  
+
+---
+
+import { Image } from "~/components/image/image";
+
+In GPT-driven development, the ability to assess the accuracy of AI-generated outputs is essential. Rather than relying entirely on GPT, active involvement from developers is required.
+
+In this article, I will introduce practical methods and the effectiveness of GPT-driven development by sharing two recent personal web app projects.
+
+## Development Flow and Tools Used
+
+The following diagram illustrates the development flow utilizing GPT. This diagram was created using [DiagramGPT](https://app.eraser.io).
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/GPT駆動開発フロー.png"
+  width={1169}
+  height={693}
+  layout="constrained"
+  alt="GPT-Driven Development Flow"
+/>
+
+*If you'd like to view the diagram directly, please check [here](https://app.eraser.io/workspace/gAcNphpXbCuDjYQq4tU1?elements=A2JnuhPG7Cx3eZVzwzjS3Q).*
+
+I primarily handle direction, providing specific instructions to GPT tools like ChatGPT and V0 (hereafter referred to as GPTs) to create deliverables. I use the tools as follows:
+
+- **General purposes**: [ChatGPT](https://chat.openai.com/)
+- **Design**: [V0](https://v0.dev)
+  - **UI Components**: [ui.shadcn](https://ui.shadcn.com/)
+- **Icons**: [LogoAI](https://logoai.com)  
+  *Currently considering other tools. If you have any recommendations, please let me know!*
+- **Implementation Support**: [GitHub Copilot](https://github.com/features/copilot)  
+  *However, I ultimately use ChatGPT*
+
+I repeatedly **evaluate and revise** the deliverables obtained from GPTs to finalize them. If the output is not as expected, I sometimes implement it myself. In troubleshooting situations described later, I conduct my own investigation when it's difficult to address issues with GPTs.
+
+For infrastructure design like APIs and databases, as well as application design, I adopt familiar technologies and choose cost-effective options suitable for personal development.
+
+Next, I will introduce examples of the apps I developed.
+
+## Example of the "Review Mates" App
+
+I developed a web app called "**Review Mates (Tentative)**," which finds users who have written common reviews on Google Maps.
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/クチコミ仲間_仮_-_アーキテクチャ.png"
+  width={2219}
+  height={588}
+  layout="constrained"
+  alt="Review Mates (Tentative) - Architecture"
+/>
+
+*If you'd like to view the diagram directly, please check [here](https://app.eraser.io/workspace/3vjLLD4J9wE9bl96067E?elements=dy5KZbkEICES9M3yCHcYFQ).*
+
+The screen image is as follows:
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/レビュー仲間_仮.png"
+  width={1029}
+  height={1106}
+  layout="constrained"
+  alt="Review Mates (Tentative) - Screen Image"
+/>
+
+[App Link](https://review-connect.vercel.app)
+
+The technology stack is as follows:
+
+- **Web Framework**: [Next.js - T3 Stack](https://create.t3.gg)
+- **Crawling**: [Crawlee](https://crawlee.dev)
+- **Headless Browser**: [Chromium - Playwright](https://playwright.dev/)
+
+When troubles caused by external factors (e.g., memory issues with Google Maps) occurred, I proactively worked on solving the problems myself.
+
+## Challenges Faced During Development
+
+### Memory Leak Issue
+
+When running Google Maps for an extended period, a problem occurred where memory usage increased, leading to a crash. Ideally, it would have been best to recreate Playwright's page, but due to limitations with Crawlee, I temporarily addressed the issue by reloading the page.
+
+In dealing with such unexpected issues, I explore solutions through trial and error alongside GPT tools. When sending error logs to GPT, I intentionally **refrain from sharing my own thoughts to seek objective advice**. If I have an idea about the cause of the error, I include my considerations to expedite the resolution.
+
+### Repetition Issue
+
+When interacting with GPT over time, it sometimes repeats the same responses. For example, if I ask it to consider logic that meets specifications under certain constraints, GPT proposes a workaround. However, if that logic doesn't fully meet some specifications and I request a fix by saying, "Please correct this as ●● isn't working properly," GPT may ignore the original constraints.
+
+In such cases, I make sure to **explicitly state the constraints when requesting revisions**. This helps GPT to re-recognize the constraints and produce the desired output.
+
+## Another Simple App: "Got to Get My Money's Worth"
+
+I also developed a web app called "**Got to Get My Money's Worth**." This is a simple calculator app that calculates the daily cost based on the product price, usage frequency, and duration. The screen image is as follows:
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/元とらなアカン.png"
+  width={493}
+  height={1008}
+  layout="constrained"
+  alt="Got to Get My Money's Worth - Screen Image"
+/>
+
+[App Link](https://moto-torana-akan.vercel.app)
+
+The design was entrusted to [V0](https://v0.dev), resulting in a simple one-page layout. It doesn't perform any API communication, making it a lightweight app.
+
+I didn't face many challenges here. [V0](https://v0.dev) has a feature called [v0.dev/chat](https://v0.dev/chat) that allows you to create web designs in a chat format. The structure can be previewed with Next.js and [ui.shadcn](https://ui.shadcn.com/). The accuracy is high, and I adopted it almost as is.
+
+One concern was that if you want to use a specific CSS framework, you need to specify the version; otherwise, it results in an error.
+
+### Impressions
+
+When the web app design was not yet finalized, I conveyed the app's concept and the experience I wanted to achieve to V0, and it proposed an astonishingly sophisticated web design.
+
+Moreover, even abstract requests like "Please add more playfulness" were met with the incorporation of gradients, icons, and animations. I was truly impressed by its flexibility and creativity. In hindsight, not conveying detailed specific requests turned out to be beneficial.
+
+Notably, with just two exchanges with V0, a watermelon game-style app was completed. This was an astonishing experience.
+
+- [Watermelon Game-style App Created with V0](https://v0.dev/chat/a8RfpL90mO4)
+
+## Conclusion
+
+Although I rely heavily on GPT, I realize that by clearly dividing roles, efficient development is possible. Previously, I implemented everything from scratch, but now, by having GPT tools prepare the groundwork, I can proceed with projects at a pace similar to team development.
+
+I plan to continue leveraging GPT-driven development to take on the challenge of developing new apps and services.

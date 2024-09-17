@@ -8,7 +8,6 @@ import { QwikSpeakProvider, Speak } from "qwik-speak";
 import { config } from "./speak-config";
 import { translationFn } from "./speak-functions";
 import { RouterHead } from "./components/router-head/router-head";
-import { QwikPartytown } from "./components/partytown/partytown";
 import { OpenReplay } from "./components/open-replay/open-replay";
 import "~/global.css";
 import { OneSignal } from "./components/one-signal/one-signal";

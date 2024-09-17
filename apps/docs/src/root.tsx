@@ -32,14 +32,11 @@ export default component$(() => {
               })(window,document,'script','dataLayer','GTM-PDGFS772');
             "
           />
-          <QwikPartytown forward={["gtag", "dataLayer.push"]} />
           <script
             async
-            type="text/partytown"
             src="https://www.googletagmanager.com/gtag/js?id=G-V6PXKPV3CQ"
-          />
+          ></script>
           <script
-            type="text/partytown"
             dangerouslySetInnerHTML="
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

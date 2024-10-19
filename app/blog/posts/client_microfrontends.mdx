@@ -1,0 +1,94 @@
+---
+title: 'クライアントサイド(ES Module)でMicro Frontends'
+publishedAt: '2021-01-16'
+summary: '2021年、あけましておめでとうございます。本年も宜しくおねがいします。最近、体重が増えてしまったため、有酸素運動を頑張っています。本記事は、昨年の冬あたりから検証していた クライアントサイド統合でのMicro Frontendsについて話そうと思います。検証したソースコードは、次のリポジトリにあります。'
+tags: ["Micro Frontends", "Client Side", "Es Module", "Artifact"]
+---
+
+2021 年、あけましておめでとうございます。本年も宜しくおねがいします。最近、体重が増えてしまったため、有酸素運動を頑張っています。
+
+本記事は、昨年の冬あたりから検証していた クライアントサイド統合での Micro Frontends について話そうと思います。検証したソースコードは、次のリポジトリにあります。
+
+https://github.com/silverbirder/micro-frontends-sample-code-6
+
+# 概要
+
+全体設計イメージ図は、次のとおりです。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg"
+  width={832}
+  height={568}
+  alt="overview"
+/>
+
+サーバーサイドは静的コンテンツを返すだけとし、クライアントサイドでアプリケーションを構築します。
+
+構築手段は、ブラウザ標準である ES Module Import を使用し、アプリケーションに必要な Javascript(index.js, bootstrap 用)を load します。
+
+UI に必要な各 Team の Component は、API 経由で取得し、レンダリングする構成になります。
+
+# Javascript Module
+
+Javascript(index.js)には、次の Module を含めようと考えていました。
+
+- DOM Parser
+  - 任意の要素の情報を取得する
+- Imorter
+  - 任意の Module を取得する
+- Router
+  - Web アプリケーション全体の Routing を管理する
+- Worker
+  - バックグランドで実行する処理を管理する
+- EventHub
+  - Module 間の通信を制御する
+
+これらをざっと考えていた訳ですが、結局実装したのは Importer と Router ぐらいです (笑)。力尽きてしまいました。
+
+また、前提として可能な限り各 Team の依存関係を独立するよう心がけます。Micro Frontends では、独立できてこそのメリットが享受できるため、できる限り各 Team の共通化は避けるようにします。
+
+# Javascript Importer
+
+全体設計イメージ図にも書いていますが、Javascript の Importer は、Component Discovery API を通して、各 Team の Component を Import します。この構成は、Microservices の Service Discovery Patterns に似せています。この構成を取ることで、各チーム同士は独立(非依存)することができます。
+
+# Javascript Router
+
+Router は、アプリケーション全体の Routing を管理します。例えば、`/` は Top ページ、 `/s` は検索ページといった具合です。
+Router には、後ほど説明する WebComponents との相性が良い vaadin/router を使用しました。
+
+https://vaadin.com/router
+
+vaadin/router では、WebComponents を指定して Routing するため、指定された WebComponents は、Importer より取得します。
+
+# Component
+
+Component は LitElement という WebComponents ベースのライブラリを使用しています。各 Team の Component(LitElement のライブラリ込)を Import していると、重複した load となりパフォーマンスがよろしくありません。共通ライブラリを事前に load (import map とかで)することをお勧めします。
+
+WebComponents ということなので、Shadow DOM でレンダリングすることになります。CSS のスコープが独立できるため、他へ影響することはありません。ただ、全体的なブランドカラーを統一したい等 Design System がある場合、Component の共通化のやり方を(慎重に)考える必要があります。
+
+# Build Package, Design System, Performance Metrics
+
+各 Team を独立したいといっても、共通化しないといけないことがあると考えています。私が想定しているものは、次のとおりです。
+
+- Design System
+  - Component 全体のデザインを統一する
+- Performance Metrics
+  - 計測指標のルールを全体で統一する
+    - Rendering Time
+    - Response Time
+    - etc
+- Build Package
+  - ライブラリの扱い方を統一する
+    - External
+    - ECM Version
+    - etc
+
+と書いているだけで、実際に試した訳ではありません(笑)。
+
+# 所感
+
+Micro Frontends のサーバーサイド統合でもそうでしたが、Component を集約・提供するサービスは、クライアントサイド統合でも必要になりました。今回でいうと、Component Discovery API です。これは、Component 間の依存度を下げるためのレイヤーであり、Micro Frontends では、ほぼ必須の要素なのではないかと思います。
+
+# 最後に
+
+Micro Frontends は、統合パターンも大切ですが、もっと大切なのは、ドメインをどう分解するかだと思います。この分割が適切ではないとどうしても共通化しなければならないケースが誕生し、Micro Frontends のメリットが活かせないと思います。そろそろ、プロダクションレベルで検証したいと思いますが、中々重い腰を上げらない今日このごろです。

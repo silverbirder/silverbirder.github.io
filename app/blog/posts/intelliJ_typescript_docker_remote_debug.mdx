@@ -1,0 +1,46 @@
+---
+title: 'IntelliJ + TypeScript + Docker で Remote Debug (Break Point)'
+publishedAt: '2019-12-28'
+summary: 'Dockerコンテナ上で、 `ts-node-dev --inspect=0.0.0.0:9229 ./dist/index.js` を実行'
+tags: ["IntelliJ", "Typescript", "Docker", "Remote Debug", "Scrap"]
+---
+
+# TL;DR
+
+1. Docker コンテナ上で、 `ts-node-dev --inspect=0.0.0.0:9229 ./dist/index.js` を実行
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345272/silver-birder.github.io/blog/ts-node-dev.png"
+  width={2790}
+  height={682}
+  alt="ts-node-dev"
+/>
+
+2. IntelliJ 上で、`Attach to Node.js/Chrome` を実行
+
+`Run > Edit Configuration ... > +ボタン > Attach to Node.js/Chrome`
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345318/silver-birder.github.io/blog/Attach_to_Node_js_Chrome.png"
+  width={2136}
+  height={1342}
+  alt="Attach to Node.js/Chrome"
+/>
+
+3. IntelliJ 上で BreakPoint を貼り、ブラウザにアクセス
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345359/silver-birder.github.io/blog/IntelliJ_Breakpoint.png"
+  width={2876}
+  height={1758}
+  alt="IntelliJ Breakpoint"
+/>
+
+※ Docker コンテナでは、アプリ用ポート(8080)と、inspect 用ポート(9229)を開放する必要あり
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1614345390/silver-birder.github.io/blog/8080%E3%81%A89229port%E3%81%AE%E9%96%8B%E6%94%BE.png"
+  width={2792}
+  height={702}
+  alt="8080と9229portの開放"
+/>

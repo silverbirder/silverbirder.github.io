@@ -1,0 +1,140 @@
+---
+title: 'Docker Image に 構造化テスト container-structure-test を試してみた'
+publishedAt: '2024-03-29'
+summary: 'Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。'
+tags: ["Test", "Docker"]
+---
+
+Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。
+
+[container-structure-test GitHub リポジトリ](https://github.com/GoogleContainerTools/container-structure-test)
+
+せっかくなので、試してみました。
+
+## 環境構築
+
+まず、`container-structure-test` をインストールします。MacOSの場合、Homebrewを使用すると簡単にインストールできます。
+
+```sh
+brew install container-structure-test
+```
+
+次に、テスト対象のDockerイメージをビルドするために、以下の内容のDockerfileを準備し、イメージをビルドします。
+
+```Dockerfile
+# ./Dockerfile
+# @see: https://github.com/silverbirder/testcontainers-nextjs/blob/main/Dockerfile
+
+# ...
+
+##### RUNNER
+
+FROM --platform=linux/amd64 node:18.17-alpine3.18 AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+
+CMD ["node", "server.js"]
+```
+
+ビルドコマンドは以下の通りです。
+
+```sh
+docker build . -t app:latest 
+```
+
+このコマンドは、タグ名を `app:latest` としてDockerイメージをビルドします。
+
+## container-structure-test を使ったテスト
+
+`container-structure-test` は、ビルドしたDockerイメージに対して様々なテストを実行することができます。
+以下のコマンドを実行することでテストを開始できます。
+
+```sh
+container-structure-test test \
+  --image app:latest \
+  --platform linux/amd64 \
+  --config config.yml
+```
+
+`config.yml` には、実行したいテストの設定を記述します。以下はその例です。
+
+```yml
+# config.yml
+schemaVersion: "2.0.0"
+commandTests:
+  - name: "cat server.js"
+    command: "cat"
+    args: ["server.js"]
+    expectedOutput: [".*startServer.*"]
+fileContentTests:
+  - name: "package.json"
+    expectedContents: ["testcontainers-nextjs"]
+    path: "/app/package.json"
+fileExistenceTests:
+  - name: "package.json"
+    path: "/app/package.json"
+    shouldExist: true
+    permissions: '-rw-r--r--'
+    uid: 1001
+    gid: 1001
+metadataTest:
+  envVars:
+    - key: PORT
+      value: 3000
+    - key: NODE_ENV
+      value: production
+  exposedPorts: ["3000"]
+  cmd: ["node", "server.js"]
+  workdir: "/app"
+  user: "nextjs"
+# licenseTests:
+# - debian: true
+#   files: ["/foo/bar", "/baz/bat"]
+```  
+
+`container-structure-test` で実行できるテストには、以下のような種類があります。
+
+- **commandTests**
+  - イメージからコマンドを実行し、期待する出力が得られるかを検証します。
+- **fileContentTests**
+  - 特定のファイルが期待する内容を含んでいるかをテストします。
+- **fileExistenceTests**
+  - ファイルの存在有無、権限、所有者を検証します。
+- **metadataTest**
+  - 環境変数やポートの露出、実行ユーザーなどのメタデータを検証します。
+- **licenseTests**
+  - 著作権ファイルのリストをチェックして、Googleで許可されているライセンスのみが使用されていることをテストします。
+
+詳しくは、[container-structure-test GitHub リポジトリ](https://github.com/GoogleContainerTools/container-structure-test) をご確認ください。
+
+**commandTests** は、Dockerコンテナを作成して、CMDを実行してテストするようです。
+エラーやワーニング、セキュリティなどのログが発生しないことを確認するのはよさそうです。
+
+**fileContentTests** は、何に使えそうか思いつかなかったです。
+
+**fileExistenceTests** は、permissionsやuid,gidを確認できるので、許可してはいけないものをチェックするのによさそうです。
+
+**metadataTest** は、アプリに必要な環境変数を正規表現でテストするのは良さそうです。
+
+**licenseTests** は、何に使えそうか思いつかなかったです。
+
+## まとめ
+`container-structure-test`  は、Dockerイメージが期待する仕様を満たしているかを自動で検証するためのツールです。
+この記事で紹介した基本的な使い方とテストの例を参考に、安全で信頼性の高いコンテナ環境の構築に役立ててください。

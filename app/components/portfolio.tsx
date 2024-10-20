@@ -287,7 +287,7 @@ export const Portfolio = () => {
               rel="noopener noreferrer"
               className="text-yellow-500 hover:text-yellow-600"
             >
-              <Twitter className="leading-6 w-6 h-6" />
+              <Twitter className="w-6 h-6" />
             </a>
           </div>
         </section>

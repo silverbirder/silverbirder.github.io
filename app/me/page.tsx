@@ -127,24 +127,22 @@ export default async function Page() {
             <h3 className="text-xl font-semibold leading-[3rem] text-center">
               ふぉろーみー！
             </h3>
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-4">
               <a
                 href="https://github.com/silverbirder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-blue-500 hover:underline"
+                className="leading-6 text-blue-500 hover:text-blue-600"
               >
-                <Github className="mr-2 w-6 h-6" />
-                <span>GitHub</span>
+                <Github className="w-6 h-6" />
               </a>
               <a
                 href="https://x.com/silverbirder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-blue-500 hover:underline"
+                className="leading-6 text-blue-500 hover:text-blue-600"
               >
-                <Twitter className="mr-2 w-6 h-6" />
-                <span>Twitter</span>
+                <Twitter className="w-6 h-6" />
               </a>
             </div>
           </div>

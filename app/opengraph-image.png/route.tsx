@@ -59,8 +59,18 @@ export async function GET() {
             textAlign: "center",
           }}
         >
-          @silverbirderのコジンノート
+          コジンノート
         </h1>
+        <p
+          style={{
+            fontSize: "48px",
+            lineHeight: 1,
+            color: "#0f172a",
+            textAlign: "center",
+          }}
+        >
+          @silverbirder
+        </p>
       </div>
     ),
     {

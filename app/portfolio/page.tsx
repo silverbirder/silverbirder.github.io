@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <NotebookLayout title={"ポートフォリオ"} pathname={"/portfolio"}>
+    <NotebookLayout pathname={"/portfolio"}>
       <Portfolio />
     </NotebookLayout>
   );

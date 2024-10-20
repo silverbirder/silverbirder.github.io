@@ -65,7 +65,7 @@ const TableOfContents = () => {
 
 export default function Page() {
   return (
-    <NotebookLayout title={"ジブンノート"} pathname={"/"}>
+    <NotebookLayout pathname={"/"}>
       <div className="space-y-6">
         <div className="space-y-6">
           <p className="leading-6 text-foreground">

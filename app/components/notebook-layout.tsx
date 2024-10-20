@@ -6,12 +6,11 @@ import { Notebook } from "@/components/notebook";
 import { Coffee } from "lucide-react";
 
 type Props = {
-  title: string;
   pathname: string;
   children: React.ReactNode;
 };
 
-export const NotebookLayout = ({ title: _, pathname, children }: Props) => {
+export const NotebookLayout = ({ pathname, children }: Props) => {
   const getStokeColor = () => {
     switch (pathname) {
       case "/":

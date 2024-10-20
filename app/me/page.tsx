@@ -44,7 +44,7 @@ const StickerAvatar = () => (
 export default async function Page() {
   const photos = (await getPngFilesWithSize()) ?? [];
   return (
-    <NotebookLayout title={"自己紹介"} pathname={"/me"}>
+    <NotebookLayout pathname={"/me"}>
       <div className="relative mx-auto p-6">
         <SweetIcon
           icon={Coffee}

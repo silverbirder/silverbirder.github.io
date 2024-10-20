@@ -10,7 +10,7 @@ export const metadata = {
 export default function Page() {
   const allBlogs = getBlogPosts();
   return (
-    <NotebookLayout title={"ブログ"} pathname={"/blog"}>
+    <NotebookLayout pathname={"/blog"}>
       <BlogPosts allBlogs={allBlogs} />
     </NotebookLayout>
   );

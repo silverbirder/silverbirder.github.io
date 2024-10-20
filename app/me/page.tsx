@@ -23,7 +23,7 @@ const SweetIcon = ({ icon: Icon, color, style }) => (
 );
 
 const StickerAvatar = () => (
-  <div className="relative w-28 h-28 transform rotate-12">
+  <div className="relative w-24 h-24 transform rotate-12">
     <div className="absolute inset-0 bg-blue-500 rounded-full shadow-lg"></div>
     <div className="absolute inset-0 bg-blue-500 rounded-full shadow-inner animate-pulse"></div>
     <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center overflow-hidden">

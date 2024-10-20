@@ -25,7 +25,7 @@ const Tab = ({ href, label, color, isActive }: TabProps) => (
     <Link
       href={href}
       className={cx(
-        "text-primary-foreground font-semibold text-sm",
+        "text-primary-foreground font-semibold text-xs sm:text-sm md:text-base",
         isActive ? "border-primary-foreground" : ""
       )}
     >

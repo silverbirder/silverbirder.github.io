@@ -11,7 +11,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const NotebookLayout = ({ title, pathname, children }: Props) => {
+export const NotebookLayout = ({ title: _, pathname, children }: Props) => {
   const getStokeColor = () => {
     switch (pathname) {
       case "/":
@@ -28,14 +28,14 @@ export const NotebookLayout = ({ title, pathname, children }: Props) => {
   };
   return (
     <section>
-      <div className="mb-6 text-base font-semibold tracking-tighter leading-tight flex items-center">
+      <div className="mb-6 text-sm sm:text-base md:text-lg font-semibold flex items-center">
         <Avatar className="w-6 h-6">
           <AvatarImage src={"/favicon.svg"} alt="silverbirder" />
           <AvatarFallback className="bg-background">S</AvatarFallback>
         </Avatar>
-        <h1>{title}</h1>
+        <h1>ジブンノート</h1>
         <Spiral
-          className="h-6 ml-4"
+          className="h-6 w-12 ml-4"
           startDelay={0.0}
           duration={3.0}
           strokeColor={getStokeColor()}

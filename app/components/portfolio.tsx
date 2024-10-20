@@ -215,12 +215,10 @@ export const Portfolio = () => {
                 key={index}
                 className="bg-yellow-100 flex flex-col p-6 rounded-lg"
               >
-                <h3 className="text-xl leading-[3rem] font-semibold">
-                  {content.title}
-                </h3>
+                <h3 className="text-base font-semibold">{content.title}</h3>
                 <Badge
                   variant="secondary"
-                  className="mb-6 w-fit h-6 leading-6 py-0"
+                  className="my-1 mb-6 w-fit h-5 leading-5 py-0"
                 >
                   {content.type}
                 </Badge>
@@ -248,7 +246,7 @@ export const Portfolio = () => {
             <div className="absolute -top-3 -left-3 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
               <Lightbulb className="w-6 h-6 text-yellow-500" />
             </div>
-            <p className="text-xl font-semibold leading-[3rem]">
+            <p className="text-lg font-semibold leading-[3rem]">
               技術的なサポートが必要ですか？
             </p>
             <p className="text-gray-700 mb-6 text-base">

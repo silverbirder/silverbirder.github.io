@@ -18,11 +18,13 @@ export function BlogPosts({ allBlogs }: Props) {
   );
 
   const blogsByYear = useMemo(() => {
-    const sorted = allBlogs.sort(
-      (a, b) =>
-        new Date(b.metadata.publishedAt).getTime() -
-        new Date(a.metadata.publishedAt).getTime()
-    );
+    const sorted = allBlogs
+      .filter((blog) => !!blog.metadata.publishedAt)
+      .sort(
+        (a, b) =>
+          new Date(b.metadata.publishedAt).getTime() -
+          new Date(a.metadata.publishedAt).getTime()
+      );
 
     return sorted.reduce((acc, post) => {
       const year = new Date(post.metadata.publishedAt).getFullYear();

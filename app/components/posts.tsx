@@ -55,7 +55,7 @@ export function BlogPosts({ allBlogs }: Props) {
                   : "bg-secondary text-secondary-foreground hover:bg-green-500 hover:text-white"
               }`}
               onClick={() =>
-                setSelectedYear(year === selectedYear ? null : year)
+                setSelectedYear(year)
               }
             >
               {year}

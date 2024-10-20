@@ -24,11 +24,8 @@ export function generateMetadata({ params }) {
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
   } = post.metadata;
-  const ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `/opengraph-image.png`;
 
   return {
     title,

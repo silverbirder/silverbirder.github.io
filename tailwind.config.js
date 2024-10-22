@@ -81,6 +81,9 @@ module.exports = {
               lineHeight: "1.5rem",
               border: "none",
             },
+            code: {
+              fontFamily: "inherit",
+            },
           },
         },
       },

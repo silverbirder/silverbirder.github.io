@@ -1,7 +1,7 @@
 import "./global.css";
 import "highlight.js/styles/github-dark.css";
 import type { Metadata } from "next";
-import { Zen_Kurenaido } from "next/font/google";
+import { Shippori_Mincho } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   keywords: ["silverbirder", "個人サイト", "ブログ", "Webエンジニア"],
 };
 
-const noto = Zen_Kurenaido({
-  weight: ["400"],
+const noto = Shippori_Mincho({
+  weight: ["400", "600", "700"],
   style: "normal",
   subsets: ["latin"],
 });

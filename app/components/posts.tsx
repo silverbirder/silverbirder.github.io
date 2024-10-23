@@ -49,7 +49,7 @@ export function BlogPosts({ allBlogs }: Props) {
           {years.map((year) => (
             <button
               key={year}
-              className={`leading-6 px-2 rounded-full text-base font-medium transition-colors duration-200 ease-in-out ${
+              className={`min-w-14 leading-6 px-2 rounded-full text-base font-medium transition-colors duration-200 ease-in-out ${
                 selectedYear === year
                   ? "bg-green-500 text-white"
                   : "bg-secondary text-secondary-foreground hover:bg-green-500 hover:text-white"

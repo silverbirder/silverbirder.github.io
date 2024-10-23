@@ -27,7 +27,7 @@ export const NotebookLayout = ({ pathname, children }: Props) => {
   };
   return (
     <section>
-      <div className="mb-6 text-sm sm:text-base md:text-lg font-semibold flex items-center">
+      <div className="mb-6 text-sm sm:text-base md:text-lg font-bold flex items-center">
         <Avatar className="w-6 h-6">
           <AvatarImage src={"/favicon.svg"} alt="silverbirder" />
           <AvatarFallback className="bg-background">S</AvatarFallback>

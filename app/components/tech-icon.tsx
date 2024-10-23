@@ -97,7 +97,7 @@ export const TechIcon = ({ skill }) => {
           </div>
           <h2 className="text-xl font-bold">{skill.name}</h2>
         </div>
-        <h3 className="text-lg leading-[3rem] font-semibold">ヒトコト</h3>
+        <h3 className="text-lg leading-[3rem] font-bold">ヒトコト</h3>
         <p className="text-base mb-4">{skill.description}</p>
       </Modal>
     </div>

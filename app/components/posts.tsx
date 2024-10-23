@@ -49,7 +49,7 @@ export function BlogPosts({ allBlogs }: Props) {
           {years.map((year) => (
             <button
               key={year}
-              className={`min-w-16 leading-6 px-2 rounded-full text-base font-medium transition-colors duration-200 ease-in-out ${
+              className={`min-w-16 leading-6 px-2 rounded-full text-base transition-colors duration-200 ease-in-out ${
                 selectedYear === year
                   ? "bg-green-500 text-white"
                   : "bg-secondary text-secondary-foreground hover:bg-green-500 hover:text-white"
@@ -74,7 +74,7 @@ export function BlogPosts({ allBlogs }: Props) {
               <p className="text-xs leading-6">
                 {formatDate(post.metadata.publishedAt)}
               </p>
-              <h3 className="text-base font-semibold">{post.metadata.title}</h3>
+              <h3 className="text-base font-bold">{post.metadata.title}</h3>
             </div>
           </Link>
         ))}

@@ -38,7 +38,7 @@ const TableOfContents = () => {
       <div className="space-y-6">
         {tocItems.map((item, index) => (
           <div key={index}>
-            <h2 className="text-lg leading-[3rem] font-semibold flex flex-row items-center flex-wrap">
+            <h2 className="text-lg leading-[3rem] font-bold flex flex-row items-center flex-wrap">
               <item.icon className="w-6 h-6 mr-2" />
               {item.title}
             </h2>

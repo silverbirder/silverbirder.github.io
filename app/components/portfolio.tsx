@@ -121,7 +121,7 @@ export const Portfolio = () => {
                   )}
                 </span>
                 <div className="relative -top-6 left-6">
-                  <h3 className="flex items-center text-base font-semibold text-gray-900">
+                  <h3 className="flex items-center text-base font-bold text-gray-900">
                     {exp.company}
                   </h3>
                   <p className="text-base text-gray-500">{exp.description}</p>
@@ -132,7 +132,7 @@ export const Portfolio = () => {
         </section>
         <section>
           <h2 className="text-xl leading-[3rem] font-bold">成果物</h2>
-          <h3 className="text-lg leading-[3rem] font-semibold">書籍</h3>
+          <h3 className="text-lg leading-[3rem] font-bold">書籍</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {artifacts.books.map((book, index) => (
               <a
@@ -150,13 +150,13 @@ export const Portfolio = () => {
                     loading="lazy"
                   />
                 </div>
-                <p className="text-sm font-medium text-center leading-6">
+                <p className="text-sm font-bold text-center leading-6 break-all">
                   {book.title}
                 </p>
               </a>
             ))}
           </div>
-          <h3 className="text-lg leading-[3rem] font-semibold">Webサービス</h3>
+          <h3 className="text-lg leading-[3rem] font-bold">Webサービス</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {artifacts.webServices.map((service, index) => (
               <a
@@ -175,7 +175,7 @@ export const Portfolio = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h4 className="text-sm font-medium mb-2">{service.title}</h4>
+                  <h4 className="text-sm font-bold mb-2">{service.title}</h4>
                   <p className="text-xs text-gray-600 line-clamp-3">
                     {service.description}
                   </p>
@@ -183,7 +183,7 @@ export const Portfolio = () => {
               </a>
             ))}
           </div>
-          <h3 className="text-lg leading-[3rem] font-semibold">
+          <h3 className="text-lg leading-[3rem] font-bold">
             GitHubプロジェクト
           </h3>
           <ul className="list-disc pl-6">
@@ -193,7 +193,7 @@ export const Portfolio = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-base font-medium inline-flex items-center"
+                  className="text-blue-600 hover:underline text-base inline-flex items-center"
                 >
                   {project.name}
                   <ExternalLink className="ml-1 w-3 h-3" />
@@ -215,7 +215,7 @@ export const Portfolio = () => {
                 key={index}
                 className="bg-yellow-100 flex flex-col p-6 rounded-lg"
               >
-                <h3 className="text-base font-semibold">{content.title}</h3>
+                <h3 className="text-base font-bold">{content.title}</h3>
                 <Badge
                   variant="secondary"
                   className="my-1 mb-6 w-fit h-5 leading-5 py-0"
@@ -246,7 +246,7 @@ export const Portfolio = () => {
             <div className="absolute -top-3 -left-3 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
               <Lightbulb className="w-6 h-6 text-yellow-500" />
             </div>
-            <p className="text-lg font-semibold leading-[3rem]">
+            <p className="text-lg font-bold leading-[3rem]">
               技術的なサポートが必要ですか？
             </p>
             <p className="text-gray-700 mb-6 text-base">

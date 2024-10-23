@@ -124,7 +124,7 @@ export default async function Page() {
             </Carousel>
           </div>
           <div className="pt-6">
-            <h3 className="text-xl font-semibold leading-[3rem] text-center">
+            <h3 className="text-xl font-bold leading-[3rem] text-center">
               ふぉろーみー！
             </h3>
             <div className="flex justify-center space-x-4">

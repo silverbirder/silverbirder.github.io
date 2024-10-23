@@ -1,6 +1,7 @@
 import { NotebookLayout } from "@/components/notebook-layout";
 import { BlogPosts } from "@/components/posts";
 import { getBlogPosts } from "@/lib/blog";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Blog",
@@ -11,7 +12,9 @@ export default function Page() {
   const allBlogs = getBlogPosts();
   return (
     <NotebookLayout pathname={"/blog"}>
-      <BlogPosts allBlogs={allBlogs} />
+      <Suspense>
+        <BlogPosts allBlogs={allBlogs} />
+      </Suspense>
     </NotebookLayout>
   );
 }

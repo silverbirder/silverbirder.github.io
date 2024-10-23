@@ -116,7 +116,7 @@ function Code(props) {
 
 function Highlight({ children }) {
   return (
-    <span className="text-base underline decoration-red-400 decoration-4 underline-offset-4">
+    <span className="text-base underline decoration-red-400 decoration-1 underline-offset-4">
       {children}
     </span>
   );

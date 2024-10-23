@@ -16,10 +16,10 @@ export async function GET() {
       "../../../public/ShipporiMincho-Bold.ttf"
     )
   );
-  const fontSemiBoldData = await fs.promises.readFile(
+  const fontRegularData = await fs.promises.readFile(
     path.join(
       fileURLToPath(import.meta.url),
-      "../../../public/ShipporiMincho-SemiBold.ttf"
+      "../../../public/ShipporiMincho-Regular.ttf"
     )
   );
 
@@ -70,8 +70,8 @@ export async function GET() {
         </h1>
         <p
           style={{
-            fontSize: "48px",
-            fontWeight: 600,
+            fontSize: "36px",
+            fontWeight: 400,
             lineHeight: 1,
             color: "#0f172a",
             textAlign: "center",
@@ -89,8 +89,8 @@ export async function GET() {
           data: fontBoldData,
         },
         {
-          name: "ShipporiMincho-SemiBold",
-          data: fontSemiBoldData,
+          name: "ShipporiMincho-Regular",
+          data: fontRegularData,
         },
       ],
     }

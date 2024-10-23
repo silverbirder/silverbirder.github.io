@@ -93,7 +93,21 @@ function HorizontalRule() {
 }
 
 function Image(props) {
-  return <EnhancedImage {...props} className={"h-48 md:h-60 lg:h-96"} />;
+  const calculateHeightClass = (height) => {
+    const roundedHeightInPx = Math.ceil(height / 24) * 24;
+    const roundedHeightInRem = roundedHeightInPx / 16;
+    if (roundedHeightInRem >= 12) {
+      return "h-48";
+    }
+    return `h-[${roundedHeightInRem}rem]`;
+  };
+  const heightClass = calculateHeightClass(props.height);
+  return (
+    <EnhancedImage
+      {...props}
+      className={`${heightClass} max-h-48 md:max-h-60 lg:max-h-96`}
+    />
+  );
 }
 
 function Code(props) {

@@ -2,8 +2,7 @@
 
 import { formatDate, type Metadata } from "@/lib/utils";
 import { Link } from "next-view-transitions";
-import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 
 type Props = {
   allBlogs: {
@@ -14,7 +13,10 @@ type Props = {
 };
 
 export function BlogPosts({ allBlogs }: Props) {
-  const searchParams = useSearchParams();
+  const [selectedYear, setSelectedYear] = useState<number | null>(
+    new Date().getFullYear()
+  );
+
   const blogsByYear = useMemo(() => {
     const sorted = allBlogs
       .filter((blog) => !!blog.metadata.publishedAt)
@@ -38,40 +40,30 @@ export function BlogPosts({ allBlogs }: Props) {
     .map(Number)
     .sort((a, b) => b - a);
 
-  const selectedYear = useMemo(() => {
-    const yearParam = searchParams.get("year");
-    if (yearParam && years.includes(parseInt(yearParam, 10))) {
-      return parseInt(yearParam, 10);
-    } else {
-      return years[0];
-    }
-  }, [searchParams, years]);
-
-  const filteredBlogs = useMemo(
-    () => (selectedYear ? blogsByYear[selectedYear] : allBlogs),
-    [selectedYear, blogsByYear, allBlogs]
-  );
+  const filteredBlogs = selectedYear ? blogsByYear[selectedYear] : allBlogs;
 
   return (
     <div className="flex flex-col md:flex-row">
       <div className="mb-6 md:mb-0 md:mr-8">
         <div className="flex flex-wrap md:flex-col gap-6">
           {years.map((year) => (
-            <Link
+            <button
               key={year}
-              href={`?year=${year}`}
-              className={`min-w-12 px-1 leading-6 rounded-full text-base font-medium hover:bg-green-500 hover:text-white ${
+              className={`leading-6 px-2 rounded-full text-base font-medium transition-colors duration-200 ease-in-out ${
                 selectedYear === year
                   ? "bg-green-500 text-white"
-                  : "bg-secondary text-secondary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-green-500 hover:text-white"
               }`}
+              onClick={() =>
+                setSelectedYear(year)
+              }
             >
               {year}
-            </Link>
+            </button>
           ))}
         </div>
       </div>
-      <div>
+      <div className="flex-grow">
         {filteredBlogs.map((post) => (
           <Link
             key={post.slug}

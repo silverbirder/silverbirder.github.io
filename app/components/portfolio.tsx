@@ -63,27 +63,29 @@ export const Portfolio = () => {
           <div className="flex justify-start items-center">
             <h2 className="text-xl leading-[3rem] font-bold">経験のある技術</h2>
           </div>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="skills">
-              <AccordionTrigger className="text-lg leading-[3rem] py-0">
-                経験技術一覧を表示
-              </AccordionTrigger>
-              <AccordionContent className="pb-6">
-                <div className="space-y-6">
-                  {skillCategories.map((category, categoryIndex) => (
-                    <div key={categoryIndex}>
-                      <h3 className="text-base">{category.name}</h3>
-                      <div className="flex flex-wrap gap-6">
-                        {category.skills.map((skill, skillIndex) => (
-                          <TechIcon key={skillIndex} skill={skill} />
-                        ))}
+          <div className="rounded-md border-2 border-yellow-500 -m-[2px]">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="skills">
+                <AccordionTrigger className="rounded-md text-lg leading-[3rem] font-bold p-3 bg-yellow-100 hover:bg-yellow-200 transition-colors">
+                  経験技術一覧を表示
+                </AccordionTrigger>
+                <AccordionContent className="rounded-md pb-6 bg-white px-6">
+                  <div className="space-y-6">
+                    {skillCategories.map((category, categoryIndex) => (
+                      <div key={categoryIndex}>
+                        <h3 className="text-base">{category.name}</h3>
+                        <div className="flex flex-wrap gap-6">
+                          {category.skills.map((skill, skillIndex) => (
+                            <TechIcon key={skillIndex} skill={skill} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </section>
         <section>
           <h2 className="text-xl leading-[3rem] font-bold">職歴</h2>

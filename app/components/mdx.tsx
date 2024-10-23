@@ -114,6 +114,14 @@ function Code(props) {
   return <EnhancedCode {...props} />;
 }
 
+function Highlight({ children }) {
+  return (
+    <span className="text-base underline decoration-red-400 decoration-4 underline-offset-4">
+      {children}
+    </span>
+  );
+}
+
 const components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -132,6 +140,7 @@ const components = {
   code: Code,
   blockquote: BlockQuote,
   hr: HorizontalRule,
+  strong: Highlight,
 };
 
 export function CustomMDX(props) {

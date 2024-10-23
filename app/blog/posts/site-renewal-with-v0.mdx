@@ -87,7 +87,7 @@ v0を使えば、私でももう少しWebデザインが得意になれるので
 - [書類で判読可能なフォントサイズが使用されていません | Lighthouse | Chrome for Developers](https://developer.chrome.com/docs/lighthouse/seo/font-size?hl=ja)
 
 最終的には、Tailwindの`text-base`が最適なフォントサイズ・行間であることに気づき、それを採用しました。  
-letter-spacingやword-spacingの調整は行わず、デフォルトのままにしています。
+letter-spacingは、`.12em` としました。
 
 一方、見出しのように大きな文字を2行（48px）の罫線内に収める際、行間の調整が難しいことに気づきました。  
 行間を逆マージンで調整し、罫線上に文字を載せようとしましたが、文字選択時にずれが生じたため、最終的にはデフォルトの余白設定に戻しました。

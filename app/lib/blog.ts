@@ -7,6 +7,7 @@ export type Metadata = {
   summary: string;
   image?: string;
   tags?: string[];
+  index?: boolean;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -24,10 +25,13 @@ function parseFrontmatter(fileContent: string) {
 
     if (key.trim() === "tags") {
       metadata.tags = value.split(",").map((tag) => tag.trim());
+    } else if (key.trim() === "index") {
+      metadata.index = value === "false" ? false : true;
     } else {
       metadata[key.trim()] = value;
     }
   });
+  metadata.index = metadata.index !== undefined ? metadata.index : true;
 
   return { metadata: metadata as Metadata, content };
 }

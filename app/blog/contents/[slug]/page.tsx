@@ -24,6 +24,7 @@ export function generateMetadata({ params }) {
     title,
     publishedAt: publishedTime,
     summary: description,
+    index,
   } = post.metadata;
   const ogImage = `/opengraph-image.png`;
 
@@ -49,6 +50,17 @@ export function generateMetadata({ params }) {
       title,
       description,
       images: [ogImage],
+    },
+    robots: {
+      index,
+      follow: index,
+      googleBot: {
+        index,
+        follow: index,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }

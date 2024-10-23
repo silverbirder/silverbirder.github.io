@@ -65,11 +65,11 @@ function Paragraph({ children }) {
 }
 
 function OrderedList({ children }) {
-  return <ol className="text-foreground text-base my-0">{children}</ol>;
+  return <ol className="text-foreground text-base my-6">{children}</ol>;
 }
 
 function UnorderedList({ children }) {
-  return <ul className="text-foreground text-base my-0">{children}</ul>;
+  return <ul className="text-foreground text-base my-6">{children}</ul>;
 }
 
 function ListItem({ children }) {

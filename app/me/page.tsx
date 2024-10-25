@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getPngFilesWithSize } from "@/lib/photo";
+import { photos } from "@/data/photos.data";
 
 export const metadata = {
   title: "自己紹介",
@@ -42,7 +42,6 @@ const StickerAvatar = () => (
 );
 
 export default async function Page() {
-  const photos = (await getPngFilesWithSize()) ?? [];
   return (
     <NotebookLayout pathname={"/me"}>
       <div className="relative mx-auto p-6">
@@ -108,10 +107,10 @@ export default async function Page() {
                   <CarouselItem key={index}>
                     <div className="relative rounded-lg h-60 flex items-center justify-center overflow-hidden">
                       <EnhancedImage
-                        src={photo.src}
-                        alt=""
-                        width={photo.width}
-                        height={photo.height}
+                        src={photo}
+                        alt={`my-photo-${index + 1}`}
+                        width={"100%"}
+                        height={"100%"}
                         className="rounded-lg w-full h-full object-contain"
                         href=""
                       />

@@ -81,19 +81,22 @@ function HorizontalRule() {
 }
 
 function Image(props) {
-  const calculateHeightClass = (height) => {
+  const calculateHeight = (height) => {
     const roundedHeightInPx = Math.ceil(height / 24) * 24;
     const roundedHeightInRem = roundedHeightInPx / 16;
     if (roundedHeightInRem >= 12) {
-      return "h-48";
+      return "12";
     }
-    return `h-[${roundedHeightInRem}rem]`;
+    return `${roundedHeightInRem}`;
   };
-  const heightClass = calculateHeightClass(props.height);
+  const height = calculateHeight(props.height);
   return (
     <EnhancedImage
       {...props}
-      className={`${heightClass} max-h-48 md:max-h-60 lg:max-h-96`}
+      style={{
+        height: `${height}rem`,
+      }}
+      className={`max-h-48 md:max-h-60 lg:max-h-96`}
     />
   );
 }

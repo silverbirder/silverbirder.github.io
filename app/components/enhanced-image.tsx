@@ -11,6 +11,7 @@ export const EnhancedImage = ({
   width,
   height,
   className,
+  style,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -56,6 +57,7 @@ export const EnhancedImage = ({
         className={`rounded-lg object-contain cursor-pointer mx-auto my-6 ${className}`}
         onClick={toggleModal}
         loading="lazy"
+        style={style}
       />
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <ZoomIn className="text-white w-8 h-8" />

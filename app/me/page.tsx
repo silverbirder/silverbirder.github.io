@@ -113,6 +113,7 @@ export default async function Page() {
                         height={"100%"}
                         className="rounded-lg w-full h-full object-contain"
                         href=""
+                        style={{}}
                       />
                     </div>
                   </CarouselItem>

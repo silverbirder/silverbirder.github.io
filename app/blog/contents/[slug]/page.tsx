@@ -101,9 +101,9 @@ export default function Blog({ params }) {
       />
       <article className="prose max-w-none">
         <header className="flex flex-col items-start mb-6 leading-12">
-          <h2 className="font-bold text-2xl leading-[3rem] my-0">
+          <h1 className="font-bold text-2xl leading-[3rem] my-0">
             {post.metadata.title}
-          </h2>
+          </h1>
           <time
             className="self-end text-xs leading-6 text-muted"
             dateTime={post.metadata.publishedAt}

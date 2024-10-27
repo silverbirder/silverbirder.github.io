@@ -30,7 +30,7 @@ export default function Header() {
           <AvatarImage src={"/favicon.svg"} alt="silverbirder" />
           <AvatarFallback className="bg-background">S</AvatarFallback>
         </Avatar>
-        <h1>ジブンノート</h1>
+        <span>ジブンノート</span>
         <Spiral
           className="h-6 w-12 ml-4"
           startDelay={0.0}

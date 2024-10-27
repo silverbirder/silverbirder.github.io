@@ -122,7 +122,7 @@ export default async function Page() {
             <h3 className="text-xl font-bold leading-[3rem] text-center">
               ふぉろーみー！
             </h3>
-            <div className="flex justify-center space-x-4">
+            <address className="flex justify-center space-x-4 not-italic">
               <a
                 href="https://github.com/silverbirder"
                 target="_blank"
@@ -139,7 +139,7 @@ export default async function Page() {
               >
                 <Twitter className="w-6 h-6" />
               </a>
-            </div>
+            </address>
           </div>
         </div>
         <div className="absolute -bottom-10 -left-10">

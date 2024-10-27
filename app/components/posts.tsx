@@ -67,9 +67,12 @@ export function BlogPosts({ allBlogs }: Props) {
             href={`/blog/contents/${post.slug}`}
           >
             <div className="flex flex-col">
-              <p className="text-xs leading-6">
+              <time
+                className="text-xs leading-6"
+                dateTime={post.metadata.publishedAt}
+              >
                 {formatDate(post.metadata.publishedAt)}
-              </p>
+              </time>
               <h3 className="text-base font-bold">{post.metadata.title}</h3>
             </div>
           </Link>

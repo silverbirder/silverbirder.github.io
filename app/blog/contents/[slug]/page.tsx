@@ -105,9 +105,12 @@ export default function Blog({ params }) {
           <h2 className="font-bold text-2xl leading-[3rem]">
             {post.metadata.title}
           </h2>
-          <p className="self-end text-xs leading-6 text-muted">
+          <time
+            className="self-end text-xs leading-6 text-muted"
+            dateTime={post.metadata.publishedAt}
+          >
             {formatDate(post.metadata.publishedAt)}
-          </p>
+          </time>
         </div>
         <article className="prose max-w-none">
           <CustomMDX source={post.content} />

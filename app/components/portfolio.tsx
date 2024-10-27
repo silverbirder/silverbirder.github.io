@@ -275,7 +275,7 @@ export const Portfolio = () => {
         </section>
         <section className="text-center">
           <h2 className="text-xl leading-[3rem] font-bold">コンタクト</h2>
-          <div className="flex justify-center space-x-4">
+          <address className="flex justify-center space-x-4">
             <a
               href="https://github.com/silverbirder"
               target="_blank"
@@ -292,7 +292,7 @@ export const Portfolio = () => {
             >
               <Twitter className="w-6 h-6" />
             </a>
-          </div>
+          </address>
         </section>
       </div>
     </div>

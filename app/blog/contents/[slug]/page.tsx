@@ -99,23 +99,25 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <div className="flex flex-col items-start mb-6 leading-12">
-        <h2 className="font-bold text-2xl leading-[3rem]">
-          {post.metadata.title}
-        </h2>
-        <time
-          className="self-end text-xs leading-6 text-muted"
-          dateTime={post.metadata.publishedAt}
-        >
-          {formatDate(post.metadata.publishedAt)}
-        </time>
-      </div>
       <article className="prose max-w-none">
-        <CustomMDX source={post.content} />
+        <header className="flex flex-col items-start mb-6 leading-12">
+          <h2 className="font-bold text-2xl leading-[3rem] my-0">
+            {post.metadata.title}
+          </h2>
+          <time
+            className="self-end text-xs leading-6 text-muted"
+            dateTime={post.metadata.publishedAt}
+          >
+            {formatDate(post.metadata.publishedAt)}
+          </time>
+        </header>
+        <section>
+          <CustomMDX source={post.content} />
+        </section>
+        <footer className="bg-yellow-100 rounded-lg mt-12 mb-36 p-6">
+          <DiscusNoSSR url={`${baseUrl}/blog/contents/${params.slug}/`} />
+        </footer>
       </article>
-      <div className="bg-yellow-100 rounded-lg mt-12 mb-36 p-6">
-        <DiscusNoSSR url={`${baseUrl}/blog/contents/${params.slug}/`} />
-      </div>
     </>
   );
 }

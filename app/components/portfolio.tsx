@@ -258,6 +258,7 @@ export const Portfolio = () => {
               <Button
                 variant="default"
                 className="h-12 mt-6 py-0 bg-[#13B1C0] hover:bg-[#13B1C0]/90"
+                asChild
               >
                 <a
                   href="https://menta.work/user/6835"

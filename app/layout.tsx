@@ -49,6 +49,7 @@ const noto = Shippori_Mincho({
   weight: ["400", "700"],
   style: "normal",
   subsets: ["latin"],
+  adjustFontFallback: false,
 });
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");

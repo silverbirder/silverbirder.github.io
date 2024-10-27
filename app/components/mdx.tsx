@@ -34,25 +34,13 @@ function CustomLink(props) {
   );
 }
 
-function slugify(str) {
-  return str
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/&/g, "-and-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
-}
-
 function createHeading(level) {
   const Heading = ({ children }) => {
-    const slug = slugify(children);
     const className =
       level <= 2
         ? "text-xl leading-[3rem] font-bold mt-6 border-b-2 -mb-[2px] border-primary border-dashed"
         : "text-lg leading-[3rem] font-bold mt-6 border-b -mb-[1px] border-primary border-dashed";
-    return React.createElement(`h${level}`, { id: slug, className }, children);
+    return React.createElement(`h${level}`, { className }, children);
   };
 
   Heading.displayName = `Heading${level}`;

@@ -1,9 +1,6 @@
 // https://icones.js.org/
 
-export function LogosJavascript(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosJavascript(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +8,6 @@ export function LogosJavascript(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path fill="#F7DF1E" d="M0 0h256v256H0V0Z"></path>
       <path d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"></path>
@@ -19,7 +15,7 @@ export function LogosJavascript(
   );
 }
 
-export function LogosJest(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosJest(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +23,6 @@ export function LogosJest(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 283"
       {...props}
-      key={key}
     >
       <path
         fill="#99425B"
@@ -41,10 +36,7 @@ export function LogosJest(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosStorybookIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosStorybookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +44,6 @@ export function LogosStorybookIcon(
       height="1em"
       viewBox="0 0 256 319"
       {...props}
-      key={key}
     >
       <defs>
         <path
@@ -73,10 +64,7 @@ export function LogosStorybookIcon(
   );
 }
 
-export function LogosWebcomponents(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosWebcomponents(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +72,6 @@ export function LogosWebcomponents(
       height="32"
       viewBox="0 0 256 209"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -94,8 +81,8 @@ export function LogosWebcomponents(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#2A3B8F" />
-          <stop offset="100%" stop-color="#29ABE2" />
+          <stop offset="0%" stopColor="#2A3B8F" />
+          <stop offset="100%" stopColor="#29ABE2" />
         </linearGradient>
         <linearGradient
           id="logosWebcomponents1"
@@ -104,8 +91,8 @@ export function LogosWebcomponents(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#2A3B8F" />
-          <stop offset="100%" stop-color="#29ABE2" />
+          <stop offset="0%" stopColor="#2A3B8F" />
+          <stop offset="100%" stopColor="#29ABE2" />
         </linearGradient>
         <linearGradient
           id="logosWebcomponents2"
@@ -114,8 +101,8 @@ export function LogosWebcomponents(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#B4D44E" />
-          <stop offset="100%" stop-color="#E7F716" />
+          <stop offset="0%" stopColor="#B4D44E" />
+          <stop offset="100%" stopColor="#E7F716" />
         </linearGradient>
         <linearGradient
           id="logosWebcomponents3"
@@ -124,8 +111,8 @@ export function LogosWebcomponents(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#B4D44E" />
-          <stop offset="100%" stop-color="#E7F716" />
+          <stop offset="0%" stopColor="#B4D44E" />
+          <stop offset="100%" stopColor="#E7F716" />
         </linearGradient>
       </defs>
       <path
@@ -168,10 +155,7 @@ export function LogosWebcomponents(
   );
 }
 
-export function LogosPlaywright(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosPlaywright(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +163,6 @@ export function LogosPlaywright(
       height="1em"
       viewBox="0 0 256 192"
       {...props}
-      key={key}
     >
       <path
         fill="#2D4552"
@@ -213,10 +196,7 @@ export function LogosPlaywright(
   );
 }
 
-export function LogosAlgolia(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosAlgolia(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +204,6 @@ export function LogosAlgolia(
       height="1em"
       viewBox="0 0 512 127"
       {...props}
-      key={key}
     >
       <path
         fill="#5468FF"
@@ -242,10 +221,7 @@ export function LogosAlgolia(
   );
 }
 
-export function LogosAmpIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosAmpIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +229,6 @@ export function LogosAmpIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#1D5FE6"
@@ -263,10 +238,7 @@ export function LogosAmpIcon(
   );
 }
 
-export function LogosAnsible(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosAnsible(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +246,6 @@ export function LogosAnsible(
       height="1em"
       viewBox="0 0 256 315"
       {...props}
-      key={key}
     >
       <path
         fill="#1A1918"
@@ -288,7 +259,7 @@ export function LogosAnsible(
   );
 }
 
-export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosApache(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +267,6 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="32"
       viewBox="0 0 256 512"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -306,9 +276,9 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="63.905%"
           y2="20.213%"
         >
-          <stop offset="0%" stop-color="#F69923" />
-          <stop offset="31.23%" stop-color="#F79A23" />
-          <stop offset="83.83%" stop-color="#E97826" />
+          <stop offset="0%" stopColor="#F69923" />
+          <stop offset="31.23%" stopColor="#F79A23" />
+          <stop offset="83.83%" stopColor="#E97826" />
         </linearGradient>
         <linearGradient
           id="logosApache1"
@@ -317,10 +287,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="394.672%"
           y2="13.846%"
         >
-          <stop offset="32.33%" stop-color="#9E2064" />
-          <stop offset="63.02%" stop-color="#C92037" />
-          <stop offset="75.14%" stop-color="#CD2335" />
-          <stop offset="100%" stop-color="#E97826" />
+          <stop offset="32.33%" stopColor="#9E2064" />
+          <stop offset="63.02%" stopColor="#C92037" />
+          <stop offset="75.14%" stopColor="#CD2335" />
+          <stop offset="100%" stopColor="#E97826" />
         </linearGradient>
         <linearGradient
           id="logosApache2"
@@ -329,10 +299,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="170.418%"
           y2="-44.299%"
         >
-          <stop offset="32.33%" stop-color="#9E2064" />
-          <stop offset="63.02%" stop-color="#C92037" />
-          <stop offset="75.14%" stop-color="#CD2335" />
-          <stop offset="100%" stop-color="#E97826" />
+          <stop offset="32.33%" stopColor="#9E2064" />
+          <stop offset="63.02%" stopColor="#C92037" />
+          <stop offset="75.14%" stopColor="#CD2335" />
+          <stop offset="100%" stopColor="#E97826" />
         </linearGradient>
         <linearGradient
           id="logosApache3"
@@ -341,10 +311,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="77.36%"
           y2="-41.416%"
         >
-          <stop offset="0%" stop-color="#282662" />
-          <stop offset="9.548%" stop-color="#662E8D" />
-          <stop offset="78.82%" stop-color="#9F2064" />
-          <stop offset="94.87%" stop-color="#CD2032" />
+          <stop offset="0%" stopColor="#282662" />
+          <stop offset="9.548%" stopColor="#662E8D" />
+          <stop offset="78.82%" stopColor="#9F2064" />
+          <stop offset="94.87%" stopColor="#CD2032" />
         </linearGradient>
         <linearGradient
           id="logosApache4"
@@ -353,10 +323,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="463.715%"
           y2="17.19%"
         >
-          <stop offset="32.33%" stop-color="#9E2064" />
-          <stop offset="63.02%" stop-color="#C92037" />
-          <stop offset="75.14%" stop-color="#CD2335" />
-          <stop offset="100%" stop-color="#E97826" />
+          <stop offset="32.33%" stopColor="#9E2064" />
+          <stop offset="63.02%" stopColor="#C92037" />
+          <stop offset="75.14%" stopColor="#CD2335" />
+          <stop offset="100%" stopColor="#E97826" />
         </linearGradient>
         <linearGradient
           id="logosApache5"
@@ -365,10 +335,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="187.706%"
           y2="-51.1%"
         >
-          <stop offset="32.33%" stop-color="#9E2064" />
-          <stop offset="63.02%" stop-color="#C92037" />
-          <stop offset="75.14%" stop-color="#CD2335" />
-          <stop offset="100%" stop-color="#E97826" />
+          <stop offset="32.33%" stopColor="#9E2064" />
+          <stop offset="63.02%" stopColor="#C92037" />
+          <stop offset="75.14%" stopColor="#CD2335" />
+          <stop offset="100%" stopColor="#E97826" />
         </linearGradient>
         <linearGradient
           id="logosApache6"
@@ -377,10 +347,10 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="192.564%"
           y2="-136.906%"
         >
-          <stop offset="0%" stop-color="#282662" />
-          <stop offset="9.548%" stop-color="#662E8D" />
-          <stop offset="78.82%" stop-color="#9F2064" />
-          <stop offset="94.87%" stop-color="#CD2032" />
+          <stop offset="0%" stopColor="#282662" />
+          <stop offset="9.548%" stopColor="#662E8D" />
+          <stop offset="78.82%" stopColor="#9F2064" />
+          <stop offset="94.87%" stopColor="#CD2032" />
         </linearGradient>
       </defs>
       <path
@@ -415,10 +385,7 @@ export function LogosApache(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosArgoIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosArgoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -426,7 +393,6 @@ export function LogosArgoIcon(
       height="1em"
       viewBox="0 0 256 327"
       {...props}
-      key={key}
     >
       <path
         fill="#FEFEFE"
@@ -520,10 +486,7 @@ export function LogosArgoIcon(
   );
 }
 
-export function LogosAtomIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosAtomIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -531,7 +494,6 @@ export function LogosAtomIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <circle cx="128.002" cy="128.002" r="128.002" fill="#60B57D"></circle>
       <path
@@ -542,10 +504,7 @@ export function LogosAtomIcon(
   );
 }
 
-export function LogosAtlassian(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosAtlassian(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -553,7 +512,6 @@ export function LogosAtlassian(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -563,8 +521,8 @@ export function LogosAtlassian(
           y1="15.801%"
           y2="97.438%"
         >
-          <stop offset="0%" stop-color="#0052CC" />
-          <stop offset="92.3%" stop-color="#2684FF" />
+          <stop offset="0%" stopColor="#0052CC" />
+          <stop offset="92.3%" stopColor="#2684FF" />
         </linearGradient>
       </defs>
       <path
@@ -579,7 +537,7 @@ export function LogosAtlassian(
   );
 }
 
-export function LogosAws(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosAws(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -587,7 +545,6 @@ export function LogosAws(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 153"
       {...props}
-      key={key}
     >
       <path
         fill="#252F3E"
@@ -601,10 +558,7 @@ export function LogosAws(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosBitbucket(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosBitbucket(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -612,7 +566,6 @@ export function LogosBitbucket(
       height="1em"
       viewBox="0 0 256 231"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -622,8 +575,8 @@ export function LogosBitbucket(
           y1="13.818%"
           y2="78.776%"
         >
-          <stop offset="18%" stop-color="#0052CC" />
-          <stop offset="100%" stop-color="#2684FF" />
+          <stop offset="18%" stopColor="#0052CC" />
+          <stop offset="100%" stopColor="#2684FF" />
         </linearGradient>
       </defs>
       <g fill="none">
@@ -641,10 +594,7 @@ export function LogosBitbucket(
   );
 }
 
-export function LogosBashIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosBashIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -652,7 +602,6 @@ export function LogosBashIcon(
       height="1em"
       viewBox="0 0 224 256"
       {...props}
-      key={key}
     >
       <path
         fill="#FFF"
@@ -674,10 +623,7 @@ export function LogosBashIcon(
   );
 }
 
-export function LogosBootstrap(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosBootstrap(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -685,7 +631,6 @@ export function LogosBootstrap(
       height="1em"
       viewBox="0 0 256 204"
       {...props}
-      key={key}
     >
       <path
         fill="#7E13F8"
@@ -695,10 +640,7 @@ export function LogosBootstrap(
   );
 }
 
-export function LogosBrackets(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosBrackets(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -706,7 +648,6 @@ export function LogosBrackets(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <filter
@@ -758,12 +699,12 @@ export function LogosBrackets(
           </feMerge>
         </filter>
         <linearGradient id="logosBrackets2" x1="50%" x2="50%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#29ABE2" />
-          <stop offset="47.57%" stop-color="#28A9E1" />
-          <stop offset="66.39%" stop-color="#23A2DC" />
-          <stop offset="80.12%" stop-color="#1A96D4" />
-          <stop offset="91.3%" stop-color="#0E85C9" />
-          <stop offset="100%" stop-color="#0071BC" />
+          <stop offset="0%" stopColor="#29ABE2" />
+          <stop offset="47.57%" stopColor="#28A9E1" />
+          <stop offset="66.39%" stopColor="#23A2DC" />
+          <stop offset="80.12%" stopColor="#1A96D4" />
+          <stop offset="91.3%" stopColor="#0E85C9" />
+          <stop offset="100%" stopColor="#0071BC" />
         </linearGradient>
       </defs>
       <path
@@ -794,7 +735,7 @@ export function LogosBrackets(
   );
 }
 
-export function LogosC(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosC(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -802,7 +743,6 @@ export function LogosC(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 288"
       {...props}
-      key={key}
     >
       <path
         fill="#A9B9CB"
@@ -820,10 +760,7 @@ export function LogosC(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosCakephpIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosCakephpIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -831,7 +768,6 @@ export function LogosCakephpIcon(
       height="1em"
       viewBox="0 0 256 200"
       {...props}
-      key={key}
     >
       <path
         fill="#D33C44"
@@ -842,10 +778,7 @@ export function LogosCakephpIcon(
   );
 }
 
-export function LogosChromaticIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosChromaticIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -853,7 +786,6 @@ export function LogosChromaticIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <circle cx="128" cy="128" r="128" fill="#FC521F"></circle>
       <path
@@ -864,10 +796,7 @@ export function LogosChromaticIcon(
   );
 }
 
-export function LogosCircleci(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosCircleci(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -875,7 +804,6 @@ export function LogosCircleci(
       height="1em"
       viewBox="0 0 256 259"
       {...props}
-      key={key}
     >
       <g fill="#343434">
         <circle cx="126.157" cy="129.008" r="30.593"></circle>
@@ -885,10 +813,7 @@ export function LogosCircleci(
   );
 }
 
-export function LogosCloudinaryIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosCloudinaryIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -896,7 +821,6 @@ export function LogosCloudinaryIcon(
       height="1em"
       viewBox="0 0 256 168"
       {...props}
-      key={key}
     >
       <path
         fill="#3448C5"
@@ -907,8 +831,7 @@ export function LogosCloudinaryIcon(
 }
 
 export function LogosCloudflareWorkersIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -917,7 +840,6 @@ export function LogosCloudflareWorkersIcon(
       height="1em"
       viewBox="0 0 256 231"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -927,8 +849,8 @@ export function LogosCloudflareWorkersIcon(
           y1="100%"
           y2="8.7%"
         >
-          <stop offset="0%" stop-color="#EB6F07" />
-          <stop offset="100%" stop-color="#FAB743" />
+          <stop offset="0%" stopColor="#EB6F07" />
+          <stop offset="100%" stopColor="#FAB743" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon1"
@@ -937,8 +859,8 @@ export function LogosCloudflareWorkersIcon(
           y1="83.7%"
           y2="29.5%"
         >
-          <stop offset="0%" stop-color="#D96504" />
-          <stop offset="100%" stop-color="#D96504" stop-opacity="0" />
+          <stop offset="0%" stopColor="#D96504" />
+          <stop offset="100%" stopColor="#D96504" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon2"
@@ -947,8 +869,8 @@ export function LogosCloudflareWorkersIcon(
           y1="8.7%"
           y2="79.9%"
         >
-          <stop offset="0%" stop-color="#EB6F07" />
-          <stop offset="100%" stop-color="#EB720A" stop-opacity="0" />
+          <stop offset="0%" stopColor="#EB6F07" />
+          <stop offset="100%" stopColor="#EB720A" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon3"
@@ -957,8 +879,8 @@ export function LogosCloudflareWorkersIcon(
           y1="100%"
           y2="8.7%"
         >
-          <stop offset="0%" stop-color="#EE6F05" />
-          <stop offset="100%" stop-color="#FAB743" />
+          <stop offset="0%" stopColor="#EE6F05" />
+          <stop offset="100%" stopColor="#FAB743" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon4"
@@ -967,9 +889,9 @@ export function LogosCloudflareWorkersIcon(
           y1="100%"
           y2="0%"
         >
-          <stop offset="0%" stop-color="#D96504" stop-opacity=".8" />
-          <stop offset="49.8%" stop-color="#D96504" stop-opacity=".2" />
-          <stop offset="100%" stop-color="#D96504" stop-opacity="0" />
+          <stop offset="0%" stopColor="#D96504" stopOpacity=".8" />
+          <stop offset="49.8%" stopColor="#D96504" stopOpacity=".2" />
+          <stop offset="100%" stopColor="#D96504" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon5"
@@ -978,8 +900,8 @@ export function LogosCloudflareWorkersIcon(
           y1="100%"
           y2="8.7%"
         >
-          <stop offset="0%" stop-color="#FFA95F" />
-          <stop offset="100%" stop-color="#FFEBC8" />
+          <stop offset="0%" stopColor="#FFA95F" />
+          <stop offset="100%" stopColor="#FFEBC8" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon6"
@@ -988,8 +910,8 @@ export function LogosCloudflareWorkersIcon(
           y1="1.1%"
           y2="48.8%"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".5" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".1" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".5" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".1" />
         </linearGradient>
         <linearGradient
           id="logosCloudflareWorkersIcon7"
@@ -998,8 +920,8 @@ export function LogosCloudflareWorkersIcon(
           y1="104.2%"
           y2="46.2%"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".5" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".1" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".5" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".1" />
         </linearGradient>
       </defs>
       <path
@@ -1042,10 +964,7 @@ export function LogosCloudflareWorkersIcon(
   );
 }
 
-export function LogosCodecovIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosCodecovIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1053,7 +972,6 @@ export function LogosCodecovIcon(
       height="1em"
       viewBox="0 0 256 245"
       {...props}
-      key={key}
     >
       <path
         fill="#F07"
@@ -1063,10 +981,7 @@ export function LogosCodecovIcon(
   );
 }
 
-export function LogosContentful(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosContentful(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1074,7 +989,6 @@ export function LogosContentful(
       height="1em"
       viewBox="0 0 256 289"
       {...props}
-      key={key}
     >
       <path
         fill="#FAE501"
@@ -1094,10 +1008,7 @@ export function LogosContentful(
   );
 }
 
-export function LogosCucumber(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosCucumber(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1105,7 +1016,6 @@ export function LogosCucumber(
       height="1em"
       viewBox="0 0 256 293"
       {...props}
-      key={key}
     >
       <path
         fill="#23D96C"
@@ -1123,10 +1033,7 @@ export function LogosCucumber(
   );
 }
 
-export function LogosDatadog(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDatadog(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1134,7 +1041,6 @@ export function LogosDatadog(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#632CA6"
@@ -1144,10 +1050,7 @@ export function LogosDatadog(
   );
 }
 
-export function LogosDependabot(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDependabot(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1155,7 +1058,6 @@ export function LogosDependabot(
       height="1em"
       viewBox="0 0 256 274"
       {...props}
-      key={key}
     >
       <path
         fill="#2B64CF"
@@ -1169,10 +1071,7 @@ export function LogosDependabot(
   );
 }
 
-export function LogosDiscordIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDiscordIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1180,7 +1079,6 @@ export function LogosDiscordIcon(
       height="1em"
       viewBox="0 0 256 199"
       {...props}
-      key={key}
     >
       <path
         fill="#5865F2"
@@ -1190,10 +1088,7 @@ export function LogosDiscordIcon(
   );
 }
 
-export function LogosDockerIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDockerIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1201,7 +1096,6 @@ export function LogosDockerIcon(
       height="1em"
       viewBox="0 0 256 185"
       {...props}
-      key={key}
     >
       <path
         fill="#2396ED"
@@ -1211,10 +1105,7 @@ export function LogosDockerIcon(
   );
 }
 
-export function LogosDjangoIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDjangoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1222,7 +1113,6 @@ export function LogosDjangoIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <rect width="256" height="256" fill="#092E20" rx="28"></rect>
       <path
@@ -1233,10 +1123,7 @@ export function LogosDjangoIcon(
   );
 }
 
-export function LogosDropbox(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosDropbox(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1244,7 +1131,6 @@ export function LogosDropbox(
       height="1em"
       viewBox="0 0 256 218"
       {...props}
-      key={key}
     >
       <path
         fill="#0061FF"
@@ -1254,10 +1140,7 @@ export function LogosDropbox(
   );
 }
 
-export function LogosEclipseIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosEclipseIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1265,7 +1148,6 @@ export function LogosEclipseIcon(
       height="1em"
       viewBox="0 0 256 240"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -1330,10 +1212,7 @@ export function LogosEclipseIcon(
   );
 }
 
-export function LogosElectron(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosElectron(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1341,7 +1220,6 @@ export function LogosElectron(
       height="1em"
       viewBox="0 0 256 278"
       {...props}
-      key={key}
     >
       <path
         fill="#47848F"
@@ -1351,7 +1229,7 @@ export function LogosElectron(
   );
 }
 
-export function LogosEslint(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosEslint(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1359,7 +1237,6 @@ export function LogosEslint(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 225"
       {...props}
-      key={key}
     >
       <path
         fill="#8080F2"
@@ -1373,10 +1250,7 @@ export function LogosEslint(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosExpoIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosExpoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1384,7 +1258,6 @@ export function LogosExpoIcon(
       height="1em"
       viewBox="0 0 256 231"
       {...props}
-      key={key}
     >
       <path
         fill="#000020"
@@ -1394,10 +1267,7 @@ export function LogosExpoIcon(
   );
 }
 
-export function LogosExpress(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosExpress(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1405,7 +1275,6 @@ export function LogosExpress(
       height="1em"
       viewBox="0 0 512 149"
       {...props}
-      key={key}
     >
       <path
         fill="#222"
@@ -1415,7 +1284,7 @@ export function LogosExpress(
   );
 }
 
-export function LogosFigma(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosFigma(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1423,7 +1292,6 @@ export function LogosFigma(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 384"
       {...props}
-      key={key}
     >
       <path
         fill="#0ACF83"
@@ -1449,10 +1317,7 @@ export function LogosFigma(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosFfmpegIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosFfmpegIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1460,7 +1325,6 @@ export function LogosFfmpegIcon(
       height="32"
       viewBox="0 0 256 244"
       {...props}
-      key={key}
     >
       <defs>
         <radialGradient
@@ -1472,8 +1336,8 @@ export function LogosFfmpegIcon(
           fy="18.852%"
           gradientTransform="matrix(.96523 0 0 1 .007 0)"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#007808" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#007808" />
         </radialGradient>
       </defs>
       <path
@@ -1545,7 +1409,7 @@ export function LogosFfmpegIcon(
   );
 }
 
-export function LogosFlask(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosFlask(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1553,17 +1417,13 @@ export function LogosFlask(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 329"
       {...props}
-      key={key}
     >
       <path d="M76.501 203.351c-9.75-7.67-20.153-15.02-27.26-25.377c-14.961-18.264-26.477-39.405-34.35-61.625c-4.76-14.45-6.39-29.941-12.53-43.83c-6.414-10.091 1.105-21.114 12.157-24.32c4.917-.948 13.568-5.59 3.125-2.268c-9.364 6.866-10.266-6.24-.666-7.07c6.552-.869 8.964-6.23 6.721-11.056c-7.036-4.59 17.055-9.626 4.932-16.473c-12.62-13.62 17.66-16.242 10.188-.771c-1.786 11.895 21.166-2.185 15.836 11.554c5.415 6.599 20.272 1.505 19.899 10.757c7.886.542 10.593 7.173 17.988 7.683c7.677 3.466 21.58 6.192 24.188 14.837c-7.61 6.023-25.227-12.443-26.078 4.232c2.302 24.638 1.715 50.017 10.726 73.478c4.262 14.204 14.6 25.385 23.931 36.45c8.933 10.834 21.03 18.466 33.363 24.887c10.815 5.1 22.475 8.48 34.265 10.606c4.78-3.656 13.221-17.25 20.675-11.522c.36 6.449-14.796 13.471-.711 12.758c8.278-2.498 14.013 6.394 20.826-1.629c6.278 7.436 26.09-4.747 21.625 10.45c-6.042 3.898-14.85 1.543-20.898 6.906c-9.972-4.983-17.912 4.453-28.956 3.263c-12.26 2.196-24.738 3.08-37.167 3.098c-20.396-1.609-41.222-2.288-60.624-9.39c-10.933-3.176-21.598-9.402-31.205-15.628Zm17.224 7.468c10.672 4.61 21.109 9.475 32.807 10.946c18.558 2.577 37.723 6.552 56.346 2.93c-8.428-3.805-17.145 1.478-25.541-2.72c-10.07 2.164-20.878-.556-31.12-1.897c-11.64-5.184-24.206-8.748-35.107-15.485c-13.628-4.975 7.043 6.383 10.724 7.306c8.514 4.83-9.365-2.48-11.89-4.487c-7.132-4.002-8.04-3.165-.704.896c1.477.864 2.936 1.773 4.485 2.511Zm-20.31-14.353c10.345 3.832-.046-7.272-4.78-6.63c-2.1-3.643-8.023-5.945-3.845-7.9c-7.513 2.61-7.873-9.92-11.403-8.127c-7.952-2.511-3.094-11.405-12.569-16.87c-.864-5.756-9.41-10.745-12.13-19.423c-1.203-4.446-9.658-17.203-4.466-5.33c4.42 11.43 12.195 21.227 18.669 31.003c5.022 9.31 10.96 19.048 20.108 24.855c3.087 2.962 6.061 7.493 10.415 8.422Zm-29.791-32.715c.358-1.563 1.89 3.38 0 0Zm42.183 37.305c2.288-1.026-3.296-1.294 0 0Zm5.61 2.048c-.581-2.826-2.563 1.582 0 0Zm7.03 2.93c3.341-3.187-5.16-2.01 0 0Zm12.045 6.713c2.033-3.001-6.507-1.13 0 0Zm-23.128-16.123c5.19-3.362-6.716-.047 0 0Zm5.27 2.628c-.151-1.773-1.877.797 0 0Zm26.345 16.445c4.237 2.675 24.738 5.859 11.902 1.098c-2.153.452-23.803-6.127-11.902-1.098ZM77.156 183.12c-.412-1.777-6.58-1.968 0 0Zm12.26 7.155c3.197-2.23-6.624-1.72 0 0Zm10.318 6.323c4.584-1.726-7.427-1.733 0 0ZM72.16 177.686c4.97 3.811 20.05.49 7.611-2.275c-5.656-3.015-18.407-5.08-9.715 1.818l2.104.457Zm34.566 21.095c2.072-3.525-8.685-2.015 0 0Zm-10.503-8.345c12.15 3.434-10.22-7.69-3-1.268l1.603.726l1.397.542Zm21.058 12.17c11.508.11-10.398-1.588 0 0Zm-49.547-31.578c-.452-2.144-2.838.178 0 0Zm69.013 42.498c.307-3.87-3.754 2.884 0 0Zm-49.37-30.472c-.7-2.04-3.596-.085 0 0Zm-18.552-13.372c6.606-.398-9.05-2.91 0 0Zm-21.978-14.204c-.823-3.17-7.186-5.694 0 0Zm57.695 36.614c-1.21-1.381-.57.3 0 0Zm35.905 22.037c-.11-2.113-1.955.796 0 0Zm-39.083-25.32c.648-2.72-5.636-.825 0 0Zm-26.752-16.956c4.918-.524-7.88-3.322 0 0Zm45.252 28.119c7.663-3.035-7.468-1.479 0 0Zm-23.535-15.975c8.827 1.136-10.508-6.01-1.942-.642l1.942.642Zm30.68 18.864c8.247-4.923 5.527 11.542 13.989 1.393c8.343-6.094-7.207 7.533 3.073 1.086c7.441-4.977 18.426 2.36 25.365 4.747c4.988-.242 9.841 4.316 14.96 1.542c9.848-2.655-19.263-3.935-11.633-8.638c-9.01 2.624-15.666-3.125-20.1-8.899c-10.11-2.335-21.795-7.5-26.843-16.452c-2.06-3.354 2.97.478-1.778-5.015c-6.088-5.415-9.128-11.569-13.216-18.153c-4.885-2.603-5.46-10.273-5.951-.254c.04-6.324-5.898-10.581-7.35-8.815c-.026-6.089 6.357-3.035 1.89-7.54c-.96-6.311-4.126-12.888-5.075-20.016c-1.476-3.433-.21-10.789-5.047-3.015c-1.76 8.22-.582-10.096 2.158-4.06c3.596-6.16-1.296-5.435-1.492-4.584c2.342-5.198 1.485-12.575-.614-9.763c1.249-5.513 1.975-20.284-1.863-17.662c2.327-5.767 4.414-26.38-5.697-18.518c-4.093.058-11.187 1.485-14.535 3.152c10.508 5.794-1.06 2.092-5.343 1.17c-.556 5.362-4.793 3.047-10.09 3.099c8.462 1.046-4.12 8.65-8.964 5.696c-6.304 3.008 5.434 10.528.124 12.855c.655 3.499-9.652-1.267-8.847 6.828c-6.115-2.578-.837 9.599 2.223 5.48c10.404 2.818 7.324 9.233 7.585 15.333c-1.694 3.55-8.37-8.35-1.485-7.8c-5.434-8.823-6.008-3.192-10.521.908c-1.046.295 11.509 5.832 3.63 8.566c6.931 1.073 7.134 7.141 8.547 10.98c4.165 4.34 3.307-4.795 8.298.425c-3.16-4.65-16.715-13.1-5.8-10.39c-.06-4.676-1.976-8.45 1.372-8.359c3.316-5.996-3.472 14.792 3.996 7.168c2.065-.902 2.583-6.003 6.297.484c5.394 5.31 1.949 9.153-5.663 4.289c1.36 4.623 10.181 6.27 8.52 13.497c1.758 6.356 4.218 4.014 6.362 3.648c1.68 6.173 2.637 1.635 2.715-1.308c7.696 1.65 5.891 6.2 8.303 9.378c5.303 2.392-7.591-16.224 1.512-5.598c9.578 8.651 3.596 12.26-5.002 10.875c5.44-.44 7.191 7.357 14 7.082c6.205 2.955 10.41 14.294-.288 9.572c-3.708-3.348-16.846-7.474-6.114-1.111c9.9 4.59 17.773 7.33 27.326 13.092c6.834 4.878 9.788 10.467 12.378 11.574c-5.747 2.745-17.314-2.191-8.723-3.701c-5.362-.975-11.39-3.688-6.258 2.988c4.368 3.649 15.465 3.262 17.46 3.674c-1.687 3.715-4.583 4.01.065 4.297c-5.186 2.766 1.668 3.198 2.145 4.773Zm-10.606-29.955c-3.158-3.302-3.975-9.481-.562-4.108c1.753.707 5.605 10.105.562 4.108Zm34.547 21.945c1.968-.13.058 1.496 0 0Zm-39.528-30.04c-.126-4.99 1.136 3.85 0 0Zm-3.434-4.617c-3.975-7.67 5.002 2.171 0 0Zm-41.615-28.719c2.335-.623 1.151 3.987 0 0Zm33.121 17.949c1.432-5.382 1.681 4.513 0 0Zm-23.397-16.27c-1.647-2.968 3.447 2.787 0 0Zm20.075 6.435c-3.76-8.422 2.668-4.604.837 1.38l-.837-1.38Zm-34.624-23.09c-1.68-2.765-4.46-10.874-3.564-13.351c.804 4.034 8.573 17.354 3.805 5.519c-5.263-9.92 6.298 3.216 7.488 5.695c.556 2.459-3.25-.673-.674 5.1c-4.701-6.572-2.773 3.63-7.055-2.963Zm-10.698-7.375c.438-6.428 2.446 4.407 0 0Zm4.813 1.66c2.295-4.85 3.89 6.762 0 0Zm-11.581-8.957c-3.983-3.964-6.867-7.612.189-2.46c2.714.105-6.041-8.297.655-2.668c7.035 1.283 3.471 11.543-.844 5.128Zm6.081-.157c2.316-2.295 1.23 2.256 0 0Zm3.747 1.196c-3.512-6.572 4.257 2.76 0 0Zm-7.441-7.107c-11.58-10.314 14.549 5.387 1.89 1.908l-1.89-1.908Zm33.185 19.276c-5.015-3.002-1.334-21.153.38-8.742c4.872-1.577-.27 6.415 3.36 6.336c-.568 5.04-2.196 6.854-3.74 2.406Zm12.274 7.258c.49-5.472 1.033 3.742 0 0Zm-2.131-2.112c.549-2.334.052 2.753 0 0Zm-41.06-27.81c-7.44-10.267 21.625 10.383 4.768 2.603c-1.76-.464-3.884-.628-4.768-2.603Zm23.639 12.53c-.705-8.645 1.57 1.43 0 0Zm17.943 11.513c1.386-4.923.106 3.258 0 0Zm-40.437-27.96c4.421-.948 18.322 7.762 5.558 2.485c-1.418-1.57-4.446-.857-5.558-2.486Zm37.971 18.924c.473-8.84 2.644-5.277.02 1.269l-.02-1.27ZM53.171 85.375c1.804-2.643-4.788-11.947.947-3.336c2.48 1.968 7.173 3.296 3.028 4.126c6.519 5.749-1.588 1.557-3.975-.79Zm32.805 19.244c1.244-10.07 1.1 5.898 0 0ZM49.404 76.076c1.38-.59.732 1.836 0 0Zm8.56 5.094c2.202-4.624 4.06 5.152 0 0Zm24.135 13.424c-.02-1.772.457 2.583 0 0Zm-1.4-3.092c-3.348-8.266 3.12 4.374 0 0Zm-2.054-5.422c-.56-3.414 1.91 4.29 0 0Zm3.348-5.44c-2.301-4.049 2.905-17.852 3.487-9.292c-2.427 6.67-.7 10.398.986 1.452c3.127-7.036-.673 13.896-4.473 7.84Zm3.44-20.526c1.002-1.23.223 1.483 0 0Zm-5.746 113.21c-1.361-1.19.175.753 0 0Zm11.835 5.984c6.584 1.694 6.552-1.021.6-1.832c-3.197-2.974-13.3-6.133-4.256-.366c.596 1.518 2.486 1.478 3.656 2.198Zm-23.37-15.525c3.622 2.709 13.659 7.664 5.165 1.035c2.864-3.33-5.48-5.101-2.713-7.33c-7.043-4.311-5.56-3.925-.621-3.787c-8.462-3.787 1.222-3.499.765-5.44c-3.263-.642-16.211-5.756-8.593.418c-7.742-3.944-1.845 1.471-4.185.902c-7.92-2.158 7.05 6.03-1.256 3.996c4.539 3.596 12.222 9.22 1.916 3.805c-1.353 1.955 7.377 4.918 9.521 6.401Zm12.377 7.115c15.047 4.846-7.383-5.931 0 0Zm63.364 38.384c.196-2.988-2.054 2.55 0 0Zm6.513 2.74c3.472-3.36.144 5.362 5.754-.823c.058-4.428-.17-7.042-6.447-1.662c-1.734.962-2.504 5.035.693 2.486ZM47.024 147.098c-1.067-4.192-7.475-4.174 0 0Zm6.95 4.556c-2.583-4.282-9.214-3.877 0 0Zm39.568 23.861c3.866 3.434 17.741 2.518 4.69.426c-1.93-2.858-12.268-2.171-4.69-.426Zm54.385 33.593c5.944-4.99-5.76 2.223 0 0Zm12.366 8.493c.038-1.602-2.563.7 0 0Zm.02-2.243c6.584-6.97-6.376.412 0 0ZM29.917 132.776c-5.61-8.004-3.485-11.601-8.899-18.14c-1.028-5.002-9.285-16.341-4.27-4.329c4.59 7.03 5.95 17.91 13.17 22.469Zm128.329 80.365c12.118-7.828-4.969-3.407 0 0Zm9.247 3.622c6.068-5.206-3.839-1.086 0 0Zm-122.53-78.515c1.734-2.583-4.485-.333 0 0Zm120.6 76.043c5.872-3.785-1.353-3.204-1.065.346l1.065-.346Zm-79.698-50.233c-.202-2.563-3.105.216 0 0Zm4.924 2.832c-1.569-3.165-2.406.497 0 0Zm84.197 49.959c7.526-5.429-4.557-1.041-1.576 1.033l1.576-1.033Zm-2.883-1.393c6.133-5.134-6.468 2.275 0 0Zm14.724 9.801c4.115-2.753-5.001-.889 0 0Zm-138.09-88.872c5.512 1.235 22.042 13.581 12.293.857c-4.995-1.478-2-13.687-7.094-11.529c3.42 5.715 2.81 8.14-4.37 4.545c-9.016-4.408-5.067 2.178-3.3 3.996c-2.408.549 3.177 2.086 2.47 2.13Zm-25.13-19.845c.987-4.088-9.096-22.469-4.76-9.214c1.562 2.779 1.4 8.042 4.76 9.214Zm46.126 28.437c-2.844-2.373-.137-.34 0 0Zm6.99 1.63c0-4.33-7.728-1.76 0 0Zm60.618 38.207c-1.157-2.957-4.57-.066 0 0Zm2.91 2.124c-.433-1.654-1.682.321 0 0Zm24.024 15.138c2.309-1.706-2.884-.221 0 0ZM36.156 119.744c6.61-2.558-7.083-1.825 0 0Zm95.848 60.38c-.077-4.276-4.217 1.067 0 0Zm-98.458-66.469c4.244-1.43-3.93-.94 0 0Zm12.32 5.97c-.073-1.405-1.301.537 0 0Zm150.3 92.168c5.46-1.105 17.904 2.78 19.911-1.444c-6.63-.164-22.932-4.683-23.704 1.071l1.452.23l2.342.143Zm-146.384-91.18c.1-4.336-3.38-.163 0 0ZM17.39 98.138c-1.471-8.26-5.598-1.25 0 0Zm7.722 1.942c.099-2.655-7.07-2.387 0 0Zm4.414 2.171c-1.275-1.034-.994 1.3 0 0ZM57.31 120.07c1.309-1.204-3.099-.889 0 0ZM26.59 97.36c-.751-6.238-8.952-.935 0 0ZM10.745 87.08c-.223-2.877-1.544 1.085 0 0Zm2.36-1.777c-.385-3.415-2.027.43 0 0ZM26.12 93.07c5.506-2.158-10.026-4.473-1.125-.405l1.125.405Zm174.226 107.62c3.524-3.23-4.473-1 0 0Zm21.049 10.907c1.413-4.171-3.558.55 0 0ZM27.45 86.25c.583-4.04-4.367.804 0 0ZM8.927 73.84c-.994-5.702-.857-15.714 8.658-12.333c-12.7 2.524 8.795 15.79 6.081 5.315c5.342.263 10.45-3.157 7.644 2.027c10.528-1.157 17.82-10.285 27.987-9.003c7.918-1.052 16.576-1.844 25.11-5.035c7.016-.504 13.77-8.057 9.927-12.536c-9.567-.81-19.586.386-30.159 2.492c-11.717 2.432-22.362 7.061-34.186 9.05c-11.529 1.55 2.315 4.263-.988 4.871c-6.01 2.086 7.174 3.492-.778 5.695c-4.91-.934-10.024-2.621-7.925-7.8C9.26 58.021-.444 62.598 8.28 73.832l.648.006Zm26.608-13.55c2.583-9.533 13.862 7.848 4.237 1.269c-1.145-.864-3.042-1.564-4.237-1.269Zm.502-4.624c3.735-2.778 1.982 1.564 0 0Zm4.741.08c.342-4.388 10.863 2.321 1.734 1.576l-1.734-1.577Zm6.487-2.609c2.374-2.774.688 2.458 0 0Zm1.662-1.111c3.949-4.741 22.343-3.029 8.879-.466c-3.61-2.72-6.375 1.602-8.879.466Zm24.01-3.702c-.594-12.955 11.934 4.597 0 0Zm6.815-.04c2.49-6.525 9.67-2.621 1.157-1.314c.182.7-.255 3.375-1.157 1.314ZM24.765 82.902c7.44-4.558-7.9-3.955 0 0Zm5.505 1.524c2.61-2.772-5.676-1.125 0 0ZM14.054 72.924c4.25-3.27-5.035-1.242 0 0Zm219.764 137.483c.124-3.793-3.25 1.706 0 0Zm-22.331-15.243c.634-4.36-2.87.38 0 0Zm28.471 16.715c5.945.02 18.014-1.852 5.08-1.845c-2.033.315-11.828.25-5.08 1.845ZM35.11 81.75c4.813-.327 7.526-5.304-.936-5.022c-13.11-1.353 11.567 4.493-1.68 2.819c-1.778 1.177 2.51 2.53 2.616 2.203Zm4.237 2.146c-.504-3.087-1.492 1.64 0 0Zm5.028-13.406c2.086-2.59-2.89-.693 0 0ZM28.367 43.74c8.593-2.916 20.337-6.199 24.392 1.44c-4.127-4.963-1.667-9.855 2.23-2.59c5.512 7.344 8.27-3.341 4.687-5.807c4.088 5.074 8.73 7.475 2.733.322c6.52-7.841-13.045 1.026-17.491.934c-2.138.96-22.089 5.087-16.55 5.701Zm5.035-9.637c4.899-3.694 16.943 2.203 9.214-3.676c-.758-.666-16.922 4.46-9.214 3.676Zm17.859.738c5.728.144-2.471-7.703 4.355-4.146c-1.118-3.661-7.951-4.348-11.292-5.812c-1.89 3.348 3.843 10.004 6.937 9.958ZM36.534 18.63c1.982-2.687-3.478 1.367 0 0Zm7.3 1.745c9.238-1.222-2.356-3.975-1.866-.097l1.865.097ZM30.204 9.717c-6.507-8.494 12.235 1.426 5.623-7.468c-5.564-4.426-10.906 4.99-5.623 7.468Zm83.47 44.957c2.984-5.285-12.312-7.128-2.007-1.872c.948.315.734 2.237 2.007 1.872ZM53.108 251.495c-.66 2.606-1.069 6.979-1.222 13.117c0 1.206-.543 1.81-1.632 1.81s-1.847-.527-2.276-1.576c-1.166-2.838-2.27-4.817-3.324-5.947c-1.242-1.32-2.894-2.118-4.955-2.39c-2.215-.35-7.733-.525-16.555-.525c-2.02 0-3.343.215-3.963.644c-.389.27-.583.854-.583 1.749v26.409c0 .894.563 1.32 1.688 1.283c3.461-.04 8.474-.276 15.04-.7c1.284-.158 2.15-.575 2.596-1.256c.45-.68.887-2.436 1.312-5.275c.27-1.555 1.186-2.158 2.74-1.806c1.32.272 1.888.875 1.693 1.806c-1.09 5.288-1.442 12.167-1.053 20.64c.041 1.008-.6 1.554-1.923 1.632c-1.09.117-1.77-.467-2.04-1.75c-1.008-4.857-2.887-7.453-5.624-7.785c-2.74-.328-7.203-.494-13.38-.494c-.7 0-1.049.251-1.049.757v26.235c0 1.944.717 3.267 2.154 3.964c1.13.583 3.558 1.109 7.287 1.575c1.907.194 2.74 1.032 2.51 2.506c-.235 1.283-1.943 1.789-5.133 1.517c-9.21-.74-16.81-.7-22.793.119c-1.673.23-2.506-.45-2.506-2.041c0-1.013.833-1.595 2.506-1.75c3.809-.429 5.712-3.772 5.712-10.027v-49.908c0-2.562-.458-4.534-1.369-5.915c-.915-1.38-2.616-2.635-5.1-3.761c-1.556-.7-2.138-1.651-1.75-2.857c.194-.737.506-1.147.931-1.223c.389-.118 1.421-.04 3.089.234c2.45.388 8.223.583 17.316.583c10.729 0 19.996-.235 27.81-.7c2.603-.158 3.907.057 3.907.64c0 .158-.02.311-.061.466Zm37.807 74.007c0 1.555-.875 2.235-2.623 2.04c-5.36-.506-12.008-.43-19.936.231c-1.595.158-2.574.117-2.946-.113c-.37-.235-.552-.875-.552-1.928c0-.93 1.057-1.716 3.175-2.36c2.121-.639 3.177-2.554 3.177-5.74V264.87c0-3.15-.457-5.462-1.368-6.94c-.915-1.477-2.518-2.623-4.81-3.437c-1.206-.43-1.81-1.032-1.81-1.81c0-1.166.875-2.04 2.624-2.623c2.644-.855 5.385-2.174 8.223-3.964c2.332-1.4 3.81-2.097 4.429-2.097c1.437 0 2.159.988 2.159 2.971c0-.153-.078 1.79-.236 5.83c-.113 3.847-.153 7.636-.113 11.37l.23 52.06c0 2.372.584 4.093 1.75 5.162c1.166 1.068 3.17 1.777 6.004 2.126c1.748.193 2.623.854 2.623 1.983Zm52.729-3.438c0 .818-1.486 2.05-4.458 3.7c-2.975 1.653-5.356 2.479-7.142 2.479c-1.518 0-2.857-.737-4.023-2.215c-1.166-1.477-1.985-2.214-2.45-2.214c-.349 0-2.195.797-5.54 2.388c-3.339 1.595-6.703 2.393-10.084 2.393c-3.186 0-5.85-.935-7.987-2.797c-2.332-2.062-3.498-4.86-3.498-8.398c0-6.724 7.696-11.542 23.088-14.457c2.64-.506 3.984-1.575 4.02-3.207l.119-3.732c.234-6.373-2.584-9.559-8.454-9.559c-1.672 0-3.255 1.494-4.754 4.486c-1.493 2.996-3.643 4.607-6.441 4.842c-3.186.308-4.781-1.032-4.781-4.024c0-1.867 2.372-4.04 7.113-6.53c4.976-2.603 9.758-3.907 14.344-3.907c7.888 0 11.794 3.753 11.717 11.254l-.235 24.017c-.036 2.527 1.033 3.789 3.207 3.789c.429 0 1.246-.096 2.449-.291c1.207-.194 1.907-.292 2.102-.292c1.125 0 1.688.761 1.688 2.275Zm-17.955-13.29c.04-.973-.187-1.617-.673-1.924c-.486-.311-1.25-.373-2.3-.178c-9.368 1.672-14.052 4.724-14.052 9.154c0 4.47 2.429 6.704 7.287 6.704c1.944 0 3.948-.368 6.004-1.105c2.413-.858 3.616-1.886 3.616-3.093l.118-9.559Zm61.299 6.583c0 4.12-1.588 7.397-4.753 9.825c-3.167 2.43-7.49 3.644-12.972 3.644c-3.652 0-7.308-.388-10.96-1.166c-3.15-.7-4.976-1.34-5.481-1.923c-.312-.547-.466-3.206-.466-7.988c0-2.06.466-3.13 1.4-3.206c.932-.118 1.73.389 2.39 1.514c2.914 5.093 7.618 7.64 14.109 7.64c5.477 0 8.218-1.907 8.218-5.717c0-1.668-.62-3.069-1.866-4.195c-1.361-1.283-4-2.78-7.927-4.49c-5.676-2.525-9.466-4.74-11.369-6.647c-2.061-2.02-3.09-4.74-3.09-8.162c0-4.199 1.613-7.461 4.839-9.793c2.992-2.256 6.996-3.381 12.008-3.381c3.15 0 6.025.25 8.632.757c2.798.506 4.255 1.126 4.372 1.866c.308 2.174.952 5.324 1.924 9.446c.117.502-.43.911-1.632 1.222c-1.284.272-2.138.057-2.567-.64c-3.069-5.016-6.955-7.522-11.66-7.522c-5.324 0-7.987 1.71-7.987 5.13c0 1.906.72 3.42 2.157 4.546c1.284.972 4.295 2.49 9.037 4.551c4.975 2.137 8.356 4.061 10.146 5.77c2.332 2.214 3.498 5.19 3.498 8.919Zm68.587 10.203c0 1.36-.915 2.08-2.741 2.157c-2.721.04-6.28.234-10.668.583c-2.178.429-3.733.158-4.664-.814c-6.142-6.607-11.352-13.526-15.628-20.757c-.348-.62-.794-.931-1.34-.931c-.66 0-1.805.583-3.437 1.75c-1.83 1.008-2.741 2.448-2.741 4.31c0 1.324.036 3.227.117 5.718c.078 2.485.697 4.116 1.863 4.894c.817.547 2.705.972 5.655 1.284c1.827.234 2.742.914 2.742 2.04c0 .895-.146 1.45-.438 1.66c-.29.214-1.06.263-2.304.146c-3.886-.348-10.453-.154-19.703.583c-2.332.194-3.596-.098-3.79-.875c-.077-.27-.118-.66-.118-1.166c0-1.202 1.187-2.118 3.56-2.736c2.137-.548 3.205-3.054 3.205-7.523v-50.955c0-3.186-.31-5.401-.935-6.644c-.854-1.595-2.644-2.839-5.364-3.733c-1.28-.425-1.923-1.028-1.923-1.806c0-1.13.915-2.004 2.74-2.623a36.555 36.555 0 0 0 8.336-4.024c2.139-1.397 3.462-2.098 3.964-2.098c1.596 0 2.393 1.008 2.393 3.033c0-.275-.02 1.652-.061 5.77a935.371 935.371 0 0 0-.056 11.428l.117 36.494c0 1.012.271 1.514.814 1.514c.583 0 1.478-.502 2.684-1.514c3.226-2.527 7.19-5.83 11.891-9.911c.935-.971 1.4-1.749 1.4-2.332c0-1.048-1.574-1.79-4.72-2.214c-1.36-.159-2.004-.915-1.928-2.276c.118-1.36.799-1.943 2.041-1.749c2.802.39 6.883.604 12.243.644c3.733.036 7.445.057 11.138.057c1.202.04 1.806.757 1.806 2.158c0 1.32-.952 2.04-2.855 2.158c-2.996.113-5.814.793-8.453 2.04c-3.693 1.668-7.64 4.603-11.838 8.802c-.308.234-.466.525-.466.874c0 .543.66 1.847 1.984 3.907c4.858 7.385 9.445 12.96 13.757 16.732c2.761 2.37 5.344 3.555 7.753 3.555c1.79 0 2.898.126 3.323.38c.43.253.645.924.645 2.01Z"></path>
     </svg>
   );
 }
 
-export function LogosGithubActions(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGithubActions(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1571,7 +1431,6 @@ export function LogosGithubActions(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#4A7EBF"
@@ -1585,10 +1444,7 @@ export function LogosGithubActions(
   );
 }
 
-export function LogosGithubCopilot(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGithubCopilot(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1596,17 +1452,13 @@ export function LogosGithubCopilot(
       height="1em"
       viewBox="0 0 256 208"
       {...props}
-      key={key}
     >
       <path d="M205.28 31.36c14.096 14.88 20.016 35.2 22.512 63.68c6.626 0 12.805 1.47 16.976 7.152l7.792 10.56A17.548 17.548 0 0 1 256 123.2v28.688c-.008 3.704-1.843 7.315-4.832 9.504C215.885 187.222 172.35 208 128 208c-49.066 0-98.19-28.273-123.168-46.608c-2.989-2.189-4.825-5.8-4.832-9.504V123.2c0-3.776 1.2-7.424 3.424-10.464l7.792-10.544c4.173-5.657 10.38-7.152 16.992-7.152c2.496-28.48 8.4-48.8 22.512-63.68C77.331 3.165 112.567.06 127.552 0H128c14.72 0 50.4 2.88 77.28 31.36Zm-77.264 47.376c-3.04 0-6.544.176-10.272.544c-1.312 4.896-3.248 9.312-6.08 12.128c-11.2 11.2-24.704 12.928-31.936 12.928c-6.802 0-13.927-1.42-19.744-5.088c-5.502 1.808-10.786 4.415-11.136 10.912c-.586 12.28-.637 24.55-.688 36.824c-.026 6.16-.05 12.322-.144 18.488c.024 3.579 2.182 6.903 5.44 8.384C79.936 185.92 104.976 192 128.016 192c23.008 0 48.048-6.08 74.512-18.144c3.258-1.48 5.415-4.805 5.44-8.384c.317-18.418.062-36.912-.816-55.312h.016c-.342-6.534-5.648-9.098-11.168-10.912c-5.82 3.652-12.927 5.088-19.728 5.088c-7.232 0-20.72-1.728-31.936-12.928c-2.832-2.816-4.768-7.232-6.08-12.128a106.26 106.26 0 0 0-10.24-.544Zm-26.941 43.93c5.748 0 10.408 4.66 10.408 10.409v19.183c0 5.749-4.66 10.409-10.408 10.409c-5.748 0-10.408-4.66-10.408-10.409v-19.183c0-5.748 4.66-10.408 10.408-10.408Zm53.333 0c5.749 0 10.409 4.66 10.409 10.409v19.183c0 5.749-4.66 10.409-10.409 10.409c-5.748 0-10.408-4.66-10.408-10.409v-19.183c0-5.748 4.66-10.408 10.408-10.408ZM81.44 28.32c-11.2 1.12-20.64 4.8-25.44 9.92c-10.4 11.36-8.16 40.16-2.24 46.24c4.32 4.32 12.48 7.2 21.28 7.2c6.72 0 19.52-1.44 30.08-12.16c4.64-4.48 7.52-15.68 7.2-27.04c-.32-9.12-2.88-16.64-6.72-19.84c-4.16-3.68-13.6-5.28-24.16-4.32Zm68.96 4.32c-3.84 3.2-6.4 10.72-6.72 19.84c-.32 11.36 2.56 22.56 7.2 27.04c10.56 10.72 23.36 12.16 30.08 12.16c8.8 0 16.96-2.88 21.28-7.2c5.92-6.08 8.16-34.88-2.24-46.24c-4.8-5.12-14.24-8.8-25.44-9.92c-10.56-.96-20 .64-24.16 4.32ZM128 56c-2.56 0-5.6.16-8.96.48c.32 1.76.48 3.68.64 5.76c0 1.44 0 2.88-.16 4.48c3.2-.32 5.92-.32 8.48-.32c2.56 0 5.28 0 8.48.32c-.16-1.6-.16-3.04-.16-4.48c.16-2.08.32-4 .64-5.76c-3.36-.32-6.4-.48-8.96-.48Z"></path>
     </svg>
   );
 }
 
-export function LogosGithubIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1614,7 +1466,6 @@ export function LogosGithubIcon(
       height="1em"
       viewBox="0 0 256 250"
       {...props}
-      key={key}
     >
       <path
         fill="#161614"
@@ -1624,7 +1475,7 @@ export function LogosGithubIcon(
   );
 }
 
-export function LogosGo(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosGo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1632,7 +1483,6 @@ export function LogosGo(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 192"
       {...props}
-      key={key}
     >
       <path
         fill="#00ACD7"
@@ -1642,10 +1492,7 @@ export function LogosGo(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosGoogleMaps(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGoogleMaps(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1653,7 +1500,6 @@ export function LogosGoogleMaps(
       height="1em"
       viewBox="0 0 256 367"
       {...props}
-      key={key}
     >
       <path
         fill="#34A853"
@@ -1679,10 +1525,7 @@ export function LogosGoogleMaps(
   );
 }
 
-export function LogosGraphql(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGraphql(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1690,21 +1533,17 @@ export function LogosGraphql(
       height="32"
       viewBox="0 0 256 288"
       {...props}
-      key={key}
     >
       <path
         fill="#E535AB"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m152.576 32.963l59.146 34.15a25.819 25.819 0 0 1 5.818-4.604c12.266-7.052 27.912-2.865 35.037 9.402c7.052 12.267 2.865 27.912-9.402 35.037a25.698 25.698 0 0 1-6.831 2.72v68.325a25.7 25.7 0 0 1 6.758 2.702c12.34 7.125 16.527 22.771 9.402 35.038c-7.052 12.266-22.771 16.453-35.038 9.402a25.464 25.464 0 0 1-6.34-5.147l-58.786 33.94a25.671 25.671 0 0 1 1.295 8.08c0 14.103-11.458 25.636-25.635 25.636c-14.177 0-25.635-11.46-25.635-25.636c0-2.52.362-4.954 1.037-7.253l-59.13-34.14a25.824 25.824 0 0 1-5.738 4.52c-12.34 7.051-27.986 2.864-35.038-9.402c-7.051-12.267-2.864-27.913 9.402-35.038a25.71 25.71 0 0 1 6.758-2.703v-68.324a25.698 25.698 0 0 1-6.831-2.72C.558 99.897-3.629 84.178 3.423 71.911c7.052-12.267 22.77-16.454 35.037-9.402a25.82 25.82 0 0 1 5.79 4.575l59.163-34.159a25.707 25.707 0 0 1-1.048-7.29C102.365 11.46 113.823 0 128 0c14.177 0 25.635 11.459 25.635 25.635c0 2.548-.37 5.007-1.059 7.328Zm-6.162 10.522l59.287 34.23a25.599 25.599 0 0 0 2.437 19.831c3.609 6.278 9.488 10.44 16.013 12.062v68.41c-.333.081-.664.17-.993.264L145.725 44.17c.234-.224.464-.452.689-.684Zm-36.123.7l-77.432 134.11a25.824 25.824 0 0 0-1.01-.27v-68.417c6.525-1.622 12.404-5.784 16.013-12.062a25.6 25.6 0 0 0 2.427-19.869l59.27-34.22c.239.247.483.49.732.727Zm24.872 6.075l77.414 134.08a25.492 25.492 0 0 0-4.513 5.757a25.7 25.7 0 0 0-2.702 6.758H50.64a25.71 25.71 0 0 0-2.704-6.758a25.825 25.825 0 0 0-4.506-5.724l77.429-134.107A25.715 25.715 0 0 0 128 51.27c2.487 0 4.89-.352 7.163-1.01Zm11.795 194.478l58.902-34.008a25.865 25.865 0 0 1-.473-1.682H50.607a25.87 25.87 0 0 1-.266.992l59.19 34.175A25.558 25.558 0 0 1 128 236.373a25.564 25.564 0 0 1 18.958 8.365Z"
       />
     </svg>
   );
 }
 
-export function LogosGravatarIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGravatarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1712,7 +1551,6 @@ export function LogosGravatarIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#4678EB"
@@ -1722,7 +1560,7 @@ export function LogosGravatarIcon(
   );
 }
 
-export function LogosGulp(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosGulp(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1730,7 +1568,6 @@ export function LogosGulp(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 566"
       {...props}
-      key={key}
     >
       <path
         fill="#D34A47"
@@ -1748,10 +1585,7 @@ export function LogosGulp(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosHerokuIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosHerokuIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1759,7 +1593,6 @@ export function LogosHerokuIcon(
       height="1em"
       viewBox="0 0 256 285"
       {...props}
-      key={key}
     >
       <path
         fill="#430098"
@@ -1769,7 +1602,7 @@ export function LogosHerokuIcon(
   );
 }
 
-export function LogosHugo(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosHugo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1777,7 +1610,6 @@ export function LogosHugo(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 134"
       {...props}
-      key={key}
     >
       <g fillRule="evenodd">
         <path
@@ -1836,10 +1668,7 @@ export function LogosHugo(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosIntellijIdea(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosIntellijIdea(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1847,7 +1676,6 @@ export function LogosIntellijIdea(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -1857,11 +1685,11 @@ export function LogosIntellijIdea(
           y1="51.017%"
           y2="41.861%"
         >
-          <stop offset="9%" stop-color="#FC801D" />
-          <stop offset="23%" stop-color="#B07F61" />
-          <stop offset="41%" stop-color="#577DB3" />
-          <stop offset="53%" stop-color="#1E7CE6" />
-          <stop offset="59%" stop-color="#087CFA" />
+          <stop offset="9%" stopColor="#FC801D" />
+          <stop offset="23%" stopColor="#B07F61" />
+          <stop offset="41%" stopColor="#577DB3" />
+          <stop offset="53%" stopColor="#1E7CE6" />
+          <stop offset="59%" stopColor="#087CFA" />
         </linearGradient>
         <linearGradient
           id="logosIntellijIdea1"
@@ -1870,16 +1698,16 @@ export function LogosIntellijIdea(
           y1="114.76%"
           y2="1.075%"
         >
-          <stop offset="0%" stop-color="#FE2857" />
-          <stop offset="8%" stop-color="#CB3979" />
-          <stop offset="16%" stop-color="#9E4997" />
-          <stop offset="25%" stop-color="#7557B2" />
-          <stop offset="34%" stop-color="#5362C8" />
-          <stop offset="44%" stop-color="#386CDA" />
-          <stop offset="54%" stop-color="#2373E8" />
-          <stop offset="66%" stop-color="#1478F2" />
-          <stop offset="79%" stop-color="#0B7BF8" />
-          <stop offset="100%" stop-color="#087CFA" />
+          <stop offset="0%" stopColor="#FE2857" />
+          <stop offset="8%" stopColor="#CB3979" />
+          <stop offset="16%" stopColor="#9E4997" />
+          <stop offset="25%" stopColor="#7557B2" />
+          <stop offset="34%" stopColor="#5362C8" />
+          <stop offset="44%" stopColor="#386CDA" />
+          <stop offset="54%" stopColor="#2373E8" />
+          <stop offset="66%" stopColor="#1478F2" />
+          <stop offset="79%" stopColor="#0B7BF8" />
+          <stop offset="100%" stopColor="#087CFA" />
         </linearGradient>
         <linearGradient
           id="logosIntellijIdea2"
@@ -1888,14 +1716,14 @@ export function LogosIntellijIdea(
           y1="23.614%"
           y2="129.755%"
         >
-          <stop offset="0%" stop-color="#FE2857" />
-          <stop offset="8%" stop-color="#FE295F" />
-          <stop offset="21%" stop-color="#FF2D76" />
-          <stop offset="30%" stop-color="#FF318C" />
-          <stop offset="38%" stop-color="#EA3896" />
-          <stop offset="55%" stop-color="#B248AE" />
-          <stop offset="79%" stop-color="#5A63D6" />
-          <stop offset="100%" stop-color="#087CFA" />
+          <stop offset="0%" stopColor="#FE2857" />
+          <stop offset="8%" stopColor="#FE295F" />
+          <stop offset="21%" stopColor="#FF2D76" />
+          <stop offset="30%" stopColor="#FF318C" />
+          <stop offset="38%" stopColor="#EA3896" />
+          <stop offset="55%" stopColor="#B248AE" />
+          <stop offset="79%" stopColor="#5A63D6" />
+          <stop offset="100%" stopColor="#087CFA" />
         </linearGradient>
       </defs>
       <path
@@ -1923,10 +1751,7 @@ export function LogosIntellijIdea(
   );
 }
 
-export function LogosJenkins(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosJenkins(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1934,7 +1759,6 @@ export function LogosJenkins(
       height="1em"
       viewBox="0 0 256 417"
       {...props}
-      key={key}
     >
       <path
         fill="#D33833"
@@ -2095,7 +1919,7 @@ export function LogosJenkins(
   );
 }
 
-export function LogosJquery(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosJquery(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2103,7 +1927,6 @@ export function LogosJquery(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 116"
       {...props}
-      key={key}
     >
       <g fill="none" fillRule="evenodd">
         <path
@@ -2124,10 +1947,7 @@ export function LogosJquery(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosKubernetes(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosKubernetes(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2135,7 +1955,6 @@ export function LogosKubernetes(
       height="1em"
       viewBox="0 0 256 249"
       {...props}
-      key={key}
     >
       <path
         fill="#326DE6"
@@ -2153,10 +1972,7 @@ export function LogosKubernetes(
   );
 }
 
-export function LogosKotlinIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosKotlinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2164,7 +1980,6 @@ export function LogosKotlinIcon(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -2174,9 +1989,9 @@ export function LogosKotlinIcon(
           y1="-.011%"
           y2="100.01%"
         >
-          <stop offset=".344%" stop-color="#E44857" />
-          <stop offset="46.89%" stop-color="#C711E1" />
-          <stop offset="100%" stop-color="#7F52FF" />
+          <stop offset=".344%" stopColor="#E44857" />
+          <stop offset="46.89%" stopColor="#C711E1" />
+          <stop offset="100%" stopColor="#7F52FF" />
         </linearGradient>
       </defs>
       <path fill="url(#logosKotlinIcon0)" d="M256 256H0V0h256L128 127.949z" />
@@ -2184,10 +1999,7 @@ export function LogosKotlinIcon(
   );
 }
 
-export function LogosLitIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosLitIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2195,7 +2007,6 @@ export function LogosLitIcon(
       height="1em"
       viewBox="0 0 256 320"
       {...props}
-      key={key}
     >
       <path
         fill="#00E8FF"
@@ -2214,10 +2025,7 @@ export function LogosLitIcon(
   );
 }
 
-export function LogosLighthouse(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosLighthouse(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2225,7 +2033,6 @@ export function LogosLighthouse(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -2235,8 +2042,8 @@ export function LogosLighthouse(
           y1=".226%"
           y2="99.725%"
         >
-          <stop offset="0%" stop-color="#212121" stop-opacity=".04" />
-          <stop offset="66%" stop-color="#212121" stop-opacity="0" />
+          <stop offset="0%" stopColor="#212121" stopOpacity=".04" />
+          <stop offset="66%" stopColor="#212121" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosLighthouse1"
@@ -2245,8 +2052,8 @@ export function LogosLighthouse(
           y1="20.358%"
           y2="100.652%"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosLighthouse2"
@@ -2255,8 +2062,8 @@ export function LogosLighthouse(
           y1="65.756%"
           y2="35.799%"
         >
-          <stop offset="0%" stop-color="#262626" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#262626" stop-opacity="0" />
+          <stop offset="0%" stopColor="#262626" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#262626" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosLighthouse3"
@@ -2265,8 +2072,8 @@ export function LogosLighthouse(
           y1="13.086%"
           y2="100.996%"
         >
-          <stop offset="0%" stop-color="#262626" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#262626" stop-opacity="0" />
+          <stop offset="0%" stopColor="#262626" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#262626" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosLighthouse4"
@@ -2275,8 +2082,8 @@ export function LogosLighthouse(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#262626" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#262626" stop-opacity="0" />
+          <stop offset="0%" stopColor="#262626" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#262626" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosLighthouse5"
@@ -2285,8 +2092,8 @@ export function LogosLighthouse(
           y1=".226%"
           y2="99.725%"
         >
-          <stop offset="0%" stop-color="#212121" stop-opacity=".04" />
-          <stop offset="66%" stop-color="#212121" stop-opacity="0" />
+          <stop offset="0%" stopColor="#212121" stopOpacity=".04" />
+          <stop offset="66%" stopColor="#212121" stopOpacity="0" />
         </linearGradient>
         <path
           id="logosLighthouse6"
@@ -2321,8 +2128,8 @@ export function LogosLighthouse(
           fy="14.269%"
           gradientTransform="matrix(.68182 0 0 1 .032 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="logosLighthoused"
@@ -2332,8 +2139,8 @@ export function LogosLighthouse(
           fx="14.489%"
           fy="14.584%"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="logosLighthousee"
@@ -2344,8 +2151,8 @@ export function LogosLighthouse(
           fy="14.269%"
           gradientTransform="matrix(.68181 0 0 1 .032 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </radialGradient>
         <filter
           id="logosLighthousef"
@@ -2400,7 +2207,7 @@ export function LogosLighthouse(
             />
             <path
               fill="#FFF"
-              fill-opacity=".2"
+              fillOpacity=".2"
               d="M69.212 31.649v-.19c-.003-8.686-7.043-15.726-15.729-15.73h-7.867v.393h7.867c8.609.001 15.617 6.92 15.73 15.529v-.002Z"
             />
             <path
@@ -2425,12 +2232,12 @@ export function LogosLighthouse(
             <circle cx="23.594" cy="23.594" r="23.594" fill="#EEE" />
             <path
               fill="#FFF"
-              fill-opacity=".2"
+              fillOpacity=".2"
               d="M23.594.392c12.962 0 23.486 10.461 23.597 23.407v-.187C47.19 10.587 36.619.015 23.594.015C10.57.015 0 10.57 0 23.595v.189C.109 10.853 10.633.392 23.594.392Z"
             />
             <path
               fill="#212121"
-              fill-opacity=".1"
+              fillOpacity=".1"
               d="M53.483 46.796H23.594C10.635 46.796.111 36.336 0 23.392v.19c0 13.024 10.57 23.593 23.594 23.593h29.889c8.686-.003 15.726-7.043 15.73-15.729v-.187c-.109 8.61-7.118 15.536-15.73 15.54v-.003Z"
             />
           </g>
@@ -2484,7 +2291,7 @@ export function LogosLighthouse(
             />
             <path
               fill="#FFF"
-              fill-opacity=".2"
+              fillOpacity=".2"
               d="M79.86 36.519V36.3c0-10.02-8.132-18.152-18.15-18.152h-9.074v.455h9.073c9.933 0 18.02 7.983 18.152 17.915Z"
             />
             <path
@@ -2509,12 +2316,12 @@ export function LogosLighthouse(
             <circle cx="27.225" cy="27.225" r="27.225" fill="#FFF" />
             <path
               fill="#FFF"
-              fill-opacity=".2"
+              fillOpacity=".2"
               d="M27.225.453c14.956 0 27.099 12.07 27.225 27.007v-.218C54.45 12.214 42.253.017 27.225.017C12.197.017 0 12.197 0 27.225v.218C.126 12.523 12.269.453 27.225.453Z"
             />
             <path
               fill="#212121"
-              fill-opacity=".1"
+              fillOpacity=".1"
               d="M61.71 53.997H27.224C12.269 53.997.126 41.927 0 26.99v.218c0 15.028 12.197 27.225 27.225 27.225h34.484c10.02 0 18.152-8.133 18.152-18.152v-.218c-.129 9.93-8.205 17.934-18.152 17.934Z"
             />
           </g>
@@ -2544,7 +2351,7 @@ export function LogosLighthouse(
   );
 }
 
-export function LogosMadge(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosMadge(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2552,7 +2359,6 @@ export function LogosMadge(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 372"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -2621,10 +2427,7 @@ export function LogosMadge(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosMaterialUi(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosMaterialUi(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2632,7 +2435,6 @@ export function LogosMaterialUi(
       height="1em"
       viewBox="0 0 256 222"
       {...props}
-      key={key}
     >
       <path
         fill="#007FFF"
@@ -2642,10 +2444,7 @@ export function LogosMaterialUi(
   );
 }
 
-export function LogosMemcached(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosMemcached(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2653,7 +2452,6 @@ export function LogosMemcached(
       height="32"
       viewBox="0 0 254 254"
       {...props}
-      key={key}
     >
       <defs>
         <radialGradient
@@ -2664,8 +2462,8 @@ export function LogosMemcached(
           fx="41.406%"
           fy="42.708%"
         >
-          <stop offset="0%" stop-color="#DB7C7C" />
-          <stop offset="100%" stop-color="#C83737" />
+          <stop offset="0%" stopColor="#DB7C7C" />
+          <stop offset="100%" stopColor="#C83737" />
         </radialGradient>
         <radialGradient
           id="logosMemcached1"
@@ -2675,8 +2473,8 @@ export function LogosMemcached(
           fx="44.271%"
           fy="42.708%"
         >
-          <stop offset="0%" stop-color="#DB7C7C" />
-          <stop offset="100%" stop-color="#C83737" />
+          <stop offset="0%" stopColor="#DB7C7C" />
+          <stop offset="100%" stopColor="#C83737" />
         </radialGradient>
         <linearGradient
           id="logosMemcached2"
@@ -2685,8 +2483,8 @@ export function LogosMemcached(
           y1="100%"
           y2="0%"
         >
-          <stop offset="0%" stop-color="#574C4A" />
-          <stop offset="100%" stop-color="#80716D" />
+          <stop offset="0%" stopColor="#574C4A" />
+          <stop offset="100%" stopColor="#80716D" />
         </linearGradient>
         <linearGradient
           id="logosMemcached3"
@@ -2695,8 +2493,8 @@ export function LogosMemcached(
           y1="98.342%"
           y2="-8.68%"
         >
-          <stop offset="0%" stop-color="#268D83" />
-          <stop offset="100%" stop-color="#2EA19E" />
+          <stop offset="0%" stopColor="#268D83" />
+          <stop offset="100%" stopColor="#2EA19E" />
         </linearGradient>
       </defs>
       <path
@@ -2731,10 +2529,7 @@ export function LogosMemcached(
   );
 }
 
-export function LogosMongodbIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosMongodbIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2742,7 +2537,6 @@ export function LogosMongodbIcon(
       height="1em"
       viewBox="0 0 256 549"
       {...props}
-      key={key}
     >
       <path
         fill="#01EC64"
@@ -2752,10 +2546,7 @@ export function LogosMongodbIcon(
   );
 }
 
-export function LogosMysqlIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosMysqlIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2763,7 +2554,6 @@ export function LogosMysqlIcon(
       height="1em"
       viewBox="0 0 256 252"
       {...props}
-      key={key}
     >
       <path
         fill="#00546B"
@@ -2777,7 +2567,7 @@ export function LogosMysqlIcon(
   );
 }
 
-export function LogosMsw(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosMsw(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2785,7 +2575,6 @@ export function LogosMsw(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path d="M0 0h256v256H0z"></path>
       <path
@@ -2800,10 +2589,7 @@ export function LogosMsw(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosNetlifyIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosNetlifyIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2811,7 +2597,6 @@ export function LogosNetlifyIcon(
       height="1em"
       viewBox="0 0 256 226"
       {...props}
-      key={key}
     >
       <path
         fill="#05BDBA"
@@ -2829,10 +2614,7 @@ export function LogosNetlifyIcon(
   );
 }
 
-export function LogosNextjsIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosNextjsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2840,7 +2622,6 @@ export function LogosNextjsIcon(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -2850,8 +2631,8 @@ export function LogosNextjsIcon(
           y1="56.385%"
           y2="96.08%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosNextjsIcon1"
@@ -2860,8 +2641,8 @@ export function LogosNextjsIcon(
           y1="0%"
           y2="73.438%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <circle id="logosNextjsIcon2" cx="128" cy="128" r="128" />
       </defs>
@@ -2883,7 +2664,7 @@ export function LogosNextjsIcon(
   );
 }
 
-export function LogosNginx(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosNginx(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2891,7 +2672,6 @@ export function LogosNginx(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 291"
       {...props}
-      key={key}
     >
       <path
         fill="#009639"
@@ -2905,10 +2685,7 @@ export function LogosNginx(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosNodejsIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosNodejsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2916,7 +2693,6 @@ export function LogosNodejsIcon(
       height="1em"
       viewBox="0 0 256 289"
       {...props}
-      key={key}
     >
       <path
         fill="#539E43"
@@ -2926,7 +2702,7 @@ export function LogosNodejsIcon(
   );
 }
 
-export function LogosNow(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosNow(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2934,7 +2710,6 @@ export function LogosNow(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 233"
       {...props}
-      key={key}
     >
       <path
         d="M128.1 0L0 232.153h256L128.1 0zm-10.876 46.875l93.256 171.943H22.559l94.665-171.943z"
@@ -2944,10 +2719,7 @@ export function LogosNow(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosObsidianIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosObsidianIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2955,7 +2727,6 @@ export function LogosObsidianIcon(
       height="32"
       viewBox="0 0 256 332"
       {...props}
-      key={key}
     >
       <defs>
         <radialGradient
@@ -2967,8 +2738,8 @@ export function LogosObsidianIcon(
           fy="96.934%"
           gradientTransform="rotate(-104 11141.322 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".4" />
-          <stop offset="100%" stop-opacity=".1" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".4" />
+          <stop offset="100%" stopOpacity=".1" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon1"
@@ -2979,8 +2750,8 @@ export function LogosObsidianIcon(
           fy="90.632%"
           gradientTransform="rotate(-82 10746.75 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".6" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".1" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".6" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".1" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon2"
@@ -2991,8 +2762,8 @@ export function LogosObsidianIcon(
           fy="97.138%"
           gradientTransform="rotate(-77 10724.606 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".8" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".4" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".8" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".4" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon3"
@@ -3003,8 +2774,8 @@ export function LogosObsidianIcon(
           fy="99.994%"
           gradientTransform="translate(0 22251839.658) skewY(-90)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".3" />
-          <stop offset="100%" stop-opacity=".3" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".3" />
+          <stop offset="100%" stopOpacity=".3" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon4"
@@ -3015,8 +2786,8 @@ export function LogosObsidianIcon(
           fy="34.769%"
           gradientTransform="rotate(102 -1004.443 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity="0" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".2" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity="0" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".2" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon5"
@@ -3027,8 +2798,8 @@ export function LogosObsidianIcon(
           fy="8.712%"
           gradientTransform="rotate(45 1674.397 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".2" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".4" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".2" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".4" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon6"
@@ -3039,8 +2810,8 @@ export function LogosObsidianIcon(
           fy="-22.172%"
           gradientTransform="rotate(80 3757.522 0)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".1" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".3" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".1" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".3" />
         </radialGradient>
         <radialGradient
           id="logosObsidianIcon7"
@@ -3051,13 +2822,13 @@ export function LogosObsidianIcon(
           fy="89.193%"
           gradientTransform="translate(0 -38783246.548) skewY(-90)"
         >
-          <stop offset="0%" stop-color="#FFF" stop-opacity=".2" />
-          <stop offset="50%" stop-color="#FFF" stop-opacity=".2" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity=".3" />
+          <stop offset="0%" stopColor="#FFF" stopOpacity=".2" />
+          <stop offset="50%" stopColor="#FFF" stopOpacity=".2" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity=".3" />
         </radialGradient>
       </defs>
       <path
-        fill-opacity=".3"
+        fillOpacity=".3"
         d="M209.056 308.305c-2.043 14.93-16.738 26.638-31.432 22.552c-20.823-5.658-44.946-14.616-66.634-16.266l-33.317-2.515a22.002 22.002 0 0 1-14.144-6.522L6.167 246.778a21.766 21.766 0 0 1-4.244-24.124s35.36-77.478 36.775-81.485c1.257-4.008 6.13-39.211 8.958-58.07a22.002 22.002 0 0 1 7.072-12.965L122.462 9.47a22.002 22.002 0 0 1 31.903 2.672l57.048 71.978a23.18 23.18 0 0 1 4.872 14.38c0 13.594 1.179 41.646 8.8 59.72a236.756 236.756 0 0 0 27.974 45.732a11.001 11.001 0 0 1 .786 12.258c-4.95 8.408-14.851 24.595-28.76 45.26a111.738 111.738 0 0 0-16.108 46.834h.079Z"
       />
       <path
@@ -3100,10 +2871,7 @@ export function LogosObsidianIcon(
   );
 }
 
-export function LogosOpenaiIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosOpenaiIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3111,17 +2879,13 @@ export function LogosOpenaiIcon(
       height="1em"
       viewBox="0 0 256 260"
       {...props}
-      key={key}
     >
       <path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87l51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921l51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272l-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695l-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69l-1.535-.922l-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87l-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58L128.067 97.3l28.188 16.218v32.434l-28.086 16.218l-28.188-16.218l-.052-32.434Z"></path>
     </svg>
   );
 }
 
-export function LogosPandacssIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosPandacssIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3129,7 +2893,6 @@ export function LogosPandacssIcon(
       height="1em"
       viewBox="0 0 256 259"
       {...props}
-      key={key}
     >
       <path
         fill="#F6E458"
@@ -3140,10 +2903,7 @@ export function LogosPandacssIcon(
   );
 }
 
-export function LogosPartytownIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosPartytownIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3151,7 +2911,6 @@ export function LogosPartytownIcon(
       height="1em"
       viewBox="0 0 256 268"
       {...props}
-      key={key}
     >
       <path
         fill="#FF37AD"
@@ -3197,10 +2956,7 @@ export function LogosPartytownIcon(
   );
 }
 
-export function LogosPostmanIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosPostmanIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3208,7 +2964,6 @@ export function LogosPostmanIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#FF6C37"
@@ -3290,10 +3045,7 @@ export function LogosPostmanIcon(
   );
 }
 
-export function LogosPuppeteer(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosPuppeteer(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3301,7 +3053,6 @@ export function LogosPuppeteer(
       height="1em"
       viewBox="0 0 256 383"
       {...props}
-      key={key}
     >
       <path
         fill="#DFDEDF"
@@ -3322,7 +3073,7 @@ export function LogosPuppeteer(
   );
 }
 
-export function LogosPwa(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosPwa(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3330,7 +3081,6 @@ export function LogosPwa(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 193"
       {...props}
-      key={key}
     >
       <path
         fill="#3D3D3D"
@@ -3348,7 +3098,7 @@ export function LogosPwa(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosPython(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosPython(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3356,7 +3106,6 @@ export function LogosPython(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="32"
       viewBox="0 0 256 255"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -3366,8 +3115,8 @@ export function LogosPython(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="12.039%"
           y2="78.201%"
         >
-          <stop offset="0%" stop-color="#387EB8" />
-          <stop offset="100%" stop-color="#366994" />
+          <stop offset="0%" stopColor="#387EB8" />
+          <stop offset="100%" stopColor="#366994" />
         </linearGradient>
         <linearGradient
           id="logosPython1"
@@ -3376,8 +3125,8 @@ export function LogosPython(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="20.579%"
           y2="88.429%"
         >
-          <stop offset="0%" stop-color="#FFE052" />
-          <stop offset="100%" stop-color="#FFC331" />
+          <stop offset="0%" stopColor="#FFE052" />
+          <stop offset="100%" stopColor="#FFC331" />
         </linearGradient>
       </defs>
       <path
@@ -3392,7 +3141,7 @@ export function LogosPython(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosPhp(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosPhp(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3400,7 +3149,6 @@ export function LogosPhp(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 135"
       {...props}
-      key={key}
     >
       <defs>
         <radialGradient
@@ -3436,10 +3184,7 @@ export function LogosPhp(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosQwikIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosQwikIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3447,7 +3192,6 @@ export function LogosQwikIcon(
       height="1em"
       viewBox="0 0 256 272"
       {...props}
-      key={key}
     >
       <path
         fill="#18B6F6"
@@ -3465,7 +3209,7 @@ export function LogosQwikIcon(
   );
 }
 
-export function LogosRails(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosRails(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3473,7 +3217,6 @@ export function LogosRails(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 180"
       {...props}
-      key={key}
     >
       <g fill="#C00">
         <path d="M219.115 150.634s22.57-1.935 22.57-31.081c0-29.147-27.341-31.855-27.341-31.855h-49.266v91.953h24.762V157.47l21.408 22.182h36.627l-28.76-29.017Zm-9.543-18.83H189.84v-21.021h19.86s5.546 2.063 5.546 10.446s-5.674 10.576-5.674 10.576Zm93.243-43.461h-25.149c-17.926 0-23.987 16.25-23.987 23.987v67.321h25.148v-16.12h23.601v16.12h24.375v-67.32c0-19.604-17.797-23.988-23.988-23.988Zm-.387 49.136h-23.73v-22.311s0-5.03 7.867-5.03h8.641c6.964 0 7.093 5.03 7.093 5.03v22.311h.13Zm35.853-49.136h26.18v91.308h-26.18V88.343Zm62.936 67.707V88.343h-26.051v91.307h61.259v-23.6h-35.208Zm43.849.258v23.343h42.172c8.641 0 23.472-6.319 23.988-23.988v-9.027c0-15.09-12.38-23.988-23.988-23.988h-21.021v-10.833h41.656V88.343h-39.98c-10.317 0-24.117 8.511-24.117 24.374v8.125c0 15.863 13.67 23.988 24.117 23.988c29.018.13-6.964 0 19.861 0v11.35l-42.688.128Z"></path>
@@ -3483,7 +3226,7 @@ export function LogosRails(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosReact(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosReact(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3491,7 +3234,6 @@ export function LogosReact(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 228"
       {...props}
-      key={key}
     >
       <path
         fill="#00D8FF"
@@ -3501,10 +3243,7 @@ export function LogosReact(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosReactRouter(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosReactRouter(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3512,7 +3251,6 @@ export function LogosReactRouter(
       height="1em"
       viewBox="0 0 256 140"
       {...props}
-      key={key}
     >
       <path d="M78.066 92.588c12.818 0 23.209-10.391 23.209-23.21c0-12.817-10.391-23.208-23.21-23.208c-12.817 0-23.208 10.39-23.208 23.209c0 12.818 10.391 23.209 23.209 23.209Zm-54.857 46.417c12.818 0 23.209-10.39 23.209-23.209c0-12.817-10.391-23.208-23.21-23.208C10.392 92.588 0 102.978 0 115.796c0 12.818 10.39 23.21 23.209 23.21Zm209.582 0c12.818 0 23.209-10.39 23.209-23.209c0-12.817-10.39-23.208-23.209-23.208c-12.818 0-23.209 10.39-23.209 23.208c0 12.818 10.391 23.21 23.21 23.21Z"></path>
       <path
@@ -3523,10 +3261,7 @@ export function LogosReactRouter(
   );
 }
 
-export function LogosReduxSaga(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosReduxSaga(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3534,7 +3269,6 @@ export function LogosReduxSaga(
       height="1em"
       viewBox="0 0 256 157"
       {...props}
-      key={key}
     >
       <path
         fill="#999"
@@ -3548,10 +3282,7 @@ export function LogosReduxSaga(
   );
 }
 
-export function LogosRocketChatIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosRocketChatIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3559,7 +3290,6 @@ export function LogosRocketChatIcon(
       height="1em"
       viewBox="0 0 256 230"
       {...props}
-      key={key}
     >
       <path
         fill="#F5455C"
@@ -3569,10 +3299,7 @@ export function LogosRocketChatIcon(
   );
 }
 
-export function LogosRollbarIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosRollbarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3580,7 +3307,6 @@ export function LogosRollbarIcon(
       height="1em"
       viewBox="0 0 256 214"
       {...props}
-      key={key}
     >
       <path
         fill="#3C72FF"
@@ -3590,7 +3316,7 @@ export function LogosRollbarIcon(
   );
 }
 
-export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosRuby(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3598,7 +3324,6 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="32"
       viewBox="0 0 256 255"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -3608,11 +3333,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="111.399%"
           y2="64.584%"
         >
-          <stop offset="0%" stop-color="#FB7655" />
-          <stop offset="0%" stop-color="#FB7655" />
-          <stop offset="41%" stop-color="#E42B1E" />
-          <stop offset="99%" stop-color="#900" />
-          <stop offset="100%" stop-color="#900" />
+          <stop offset="0%" stopColor="#FB7655" />
+          <stop offset="0%" stopColor="#FB7655" />
+          <stop offset="41%" stopColor="#E42B1E" />
+          <stop offset="99%" stopColor="#900" />
+          <stop offset="100%" stopColor="#900" />
         </linearGradient>
         <linearGradient
           id="logosRuby1"
@@ -3621,10 +3346,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="60.89%"
           y2="19.288%"
         >
-          <stop offset="0%" stop-color="#871101" />
-          <stop offset="0%" stop-color="#871101" />
-          <stop offset="99%" stop-color="#911209" />
-          <stop offset="100%" stop-color="#911209" />
+          <stop offset="0%" stopColor="#871101" />
+          <stop offset="0%" stopColor="#871101" />
+          <stop offset="99%" stopColor="#911209" />
+          <stop offset="100%" stopColor="#911209" />
         </linearGradient>
         <linearGradient
           id="logosRuby2"
@@ -3633,10 +3358,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="219.327%"
           y2="7.829%"
         >
-          <stop offset="0%" stop-color="#871101" />
-          <stop offset="0%" stop-color="#871101" />
-          <stop offset="99%" stop-color="#911209" />
-          <stop offset="100%" stop-color="#911209" />
+          <stop offset="0%" stopColor="#871101" />
+          <stop offset="0%" stopColor="#871101" />
+          <stop offset="99%" stopColor="#911209" />
+          <stop offset="100%" stopColor="#911209" />
         </linearGradient>
         <linearGradient
           id="logosRuby3"
@@ -3645,12 +3370,12 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="7.234%"
           y2="79.135%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="23%" stop-color="#E57252" />
-          <stop offset="46%" stop-color="#DE3B20" />
-          <stop offset="99%" stop-color="#A60003" />
-          <stop offset="100%" stop-color="#A60003" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="23%" stopColor="#E57252" />
+          <stop offset="46%" stopColor="#DE3B20" />
+          <stop offset="99%" stopColor="#A60003" />
+          <stop offset="100%" stopColor="#A60003" />
         </linearGradient>
         <linearGradient
           id="logosRuby4"
@@ -3659,12 +3384,12 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="16.348%"
           y2="83.047%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="23%" stop-color="#E4714E" />
-          <stop offset="56%" stop-color="#BE1A0D" />
-          <stop offset="99%" stop-color="#A80D00" />
-          <stop offset="100%" stop-color="#A80D00" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="23%" stopColor="#E4714E" />
+          <stop offset="56%" stopColor="#BE1A0D" />
+          <stop offset="99%" stopColor="#A80D00" />
+          <stop offset="100%" stopColor="#A80D00" />
         </linearGradient>
         <linearGradient
           id="logosRuby5"
@@ -3673,12 +3398,12 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="15.594%"
           y2="92.478%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="18%" stop-color="#E46342" />
-          <stop offset="40%" stop-color="#C82410" />
-          <stop offset="99%" stop-color="#A80D00" />
-          <stop offset="100%" stop-color="#A80D00" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="18%" stopColor="#E46342" />
+          <stop offset="40%" stopColor="#C82410" />
+          <stop offset="99%" stopColor="#A80D00" />
+          <stop offset="100%" stopColor="#A80D00" />
         </linearGradient>
         <linearGradient
           id="logosRuby6"
@@ -3687,11 +3412,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="58.346%"
           y2="-46.717%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="54%" stop-color="#C81F11" />
-          <stop offset="99%" stop-color="#BF0905" />
-          <stop offset="100%" stop-color="#BF0905" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="54%" stopColor="#C81F11" />
+          <stop offset="99%" stopColor="#BF0905" />
+          <stop offset="100%" stopColor="#BF0905" />
         </linearGradient>
         <linearGradient
           id="logosRuby7"
@@ -3700,11 +3425,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="21.135%"
           y2="79.056%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="31%" stop-color="#DE4024" />
-          <stop offset="99%" stop-color="#BF190B" />
-          <stop offset="100%" stop-color="#BF190B" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="31%" stopColor="#DE4024" />
+          <stop offset="99%" stopColor="#BF190B" />
+          <stop offset="100%" stopColor="#BF190B" />
         </linearGradient>
         <linearGradient
           id="logosRuby8"
@@ -3713,16 +3438,16 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="122.282%"
           y2="-6.342%"
         >
-          <stop offset="0%" stop-color="#BD0012" />
-          <stop offset="0%" stop-color="#BD0012" />
-          <stop offset="7%" stop-color="#FFF" />
-          <stop offset="17%" stop-color="#FFF" />
-          <stop offset="27%" stop-color="#C82F1C" />
-          <stop offset="33%" stop-color="#820C01" />
-          <stop offset="46%" stop-color="#A31601" />
-          <stop offset="72%" stop-color="#B31301" />
-          <stop offset="99%" stop-color="#E82609" />
-          <stop offset="100%" stop-color="#E82609" />
+          <stop offset="0%" stopColor="#BD0012" />
+          <stop offset="0%" stopColor="#BD0012" />
+          <stop offset="7%" stopColor="#FFF" />
+          <stop offset="17%" stopColor="#FFF" />
+          <stop offset="27%" stopColor="#C82F1C" />
+          <stop offset="33%" stopColor="#820C01" />
+          <stop offset="46%" stopColor="#A31601" />
+          <stop offset="72%" stopColor="#B31301" />
+          <stop offset="99%" stopColor="#E82609" />
+          <stop offset="100%" stopColor="#E82609" />
         </linearGradient>
         <linearGradient
           id="logosRuby9"
@@ -3731,11 +3456,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="65.205%"
           y2="50.128%"
         >
-          <stop offset="0%" stop-color="#8C0C01" />
-          <stop offset="0%" stop-color="#8C0C01" />
-          <stop offset="54%" stop-color="#990C00" />
-          <stop offset="99%" stop-color="#A80D0E" />
-          <stop offset="100%" stop-color="#A80D0E" />
+          <stop offset="0%" stopColor="#8C0C01" />
+          <stop offset="0%" stopColor="#8C0C01" />
+          <stop offset="54%" stopColor="#990C00" />
+          <stop offset="99%" stopColor="#A80D0E" />
+          <stop offset="100%" stopColor="#A80D0E" />
         </linearGradient>
         <linearGradient
           id="logosRubya"
@@ -3744,10 +3469,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="62.754%"
           y2="17.888%"
         >
-          <stop offset="0%" stop-color="#7E110B" />
-          <stop offset="0%" stop-color="#7E110B" />
-          <stop offset="99%" stop-color="#9E0C00" />
-          <stop offset="100%" stop-color="#9E0C00" />
+          <stop offset="0%" stopColor="#7E110B" />
+          <stop offset="0%" stopColor="#7E110B" />
+          <stop offset="99%" stopColor="#9E0C00" />
+          <stop offset="100%" stopColor="#9E0C00" />
         </linearGradient>
         <linearGradient
           id="logosRubyb"
@@ -3756,10 +3481,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="74.122%"
           y2="39.704%"
         >
-          <stop offset="0%" stop-color="#79130D" />
-          <stop offset="0%" stop-color="#79130D" />
-          <stop offset="99%" stop-color="#9E120B" />
-          <stop offset="100%" stop-color="#9E120B" />
+          <stop offset="0%" stopColor="#79130D" />
+          <stop offset="0%" stopColor="#79130D" />
+          <stop offset="99%" stopColor="#9E120B" />
+          <stop offset="100%" stopColor="#9E120B" />
         </linearGradient>
         <linearGradient
           id="logosRubyc"
@@ -3768,11 +3493,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="101.717%"
           y2="11.993%"
         >
-          <stop offset="0%" stop-color="#8B2114" />
-          <stop offset="0%" stop-color="#8B2114" />
-          <stop offset="43%" stop-color="#9E100A" />
-          <stop offset="99%" stop-color="#B3100C" />
-          <stop offset="100%" stop-color="#B3100C" />
+          <stop offset="0%" stopColor="#8B2114" />
+          <stop offset="0%" stopColor="#8B2114" />
+          <stop offset="43%" stopColor="#9E100A" />
+          <stop offset="99%" stopColor="#B3100C" />
+          <stop offset="100%" stopColor="#B3100C" />
         </linearGradient>
         <linearGradient
           id="logosRubyd"
@@ -3781,11 +3506,11 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="35.599%"
           y2="100.694%"
         >
-          <stop offset="0%" stop-color="#B31000" />
-          <stop offset="0%" stop-color="#B31000" />
-          <stop offset="44%" stop-color="#910F08" />
-          <stop offset="99%" stop-color="#791C12" />
-          <stop offset="100%" stop-color="#791C12" />
+          <stop offset="0%" stopColor="#B31000" />
+          <stop offset="0%" stopColor="#B31000" />
+          <stop offset="44%" stopColor="#910F08" />
+          <stop offset="99%" stopColor="#791C12" />
+          <stop offset="100%" stopColor="#791C12" />
         </linearGradient>
         <radialGradient
           id="logosRubye"
@@ -3795,10 +3520,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           fx="32.001%"
           fy="40.21%"
         >
-          <stop offset="0%" stop-color="#A80D00" />
-          <stop offset="0%" stop-color="#A80D00" />
-          <stop offset="99%" stop-color="#7E0E08" />
-          <stop offset="100%" stop-color="#7E0E08" />
+          <stop offset="0%" stopColor="#A80D00" />
+          <stop offset="0%" stopColor="#A80D00" />
+          <stop offset="99%" stopColor="#7E0E08" />
+          <stop offset="100%" stopColor="#7E0E08" />
         </radialGradient>
         <radialGradient
           id="logosRubyf"
@@ -3808,10 +3533,10 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
           fx="13.549%"
           fy="40.86%"
         >
-          <stop offset="0%" stop-color="#A30C00" />
-          <stop offset="0%" stop-color="#A30C00" />
-          <stop offset="99%" stop-color="#800E08" />
-          <stop offset="100%" stop-color="#800E08" />
+          <stop offset="0%" stopColor="#A30C00" />
+          <stop offset="0%" stopColor="#A30C00" />
+          <stop offset="99%" stopColor="#800E08" />
+          <stop offset="100%" stopColor="#800E08" />
         </radialGradient>
       </defs>
       <path
@@ -3890,7 +3615,7 @@ export function LogosRuby(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosRust(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosRust(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3898,17 +3623,13 @@ export function LogosRust(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path d="m254.251 124.862l-10.747-6.653a145.81 145.81 0 0 0-.306-3.13l9.236-8.615a3.686 3.686 0 0 0 1.105-3.427a3.685 3.685 0 0 0-2.33-2.744l-11.807-4.415a137.355 137.355 0 0 0-.925-3.048l7.365-10.229a3.698 3.698 0 0 0-2.407-5.814l-12.45-2.025c-.484-.944-.988-1.874-1.496-2.796l5.231-11.483a3.683 3.683 0 0 0-.288-3.59a3.678 3.678 0 0 0-3.204-1.642l-12.636.44a99.848 99.848 0 0 0-1.996-2.421l2.904-12.308a3.694 3.694 0 0 0-.986-3.466a3.698 3.698 0 0 0-3.464-.986l-12.305 2.901a106.192 106.192 0 0 0-2.426-1.996l.442-12.635a3.684 3.684 0 0 0-1.64-3.205a3.693 3.693 0 0 0-3.59-.29l-11.48 5.234a133.235 133.235 0 0 0-2.796-1.5l-2.03-12.452a3.7 3.7 0 0 0-5.812-2.407l-10.236 7.365c-1.007-.32-2.02-.629-3.042-.922L155.72 4.794a3.69 3.69 0 0 0-2.745-2.336a3.707 3.707 0 0 0-3.424 1.106l-8.615 9.243a111.11 111.11 0 0 0-3.13-.306l-6.653-10.75a3.698 3.698 0 0 0-6.289 0l-6.653 10.75a110.4 110.4 0 0 0-3.133.306l-8.617-9.243a3.695 3.695 0 0 0-6.169 1.23l-4.414 11.809c-1.023.293-2.035.604-3.045.922L82.599 10.16a3.687 3.687 0 0 0-3.579-.415a3.705 3.705 0 0 0-2.235 2.822l-2.03 12.452c-.94.487-1.869.988-2.796 1.5l-11.481-5.235a3.686 3.686 0 0 0-3.588.291a3.684 3.684 0 0 0-1.642 3.205l.44 12.635a118.03 118.03 0 0 0-2.426 1.996l-12.305-2.9a3.71 3.71 0 0 0-3.466.985a3.694 3.694 0 0 0-.986 3.466l2.899 12.308c-.673.797-1.338 1.604-1.991 2.421l-12.636-.44a3.721 3.721 0 0 0-3.204 1.641a3.696 3.696 0 0 0-.291 3.59l5.234 11.484c-.509.922-1.012 1.852-1.5 2.796l-12.449 2.025a3.7 3.7 0 0 0-2.407 5.814l7.365 10.23c-.32 1.01-.631 2.024-.925 3.047l-11.808 4.415a3.702 3.702 0 0 0-1.225 6.171l9.237 8.614c-.115 1.04-.217 2.087-.305 3.131L1.75 124.862A3.695 3.695 0 0 0 0 128.007c0 1.284.663 2.473 1.751 3.143l10.748 6.653c.088 1.047.19 2.092.305 3.131l-9.238 8.617a3.697 3.697 0 0 0 1.226 6.169l11.808 4.415c.294 1.022.605 2.037.925 3.047l-7.365 10.231a3.696 3.696 0 0 0 2.41 5.812l12.447 2.025c.487.944.986 1.874 1.5 2.8l-5.235 11.48a3.691 3.691 0 0 0 .291 3.59a3.684 3.684 0 0 0 3.204 1.641l12.63-.442c.659.821 1.322 1.626 1.997 2.426l-2.899 12.31a3.682 3.682 0 0 0 .986 3.459a3.683 3.683 0 0 0 3.466.983l12.305-2.898c.8.68 1.61 1.34 2.427 1.99l-.44 12.639a3.694 3.694 0 0 0 5.229 3.492l11.481-5.231a105.49 105.49 0 0 0 2.796 1.499l2.03 12.445a3.692 3.692 0 0 0 2.235 2.825a3.706 3.706 0 0 0 3.579-.413l10.229-7.37c1.01.32 2.025.633 3.047.927l4.415 11.804a3.685 3.685 0 0 0 2.744 2.331a3.677 3.677 0 0 0 3.425-1.106l8.617-9.238c1.04.12 2.086.22 3.133.313l6.653 10.748a3.702 3.702 0 0 0 3.143 1.75a3.703 3.703 0 0 0 3.145-1.75l6.653-10.748c1.047-.093 2.092-.193 3.131-.313l8.615 9.238a3.68 3.68 0 0 0 3.424 1.106a3.69 3.69 0 0 0 2.744-2.331l4.415-11.804c1.022-.294 2.038-.607 3.048-.927l10.231 7.37a3.7 3.7 0 0 0 5.812-2.412l2.03-12.445c.939-.487 1.868-.993 2.795-1.5l11.481 5.232a3.692 3.692 0 0 0 5.23-3.492l-.44-12.638a98.76 98.76 0 0 0 2.423-1.991l12.306 2.898c1.25.294 2.56-.07 3.463-.983a3.682 3.682 0 0 0 .986-3.459l-2.898-12.31c.675-.8 1.34-1.605 1.99-2.426l12.636.442a3.681 3.681 0 0 0 3.204-1.64a3.685 3.685 0 0 0 .289-3.592l-5.232-11.478c.511-.927 1.013-1.857 1.497-2.8l12.45-2.026a3.682 3.682 0 0 0 2.822-2.236a3.696 3.696 0 0 0-.415-3.576l-7.365-10.23c.318-1.011.629-2.026.925-3.048l11.806-4.415a3.684 3.684 0 0 0 2.331-2.745a3.677 3.677 0 0 0-1.106-3.424l-9.235-8.617c.112-1.04.215-2.086.305-3.13l10.748-6.654a3.69 3.69 0 0 0 1.751-3.143c0-1.281-.66-2.472-1.749-3.145Zm-71.932 89.156c-4.104-.885-6.714-4.93-5.833-9.047c.878-4.112 4.92-6.729 9.023-5.844c4.104.879 6.718 4.931 5.838 9.04c-.88 4.11-4.926 6.73-9.028 5.851Zm-3.652-24.699a6.929 6.929 0 0 0-8.23 5.332l-3.816 17.807c-11.775 5.344-24.85 8.313-38.621 8.313c-14.086 0-27.446-3.116-39.43-8.688l-3.814-17.806c-.802-3.747-4.486-6.134-8.228-5.33l-15.72 3.376a93.272 93.272 0 0 1-8.128-9.58h76.49c.865 0 1.442-.157 1.442-.945v-27.057c0-.787-.577-.944-1.443-.944H106.8v-17.15h24.195c2.208 0 11.809.63 14.878 12.902c.962 3.774 3.072 16.05 4.516 19.98c1.438 4.408 7.293 13.213 13.533 13.213h38.115c.433 0 .895-.049 1.382-.137a93.92 93.92 0 0 1-8.669 10.17l-16.082-3.456Zm-105.79 24.327c-4.105.886-8.146-1.731-9.029-5.843c-.878-4.119 1.732-8.162 5.836-9.047a7.607 7.607 0 0 1 9.028 5.85c.878 4.11-1.734 8.16-5.836 9.04ZM43.86 95.986c1.703 3.842-.03 8.345-3.867 10.045c-3.837 1.705-8.328-.03-10.03-3.875a7.615 7.615 0 0 1 3.867-10.045a7.598 7.598 0 0 1 10.03 3.874Zm-8.918 21.14l16.376-7.277a6.942 6.942 0 0 0 3.524-9.158l-3.372-7.626h13.264v59.788H37.973a93.7 93.7 0 0 1-3.566-25.672c0-3.398.183-6.756.535-10.056Zm71.862-5.807V93.696h31.586c1.632 0 11.52 1.886 11.52 9.28c0 6.139-7.584 8.34-13.821 8.34h-29.285v.003Zm114.792 15.862c0 2.338-.086 4.652-.257 6.948h-9.603c-.961 0-1.348.632-1.348 1.573v4.41c0 10.38-5.853 12.638-10.982 13.213c-4.884.55-10.3-2.045-10.967-5.034c-2.882-16.206-7.683-19.667-15.265-25.648c9.41-5.975 19.2-14.79 19.2-26.59c0-12.74-8.734-20.765-14.688-24.7c-8.352-5.506-17.6-6.61-20.095-6.61H58.279c13.467-15.03 31.719-25.677 52.362-29.551l11.706 12.28a6.923 6.923 0 0 0 9.799.226l13.098-12.528c27.445 5.11 50.682 22.194 64.073 45.633l-8.967 20.253c-1.548 3.505.032 7.604 3.527 9.157l17.264 7.668c.298 3.065.455 6.161.455 9.3ZM122.352 24.745c3.033-2.905 7.844-2.79 10.748.247c2.898 3.046 2.788 7.862-.252 10.765c-3.033 2.906-7.844 2.793-10.748-.25a7.621 7.621 0 0 1 .252-10.762Zm88.983 71.61a7.594 7.594 0 0 1 10.028-3.872c3.838 1.702 5.57 6.203 3.867 10.045a7.595 7.595 0 0 1-10.03 3.875c-3.833-1.703-5.565-6.2-3.865-10.048Z"></path>
     </svg>
   );
 }
 
-export function LogosSelenium(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSelenium(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3916,7 +3637,6 @@ export function LogosSelenium(
       height="1em"
       viewBox="0 0 256 269"
       {...props}
-      key={key}
     >
       <path
         fill="#2CB134"
@@ -3926,10 +3646,7 @@ export function LogosSelenium(
   );
 }
 
-export function LogosSentryIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSentryIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3937,7 +3654,6 @@ export function LogosSentryIcon(
       height="1em"
       viewBox="0 0 256 227"
       {...props}
-      key={key}
     >
       <path
         fill="#362D59"
@@ -3947,10 +3663,7 @@ export function LogosSentryIcon(
   );
 }
 
-export function LogosSlackIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSlackIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3958,7 +3671,6 @@ export function LogosSlackIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#E01E5A"
@@ -3980,7 +3692,7 @@ export function LogosSlackIcon(
   );
 }
 
-export function LogosSnyk(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosSnyk(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3988,7 +3700,6 @@ export function LogosSnyk(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 419"
       {...props}
-      key={key}
     >
       <path
         fill="#FFF"
@@ -4091,10 +3802,7 @@ export function LogosSnyk(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosSonarqube(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSonarqube(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4102,7 +3810,6 @@ export function LogosSonarqube(
       height="1em"
       viewBox="0 0 512 125"
       {...props}
-      key={key}
     >
       <path
         fill="#070707"
@@ -4116,7 +3823,7 @@ export function LogosSonarqube(
   );
 }
 
-export function LogosSurge(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosSurge(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4124,7 +3831,6 @@ export function LogosSurge(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 380"
       {...props}
-      key={key}
     >
       <path
         fill="#564740"
@@ -4242,10 +3948,7 @@ export function LogosSurge(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosSwagger(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSwagger(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4253,7 +3956,6 @@ export function LogosSwagger(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#85EA2D"
@@ -4271,7 +3973,7 @@ export function LogosSwagger(
   );
 }
 
-export function LogosSwr(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosSwr(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4279,17 +3981,13 @@ export function LogosSwr(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 121"
       {...props}
-      key={key}
     >
       <path d="M0 64.457c.124 31.054 25.409 56.48 56.481 56.48c31.17-.038 56.432-25.291 56.481-56.463v-8.01c.092-17.93 19.56-29.035 35.041-19.989a23.307 23.307 0 0 1 6.248 5.326h36.525C184.103 17.154 161.752.03 136.218 0c-31.171.05-56.425 25.312-56.463 56.481v7.976c-.02 12.85-10.443 23.255-23.292 23.255c-12.836-.019-23.236-10.419-23.255-23.255a6.652 6.652 0 0 0-6.653-6.653H6.635A6.652 6.652 0 0 0 0 64.457Zm216.132 56.48c-25.506-.095-47.81-17.207-54.505-41.818h36.471c11.228 13.91 33.302 10.45 39.733-6.228a23.228 23.228 0 0 0 1.556-8.417v-8.01C239.435 25.293 264.697.038 295.868 0c30.755 0 55.829 24.703 56.464 55.281l.176 9.176c.092 17.93 19.56 29.034 35.041 19.99a23.313 23.313 0 0 0 6.248-5.328h36.525c-6.664 24.648-29.008 41.782-54.54 41.819c-31.073 0-56.358-25.444-56.481-56.464l-.177-8.293v-.353c-.372-12.579-10.671-22.589-23.256-22.603c-12.836.02-23.236 10.421-23.255 23.256v7.976c-.04 31.178-25.305 56.442-56.481 56.48Zm221.354-79.119c11.227-13.907 33.301-10.447 39.733 6.23a23.238 23.238 0 0 1 1.556 8.433a6.651 6.651 0 0 0 6.652 6.652h19.939A6.65 6.65 0 0 0 512 56.481C511.961 25.304 486.696.04 455.519 0c-25.54.032-47.893 17.165-54.558 41.818h36.525Z"></path>
     </svg>
   );
 }
 
-export function LogosTerraformIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosTerraformIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4297,7 +3995,6 @@ export function LogosTerraformIcon(
       height="1em"
       viewBox="0 0 256 291"
       {...props}
-      key={key}
     >
       <path
         fill="#4040B2"
@@ -4311,10 +4008,7 @@ export function LogosTerraformIcon(
   );
 }
 
-export function LogosTestingLibrary(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosTestingLibrary(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -4322,7 +4016,6 @@ export function LogosTestingLibrary(
       height="32"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <defs>
         <radialGradient
@@ -4334,13 +4027,13 @@ export function LogosTestingLibrary(
           fy="49.847%"
           gradientTransform="matrix(1 0 0 .99252 0 .004)"
         >
-          <stop offset="0%" stop-color="#E33332" />
-          <stop offset="20%" stop-color="#E03330" />
-          <stop offset="38%" stop-color="#D52E2C" />
-          <stop offset="54%" stop-color="#C32827" />
-          <stop offset="71%" stop-color="#A91F23" />
-          <stop offset="86%" stop-color="#89181A" />
-          <stop offset="100%" stop-color="#640E0E" />
+          <stop offset="0%" stopColor="#E33332" />
+          <stop offset="20%" stopColor="#E03330" />
+          <stop offset="38%" stopColor="#D52E2C" />
+          <stop offset="54%" stopColor="#C32827" />
+          <stop offset="71%" stopColor="#A91F23" />
+          <stop offset="86%" stopColor="#89181A" />
+          <stop offset="100%" stopColor="#640E0E" />
         </radialGradient>
         <radialGradient
           id="logosTestingLibrary1"
@@ -4351,13 +4044,13 @@ export function LogosTestingLibrary(
           fy="49.585%"
           gradientTransform="matrix(1 0 0 .41938 0 .288)"
         >
-          <stop offset="0%" stop-color="#F7B3C5" />
-          <stop offset="19%" stop-color="#F7B0C2" />
-          <stop offset="38%" stop-color="#F6A4B6" />
-          <stop offset="58%" stop-color="#F390A5" />
-          <stop offset="79%" stop-color="#E7728B" />
-          <stop offset="99%" stop-color="#DC4D6C" />
-          <stop offset="100%" stop-color="#DA4B6A" />
+          <stop offset="0%" stopColor="#F7B3C5" />
+          <stop offset="19%" stopColor="#F7B0C2" />
+          <stop offset="38%" stopColor="#F6A4B6" />
+          <stop offset="58%" stopColor="#F390A5" />
+          <stop offset="79%" stopColor="#E7728B" />
+          <stop offset="99%" stopColor="#DC4D6C" />
+          <stop offset="100%" stopColor="#DA4B6A" />
         </radialGradient>
         <radialGradient
           id="logosTestingLibrary2"
@@ -4368,13 +4061,13 @@ export function LogosTestingLibrary(
           fy="49.742%"
           gradientTransform="matrix(.81559 0 0 1 .093 0)"
         >
-          <stop offset="0%" stop-color="#F7B3C5" />
-          <stop offset="19%" stop-color="#F7B0C2" />
-          <stop offset="38%" stop-color="#F6A4B6" />
-          <stop offset="58%" stop-color="#F390A5" />
-          <stop offset="79%" stop-color="#E7728B" />
-          <stop offset="99%" stop-color="#DC4D6C" />
-          <stop offset="100%" stop-color="#DA4B6A" />
+          <stop offset="0%" stopColor="#F7B3C5" />
+          <stop offset="19%" stopColor="#F7B0C2" />
+          <stop offset="38%" stopColor="#F6A4B6" />
+          <stop offset="58%" stopColor="#F390A5" />
+          <stop offset="79%" stopColor="#E7728B" />
+          <stop offset="99%" stopColor="#DC4D6C" />
+          <stop offset="100%" stopColor="#DA4B6A" />
         </radialGradient>
         <radialGradient
           id="logosTestingLibrary3"
@@ -4385,13 +4078,13 @@ export function LogosTestingLibrary(
           fy="49.582%"
           gradientTransform="matrix(1 0 0 .41925 0 .288)"
         >
-          <stop offset="0%" stop-color="#F7B3C5" />
-          <stop offset="19%" stop-color="#F7B0C2" />
-          <stop offset="38%" stop-color="#F6A4B6" />
-          <stop offset="58%" stop-color="#F390A5" />
-          <stop offset="79%" stop-color="#E7728B" />
-          <stop offset="99%" stop-color="#DC4D6C" />
-          <stop offset="100%" stop-color="#DA4B6A" />
+          <stop offset="0%" stopColor="#F7B3C5" />
+          <stop offset="19%" stopColor="#F7B0C2" />
+          <stop offset="38%" stopColor="#F6A4B6" />
+          <stop offset="58%" stopColor="#F390A5" />
+          <stop offset="79%" stopColor="#E7728B" />
+          <stop offset="99%" stopColor="#DC4D6C" />
+          <stop offset="100%" stopColor="#DA4B6A" />
         </radialGradient>
         <linearGradient
           id="logosTestingLibrary4"
@@ -4400,13 +4093,13 @@ export function LogosTestingLibrary(
           y1="49.969%"
           y2="49.969%"
         >
-          <stop offset="0%" stop-color="#F7B3C5" />
-          <stop offset="19%" stop-color="#F7B0C2" />
-          <stop offset="38%" stop-color="#F6A4B6" />
-          <stop offset="58%" stop-color="#F390A5" />
-          <stop offset="79%" stop-color="#E7728B" />
-          <stop offset="99%" stop-color="#DC4D6C" />
-          <stop offset="100%" stop-color="#DA4B6A" />
+          <stop offset="0%" stopColor="#F7B3C5" />
+          <stop offset="19%" stopColor="#F7B0C2" />
+          <stop offset="38%" stopColor="#F6A4B6" />
+          <stop offset="58%" stopColor="#F390A5" />
+          <stop offset="79%" stopColor="#E7728B" />
+          <stop offset="99%" stopColor="#DC4D6C" />
+          <stop offset="100%" stopColor="#DA4B6A" />
         </linearGradient>
         <linearGradient
           id="logosTestingLibrary5"
@@ -4415,13 +4108,13 @@ export function LogosTestingLibrary(
           y1="26.463%"
           y2="26.463%"
         >
-          <stop offset="0%" stop-color="#F7B3C5" />
-          <stop offset="19%" stop-color="#F7B0C2" />
-          <stop offset="38%" stop-color="#F6A4B6" />
-          <stop offset="58%" stop-color="#F390A5" />
-          <stop offset="79%" stop-color="#E7728B" />
-          <stop offset="99%" stop-color="#DC4D6C" />
-          <stop offset="100%" stop-color="#DA4B6A" />
+          <stop offset="0%" stopColor="#F7B3C5" />
+          <stop offset="19%" stopColor="#F7B0C2" />
+          <stop offset="38%" stopColor="#F6A4B6" />
+          <stop offset="58%" stopColor="#F390A5" />
+          <stop offset="79%" stopColor="#E7728B" />
+          <stop offset="99%" stopColor="#DC4D6C" />
+          <stop offset="100%" stopColor="#DA4B6A" />
         </linearGradient>
         <linearGradient
           id="logosTestingLibrary6"
@@ -4430,13 +4123,13 @@ export function LogosTestingLibrary(
           y1="49.997%"
           y2="49.997%"
         >
-          <stop offset="0%" stop-color="#DA4B6A" />
-          <stop offset="1%" stop-color="#DC4D6C" />
-          <stop offset="21%" stop-color="#E7728B" />
-          <stop offset="42%" stop-color="#F390A5" />
-          <stop offset="62%" stop-color="#F6A4B6" />
-          <stop offset="81%" stop-color="#F7B0C2" />
-          <stop offset="100%" stop-color="#F7B3C5" />
+          <stop offset="0%" stopColor="#DA4B6A" />
+          <stop offset="1%" stopColor="#DC4D6C" />
+          <stop offset="21%" stopColor="#E7728B" />
+          <stop offset="42%" stopColor="#F390A5" />
+          <stop offset="62%" stopColor="#F6A4B6" />
+          <stop offset="81%" stopColor="#F7B0C2" />
+          <stop offset="100%" stopColor="#F7B3C5" />
         </linearGradient>
         <linearGradient
           id="logosTestingLibrary7"
@@ -4445,13 +4138,13 @@ export function LogosTestingLibrary(
           y1="26.478%"
           y2="26.478%"
         >
-          <stop offset="0%" stop-color="#DA4B6A" />
-          <stop offset="1%" stop-color="#DC4D6C" />
-          <stop offset="21%" stop-color="#E7728B" />
-          <stop offset="42%" stop-color="#F390A5" />
-          <stop offset="62%" stop-color="#F6A4B6" />
-          <stop offset="81%" stop-color="#F7B0C2" />
-          <stop offset="100%" stop-color="#F7B3C5" />
+          <stop offset="0%" stopColor="#DA4B6A" />
+          <stop offset="1%" stopColor="#DC4D6C" />
+          <stop offset="21%" stopColor="#E7728B" />
+          <stop offset="42%" stopColor="#F390A5" />
+          <stop offset="62%" stopColor="#F6A4B6" />
+          <stop offset="81%" stopColor="#F7B0C2" />
+          <stop offset="100%" stopColor="#F7B3C5" />
         </linearGradient>
       </defs>
       <path
@@ -5318,10 +5011,7 @@ export function LogosTestingLibrary(
   );
 }
 
-export function LogosTurborepoIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosTurborepoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5329,7 +5019,6 @@ export function LogosTurborepoIcon(
       height="32"
       viewBox="0 0 256 318"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -5339,8 +5028,8 @@ export function LogosTurborepoIcon(
           y1="0%"
           y2="698.962%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
         <linearGradient
           id="logosTurborepoIcon1"
@@ -5349,8 +5038,8 @@ export function LogosTurborepoIcon(
           y1="-2.194%"
           y2="512.398%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
         <linearGradient
           id="logosTurborepoIcon2"
@@ -5359,8 +5048,8 @@ export function LogosTurborepoIcon(
           y1="-62.263%"
           y2="278.479%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
         <linearGradient
           id="logosTurborepoIcon3"
@@ -5369,8 +5058,8 @@ export function LogosTurborepoIcon(
           y1="-178.48%"
           y2="162.264%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
         <linearGradient
           id="logosTurborepoIcon4"
@@ -5379,8 +5068,8 @@ export function LogosTurborepoIcon(
           y1="-412.397%"
           y2="102.194%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
         <linearGradient
           id="logosTurborepoIcon5"
@@ -5389,8 +5078,8 @@ export function LogosTurborepoIcon(
           y1="-598.961%"
           y2="100%"
         >
-          <stop offset="0%" stop-color="#1E90FF" />
-          <stop offset="100%" stop-color="#FF1E56" />
+          <stop offset="0%" stopColor="#1E90FF" />
+          <stop offset="100%" stopColor="#FF1E56" />
         </linearGradient>
       </defs>
       <path
@@ -5422,10 +5111,7 @@ export function LogosTurborepoIcon(
   );
 }
 
-export function LogosTypescriptIcon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosTypescriptIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5433,7 +5119,6 @@ export function LogosTypescriptIcon(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#3178C6"
@@ -5447,7 +5132,7 @@ export function LogosTypescriptIcon(
   );
 }
 
-export function LogosVercel(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosVercel(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5455,17 +5140,13 @@ export function LogosVercel(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 512 116"
       {...props}
-      key={key}
     >
       <path d="M255.42 28.976c-19.993 0-34.408 13.039-34.408 32.597c0 19.559 16.226 32.598 36.22 32.598c12.079 0 22.727-4.781 29.32-12.84l-13.855-8.004c-3.658 4.002-9.218 6.338-15.466 6.338c-8.674 0-16.045-4.527-18.78-11.771h50.744c.399-2.029.634-4.13.634-6.339c0-19.54-14.415-32.58-34.409-32.58Zm-17.13 26.259c2.263-7.226 8.457-11.772 17.113-11.772c8.675 0 14.869 4.546 17.114 11.772H238.29Zm212.138-26.26c-19.993 0-34.409 13.04-34.409 32.598c0 19.559 16.226 32.598 36.22 32.598c12.079 0 22.727-4.781 29.32-12.84l-13.855-8.004c-3.658 4.002-9.217 6.338-15.465 6.338c-8.675 0-16.046-4.527-18.78-11.771H484.2c.399-2.029.634-4.13.634-6.339c0-19.54-14.415-32.58-34.408-32.58Zm-17.114 26.26c2.264-7.226 8.457-11.772 17.114-11.772c8.674 0 14.868 4.546 17.113 11.772h-34.227Zm-70.683 6.338c0 10.866 7.1 18.11 18.11 18.11c7.461 0 13.057-3.386 15.937-8.91l13.908 8.023c-5.759 9.598-16.552 15.375-29.845 15.375c-20.011 0-34.408-13.04-34.408-32.598s14.415-32.597 34.408-32.597c13.293 0 24.068 5.777 29.845 15.375l-13.908 8.023c-2.88-5.524-8.476-8.91-15.937-8.91c-10.992 0-18.11 7.243-18.11 18.11ZM512 9.055V92.36h-16.299V9.055H512ZM66.916 0l66.915 115.903H0L66.916 0Zm167.298 9.055l-50.182 86.927l-50.183-86.927h18.817l31.366 54.33l31.366-54.33h18.816Zm106.685 21.732v17.548c-1.811-.525-3.73-.887-5.795-.887c-10.522 0-18.11 7.244-18.11 18.11V92.36h-16.299V30.787h16.299v16.66c0-9.2 10.703-16.66 23.905-16.66Z"></path>
     </svg>
   );
 }
 
-export function LogosVisualStudioCode(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosVisualStudioCode(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5473,7 +5154,6 @@ export function LogosVisualStudioCode(
       height="32"
       viewBox="0 0 256 254"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -5483,8 +5163,8 @@ export function LogosVisualStudioCode(
           y1="0%"
           y2="100%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <path
           id="logosVisualStudioCode1"
@@ -5511,7 +5191,7 @@ export function LogosVisualStudioCode(
       />
       <path
         fill="url(#logosVisualStudioCode0)"
-        fill-opacity=".25"
+        fillOpacity=".25"
         d="M180.828 252.605a15.874 15.874 0 0 0 12.65-.486l52.5-25.263a15.938 15.938 0 0 0 9.026-14.363V41.197a15.939 15.939 0 0 0-9.025-14.363L193.477 1.57a15.877 15.877 0 0 0-18.114 3.084L74.857 96.35l-43.78-33.232a10.614 10.614 0 0 0-13.56.603L3.476 76.494c-4.63 4.211-4.635 11.495-.012 15.713l37.967 34.638l-37.967 34.637c-4.623 4.219-4.618 11.502.012 15.714l14.041 12.772a10.614 10.614 0 0 0 13.56.604l43.78-33.233l100.506 91.695a15.857 15.857 0 0 0 5.465 3.571Zm10.464-183.65l-76.262 57.89l76.262 57.888V68.956Z"
         mask="url(#logosVisualStudioCode2)"
       />
@@ -5519,7 +5199,7 @@ export function LogosVisualStudioCode(
   );
 }
 
-export function LogosVitest(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosVitest(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5527,7 +5207,6 @@ export function LogosVitest(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 234"
       {...props}
-      key={key}
     >
       <path
         fill="#FCC72B"
@@ -5546,7 +5225,7 @@ export function LogosVitest(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosVue(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosVue(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5554,7 +5233,6 @@ export function LogosVue(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 256 221"
       {...props}
-      key={key}
     >
       <path
         fill="#41B883"
@@ -5572,10 +5250,7 @@ export function LogosVue(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosWebpack(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosWebpack(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5583,7 +5258,6 @@ export function LogosWebpack(
       height="1em"
       viewBox="0 0 256 290"
       {...props}
-      key={key}
     >
       <path
         fill="#FFF"
@@ -5601,7 +5275,7 @@ export function LogosWebpack(
   );
 }
 
-export function LogosVitejs(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function LogosVitejs(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5609,7 +5283,6 @@ export function LogosVitejs(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="32"
       viewBox="0 0 256 257"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -5619,8 +5292,8 @@ export function LogosVitejs(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="7.652%"
           y2="78.411%"
         >
-          <stop offset="0%" stop-color="#41D1FF" />
-          <stop offset="100%" stop-color="#BD34FE" />
+          <stop offset="0%" stopColor="#41D1FF" />
+          <stop offset="100%" stopColor="#BD34FE" />
         </linearGradient>
         <linearGradient
           id="logosVitejs1"
@@ -5629,9 +5302,9 @@ export function LogosVitejs(props: React.SVGProps<SVGSVGElement>, key: string) {
           y1="2.242%"
           y2="89.03%"
         >
-          <stop offset="0%" stop-color="#FFEA83" />
-          <stop offset="8.333%" stop-color="#FFDD35" />
-          <stop offset="100%" stop-color="#FFA800" />
+          <stop offset="0%" stopColor="#FFEA83" />
+          <stop offset="8.333%" stopColor="#FFDD35" />
+          <stop offset="100%" stopColor="#FFA800" />
         </linearGradient>
       </defs>
       <path
@@ -5646,10 +5319,7 @@ export function LogosVitejs(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function LogosChromeWebStore(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosChromeWebStore(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5657,7 +5327,6 @@ export function LogosChromeWebStore(
       height="32"
       viewBox="0 0 256 223"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -5667,8 +5336,8 @@ export function LogosChromeWebStore(
           y1="50%"
           y2="50%"
         >
-          <stop offset="0%" stop-color="#D93025" />
-          <stop offset="100%" stop-color="#EA4335" />
+          <stop offset="0%" stopColor="#D93025" />
+          <stop offset="100%" stopColor="#EA4335" />
         </linearGradient>
         <linearGradient
           id="logosChromeWebStore1"
@@ -5677,8 +5346,8 @@ export function LogosChromeWebStore(
           y1="95.826%"
           y2="-4.161%"
         >
-          <stop offset="0%" stop-color="#1E8E3E" />
-          <stop offset="100%" stop-color="#34A853" />
+          <stop offset="0%" stopColor="#1E8E3E" />
+          <stop offset="100%" stopColor="#34A853" />
         </linearGradient>
         <linearGradient
           id="logosChromeWebStore2"
@@ -5687,8 +5356,8 @@ export function LogosChromeWebStore(
           y1="-.134%"
           y2="99.86%"
         >
-          <stop offset="0%" stop-color="#FBBC04" />
-          <stop offset="100%" stop-color="#FCC934" />
+          <stop offset="0%" stopColor="#FBBC04" />
+          <stop offset="100%" stopColor="#FCC934" />
         </linearGradient>
         <path
           id="logosChromeWebStore3"
@@ -5746,10 +5415,7 @@ export function LogosChromeWebStore(
   );
 }
 
-export function LogosSubversion(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosSubversion(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5757,7 +5423,6 @@ export function LogosSubversion(
       height="1em"
       viewBox="0 0 256 186"
       {...props}
-      key={key}
     >
       <path
         fill="#809CC8"
@@ -5767,10 +5432,7 @@ export function LogosSubversion(
   );
 }
 
-export function LogosLaravel(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosLaravel(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5778,7 +5440,6 @@ export function LogosLaravel(
       height="1em"
       viewBox="0 0 256 264"
       {...props}
-      key={key}
     >
       <path
         fill="#FF2D20"
@@ -5788,10 +5449,7 @@ export function LogosLaravel(
   );
 }
 
-export function LogosGoogleTagManager(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGoogleTagManager(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5799,7 +5457,6 @@ export function LogosGoogleTagManager(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <path
         fill="#8AB4F8"
@@ -5818,10 +5475,7 @@ export function LogosGoogleTagManager(
   );
 }
 
-export function LogosGoogleAnalytics(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGoogleAnalytics(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -5829,7 +5483,6 @@ export function LogosGoogleAnalytics(
       height="1em"
       viewBox="0 0 256 284"
       {...props}
-      key={key}
     >
       <path
         fill="#F9AB00"

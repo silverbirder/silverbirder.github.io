@@ -1,7 +1,4 @@
-export function OriginalBigQuery(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function OriginalBigQuery(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +6,6 @@ export function OriginalBigQuery(
       height="1em"
       viewBox="0 0 64 64"
       {...props}
-      key={key}
     >
       <path
         d="M14.48 58.196L.558 34.082c-.744-1.288-.744-2.876 0-4.164L14.48 5.805c.743-1.287 2.115-2.08 3.6-2.082h27.857c1.48.007 2.845.8 3.585 2.082l13.92 24.113c.744 1.288.744 2.876 0 4.164L49.52 58.196c-.743 1.287-2.115 2.08-3.6 2.082H18.07c-1.483-.005-2.85-.798-3.593-2.082z"
@@ -27,10 +23,7 @@ export function OriginalBigQuery(
   );
 }
 
-export function OriginalUrql(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function OriginalUrql(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,35 +31,34 @@ export function OriginalUrql(
       height="1em"
       viewBox="0 0 600 595"
       {...props}
-      key={key}
     >
       <defs>
         <path id="a" d="M0 .9h242.898v228.749H0z" />
         <path id="c" d="M0 .9h161.932v122.147H0z" />
         <path id="e" d="M0 .9H142.26v122.147H0z" />
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           fill="#202020"
           d="M342.277 9.4l195.971 87.165C575.801 113.268 600 150.515 600 191.616v211.961c0 41.1-24.199 78.348-61.752 95.051l-195.971 87.165a104.029 104.029 0 0 1-84.554 0L61.752 498.628C24.199 481.925 0 444.678 0 403.578V191.615c0-41.1 24.199-78.348 61.752-95.05L257.723 9.4a104.029 104.029 0 0 1 84.554 0z"
         />
         <path
           stroke="#8196FF"
-          stroke-width="24.247"
+          strokeWidth="24.247"
           d="M553.161 442.006a68.635 68.635 0 0 1-29.745 25.342L332.27 552.082a79.877 79.877 0 0 1-64.741 0L76.38 467.348a68.635 68.635 0 0 1-29.745-25.342 68.635 68.635 0 0 1-11.113-37.463V190.841a68.635 68.635 0 0 1 11.113-37.463 68.635 68.635 0 0 1 29.745-25.342l191.148-84.733a79.877 79.877 0 0 1 64.74 0l191.148 84.733a68.635 68.635 0 0 1 29.745 25.342 68.635 68.635 0 0 1 11.114 37.463v213.702a68.635 68.635 0 0 1-11.114 37.463z"
           opacity=".499"
         />
         <path
           stroke="#8196FF"
-          stroke-width="24.007"
+          strokeWidth="24.007"
           d="M573.14 453.712a91.94 91.94 0 0 1-39.77 33.949l-195.971 87.164a92.026 92.026 0 0 1-74.798 0l-195.97-87.164a91.94 91.94 0 0 1-39.772-33.949 91.94 91.94 0 0 1-14.856-50.135v-211.96A91.94 91.94 0 0 1 26.86 141.48a91.94 91.94 0 0 1 39.771-33.948l195.971-87.165a92.026 92.026 0 0 1 74.798 0l195.97 87.165a91.94 91.94 0 0 1 39.772 33.948 91.94 91.94 0 0 1 14.856 50.135v211.961a91.94 91.94 0 0 1-14.856 50.135z"
         />
         <text
           fill="#8196FF"
-          font-family="Helvetica-Bold, Helvetica"
-          font-size="51"
-          font-weight="bold"
-          letter-spacing="2"
+          fontFamily="Helvetica-Bold, Helvetica"
+          fontSize="51"
+          fontWeight="bold"
+          letterSpacing="2"
           transform="translate(0 -10)"
         >
           <tspan x="223" y="464">
@@ -132,10 +124,7 @@ export function OriginalUrql(
   );
 }
 
-export function OriginalApacheBeam(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function OriginalApacheBeam(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +132,6 @@ export function OriginalApacheBeam(
       width="64"
       height="64"
       {...props}
-      key={key}
     >
       <defs>
         <linearGradient
@@ -154,10 +142,10 @@ export function OriginalApacheBeam(
           y2="13.778"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#ffc400" />
-          <stop offset=".137" stop-color="#fecd00" />
-          <stop offset=".365" stop-color="#fed400" />
-          <stop offset="1" stop-color="#fed600" />
+          <stop offset="0" stopColor="#ffc400" />
+          <stop offset=".137" stopColor="#fecd00" />
+          <stop offset=".365" stopColor="#fed400" />
+          <stop offset="1" stopColor="#fed600" />
         </linearGradient>
         <linearGradient
           id="B"
@@ -167,11 +155,11 @@ export function OriginalApacheBeam(
           y2="11.463"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#ff0" stop-opacity=".7" />
-          <stop offset=".132" stop-color="#fff600" stop-opacity=".66" />
-          <stop offset=".314" stop-color="#feef00" stop-opacity=".626" />
-          <stop offset=".547" stop-color="#feea00" stop-opacity=".606" />
-          <stop offset="1" stop-color="#fee900" stop-opacity=".6" />
+          <stop offset="0" stopColor="#ff0" stopOpacity=".7" />
+          <stop offset=".132" stopColor="#fff600" stopOpacity=".66" />
+          <stop offset=".314" stopColor="#feef00" stopOpacity=".626" />
+          <stop offset=".547" stopColor="#feea00" stopOpacity=".606" />
+          <stop offset="1" stopColor="#fee900" stopOpacity=".6" />
         </linearGradient>
       </defs>
       <g transform="matrix(2.320993 0 0 2.320993 -61.209935 -40.03347)">
@@ -211,18 +199,15 @@ export function OriginalApacheBeam(
           d="M48.68 34.193a6.117 6.117 0 0 0-.859-1.832 5.775 5.775 0 0 0-1.454-1.445 6.565 6.565 0 0 0-2.068-.935 6.563 6.563 0 0 0 2.984-2.342 5.937 5.937 0 0 0 1.02-3.399 7.872 7.872 0 0 0-.652-3.333 5.921 5.921 0 0 0-1.879-2.313 8.449 8.449 0 0 0-3.003-1.35 16.552 16.552 0 0 0-4.003-.444h-9.423v1.06L43.3 22.208a.383.383 0 0 1 .264.364v3.116a.383.383 0 0 1-.196.334l-7.15 4.524 7.15 4.524a.383.383 0 0 1 .196.334v3.116a.383.383 0 0 1-.264.364l-13.956 4.348v1.06h10.084a14.401 14.401 0 0 0 3.994-.51 8.339 8.339 0 0 0 3.003-1.52 6.566 6.566 0 0 0 1.888-2.512 8.688 8.688 0 0 0 .652-3.484 7.591 7.591 0 0 0-.283-2.077z"
           fill="#ff6d00"
           stroke="#ff6d00"
-          stroke-miterlimit="10"
-          stroke-width=".077"
+          strokeMiterlimit="10"
+          strokeWidth=".077"
         />
       </g>
     </svg>
   );
 }
 
-export function OriginalVarnish(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function OriginalVarnish(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +215,6 @@ export function OriginalVarnish(
       width="64"
       height="64"
       {...props}
-      key={key}
     >
       <g
         transform="matrix(1.879037 0 0 1.879037 .281857 .000001)"
@@ -244,10 +228,7 @@ export function OriginalVarnish(
   );
 }
 
-export function OriginalMisterDonuts(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function OriginalMisterDonuts(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -255,9 +236,8 @@ export function OriginalMisterDonuts(
       height="2500"
       viewBox="0 0 192.756 192.756"
       {...props}
-      key={key}
     >
-      <g fill-rule="evenodd" clip-rule="evenodd">
+      <g fillRule="evenodd" clip-rule="evenodd">
         <path fill="#fff" d="M0 0h192.756v192.756H0V0z" />
         <path d="M113.625 91.346a7.88 7.88 0 0 0 7.881-7.88 7.88 7.88 0 1 0-15.76 0 7.88 7.88 0 0 0 7.879 7.88zM66.394 86.517V53.879l-7.563-9.685c2.256-1.725 5.44-6.103 6.104-13.666l60.898-22.023c1.326 4.245 3.449 8.624 8.094 11.277l-6.236 11.144v32.108L66.394 86.517z" />
         <path

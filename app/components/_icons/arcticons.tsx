@@ -1,7 +1,4 @@
-export function ArcticonsOpenaiChatgpt(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function ArcticonsOpenaiChatgpt(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +6,6 @@ export function ArcticonsOpenaiChatgpt(
       height="1em"
       viewBox="0 0 48 48"
       {...props}
-      key={key}
     >
       <path
         fill="none"

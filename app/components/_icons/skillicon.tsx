@@ -1,7 +1,4 @@
-export function SkillIconsEmotionLight(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SkillIconsEmotionLight(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +6,6 @@ export function SkillIconsEmotionLight(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <g fill="none">
         <rect width="256" height="256" fill="#F4F2ED" rx="60"></rect>
@@ -70,10 +66,7 @@ export function SkillIconsEmotionLight(
   );
 }
 
-export function SkillIconsRocket(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SkillIconsRocket(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +74,6 @@ export function SkillIconsRocket(
       height="1em"
       viewBox="0 0 256 256"
       {...props}
-      key={key}
     >
       <g fill="none">
         <g clipPath="url(#skillIconsRocket3)">

@@ -54,8 +54,8 @@ export const Portfolio = () => {
         <section>
           <h2 className="text-xl leading-[3rem] font-bold">お気に入りの技術</h2>
           <div className="flex flex-row gap-6 flex-wrap">
-            {topSkills.map((skill, index) => (
-              <TechIcon key={index} skill={skill} />
+            {topSkills.map((skill) => (
+              <TechIcon key={skill.name} skill={skill} />
             ))}
           </div>
         </section>
@@ -75,8 +75,8 @@ export const Portfolio = () => {
                       <div key={categoryIndex}>
                         <h3 className="text-base">{category.name}</h3>
                         <div className="flex flex-wrap gap-6">
-                          {category.skills.map((skill, skillIndex) => (
-                            <TechIcon key={skillIndex} skill={skill} />
+                          {category.skills.map((skill) => (
+                            <TechIcon key={skill.name} skill={skill} />
                           ))}
                         </div>
                       </div>

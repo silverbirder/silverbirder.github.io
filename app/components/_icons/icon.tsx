@@ -1,6 +1,6 @@
 // https://icones.js.org/
 
-export function MdiGithub(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function MdiGithub(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,6 @@ export function MdiGithub(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -18,7 +17,7 @@ export function MdiGithub(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function MdiTwitter(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function MdiTwitter(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +25,6 @@ export function MdiTwitter(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -36,10 +34,7 @@ export function MdiTwitter(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function MdiTagOutline(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function MdiTagOutline(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +42,6 @@ export function MdiTagOutline(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -57,7 +51,7 @@ export function MdiTagOutline(
   );
 }
 
-export function MdiMagnify(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function MdiMagnify(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +59,6 @@ export function MdiMagnify(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -76,8 +69,7 @@ export function MdiMagnify(props: React.SVGProps<SVGSVGElement>, key: string) {
 }
 
 export function MaterialSymbolsAccountCircle(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -86,7 +78,6 @@ export function MaterialSymbolsAccountCircle(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -97,8 +88,7 @@ export function MaterialSymbolsAccountCircle(
 }
 
 export function MaterialSymbolsCalendarMonth(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -107,7 +97,6 @@ export function MaterialSymbolsCalendarMonth(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -117,10 +106,7 @@ export function MaterialSymbolsCalendarMonth(
   );
 }
 
-export function MdiOfficeBuilding(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function MdiOfficeBuilding(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +114,6 @@ export function MdiOfficeBuilding(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -139,8 +124,7 @@ export function MdiOfficeBuilding(
 }
 
 export function MaterialSymbolsDescription(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -149,7 +133,6 @@ export function MaterialSymbolsDescription(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -160,8 +143,7 @@ export function MaterialSymbolsDescription(
 }
 
 export function MaterialSymbolsShoppingBag(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -170,7 +152,6 @@ export function MaterialSymbolsShoppingBag(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -180,10 +161,7 @@ export function MaterialSymbolsShoppingBag(
   );
 }
 
-export function LogosGoogleCloudPlatform(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function LogosGoogleCloudPlatform(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +169,6 @@ export function LogosGoogleCloudPlatform(
       height="1em"
       viewBox="0 0 256 228"
       {...props}
-      key={key}
     >
       <path
         d="M166.985 181.72l-26.136 45.432H72.4a17.038 17.038 0 0 1-14.782-8.568L2.254 122.055a17.05 17.05 0 0 1 0-16.945l21.07-36.72l26.005 45.186l39.204 68.143h78.452z"
@@ -244,7 +221,7 @@ export function LogosGoogleCloudPlatform(
   );
 }
 
-export function MdiApi(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function MdiApi(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +229,6 @@ export function MdiApi(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -262,10 +238,7 @@ export function MdiApi(props: React.SVGProps<SVGSVGElement>, key: string) {
   );
 }
 
-export function UilLetterJapaneseA(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function UilLetterJapaneseA(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +246,6 @@ export function UilLetterJapaneseA(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -283,10 +255,7 @@ export function UilLetterJapaneseA(
   );
 }
 
-export function UilLetterEnglishA(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function UilLetterEnglishA(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +263,6 @@ export function UilLetterEnglishA(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -304,7 +272,7 @@ export function UilLetterEnglishA(
   );
 }
 
-export function MdiRss(props: React.SVGProps<SVGSVGElement>, key: string) {
+export function MdiRss(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -312,7 +280,6 @@ export function MdiRss(props: React.SVGProps<SVGSVGElement>, key: string) {
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"

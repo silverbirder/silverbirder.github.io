@@ -1,9 +1,6 @@
 // https://icones.js.org/
 
-export function SimpleIconsBackstage(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsBackstage(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +8,6 @@ export function SimpleIconsBackstage(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -21,10 +17,7 @@ export function SimpleIconsBackstage(
   );
 }
 
-export function SimpleIconsFluentd(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsFluentd(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +25,6 @@ export function SimpleIconsFluentd(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -43,8 +35,7 @@ export function SimpleIconsFluentd(
 }
 
 export function SimpleIconsGoogleappsscript(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -53,7 +44,6 @@ export function SimpleIconsGoogleappsscript(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -63,10 +53,7 @@ export function SimpleIconsGoogleappsscript(
   );
 }
 
-export function SimpleIconsBuymeacoffee(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsBuymeacoffee(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +61,6 @@ export function SimpleIconsBuymeacoffee(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -85,8 +71,7 @@ export function SimpleIconsBuymeacoffee(
 }
 
 export function SimpleIconsHatenabookmark(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -95,7 +80,6 @@ export function SimpleIconsHatenabookmark(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -105,10 +89,7 @@ export function SimpleIconsHatenabookmark(
   );
 }
 
-export function SimpleIconsTwitter(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsTwitter(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +97,6 @@ export function SimpleIconsTwitter(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -126,10 +106,7 @@ export function SimpleIconsTwitter(
   );
 }
 
-export function SimpleIconsLinkedin(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsLinkedin(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +114,6 @@ export function SimpleIconsLinkedin(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -147,10 +123,7 @@ export function SimpleIconsLinkedin(
   );
 }
 
-export function SimpleIconsReddit(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsReddit(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +131,6 @@ export function SimpleIconsReddit(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -168,10 +140,7 @@ export function SimpleIconsReddit(
   );
 }
 
-export function SimpleIconsFacebook(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsFacebook(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +148,6 @@ export function SimpleIconsFacebook(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -189,10 +157,7 @@ export function SimpleIconsFacebook(
   );
 }
 
-export function SimpleIconsMastodon(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsMastodon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +165,6 @@ export function SimpleIconsMastodon(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"
@@ -210,10 +174,7 @@ export function SimpleIconsMastodon(
   );
 }
 
-export function SimpleIconsPocket(
-  props: React.SVGProps<SVGSVGElement>,
-  key: string
-) {
+export function SimpleIconsPocket(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +182,6 @@ export function SimpleIconsPocket(
       height="1em"
       viewBox="0 0 24 24"
       {...props}
-      key={key}
     >
       <path
         fill="currentColor"

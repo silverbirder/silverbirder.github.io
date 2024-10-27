@@ -108,12 +108,7 @@ export default async function Page() {
                     <div className="relative rounded-lg h-60 flex items-center justify-center overflow-hidden">
                       <EnhancedImage
                         src={photo}
-                        alt={`my-photo-${index + 1}`}
-                        width={"100%"}
-                        height={"100%"}
                         className="rounded-lg w-full h-full object-contain"
-                        href=""
-                        style={{}}
                       />
                     </div>
                   </CarouselItem>

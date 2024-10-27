@@ -6,12 +6,10 @@ import { createPortal } from "react-dom";
 
 export const EnhancedImage = ({
   src,
-  alt,
+  alt = "",
   href = "",
-  width,
-  height,
   className,
-  style,
+  style = {},
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -52,8 +50,6 @@ export const EnhancedImage = ({
       <img
         src={src}
         alt={alt}
-        width={width}
-        height={height}
         className={`rounded-lg object-contain cursor-pointer mx-auto my-6 ${className}`}
         onClick={toggleModal}
         loading="lazy"
@@ -82,8 +78,6 @@ export const EnhancedImage = ({
         <img
           src={src}
           alt={alt ?? src}
-          width={width}
-          height={height}
           className="object-contain my-6 mx-auto"
           loading="lazy"
         />

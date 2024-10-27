@@ -94,21 +94,21 @@ export const EnhancedImage = ({
     <figure className="my-6">
       {imageComponent}
       {isOpen && createPortal(modalContent, document.body)}
-      <div className="flex flex-row gap-2 items-center justify-center">
-        {alt && (
-          <figcaption className="my-0 text-center text-base">{alt}</figcaption>
-        )}
-        {href && (
-          <a
-            href={href}
-            className="h-6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ExternalLink size={18} className="h-6" />
-          </a>
-        )}
-      </div>
+      {alt && (
+        <figcaption className="my-0 flex flex-row gap-2 items-center justify-center text-center text-base">
+          <span>{alt}</span>
+          {href && (
+            <a
+              href={href}
+              className="h-6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={18} className="h-6" />
+            </a>
+          )}
+        </figcaption>
+      )}
     </figure>
   );
 };

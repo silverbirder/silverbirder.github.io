@@ -1,4 +1,3 @@
-import { NotebookLayout } from "@/components/notebook-layout";
 import { Link } from "next-view-transitions";
 import { User, Code, Briefcase } from "lucide-react";
 
@@ -65,15 +64,13 @@ const TableOfContents = () => {
 
 export default function Page() {
   return (
-    <NotebookLayout pathname={"/"}>
+    <div className="space-y-6">
       <div className="space-y-6">
-        <div className="space-y-6">
-          <p className="leading-6 text-foreground">
-            ようこそ！私は@silverbirderです。ウェブ開発に関わるソフトウェアエンジニアです。
-          </p>
-        </div>
-        <TableOfContents />
+        <p className="leading-6 text-foreground">
+          ようこそ！私は@silverbirderです。ウェブ開発に関わるソフトウェアエンジニアです。
+        </p>
       </div>
-    </NotebookLayout>
+      <TableOfContents />
+    </div>
   );
 }

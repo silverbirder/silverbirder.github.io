@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { baseUrl } from "app/sitemap";
-import { NotebookLayout } from "@/components/notebook-layout";
 import { getBlogPosts } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import dynamic from "next/dynamic";
@@ -100,25 +99,23 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <NotebookLayout pathname={"/blog"}>
-        <div className="flex flex-col items-start mb-6 leading-12">
-          <h2 className="font-bold text-2xl leading-[3rem]">
-            {post.metadata.title}
-          </h2>
-          <time
-            className="self-end text-xs leading-6 text-muted"
-            dateTime={post.metadata.publishedAt}
-          >
-            {formatDate(post.metadata.publishedAt)}
-          </time>
-        </div>
-        <article className="prose max-w-none">
-          <CustomMDX source={post.content} />
-        </article>
-        <div className="bg-yellow-100 rounded-lg mt-12 mb-36 p-6">
-          <DiscusNoSSR url={`${baseUrl}/blog/contents/${params.slug}/`} />
-        </div>
-      </NotebookLayout>
+      <div className="flex flex-col items-start mb-6 leading-12">
+        <h2 className="font-bold text-2xl leading-[3rem]">
+          {post.metadata.title}
+        </h2>
+        <time
+          className="self-end text-xs leading-6 text-muted"
+          dateTime={post.metadata.publishedAt}
+        >
+          {formatDate(post.metadata.publishedAt)}
+        </time>
+      </div>
+      <article className="prose max-w-none">
+        <CustomMDX source={post.content} />
+      </article>
+      <div className="bg-yellow-100 rounded-lg mt-12 mb-36 p-6">
+        <DiscusNoSSR url={`${baseUrl}/blog/contents/${params.slug}/`} />
+      </div>
     </>
   );
 }

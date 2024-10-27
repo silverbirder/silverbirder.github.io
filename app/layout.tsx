@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
+import Header from "./components/header";
+import Main from "./components/main";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -75,12 +77,11 @@ export default function RootLayout({
           <link rel="icon" type="image/png" href="/icon-192x192.png" />
         </head>
         <body className={cx("antialiased max-w-4xl mx-auto p-4")}>
-          <main className="flex-auto flex flex-col">
-            {children}
-            <Footer />
-            {process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
-            <OpenReplayNoSSR />
-          </main>
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+          {process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+          <OpenReplayNoSSR />
         </body>
       </html>
     </ViewTransitions>

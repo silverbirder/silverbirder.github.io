@@ -1,4 +1,3 @@
-import { NotebookLayout } from "@/components/notebook-layout";
 import { BlogPosts } from "@/components/posts";
 import { getBlogPosts } from "@/lib/blog";
 
@@ -9,9 +8,5 @@ export const metadata = {
 
 export default function Page() {
   const allBlogs = getBlogPosts();
-  return (
-    <NotebookLayout pathname={"/blog"}>
-      <BlogPosts allBlogs={allBlogs} />
-    </NotebookLayout>
-  );
+  return <BlogPosts allBlogs={allBlogs} />;
 }

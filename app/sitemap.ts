@@ -4,7 +4,7 @@ export const baseUrl = process.env.BASE_URL || "https://silverbirder.github.io";
 
 export default async function sitemap() {
   const blogs = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${baseUrl}/blog/contents/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 

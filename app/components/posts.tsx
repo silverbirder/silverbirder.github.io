@@ -64,7 +64,7 @@ export function BlogPosts({ allBlogs }: Props) {
           <Link
             key={post.slug}
             className="flex flex-col mb-6 rounded-lg hover:bg-green-500 hover:text-white transition-colors duration-200 ease-in-out"
-            href={`/blog/contents/${post.slug}`}
+            href={`/blog/contents/${post.slug}/`}
           >
             <div className="flex flex-col">
               <time

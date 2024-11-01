@@ -24,7 +24,7 @@ export async function GET() {
       (post) =>
         `<item>
           <title>${escapeXml(post.metadata.title)}</title>
-          <link>${baseUrl}/blog/contents/${post.slug}</link>
+          <link>${baseUrl}/blog/contents/${post.slug}/</link>
           <description>${escapeXml(post.metadata.summary || "")}</description>
           <pubDate>${new Date(
             post.metadata.publishedAt

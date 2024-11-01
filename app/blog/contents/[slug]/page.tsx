@@ -35,7 +35,7 @@ export function generateMetadata({ params }) {
       description,
       type: "article",
       publishedTime,
-      url: `${baseUrl}/blog/contents/${post.slug}`,
+      url: `${baseUrl}/blog/contents/${post.slug}/`,
       images: [
         {
           url: ogImage,
@@ -91,7 +91,7 @@ export default function Blog({ params }) {
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/contents/${post.slug}`,
+            url: `${baseUrl}/blog/contents/${post.slug}/`,
             author: {
               "@type": "Person",
               name: "silverbirder",

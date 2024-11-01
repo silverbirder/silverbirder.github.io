@@ -46,22 +46,22 @@ export default function Header() {
           isActive={pathname === "/"}
         />
         <Tab
-          href="/me"
+          href="/me/"
           label="自己紹介"
           color={"bg-blue-500"}
-          isActive={pathname === "/me"}
+          isActive={pathname === "/me/"}
         />
         <Tab
-          href="/blog"
+          href="/blog/"
           label="技術ブログ"
           color={"bg-green-500"}
-          isActive={pathname === "/blog"}
+          isActive={pathname === "/blog/"}
         />
         <Tab
-          href="/portfolio"
+          href="/portfolio/"
           label="ポートフォリオ"
           color={"bg-yellow-500"}
-          isActive={pathname === "/portfolio"}
+          isActive={pathname === "/portfolio/"}
         />
       </nav>
     </header>

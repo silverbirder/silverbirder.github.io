@@ -17,17 +17,17 @@ const tocItems: TOCItem[] = [
   {
     title: "初めての方",
     icon: User,
-    subItems: [{ page: 1, title: "自己紹介", path: "/me" }],
+    subItems: [{ page: 1, title: "自己紹介", path: "/me/" }],
   },
   {
     title: "エンジニアの方",
     icon: Code,
-    subItems: [{ page: 2, title: "技術ブログ", path: "/blog" }],
+    subItems: [{ page: 2, title: "技術ブログ", path: "/blog/" }],
   },
   {
     title: "お仕事ご依頼・技術支援をご希望の方",
     icon: Briefcase,
-    subItems: [{ page: 3, title: "ポートフォリオ", path: "/portfolio" }],
+    subItems: [{ page: 3, title: "ポートフォリオ", path: "/portfolio/" }],
   },
 ];
 

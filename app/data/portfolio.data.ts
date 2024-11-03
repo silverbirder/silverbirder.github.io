@@ -194,7 +194,8 @@ export const skillCategories = [
       {
         name: "Partytown",
         icon: LogosPartytownIcon,
-        description: "Webワーカーに処理を移してブラウザを軽くするツール。自サイトに使ってた。",
+        description:
+          "Webワーカーに処理を移してブラウザを軽くするツール。自サイトに使ってた。",
       },
       {
         name: "Progressive Web Apps (PWA)",
@@ -258,7 +259,8 @@ export const skillCategories = [
       {
         name: "CakePHP",
         icon: LogosCakephpIcon,
-        description: "MVCを学んだフレームワーク。初めての業務開発はこれだった。",
+        description:
+          "MVCを学んだフレームワーク。初めての業務開発はこれだった。",
       },
       {
         name: "Express.js",
@@ -658,6 +660,13 @@ export const artifacts = {
       image:
         "https://res.cloudinary.com/silverbirder/image/upload/v1729167141/silver-birder.github.io/artifacts/%E3%82%BF%E3%82%A4%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%A4%9C%E7%B4%A2.jpg",
       link: "https://tie-track.vercel.app",
+    },
+    {
+      title: "絵文字ルーレット",
+      description: "名前と絵文字で登録し、ルーレットで楽しく遊べるツールです。",
+      image:
+        "https://res.cloudinary.com/silverbirder/image/upload/v1730642411/silver-birder.github.io/artifacts/emoji-roulette.png",
+      link: "https://emoji-roulette.vercel.app",
     },
   ],
   githubProjects: [

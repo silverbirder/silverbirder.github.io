@@ -668,6 +668,12 @@ export const artifacts = {
         "https://res.cloudinary.com/silverbirder/image/upload/v1730642411/silver-birder.github.io/artifacts/emoji-roulette.png",
       link: "https://emoji-roulette.vercel.app",
     },
+    {
+      title: "ありがとう、技術ブログ",
+      description: "技術ブログにお礼を伝えるサービス",
+      image: "https://thanks-tech-blog.vercel.app/android-chrome-512x512.png",
+      link: "https://thanks-tech-blog.vercel.app"
+    }
   ],
   githubProjects: [
     {

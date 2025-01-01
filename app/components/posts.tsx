@@ -13,9 +13,16 @@ type Props = {
 };
 
 export function BlogPosts({ allBlogs }: Props) {
-  const [selectedYear, setSelectedYear] = useState<number | null>(
-    new Date().getFullYear()
-  );
+  const latestYear = useMemo(() => {
+    if (allBlogs.length === 0) return null;
+    return new Date(
+      Math.max(
+        ...allBlogs.map((blog) => new Date(blog.metadata.publishedAt).getTime())
+      )
+    ).getFullYear();
+  }, [allBlogs]);
+
+  const [selectedYear, setSelectedYear] = useState<number | null>(latestYear);
 
   const blogsByYear = useMemo(() => {
     const sorted = allBlogs.sort(
@@ -38,7 +45,9 @@ export function BlogPosts({ allBlogs }: Props) {
     .map(Number)
     .sort((a, b) => b - a);
 
-  const filteredBlogs = selectedYear ? blogsByYear[selectedYear] : allBlogs;
+  const filteredBlogs = selectedYear
+    ? blogsByYear[selectedYear] ?? []
+    : allBlogs;
 
   return (
     <div className="flex flex-col md:flex-row">

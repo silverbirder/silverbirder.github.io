@@ -159,32 +159,15 @@ export const Portfolio = () => {
             ))}
           </div>
           <h3 className="text-lg leading-[3rem] font-bold">Webサービス</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {artifacts.webServices.map((service, index) => (
-              <a
-                key={index}
-                href={service.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-48 block select-none border border-gray-200 rounded-md overflow-hidden bg-white hover:shadow-md transition-shadow"
-              >
-                <div className="h-24 flex items-center justify-center p-2">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="max-h-full max-w-full w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-4">
-                  <h4 className="text-sm font-bold mb-2">{service.title}</h4>
-                  <p className="text-xs text-gray-600 line-clamp-3">
-                    {service.description}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
+          <a
+            href="https://sites.google.com/view/silverbirders-services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline text-base inline-flex items-center"
+          >
+            マイサービス一覧
+            <ExternalLink className="ml-1 w-3 h-3" />
+          </a>
           <h3 className="text-lg leading-[3rem] font-bold">
             GitHubプロジェクト
           </h3>

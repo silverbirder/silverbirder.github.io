@@ -50,7 +50,7 @@ export const EnhancedImage = ({
       <img
         src={src}
         alt={alt}
-        className={`rounded-lg object-contain cursor-pointer mx-auto my-6 ${className}`}
+        className={`rounded-lg object-contain cursor-pointer mx-auto my-6 ${className} border border-border`}
         onClick={toggleModal}
         loading="lazy"
         style={style}

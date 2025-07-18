@@ -84,8 +84,8 @@ function Image(props) {
   const calculateHeight = (height) => {
     const roundedHeightInPx = Math.ceil(height / 24) * 24;
     const roundedHeightInRem = roundedHeightInPx / 16;
-    if (roundedHeightInRem >= 12) {
-      return "12";
+    if (roundedHeightInRem >= 24) {
+      return "24";
     }
     return `${roundedHeightInRem}`;
   };

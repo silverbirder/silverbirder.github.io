@@ -1,134 +1,317 @@
 ---
-title: '苦手なCSSを少しでも克服しよう'
+title: '苦手なCSSを克服しよう'
 publishedAt: '2025-07-14'
 summary: 'xx'
 tags: ["CSS"]
 ---
 
-こんにちは。CSS苦手ですか？私は克服しました。
-1,2年ほどCSSを使っていくうちに、だいたい同じ様なことばかり書いていることに気づきました。
-本記事では1つのサンプルページを見ながら、CSSを少しわかった気になってもらえたらなと思います。
-サンプルページのセクションごとに独立しているので、読みたいところだけ読んでください。
+こんにちは。CSSは苦手ですか？私は苦手でした。
+苦手でしたが、実務を経験していくうちに、だんだんとできる範囲が増えていき楽しくなってきました。
+
+本記事では1つのサンプルページを見ながら、CSSをどう考えて使っているのか解説したいと思います。
+読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。
+
+サンプルページのセクションごとに独立して解説しているので、読みたいところだけ読んでくださいね。
 
 ## サンプルページ
 サンプルページは、以下のURLにあります。
 
-https://learn-layout.vercel.app
+- https://learn-layout.vercel.app
 
-{/* サンプルページの画像(PC/SP) */}
+<Image 
+  src="/learn-layout.png" 
+  alt="Learn Layout"
+  href="https://learn-layout.vercel.app" 
+  width={3164}
+  height={2062}
+/>
 
-リポジトリは、以下のURLにあります。
+サンプルページのソースコードは、以下のリポジトリにあります。
+勉強のお供に、お手元にダウンロードしておいてください。
 
-https://github.com/silverbirder/learn-css
+- https://github.com/silverbirder/learn-css
 
-このサンプルページは、SaaSのランディングページを想定しています。
-コンテンツは、以下の通りです。
+### サンプルページの内容
 
-- ヒーロー
-- 主要機能
-- 対応技術
-- デモ
-- お客様の声
-- 料金プラン
+このサンプルページは、よくあるSaaSのランディングページを想定しています。
+サービス名は「CSS AI」で、AI駆動のCSSスタイリングプラットフォームを提供する架空のサービスです。
+このサンプルページのセクションは、以下のとおりです。
 
-どれも、よくあるSaaSのランディングページのセクションです。
+- ヒーローセクション
+  - 「CSS AI」のタイトル・サブタイトル・説明文・ボタンを画面全体に大きく表示
+- 主要機能セクション
+  - 6つの機能をアイコン・タイトル・説明文でカード形式で紹介
+- 対応技術セクション
+  - GPT-4やClaudeなど複数の技術タグを横並び表示
+- デモセクション
+  - 左側にデモ動画、右側に3ステップの使用手順を解説
+- お客様の声セクション
+  - 複数のレビューカードを横スクロール可能な形で表示
+- 料金プランセクション
+  - スターター・プロ・エンタープライズの3つのプランを比較表示
 
-## 自己紹介・対象読者
+### サンプルページで学べること
 
-対象読者の説明の前に、まずは軽く自己紹介をします。
-というのは、対象読者は過去の私を含めているからです。
+CSSを使って楽しくなってきたと実感したのは、**FlexboxやGridを使ったレイアウトができる** ようになった頃からです。
+個人の感想ですが、テキストや画像を思い通りの場所に配置できるようになると、楽しくなってきたのです。
 
-私は、約1,2年ほど前からWebフロントエンド専門での開発をしていますが、それまではフルスタックな開発が多かったです。
-フロントエンド専門をするまでは、フロントエンドにおけるテストや設計、パフォーマンスなどそういった側面に得意だったのです。
-その一方で、CSSに関しては本当に苦手意識が高かったのです。
-具体的には、以下のポイントが苦手でした。
+サンプルページでは、[Every Layout](https://every-layout.dev/) を参考にしていて、よくあるレイアウトパターンを取り入れています。
+各セクションでは、以下のようなレイアウトを学ぶことができます。
 
-- テキストや画像をおきたいところに置けない。
-- CSSのプロパティが多すぎて、何を使えばいいのかわからない。
-- データが増えたり、画面サイズが変わるとレイアウトが崩れてしまう。
+- ヒーローセクション
+  - タイトル、サブタイトル、説明文、ボタンを左右上下中央に配置しています。
+- 主要機能セクション
+  - 主要機能を2行3列で表示し、横幅が狭くなると列数が減るようにしています。
+- 対応技術セクション
+  - 技術タグを横に並べ、横幅が狭くなると折り返して表示するようにしています。
+- デモセクション
+  - 横幅が広いときは動画と説明を横に並べ、狭くなると動画が上、説明が下に落ちるようにしています。
+- お客様の声セクション
+  - レビューカードを横に並べ、横幅が狭くなると横スクロールできるようにしています。
+- 料金プランセクション
+  - 3つのプランを横並びにしつつ、ブラウザの横幅が狭くなると縦に並ぶようにしています。
 
-上記のポイントが苦手と感じる方を対象読者として考えています。
+また、画面上部にはヘッダーを固定していて、ある程度の横幅になると3本線のハンバーガーメニューに切り替わります。
+その他に、画面右下には画面上部に戻るボタンを配置しています。
 
-## 何ができると楽しくなるか
+ぜひ、さまざまなブラウザサイズで確認してみてください！
 
-私がCSSで自信が掴め始めたのは、CSSのレイアウトに関する技術が身についた頃からです。
+### サンプルページで学ばないこと
 
-レイアウトとは、要素をどのように配置するかということです。
-CSSの根本である、ボックスレイアウトとフローレイアウトを理解すれば、レイアウトの基本がわかります。
-レイアウトができるようになると、CSSできるようになってきた!というできる実感が湧いてきます。
+学ばないことについて明記しておきます。
 
-そのため、本記事ではCSSレイアウトに重点を置いています。
+**私がCSSの苦手意識になった1つが、CSSプロパティの多さです**。
+たくさんあるCSSプロパティの中から、どれを使ったら良いのか、正直使いこなせるとは思いませんでした。
 
-他に、CSSに関して学ぶとしたら、他には色相やタイポグラフィ、角丸、影、アニメーション、色々ありますが、それらは大したことではありません。
-やっていけば覚えますし、調べながらやれば十分です。
+そこで、本記事ではレイアウトに関する以下のCSSプロパティを使います。
+以下の各CSSプロパティのリンクは、MDN Web Docs（以降、MDNと呼称）のページを参照しています。
 
-また、CSSは、いきなりできるようになるものではありません。
-実際に業務を経験して、自信の血肉となるのです。
-まずは、わかった気になるところまで足を踏み入れるのです。
-そこから、『理屈はわかったので、多分できるはずだ...』という気持ちになれたら、本書のゴールです！
+- [display](https://developer.mozilla.org/ja/docs/Web/CSS/display)
+  - flex関連
+    - [flex-direction](https://developer.mozilla.org/ja/docs/Web/CSS/flex-direction), [flex-wrap](https://developer.mozilla.org/ja/docs/Web/CSS/flex-wrap), [flex-basis](https://developer.mozilla.org/ja/docs/Web/CSS/flex-basis), [flex-grow](https://developer.mozilla.org/ja/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/ja/docs/Web/CSS/flex-shrink)
+    - [align-items](https://developer.mozilla.org/ja/docs/Web/CSS/align-items), [justify-content](https://developer.mozilla.org/ja/docs/Web/CSS/justify-content), [gap](https://developer.mozilla.org/ja/docs/Web/CSS/gap)
+  - grid関連
+    - [grid-template-columns](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-columns), [grid-template-rows](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-rows), [grid-template-areas](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-areas)
+    - [grid-area](https://developer.mozilla.org/ja/docs/Web/CSS/grid-area), [grid-row](https://developer.mozilla.org/ja/docs/Web/CSS/grid-row), [gap](https://developer.mozilla.org/ja/docs/Web/CSS/gap)
+- 位置関連
+  - [position](https://developer.mozilla.org/ja/docs/Web/CSS/position)
+  - [top](https://developer.mozilla.org/ja/docs/Web/CSS/top), [right](https://developer.mozilla.org/ja/docs/Web/CSS/right), [bottom](https://developer.mozilla.org/ja/docs/Web/CSS/bottom), [left](https://developer.mozilla.org/ja/docs/Web/CSS/left)
+  - [transform](https://developer.mozilla.org/ja/docs/Web/CSS/transform)
+  - [z-index](https://developer.mozilla.org/ja/docs/Web/CSS/z-index)
+- spacing関連
+  - [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding), [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)
+- [width](https://developer.mozilla.org/ja/docs/Web/CSS/width), [height](https://developer.mozilla.org/ja/docs/Web/CSS/height)
+
+上記以外のプロパティは、調べながら使っていけば自然と覚えますので、気にしないでください。
 
 ## 前提となる知識
 
-レイアウトを学ぶ前に、前提となる知識をおさらいしておきましょう。
-ちなみに、以降は 書字方向は横書きを前提としています。
+サンプルページを学ぶ前に、CSSレイアウトについての前提知識をMDNを参考にして紹介します。
+本記事では、書字方向は横書きを前提としています。あまり覚える部分を増やしたくないからです。
 
 ### ボックスモデル
 
+HTMLをCSSでスタイリングする際、その要素をボックスモデルという長方形の形で表現します。
+
+> ブラウザーのレンダリングエンジンは文書をレイアウトする際に、それぞれの要素を標準的な CSS 基本ボックスモデルに基づいた長方形のボックスとして表現します。 CSS はこれらのボックスの寸法、位置、プロパティ（色、背景、境界の幅など）を決定します。  
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model
 
-CSSは、以下を含めてボックスで表現されます。
+具体的な図は、以下の通りです。
 
-- コンテンツボックス
-- パディングボックス
-- ボーダーボックス
-- マージンボックス
+<Image 
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model/boxmodel.png" 
+  alt="CSS 基本ボックスモデル入門 - CSS: カスケーディングスタイルシート | MDN"
+  href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model"
+  width={548}
+  height={386}
+/>
+
+ボックスモデルには、以下の4つ領域があります。
+
+- コンテンツ領域
+  - 文字や画像などの実際のコンテンツ
+- 境界領域
+  - コンテンツの周りの線
+  - CSSプロパティ: border
+- パディング領域
+  - コンテンツとボーダーの間のスペース
+  - CSSプロパティ: padding
+- マージン領域
+  - ボーダーの外側のスペース
+  - CSSプロパティ: margin
+
+実際にボックスモデルがどのようになっているかは、ブラウザにあるDevToolsを使うと確認できます。
+
+<Image
+  src="https://developer.chrome.com/static/docs/devtools/css/reference/image/he-box-model-diagram-c955156cbf7bd_1920.png?hl=ja" 
+  alt="CSS 機能リファレンス | Chrome DevTools | Chrome for Developers"
+  href="https://developer.chrome.com/docs/devtools/css/reference?hl=ja#box-model"
+  width={600}
+  height={400}
+/>
+
+これで、paddingやmargin、borderの値が視覚的に確認できます。
 
 ### 通常フローとブロックとインライン
 
+HTML要素は、aタグやspanタグのようなインライン要素、divタグやpタグのようなブロック要素があります。
+どの要素がブロック要素かインライン要素かは、[HTML Standard - html.spec.whatwg.org](html.spec.whatwg.org)で "display" と検索すると分かります。
+HTML要素のブロック・インラインは、CSSのdisplayプロパティで変更できます。
+
+どのようにコンテンツが並ぶかというと、以下の図の様にブロックの場合は下方向に並び、インラインの場合は横方向に並びます。
+
+<Image
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow/mdn-horizontal.png" 
+  alt="通常フローでのブロック及びインラインレイアウト - CSS: カスケーディングスタイルシート | MDN"
+  href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow"
+  width={521}
+  height={382}
+/>
+
+#### ブロック要素とインライン要素の仕様
+
+ブロック要素とインライン要素についての仕様があります。
+このセクションは読み飛ばしてもらっても構いませんが、知識として知っておくと良いでしょう。
+
+> 既定では、**ブロック要素はインライン方向の空間をすべて消費する**ので、段落は広がり、包含ブロックの中で可能な限り大きくなります。ブロック要素に幅を設定した場合、段落が横に並ぶ空間があったとしても、**段落は下へ下へと配置されます**。それぞれは包含ブロックの先頭側の反対側から始まりますので、その書字方向で文章が始まる場所になります。  
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
 
-ボックスを配置する際に、横に並べるか縦に並べるかというのを考えます。
-もちろん、絶対位置のような配置方法もありますが、まずは通常フローでの配置方法を考えます。
+ブロック要素は、下に下に配置され、横幅いっぱいに広がります。
 
-### フレックスボックス
+また、マージンの相殺という仕様もあります。
 
-https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+> 仕様書では、ブロック要素間のマージンは相殺されると説明されています。つまり、**上マージンを持つ要素がに下マージンを持つ要素の直後に来た場合**、空間の合計はこれら 2 つのマージンの合計になるのではなく、**マージンが相殺**され、本質的には 2 つのマージンのうち**大きい方のマージン**と同じくらいの大きさになるということです。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
 
-フレックスボックスは、アイテムを行・列に配置できます。
-さらに、縮めたり伸ばしたりできるのが、特徴です。
 
-デザインしたい要素を、フレックスボックスとして配置を考える場合、
-トップダウンでHTML構造を考えます。
-そこから、横に配置するか縦に配置するかを考えます。
-それを何度も繰り返すことで、デザインできるようになります。
+インラインの場合、以下の仕様があります。
+
+>.  インライン要素は、その特定の書字方向で文章が進む方向に次々と表示されます。インライン要素がボックスを持っていると考えることはあまりありませんが、 CSS のすべての要素と同様にボックスを持っています。これらのインラインボックスは、次から次へと配置されています。**すべてのボックスを含むブロックに十分な空間がない場合、ボックスは新しい行に分割されます**。生成された行は行ボックスと呼ばれています  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
+
+当たり前ですが、インライン要素は横いっぱいまで広がると、折り返して次の行に配置されます。
+
+### フレックスボックスレイアウト
+
+ブロック・インライン要素は、単純に1つ並べるだけです。
+しかし、実際にはそう単純なレイアウトは少ないかと思います。縦横自由に配置したい時があります。
+
+そこで、フレックスボックスレイアウトの出番です。私は、この**フレックスボックスレイアウトを使い慣れることで、苦手意識が少しずつ克服できました**。
+
+> CSS フレックスボックスレイアウト (CSS flexible box layout) は、ユーザーインターフェイスの設計に最適化された CSS ボックスモデルと、一次元のアイテムのレイアウトを定義します。フレックスレイアウトモデルでは、フレックスコンテナーの子は任意の方向にレイアウトすることができ、また使われていない空間を埋めるために伸長したり、あるいは親のあふれることを避けるために収縮したりと、そのサイズを「伸縮」することができます。子の水平方向と垂直方向の両方の整列を、容易に操作することが可能です。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout
+
+display: flex を指定した要素は、フレックスコンテナとなり、子要素を任意の方向に配置できます。
+以下のように、flex-directionというCSSプロパティを使うことで、横に並べるか縦に並べるか自由に決めることができます。
+
+<Image
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics1.svg" 
+  alt="フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN"
+  href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
+  width={1225}
+  height={347}
+/>
+
+<Image
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics2.svg" 
+  alt="フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN"
+  href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
+  width={500}
+  height={612}
+/>
+
+フレックスボックスレイアウトの特徴は、**伸縮性** です。
+CSSプロパティの flex-grow (フレックス成長率)、flex-shrink (フレックス縮小係数)、flex-basis (初期の寸法) を使うことで、アイテムのサイズを伸ばしたり縮めたりできます。
+これは、レスポンシブデザインを実現する上で非常に便利です。
+サンプルページでは、**デモセクションや料金プランセクションでこの伸縮性の特性を活用しています**。
+
+ちなみに、以下の図のようにフレックスボックスはDevToolsで可視化することができます。
+
+<Image
+  src="https://developer.chrome.com/static/docs/devtools/css/flexbox/image/change-justify-content-f-c2b95dc213b96_1920.png?hl=ja" 
+  alt="CSS Flexbox レイアウトを検査してデバッグする | Chrome DevTools | Chrome for Developers"
+  href="https://developer.chrome.com/docs/devtools/css/flexbox?hl=ja#examine"
+  width={1998}
+  height={1196}
+/>
 
 ### グリッドレイアウト
 
-https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
+他のレイアウト方法として、グリッドレイアウトがあります。
+フレックスボックスレイアウトの様な伸縮性はありませんが、**グリッドレイアウトは2次元のレイアウト**が得意です。1次元ももちろん含まれます。
 
-グリッドレイアウトは、二次元グリッドシステムをCSSで実現します。
-フレックスボックスのように、縦横に配置するレイアウトも可能ですし、
-グリッドエリアを指定して、複雑な2次元構造を表現もできるのが特徴です。
-1次元ももちろん可能です。
+> CSS グリッドレイアウト (Grid Layout) は、ウェブ用の 2 次元レイアウトシステムです。 コンテンツを行と列に整理することができ、複雑なレイアウトの作成を簡素化する多くの機能を提供します。  
+https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grids
+
+> グリッドレイアウトとは
+グリッドとは、水平方向と垂直方向の線を集めたもので、デザイン要素を並べて表示することができます。 ページ間を移動するときに要素が跳び回ったり幅が変わったりしないようなデザインを作成するのに役立ちます。  
+https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grids#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%A8%E3%81%AF
+
+グリッドの例としては、以下の図のように行・列を簡単に定義できます。
+
+<Image
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout/1_grid_cell.png" 
+  alt="グリッドレイアウトの基本概念 - CSS: カスケーディングスタイルシート | MDN"
+  href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%82%BB%E3%83%AB"
+  width={600}
+  height={400}
+/>
+
+グリッドを応用すれば、以下のようによくあるレイアウトも構築できます。
+
+<Image
+  src="/grid-sample-article.png" 
+  alt="グリッドレイアウトのサンプル"
+  width={1508}
+  height={1150}
+/>
+
+ちなみに、以下の図のようにグリッドレイアウトはDevToolsで可視化することができます。
+
+<Image
+  src="https://developer.chrome.com/static/docs/devtools/css/grid/image/layout-pane-7a3117d2d859_1920.png?hl=ja" 
+  alt="CSS グリッド レイアウトを検査する | Chrome DevTools | Chrome for Developers"
+  href="https://developer.chrome.com/docs/devtools/css/grid?hl=ja"
+  width={2582}
+  height={1690}
+/>
 
 ### 重ね合わせコンテキスト
 
-通常フローは、平面で考えます。
-重ね合わせコンテキストは、z軸方向に要素を重ねることができる概念です。
+フレックスボックスやグリッドレイアウトは、通常フローで要素を配置します。
+通常フローとは別に、重ね合わせコンテキスト（stacking context）という概念があります。
 
+>.  重ね合わせコンテキスト (Stacking context) は、ビューポートまたはウェブページに面していると想定されるユーザーに対する**仮想的な Z 軸に沿って並べられた HTML 要素の三次元の概念化**です。 HTML 要素は、要素の属性に基づいてこの空間を優先度つきの順序で占有します 
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context
 
-同じz軸の高さにある要素は、重なり順序を考慮する必要があります。z-indexですね。
-逆に、高さが揃っていない要素同士は、比較することができません。比較は、同じ高さのものです。
+Z軸の高い位置が前面に表示され、Z軸の低い位置が背面に表示されます。
+同じZ軸の位置にある要素は、重なり順序を考慮する必要があります。z-indexで重なり順序を変更できます。
 
-重ね合わせコンテキストを生成するのは、positionが一番有名かと思います。
-これを使う際は、position relativeしてabsoluteで配置することが多いです。
+重ね合わせコンテキストは、[重ね合わせコンテキスト - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context#%E8%A7%A3%E8%AA%AC) に書いてある通り、以下のような場合に生成されます。
+
+- position の値が absolute または relative であり、かつ z-index の値が auto 以外の要素
+- position の値が fixed または sticky の要素（sticky はすべてのモバイルブラウザーにありますが、古いデスクトップブラウザーにはありません）。
+- 省略
+
+このあたりは、文章で説明するよりも実践を通して学ぶ方が理解しやすいと思いますので、**雰囲気だけ掴んでおいてください**。（私自身が説明できるほど理解していないので）
+
+よくあるケースとしては、positionプロパティを使った位置指定です。以下のHTMLが定番かと思います。
+
+```html
+<!-- 親要素 -->
+<div style="position: relative;">
+  <!-- 子要素は、親の相対位置を基準に絶対位置で配置されます -->
+  <div style="position: absolute; top: 0; left: 0;"></div>
+</div>
+```
+
+起点となる親要素に position: relative を指定し、子要素に position: absolute を指定することで、親要素の位置を基準に子要素を配置できます。
 
 ### ブラウザに計算させる
 
-レイアウトを実装していくと、widthを100pxのように固定値でしてしまうことがあります。
+レイアウトを構築していくと、widthを100pxのように絶対値（固定）でしてしまうことがあります。
 これは、特定のブラウザサイズであればうまくいくかもしれません。
-しかし、以下のような問題が発生するかもしれません。
+しかし、以下のような問題が発生する可能性があります。
 
 - ブラウザの縦横の幅が変わると、レイアウトが崩れる
 - 表示するデータが変動すると、レイアウトが崩れる
@@ -141,84 +324,77 @@ https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_con
 - calc()を使用して、計算させる
   - calc(100% - 20px)のように、相対値と固定値を組み合わせる
 
-そのため、固定で定義した際には、"ブラウザサイズやデータが変わったらどうなるのか？"を想像しましょう。
+もし固定で値を定義した際には、**"ブラウザサイズやデータが変わったらどうなるのか？"** を想像しましょう。
 
 ## サンプルページのセクション
 
-それでは、実際にサンプルページのセクションを見ていきましょう。
+長くなりましたが、それではサンプルページのセクションを見ていきましょう。
 再掲ですが、サンプルページとリポジトリは以下のURLにあります。
 
-https://learn-layout.vercel.app
-https://github.com/silverbirder/learn-css
-
-### デバッグ方法
-
-CSSでなんでこうなるんだろう？とわからなくなることは、とてもよくあります。
-そのような時は、ChromeなどのブラウザにあるDevToolsを使うと良いでしょう。
-
-例えば、以下のデバッグができるので、実装時は重宝します。
-
-- 要素のボックスモデルを確認する
-  - コンテンツ、マージン、パディング、ボーダーのサイズを確認できます。
-- flexboxやgridのレイアウトを可視化する
-  - flexboxやgridのitemがどのように配置されているか確認できます。
-- CSSのプロパティをその場で変えて、違いを確認する
-  - align-itemsやjustify-contentなどのプロパティを変更して、どのように変わるか確認できます。
-
-ref: https://developer.chrome.com/docs/devtools/css/reference
+- https://learn-layout.vercel.app
+- https://github.com/silverbirder/learn-css
 
 ### 共通変数
 
 サンプルページでは、スペースや色、フォントサイズをCSS変数で定義しています。
-これは、CSSの値を設定する際に、`var(--spacing-xs)` のように使用します。
-決まったスペースやフォントサイズを決めておくと、全体のデザインが統一されるためお勧めです。
+これは、CSSの値を設定する際に、var(--spacing-xs) のように使用します。
+決まったスペースやフォントサイズを決めておくと、全体のデザインが統一されるため、お勧めです。
 
 ### 全体セクション
 
 ヒーローやヘッダー・フッターを除いたセクションは、以下のHTMLで囲むようにしています。
 
 ```html
-<div class="container sections">
-  <section></section>
-  <section></section>
+<div class="container">
+  <section>
+    <h2>タイトル</h2>
+    <div>コンテンツ</div>
+  </section>
+  <section>
+    <h2>タイトル</h2>
+    <div>コンテンツ</div>
+  </section>
   <!-- 省略 -->
 </div>
 ```
 
-これは、以下のようなCSSになっています。
-全体の最大横幅を定義しつつ、左右中央に寄せるようにします。
-また、セクションごとに、gapによるスペースを開けるようにしています。
+各セクションには、セクションタイトルとコンテンツが含まれています。
+全体のレイアウトを整えるため、横幅の制限と中央寄せを行います。
+横幅制限をかけないと、画面横いっぱいにコンテンツが広がってしまうため、視線が散漫になってしまいます。
+そのため、横幅制限をかけることで、規則的なレイアウトを実現できます。
+
+具体的なCSSは、以下のとおりです。
 
 ```css
 .container {
+  /* 横幅を制限します */
   max-width: var(--breakpoint-desktop);
+  /* 横幅を中央寄せします */
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--spacing-base);
-}
-
-.sections {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-  /* Footer向けのスペースです */
-  margin-bottom: var(--spacing-lg);
 }
 ```
 
 ## ヒーロー
 
-{/* 画像 */}
+<Image 
+  src="/learn-layout.png" 
+  alt="ヒーローセクション"
+  width={3164}
+  height={2062}
+/>
 
 ヒーローセクションは、でかでかとタイトルを目立つ様に配置しています。
-HTMLとCSSを想像します。
+上記画像から、HTML構造とCSSを想像してみましょう。
 
-画面の上下左右中央に配置されている
-3つに分けられそう。
+以下について気づくかと思います。
 
-- タイトルとサブタイトル
-- 説明文
-- ボタン
+- 画面全体に広がっている
+- 画面の上下左右中央に配置されている
+- 3つの要素が縦に並んでいる
+  - タイトルとサブタイトル
+  - 説明文
+  - ボタン
 
 HTML構造は、以下になりました。（正解は1つではありません）
 
@@ -681,14 +857,20 @@ CSSは、以下です。
   /* flexboxで横に並べる */
   /* gridでも可 */
   display: flex;
+  /* 横スクロールできるように。横は区切るように */
   overflow-x: auto;
   --_gap: var(--spacing-sm);
   gap: var(--_gap);
 
   & > * {
     --_column: 1.5;
-    flex: 0 0
-      calc((100% - (var(--_gap) * (var(--_column) - 1))) / var(--_column));
+    /* 伸び縮みしない */
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* 横幅をcolumnを1つと半分が表示できるようにする */
+    flex-basis: calc(
+      (100% - (var(--_gap) * (var(--_column) - 1))) / var(--_column)
+    );
     @media (min-width: 40rem) {
       --_column: 2.5;
     }
@@ -728,9 +910,12 @@ CSSは、以下です。
 
 {/* 画像 */}
 
+料金プランでは、3つのプランをカード上に表示します。
+プランは、同じ幅で表示しつつ、横幅がある小ささになると、全て縦に並ぶようになる、switcherパターンです。
+
 ```html
-<section id="pricing" class="section">
-  <h2 class="section-title sticky-section-title">料金プラン</h2>
+<section class="section">
+  <h2 class="section-title">料金プラン</h2>
   <div class="price-items">
     <div class="price-item">
       <h4 class="plan-name">スターター</h4>
@@ -768,25 +953,48 @@ CSSは、以下です。
 ```
 
 ```css
+.section {
+  display: grid;
+  /* 列を1つだけ */
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
 /* Pricing Section */
 .price-items {
   display: flex;
+  /* 折り返せるようにする */
   flex-wrap: wrap;
   gap: var(--spacing-md);
 
   & > * {
+    /* growをみんな同じ */
     flex-grow: 1;
-    flex-basis: calc((40rem - 100%) * 999);
+    /* 横幅が広い場合、100%が大きくなる(46rem)ので、マイナスになり、無効化されます。 */
+    /* 逆に、小さい横幅なら、整数 * 999 という大きな値になります。 */
+    /* 1列になるのは、(45rem-100%が整数)45rem以下。コンテナが45remより小さい。
+       (45remを超える)3列に並ぶのは、3分割になる。コンテナが45remを大きい。
+     */
+    /* コンテナが45remより大きくなると垂直に、45remが小さいと横に並ぶ。 */
+    flex-basis: calc((45rem - 100%) * 999);
   }
 }
 
 .price-item {
+  /* ここを基準に */
   position: relative;
   display: grid;
   grid-template:
     "name" auto
     "." 0
     "price" auto
+    /* 空のセルでスペースを確保 */
     "." var(--spacing-md)
     "features" auto
     "." var(--spacing-md)
@@ -807,9 +1015,11 @@ CSSは、以下です。
 }
 
 .popular-badge {
+  /* .price-itemから相対的にする */
   position: absolute;
   top: -1rem;
   left: 50%;
+  /* コンテンツ横幅50%分を左に移動。よく左右中央にするテクニック */
   transform: translateX(-50%);
   background-color: var(--color-black);
   color: var(--color-white);
@@ -854,186 +1064,6 @@ CSSは、以下です。
 }
 ```
 
-### お問い合わせ
-
-{/* 画像 */}
-
-```html
-<section id="contact" class="section">
-  <h3 class="section-title sticky-section-title">お問い合わせ</h3>
-  <div class="contact-form">
-    <div class="form-group">
-      <label for="name">お名前</label>
-      <input id="name" type="text" placeholder="山田太郎" />
-    </div>
-    <div class="form-group">
-      <label for="email">メールアドレス</label>
-      <input id="email" type="email" placeholder="example@email.com" />
-    </div>
-    <div class="form-group">
-      <label for="message">お問い合わせ内容</label>
-      <textarea
-        id="message"
-        placeholder="ご質問やご要望をお聞かせください"
-      ></textarea>
-    </div>
-    <button class="btn btn-primary contact-btn">送信する</button>
-    <p class="contact-description">お気軽にお問い合わせください</p>
-  </div>
-</section>
-```
-
-```css
-/* Contact Section */
-.contact-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-  max-width: var(--breakpoint-tablet);
-  width: 100%;
-  margin: 0 auto;
-  padding: var(--spacing-base);
-  border: 1px solid var(--color-border);
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-label {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-}
-
-input {
-  padding: var(--spacing-xs);
-  border: 1px solid var(--color-border);
-  font-size: var(--font-size-base);
-
-  &::placeholder {
-    color: var(--color-border);
-  }
-}
-
-textarea {
-  padding: var(--spacing-xs);
-  border: 1px solid var(--color-border);
-  font-size: var(--font-size-base);
-  resize: vertical;
-
-  &::placeholder {
-    color: var(--color-border);
-  }
-}
-
-.contact-btn {
-  width: fit-content;
-  justify-self: center;
-}
-
-.contact-description {
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-dark);
-  text-align: center;
-}
-```
-
-### フッター
-
-{/* 画像 */}
-
-```html
-<footer class="footer">
-  <div class="footer-header">
-    <h4 class="footer-title">CSS AI</h4>
-    <p class="footer-description">
-      AI駆動CSSスタイリングプラットフォーム<br />次世代AIがあなたのCSSを自動最適化
-    </p>
-  </div>
-  <div class="footer-items">
-    <div class="footer-item">
-      <h5 class="footer-subtitle">機能</h5>
-      <span class="footer-link">AI CSS生成</span>
-      <span class="footer-link">スマートスタイル提案</span>
-      <!-- 省略 -->
-    </div>
-    <div class="footer-item">
-      <h5 class="footer-subtitle">リソース</h5>
-      <span class="footer-link">ドキュメント</span>
-      <span class="footer-link">チュートリアル</span>
-      <!-- 省略 -->
-    </div>
-    <div class="footer-item">
-      <h5 class="footer-subtitle">会社情報</h5>
-      <span class="footer-link">会社概要</span>
-      <!-- 省略 -->
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 CSS AI. All rights reserved.</p>
-  </div>
-</footer>
-```
-
-```css
-/* Footer Section */
-.footer {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-base);
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: var(--spacing-base) 0;
-}
-
-.footer-header {
-  text-align: center;
-}
-
-.footer-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-}
-
-.footer-description {
-  font-size: var(--font-size-sm);
-}
-
-.footer-items {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  max-width: var(--breakpoint-desktop);
-  padding: 0 var(--spacing-base);
-  margin: 0 auto;
-}
-
-.footer-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.footer-subtitle {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-}
-
-.footer-link {
-  font-size: var(--font-size-sm);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: var(--spacing-base);
-  border-top: 1px solid var(--color-gray-dark);
-}
-```
-
 ### トップへ戻る
 
 {/* 画像 */}
@@ -1048,6 +1078,7 @@ textarea {
 ```css
 /* Page Top Button */
 .page-top-btn {
+  /* fixedで常に表示する */
   position: fixed;
   bottom: var(--spacing-md);
   right: var(--spacing-md);
@@ -1064,9 +1095,12 @@ textarea {
 
   opacity: 0;
   pointer-events: none;
+  /* animation-timelineでhero以下になったら表示する */
+  /* 実験的機能です。 */
   animation: show-btn linear both;
   animation-timeline: --hero;
   animation-duration: auto;
+  /* heroが画面外になりはじめて見えて、30%になって全表示される */
   animation-range: exit 0% exit 30%;
   @supports not (animation-timeline: --hero) {
     opacity: 1;

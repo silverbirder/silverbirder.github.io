@@ -18,12 +18,12 @@ tags: ["CSS"]
 
 - https://learn-layout.vercel.app
 
-<Image 
-  src="/learn-layout.png" 
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-laptop.png" 
   alt="Learn Layout"
   href="https://learn-layout.vercel.app" 
-  width={3164}
-  height={2062}
+  width={2940}
+  height={1663}
 />
 
 サンプルページのソースコードは、以下のリポジトリにあります。
@@ -107,7 +107,7 @@ HTMLとCSSのみで作成しているため、ブラウザさえあればすぐ�
   - [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding), [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)
 - [width](https://developer.mozilla.org/ja/docs/Web/CSS/width), [height](https://developer.mozilla.org/ja/docs/Web/CSS/height)
 
-**上記以外のプロパティは、調べながら使っていけば自然と覚えますので、気にしないでください。**
+**上記以外のCSSプロパティは、本記事では気にしないでください。**
 
 ## 前提となる知識
 
@@ -124,8 +124,8 @@ https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_
 
 具体的な図は、以下の通りです。
 
-<Image 
-  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model/boxmodel.png" 
+<Image
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model/boxmodel.png"
   alt="CSS 基本ボックスモデル入門 - CSS: カスケーディングスタイルシート | MDN"
   href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model"
   width={548}
@@ -149,7 +149,7 @@ https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_
 実際にボックスモデルがどのようになっているかは、ブラウザにあるDevToolsを使うと確認できます。
 
 <Image
-  src="https://developer.chrome.com/static/docs/devtools/css/reference/image/he-box-model-diagram-c955156cbf7bd_1920.png?hl=ja" 
+  src="https://developer.chrome.com/static/docs/devtools/css/reference/image/he-box-model-diagram-c955156cbf7bd_1920.png?hl=ja"
   alt="CSS 機能リファレンス | Chrome DevTools | Chrome for Developers"
   href="https://developer.chrome.com/docs/devtools/css/reference?hl=ja#box-model"
   width={600}
@@ -167,7 +167,7 @@ HTML要素のブロック・インラインは、CSSのdisplayプロパティで
 どのようにコンテンツが並ぶかというと、以下の図の様にブロックの場合は下方向に並び、インラインの場合は横方向に並びます。
 
 <Image
-  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow/mdn-horizontal.png" 
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow/mdn-horizontal.png"
   alt="通常フローでのブロック及びインラインレイアウト - CSS: カスケーディングスタイルシート | MDN"
   href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow"
   width={521}
@@ -215,7 +215,7 @@ display: flex を指定した要素は、フレックスコンテナとなり、
 以下のように、flex-directionというCSSプロパティを使うことで、横に並べるか縦に並べるか自由に決めることができます。
 
 <Image
-  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics1.svg" 
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics1.svg"
   alt="フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN"
   href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
   width={1225}
@@ -223,7 +223,7 @@ display: flex を指定した要素は、フレックスコンテナとなり、
 />
 
 <Image
-  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics2.svg" 
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox/basics2.svg"
   alt="フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN"
   href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
   width={500}
@@ -262,7 +262,7 @@ https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grid
 グリッドの例としては、以下の図のように行・列を簡単に定義できます。
 
 <Image
-  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout/1_grid_cell.png" 
+  src="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout/1_grid_cell.png"
   alt="グリッドレイアウトの基本概念 - CSS: カスケーディングスタイルシート | MDN"
   href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%82%BB%E3%83%AB"
   width={600}
@@ -272,7 +272,7 @@ https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grid
 グリッドを応用すれば、以下のようなレイアウトも簡単に構築できます。
 
 <Image
-  src="/grid-sample-article.png" 
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446214/silver-birder.github.io/blog/grid-sample-article.png"
   alt="グリッドレイアウトのサンプル"
   width={1508}
   height={1150}
@@ -281,7 +281,7 @@ https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grid
 ちなみに、以下の図のようにグリッドレイアウトはDevToolsで可視化することができます。
 
 <Image
-  src="https://developer.chrome.com/static/docs/devtools/css/grid/image/layout-pane-7a3117d2d859_1920.png?hl=ja" 
+  src="https://developer.chrome.com/static/docs/devtools/css/grid/image/layout-pane-7a3117d2d859_1920.png?hl=ja"
   alt="CSS グリッド レイアウトを検査する | Chrome DevTools | Chrome for Developers"
   href="https://developer.chrome.com/docs/devtools/css/grid?hl=ja"
   width={2582}
@@ -392,16 +392,22 @@ Z軸の同じ位置にある要素は、重なり順序を考慮する必要が�
 ## ヒーロー
 
 <Image 
-  src="/learn-layout.png" 
-  alt="ヒーローセクション"
-  width={3164}
-  height={2062}
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-laptop.png" 
+  alt="ヒーローセクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image 
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-mobile.png" 
+  alt="ヒーローセクション - mobile"
+  width={1290}
+  height={2796}
 />
 
 ヒーローセクションは、でかでかとタイトルを目立つ様に配置しています。
-上記画像から、HTML構造とCSSを想像してみましょう。
-
-以下について気づくかと思います。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
 
 - 画面全体に広がっている
 - 画面の上下左右中央に配置されている
@@ -410,7 +416,7 @@ Z軸の同じ位置にある要素は、重なり順序を考慮する必要が�
   - 説明文
   - ボタン
 
-HTML構造は、以下になりました。（正解は1つではありません）
+まず、以下のHTMLを書いてみたとしましょう。
 
 ```html
 <section class="hero-cover">
@@ -435,59 +441,61 @@ HTML構造は、以下になりました。（正解は1つではありません
 </section>
 ```
 
-CSSでは、以下を実現したいです。
-
-- 画面全体を広げる
-- コンテンツの横をある程度に限定したい
-  - 横に広げすぎるより、横幅を制限したい
-- 左右上下中央に配置している
-- 3つ(タイトル、説明、ボタン)を縦に並べる
-
-これも想像してみましょう。
-特に、左右上下中央は、さまざまな方法があります。
-手っ取り早い方法は、grid の place-items: centers です。
-ただ、flexboxを使ったりもできますので、お好みです。
-
-CSSは、以下のようになりました。
+トップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。  
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
 /* Hero Section */
 .hero-cover {
   /* 左右上下中央の配置します。 */
+  /* 他にも方法は色々ありますが、こちらの書き方がシンプルで良いでしょう */
   display: grid;
   place-items: center;
+
   /* ビューポートの最大まで表示します */
   min-height: 100dvh;
 }
 
 .hero-container {
+  /* 左右中央寄せにしつつ、コンテンツの横を制限させます */
   display: grid;
-  /* 1列で、横幅いっぱいに表示します */
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: var(--spacing-lg);
-  /* コンテンツの横を制限させる */
-  max-width: var(--breakpoint-desktop);
-  padding: 0 var(--spacing-base);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+  justify-items: center; /* 中央寄せにします */
+  max-width: var(--breakpoint-desktop); /* 横幅を制限します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-lg); /* 子要素の間隔を指定 */
+  padding: 0 var(--spacing-base); /* 左右の余白を指定 */
 }
 
 .cluster {
   /* ボタンを単純に横に並べる */
   display: flex;
-  /* ボタンが増えると折り返す */
-  flex-wrap: wrap;
+  /* ボタンを折り返す */
+  flex-wrap: wrap; /* ボタンが増えたり、横幅が狭くなると効果を発揮します */
+
+  /* 余白の調整 */
   gap: var(--spacing-sm);
-  justify-content: center;
-  align-items: center;
 }
 ```
 
-ちなみに、モバイルのように横幅が狭いデバイスでは、
-wbr要素とword-breakを使って、テキストの折り返しを制御することができますので、ご活用ください。
+dvh などの単位は、[length - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/length)を参照してください。
 
 ## 主要機能
 
-{/* 画像 */}
+<Image 
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-features-laptop.png" 
+  alt="主要機能セクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image 
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-features-mobile.png" 
+  alt="主要機能セクション - mobile"
+  width={1290}
+  height={2796}
+/>
 
 主要機能セクションでは、このサービスが提供する機能を6つ紹介します。
 6つの主要機能を横2行3列で表示します。昨日には、アイコンとタイトル、説明があります。
@@ -582,7 +590,19 @@ CSSは、以下です。
 
 ### 対応技術
 
-{/* 画像 */}
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-support-tech-laptop.png"
+  alt="対応技術セクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-support-tech-mobile.png"
+  alt="対応技術セクション - mobile"
+  width={1290}
+  height={2796}
+/>
 
 対応技術セクションでは、たくさんの技術タグを横に並べて表示しています。
 横がある一定を超えると、下に折り返して表示するようになっています。
@@ -635,7 +655,19 @@ CSSでは、flexboxを使って解決します。
 
 ### デモ
 
-{/* 画像 */}
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-demo-laptop.png"
+  alt="デモセクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-demo-mobile.png"
+  alt="デモセクション - mobile"
+  width={1290}
+  height={2796}
+/>
 
 デモセクションでは、デモ動画が左にあり、右にデモの説明ステップがリスト形式で表示されています。
 横に長いコンテンツですので、左のデモ動画の横幅を固定にしつつ、画面横幅が小さくなり、ある小ささになると、
@@ -761,7 +793,19 @@ https://www.joren.co/flex-grow-9999-hack/
 
 ### お客様の声
 
-{/* 画像 */}
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-reviews-laptop.png"
+  alt="お客様の声セクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-reviews-mobile.png"
+  alt="お客様の声セクション - mobile"
+  width={1290}
+  height={2796}
+/>
 
 お客様の声セクションでは、感想をカード形式で表示し、横並びさせます。
 特徴的なのは、途中でカードが途切れて横スクロールできると伝えるものです。
@@ -849,7 +893,19 @@ CSSは、以下です。
 
 ### 料金プラン
 
-{/* 画像 */}
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-pricing-laptop.png"
+  alt="料金プランセクション - laptop"
+  width={2940}
+  height={1663}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-pricing-mobile.png"
+  alt="料金プランセクション - mobile"
+  width={1290}
+  height={2796}
+/>
 
 料金プランでは、3つのプランをカード上に表示します。
 プランは、同じ幅で表示しつつ、横幅がある小ささになると、全て縦に並ぶようになる、switcherパターンです。
@@ -1215,65 +1271,3 @@ CSSは、以下です。
 }
 ```
 
-### 基本的なユーティリティクラス
-
-```css
-/* Utility Classes */
-.cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  max-width: var(--breakpoint-desktop);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--spacing-base);
-}
-
-.sections {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-}
-
-/* Buttons */
-.btn {
-  padding: var(--spacing-base) var(--spacing-md);
-  border: 1px solid var(--color-black);
-  color: var(--color-black);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--color-black);
-  color: var(--color-white);
-}
-
-.btn-secondary {
-  border: 1px solid var(--color-black);
-  color: var(--color-gray-dark);
-}
-
-.btn-outline {
-  border: 1px solid var(--color-black);
-}
-
-/* Sticky Section Titles */
-.sticky-section-title {
-  position: sticky;
-  top: var(--header-height);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: var(--spacing-base);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--spacing-md);
-  z-index: var(--z-index-title);
-}
-```

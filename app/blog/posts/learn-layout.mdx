@@ -1,7 +1,7 @@
 ---
 title: '苦手なCSSを克服しよう'
-publishedAt: '2025-07-14'
-summary: 'xx'
+publishedAt: '2025-07-26'
+summary: 'こんにちは。CSSは苦手ですか？私は苦手でした。苦手でしたが、実務を経験していくうちに、だんだんとできる範囲が増えていき楽しくなってきました。本記事では1つのサンプルページを見ながら、CSSをどう考えて使っているのか解説したいと思います。読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。サンプルページのセクションごとに独立して解説しているので、読みたいところだけ読んでくださいね。'
 tags: ["CSS"]
 ---
 
@@ -842,13 +842,13 @@ HTMLはトップダウンで書いていき、関連しそうな要素を適切�
 />
 
 お客様の声セクションでは、感想をカード形式で表示し、横並びさせます。
-特徴的なのは、途中でカードが途切れて横スクロールできると伝えるものです。
 
-HTMLの構造を考えましょう。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
 
-- 見出し
-- レビューカードリスト
-  - レビューカード
+- 途中でカードが途切れて横スクロールできると伝えるものです。
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="section">
@@ -877,38 +877,46 @@ HTMLの構造を考えましょう。
 </section>
 ```
 
-CSSは、以下です。
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
 .section {
   display: grid;
-  /* 列を1つだけ */
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
 }
 
-/* Review Section */
 .reel {
   /* flexboxで横に並べる */
-  /* gridでも可 */
   display: flex;
-  /* 横スクロールできるように。横は区切るように */
+  /* 横スクロールを許可 */
   overflow-x: auto;
+
+  /* アイテム間の間隔 */
   --_gap: var(--spacing-sm);
   gap: var(--_gap);
 
   & > * {
+    /* 1.5列分表示 */
+    /* 0.5分非表示になるため、横スクロールできるように見える */
     --_column: 1.5;
-    /* 伸び縮みしない */
-    flex-grow: 0;
-    flex-shrink: 0;
-    /* 横幅をcolumnを1つと半分が表示できるようにする */
+
+    flex-grow: 0;   /* 伸びない */
+    flex-shrink: 0; /* 縮まない */
+
+    /* 指定された列数ぶん表示されるように幅を計算 */
     flex-basis: calc(
       (100% - (var(--_gap) * (var(--_column) - 1))) / var(--_column)
     );
+
+    /* tabletの列数 */
     @media (min-width: 40rem) {
       --_column: 2.5;
     }
+
+    /* laptopの列数 */
     @media (min-width: 48rem) {
       --_column: 3.5;
     }
@@ -917,11 +925,14 @@ CSSは、以下です。
 
 .review-card {
   display: grid;
-  grid-auto-flow: row;
-  row-gap: var(--spacing-sm);
+
+  /* 余白の調整 */
+  row-gap: var(--spacing-sm);   /* グリッド行の間隔を指定 */
+  padding: var(--spacing-base); /* レビューカードの内側の余白を指定 */
+
+  /* 装飾 */
   border: 1px solid var(--color-border);
   background: var(--color-white);
-  padding: var(--spacing-base);
 }
 ```
 
@@ -942,7 +953,13 @@ CSSは、以下です。
 />
 
 料金プランでは、3つのプランをカード上に表示します。
-プランは、同じ幅で表示しつつ、横幅がある小ささになると、全て縦に並ぶようになる、switcherパターンです。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- プランは、同じ幅で表示する。
+- 横幅がある小ささになると、全て縦に並ぶようになる。
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="section">
@@ -983,99 +1000,124 @@ CSSは、以下です。
 </section>
 ```
 
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
 ```css
 .section {
   display: grid;
-  /* 列を1つだけ */
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  grid-template-columns: 1fr; /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
 }
 
-/* Pricing Section */
 .price-items {
   display: flex;
-  /* 折り返せるようにする */
+  /* プランカードを折り返せるようにする */
   flex-wrap: wrap;
+
+  /* 余白の調整 */
   gap: var(--spacing-md);
 
   & > * {
-    /* growをみんな同じ */
-    flex-grow: 1;
-    /* 横幅が広い場合、100%が大きくなる(46rem)ので、マイナスになり、無効化されます。 */
-    /* 逆に、小さい横幅なら、整数 * 999 という大きな値になります。 */
-    /* 1列になるのは、(45rem-100%が整数)45rem以下。コンテナが45remより小さい。
-       (45remを超える)3列に並ぶのは、3分割になる。コンテナが45remを大きい。
-     */
-    /* コンテナが45remより大きくなると垂直に、45remが小さいと横に並ぶ。 */
+    flex-grow: 1; /* すべて同じ比率で伸びるようにする */
+
+    /* 横幅に応じて縦並び ⇄ 横並びが切り替わるように調整 */
+    /* 横幅が45rem未満では縦並び、それ以上では横並びになる */
     flex-basis: calc((45rem - 100%) * 999);
   }
 }
 
 .price-item {
-  /* ここを基準に */
+  /* 子要素の絶対配置（例: 人気バッジ）を基準にするための基点 */
   position: relative;
+
   display: grid;
   grid-template:
+    /* プラン名を表示する行 */
     "name" auto
+    /* 空行（スペースなし、調整用） */
     "." 0
+    /* 価格を表示する行 */
     "price" auto
-    /* 空のセルでスペースを確保 */
+    /* 空行（価格と機能リストの間にスペースを入れる） */
     "." var(--spacing-md)
+    /* 機能リストを表示する行 */
     "features" auto
+    /* 空行（機能リストとボタンの間にスペースを入れる） */
     "." var(--spacing-md)
-    "button" auto / auto;
+    /* ボタンを表示する行 */
+    "button" auto / auto; /* 列幅は自動（1列レイアウト） */
 
+  /* 枠線と余白の装飾 */
   border: 1px solid var(--color-border);
   padding: var(--spacing-base);
 
   &.popular {
-    border-color: var(--color-black);
+    border-color: var(--color-black); /* 人気プランは枠線を強調 */
   }
 
   & > button {
+    /* grid-template-areasで指定された名前を定義する */
     grid-area: button;
-    width: fit-content;
-    margin: 0 auto;
+    width: fit-content;  /* ボタン幅を内容に合わせる */
+    margin: 0 auto;      /* 中央寄せ */
   }
 }
 
 .popular-badge {
-  /* .price-itemから相対的にする */
+  /* 親要素 (.price-item) を基準に絶対位置で配置する */
   position: absolute;
+
+  /* 上にずらして、カードの外にはみ出すように配置 */
   top: -1rem;
+  /* 横中央に配置するために、左端を中央に設定 */
   left: 50%;
-  /* コンテンツ横幅50%分を左に移動。よく左右中央にするテクニック */
-  transform: translateX(-50%);
+  /* 左に50%分ずらして、横中央に揃える */
+  transform: translateX(-50%); /* 横方向の中央寄せテクニック */
+
+  /* バッジの装飾 */
   background-color: var(--color-black);
   color: var(--color-white);
-  padding: var(--spacing-xs) var(--spacing-sm);
+
+  /* 余白の調整 */
+  padding: var(--spacing-xs) var(--spacing-sm); /* 上下左右の余白を指定 */
 }
 
 .plan-name {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: name;
 }
 
 .plan-price {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: price;
   text-align: center;
 
   & > span {
-    margin-left: var(--spacing-xs);
+    margin-left: var(--spacing-xs); /* 単位との間隔 */
   }
 }
 
 .plan-features {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: features;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xs);
-  padding: 0 var(--spacing-sm);
+  grid-template-columns: 1fr; /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-xs); /* 特徴の間隔を指定 */
+  padding: 0 var(--spacing-sm); /* 左右の余白を指定 */
 }
 
 .plan-feature {
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-dark);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-xs) 0;
+  /* 装飾 */
+  border-bottom: 1px solid var(--color-border); /* 特徴に下線をつける */
+  padding: var(--spacing-xs) 0; /* 上下の余白を指定 */
 }
 ```
+
+## 終わりに
+
+最後まで読んでいただき、ありがとうございます。
+読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。

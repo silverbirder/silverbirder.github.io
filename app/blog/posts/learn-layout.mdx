@@ -31,6 +31,9 @@ tags: ["CSS"]
 
 - https://github.com/silverbirder/learn-css
 
+HTMLとCSSのみで作成しているため、ブラウザさえあればすぐに動かすことができます。
+また、JavaScriptは一切使用していません。
+
 ### サンプルページの内容
 
 このサンプルページは、よくあるSaaSのランディングページを想定しています。
@@ -50,10 +53,12 @@ tags: ["CSS"]
 - 料金プランセクション
   - スターター・プロ・エンタープライズの3つのプランを比較表示
 
+どれも、よくあるランディングページのセクションだと思います。
+
 ### サンプルページで学べること
 
-CSSを使って楽しくなってきたと実感したのは、**FlexboxやGridを使ったレイアウトができる** ようになった頃からです。
-個人の感想ですが、テキストや画像を思い通りの場所に配置できるようになると、楽しくなってきたのです。
+個人の感想ですが、CSSを使って楽しくなってきたと実感したのは、**FlexboxやGridを使ったレイアウトができる** ようになった頃からです。
+テキストや画像を思い通りの場所に配置できるようになると、楽しくなってきたのです。
 
 サンプルページでは、[Every Layout](https://every-layout.dev/) を参考にしていて、よくあるレイアウトパターンを取り入れています。
 各セクションでは、以下のようなレイアウトを学ぶことができます。
@@ -102,7 +107,7 @@ CSSを使って楽しくなってきたと実感したのは、**FlexboxやGrid�
   - [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding), [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)
 - [width](https://developer.mozilla.org/ja/docs/Web/CSS/width), [height](https://developer.mozilla.org/ja/docs/Web/CSS/height)
 
-上記以外のプロパティは、調べながら使っていけば自然と覚えますので、気にしないでください。
+**上記以外のプロパティは、調べながら使っていけば自然と覚えますので、気にしないでください。**
 
 ## 前提となる知識
 
@@ -112,6 +117,7 @@ CSSを使って楽しくなってきたと実感したのは、**FlexboxやGrid�
 ### ボックスモデル
 
 HTMLをCSSでスタイリングする際、その要素をボックスモデルという長方形の形で表現します。
+ボックスモデルの説明は、以下の通りです。
 
 > ブラウザーのレンダリングエンジンは文書をレイアウトする際に、それぞれの要素を標準的な CSS 基本ボックスモデルに基づいた長方形のボックスとして表現します。 CSS はこれらのボックスの寸法、位置、プロパティ（色、背景、境界の幅など）を決定します。  
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model
@@ -150,11 +156,11 @@ https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_
   height={400}
 />
 
-これで、paddingやmargin、borderの値が視覚的に確認できます。
+DevToolsを使うことで、paddingやmargin、borderの値が視覚的に確認できるようになります。
 
 ### 通常フローとブロックとインライン
 
-HTML要素は、aタグやspanタグのようなインライン要素、divタグやpタグのようなブロック要素があります。
+HTML要素は、aタグやspanタグのようなインライン要素、divタグやpタグのようなブロック要素という分け方があります。
 どの要素がブロック要素かインライン要素かは、[HTML Standard - html.spec.whatwg.org](html.spec.whatwg.org)で "display" と検索すると分かります。
 HTML要素のブロック・インラインは、CSSのdisplayプロパティで変更できます。
 
@@ -172,6 +178,8 @@ HTML要素のブロック・インラインは、CSSのdisplayプロパティで
 
 ブロック要素とインライン要素についての仕様があります。
 このセクションは読み飛ばしてもらっても構いませんが、知識として知っておくと良いでしょう。
+
+まず、ブロック要素の仕様は、以下の通りです。
 
 > 既定では、**ブロック要素はインライン方向の空間をすべて消費する**ので、段落は広がり、包含ブロックの中で可能な限り大きくなります。ブロック要素に幅を設定した場合、段落が横に並ぶ空間があったとしても、**段落は下へ下へと配置されます**。それぞれは包含ブロックの先頭側の反対側から始まりますので、その書字方向で文章が始まる場所になります。  
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
@@ -194,11 +202,13 @@ https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layou
 ### フレックスボックスレイアウト
 
 ブロック・インライン要素は、単純に1つ並べるだけです。
-しかし、実際にはそう単純なレイアウトは少ないかと思います。縦横自由に配置したい時があります。
+しかしそう単純なレイアウトは少ないかと思います。縦横自由に配置したい時があります。
 
 そこで、フレックスボックスレイアウトの出番です。私は、この**フレックスボックスレイアウトを使い慣れることで、苦手意識が少しずつ克服できました**。
 
-> CSS フレックスボックスレイアウト (CSS flexible box layout) は、ユーザーインターフェイスの設計に最適化された CSS ボックスモデルと、一次元のアイテムのレイアウトを定義します。フレックスレイアウトモデルでは、フレックスコンテナーの子は任意の方向にレイアウトすることができ、また使われていない空間を埋めるために伸長したり、あるいは親のあふれることを避けるために収縮したりと、そのサイズを「伸縮」することができます。子の水平方向と垂直方向の両方の整列を、容易に操作することが可能です。  
+フレックスボックスレイアウトの説明は、以下の通りです。
+
+> CSS フレックスボックスレイアウト (CSS flexible box layout) は、ユーザーインターフェイスの設計に最適化された CSS ボックスモデルと、**一次元のアイテムのレイアウト**を定義します。フレックスレイアウトモデルでは、フレックスコンテナーの子は任意の方向にレイアウトすることができ、また使われていない空間を埋めるために伸長したり、あるいは親のあふれることを避けるために収縮したりと、**そのサイズを「伸縮」することができます**。子の水平方向と垂直方向の両方の整列を、容易に操作することが可能です。  
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout
 
 display: flex を指定した要素は、フレックスコンテナとなり、子要素を任意の方向に配置できます。
@@ -240,6 +250,8 @@ CSSプロパティの flex-grow (フレックス成長率)、flex-shrink (フレ
 他のレイアウト方法として、グリッドレイアウトがあります。
 フレックスボックスレイアウトの様な伸縮性はありませんが、**グリッドレイアウトは2次元のレイアウト**が得意です。1次元ももちろん含まれます。
 
+グリッドレイアウトの説明は、以下の通りです。
+
 > CSS グリッドレイアウト (Grid Layout) は、ウェブ用の 2 次元レイアウトシステムです。 コンテンツを行と列に整理することができ、複雑なレイアウトの作成を簡素化する多くの機能を提供します。  
 https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grids
 
@@ -257,7 +269,7 @@ https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grid
   height={400}
 />
 
-グリッドを応用すれば、以下のようによくあるレイアウトも構築できます。
+グリッドを応用すれば、以下のようなレイアウトも簡単に構築できます。
 
 <Image
   src="/grid-sample-article.png" 
@@ -281,11 +293,13 @@ https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grid
 フレックスボックスやグリッドレイアウトは、通常フローで要素を配置します。
 通常フローとは別に、重ね合わせコンテキスト（stacking context）という概念があります。
 
+重ね合わせコンテキストの説明は、以下の通りです。
+
 >.  重ね合わせコンテキスト (Stacking context) は、ビューポートまたはウェブページに面していると想定されるユーザーに対する**仮想的な Z 軸に沿って並べられた HTML 要素の三次元の概念化**です。 HTML 要素は、要素の属性に基づいてこの空間を優先度つきの順序で占有します 
 https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context
 
-Z軸の高い位置が前面に表示され、Z軸の低い位置が背面に表示されます。
-同じZ軸の位置にある要素は、重なり順序を考慮する必要があります。z-indexで重なり順序を変更できます。
+Z軸の高い位置が前面に表示され、Z軸の低い位置が背面に表示されます。  
+Z軸の同じ位置にある要素は、重なり順序を考慮する必要があります。z-indexで重なり順序を変更できます。
 
 重ね合わせコンテキストは、[重ね合わせコンテキスト - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context#%E8%A7%A3%E8%AA%AC) に書いてある通り、以下のような場合に生成されます。
 
@@ -369,7 +383,7 @@ Z軸の高い位置が前面に表示され、Z軸の低い位置が背面に表
 .container {
   /* 横幅を制限します */
   max-width: var(--breakpoint-desktop);
-  /* 横幅を中央寄せします */
+  /* 横幅を中央寄せにします */
   margin-left: auto;
   margin-right: auto;
 }
@@ -402,20 +416,20 @@ HTML構造は、以下になりました。（正解は1つではありません
 <section class="hero-cover">
   <main class="hero-container">
     <hgroup>
-      <h1 class="hero-title">CSS AI</h1>
-      <p class="hero-subtitle">AI駆動CSSスタイリング<wbr />プラットフォーム</p>
+      <h1>CSS AI</h1>
+      <p>AI駆動CSSスタイリング<wbr />プラットフォーム</p>
     </hgroup>
     <div>
-      <p class="hero-description">
+      <p>
         次世代AIがあなたのCSSを自動最適化。
       </p>
-      <p class="hero-description">
+      <p>
         自然言語でスタイルを指定するだけで、美しいCSSコードを瞬時に生成します。
       </p>
     </div>
     <div class="cluster">
-      <button class="btn btn-primary">今すぐ始める</button>
-      <button class="btn btn-outline">詳細を見る</button>
+      <button>今すぐ始める</button>
+      <button>詳細を見る</button>
     </div>
   </main>
 </section>
@@ -457,24 +471,6 @@ CSSは、以下のようになりました。
   padding: 0 var(--spacing-base);
 }
 
-.hero-title {
-  font-size: var(--font-size-4l);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
-}
-
-.hero-subtitle {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-normal);
-  text-align: center;
-  word-break: keep-all;
-}
-
-.hero-description {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
-}
-
 .cluster {
   /* ボタンを単純に横に並べる */
   display: flex;
@@ -508,7 +504,7 @@ wbr要素とword-breakを使って、テキストの折り返しを制御する�
 
 ```html
 <section class="section">
-  <h2 class="section-title">主要機能</h2>
+  <h2>主要機能</h2>
   <div class="feature-grid">
     <div class="feature-card">
       <div class="card-icon">🤖</div>
@@ -538,12 +534,6 @@ CSSは、以下です。
   /* 列を1つだけ */
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
-}
-
-.section-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
 }
 
 .feature-grid {
@@ -578,18 +568,14 @@ CSSは、以下です。
 
 .card-icon {
   grid-area: icon;
-  font-size: var(--font-size-base);
 }
 
 .card-title {
   grid-area: title;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
 }
 
 .card-description {
   grid-area: description;
-  font-size: var(--font-size-sm);
 }
 ```
 
@@ -610,7 +596,7 @@ HTMLをどうなるのか考えてみましょう。
 
 ```html
 <section class="section">
-  <h2 class="section-title">対応技術</h2>
+  <h2>対応技術</h2>
   <div class="cluster">
     <span class="tech-tag">GPT-4</span>
     <span class="tech-tag">Claude</span>
@@ -627,12 +613,6 @@ CSSでは、flexboxを使って解決します。
   /* 列を1つだけ */
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
-}
-
-.section-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
 }
 
 /* Utility Classes */
@@ -673,13 +653,13 @@ HTMLの構造を考えましょう。
 
 ```html
 <section class="section">
-  <h2 class="section-title">デモ</h2>
+  <h2>デモ</h2>
   <div class="sidebar">
     <div class="sidebar-video">
       <div class="demo-video">
-        <h3 class="demo-title">ライブデモ</h3>
-        <p class="demo-description">実際のCSS AIの動作をご覧ください</p>
-        <button class="btn">デモを開始</button>
+        <h3>ライブデモ</h3>
+        <p>実際のCSS AIの動作をご覧ください</p>
+        <button>デモを開始</button>
       </div>
     </div>
     <div class="sidebar-steps">
@@ -716,12 +696,6 @@ https://www.joren.co/flex-grow-9999-hack/
   gap: var(--spacing-md);
 }
 
-.section-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
-}
-
 /* Demo Section */
 .sidebar {
   display: flex;
@@ -752,15 +726,6 @@ https://www.joren.co/flex-grow-9999-hack/
   background-color: var(--color-border);
 }
 
-.demo-title {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-}
-
-.demo-description {
-  font-size: var(--font-size-sm);
-}
-
 .step-items {
   display: grid;
   /* 1列で縦にする */
@@ -787,12 +752,10 @@ https://www.joren.co/flex-grow-9999-hack/
 
 .step-item-title {
   grid-area: title;
-  font-size: var(--font-size-base);
 }
 
 .step-item-description {
   grid-area: description;
-  font-size: var(--font-size-sm);
 }
 ```
 
@@ -811,25 +774,25 @@ HTMLの構造を考えましょう。
 
 ```html
 <section class="section">
-  <h2 class="section-title">お客様の声</h2>
+  <h2>お客様の声</h2>
   <div class="reel">
     <div class="review-card">
-      <div class="quote">
+      <div>
         "CSS AIを使い始めてから、コーディング時間が半分になりました。"
       </div>
-      <div class="reviewer">
+      <div>
         <strong>田中様</strong> - フロントエンドエンジニア
       </div>
-      <div class="rating">★★★★★</div>
+      <div>★★★★★</div>
     </div>
     <div class="review-card">
-      <div class="quote">
+      <div>
         "自然言語でデザインを指示するだけで、想像以上の美しいCSSが生成されます。"
       </div>
-      <div class="reviewer">
+      <div>
         <strong>佐藤様</strong> - UIデザイナー
       </div>
-      <div class="rating">★★★★★</div>
+      <div>★★★★★</div>
     </div>
     <!-- 省略 -->
   </div>
@@ -844,12 +807,6 @@ CSSは、以下です。
   /* 列を1つだけ */
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
-}
-
-.section-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
 }
 
 /* Review Section */
@@ -888,22 +845,6 @@ CSSは、以下です。
   background: var(--color-white);
   padding: var(--spacing-base);
 }
-
-.quote {
-  font-style: italic;
-  color: var(--color-black);
-  font-size: var(--font-size-sm);
-}
-
-.reviewer {
-  color: var(--color-gray-dark);
-  font-size: var(--font-size-sm);
-}
-
-.rating {
-  color: var(--color-black);
-  font-size: var(--font-size-sm);
-}
 ```
 
 ### 料金プラン
@@ -915,7 +856,7 @@ CSSは、以下です。
 
 ```html
 <section class="section">
-  <h2 class="section-title">料金プラン</h2>
+  <h2>料金プラン</h2>
   <div class="price-items">
     <div class="price-item">
       <h4 class="plan-name">スターター</h4>
@@ -958,12 +899,6 @@ CSSは、以下です。
   /* 列を1つだけ */
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
-}
-
-.section-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
 }
 
 /* Pricing Section */
@@ -1024,26 +959,17 @@ CSSは、以下です。
   background-color: var(--color-black);
   color: var(--color-white);
   padding: var(--spacing-xs) var(--spacing-sm);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
 }
 
 .plan-name {
   grid-area: name;
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
 }
 
 .plan-price {
   grid-area: price;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
   text-align: center;
 
   & > span {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-normal);
     margin-left: var(--spacing-xs);
   }
 }
@@ -1138,7 +1064,7 @@ CSSは、以下です。
 <header class="fixed-header">
   <nav class="nav-header">
     <div class="cluster">
-      <div class="header-logo">CSS AI</div>
+      <div>CSS AI</div>
       <div class="header-nav">
         <a href="#features">機能</a>
         <a href="#demo">デモ</a>
@@ -1195,12 +1121,6 @@ CSSは、以下です。
   justify-content: space-between;
 }
 
-.header-logo {
-  color: var(--color-black);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-}
-
 .header-nav {
   display: none;
   gap: var(--spacing-md);
@@ -1209,11 +1129,6 @@ CSSは、以下です。
   @media (min-width: 48rem) {
     display: flex;
   }
-}
-
-.nav-header a {
-  color: var(--color-black);
-  font-weight: var(--font-weight-normal);
 }
 
 .mobile-menu-checkbox {
@@ -1286,11 +1201,6 @@ CSSは、以下です。
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-}
-
-.mobile-menu-items a {
-  color: var(--color-black);
-  font-weight: var(--font-weight-normal);
 }
 
 /* News Banner */

@@ -76,8 +76,10 @@ HTMLとCSSのみで作成しているため、ブラウザさえあればすぐ�
 - 料金プランセクション
   - 3つのプランを横並びにしつつ、ブラウザの横幅が狭くなると縦に並ぶようにしています。
 
-また、画面上部にはヘッダーを固定していて、ある程度の横幅になると3本線のハンバーガーメニューに切り替わります。
-その他に、画面右下には画面上部に戻るボタンを配置しています。
+また、本記事では解説しませんが、以下のコンテンツもあります。気になる方がいましたら、ぜひ[サンプルページのリポジトリ](https://github.com/silverbirder/learn-css)を覗いてみてください。
+
+- 画面上部に、ヘッダー固定があり、ある程度の横幅になると3本線のハンバーガーメニューに切り替わります。
+- 画面右下に、画面上部に戻るボタンを配置しています。
 
 ぜひ、さまざまなブラウザサイズで確認してみてください！
 
@@ -417,6 +419,7 @@ Z軸の同じ位置にある要素は、重なり順序を考慮する必要が�
   - ボタン
 
 まず、以下のHTMLを書いてみたとしましょう。
+HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="hero-cover">
@@ -440,12 +443,10 @@ Z軸の同じ位置にある要素は、重なり順序を考慮する必要が�
   </main>
 </section>
 ```
-
-トップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。  
+  
 次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
-/* Hero Section */
 .hero-cover {
   /* 左右上下中央の配置します。 */
   /* 他にも方法は色々ありますが、こちらの書き方がシンプルで良いでしょう */
@@ -498,17 +499,17 @@ dvh などの単位は、[length - CSS: カスケーディングスタイルシ�
 />
 
 主要機能セクションでは、このサービスが提供する機能を6つ紹介します。
-6つの主要機能を横2行3列で表示します。昨日には、アイコンとタイトル、説明があります。
+6つの主要機能を横2行3列で表示します。各機能には、アイコンとタイトル、説明があります。
 
-この場合のHTML,CSSを想像しましょう。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
 
-- セクションのタイトルと主要機能
 - 2行3列の2次元グリッドが扱いやすそう
   - 横幅に応じて、3行2列、1行6列、と変化させたい
-- 機能は、シンプルに上から下に並べる
+- 機能の中のコンテンツは、シンプルに上から下に並べる
 
-これらから、HTMLを想像しましょう。
-以下、その例です。
+まず、以下のHTMLを書いてみたとしましょう。
+HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="section">
@@ -533,27 +534,34 @@ dvh などの単位は、[length - CSS: カスケーディングスタイルシ�
 </section>
 ```
 
-CSSは、以下です。
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
-/* Feature Section */
 .section {
   display: grid;
-  /* 列を1つだけ */
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
 }
 
 .feature-grid {
   /* 列数を変更しやすいように、ローカル変数に定義 */
   --_column: 1;
-  display: grid;
-  grid-template-columns: repeat(var(--_column), 1fr);
-  gap: var(--spacing-sm);
 
+  display: grid;
+  /* 指定する列数で分割 */
+  grid-template-columns: repeat(var(--_column), 1fr);
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm); /* 各機能の間隔を指定 */
+
+  /* tabletの列数 */
   @media (min-width: 40rem) {
     --_column: 2;
   }
+
+  /* laptopの列数 */
   @media (min-width: 48rem) {
     --_column: 3;
   }
@@ -561,32 +569,43 @@ CSSは、以下です。
 
 .feature-card {
   display: grid;
-  border: 1px solid var(--color-border);
-  padding: var(--spacing-base);
-  /* 今回はあまり活躍しないかもだけど、サブグリッドにしておく */
+  /* 親グリッドから子グリッドを入れ子にします */
   grid-template-rows: subgrid;
-  /* 縦に並べる */
+
+  /* グリッドアイテムを縦に並べる */
   grid-template-areas:
     "icon"
     "title"
     "description";
+
   /* サブグリッドとして、3つの行があることを明示 */
   grid-row: span 3;
+
+  /* 余白の調整 */
+  padding: var(--spacing-base); /* 自身のカードの内側の余白を指定 */
+  
+  border: 1px solid var(--color-border); /* 枠線の装飾 */
 }
 
 .card-icon {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: icon;
 }
 
 .card-title {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: title;
 }
 
 .card-description {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: description;
 }
 ```
 
+サブグリッドについては、[サブグリッド - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Subgrid)を参照してください。  
+サブグリッドを使うことで、機能カードの中のアイコン、タイトル、説明文が縦のラインで揃うようになります。
+これは、例えば、1つのタイトルが2行になった場合、全体のタイトルの行が2行となり縦のラインが維持され、重宝します。
 
 ### 対応技術
 
@@ -604,15 +623,14 @@ CSSは、以下です。
   height={2796}
 />
 
-対応技術セクションでは、たくさんの技術タグを横に並べて表示しています。
-横がある一定を超えると、下に折り返して表示するようになっています。
-また、左右中央になっています。
+対応技術セクションでは、たくさんの技術タグを横に並べて表示しています。技術タグはこれからも増えていく可能性があります。
 
-HTMLをどうなるのか考えてみましょう。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。 想像してみると、以下について気づくかもしれません。
 
-見出しとコンテンツを同列にして、
-コンテンツの下に、複数の要素を入れていくイメージかと思います。
-いかが、例です。
+- 技術タグは左右中央に配置されている
+- 横がある一定を超えると、下に折り返されている
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="section">
@@ -625,29 +643,34 @@ HTMLをどうなるのか考えてみましょう。
 </section>
 ```
 
-CSSでは、flexboxを使って解決します。
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
 .section {
   display: grid;
-  /* 列を1つだけ */
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
 }
 
-/* Utility Classes */
 .cluster {
+  /* ボタンを単純に横に並べる */
   display: flex;
-  /* 折り返します */
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  /* ボタンを折り返す */
+  flex-wrap: wrap; /* ボタンが増えたり、横幅が狭くなると効果を発揮します */
+  /* 左右中央に寄せる */
   justify-content: center;
-  align-items: center;
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm);
 }
 
-/* Technology Tag Section */
 .tech-tag {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  /* 余白の調整 */
+  padding: var(--spacing-xs) var(--spacing-sm); /* タグの内側の余白を指定 */
+
+  /* 装飾 */
   background-color: var(--color-black);
   color: var(--color-white);
 }
@@ -670,18 +693,13 @@ CSSでは、flexboxを使って解決します。
 />
 
 デモセクションでは、デモ動画が左にあり、右にデモの説明ステップがリスト形式で表示されています。
-横に長いコンテンツですので、左のデモ動画の横幅を固定にしつつ、画面横幅が小さくなり、ある小ささになると、
-デモ動画が上、リストが下に落ちる サイドバーパターンを実現します。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
 
-HTMLの構造を考えましょう。
+- laptopでは、デモ動画が左にあり、説明ステップが右に配置されている
+- mobileでは、デモ動画が上にあり、説明ステップが下に配置されている
 
-- 見出し
-- コンテンツ
-  - サイドバー
-    - デモ動画
-    - 説明ステップ
-
-以下はその例です。
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
 
 ```html
 <section class="section">
@@ -716,66 +734,74 @@ HTMLの構造を考えましょう。
 </section>
 ```
 
-CSSですが、サイドバーパターンでは、flw-growを使ったテクニックがあります。
-
-https://www.joren.co/flex-grow-9999-hack/
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
 
 ```css
 .section {
   display: grid;
-  /* 列を1つだけ */
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
 }
 
-/* Demo Section */
 .sidebar {
   display: flex;
-  /* 折り返せるようにする */
+  /* 説明ステップを折り返せるようにする */
   flex-wrap: wrap;
-  gap: var(--spacing-base);
+
+  /* 余白の調整 */
+  gap: var(--spacing-base); /* デモと説明ステップの間隔を指定 */
 }
 
 .sidebar-video {
-  /* 固定にする方をbasisとflew-grow:1 を設置 */
-  flex-basis: 25rem;
-  flex-grow: 1;
+  flex-basis: 25rem; /* デモの基本幅を指定（最小限の見せたいサイズ） */
+  flex-grow: 1;      /* 余白があれば少し広がる */
 }
 
 .sidebar-steps {
-  /* 伸び縮みする方をgrowを大きな値にする */
-  flex-grow: 999;
-  /* 片方が25remなので、横幅100%から50%を最低限維持すること */
-  /* 維持できない場合は、flexを折り返すことになります */
-  flex-basis: 50%;
+  flex-grow: 999;  /* スペースが余れば優先的に広がるようにする */
+  flex-basis: 50%; /* 横幅は最低50%を確保する（デモが25remなのでバランスを取る） */
 }
 
 .demo-video {
+  /* デモ動画のコンテンツを縦に並べる */
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
-  padding: var(--spacing-base);
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* デモ動画のコンテンツの間隔を指定 */
+  padding: var(--spacing-base); /* デモ動画の内側の余白を指定 */
+
+  /* 装飾 */
   background-color: var(--color-border);
 }
 
 .step-items {
   display: grid;
-  /* 1列で縦にする */
-  grid-template-columns: 1fr;
-  /* デフォルトで行に追加される */
-  /* 変えたい場合はgrid-auto-flowを使いたい */
-  gap: var(--spacing-sm);
+  grid-template-columns: 1fr;  /* 1列で、横幅いっぱいに表示します */
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm); /* タイトルと説明文の間隔を指定 */
 }
 
 .step-item {
   display: grid;
+  /* 親グリッドから子グリッドを入れ子にします */
   grid-template-rows: subgrid;
+
+  /* グリッドアイテムを縦に並べる */
   grid-template-areas:
     "title"
     "description";
+
+  /* サブグリッドとして、2つの行があることを明示 */
   grid-row: span 2;
 
-  padding: var(--spacing-base);
+  /* 余白の調整 */
+  padding: var(--spacing-base); /* ステップアイテムの内側の余白を指定 */
+
+  /* 装飾 */
   border-top: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -783,13 +809,21 @@ https://www.joren.co/flex-grow-9999-hack/
 }
 
 .step-item-title {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: title;
 }
 
 .step-item-description {
+  /* grid-template-areasで指定された名前を定義する */
   grid-area: description;
 }
 ```
+
+今回のレイアウトを、サイドバーパターンと呼びます。
+このレイアウトは、横幅が広いとサイドバーが横に並び、横幅が狭くなるとサイドバーが下に折り返されるパターンです。
+この手法については、[Flex-grow 9999 Hack](https://www.joren.co/flex-grow-9999-hack/) を参考にしています。
+
+サブグリッドについては、[サブグリッド - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Subgrid)を参照してください。  
 
 ### お客様の声
 
@@ -1045,229 +1079,3 @@ CSSは、以下です。
   padding: var(--spacing-xs) 0;
 }
 ```
-
-### トップへ戻る
-
-{/* 画像 */}
-
-```html
-<a href="#top" class="page-top-btn">
-  <span class="page-top-arrow">↑</span>
-  <span class="page-top-text">TOP</span>
-</a>
-```
-
-```css
-/* Page Top Button */
-.page-top-btn {
-  /* fixedで常に表示する */
-  position: fixed;
-  bottom: var(--spacing-md);
-  right: var(--spacing-md);
-  width: 3.5rem;
-  height: 3.5rem;
-  background: var(--color-black);
-  color: var(--color-white);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: var(--z-index-page-top);
-
-  opacity: 0;
-  pointer-events: none;
-  /* animation-timelineでhero以下になったら表示する */
-  /* 実験的機能です。 */
-  animation: show-btn linear both;
-  animation-timeline: --hero;
-  animation-duration: auto;
-  /* heroが画面外になりはじめて見えて、30%になって全表示される */
-  animation-range: exit 0% exit 30%;
-  @supports not (animation-timeline: --hero) {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-@keyframes show-btn {
-  from {
-    opacity: 0;
-    pointer-events: none;
-  }
-  to {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-.page-top-arrow {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-}
-
-.page-top-text {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-}
-```
-
-### ヘッダー
-
-{/* 画像 */}
-
-```html
-<header class="fixed-header">
-  <nav class="nav-header">
-    <div class="cluster">
-      <div>CSS AI</div>
-      <div class="header-nav">
-        <a href="#features">機能</a>
-        <a href="#demo">デモ</a>
-        <a href="#pricing">料金</a>
-        <a href="#contact">お問い合わせ</a>
-      </div>
-    </div>
-    <input
-      type="checkbox"
-      id="mobile-menu-toggle"
-      class="mobile-menu-checkbox"
-    />
-    <label for="mobile-menu-toggle" class="mobile-menu-toggle">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </label>
-    <div class="mobile-menu">
-      <div class="mobile-menu-items">
-        <a href="#features">機能</a>
-        <a href="#demo">デモ</a>
-        <a href="#pricing">料金</a>
-        <a href="#contact">お問い合わせ</a>
-      </div>
-    </div>
-  </nav>
-  <div class="news-banner">
-    新機能リリース！スマートCSS提案機能を追加しました
-  </div>
-</header>
-```
-
-```css
-/* Header */
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-index-header);
-}
-
-.nav-header {
-  position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-base);
-  z-index: var(--z-index-nav-header);
-  height: var(--nav-header-height);
-}
-
-.nav-header .cluster {
-  justify-content: space-between;
-}
-
-.header-nav {
-  display: none;
-  gap: var(--spacing-md);
-  align-items: center;
-
-  @media (min-width: 48rem) {
-    display: flex;
-  }
-}
-
-.mobile-menu-checkbox {
-  display: none;
-}
-
-.mobile-menu-toggle {
-  display: flex;
-  caret-color: transparent;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: absolute;
-  right: var(--spacing-base);
-  top: 50%;
-  transform: translateY(-50%);
-  gap: var(--spacing-xs);
-
-  @media (min-width: 48rem) {
-    display: none;
-  }
-}
-
-.hamburger-line {
-  width: 1rem;
-  height: 0.125rem;
-  background: var(--color-black);
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-checkbox:checked
-  + .mobile-menu-toggle
-  .hamburger-line:nth-child(1) {
-  transform: rotate(45deg);
-  position: relative;
-  top: 6px;
-}
-
-.mobile-menu-checkbox:checked
-  + .mobile-menu-toggle
-  .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-checkbox:checked
-  + .mobile-menu-toggle
-  .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg);
-  position: relative;
-  top: -6px;
-}
-
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--color-white);
-  padding: var(--spacing-base);
-  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-menu-checkbox:checked ~ .mobile-menu {
-  display: block;
-}
-
-.mobile-menu-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-/* News Banner */
-.news-banner {
-  position: relative;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  padding: var(--spacing-sm);
-  text-align: center;
-  font-size: var(--font-size-sm);
-  height: var(--news-banner-height);
-}
-```
-

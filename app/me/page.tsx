@@ -113,6 +113,16 @@ export default async function Page() {
             <CarouselPrevious className="h-6 w-6 text-blue-500 bg-white hover:bg-blue-500 border-blue-500" />
             <CarouselNext className="h-6 w-6 text-blue-500 bg-white hover:bg-blue-500 border-blue-500" />
           </Carousel>
+          <div className="text-right">
+            <a
+              href="https://silverbirder-cork-board.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block leading-6 text-blue-500 hover:text-blue-600"
+            >
+              写真をもっとみる
+            </a>
+          </div>
         </div>
         <div className="pt-6">
           <h3 className="text-xl font-bold leading-[3rem] text-center">

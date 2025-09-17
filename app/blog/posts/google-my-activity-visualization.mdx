@@ -14,7 +14,7 @@ Google マイアクティビティの履歴をブラウザだけで分析した�
 
 ## アプリのざっくり紹介
 
-[Google Takeout](https://takeout.google.com/settings/takeout) からエクスポートしたマイアクティビティの ZIPファイル を読み込むと、ブラウザ内で以下の可視化を眺められます。
+[Google Takeout](https://takeout.google.com/settings/takeout) からエクスポートしたマイアクティビティの ZIPファイル をアプリにアップロードすると、ブラウザ内で以下の可視化を眺められます。
 
 - 検索キーワードのワードクラウド
 - 月別のアクティビティヒートマップ
@@ -112,7 +112,7 @@ import sampleSql from "./sample.sql";
 const rows = await runQuery(sampleSql);
 ```
 
-SQL をファイルにしておくとフォーマッタをかけやすく、差分レビューもしやすいので気に入っています。
+SQL をファイルとして保存しておくとフォーマッタをかけやすく、差分レビューもしやすいので気に入っています。
 ブラウザ内で完結するプロダクトでも、サーバーサイドと同じく SQL を直接管理できるのが地味に嬉しいポイントでした。
 
 ## ZIP/JSONをブラウザ内で取り込む
@@ -120,12 +120,14 @@ SQL をファイルにしておくとフォーマッタをかけやすく、差�
 Google Takeout の ZIPファイル をドラッグ＆ドロップすると、ZIPファイル を展開した JSONファイル を `registerFileText` 経由で DuckDB に登録します。
 DuckDBにデータを取り込むには、2つのステップを踏みます。
 
-1. `registerFileText` は、ローカルファイルシステムにインポートします。
+1. `registerFileText` で、ローカルファイルシステムにデータをインポートします。
 2. SQLを実行して、テーブルに挿入します。
 
 他の方法については、以下のドキュメントを参考になります。
 
 - [Data Ingestion – DuckDB](https://duckdb.org/docs/stable/clients/wasm/data_ingestion.html)
+
+私は、以下のように実装しました。
 
 ```sql
 -- create_activities.sql
@@ -173,7 +175,7 @@ DevTools の Application タブでは OPFS のファイルを削除できなか�
 
 ## ブラウザで SQL を書く楽しさ
 
-ブラウザ上の DuckDB に対して SQL をそのまま流し込める体験は、新鮮さと懐かしさが同居します。
+ブラウザ上の DuckDB に対して SQL をそのまま流し込める体験は、なかなか新鮮なものでした。
 レイテンシはほぼ感じないので 「自分のマシンで分析している」 感覚が強く、SQL を書くのが好きな身としてはかなり楽しい時間でした。
 アプリ内には簡易的な SQL Viewer も用意してあり、クエリをその場で投げて結果を確認できるようにしています。
 

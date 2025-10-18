@@ -12,6 +12,7 @@ tags: ["Testing"]
 ## 本記事の前提
 
 - 例では テストフレームワークとして Vitest を使用しますが、考え方は他の技術にもそのまま活かせます。
+  - 言語は、TypeScriptを使用しています。
 - 本文ではアプリ本体を「プロダクションコード」、検証用のコードを「テストコード」と呼びます。
 
 ### 単体テストとは
@@ -21,13 +22,11 @@ tags: ["Testing"]
 
 ## テストを書く目的と効果
 
-テストを書く狙いは次の3つに集約できます。
+テストを書く狙いは次の3つだと私は考えています。
 
 - 手動確認を減らして開発効率を高める
 - バグの再混入を防いで品質を守る
 - 振る舞いを言語化して仕様をはっきりさせる
-
-背景や具体例は、拙稿「[Webフロントエンドにおける網羅的テストパターンガイド - zenn](https://zenn.dev/silverbirder/articles/c3de04c9e6dd58)」にまとめました。
 
 ## 読みやすさを最優先にする
 
@@ -37,12 +36,12 @@ tags: ["Testing"]
 機能が想定どおりに振る舞うかを確認する手段であり、実装理解を助ける説明書でもあります。
 複雑な抽象化や過剰な最適化よりも、仕様がそのまま読める構造が大切です。
 
-だからこそ、テストコードでは「読みやすさ」を最優先にします。
+だからこそ、**テストコードでは「読みやすさ」を最優先にします。**
 ここからは、読みやすさを保つ具体的な工夫を紹介します。
 
 ## 今回のサンプルコード
 
-ここからは、EC カートの合計金額を求める関数 `calculateCartTotal` を題材にします。
+ここからは、EC サイトによくある、カートの合計金額を求める関数 "calculateCartTotal" を題材にします。
 クーポン割引と消費税を加味して合計を返すシンプルなロジックです。
 
 ```ts
@@ -141,18 +140,12 @@ const generateCoupon = (override: Partial<Coupon> = {}): Coupon => ({
 });
 ```
 
-モックデータの値は、できるだけ本番にデータを用意しましょう。
+モックデータの値は、できるだけ本番に近しいデータを用意しましょう。
 その方が、具体的なシナリオがイメージしやすくなります。
-
-テストで参照する値（ここでは消費税率）が決まっているなら、定数として切り出しておきます。
-
-```ts
-const TAX_RATE = 0.1;
-```
 
 ### Arrange-Act-Assert を徹底する
 
-テストは概ね「Arrange→Act→Assert」の順で進みます。
+テストは概ね「Arrange→Act→Assert」（AAA）の順で進みます。
 
 1. Arrange: 前提データやモックを用意する
 2. Act: テスト対象に対して操作を実行する
@@ -246,6 +239,17 @@ const expectedTotal = items.reduce((sum, item) => sum + item.price * item.quanti
 const expectedTotal = 14000 * (1 + TAX_RATE);
 ```
 
+また変数を定義する際は、抽象的な名前よりも具体的な名前を付けると意図が伝わりやすくなります。
+
+```ts
+// NG
+const value = 14000 * (1 + TAX_RATE);
+```
+
+```ts
+// OK
+const expectedTotal = 14000 * (1 + TAX_RATE);
+```
 
 ### テスト名とマッチャーを自然文にする
 
@@ -260,11 +264,6 @@ it('should work correctly', () => {
 
 // OK
 it('should calculate total with tax when no coupon', () => {
-  // ...
-})
-
-// より具体的な書き方
-it('should return 14000 when items are ...', () => {
   // ...
 })
 ```
@@ -284,9 +283,9 @@ it('should display total amount with tax included', () => {
 })
 ```
 
-私の場合は `it should ... when ...` の骨格に揃え、条件や期待結果を自然文で並べています。
+私の場合は "it should ... when ..." の骨格に揃え、条件や期待結果を自然文で並べています。
 
-マッチャーも同じです。`expect ... to ...` が文として読めるものを選ぶと、コード全体が平叙文になります。
+マッチャーも同じです。"expect ... to ..." が文として読めるものを選ぶと、コード全体が平叙文になります。
 
 ```ts
 // NG
@@ -379,8 +378,8 @@ it("should calculate total with tax when no coupon", () => {
 });
 ```
 
-どちらも共通化のテクニックですが、前者はモックの中身を知るために `generateItems` を読み解く必要があります。
-後者は `generateItem({ price: 2000, quantity: 2 })` のようにテスト内で値を指定しているため、その場で意図が分かります。
+どちらも共通化のテクニックですが、前者はモックの中身を知るために "generateItems" を読み解く必要があります。
+後者は "generateItem({ price: 2000, quantity: 2 })" のようにテスト内で値を指定しているため、その場で意図が分かります。
 共通化は便利でも、テストケースから離れた依存が増えるほど読解コストが跳ね上がります。
 テスト内で完結するための最小限の共通化を心がけましょう。
 
@@ -435,7 +434,7 @@ const applyCoupon = (subtotal: number, coupon?: Coupon): number => {
 ```
 
 仕様が固まっているなら、先にテストで期待値を記録しておくと実装忘れを防げます。
-Vitest なら「今は失敗していてよい」ことを表現できる `it.fails` が便利です。
+Vitest なら「今は失敗していてよい」ことを表現できる "it.fails" が便利です。
 
 ```ts
 it.fails("should apply coupon when coupon is valid", () => {
@@ -449,13 +448,13 @@ it.fails("should apply coupon when coupon is valid", () => {
 });
 ```
 
-テストをまだ書けない場合は `it.skip` や `it.todo` で意図だけ残す方法もあります。
+テストをまだ書けない場合は "it.skip" や "it.todo" で意図だけ残す方法もあります。
 
 ```ts
 it.todo("should apply coupon when coupon is valid");
 ```
 
-未完了のテストを一覧したいときはタグで印を付け、`--testNamePattern` で絞り込むと追跡しやすくなります。
+未完了のテストを一覧したいときはタグで印を付け、"--testNamePattern" で絞り込むと追跡しやすくなります。
 
 ```ts
 it.todo("should apply coupon when coupon is valid @coupon");
@@ -467,7 +466,7 @@ it.todo("should apply coupon when coupon is valid @coupon");
 vitest --testNamePattern="@coupon"
 ```
 
-フィーチャーが完成したら、`fails` や `todo` が出力に残っていないことを確認し、未実装記録を順次解消していきます。
+フィーチャーが完成したら、"fails" や "todo" が出力に残っていないことを確認し、未実装記録を順次解消していきます。
 
 ### 並び順で意図を伝える
 
@@ -530,14 +529,14 @@ expect(logger).toHaveBeenCalledWith({
 });
 ```
 
-検証対象が大きすぎるときは `expect.objectContaining` などを使い、必要な部分だけを確実に見るようにします。
+検証対象が大きすぎるときは "expect.objectContaining" などを使い、必要な部分だけを確実に見るようにします。
 
 ### パラメータの網羅性を確保する
 
 期待結果が入力パラメータに左右されるときは、境界値や同値分割を意識して網羅的に押さえます。
 列挙が増えそうならパラメタライズドテストを使い、ON/OFF のような二択も迷うくらいなら両方書いてしまった方が早いです。
 
-例えば、クーポン適用の有無の関数 `isCouponApplicable` の場合、以下のようにテストケースを分けます。
+例えば、クーポン適用の有無の関数 "isCouponApplicable" の場合、以下のようにテストケースを分けます。
 
 ```ts
 it.each`
@@ -678,8 +677,8 @@ export const sendEmail = (email: string): boolean => {
 };
 ```
 
-このとき `sendEmail` のテストで `isValidEmail` の全パターンを再度検証する必要はありません。
-`sendEmail` では「有効なら送る」「無効ならエラーを投げる」ことを確認し、`isValidEmail` の細かい条件は別のテストで保証します。
+このとき "sendEmail" のテストで "isValidEmail" の全パターンを再度検証する必要はありません。
+"sendEmail" では「有効なら送る」「無効ならエラーを投げる」ことを確認し、"isValidEmail" の細かい条件は別のテストで保証します。
 
 ```ts
 // sendEmail のテストコード

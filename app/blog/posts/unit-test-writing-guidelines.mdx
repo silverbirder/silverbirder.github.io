@@ -11,7 +11,7 @@ tags: ["Testing"]
 
 ## 本記事の前提
 
-- 例では TypeScript と Vitest を取り上げますが、考え方は他の技術にもそのまま活かせます。
+- 例では テストフレームワークとして Vitest を使用しますが、考え方は他の技術にもそのまま活かせます。
 - 本文ではアプリ本体を「プロダクションコード」、検証用のコードを「テストコード」と呼びます。
 
 ### 単体テストとは
@@ -46,17 +46,26 @@ tags: ["Testing"]
 クーポン割引と消費税を加味して合計を返すシンプルなロジックです。
 
 ```ts
+// カートアイテム
 type CartItem = {
   id: string;
+  // 商品名
   name: string;
+  // 単価
   price: number;
+  // 数量
   quantity: number;
 };
 
+// クーポン
 type Coupon = {
+  // 割引タイプ
   type: "percent";
+  // 割引値（%）
   value: number;
+  // 適用条件: 最小購入金額
   minAmount?: number;
+  // 適用期限
   expiresAt?: Date;
 };
 
@@ -89,6 +98,7 @@ const calculateSubtotal = (items: CartItem[]): number =>
 const isCouponApplicable = (subtotal: number, coupon: Coupon): boolean => {
   const now = new Date();
 
+  // 期限切れや最小購入金額未満の場合は適用不可
   if (coupon.expiresAt && coupon.expiresAt < now) return false;
   if (coupon.minAmount && subtotal < coupon.minAmount) return false;
 
@@ -115,24 +125,29 @@ const calculateTotalWithTax = (subtotal: number): number =>
 
 ```ts
 const generateItem = (override: Partial<CartItem> = {}): CartItem => ({
-  id: "A",
-  name: "Sample Product",
-  price: 1000,
+  id: "item-001",
+  name: "Wireless Mouse",
+  price: 4980,
   quantity: 1,
   ...override,
 });
 
 const generateCoupon = (override: Partial<Coupon> = {}): Coupon => ({
   type: "percent",
-  value: 10,
+  value: 15,
+  minAmount: 5000,
+  expiresAt: new Date("2025-12-31T23:59:59Z"),
   ...override,
 });
 ```
 
+モックデータの値は、できるだけ本番にデータを用意しましょう。
+その方が、具体的なシナリオがイメージしやすくなります。
+
 テストで参照する値（ここでは消費税率）が決まっているなら、定数として切り出しておきます。
 
 ```ts
-const TAX_RATE = 0.8;
+const TAX_RATE = 0.1;
 ```
 
 ### Arrange-Act-Assert を徹底する
@@ -339,9 +354,9 @@ it("should calculate total with tax when no coupon", () => {
 ```ts
 // OK
 const generateItem = (override: Partial<CartItem> = {}): CartItem => ({
-  id: "A",
-  name: "Sample Product",
-  price: 1000,
+  id: "item-001",
+  name: "Wireless Mouse",
+  price: 4980,
   quantity: 1,
   ...override,
 });
@@ -425,7 +440,7 @@ Vitest なら「今は失敗していてよい」ことを表現できる `it.fa
 ```ts
 it.fails("should apply coupon when coupon is valid", () => {
   const subtotal = 1000;
-  const coupon = { code: "VALID_COUPON", value: 10 };
+  const coupon = generateCoupon({ value: 10 });
   const expectedTotal = 900;
 
   const total = applyCoupon(subtotal, coupon);

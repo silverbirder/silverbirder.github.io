@@ -438,12 +438,15 @@ Vitest なら「今は失敗していてよい」ことを表現できる "it.fa
 
 ```ts
 it.fails("should apply coupon when coupon is valid", () => {
+  // Arrange
   const subtotal = 1000;
   const coupon = generateCoupon({ value: 10 });
   const expectedTotal = 900;
 
+  // Act
   const total = applyCoupon(subtotal, coupon);
 
+  // Assert
   expect(total).toBe(expectedTotal);
 });
 ```
@@ -510,6 +513,32 @@ expect(summary).toEqual({
   itemCount: 3,
   hasDiscount: true,
 });
+```
+
+フロントエンドでは HTML の検証も同様です。
+要素が存在するだけでなく、どこにどんなテキストが描画されているかまで確認します。
+
+```ts
+// Arrange & Act
+const html = `
+  <section>
+    <h2>Cart total</h2>
+    <p data-testid="cart-total">-</p>
+    <p data-testid="contact">Call us: 03-1234-5678</p>
+  </section>
+`;
+
+// Assert
+// NG
+expect(html.includes("-")).toBe(true);
+
+// OK
+const dom = new DOMParser().parseFromString(html, "text/html");
+const total = dom.querySelector('[data-testid="cart-total"]');
+expect(total?.textContent).toContain("-");
+
+// NOTE: 実際は @testing-library/react の screen.getByRole などを用いますが、
+// ここではライブラリに依存しない例として DOMParser を使っています。
 ```
 
 同様に、モック関数は呼び出し回数と引数を合わせて検証します。
@@ -686,10 +715,10 @@ it("should send email when email is valid", () => {
   // Arrange
   const validEmail = "test@example.com";
 
-// Act
+  // Act
   const result = sendEmail(validEmail);
 
-// Assert
+  // Assert
   expect(result).toBe(true);
 });
 

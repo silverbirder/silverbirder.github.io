@@ -389,14 +389,17 @@ it("should calculate total with tax when no coupon", () => {
 例えば次のようにグループを3階層にすると、最深部のケースを読む際に上位の条件を逐一思い出さなければなりません。
 
 ```ts
+// 1階層
 describe("calculateCartTotal", () => {
+  // 2階層
   describe("when coupon is applied", () => {
+    // 3階層
     describe("and coupon is valid", () => {
       it("should calculate total with tax after discount", () => {
         // ...
       });
     });
-
+    // 3階層
     describe("and coupon is expired", () => {
       it("should calculate total with tax without discount", () => {
         // ...
@@ -409,6 +412,7 @@ describe("calculateCartTotal", () => {
 ネストが深いほど読者の負荷が上がるので、グルーピングは 2 階層までに抑え、テスト名に状況を織り込んでフラットにまとめるのがおすすめです。
 
 ```ts
+// 1階層
 describe("calculateCartTotal", () => {
   it("should calculate total with tax after discount when coupon is valid", () => {
     // ...
@@ -486,8 +490,8 @@ it("should calculate total with tax when no coupon", () => {
 it("should calculate total with tax when coupon is applied", () => {
   // ...
 });
-// 準正常系
-it("should calculate total with tax without discount when coupon is expired", () => {
+// 準異常系
+it("should calculate total with tax when coupon is expired", () => {
   // ...
 });
 // 異常系

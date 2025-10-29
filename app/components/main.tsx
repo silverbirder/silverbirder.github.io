@@ -2,30 +2,12 @@
 
 import { cx } from "class-variance-authority";
 import { Coffee } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const Main = ({ children }: Props) => {
-  const pathname = usePathname();
-  const getTopLevelPath = () => pathname.split("/")[1] || "/";
-  const getBorderColor = () => {
-    switch (getTopLevelPath()) {
-      case "/":
-        return "border-l-4 border-primary";
-      case "me":
-        return "border-l-4 border-blue-500";
-      case "blog":
-        return "border-l-4 border-green-500";
-      case "portfolio":
-        return "border-l-4 border-yellow-500";
-      default:
-        return "border-l-4 border-gray-500";
-    }
-  };
-
   return (
     <main
       className={cx([
@@ -36,7 +18,6 @@ const Main = ({ children }: Props) => {
         "break-all",
         "rounded-tr-lg",
         "relative",
-        getBorderColor(),
       ])}
     >
       {children}

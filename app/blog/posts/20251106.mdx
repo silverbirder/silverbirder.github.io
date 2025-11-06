@@ -1,0 +1,217 @@
+---
+title: 'AIが生成したCSSをレビューしよう'
+publishedAt: '2025-11-06'
+summary: 'AIが生成するコードは、必ずレビューしましょう。この記事では、AIが生成CSSをレビューする際の7つのポイントを紹介します。CSSのレビューをする際に参考にしてください。'
+tags: ['CSS']
+---
+
+AIが生成するコードは、必ずレビューしましょう。  
+この記事では、**AIが生成したCSSをレビューする際の7つのポイント**を紹介します。  
+CSSのレビューをする際に参考にしてください。
+
+## 1. 不要なプロパティが含まれていないか
+
+生成されたCSSには、必要のないプロパティが追加されることがあります。  
+よくあるのが `box-sizing: border-box` や `display: block` などです。  
+これらは多くの場合、**グローバルCSS** などで定義済みです。
+
+NG例
+
+```css
+.card {
+  box-sizing: border-box; /* グローバルで定義済み */
+  display: block; /* 不要 */
+  padding: 16px;
+  border-radius: 8px;
+}
+```
+
+OK例
+
+```css
+.card {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+```
+
+意味を理解せずに残してしまうと、**冗長で保守性の低いCSS** になります。  
+削除してもデザインが崩れないなら、思い切って消しましょう。  
+意図がある場合は、そのまま残しても構いません。
+
+## 2. セレクタ名が適切か
+
+Tailwind CSS を使っていれば気にしなくてよい部分ですが、AIがCSSファイルを生成する場合、**セレクタ名** も確認しましょう。
+
+- プロジェクト内の命名規則に沿っているか？
+- 意味が曖昧な名前（例: `.main-style`）になっていないか？
+
+NG例
+
+```css
+.productCardHighlight { ... } /* ドメインに依存しすぎ */
+```
+
+OK例
+
+```css
+.card { ... } /* 見た目の特徴を表す */
+```
+
+ドメイン固有の語（例: “product”, “user”）を混ぜると、将来的に仕様変更が入った際、セレクタ名の修正が必要になります。  
+デザイン的な特徴を表した名前にしましょう。
+
+## 3. データ可変・レスポンシブ対応を確認しよう
+
+AIは「静的な状態」を前提にコードを出力します。  
+しかし実際のWebページでは、**テキスト量や要素数が変化**します。
+
+- タイトルが2行になったら崩れないか？
+- リストアイテムが10個になってもレイアウトが保てるか？
+
+NG例
+
+```css
+.list {
+  display: flex;
+  gap: 8px;
+  width: 400px; /* 固定長は危険 */
+}
+```
+
+OK例
+
+```css
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  max-width: 100%;
+}
+```
+
+Storybook を使っている場合は、以下のアドオンを使って動的にデータ数を変更しながら、デザイン崩れしていないか簡単に確認できるのでおすすめです。
+
+- [storybook-addon-range-controls](https://github.com/silverbirder/storybook-addon-range-controls)
+
+**4デバイス（モバイル / タブレット / ラップトップ / デスクトップ）** で最低限の表示確認を行いましょう。
+
+## 4. デザイントークンを使っているか
+
+AIは数値を直接書きがちです。  
+`2px` や `16px` のような値が並んでいたら要注意です。
+
+NG例
+
+```css
+.button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+```
+
+OK例
+
+```css
+.button {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+}
+```
+
+トークンを使うことで、**一貫したデザイン** を保ちましょう。
+
+## 5. flexbox と grid の使い分け
+
+AIが生成するレイアウトコードは、たいてい **flexbox 一辺倒** です。  
+しかし、構造によっては **grid** のほうが適しています。
+
+どちらが適しているかは、以下の記事を参考にしてください。
+
+- [苦手なCSSを克服しよう | silverbirder](https://silverbirder.github.io/blog/contents/learn-layout/)
+
+NG例
+
+```css
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery img {
+  flex: 1 0 33%;
+}
+```
+
+OK例
+
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+```
+
+また、`flex-grow` を指定したら `flex-shrink` も忘れずに設定しましょう。  
+圧縮時の崩れを防ぎます。
+
+## 6. CSSの詳細度を意識する
+
+AIは複雑なセレクタを生成しがちです。  
+詳細度が高すぎると、後から上書きが難しくなります。
+
+NG例
+
+```css
+.main .card > h2.title { ... }
+```
+
+OK例
+
+```css
+:where(.card:has(.title)) {
+  background-color: var(--surface-accent);
+}
+```
+
+` :where()` は詳細度を0にできる便利な疑似クラスです。  
+他にも `:is()` や `:has()` など擬似クラスを活用して、柔軟なスタイル指定をしましょう。
+
+## 7. カスタムプロパティで値を共通化しよう
+
+同じ意味の値を複数箇所で使っている場合は、**カスタムプロパティ**で共通化しましょう。
+
+NG例
+
+```css
+.box {
+  margin-left: -4px;
+  margin-right: -4px;
+  width: calc(100% + 8px);
+}
+```
+
+OK例
+
+```css
+.box {
+  --gutter: 4px;
+  margin-inline: calc(-1 * var(--gutter));
+  width: calc(100% + var(--gutter) * 2);
+}
+```
+
+また、`@property` を使えば型や初期値を厳密に定義できます。
+
+```css
+@property --gutter {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 4px;
+}
+```
+
+## まとめ
+
+AIが生成したCSSのレビューで、スルーされることが多いので、ぜひレビュー時のチェックポイントとして活用してください。  
+もしくは、プロンプトチューニングの参考にしてみてください。

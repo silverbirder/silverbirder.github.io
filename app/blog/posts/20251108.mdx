@@ -1,0 +1,77 @@
+---
+title: 'Technology Radar Vol. 33'
+publishedAt: '2025-11-08'
+summary: ''
+tags: []
+---
+
+Thoughtworks の **Technology Radar Vol. 33** が公開されました。  
+
+- [Technology Radar | Guide to technology landscape | Thoughtworks](https://www.thoughtworks.com/radar)
+
+今回は、流し読みして気になったトピックについての感想をまとめます。  
+
+### AI 関連の話題が多い
+
+今回の Radar では、AI に関するテーマが多く取り上げられていました。    
+「仕様駆動開発」や「AI によるブラウザ操作（playwright-mcp）」、「AGENT.md による AI コーディングエージェントへの指示フォーマット」などがありました。  
+
+### spec-driven development
+
+- [spec-driven development | Technology Radar | Thoughtworks](https://www.thoughtworks.com/radar/techniques/spec-driven-development)
+
+レガシーシステムのモダナイゼーションにおいて、仕様駆動開発は相性が良いのかもしれません。  
+既存システムの仕様を再整理し、その仕様をもとに再構築を行うというアプローチです。  
+リバースエンジニアリングのあとに、フォワードエンジニアリング（はじめて知りました）を行う流れですね。  
+
+仕様駆動開発は、UI・UX の設計では難しいのかな？という所感です。  
+一方で、バックエンド寄りのシステマチックな領域では、比較的取り入れやすいのかもしれません。  
+
+以前、VS Code で GitHub Copilot の新機能として「Plan モード」が発表されていました。  
+
+- [VS Code、Copilot が仕様作成を支援する「Plan モード」が追加 － Publickey](https://www.publickey1.jp/blog/25/vs_codecopilotplan.html)
+
+[spec-kit](https://github.com/github/spec-kit) を試してみたことがあるのですが、使いこなせませんでした。  
+今度こそ、もう少し丁寧に触ってみようかなと思います。  
+
+### Complacency with AI-generated code
+
+- [Complacency with AI-generated code | Technology Radar | Thoughtworks](https://www.thoughtworks.com/radar/techniques/complacency-with-ai-generated-code)
+
+「AI にコードを書かせて満足してしまう」という指摘。    
+これは非常によくわかります。    
+AI コーディングエージェントを使っていると、たくさんのコードが生まれていきます。    
+追加・削除・変更といったコードチャーンが多いと、レビューする側が大変になりますね。    
+しかも重複コードが増えたり、リファクタリングが必要になったりと、苦労した経験があります。  
+
+### AI-accelerated shadow IT
+
+- [AI-accelerated shadow IT | Technology Radar | Thoughtworks](https://www.thoughtworks.com/radar/techniques/ai-accelerated-shadow-it)
+
+「シャドー IT」という言葉を今回初めて知りました。    
+企業が正式に許可していない IT ツールやアプリを、従業員が独自に利用することを指すようです。  
+
+ノーコードやバイブコーディングが普及したことで、エンジニアでなくてもアプリを作れる時代になりました。    
+その結果、簡単な社内アプリが次々に生まれ、統制が効かないシステムが増えるリスクも高まっているようです。  
+
+### TCR (Test && Commit || Revert)
+
+- [TCR (Test && Commit || Revert) | Technology Radar | Thoughtworks](https://www.thoughtworks.com/radar/techniques/tcr-test-commit-revert)
+- [test && commit || revert | Medium (Kent Beck)](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864)
+
+テスト駆動開発の文脈で、テストが成功するたびにコミットし、失敗した場合はリバートするというアイデアです。  
+常にテストが成功している状態を維持しながら、小さく確実にコミットを積み重ねる開発スタイルのようです。  
+
+現代のモダンな開発現場であれば、CI/CD が整備されており、テストが失敗すればマージされない仕組みが一般的です。    
+TCR のアプローチは、途中経過のコミットもきれいに保てる点が魅力的だと思いました。    
+私自身も、基本的にこのスタイルに近い形で開発しています。  
+
+### oRPC
+
+- [oRPC | Technology Radar | Thoughtworks](https://www.thoughtworks.com/radar/tools/orpc)
+
+普段 tRPC をよく使っていますが、oRPC はその後発のようです。    
+より洗練された記法を採用しており、**OpenAPI との統合を公式サポート**している点が特徴的です。  
+
+現時点では tRPC で十分と感じていますが、  
+将来的に OpenAPI との連携が必要になった際には、検討してみたいと思いました。  

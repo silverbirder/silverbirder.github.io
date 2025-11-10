@@ -1,0 +1,142 @@
+---
+title: 'モダンな(?)フロントエンド技術セット'
+publishedAt: '2025-11-10'
+summary: '機能リクエスト投票サービス「fequest」の開発構成と技術スタックについての記録'
+tags: []
+---
+
+機能リクエスト投票サービス **fequest**（*feature request* の造語）を開発しています。  
+ユーザー向けと管理者向けの 2 つの Web アプリを構築中です。
+開発中のコードは、以下のGitHubリポジトリで公開しています。
+
+- https://github.com/silverbirder/fequest
+
+## 開発方針
+
+これまでは慣れたツールセットでスピード重視の開発を行っていましたが、今回は久しぶりに「試してみたい技術」を積極的に取り入れています。
+
+以前はツール導入に全力を注ぎすぎて、肝心のアプリが完成しないこともありました。  
+ですが今は、AI のサポートによってセットアップが驚くほど簡単になったので、コーヒー片手に気楽に新しい技術を試しています。
+
+## フォルダ構成
+
+- apps
+  - user: ユーザー向け画面
+  - admin: 管理者向け画面
+- packages
+  - db: Drizzle で DB 管理
+  - eslint-config: ESLint 設定
+  - schema: Valibot スキーマ定義
+  - storybook: Storybook 設定
+  - typescript-config: TypeScript 設定
+  - ui: 共通 UI コンポーネント
+  - user-feature-xxx: ユーザー向けフィーチャー
+  - admin-feature-xxx: 管理者向けフィーチャー
+  - vitest-config: Vitest 設定
+
+モノリポ構成を採用し、モノレポツールには **turborepo** を利用しています。  
+さらに、UI コンポーネントやフィーチャーコードを自動生成するために `turborepo` のコード生成機能 **turbo gen** を使用しました。
+
+- [Generating code | Turborepo](https://turborepo.com/docs/guides/generating-code)
+
+## アプリケーションフレームワーク
+
+アプリケーションフレームワークは **Next.js 16** を採用しています。  
+巨人の肩には、もう少し乗っておきたいところです。
+
+- [Next.js 16 | Next.js](https://nextjs.org/blog/next-16)
+
+キャッシュコンポーネントはまだ使用していませんが、今後試してみたいと考えています。  
+「キャッシュ」という言葉には、どうしても少し抵抗があるんですよね……。
+
+Next.js の設定には、以下の 2 点を追加しています。
+
+1. **typedRoutes**
+    - `Link` の URL を型安全に扱える。
+    - 動的ルーティングでは `pathpida` が必要になるかもしれません。
+2. **reactCompiler**
+    - `useMemo` や `useCallback` を省略できる。
+    - 安定版として使えるようになっているようです(?)。
+
+また、`PageProps` インターフェースが自動生成され、`params` や `searchParams` に型安全にアクセスできるようになっています。
+
+## API 通信
+
+API 通信には、慣れ親しんだ **tRPC** を採用しました。  
+本来は `packages/trpc` として切り出す予定でしたが、DB や認証との依存関係が複雑だったため、現在は `apps` 内に配置しています。
+
+- [tRPC | tRPC](https://trpc.io/docs/)
+
+## Lint / TypeScript 設定
+
+`eslint-config` と `typescript-config` は、`turborepo` の `create-turbo` テンプレート由来で、そのまま利用しています。
+
+- [Next.js | Turborepo](https://turborepo.com/docs/guides/frameworks/nextjs)
+
+## Schema
+
+バリデーションスキーマには **Valibot** を採用しました。  
+普段は **Zod** を使っていますが、Valibot は後発のスキーマバリデーションライブラリなので、試しに導入してみました。  
+軽量だと言われていますが、実際のところは未確認です。
+
+## Storybook
+
+**Storybook v10** を使用し、フレームワークには `@storybook/nextjs-vite` を採用しています。  
+現時点では CSF 3 形式を継続使用中です。
+
+v8.5 で Story にタグを付けてフィルタリングできる機能が追加され、v10 ではさらに「除外」もサポートされました。  
+これまでタグ機能をあまり意識していなかったので、今回知る良いきっかけになりました。
+
+- [Storybook 10](https://storybook.js.org/blog/storybook-10/)
+
+## Vitest と VRT
+
+**Vitest v4** を導入し、Storybook と連携したスナップショットテストを実行しています。  
+`Story` の `play` 関数にテストを書くのは少し抵抗があるため、現在は描画確認レベルのシンプルなテストにとどめています。
+
+- [Vitest 4.0 is out! | Vitest](https://vitest.dev/blog/vitest-4)
+
+さらに、`@storycap-testrun/browser` を導入し、Storybook のテストランナー実行時に各 `Story` の **VRT (Visual Regression Test)** を自動実行するようにしました。  
+当初は Vitest や Storybook の公式機能で対応を試みましたが、うまく動作しなかったため、以下のアドオンを使わさせて貰いました。
+
+- [@storycap-testrun/browser | Storybook integrations](https://storybook.js.org/addons/@storycap-testrun/browser)
+
+`vitest-config` では **Browser Mode** の設定を行い、`jsdom` ではなく **Playwright** を利用した実 DOM テストを可能にしています。
+
+- [Browser Mode | Guide | Vitest](https://vitest.dev/guide/browser/)
+
+これにより、`await expect.element(el).toMatchScreenshot();` のような要素単位の VRT も実行できます。  
+現状では Story 単位の VRT で十分ですが、テストケースによっては使い分けも検討しています。
+
+## UI 構成
+
+`ui` パッケージでは **Tailwind CSS** をデザイントークンとして使用し、**shadcn/ui** をベースに共通 UI コンポーネントを構築しています。
+
+レイアウトコンポーネントは **Chakra UI** の思想を参考に自作しました。  
+以下のようなレイアウト系コンポーネントを用意しています。
+
+- `Box`
+- `Center`
+- `Container`
+- `VStack`
+- `HStack`
+- `Flex`
+- `Grid`
+
+また、テキスト用の `Text` コンポーネントや、見出し用の `Heading` コンポーネントも定義しています。
+
+CSS を書くのは好きなのですが、Tailwind を採用している以上、トークンベースで統一した方が保守性が高いため、スタイルはすべて Tailwind で管理しています。
+
+このように、  
+
+**デザイントークン → 共通コンポーネント／レイアウト → ドメインレベルのコンポーネント**  
+
+という階層構造で UI を組み立てています。
+
+デザイントークンをベースに、共通コンポーネントやレイアウトを使用しているため、基本的に `tailwind` の `className` はこのレイヤーまでで完結します。
+
+ドメインレベルのコンポーネントでは、共通コンポーネントやレイアウトの `variant` を利用してスタイルを調整するため、直接 `className` を指定することは原則ありません。
+
+全体としては、**Design Token-Based UI Architecture** の考え方を意識し、**Option tokens → Decision tokens → Component tokens** の三層構成でデザインを整理しています。
+
+- [Design Token-Based UI Architecture](https://martinfowler.com/articles/design-token-based-ui-architecture.html)

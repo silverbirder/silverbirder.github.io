@@ -1,0 +1,120 @@
+---
+title: '9年前の学生の自分が作ったWebアプリを懐かしむ'
+publishedAt: '2025-11-16'
+summary: ''
+tags: []
+---
+
+久々に Google Drive のフォルダを整理していたところ、学生時代に作った Web アプリの資料が見つかりました。  
+開発したのは **2016年、今から9年前**。  
+当時の自分の技術スタックや開発の進め方を思い出しながら、ちょっと懐かしく振り返ってみます。
+
+## 当時作っていた Web アプリ
+
+私が作っていたのは、**動画をアップロードしてコマ画像を抽出し、好きなコマを選んで並び替え Gif 画像に変換するアプリ** です。  
+生成した Gif は掲示板に投稿でき、コメントもつけられるという、シンプルながら機能が詰まったサービスでした。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296187/silver-birder.github.io/blog/em59va9jelbttvtq8soo.png"
+  alt="トップページ"
+  height={627}
+  width={375}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296188/silver-birder.github.io/blog/s1spgaj8xmfazjl2aih7.png"
+  alt="Gif画像掲示板"
+  height={627}
+  width={375}
+/>
+
+Gif 作成まわりのフローはこんな感じでした。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296189/silver-birder.github.io/blog/kcblm9rzxfecmlmn2fz5.png"
+  alt="Gif作成 - 動画アップロード中"
+  height={627}
+  width={375}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296190/silver-birder.github.io/blog/bercvw7wjr1llzcmdlwt.png"
+  alt="Gif作成 - 動画から画像を抽出"
+  height={627}
+  width={375}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296190/silver-birder.github.io/blog/des0a3rvohgf4sxzgrbg.png"
+  alt="Gif作成 - 画像を並び替えてGifに変換"
+  height={627}
+  width={375}
+/>
+
+当時はもちろん Figma も触っておらず、Web デザインはすべて手書きの HTML と CSS。  
+インタラクティブな部分は jQuery、ビューは EJS を使っていました。
+
+## 使用していた技術
+
+- サーバサイド: Node.js + Express v3.5.1
+- ビュー: EJS
+- フロント: jQuery
+- データベース: MongoDB
+- ストレージ: Dropbox
+- 動画 → Gif 変換: ffmpeg
+- 一時ファイル削除: cron
+
+S3 を使う発想はなく、Dropbox に動画や分割した画像を保存していました。
+抽出した画像を ffmpeg で Gif に変換するフローは、いま思えばよく組めていたなと感じます。
+
+## 学生時代の開発環境
+
+当時の開発環境もなかなか味わい深いものでした。
+
+- サーバー: さくらのレンタルサーバ
+- バージョン管理: Git なし（フォルダにそのまま保存）
+- コードアップロード: WinSCP
+- SSH 接続: たぶん TeraTerm
+- デプロイ: SSH 接続 → `npm install` → `express start`
+- アクセス: IP アドレス + Express のデフォルトポートに直アクセス
+
+いまのように AWS や Vercel が当たり前の時代ではなかったので、この運用でも特に疑問を持たず使っていました。
+
+## 資料（2016年当時の画面設計・構成図など）
+
+画面構成やシステム構成は、Microsoft Visio を使って作成していました。  
+UI デザインツールを持っていなかったので、Visio の図形を組み合わせてポンチ絵を作っていた記憶があります。
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296185/silver-birder.github.io/blog/axypr0poguogwqgjn4uw.jpg"
+  alt="画面構成"
+  height={510}
+  width={681}
+/>
+
+<Image
+  src="https://res.cloudinary.com/silverbirder/image/upload/v1763296186/silver-birder.github.io/blog/dwcfevei1zdn9i6kr186.jpg"
+  alt="システム構成"
+  height={545}
+  width={1090}
+/>
+
+## 当時読んでいた本
+
+当時の私は、大学では C 言語や Java を学んでおり、Web 系の開発経験はほぼゼロでした。  
+友人に「今は Node.js が流行っているらしい」と聞き、手探りで買ったのがこの本でした。  
+なんとなく、やってみたい!という気持ちだけで購入した記憶があります。
+
+- [はじめてのNode.js - サーバーサイドJavaScriptでWebアプリを開発する](https://www.amazon.co.jp/dp/4797370904)
+
+当時の知識は IT パスポート程度で、
+
+- ターミナル操作は初めて
+- Node.js や Express のバージョンが書籍と手元で違うことを理解していない
+- HTML/CSS を写経したことがある程度
+- サーバ、データベース、ストレージの概念がほぼゼロ
+
+という状態でした。
+
+それでも本を何度も読み返し、エラーに何度もつまずきながら、少しずつ動く形に近づけていきました。  
+気づけば、表紙が擦り切れるほど読み込んでいた気がします。（たぶん1年以上）

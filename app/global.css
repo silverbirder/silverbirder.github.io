@@ -107,3 +107,19 @@ table {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+@layer utilities {
+  @keyframes slow-rotate-1deg-per-sec {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-slow-rotate {
+    animation: slow-rotate-1deg-per-sec 360s linear infinite;
+  }
+}

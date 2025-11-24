@@ -2,6 +2,7 @@
 
 import { cx } from "class-variance-authority";
 import { Coffee } from "lucide-react";
+import { BlueskyLogo } from "./bluesky-logo";
 
 type Props = {
   children: React.ReactNode;
@@ -22,6 +23,9 @@ const Main = ({ children }: Props) => {
       {children}
       <div className="absolute bottom-4 right-4 pointer-events-none">
         <Coffee className="w-32 h-32 text-primary opacity-5" />
+      </div>
+      <div className="absolute -top-2 -right-2 animate-slow-rotate">
+        <BlueskyLogo />
       </div>
     </main>
   );

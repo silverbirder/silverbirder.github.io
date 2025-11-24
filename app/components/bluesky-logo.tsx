@@ -34,7 +34,7 @@ export const BlueskyLogo = () => {
         }
         const html = await res.text();
         setTimelineHtml(html);
-      } catch (e) {
+      } catch {
         setTimelineHtml("<p><strong>Feed 読み込みに失敗しました</strong></p>");
       }
     };

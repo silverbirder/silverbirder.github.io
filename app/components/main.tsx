@@ -16,7 +16,6 @@ const Main = ({ children }: Props) => {
         "bg-[linear-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]",
         "bg-[length:100%_1.5rem]",
         "break-all",
-        "rounded-tr-lg",
         "relative",
       ])}
     >

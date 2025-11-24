@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "silverbirder",
     short_name: "silverbirder",
-    theme_color: "#00adb5",
+    theme_color: "#fff",
     background_color: "#fff",
     description: "@silverbirderのコジンノート",
     start_url: "/",

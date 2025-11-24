@@ -60,7 +60,7 @@ export const BlueskyLogo = () => {
         </button>
       </PopoverTrigger>
       <PopoverContent
-        className="bg-white w-[90dvw] max-w-5xl p-4 space-y-0"
+        className="bg-white w-[90dvw] max-w-2xl p-4 space-y-0"
         align="end"
       >
         <div className="flex flex-col gap-0 w-full">

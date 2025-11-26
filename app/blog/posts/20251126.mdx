@@ -1,0 +1,117 @@
+---
+title: 'Testcontainers で管理・ユーザー画面の一気通貫 E2Eテスト'
+publishedAt: '2025-11-26'
+summary: '今、個人開発で Fequest という「ユーザー画面」と「管理画面」の 2 つの Web アプリを実装しています。この 2 つを跨いだ E2E テストを、Testcontainers と Cucumber（Gherkin Markdown）、そして Playwright を組み合わせて書いています。'
+tags: []
+---
+
+今、個人開発で **Fequest** という「ユーザー画面」と「管理画面」の 2 つの Web アプリを実装しています。  
+この 2 つを跨いだ E2E テストを、Testcontainers と Cucumber（Gherkin Markdown）、そして Playwright を組み合わせて書いています。
+
+今回、**管理画面でデータを登録し、その内容がユーザー画面で正しく表示される** という一連の E2E テストが GitHub Actions 上で動作するようになったので、その方法をまとめておきます。
+
+## Fequest とは
+
+**Fequest（feature request）** は、ユーザーが新機能や改善要望を投稿できるサービスです。
+
+- 管理画面で「プロダクト名」を登録
+- ユーザー画面にそのプロダクトページが生成
+- ユーザーが機能リクエストを投稿
+
+ユーザーと開発者が、「つくってほしいもの」「つくる予定のもの」を相互に伝え合える場を作るのが目的です。
+
+## 前提構成
+
+Fequest の構成は以下のとおりです。  
+Testcontainers は Docker 上で動作できることが必須なので、それ以外はなんでも構いません。
+
+- モノレポ（Turborepo）
+  - ユーザー画面：Next.js
+  - 管理画面：Next.js
+- DB：PostgreSQL
+- ORM：Drizzle
+- 認証：管理画面は Google 認証必須、セッションは DB に保存
+- ブラウザ操作：Playwright
+
+## 全体の流れ
+
+実際に行う処理は次のような流れです。
+
+1. Testcontainers が **PostgreSQL コンテナ**を起動する
+2. 同じネットワーク内で、以下の Docker を Testcontainers から起動する
+   - ユーザーアプリ
+   - 管理アプリ
+3. DB にセッションデータを事前登録して、認証済み状態を作る
+4. Playwright のブラウザコンテキストに、そのセッション Cookie をセットする
+5. 認証済みユーザーとして管理画面にアクセスし、データを登録する
+6. 同じ DB を参照するユーザー画面で、登録済みデータが表示されることを確認する
+
+この一連の流れは **ローカルだけで完結** します。  
+GitHub Actions 上でも完全に同じ構成で動作します。  
+ステージング環境が不要になるのが大きなメリットです。
+
+## 実装例
+
+ソースコードはすべて公開しています。
+
+- https://github.com/silverbirder/fequest/tree/main/apps/e2e
+
+以下は、その中から抜粋したサンプルです。
+
+### 3. DB フェーズ：session を挿入する
+
+管理画面ログイン済み状態を作るため、DB にユーザーとセッションを直接挿入します。
+
+```ts
+const userId = `e2e-user-${randomUUID()}`;
+
+await db.insert(users).values(buildUserRecord(userId));
+
+const sessionToken = `e2e-session-${randomUUID()}`;
+
+await db.insert(sessions).values({
+  expires: new Date(Date.now() + 1000 * 60 * 60),
+  sessionToken,
+  userId,
+});
+```
+
+### 4. Playwright に Cookie を注入する
+
+Playwright のブラウザコンテキストに Cookie を追加し、管理画面にアクセスした瞬間からログイン済み状態にします。
+
+```ts
+await adminBrowser.context.addCookies([
+  {
+    domain: new URL(adminBaseUrl).hostname,
+    httpOnly: true,
+    name: "authjs.session-token",
+    path: "/",
+    sameSite: "Lax",
+    secure: false,
+    value: sessionToken,
+  },
+]);
+```
+
+### テストの流れ
+
+1. `adminBrowser` で管理画面にアクセス
+2. UI 操作でプロダクトを登録
+3. ユーザー画面で、そのプロダクトが表示されていることを確認
+
+管理画面とユーザー画面が **同じ DB を参照している** ため、  
+管理側で登録した内容がユーザー側ですぐ反映されます。
+
+UI ベースで「実運用に近い E2E テスト」を構築できるのが非常に快適です。
+
+## 終わりに
+
+以上、Testcontainers 芸人でした。
+
+## 関連記事
+
+Testcontainers については、以下の記事も参考にしてください。
+
+- [Testcontainersで実現する、使い捨て結合テスト環境構築とテスト実施 - zenn](https://zenn.dev/silverbirder/articles/0a54533cb7ee9b)
+- [Testcontainersを用いたNext.jsとDBの結合テスト - zenn](https://zenn.dev/silverbirder/articles/bcf9ae9b496a15)

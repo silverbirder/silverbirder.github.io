@@ -1,0 +1,135 @@
+---
+title: 'StorybookのcomposeStoryとVitestのtoMatchScreenshotを組み合わせたVRT'
+publishedAt: '2025-11-29'
+summary: 'Web フロントエンドの UI 開発では、私の中では Storybook は、ほぼ必須なツールです。UI カタログとして使うだけでなく、**ビジュアルリグレッションテスト（VRT）** にも活用したいと常々思っています。'
+tags: []
+---
+
+Web フロントエンドの UI 開発では、私の中では Storybook は、ほぼ必須なツールです。  
+UI カタログとして使うだけでなく、**ビジュアルリグレッションテスト（VRT）** にも活用したいと常々思っています。
+
+VRT が必要になる場面としては、たとえば次のようなケースがあります。
+
+- 共通コンポーネントのデザイン修正後、依存コンポーネントの崩れを検知したい
+- デザイントークンやテーマ変更の影響範囲を確認したい
+- ライブラリアップデート時にデザイン差分を確認したい
+
+Storybook の以下のドキュメントでは、Visual Tests は Chromatic の利用が紹介されています。
+
+- [Visual tests | Storybook docs](https://storybook.js.org/docs/writing-tests/visual-testing)
+
+ただ、さまざまな理由から Chromatic に依存したくないこともあります。
+
+## Vitest の Browser Mode と toMatchScreenshot
+
+ここで役に立つのが、Vitest に追加された Browser Mode です。  
+ヘッドレスブラウザ（Chromium など）上での UI テストが可能になりました。
+
+- [Browser Mode | Guide | Vitest](https://vitest.dev/guide/browser)
+
+さらに、 `toMatchScreenshot` により、スクリーンショットを比較する VRT ができるようになりました。
+
+- [Visual Regression Testing | Vitest](https://vitest.dev/guide/browser/visual-regression-testing.html)
+
+## Storybook の composeStory と組み合わせる
+
+Storybook には `composeStory`（および `composeStories`）というAPIがあり、  
+Storybook の Story オブジェクトをテストコード内で利用できます。
+
+- [Stories in unit tests | Storybook docs](https://storybook.js.org/docs/writing-tests/integrations/stories-in-unit-tests)
+
+これを使うことで、
+
+- Storybook に定義した UI 状態（Story）
+- Vitest のスクリーンショット比較（toMatchScreenshot）
+
+をそのままつなげて、Chromatic なしで Storybook の Story を VRT できるようになります。
+
+## 実際に対応したコミット
+
+実際にこの方法を試したコミットはこちらです。
+
+- https://github.com/silverbirder/fequest/commit/13a331b029a406781d500f1ce88a26cf924b3918
+
+上記コミットには、Vitest 側の不具合修正を早めに取り込みたかったため、patch を当てています。
+
+- 参考: https://github.com/vitest-dev/vitest/issues/8853
+
+使用した環境は次のとおりです。
+
+- `@storybook/react-vite`
+- `vitest-browser-react`
+
+当初は `@storybook/nextjs-vite` で試していたものの、Next.js の `next/navigation` 周りの mock エラーに苦戦し、一旦断念しました。  
+再挑戦すれ解決できる可能性はありますが、今回は `@storybook/react-vite` を使用しています。
+
+## サンプルコンポーネント
+
+```tsx
+// my-input.tsx
+import { Input } from "<path to shadcn input component>";
+import { ComponentProps } from "react";
+
+type Props = ComponentProps<typeof Input>;
+
+export const MyInput = ({ ...rest }: Props) => {
+  return <Input {...rest} />;
+};
+```
+
+## Storybook 側のファイル
+
+```tsx
+// my-input.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react-vite";
+
+import { MyInput } from "./my-input";
+
+const meta = {
+  component: MyInput,
+} satisfies Meta<typeof MyInput>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+```
+
+## Vitest の VRT テストコード
+
+```tsx
+// my-input.spec.tsx
+import { composeStories } from "@storybook/react-vite";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+
+import * as stories from "./my-input.stories";
+
+const { Default } = composeStories(stories);
+
+describe("MyInput", () => {
+  it("matches Default story screenshot", async () => {
+    const { getByTestId } = await render(
+      <div data-testid="test">
+        <Default />
+      </div>,
+    );
+
+    await expect(getByTestId("test")).toMatchScreenshot();
+  });
+});
+```
+
+このテストを実行すると、Default Story のスクリーンショットが保存され、  
+次回以降はその差分が検知されるようになります。
+
+## これで Storybook の Story を全部 VRT できる
+
+`composeStories` と `toMatchScreenshot` を組み合わせることで、
+
+- Storybook の Story をそのままテストに読み込む
+- Story 全パターンに対してスクリーンショット比較を行う
+- Chromatic なしで VRT ができる
+
+という、シンプルな構成で VRT ができそうです。  
+Storybook と Vitest という、どちらもメジャーな OSS だけで実現できるため、外部依存を減らせる点も魅力的です。

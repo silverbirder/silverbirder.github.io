@@ -5,7 +5,8 @@
     "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "upload-images": "node -r dotenv/config scripts/upload-images.mjs"
+    "upload-images": "node -r dotenv/config scripts/upload-images.mjs",
+    "convert:mdx-images": "node ./scripts/convert-mdx-images.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.15",

@@ -133,3 +133,50 @@ describe("MyInput", () => {
 
 という、シンプルな構成で VRT ができそうです。  
 Storybook と Vitest という、どちらもメジャーな OSS だけで実現できるため、外部依存を減らせる点も魅力的です。
+
+## 追記
+
+`@storybook/nextjs-vite` でもスクリーンショット VRT が動作することを確認できました。
+ポイントは、以下で紹介されている `vite-plugin-storybook-nextjs` を導入する必要があったことです。
+
+- [Portable stories in Vitest | Storybook docs](https://storybook.js.org/docs/api/portable-stories/portable-stories-vitest)
+
+私の環境では monorepo を採用しているため、`vite.config.ts` に次のような設定を追加しました。
+
+```ts
+// vite.config.ts
+import nextjs from "vite-plugin-storybook-nextjs";
+
+export default defineConfig({
+  plugins: [nextjs({dir: "../../apps/user"})],
+});
+```
+
+テストの書き方ですが、上記の紹介した形式だと、以下のエラーが発生しました。
+
+> SB_FRAMEWORK_NEXTJS_0002 (NextjsRouterMocksNotAvailable): Tried to access router mocks from "next/router" but they were not created yet. You might be running code in an unsupported environment.
+
+そこで、以下のようなテストの書き方に変更したら動作しました。
+
+```tsx
+// my-input.spec.tsx
+import { composeStories } from "@storybook/react-vite";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+
+import * as stories from "./my-input.stories";
+
+const { Default } = composeStories(stories);
+
+describe("MyInput", () => {
+  it("matches Default story screenshot", async () => {
+    await Default.run();
+
+    await expect(document.body).toMatchScreenshot();
+  });
+});
+```
+
+修正したコミットは以下になります。
+
+- https://github.com/silverbirder/fequest/commit/d8ef4ddbb52ab78d954f1db2d95b727d6f46d81c

@@ -3,6 +3,7 @@ title: 'Tauri でつくる自分用 VLog アプリ開発記'
 publishedAt: '2025-10-04'
 summary: 'Tauri で Mac 向けの VLog 録画アプリを作り、技術選定から録画方式、PiP 実装までの試行錯誤を整理しました。ソースコードや配布ファイルも紹介します。'
 tags: ["Artifact"]
+index: false
 ---
 
 最近、Mac 向けに画面と自分の姿を同時に記録する VLog アプリを Tauri で作りました。
@@ -13,21 +14,11 @@ https://github.com/silverbirder/vlog
 
 アプリの雰囲気が伝わるように、スクリーンショットを 2 枚載せておきます。
 
-<Image
-  src="https://res.cloudinary.com/silverbirder/image/upload/v1759582696/silver-birder.github.io/blog/vlog-intro-1.png"
-  width={1826}
-  height={1668}
-  alt="VLog アプリのホーム画面"
-/>
+![VLog アプリのホーム画面](https://res.cloudinary.com/silverbirder/image/upload/v1759582696/silver-birder.github.io/blog/vlog-intro-1.png)
 
 起動直後のホーム画面です。保存先や自動停止時間などをここで設定できます。
 
-<Image
-  src="https://res.cloudinary.com/silverbirder/image/upload/v1759582703/silver-birder.github.io/blog/vlog-intro-2.png"
-  width={3052}
-  height={2062}
-  alt="録画中の VLog アプリと PiP 表示"
-/>
+![録画中の VLog アプリと PiP 表示](https://res.cloudinary.com/silverbirder/image/upload/v1759582703/silver-birder.github.io/blog/vlog-intro-2.png)
 
 録画中はこのように ピクチャ・イン・ピクチャ (PiP) でカメラ映像を前面に固定しながら、画面全体をキャプチャします。
 

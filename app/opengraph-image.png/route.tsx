@@ -66,7 +66,7 @@ export async function GET() {
             textAlign: "center",
           }}
         >
-          コジンノート
+          ジブンノート
         </h1>
         <p
           style={{

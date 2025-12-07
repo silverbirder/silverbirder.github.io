@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "silverbirder",
-    short_name: "silverbirder",
+    name: "ジブンノート",
+    short_name: "ジブンノート",
     theme_color: "#fff",
     background_color: "#fff",
-    description: "@silverbirderのコジンノート",
+    description: "@silverbirderのジブンノート",
     start_url: "/",
     display: "standalone",
     icons: [

@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     default: "silverbirder",
     template: "%s | silverbirder",
   },
-  description: "@silverbirderのコジンノート",
+  description: "@silverbirderのジブンノート",
   openGraph: {
     title: "silverbirder",
-    description: "@silverbirderのコジンノート",
+    description: "@silverbirderのジブンノート",
     url: baseUrl,
     siteName: "silverbirder",
     locale: "ja_JP",

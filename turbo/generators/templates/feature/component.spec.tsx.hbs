@@ -1,0 +1,30 @@
+import { composeStories } from "@storybook/nextjs-vite";
+import { describe, expect, it } from "vitest";
+
+import * as stories from "./{{kebabCase name}}.stories";
+import { {{pascalCase name}} } from "./{{kebabCase name}}";
+import { renderWithProvider } from "./test-util";
+
+const Stories = composeStories(stories);
+
+describe("{{pascalCase name}}", () => {
+  it.each(Object.entries(Stories))("should %s snapshot", async (_, Story) => {
+    const originalInnerHtml = document.body.innerHTML;
+
+    await Story.run();
+
+    await expect(document.body).toMatchScreenshot();
+
+    document.body.innerHTML = originalInnerHtml;
+  });
+
+  it("renders provided children", async () => {
+    await renderWithProvider(
+      <{{pascalCase name}}>Child content</{{pascalCase name}}>,
+    );
+
+    const element = document.querySelector("div");
+    expect(element).not.toBeNull();
+    expect(element?.textContent ?? "").toContain("Child content");
+  });
+});

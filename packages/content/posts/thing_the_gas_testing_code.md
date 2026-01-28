@@ -1,0 +1,174 @@
+---
+title: 'Google Apps Script でも テスト がしたい！ (Clasp + Typescript + Jest)'
+publishedAt: '2020-02-01'
+summary: 'Google Apps Script(以下,GAS)でライブラリを公開しました。ライブラリを開発する際、テストのフィードバックサイクルを短くするため、`Clasp + Typescript + Jest` という技術スタックを選択しました。その開発体験について共有しようと思います。特段変わったことはしていません。'
+tags: ["Google", "テスト", "フロントエンド"]
+---
+
+Google Apps Script(以下,GAS)でライブラリを公開しました。ライブラリを開発する際、**テストのフィードバックサイクルを短くする**ため、`Clasp + Typescript + Jest` という技術スタックを選択しました。
+その開発体験について共有しようと思います。特段変わったことはしていません。
+
+## Google Apps Script のテストってどうしてますか
+
+[script.google.com](https://script.google.com/)にアクセスしてデバッグ実行って、しんどくないですか？
+
+![Google Apps Script Debugging ...](https://res.cloudinary.com/silverbirder/image/upload/v1614431285/silver-birder.github.io/blog/google_apps_script_debugging.png)
+
+- ネットワーク越しでステップ実行するため、**遅い**
+- G Suite 系のサービスと連携すると、サービス側の調整(データ準備とか)が**面倒**
+- デバッグ機能が**貧弱**
+
+とても**ストレスフル**です。単純な GAS なら別に良いんですが、少し複雑な GAS を作ろうと思うと、問題に感じます。
+
+## ローカルで動かそう
+
+GAS をローカル環境で動かすことができる Clasp というコマンドラインツールが Google より公開されています。
+
+https://github.com/google/clasp
+
+また、Clasp は Typescript をサポートしているため、型を中心としたコーディングが可能となりました。
+
+https://www.npmjs.com/package/@types/google-apps-script
+
+Typescript を選択すると、Interface 設計が容易になります。もちろん、`.gs` ファイルでも同様の事は実現できると思います。
+
+次に、Jest と呼ばれるテストツールを組み合わせることで、ローカル環境でテストが可能になります。
+
+https://jestjs.io/docs/getting-started
+
+ただ、単純にテストコードが書けません。
+例えば、カレンダーイベントを取得するテストをコーディングするとき、次のようなスクリプトを書いたとします。
+
+```typescript
+const calendar: Calendar = CalendarApp.getCalendarById(
+  "<your google calendar id>"
+);
+calendar
+  .getEvents(new Date("2020-01-01"), new Date("2020-01-02"))
+  .forEach((calendarEvent: CalendarEvent) => {
+    console.log(calendarEvent.getTitle());
+  });
+```
+
+こう書いてしまうと、本当のカレンダーイベントを取りに行ってしまいます。テストであれば、そういった処理は避けたいところです。
+そこで、`CalendarApp` を偽物のオブジェクト、つまり Mock オブジェクトに差し替えるため、依存性逆転の原則(dependency inversion principle)を適用します。
+
+```typescript
+interface ICalendarApp {
+  calendars?: Array<ICalendar>;
+  getCalendarById(id: string): ICalendar;
+}
+
+interface ICalendar {
+  calendarEvents?: Array<ICalendarEvent>;
+  getEvents(startTime: Date, endTime: Date): Array<ICalendarEvent>;
+}
+
+interface ICalendarEvent {
+  title?: string;
+  getTitle(): string;
+}
+
+class CalendarAppMock implements ICalendarApp {
+  calendars?: Array<ICalendar>;
+
+  getCalendarById(id: string): ICalendar {
+    return this.calendars![0].calendar;
+  }
+}
+
+class CalendarAppImpl implements ICalendarApp {
+  getCalendarById(id: string): ICalendar {
+    const calendar: ICalendar = CalendarApp.getCalendarById(id);
+    return calendar;
+  }
+}
+```
+
+このようなインターフェース・クラスを準備し、先程のコードを次のようにします。
+
+```typescript
+const calendar: ICalendar = new CalendarAppMock().getCalendarById();
+calendar
+  .getEvents(new Date("2020-01-01"), new Date("2020-01-02"))
+  .forEach((calendarEvent: ICalendarEvent) => {
+    console.log(calendarEvent.getTitle());
+  });
+```
+
+結果、`CalendarApp` の代わりに Mock オブジェクトを差し込めるようになりました。ローカルテストが可能となります。
+
+もちろん、プロダクトコードでは、`CalendarAppMock` ではなく、 `CalendarAppImpl` を使用すれば良いです。
+Mock で差し替えるオブジェクトが増えると、InversifyJS のような DI コンテナを検討してみると良いかもしれません。
+
+https://github.com/inversify/InversifyJS
+
+こうすることで、Jest によるテストが動作するようになります。  
+実際に、開発・公開したライブラリでも十分にテストをすることができました。
+
+https://www.npmjs.com/package/@silverbirder/caat
+
+```shell
+CaAT $ npm run test -- --coverage
+
+> jest "--coverage"
+
+ PASS  __tests__/utils/dateUtils.test.ts
+ PASS  __tests__/group/groupImpl.test.ts
+ PASS  __tests__/member/memberImpl.test.ts
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+---------------------|---------|----------|---------|---------|-------------------
+All files            |   98.43 |    97.62 |   96.67 |   98.37 |
+ __tests__           |     100 |      100 |     100 |     100 |
+  generator.ts       |     100 |      100 |     100 |     100 |
+ src/calendar        |    93.1 |      100 |   92.31 |   92.59 |
+  calendarAppImpl.ts |      60 |      100 |      50 |      60 | 6,7
+  calendarAppMock.ts |     100 |      100 |     100 |     100 |
+ src/group           |     100 |      100 |     100 |     100 |
+  groupImpl.ts       |     100 |      100 |     100 |     100 |
+ src/member          |     100 |    94.74 |     100 |     100 |
+  memberImpl.ts      |     100 |    94.74 |     100 |     100 | 38
+ src/utils           |     100 |      100 |     100 |     100 |
+  dateUtils.ts       |     100 |      100 |     100 |     100 |
+---------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        2.826s, estimated 6s
+Ran all test suites.
+```
+
+ライブラリとして提供する機能のテストが、たったの**約 3 秒**で終わります。
+**ストレスフリー**にローカル開発が可能となりました。
+
+詳しくは、実際に作ったライブラリのソースコード([\_\_tests\_\_](https://github.com/silverbirder/CaAT/tree/master/__tests__))を御覧ください。
+
+## 終わりに
+
+GAS は、とても便利です。生産性が向上します。
+サクッと API を構築できますし、G Suite との連携も(当たり前ですが)簡単です。
+
+ただ、メンテナンス性が低いコードになると、**陳腐化され誰も面倒が見れなくなります**。
+常にクリーンであり続けるためには、テストコードは**必須**です。
+GAS を運用する方々には、是非ともテストコードを検討下さい。
+
+## え、あ、ちょっとまって。ライブラリの紹介
+
+アジャイル開発で、かつ、Google Calendar で予定管理しているチームには是非とも使って頂きたいライブラリです。
+
+https://github.com/silverbirder/caat
+
+> CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar.
+
+このツールでできることは、次のとおりです。
+
+- 指定期間における特定ユーザーの Google Calendar で予定されている時間(分)を取得
+- 重複している予定は、連続した予定とみなす
+- 指定の時間・単語は、計算対象外とみなす (ランチなど）
+- 誰がいつ休みなのか、終日イベントから取得
+
+実際にサンプルコードがあるので、ご参考下さい。
+
+https://github.com/silverbirder/SampleCaat

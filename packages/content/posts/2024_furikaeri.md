@@ -1,0 +1,73 @@
+---
+title: '2024年の振り返り。マイペースな一年'
+publishedAt: '2024-12-08'
+summary: '今年は、秋が短く感じましたね。毎年恒例の一年の振り返りをお届けします。'
+tags: ["振り返り"]
+---
+
+今年は、秋が短く感じましたね。かわいい猫とともに、毎年恒例の一年の振り返りをします。
+
+![giphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXVpanowbnU1eDExNGxwOTU2OWNrMjBjajQzeTZrZWVjbWt6dGE1MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wollgOXZPyUYvxht3V/giphy.gif)
+
+## 週4勤務のスタート
+
+[週4勤務で7ヶ月経過した所感](https://silverbirder.github.io/blog/contents/reflections-after-7-months-4-day-workweek/) でも触れた通り、今年は人生で初めて週4勤務を始めました。
+月曜、火曜、木曜、金曜に働き、水曜と週末（土日）が休みです。週の真ん中に休めるのはエネルギーを蓄えるのに最適で、非常に良い習慣になっています。
+
+平日に外出すると、意外と人が多いことに驚きます。
+親子連れやご高齢の方、学生や子供たちが遊ぶ姿、外国の方の観光など、さまざまな景色が広がっています。
+社会人になってからこうした景色を見る機会が減っていたため、新鮮に感じました。
+
+また、ただ寝ているだけの休みや、予定を詰め込む日もあります。
+個人開発では、やりたくなったときに集中して作り込むこともあり、自分のペースで生活できていることに穏やかな満足感を覚えています。
+
+![giphy](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?cid=790b7611q3h279x6dc4xh3xjxc7q6l8f1kghok9aq402sk2h&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+## 車との生活
+
+車移動にも随分と慣れました。今年は高速道路に乗る機会が増え、300kmほどの長距離移動も経験しました。
+サービスエリアは特産品や景色、フードコードなどが充実していて、訪れるたびにワクワクします。
+
+私の住む県から離れてさまざまな場所を訪れることで、これまで行けなかった観光スポットにも足を運ぶことができました。
+行動範囲が広がるとともに、多くの良い思い出を作ることができました。
+
+おいしい食べものや、きれいな景色を体験するために、いろいろな場所に訪れたいと思います！
+
+![giphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW1lNDZsbnBjbjZxNTE5NDNzbGM2ZzI3aTloMjFsdXZxMzZsbDUyNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xy4ULIiri9j32/giphy.gif)
+
+## 仕事の振り返り
+
+今年一番の衝撃は、やはりVercelのv0でした。
+チャット形式でWebデザインを指示すると、あっという間にそれっぽい見た目の画面がコードと一緒に出力されます。
+アニメーションも作ってくれますし、指定したライブラリを使って実装もしてくれるなんて、本当に驚きました。
+思わずv0に課金してしまいましたが、めちゃくちゃ捗っています。
+
+ただ、v0を繰り返し使っていると、shadcnをUIコンポーネントに採用している影響もあってか、
+どうしても「v0っぽい」デザインに仕上がることが気になってきました。
+これは、自分の指示が曖昧なせいだと感じています。
+もっと的確に指示を出せるよう、デザインや要件の言語化を鍛えたいですね。
+
+さらに、AIを使ってFigmaや画像からCSSを生成する手段も見つけ、開発速度が格段に上がったと実感しています。
+生成されたCSSを見ながら勉強し、不要なコードを削除したり、調整したりする中で、自分のスキルが少しずつ上達しているのを感じています。
+
+デザイナーになれるかは分かりませんが、Webフロントエンドエンジニアとして、よりデザイン寄りの分野に進んでみたいと思っています。
+
+![giphy](https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=ecf05e47uujm192fcj42kmrsjabkxv2hl085b0awkkjx2poa&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+## 来年の抱負
+
+大きな変化がなければ、今の働き方を続け、住む場所もそのままになると思います。
+
+仕事では、デザインスキルをさらに伸ばしつつ、自分の強みである「フルスタック経験を基盤とした、フロントエンド、テスト、デザイン」の交差点を探していきたいです。
+この強みを活かせる場を見つけることで、より価値を提供できるようになりたいと思っています。
+
+プライベートでは、いろいろな場所に出掛けて、新しい景色や体験を楽しみたいです。
+もしかしたら引っ越しも視野に入れていますが、何より妻とたくさんの思い出を作ることを大切にしたいと思います。
+
+![giphy](https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif?cid=ecf05e47grheso4wgh4q0mc73yms1wfp59732nk64akjnf61&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+## 終わりに
+
+以上、2024年の振り返りでした。最後までお読みいただき、ありがとうございました。
+
+![giphy](https://media.giphy.com/media/iPiUxztIL4Sl2/giphy.gif?cid=ecf05e47cuy8c30q4mzo2erwz99c3zvkm2xgmrhbpaelqu0t&ep=v1_gifs_search&rid=giphy.gif&ct=g)

@@ -1,0 +1,166 @@
+---
+title: 'v0と協業した個人サイトリニューアル'
+publishedAt: '2024-10-24'
+summary: '5回目となる個人サイトのリニューアルを行いました。個人サイトは自由にカスタマイズできるため、私にとっての練習場でもあります。今回はリニューアルの背景や目的について紹介します。'
+tags: ["成果物"]
+---
+
+5回目となる個人サイトのリニューアルを行いました。  
+個人サイトは自由にカスタマイズできるため、私にとっての練習場でもあります。今回はリニューアルの背景や目的について紹介します。
+
+リニューアル後のページは、以下の画像になります。
+
+[![サイトリニューアル](https://res.cloudinary.com/silverbirder/image/upload/v1729664114/silver-birder.github.io/blog/site-renewal.png)](https://silverbirder.github.io/blog/contents/web_frontend_test_pattern_guide/)
+
+## 背景
+
+これまでは、CSSフレームワークや静的サイトジェネレーターを利用してシンプルなWebサイトを構築してきました。  
+業務では、Webアプリケーションの開発が中心で、APIやデータ生成、フロントエンドの実装に注力していました。
+
+しかし、昨年からCSSを書く機会が増え、Figmaを使ったデザイン作業の楽しさに目覚めました。  
+フォントやスペーシング、ラインなど細部にこだわるようになり、デザインを強く意識するようになりました。
+
+以前執筆した[生成AI時代のフロントエンド開発術](https://silverbirder.github.io/blog/contents/frontend-development-in-the-age-of-generative-ai/)でも触れましたが、AIを活用して効率的に開発を進めています。  
+また、[Figmaと仲良くなる](https://silverbirder.github.io/blog/contents/becoming-friends-with-figma/)の記事でも述べた通り、Figmaでのゼロからのデザイン構築に楽しさを見出しました。
+
+## v0との出会い
+
+最近、Vercel社のUI生成AIツール[v0](https://v0.dev)がリリースされました。v0はChatGPTのようにチャット形式でUIデザインを生成してくれるツールです。  
+UIデザインには、Reactコンポーネント、Tailwind、shadcn/uiの3つでコードを提供されており、簡単にサンプルを作成してくれます。
+
+特に衝撃的だったのは、わずか2回のチャットのやり取りでスイカゲームのようなWebアプリが作成できたことです。以下のリンクから確認できます。
+
+- [Create a Similar Web App - v0 by Vercel](https://v0.dev/chat/a8RfpL90mO4)
+
+[![みかんドロップ](https://res.cloudinary.com/silverbirder/image/upload/v1729664496/silver-birder.github.io/blog/orange-drop.png)](https://v0.dev/chat/a8RfpL90mO4)
+
+**このみかんドロップに感動し、すぐにv0を積極的に活用するようになりました**。  
+
+v0には無料枠があるものの、制限にすぐ達してしまったため、最終的にPremiumプランに課金しました。
+アニメーションの生成も瞬時に行えるため、非常に便利です。文言の生成はChatGPTに任せています。
+
+v0を使えば、私でももう少しWebデザインが得意になれるのでは？と感じました。ここで言う「Webデザイン」は、"それっぽく見える"という程度の意味です。
+
+## コンセプト
+
+最初は、GitHubやSlack、VSCodeのようなデザインを模倣しようと考えていましたが、ただ真似するだけでは自分らしさが出せず、面白くありませんでした。
+
+そこで、v0と対話を進めていく中で、「書籍やノート」をテーマにするアイデアが浮かびました。特に **「罫線」** を取り入れたデザインが面白いと感じ、**ノート風のサイトを作ることにしました**。
+
+罫線は縦のリズムが一定で、読み物にちょうどよいです。学生時代に使っていたノートのような親しみやすさがあり、付箋やシール、ページめくりなどの要素も追加しました。
+
+調査を進めているうちに、「バーティカルリズム」というデザイン手法に出会い、私の取り組みがまさにそれだと気づきました。
+
+バーティカルリズムについての詳細は、以下のリンクから確認できます。
+
+- [なぜタイポグラフィにおいてVertical Rhythm（バーティカルリズム）は重要な手法なのか？ | POSTD](https://postd.cc/why-vertical-rhythms/)
+
+## デザインのこだわり
+
+ノート風デザインをさらに追求し、フォントについてもこだわるようにしました。  
+フォントサイズは16px、行間は24pxに設定し、読みやすさを重視しました。
+
+参考にしたのは、W3Cのテキストスペーシングに関するガイドラインです。
+
+> - Line height (line spacing) to at least 1.5 times the font size;
+>
+> - Spacing following paragraphs to at least 2 times the font size;
+>
+> - Letter spacing (tracking) to at least 0.12 times the font size;
+>
+> - Word spacing to at least 0.16 times the font size.
+
+※ [Understanding Success Criterion 1.4.12: Text Spacing | WAI | W3C](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing)
+
+また、Lighthouseの診断で指摘される通り、font-sizeは12px以上にする必要があります。
+
+- [書類で判読可能なフォントサイズが使用されていません | Lighthouse | Chrome for Developers](https://developer.chrome.com/docs/lighthouse/seo/font-size?hl=ja)
+
+最終的には、Tailwindのtext-baseが最適なフォントサイズ・行間であることに気づき、それを採用しました。letter-spacingは、.12emとしました。
+
+一方、見出しのように大きな文字を2行（48px）の罫線内に収める際、行間の調整が難しいことに気づきました。行間を逆マージンで調整し、罫線上に文字を載せようとしましたが、文字選択時にずれが生じたため、最終的にはデフォルトの余白設定に戻しました。
+
+また、フォントにもこだわり、日本語対応のフォントとして定番のNoto Sans JPではなく、Google Fontsからノートに合う手書き風フォントを探しました。
+最終的に選んだのは、**Shippori Mincho** というフォントです。「す」の払いの感じが特に気に入りました。ZEN紅道も良いフォントですが、weightが400のみであったため断念しました。
+
+## 落書き風アニメーション
+
+ノートのテーマに合わせ、落書き風のアニメーションも取り入れました。  
+以下は手書き風のSVGアニメーションの一例です。
+
+![手書きアニメーション](https://res.cloudinary.com/silverbirder/video/upload/e_loop/v1729665650/silver-birder.github.io/blog/spiral.gif)
+
+### 作り方
+
+1. FigmaのPencilツールを使って手書きデザインを作成
+1. Vectorを書いた順番でGroup化
+1. Group化したデザインをSVGでエクスポート
+1. v0にSVGを渡し、アニメーションや色を調整
+
+以下に先ほどの手書きアニメーションのサンプルコードを示します。
+
+```ts
+import { motion } from "framer-motion";
+
+type Props = {
+  className?: string;
+  startDelay?: number;
+  duration?: number;
+  strokeColor?: string;
+};
+
+export default function Spiral({
+  className,
+  startDelay = 0,
+  duration = 1.5,
+  strokeColor = "stroke-current",
+}: Props) {
+  const pathVariants = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: (i: number) => {
+      const delay = startDelay + i * 0.5;
+      return {
+        pathLength: 1,
+        opacity: 1,
+        transition: {
+          pathLength: { delay, type: "spring", duration, bounce: 0 },
+          opacity: { delay, duration },
+        },
+      };
+    },
+  };
+
+  return (
+    <div className={`flex items-center justify-center ${className}`}>
+      <motion.svg
+        viewBox="0 0 87 39"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        initial="hidden"
+        animate="visible"
+        style={{ width: "100%", height: "100%" }}
+      >
+        <motion.path
+          d="M1.97026 36.9618C1.19643 36.7683 1.96666 31.3258 2.09215 30.679C2.72864 27.3987 4.56686 24.2314 5.75988 21.1164C6.95065 18.0071 8.98806 15.6845 11.3446 13.4152C14.0269 10.8323 16.6736 8.35552 19.91 6.46761C23.5992 4.31557 29.4809 2.07392 33.5282 4.45092C37.4842 6.7743 39.4171 11.6927 39.4675 16.13C39.5277 21.427 36.2336 26.2284 32.398 29.6707C29.8802 31.9303 25.6408 36.2336 22.2148 33.0614C18.0729 29.2263 22.5615 23.4355 24.7523 19.964C27.0244 16.3634 29.8257 13.0751 32.7969 10.0356C34.9748 7.80761 37.2876 6.09817 40.221 4.93847C46.294 2.53753 54.1661 4.76478 57.9169 10.1464C59.0882 11.8269 60.0846 14.7706 60.1996 16.8392C60.3222 19.0469 60.5526 21.6854 59.9004 23.8201C59.301 25.7818 58.5796 27.5892 57.1302 29.0723C55.4315 30.8105 54.124 32.7833 52.2325 34.3246C49.8724 36.2477 46.5335 36.7844 44.8084 33.7262C42.1398 28.9956 44.9682 23.5947 46.9802 19.2659C48.685 15.5981 50.5464 11.6295 53.6508 8.92754C56.4805 6.46464 59.9402 3.698 63.7011 2.87745C70.1389 1.47284 77.2674 3.36637 82.6159 7.11029C83.9748 8.06154 84.7941 8.79153 85.3418 10.4345"
+          strokeWidth="2"
+          strokeLinecap="round"
+          className={strokeColor}
+          variants={pathVariants}
+          custom={0}
+        />
+      </motion.svg>
+    </div>
+  );
+}
+```
+
+## その他
+
+ノートのページめくりを実現したかったのですが、うまく再現できませんでした。
+Sticker.jsやCodeSandboxのサンプル（参考）を参考に色々試みましたが、上手くいきませんでした。
+
+## 終わりに
+
+今回のリニューアルでは、v0との協業によって新たなデザインアプローチを体験しました。
+これまでの私の個人サイトに比べると、随分と好みのWebデザインになりました。大変気に入っています!
+引き続き、Webデザインについて追求していきたいなと思います。

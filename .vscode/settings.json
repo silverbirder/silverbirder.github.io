@@ -1,0 +1,16 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).spec.ts",
+    "*.tsx": "$(capture).spec.tsx, $(capture).spec.ts, $(capture).stories.tsx, $(capture).presenter.ts, $(capture).util.ts"
+  },
+  "git.enableSmartCommit": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Follow commitlint.config.cjs (Conventional Commits)." }
+  ]
+}

@@ -1,0 +1,109 @@
+---
+title: 'SESAME(セサミ) が届いたよ！'
+publishedAt: '2019-04-08'
+summary: '「鍵どこいったっけ？」という悩みから、おさらば！'
+tags: []
+---
+
+「鍵どこいったっけ？」という悩みから、おさらば！
+
+## SESAME(セサミ)って なに
+
+https://jp.candyhouse.co/
+
+> あなたは家を出る時、何を持って出ますか？
+> 鍵、財布、そしてスマホ…？
+> もう鍵は必要ありません。
+> スマホがあなたの鍵になります。
+
+スマートフォンから家の扉にある鍵を開けれるようになります。
+
+## Q. 危なくないの
+
+公式ページでは、次のようにアナウンスされています。
+
+結論としては、しっかりと考慮されているそうなので、そこまで神経質にならなくて良いかもです。
+
+## 長いバッテリー寿命
+
+> 電池の持ちは約 500 日。残量が少なくなったらスマホに通知が来るから安心。
+
+## 従来の鍵も使用可能
+
+> セサミは従来の鍵でも今まで通り使用可能です。スマホに慣れていない家族や、スマホの電池が切れてしまった場合でも安心です。
+
+## 通知機能
+
+> 誰かがドアを開閉した際に、あなたのスマホへ通知します。
+
+## セキュリティは某国軍事レベル
+
+> セサミは悪い人を寄せ付けません。セサミは AES-256-GCM と TLS 1.2 を採用しています。
+
+## Q. どんな機能があるの
+
+- 自動アンロック & ロック
+  - SEMAME とスマートフォンが一定距離に近づく・離れたら、鍵を開く・閉じるようになっています。
+- ノック機能（iOS のみ対応)
+  - アプリをバックグラウンドで起動している状態で、スマートフォンをノックすると、SEMAME が解錠してくれます。
+- 鍵のシェア
+  - 特定の人に鍵をシェアすることができます。
+
+## 使ってみるまでの過程
+
+まず、私の家の扉はつぎの画像の感じです。ここの下の鍵に SESAME を取り付けたいなと考えていました。
+
+![私の家の扉](https://res.cloudinary.com/silverbirder/image/upload/v1639791386/silver-birder.github.io/blog/my_house_door.png)
+
+ただ、試してみると、私の家の扉では SESAME が設置できませんでした…
+
+![ミスマッチ！](https://res.cloudinary.com/silverbirder/image/upload/v1614345846/silver-birder.github.io/blog/miss_match_sesame_size.png)
+
+何がダメかというと、SESAME は両面テープでくっつけるため、壁と設置する必要があります。ただ、私の家の扉には、段差があるため、SESAME をくっつけることができませんでした…。
+
+![鍵と扉に奥行きがある](https://res.cloudinary.com/silverbirder/image/upload/v1614345933/silver-birder.github.io/blog/lock_and_door_have_depth_sesame.png)
+
+そこで、カスタマーサポートに連絡したところ、超親切にフォローして頂き、アダプター作成をしてもらえました。（送料無料、ただしアマゾンレビューをする）
+
+![SESAMEと私のやりとり。ほぼ１日程度に返事がくる](https://res.cloudinary.com/silverbirder/image/upload/v1614346016/silver-birder.github.io/blog/SESAME_and_my_correspondence_get_a_response_almost_every_day_or_so.png)
+
+返事がとてつもなく早く、本当に素晴らしいと感動しました。
+こちらが提供した情報は、扉の各必要な長さを提供したぐらいです。
+
+![それぞれの長さを提供 1](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_1.png)
+
+![それぞれの長さを提供 2](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_2.png)
+
+![それぞれの長さを提供 3](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_3.png)
+
+![それぞれの長さを提供 4](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_4.png)
+
+それぞれの長さを提供すると、つぎのようなアダプターが完成したとのことで連絡をもらいました。（おそらく 3D プリンターで作成されたのかな)
+
+![アダプター完成図](https://res.cloudinary.com/silverbirder/image/upload/v1614382012/silver-birder.github.io/blog/SESAME_adapter_complete_diagram.png)
+
+こちらを私の家の扉に設定してみると、ぴったしハマり、無事両面テープが貼れました！ぱちぱち！
+
+![アダプターを噛ませて設置 1](https://res.cloudinary.com/silverbirder/image/upload/v1614382084/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_1.png)
+
+![アダプターを噛ませて設置 2](https://res.cloudinary.com/silverbirder/image/upload/v1614382086/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_2.png)
+
+当初、白色のアダプターが来るのかと思ったのですが、黒色がきました。良いね！
+
+https://youtu.be/6Bn8uYl0ans
+
+家の扉前から SESAME を使ってみた Bluetooth が繋がっている状態だと、スムーズにロック解除ができました ！わーい！
+
+## 残念ポイント…
+
+SESAME とスマートフォンが Bluetooth に繋がって**初めて**、鍵の解除ができます。ですので、Bluetooth まで繋がるまでは、何もできません。
+
+そこを待つのが長くて数十秒かかってしまうので、ちょっと待ってしまいます。また、オートロックは、１０歩程度離れると発動するのですが、オートアンロックは、ほとんど動作しませんでした。（近づいたら鍵が解除すること）。ノック機能も同様で、Bluetooth 接続されて初めてノックが有効になります。しかも、Bluetooth 接続した状態でも、ノックの失敗率が高く、あんまり使い物にはなりません…。改善の余地ありですね。
+
+## まとめ
+
+カスタマーサポートのフォローには、アマゾンレビュー星５つぐらいの好感を持てました。機能に関しては、残念ポイントで伝えたとおり、目玉機能がちょっと残念な結果になってしまいました。しかし、当初の目的だった「鍵を探す手間」は、なくなりました。家の扉に近づくころに、アプリを起動すれば、Bluetooth 接続がすんなり通るため、タップ１つで鍵が開きます。要は使い所を工夫すれば、全然メリットの方が大きいのかなと個人的にはそう思います。
+
+是非、みなさんも購入を検討してみてください。本体だと今、１つで 14,800 円です！扉を取替するよりかは断然安い！
+
+※ ちなみに、私は WiFi アクセスポイントなしの本体のみを購入しました。

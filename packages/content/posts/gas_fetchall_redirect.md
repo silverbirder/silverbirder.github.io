@@ -1,0 +1,116 @@
+---
+title: 'Google Apps Script で FetchAllとRedirctURL の組み合わせは悪い'
+publishedAt: '2020-02-24'
+summary: 'Google Apps Script (以下、GAS)で、困ったことがあったので備忘録として残しておこうと思います。'
+tags: ["Google"]
+---
+
+Google Apps Script (以下、GAS)で、困ったことがあったので備忘録として残しておこうと思います。
+
+## やろうとしたこと
+
+特定ハッシュタグにおける、ツイートに書いてあるリンクを集めようとしていました。
+そのリンクは、特定のドメインのみでフィルタリングしたいとも思っていました。
+これらを RESTful API として提供したかったので、手軽に作れる GAS で作ろうと考えていました。
+
+## 取り組んでみたこと
+
+Twitter に書くリンクは、全て短縮 URL になります。
+そのため、短縮 URL にアクセスし、リダイレクト先の URL を取りに行く必要がありました。
+GAS では、リクエストメソッドである fetch があります。その fetch の`followRedirects`というオプションを false にし、responseHeader の location を取ることで、解決(リダイレクト先の URL 取得が)できます。
+
+https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#advanced-parameters
+
+また、1 リクエストだけをする fetch では、直列処理になってしまうため、大変遅いです。
+複数リクエストが同時にできる featchAll を使うことで、並列処理ができ、パフォーマンスが良いです。
+要するに次のようなコードで解決しようと考えていました。
+
+![FetchAllとRedirectURL](https://res.cloudinary.com/silverbirder/image/upload/v1614429255/silver-birder.github.io/blog/FetchAll_and_RedirectURL.png)
+
+```typescript
+let urlList: Array<string> = ["https://t.co/XXXX", "https://t.co/YYYY"];
+const locationList: Array<string> = [];
+while (true) {
+  const requestList: Array<URLFetchRequest> = urlList.map((url: string) => {
+    return {
+      url: url,
+      method: "get",
+      followRedirects: false,
+      muteHttpExceptions: true,
+    };
+  });
+  const responseList: Array<HTTPResponse> = UrlFetchApp.fetchAll(requestList);
+  urlList = [];
+  responseList.forEach((response: HTTPResponse) => {
+    const allHeaders: any = response.getAllHeaders();
+    const location: string = allHeaders["Location"];
+    if (location) {
+      locationList.push(location);
+      urlList.push(location);
+    }
+  });
+  if (urlList.length === 0) {
+    break;
+  }
+}
+return locationList;
+```
+
+### 追記 (20200228)
+
+https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
+
+Twitter の API レスポンスに `urls` がありました。説明はありませんでしたが、Tweet に貼られたリンク(短縮 URL と、オリジナル URL)の情報が入るそうです。
+
+```text
+"urls": [
+          {
+            "url": "https://t.co/Rbc9TF2s5X",
+            "expanded_url": "https://twitter.com/i/web/status/1125490788736032770",
+            "display_url": "twitter.com/i/web/status/1…",
+            "indices": [
+              117,
+              140
+            ]
+          }
+ ]
+```
+
+## 困ったこと
+
+この手段だと、Location を 1 つ 1 つ辿っていくことになります。
+そのため、リダイレクトを自動的に追う( `followRedirects: true` )よりも、処理コストが大きいです。まあ、そこは目を瞑ります。
+
+次です。
+
+https://www.monotalk.xyz/blog/google-app-script-%E3%81%AE-urlfetchapp-%E3%81%AE-%E4%BE%8B%E5%A4%96%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/
+
+fetch や fetchAll は、`muteHttpExceptions: true` としたとしても、ExceptionError が発生してしまいます。
+そうすると、例えば 1000 件の URL を fetchAll した場合、**どれが成功で、どれが失敗で、どれが未実施か** がわからないというところです。
+
+![FetchAllとRedirectURL (Error)](https://res.cloudinary.com/silverbirder/image/upload/v1614429297/silver-birder.github.io/blog/FetchAll_and_RedirectURL_error.png)
+
+Promise.allSettled が使えれば、解決できるのかなと思いますが、現状 Promise は使えません。
+
+私が思う解決策としては、
+
+- fetchAll ではなく、fetch を使う
+- fetchAll でリクエストする件数をいくつかの塊に分ける。(一気にではなく、分ける）
+
+## 最後に
+
+そもそもなのですが、今回やろうとしたことって GAS の良さがないですよね。
+GAS は、GSuites 連携を簡単にできるという良さがあります。
+
+しかし、今回はちょっとしたクローラーを作りたいだけでした。もちろん、GAS でも作れると思いますが、いくつかを妥協しないといけなくなります。
+
+もし、そこが妥協できないのであれば、別の手段を検討する必要があります。
+
+## 教訓
+
+- 表面的
+  - fetchAll するときは、リダイレクト先 URL を取得しない
+- 根本的
+  - 目的に適したツールを選択する
+
+ちなみに、このツールは、並列処理をシンプルにコーティングできる golang で書き直そうと考えています。

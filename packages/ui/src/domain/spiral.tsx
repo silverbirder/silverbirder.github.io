@@ -29,10 +29,13 @@ export const Spiral = ({
       alignItems="center"
       className={className}
       display="flex"
+      h="full"
       justifyContent="center"
+      w="full"
     >
       <Svg
         aria-hidden
+        display="block"
         fill="none"
         height="100%"
         viewBox="0 0 87 39"

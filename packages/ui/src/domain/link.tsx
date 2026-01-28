@@ -4,6 +4,7 @@ import type { LinkProps } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 
 import { Link as ChakraLink, Icon } from "@chakra-ui/react";
+import { getSiteMetadataBase } from "@repo/util";
 import NextLink from "next/link";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
@@ -28,10 +29,9 @@ const isExternalHref = (href: string, origin: string) => {
 };
 
 export const Link = ({ children, href, ...linkProps }: Props) => {
+  const siteOrigin = getSiteMetadataBase().origin;
   const isExternal =
-    href && typeof href === "string" && typeof window !== "undefined"
-      ? isExternalHref(href, window.location.origin)
-      : false;
+    href && typeof href === "string" ? isExternalHref(href, siteOrigin) : false;
 
   const resolvedRel =
     isExternal && !linkProps.rel ? "noopener noreferrer" : linkProps.rel;

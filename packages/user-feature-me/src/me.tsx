@@ -28,7 +28,7 @@ type Props = {
 };
 const photoMoreLink = "https://silverbirder-cork-board.vercel.app";
 const featuredPhotoUrl =
-  "https://res.cloudinary.com/silverbirder/image/upload/v1729856266/silver-birder.github.io/my-photo/photo-38.png";
+  "https://res.cloudinary.com/silverbirder/image/upload/v1769605903/silver-birder.github.io/blog/kyoto.jpg";
 const featuredPhotoLineCount = 10;
 const featuredPhotoLineCountMobile = 7;
 

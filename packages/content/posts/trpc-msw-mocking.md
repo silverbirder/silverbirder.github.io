@@ -1,0 +1,265 @@
+---
+title: 'Storybook上で tRPC通信をMSWでモックする方法'
+publishedAt: '2024-03-07'
+summary: 'はじめに tRPCは、型安全なAPIを簡単に構築できるフレームワークです。開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。この記事では、maloguertin/msw-trpc を用いて、tRPC通信をMSWでモックする方法について解説します。実用例として、サンプルコードをGitHubリポジトリ silverbirder/trpc-msw-storybook-nextjs で共有しています。'
+tags: ["テスト", "バックエンド"]
+index: false
+---
+
+## はじめに
+
+tRPCは、型安全なAPIを簡単に構築できるフレームワークです。
+開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、
+Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。
+この記事では、[maloguertin/msw-trpc](https://github.com/maloguertin/msw-trpc) を用いて、tRPC通信をMSWでモックする方法について解説します。
+実用例として、サンプルコードをGitHubリポジトリ [silverbirder/trpc-msw-storybook-nextjs](https://github.com/silverbirder/trpc-msw-storybook-nextjs.git) で共有しています。
+
+## 技術スタック
+
+まずは、使用するライブラリを紹介します。
+`package.json` には以下のような依存関係が記載されています。(一部抜粋しています)
+
+```json
+{
+  "dependencies": {
+    "@tanstack/react-query": "^4.36.1",
+    "@trpc/client": "^10.45.1",
+    "@trpc/next": "^10.45.1",
+    "@trpc/react-query": "^10.45.1",
+    "@trpc/server": "^10.45.1",
+    "next": "^14.1.0",
+    "react": "18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/nextjs": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "msw": "^2.2.2",
+    "msw-storybook-addon": "^2.0.0--canary.122.b3ed3b1.0",
+    "msw-trpc": "^2.0.0-beta.0",
+    "storybook": "^7.6.17"
+  }
+}
+```
+
+## 準備
+
+プロジェクトの雛形を作成するため、以下のコマンドを実行します。
+
+```bash
+npm create t3-app@latest
+npx storybook@latest init
+npm i msw
+npx msw init ./public --save
+```
+
+これにより、tRPCとMSWを統合する基本的なセットアップが整います。
+
+## サンプルコンポーネント
+
+次に、サンプルとして使用するコンポーネントは以下です。
+t3-appで生成されたコンポーネントで、一部アレンジしています。
+
+```tsx
+// ~/app/_components/create-post.tsx
+"use client";
+
+import { useState } from "react";
+
+import { api } from "~/trpc/react";
+
+export function CreatePost() {
+  const [name, setName] = useState("");
+  const [postName, setPostName] = useState("");
+
+  const createPost = api.post.create.useMutation({
+    onSuccess: ({name}) => {
+      setName("");
+      setPostName(name);
+    },
+  });
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        createPost.mutate({ name });
+      }}
+      className="flex flex-col gap-2"
+    >
+      <input
+        type="text"
+        placeholder="Title"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="w-full rounded-full px-4 py-2 text-black"
+      />
+      <button
+        type="submit"
+        className="rounded-full bg-white/10 px-10 py-3 font-semibold transition hover:bg-white/20"
+        disabled={createPost.isLoading}
+      >
+        {createPost.isLoading ? "Submitting..." : "Submit"}
+      </button>
+      <div>{postName}</div>
+    </form>
+  );
+}
+```
+
+`api.post.create.useMutation` を用いてtRPCでデータの送信を行なっています。
+
+## MSWとtRPCの統合
+
+MSWとtRPCを統合するには、まず[maloguertin/msw-trpc](https://github.com/maloguertin/msw-trpc)パッケージをインストールします。
+
+```bash
+npm i msw-trpc --save-dev
+```
+
+そして、MSWとtRPCの統合コードは `~/trpc/msw.tsx` に配置し、以下のように記述します。
+
+```tsx
+// ~/trpc/msw.tsx
+"use client";
+
+import { useState } from "react";
+import { createTRPCMsw } from "msw-trpc";
+import { httpLink } from "@trpc/client";
+import { createTRPCReact } from "@trpc/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { getUrl, transformer } from "./shared";
+import type { AppRouter } from "~/server/api/root";
+
+export const trpcMsw = createTRPCMsw<AppRouter>({
+  baseUrl: getUrl(),
+  transformer: { input: transformer, output: transformer },
+});
+
+export const api = createTRPCReact<AppRouter>();
+
+export const TRPCReactProvider = (props: { children: React.ReactNode }) => {
+  const [queryClient] = useState(() => new QueryClient());
+  const [trpcClient] = useState(() =>
+    api.createClient({
+      transformer,
+      links: [
+        httpLink({
+          url: getUrl(),
+          headers() {
+            return {
+              "content-type": "application/json",
+            };
+          },
+        }),
+      ],
+    }),
+  );
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <api.Provider client={trpcClient} queryClient={queryClient}>
+        {props.children}
+      </api.Provider>
+    </QueryClientProvider>
+  );
+};
+```
+
+`trpcMsw` は MSWのハンドラで使用します。
+詳しくは、[maloguertin/msw-trpc](https://github.com/maloguertin/msw-trpc) の `createTRPCMsw` をご確認ください。
+createTRPCMsw の引数が最初分からなかったので、困りました。
+`TRPCReactProvider` は tRPCのプロバイダのMSW用です。
+
+## MSWとStorybookの統合
+
+MSWをStorybookで動かすためには、[mswjs/msw-storybook-addon](https://github.com/mswjs/msw-storybook-addon) を使います。
+インストールは、以下のコマンドを実行します。
+
+```bash
+npm i msw-storybook-addon --save-dev
+```
+
+※ 諸事情により、`msw-storybook-addon@2.0.0--canary.122.b3ed3b1.0` を指定しています。
+
+Storybookでの表示を設定するには、`.storybook/preview.tsx` を以下のように設定します。
+
+```tsx
+// /.storybook/preview.tsx
+import React from "react";
+import type { Preview } from "@storybook/react";
+import { initialize, mswLoader } from "msw-storybook-addon";
+import { TRPCReactProvider } from "../src/trpc/msw";
+initialize();
+
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
+  loaders: [mswLoader],
+  decorators: [
+    (Story) => (
+      <TRPCReactProvider>
+        <Story />
+      </TRPCReactProvider>
+    ),
+  ],
+};
+
+export default preview;
+```
+
+decorators に `TRPCReactProvider` で包みます。
+これにより、Storybook内でtRPCの通信をMSWでモックできるようになります。
+
+## Storybookのstoriesファイル
+
+最後に、Storybookのstoriesファイルは、以下のように定義します。
+
+```tsx
+// ~/app/_components/create-post.stories.tsx
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { CreatePost } from './create-post';
+import { trpcMsw } from '~/trpc/msw';
+
+const meta = {
+  title: 'create-post',
+  component: CreatePost,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} satisfies Meta<typeof CreatePost>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Main: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        trpcMsw.post.create.mutation(({name}) => {
+          const post = { id: 1, name: name };
+          return post;
+        })
+      ],
+    },
+  }
+};
+```
+
+`parameters.switch.handlers` に、tRPCのmutationをMSWでモックしています。
+これで、`npm run storybook` を実行すると、tRPCのモックが反映されたUIを確認できます。
+
+## 終わりに
+
+この記事を通して、読者のお役に立てれば幸いです。

@@ -1,0 +1,135 @@
+name: Deploy user app to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pages-${{ github.event_name }}-${{ github.event.pull_request.number || 'prod' }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "24.12.0"
+
+  # GitHub Pages is served from the gh-pages branch.
+  GH_PAGES_BRANCH: "gh-pages"
+
+jobs:
+  deploy-prod:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10.26.2"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build user app (static export)
+        env:
+          GA_ID: ${{ secrets.GA_ID }}
+          NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH: ${{ env.NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH }}
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: pnpm --filter user build
+
+      - name: Deploy (production)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: ${{ env.GH_PAGES_BRANCH }}
+          publish_dir: apps/user/out
+          force_orphan: true
+
+  deploy-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10.26.2"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build user app (static export)
+        env:
+          GA_ID: ${{ secrets.GA_ID }}
+          NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH: ${{ env.NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH }}/pr-${{ github.event.pull_request.number }}
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: pnpm --filter user build
+
+      - name: Deploy (preview)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: ${{ env.GH_PAGES_BRANCH }}
+          publish_dir: apps/user/out
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true
+
+      - name: Comment preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = context.payload.pull_request.number;
+            const url = `https://${owner}.github.io/${repo}/pr-${prNumber}/`;
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: prNumber,
+              body: `Preview deployed: ${url}`
+            });
+
+  cleanup-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.GH_PAGES_BRANCH }}
+
+      - name: Remove preview directory
+        run: |
+          rm -rf pr-${{ github.event.pull_request.number }}
+
+      - name: Commit removal
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain | grep .; then
+            git add -A
+            git commit -m "chore: remove preview pr-${{ github.event.pull_request.number }}"
+            git push
+          else
+            echo "Nothing to clean"
+          fi

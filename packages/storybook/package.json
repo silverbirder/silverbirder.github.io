@@ -1,0 +1,38 @@
+{
+  "name": "@repo/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "storybook build",
+    "check-types": "tsc --noEmit",
+    "dev": "storybook dev --no-open -p 6006",
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest --run --project=storybook"
+  },
+  "dependencies": {
+    "@repo/message": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "next": "16.1.0",
+    "next-intl": "^4.7.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/vitest-config": "workspace:*",
+    "@storybook/addon-a11y": "^10.2.1",
+    "@storybook/addon-docs": "^10.2.1",
+    "@storybook/addon-mcp": "^0.1.8",
+    "@storybook/addon-vitest": "^10.2.1",
+    "@storybook/nextjs-vite": "^10.2.1",
+    "@types/node": "^22.19.7",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-storybook": "^10.2.1",
+    "storybook": "^10.2.1",
+    "typescript": "5.9.2",
+    "vitest": "^4.0.18"
+  }
+}

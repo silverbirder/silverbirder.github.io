@@ -1,0 +1,48 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalEnv": [
+    "BETTER_AUTH_GITHUB_CLIENT_ID",
+    "BETTER_AUTH_GITHUB_CLIENT_SECRET",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "CLOUDINARY_URL",
+    "CLOUDINARY_FOLDER",
+    "NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH",
+    "NEXT_PUBLIC_SITE_URL",
+    "NODE_ENV",
+    "PORT",
+    "SKIP_ENV_VALIDATION",
+    "VERCEL_URL",
+    "ADMIN_ALLOWED_EMAILS",
+    "CONTENT_GITHUB_BASE_BRANCH",
+    "CONTENT_GITHUB_REPOSITORY",
+    "CONTENT_POSTS_PATH",
+    "IS_TEST",
+    "GA_ID"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "outputs": []
+    },
+    "start": {
+      "dependsOn": ["^start"]
+    }
+  }
+}

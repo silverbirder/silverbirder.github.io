@@ -1,0 +1,39 @@
+{
+  "name": "@repo/content",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "markdownlint-cli2",
+    "lint:fix": "markdownlint-cli2 --fix",
+    "migrate": "node ./scripts/migrate/run.mjs",
+    "migrate:add-summary-from-body": "node ./scripts/migrate/add-summary-from-body.mjs",
+    "migrate:escape-frontmatter-quotes": "node ./scripts/migrate/escape-frontmatter-quotes.mjs",
+    "migrate:fix-md001": "node ./scripts/migrate/fix-md001-heading-increment.mjs",
+    "migrate:fix-md007": "node ./scripts/migrate/fix-md007-ul-indent.mjs",
+    "migrate:fix-md009": "node ./scripts/migrate/fix-md009-no-trailing-spaces.mjs",
+    "migrate:fix-md012": "node ./scripts/migrate/fix-md012-no-multiple-blanks.mjs",
+    "migrate:fix-md014": "node ./scripts/migrate/fix-md014-commands-show-output.mjs",
+    "migrate:fix-md022": "node ./scripts/migrate/fix-md022-blanks-around-headings.mjs",
+    "migrate:fix-md024": "node ./scripts/migrate/fix-md024-no-duplicate-heading.mjs",
+    "migrate:fix-md025": "node ./scripts/migrate/fix-md025-single-title.mjs",
+    "migrate:fix-md026": "node ./scripts/migrate/fix-md026-no-trailing-punctuation.mjs",
+    "migrate:fix-md028": "node ./scripts/migrate/fix-md028-no-blanks-blockquote.mjs",
+    "migrate:fix-md029": "node ./scripts/migrate/fix-md029-ol-prefix.mjs",
+    "migrate:fix-md030": "node ./scripts/migrate/fix-md030-list-marker-space.mjs",
+    "migrate:fix-md032": "node ./scripts/migrate/fix-md032-blanks-around-lists.mjs",
+    "migrate:fix-md033": "node ./scripts/migrate/fix-md033-no-inline-html.mjs",
+    "migrate:fix-md034": "node ./scripts/migrate/fix-md034-no-bare-urls.mjs",
+    "migrate:fix-md036": "node ./scripts/migrate/fix-md036-no-emphasis-as-heading.mjs",
+    "migrate:fix-md038": "node ./scripts/migrate/fix-md038-no-space-in-code.mjs",
+    "migrate:fix-md040": "node ./scripts/migrate/fix-md040-fenced-code-language.mjs",
+    "migrate:fix-md045": "node ./scripts/migrate/fix-md045-no-alt-text.mjs",
+    "migrate:fix-md047": "node ./scripts/migrate/fix-md047-single-trailing-newline.mjs",
+    "migrate:mdx-image-to-markdown": "node ./scripts/migrate/mdx-image-to-markdown.mjs",
+    "migrate:mdx-to-md": "node ./scripts/migrate/mdx-to-md.mjs",
+    "migrate:normalize-tags": "node ./scripts/migrate/normalize-tags.mjs"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.17.2"
+  }
+}

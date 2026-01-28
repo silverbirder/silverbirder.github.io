@@ -1,0 +1,1042 @@
+---
+title: '苦手なCSSを克服しよう'
+publishedAt: '2025-07-27'
+summary: 'こんにちは。CSSは苦手ですか？私は苦手でした。苦手でしたが、実務を経験していくうちに、だんだんとできる範囲が増えていき楽しくなってきました。本記事では1つのサンプルページを見ながら、CSSをどう考えて使っているのか解説したいと思います。読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。サンプルページのセクションごとに独立して解説しているので、読みたいところだけ読んでくださいね。'
+tags: ["フロントエンド"]
+index: false
+---
+
+こんにちは。CSSは苦手ですか？私は苦手でした。
+苦手でしたが、実務を経験していくうちに、だんだんとできる範囲が増えていき楽しくなってきました。
+
+本記事では1つのサンプルページを見ながら、CSSをどう考えて使っているのか解説したいと思います。
+読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。
+
+サンプルページのセクションごとに独立して解説しているので、読みたいところだけ読んでくださいね。
+
+## サンプルページ
+
+サンプルページは、以下のURLにあります。
+
+- https://learn-layout.vercel.app
+
+[![サンプルページ](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-laptop.png)](https://learn-layout.vercel.app)
+
+サンプルページのソースコードは、以下のリポジトリにあります。
+勉強のお供に、お手元にダウンロードしておいてください。
+
+- https://github.com/silverbirder/learn-css
+
+HTMLとCSSのみで作成しているため、ブラウザさえあればすぐに動かすことができます。
+また、JavaScriptは一切使用していません。
+
+### サンプルページの内容
+
+このサンプルページは、よくあるSaaSのランディングページを想定しています。
+サービス名は「CSS AI」で、AI駆動のCSSスタイリングプラットフォームを提供する架空のサービスです。
+このサンプルページのセクションは、以下のとおりです。
+
+- ヒーローセクション
+  - 「CSS AI」のタイトル・サブタイトル・説明文・ボタンを画面全体に大きく表示
+- 主要機能セクション
+  - 6つの機能をアイコン・タイトル・説明文でカード形式で紹介
+- 対応技術セクション
+  - GPT-4やClaudeなど複数の技術タグを横並び表示
+- デモセクション
+  - 左側にデモ動画、右側に3ステップの使用手順を解説
+- お客様の声セクション
+  - 複数のレビューカードを横スクロール可能な形で表示
+- 料金プランセクション
+  - スターター・プロ・エンタープライズの3つのプランを比較表示
+
+どれも、よくあるランディングページのセクションだと思います。
+
+### サンプルページで学べること
+
+個人の感想ですが、CSSを使って楽しくなってきたと実感したのは、**FlexboxやGridを使ったレイアウトができる** ようになった頃からです。
+テキストや画像を思い通りの場所に配置できるようになると、楽しくなってきたのです。
+
+サンプルページでは、[Every Layout](https://every-layout.dev/) を参考にしていて、よくあるレイアウトパターンを取り入れています。
+各セクションでは、以下のレイアウトを学ぶことができます。
+
+- ヒーローセクション
+  - タイトル、サブタイトル、説明文、ボタンを上下左右中央に配置しています。
+- 主要機能セクション
+  - 主要機能を2行3列で表示し、横幅が狭くなると列数が減るようにしています。
+- 対応技術セクション
+  - 技術タグを横に並べ、横幅が狭くなると折り返して表示するようにしています。
+- デモセクション
+  - 横幅が広いときは動画と説明を横に並べ、狭くなると動画が上、説明が下に落ちるようにしています。
+- お客様の声セクション
+  - レビューカードを横に並べ、横幅が狭くなると横スクロールできるようにしています。
+- 料金プランセクション
+  - 3つのプランを横並びにしつつ、ブラウザの横幅が狭くなると縦に並ぶようにしています。
+
+また、本記事では解説しませんが、以下のコンテンツもあります。気になる方がいましたら、ぜひ[サンプルページのリポジトリ](https://github.com/silverbirder/learn-css)を覗いてみてください。
+
+- グローバルヘッダー
+  - 画面上部にヘッダー固定
+  - ある程度の横幅になると3本線のハンバーガーメニューに切り替わる
+- 画面上部に戻るボタン
+  - 画面右下に、固定で配置
+
+ぜひ、さまざまなブラウザサイズで確認してみてください！
+
+### サンプルページで学ばないこと
+
+学ばないことについて明記しておきます。
+
+**私がCSSの苦手意識になった1つが、CSSプロパティの多さです**。
+たくさんあるCSSプロパティの中から、どれを使ったら良いのか、正直使いこなせるとは思いませんでした。
+
+そこで、本記事ではレイアウトに関する以下のCSSプロパティを使います。
+各CSSプロパティのリンクは、MDN Web Docs（以降、MDNと呼称）のページを参照しています。
+サンプルページのCSSを読むときに、下記のMDNリンクを活用してくださいね。
+
+- [display](https://developer.mozilla.org/ja/docs/Web/CSS/display)
+  - flex関連
+    - [flex-direction](https://developer.mozilla.org/ja/docs/Web/CSS/flex-direction), [flex-wrap](https://developer.mozilla.org/ja/docs/Web/CSS/flex-wrap), [flex-basis](https://developer.mozilla.org/ja/docs/Web/CSS/flex-basis), [flex-grow](https://developer.mozilla.org/ja/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/ja/docs/Web/CSS/flex-shrink)
+    - [align-items](https://developer.mozilla.org/ja/docs/Web/CSS/align-items), [justify-content](https://developer.mozilla.org/ja/docs/Web/CSS/justify-content), [gap](https://developer.mozilla.org/ja/docs/Web/CSS/gap)
+  - grid関連
+    - [grid-template-columns](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-columns), [grid-template-rows](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-rows), [grid-template-areas](https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-areas)
+    - [grid-area](https://developer.mozilla.org/ja/docs/Web/CSS/grid-area), [grid-row](https://developer.mozilla.org/ja/docs/Web/CSS/grid-row), [gap](https://developer.mozilla.org/ja/docs/Web/CSS/gap), [row-gap](https://developer.mozilla.org/ja/docs/Web/CSS/row-gap), [column-gap](https://developer.mozilla.org/ja/docs/Web/CSS/column-gap)
+- 位置関連
+  - [position](https://developer.mozilla.org/ja/docs/Web/CSS/position)
+  - [top](https://developer.mozilla.org/ja/docs/Web/CSS/top), [right](https://developer.mozilla.org/ja/docs/Web/CSS/right), [bottom](https://developer.mozilla.org/ja/docs/Web/CSS/bottom), [left](https://developer.mozilla.org/ja/docs/Web/CSS/left)
+  - [transform](https://developer.mozilla.org/ja/docs/Web/CSS/transform)
+- spacing関連
+  - [padding](https://developer.mozilla.org/ja/docs/Web/CSS/padding), [margin](https://developer.mozilla.org/ja/docs/Web/CSS/margin)
+- [width](https://developer.mozilla.org/ja/docs/Web/CSS/width), [height](https://developer.mozilla.org/ja/docs/Web/CSS/height)
+
+## 上記以外のCSSプロパティは、本記事では気にしないでください
+
+## 前提となる知識
+
+サンプルページを学ぶ前に、CSSレイアウトについての前提知識をMDNを参考にして紹介します。
+本記事では、書字方向は横書きを前提としています。あまり覚える部分を増やしたくないからです。
+
+### ボックスモデル
+
+HTMLをCSSでスタイリングする際、その要素をボックスモデルという長方形の形で表現します。
+ボックスモデルの説明は、以下の通りです。
+
+> ブラウザーのレンダリングエンジンは文書をレイアウトする際に、それぞれの要素を標準的な CSS 基本ボックスモデルに基づいた長方形のボックスとして表現します。 CSS はこれらのボックスの寸法、位置、プロパティ（色、背景、境界の幅など）を決定します。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model
+
+具体的な図は、以下の通りです。
+
+[![CSS 基本ボックスモデル入門 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1693363991/silver-birder.github.io/blog/boxmodel.png)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+
+ボックスモデルには、以下の4つ領域があります。
+
+- コンテンツ領域
+  - 文字や画像などの実際のコンテンツ
+- 境界領域
+  - コンテンツの周りの線
+  - CSSプロパティ: border
+- パディング領域
+  - コンテンツとボーダーの間のスペース
+  - CSSプロパティ: padding
+- マージン領域
+  - ボーダーの外側のスペース
+  - CSSプロパティ: margin
+
+実際にボックスモデルがどのようになっているかは、ブラウザにあるDevToolsを使うと確認できます。
+
+[![CSS 機能リファレンス | Chrome DevTools | Chrome for Developers](https://res.cloudinary.com/silverbirder/image/upload/v1764465397/he-box-model-diagram-c955156cbf7bd_1920_pr2zrl.png)](https://developer.chrome.com/docs/devtools/css/reference?hl=ja#box-model)
+
+DevToolsを使うことで、paddingやmargin、borderの値が視覚的に確認できるようになります。
+
+### 通常フローとブロックとインライン
+
+HTML要素は、aタグやspanタグのようなインライン要素、divタグやpタグのようなブロック要素という分け方があります。
+どの要素がブロック要素かインライン要素かは、[HTML Standard - html.spec.whatwg.org](html.spec.whatwg.org)で "display" と検索すると分かります。
+HTML要素のブロック・インラインは、CSSのdisplayプロパティで変更できます。
+
+どのようにコンテンツが並ぶかというと、以下の図の様にブロックの場合は下方向に並び、インラインの場合は横方向に並びます。
+
+[![通常フローでのブロック及びインラインレイアウト - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465442/mdn-horizontal_b8fqjv.png)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
+
+#### ブロック要素とインライン要素の仕様
+
+ブロック要素とインライン要素についての仕様があります。
+このセクションは読み飛ばしてもらっても構いませんが、知識として知っておくと良いでしょう。
+
+まず、ブロック要素の仕様は、以下の通りです。
+
+> 既定では、**ブロック要素はインライン方向の空間をすべて消費する**ので、段落は広がり、包含ブロックの中で可能な限り大きくなります。ブロック要素に幅を設定した場合、段落が横に並ぶ空間があったとしても、**段落は下へ下へと配置されます**。それぞれは包含ブロックの先頭側の反対側から始まりますので、その書字方向で文章が始まる場所になります。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
+
+ブロック要素は、下に下に配置され、横幅いっぱいに広がります。
+
+また、マージンの相殺という仕様もあります。
+
+> 仕様書では、ブロック要素間のマージンは相殺されると説明されています。つまり、**上マージンを持つ要素がに下マージンを持つ要素の直後に来た場合**、空間の合計はこれら 2 つのマージンの合計になるのではなく、**マージンが相殺**され、本質的には 2 つのマージンのうち**大きい方のマージン**と同じくらいの大きさになるということです。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
+
+インラインの場合、以下の仕様があります。
+
+>.  インライン要素は、その特定の書字方向で文章が進む方向に次々と表示されます。インライン要素がボックスを持っていると考えることはあまりありませんが、 CSS のすべての要素と同様にボックスを持っています。これらのインラインボックスは、次から次へと配置されています。**すべてのボックスを含むブロックに十分な空間がない場合、ボックスは新しい行に分割されます**。生成された行は行ボックスと呼ばれています  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
+
+当たり前ですが、インライン要素は横いっぱいまで広がると、折り返して次の行に配置されます。
+
+### フレックスボックスレイアウト
+
+ブロック・インライン要素は、単純に1つ並べるだけです。
+しかしそう単純なレイアウトは少ないかと思います。縦横自由に配置したい時があります。
+
+そこで、フレックスボックスレイアウトの出番です。私は、この**フレックスボックスレイアウトを使い慣れることで、苦手意識が少しずつ克服できました**。
+
+フレックスボックスレイアウトの説明は、以下の通りです。
+
+> CSS フレックスボックスレイアウト (CSS flexible box layout) は、ユーザーインターフェイスの設計に最適化された CSS ボックスモデルと、**一次元のアイテムのレイアウト**を定義します。フレックスレイアウトモデルでは、フレックスコンテナーの子は任意の方向にレイアウトすることができ、また使われていない空間を埋めるために伸長したり、あるいは親のあふれることを避けるために収縮したりと、**そのサイズを「伸縮」することができます**。子の水平方向と垂直方向の両方の整列を、容易に操作することが可能です。  
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout
+
+フレックスボックスレイアウトの例は、以下の図の通りです。
+
+[![フレックスボックス - ウェブ開発の学習 | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465481/flex_terms_om58mi.png)](https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Flexbox)
+
+display: flex を指定した要素は、フレックスコンテナとなり、子要素を任意の方向に配置できます。
+以下のように、flex-directionというCSSプロパティを使うことで、横に並べるか縦に並べるか自由に決めることができます。
+
+[![フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465511/basics1_wibboh.svg)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+
+[![フレックスボックスの基本概念 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465542/basics2_kd0wdl.svg)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+
+フレックスボックスレイアウトの特徴は、**伸縮性** です。
+CSSプロパティの flex-grow (フレックス成長率)、flex-shrink (フレックス縮小係数)、flex-basis (初期の寸法) を使うことで、アイテムのサイズを伸ばしたり縮めたりできます。
+これは、レスポンシブデザインを実現する上で非常に便利です。
+サンプルページでは、**デモセクションや料金プランセクションでこの伸縮性の特性を活用しています**。
+
+以下は、伸縮性の例です。以下のように、フレックスコンテナの中に3つのフレックスアイテムがある場合を考えます。
+
+[![主軸方向のフレックスアイテムの比率の制御 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465611/ratios2_jdsfpu.png)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+
+右側のスペースが開いているため、フレックスアイテムはそのスペースを埋めるように伸びます。
+
+[![主軸方向のフレックスアイテムの比率の制御 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465611/ratios3_zhshmo.png)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+
+ちなみに、以下の図のようにフレックスボックスはDevToolsで可視化することができます。
+
+[![CSS Flexbox レイアウトを検査してデバッグする | Chrome DevTools | Chrome for Developers](https://res.cloudinary.com/silverbirder/image/upload/v1764465642/change-justify-content-f-c2b95dc213b96_1920_wvrkvs.png)](https://developer.chrome.com/docs/devtools/css/flexbox?hl=ja#examine)
+
+### グリッドレイアウト
+
+他のレイアウト方法として、グリッドレイアウトがあります。
+フレックスボックスレイアウトの様な伸縮性はありませんが、**グリッドレイアウトは2次元のレイアウト**が得意です。1次元ももちろん含まれます。
+
+グリッドレイアウトの説明は、以下の通りです。
+
+> CSS グリッドレイアウト (Grid Layout) は、ウェブ用の 2 次元レイアウトシステムです。 コンテンツを行と列に整理することができ、複雑なレイアウトの作成を簡素化する多くの機能を提供します。  
+https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grids
+> グリッドとは、水平方向と垂直方向の線を集めたもので、デザイン要素を並べて表示することができます。 ページ間を移動するときに要素が跳び回ったり幅が変わったりしないようなデザインを作成するのに役立ちます。  
+https://developer.mozilla.org/ja/docs/Learn_web_development/Core/CSS_layout/Grids#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%A8%E3%81%AF
+
+グリッドの例としては、以下の図のように行・列を簡単に定義できます。
+
+[![グリッドレイアウトの基本概念 - CSS: カスケーディングスタイルシート | MDN](https://res.cloudinary.com/silverbirder/image/upload/v1764465642/change-justify-content-f-c2b95dc213b96_1920_wvrkvs.png)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%82%BB%E3%83%AB)
+
+グリッドを使えば、ヘッダー、サイドバー、メイン、フッターといった以下のようなレイアウトも簡単に構築できます。
+
+![グリッドレイアウトのサンプル](https://res.cloudinary.com/silverbirder/image/upload/v1753446214/silver-birder.github.io/blog/grid-sample-article.png)
+
+ちなみに、以下の図のようにグリッドレイアウトはDevToolsで可視化することができます。
+
+[![CSS グリッド レイアウトを検査する | Chrome DevTools | Chrome for Developers](https://res.cloudinary.com/silverbirder/image/upload/v1764465704/layout-pane-7a3117d2d859_1920_fqcisu.png)](https://developer.chrome.com/docs/devtools/css/grid?hl=ja)
+
+### 重ね合わせコンテキスト
+
+フレックスボックスやグリッドレイアウトは、通常フローで要素を配置します。
+通常フローとは別に、重ね合わせコンテキスト（stacking context）という概念があります。
+
+重ね合わせコンテキストの説明は、以下の通りです。
+
+>.  重ね合わせコンテキスト (Stacking context) は、ビューポートまたはウェブページに面していると想定されるユーザーに対する**仮想的な Z 軸に沿って並べられた HTML 要素の三次元の概念化**です。 HTML 要素は、要素の属性に基づいてこの空間を優先度つきの順序で占有します
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context
+
+Z軸の高い位置が前面に表示され、Z軸の低い位置が背面に表示されます。  
+Z軸の同じ位置にある要素は、重なり順序を考慮する必要があります。z-indexで重なり順序を変更できます。
+
+重ね合わせコンテキストは、[重ね合わせコンテキスト - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_positioned_layout/Stacking_context#%E8%A7%A3%E8%AA%AC) に書いてある通り、以下のような場合に生成されます。
+
+- position の値が absolute または relative であり、かつ z-index の値が auto 以外の要素
+- position の値が fixed または sticky の要素（sticky はすべてのモバイルブラウザーにありますが、古いデスクトップブラウザーにはありません）。
+- 省略
+
+このあたりは、文章で説明するよりも実践を通して学ぶ方が理解しやすいと思いますので、**雰囲気だけ掴んでおいてください**。（私自身が説明できるほど理解していないので）
+
+よくあるケースとしては、positionプロパティを使った位置指定です。以下のHTMLが定番かと思います。
+
+```html
+<!-- 親要素 -->
+<div style="position: relative;">
+  <!-- 子要素は、親の相対位置を基準に絶対位置で配置されます -->
+  <div style="position: absolute; top: 0; left: 0;"></div>
+</div>
+```
+
+起点となる親要素に position: relative を指定し、子要素に position: absolute を指定することで、親要素の位置を基準に子要素を配置できます。
+
+### ブラウザに計算させる
+
+レイアウトを構築していくと、widthを100pxのように絶対値（固定）で定義することがあります。
+これは、特定のブラウザサイズであればうまくいくかもしれません。
+しかし、以下のような問題が発生する可能性があります。
+
+- ブラウザの縦横の幅が変わると、レイアウトが崩れる
+- 表示するデータが変動すると、レイアウトが崩れる
+
+そのため、できる限りブラウザに計算させる方法をお勧めします。
+具体的には、以下のような方法があります。
+
+- 単位を%やdvw、cqwなど相対単位を積極的に使用する
+  - max-widthで固定値で制限値をかける
+- calc()を使用して、計算させる
+  - calc(100% - 20px)のように、相対値と固定値を組み合わせる
+
+もし固定で値を定義した際には、**"ブラウザサイズやデータが変わったらどうなるのか？"** を想像しましょう。
+
+## サンプルページのセクション
+
+長くなりましたが、それではサンプルページのセクションを見ていきましょう。
+再掲ですが、サンプルページとリポジトリは以下のURLにあります。
+
+- https://learn-layout.vercel.app
+- https://github.com/silverbirder/learn-css
+
+### 共通変数
+
+サンプルページでは、スペースや色、フォントサイズをCSS変数で定義しています。
+これは、CSSの値を設定する際に、var(--spacing-xs) のように使用します。
+決まったスペースやフォントサイズを決めておくと、全体のデザインが統一されるため、お勧めです。
+
+### 全体セクション
+
+ヒーローやヘッダー・フッターを除いたセクションは、以下のHTMLで囲むようにしています。
+
+```html
+<div class="container">
+  <section>
+    <h2>タイトル</h2>
+    <div>コンテンツ</div>
+  </section>
+  <section>
+    <h2>タイトル</h2>
+    <div>コンテンツ</div>
+  </section>
+  <!-- 省略 -->
+</div>
+```
+
+各セクションには、セクションタイトルとコンテンツが含まれています。
+全体のレイアウトを整えるため、横幅の制限と左右中央寄せを行います。
+横幅制限をかけないと、画面横いっぱいにコンテンツが広がってしまうため、視線が散漫になってしまいます。
+そのため、横幅制限をかけることで、規則的なレイアウトを実現できます。
+
+具体的なCSSは、以下のとおりです。
+
+```css
+.container {
+  /* 横幅を制限します */
+  max-width: var(--breakpoint-desktop);
+  /* 横幅を左右中央寄せにします */
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+## ヒーロー
+
+![ヒーローセクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-laptop.png)
+
+![ヒーローセクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-hero-mobile.png)
+
+ヒーローセクションは、でかでかとタイトルを目立つ様に配置しています。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- 画面全体に広がっている
+- 画面の上下左右中央に配置されている
+- 3つの要素が縦に並んでいる
+  - タイトルとサブタイトル
+  - 説明文
+  - ボタン
+
+まず、以下のHTMLを書いてみたとしましょう。
+HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="hero-cover">
+  <main class="hero-container">
+    <hgroup>
+      <h1>CSS AI</h1>
+      <p>AI駆動CSSスタイリング<wbr />プラットフォーム</p>
+    </hgroup>
+    <div>
+      <p>
+        次世代AIがあなたのCSSを自動最適化。
+      </p>
+      <p>
+        自然言語でスタイルを指定するだけで、美しいCSSコードを瞬時に生成します。
+      </p>
+    </div>
+    <div class="cluster">
+      <button>今すぐ始める</button>
+      <button>詳細を見る</button>
+    </div>
+  </main>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.hero-cover {
+  /* 上下左右中央の配置します。 */
+  /* 他にも方法は色々ありますが、こちらの書き方がシンプルで良いでしょう */
+  display: grid;
+  place-items: center;
+
+  /* 最小の高さを、ビューポートの最大まで広げます */
+  min-height: 100dvh;
+}
+
+.hero-container {
+  /* 左右中央寄せにしつつ、コンテンツの横を制限させます */
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+  /* 左右中央寄せにします */
+  justify-items: center;
+  /* 横幅を制限します */
+  max-width: var(--breakpoint-desktop);
+
+  /* 余白の調整 */
+  gap: var(--spacing-lg); /* 子要素の間隔を指定 */
+  padding: 0 var(--spacing-base); /* 左右の余白を指定 */
+}
+
+.cluster {
+  /* ボタンを単純に横に並べる */
+  display: flex;
+  /* ボタンを折り返す */
+  /* ボタンが増えたり、横幅が狭くなると効果を発揮します */
+  flex-wrap: wrap;
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm);
+}
+```
+
+dvh などの単位は、[length - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/length)を参照してください。
+
+## 主要機能
+
+![主要機能セクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-features-laptop.png)
+
+![主要機能セクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-features-mobile.png)
+
+主要機能セクションでは、このサービスが提供する機能を6つ紹介します。
+6つの主要機能を横2行3列で表示します。各機能には、アイコンとタイトル、説明があります。
+
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- 2行3列の2次元グリッドが扱いやすそう
+  - 横幅に応じて、3行2列、1行6列、と変化させたい
+- 機能の中のコンテンツは、シンプルに上から下に並べる
+
+まず、以下のHTMLを書いてみたとしましょう。
+HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="section">
+  <h2>主要機能</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="card-icon">🤖</div>
+      <h3 class="card-title">AI CSS生成</h3>
+      <p class="card-description">
+        自然言語でデザインを記述するだけで、最適化されたCSSコードを自動生成。
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon">🎨</div>
+      <h3 class="card-title">スマートスタイル提案</h3>
+      <p class="card-description">
+        AIがデザインパターンを分析し、美しいスタイルを自動提案。クリエイティブな発想をサポート。
+      </p>
+    </div>
+    <!-- 省略 -->
+  </div>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.section {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
+}
+
+.feature-grid {
+  /* 列数を変更しやすいように、ローカル変数に定義 */
+  --_column: 1;
+
+  display: grid;
+  /* 指定する列数で分割 */
+  grid-template-columns: repeat(var(--_column), 1fr);
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm); /* 各機能の間隔を指定 */
+
+  /* tabletの列数 */
+  @media (min-width: 40rem) {
+    --_column: 2;
+  }
+
+  /* laptopの列数 */
+  @media (min-width: 48rem) {
+    --_column: 3;
+  }
+}
+
+.feature-card {
+  display: grid;
+  /* 親グリッドから子グリッドを入れ子にします */
+  grid-template-rows: subgrid;
+
+  /* グリッドアイテムを縦に並べる */
+  grid-template-areas:
+    "icon"
+    "title"
+    "description";
+
+  /* サブグリッドとして、3つの行があることを明示 */
+  grid-row: span 3;
+
+  /* 余白の調整 */
+  padding: var(--spacing-base); /* 自身のカードの内側の余白を指定 */
+
+  /* 装飾 */
+  border: 1px solid var(--color-border); /* 枠線の装飾 */
+}
+
+.card-icon {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: icon;
+}
+
+.card-title {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: title;
+}
+
+.card-description {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: description;
+}
+```
+
+サブグリッドについては、[サブグリッド - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Subgrid)を参照してください。  
+サブグリッドを使うことで、機能カードの中のアイコン、タイトル、説明文が縦のラインで揃うようになります。
+これは、例えば、1つのタイトルが2行になった場合、全体のタイトルの行が2行となり縦のラインが維持され、重宝します。
+
+### 対応技術
+
+![対応技術セクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-support-tech-laptop.png)
+
+![対応技術セクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-support-tech-mobile.png)
+
+対応技術セクションでは、たくさんの技術タグを横に並べて表示しています。技術タグはこれからも増えていく可能性があります。
+
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。 想像してみると、以下について気づくかもしれません。
+
+- 技術タグは左右中央に配置されている
+- 横がある一定を超えると、下に折り返されている
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="section">
+  <h2>対応技術</h2>
+  <div class="cluster">
+    <span class="tech-tag">GPT-4</span>
+    <span class="tech-tag">Claude</span>
+    <!-- 省略 -->
+  </div>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.section {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
+}
+
+.cluster {
+  /* ボタンを単純に横に並べる */
+  display: flex;
+  /* ボタンを折り返す */
+  /* ボタンが増えたり、横幅が狭くなると効果を発揮します */
+  flex-wrap: wrap;
+  /* 左右中央に寄せる */
+  justify-content: center;
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm); /* タグの間隔を指定 */
+}
+
+.tech-tag {
+  /* 余白の調整 */
+  padding: var(--spacing-xs) var(--spacing-sm); /* タグの内側の余白を指定 */
+
+  /* 装飾 */
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+```
+
+### デモ
+
+![デモセクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-demo-laptop.png)
+
+![デモセクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-demo-mobile.png)
+
+デモセクションでは、デモ動画が左にあり、右にデモの説明ステップがリスト形式で表示されています。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- laptopでは、デモ動画が左にあり、説明ステップが右に配置されている
+- mobileでは、デモ動画が上にあり、説明ステップが下に配置されている
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="section">
+  <h2>デモ</h2>
+  <div class="sidebar">
+    <div class="sidebar-video">
+      <div class="demo-video">
+        <h3>ライブデモ</h3>
+        <p>実際のCSS AIの動作をご覧ください</p>
+        <button>デモを開始</button>
+      </div>
+    </div>
+    <div class="sidebar-steps">
+      <div class="step-items">
+        <div class="step-item">
+          <strong class="step-item-title">1. 要望を自然言語で入力</strong>
+          <p class="step-item-description">
+            「モダンなカードデザインを作って」など、自然な言葉でデザインを指示
+          </p>
+        </div>
+        <div class="step-item">
+          <strong class="step-item-title">2. AIがCSSを自動生成</strong>
+          <p class="step-item-description">高度なAIが最適化されたCSSコードを瞬時に生成</p>
+        </div>
+        <div class="step-item">
+          <strong class="step-item-title">3. プレビュー・調整・適用</strong>
+          <p class="step-item-description">リアルタイムプレビューで確認し、微調整してプロジェクトに適用</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.section {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
+}
+
+.sidebar {
+  display: flex;
+  /* 説明ステップを折り返せるようにする */
+  flex-wrap: wrap;
+
+  /* 余白の調整 */
+  gap: var(--spacing-base); /* デモと説明ステップの間隔を指定 */
+}
+
+.sidebar-video {
+  flex-basis: 25rem; /* デモの基本幅を指定（最小限の見せたいサイズ） */
+  flex-grow: 1;      /* 余白があれば少し広がる */
+}
+
+.sidebar-steps {
+  flex-grow: 999;  /* スペースが余れば優先的に広がるようにする */
+  flex-basis: 50%; /* 横幅は最低50%を確保する（デモが25remなのでバランスを取る） */
+}
+
+.demo-video {
+  /* デモ動画のコンテンツを縦に並べる */
+  display: flex;
+  flex-direction: column;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md);       /* デモ動画のコンテンツの間隔を指定 */
+  padding: var(--spacing-base); /* デモ動画の内側の余白を指定 */
+
+  /* 装飾 */
+  background-color: var(--color-border);
+}
+
+.step-items {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-sm); /* タイトルと説明文の間隔を指定 */
+}
+
+.step-item {
+  display: grid;
+  /* 親グリッドから子グリッドを入れ子にします */
+  grid-template-rows: subgrid;
+
+  /* グリッドアイテムを縦に並べる */
+  grid-template-areas:
+    "title"
+    "description";
+
+  /* サブグリッドとして、2つの行があることを明示 */
+  grid-row: span 2;
+
+  /* 余白の調整 */
+  padding: var(--spacing-base); /* ステップアイテムの内側の余白を指定 */
+
+  /* 装飾 */
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-black);
+}
+
+.step-item-title {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: title;
+}
+
+.step-item-description {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: description;
+}
+```
+
+今回のレイアウトを、サイドバーパターンと呼びます。
+このレイアウトは、横幅が広いとサイドバーが横に並び、横幅が狭くなるとサイドバーが下に折り返されるパターンです。
+この手法については、[Flex-grow 9999 Hack](https://www.joren.co/flex-grow-9999-hack/) を参考にしています。
+
+サブグリッドについては、[サブグリッド - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_grid_layout/Subgrid)を参照してください。  
+
+### お客様の声
+
+![お客様の声セクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-reviews-laptop.png)
+
+![お客様の声セクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-reviews-mobile.png)
+
+お客様の声セクションでは、感想をカード形式で表示し、横並びさせます。
+
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- 途中でカードが途切れている
+  - 横スクロールできると伝えるためのデザイン
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="section">
+  <h2>お客様の声</h2>
+  <div class="reel">
+    <div class="review-card">
+      <div>
+        "CSS AIを使い始めてから、コーディング時間が半分になりました。"
+      </div>
+      <div>
+        <strong>田中様</strong> - フロントエンドエンジニア
+      </div>
+      <div>★★★★★</div>
+    </div>
+    <div class="review-card">
+      <div>
+        "自然言語でデザインを指示するだけで、想像以上の美しいCSSが生成されます。"
+      </div>
+      <div>
+        <strong>佐藤様</strong> - UIデザイナー
+      </div>
+      <div>★★★★★</div>
+    </div>
+    <!-- 省略 -->
+  </div>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.section {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
+}
+
+.reel {
+  /* flexboxで横に並べる */
+  display: flex;
+  /* 横スクロールを許可 */
+  overflow-x: auto;
+
+  /* アイテム間の間隔 */
+  --_gap: var(--spacing-sm);
+  gap: var(--_gap);
+
+  & > * {
+    /* 1.5列分表示 */
+    /* 0.5分非表示になるため、横スクロールできるように見える */
+    --_column: 1.5;
+
+    flex-grow: 0;   /* 伸びない */
+    flex-shrink: 0; /* 縮まない */
+
+    /* 指定された列数ぶん表示されるように幅を計算 */
+    flex-basis: calc(
+      (100% - (var(--_gap) * (var(--_column) - 1))) / var(--_column)
+    );
+
+    /* tabletの列数 */
+    @media (min-width: 40rem) {
+      --_column: 2.5;
+    }
+
+    /* laptopの列数 */
+    @media (min-width: 48rem) {
+      --_column: 3.5;
+    }
+  }
+}
+
+.review-card {
+  display: grid;
+
+  /* 余白の調整 */
+  row-gap: var(--spacing-sm);   /* グリッド行の間隔を指定 */
+  padding: var(--spacing-base); /* レビューカードの内側の余白を指定 */
+
+  /* 装飾 */
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+```
+
+### 料金プラン
+
+![料金プランセクション - laptop](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-pricing-laptop.png)
+
+![料金プランセクション - mobile](https://res.cloudinary.com/silverbirder/image/upload/v1753446196/silver-birder.github.io/blog/learn-layout-pricing-mobile.png)
+
+料金プランでは、3つのプランをカード上に表示します。
+上記画像から、自分ならどう作るか、HTMLとCSSを想像してみましょう。
+想像してみると、以下について気づくかもしれません。
+
+- プランは、同じ幅で表示する。
+- 横幅がある小ささになると、全て縦に並ぶようになる。
+- プランの上に、人気のバッジがある。
+
+まず、以下のHTMLを書いてみたとしましょう。 HTMLはトップダウンで書いていき、関連しそうな要素を適切なタグでグループ化しています。
+
+```html
+<section class="section">
+  <h2>料金プラン</h2>
+  <div class="price-items">
+    <div class="price-item">
+      <h4 class="plan-name">スターター</h4>
+      <div class="plan-price">¥980<span>/月</span></div>
+      <div class="plan-features">
+        <div class="plan-feature">✓ 基本AI CSS生成</div>
+        <div class="plan-feature">✓ 月100回まで生成</div>
+        <!-- 省略 -->
+      </div>
+      <button class="btn btn-outline">選択する</button>
+    </div>
+    <div class="price-item popular">
+      <div class="popular-badge">人気</div>
+      <h4 class="plan-name">プロ</h4>
+      <div class="plan-price">¥2,980<span>/月</span></div>
+      <div class="plan-features">
+        <div class="plan-feature">✓ 高度なAI機能</div>
+        <div class="plan-feature">✓ 無制限生成</div>
+        <!-- 省略 -->
+      </div>
+      <button class="btn btn-primary">選択する</button>
+    </div>
+    <div class="price-item">
+      <h4 class="plan-name">エンタープライズ</h4>
+      <div class="plan-price">お問い合わせ</div>
+      <div class="plan-features">
+        <div class="plan-feature">✓ カスタムAIモデル</div>
+        <div class="plan-feature">✓ 専用API</div>
+        <!-- 省略 -->
+      </div>
+      <button class="btn btn-outline">相談する</button>
+    </div>
+  </div>
+</section>
+```
+
+次は、CSSを書いてみましょう。CSSには、それぞれコメントを残しています。
+
+```css
+.section {
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* 見出しとコンテンツの間隔を指定 */
+}
+
+.price-items {
+  display: flex;
+  /* プランカードを折り返せるようにする */
+  flex-wrap: wrap;
+
+  /* 余白の調整 */
+  gap: var(--spacing-md); /* プランカードの間隔を指定 */
+
+  & > * {
+    /* すべて同じ比率で伸びるようにする */
+    flex-grow: 1;
+
+    /* 横幅に応じて縦並び ⇄ 横並びが切り替わるように調整 */
+    /* 横幅が45rem未満では縦並び、それ以上では横並びになる */
+    flex-basis: calc((45rem - 100%) * 999);
+  }
+}
+
+.price-item {
+  /* 子要素の絶対配置（例: 人気バッジ）を基準にするための基点 */
+  position: relative;
+
+  display: grid;
+  grid-template:
+    /* プラン名を表示する行 */
+    "name" auto
+    /* 空行（スペースなし、調整用） */
+    "." 0
+    /* 価格を表示する行 */
+    "price" auto
+    /* 空行（価格と機能リストの間にスペースを入れる） */
+    "." var(--spacing-md)
+    /* 機能リストを表示する行 */
+    "features" auto
+    /* 空行（機能リストとボタンの間にスペースを入れる） */
+    "." var(--spacing-md)
+    /* ボタンを表示する行 */
+    "button" auto / auto; /* 列幅は自動（1列レイアウト） */
+
+    /* 余白の調整 */
+    padding: var(--spacing-base); /* プランカードの内側の余白を指定 */
+
+  /* 装飾 */
+  border: 1px solid var(--color-border);
+
+  &.popular {
+    /* 人気プランは枠線を強調 */
+    border-color: var(--color-black);
+  }
+
+  & > button {
+    /* grid-template-areasで指定された名前を定義する */
+    grid-area: button;
+    width: fit-content;  /* ボタン幅を内容に合わせる */
+    margin: 0 auto;      /* 左右中央寄せ */
+  }
+}
+
+.popular-badge {
+  /* 親要素 (.price-item) を基準に絶対位置で配置する */
+  position: absolute;
+
+  /* 上にずらして、カードの外にはみ出すように配置 */
+  top: -1rem;
+  /* 横中央に配置するために、左端を中央に設定 */
+  left: 50%;
+  /* 左に50%分ずらして、左右中央に揃える */
+  /* 横方向の中央寄せテクニック */
+  transform: translateX(-50%);
+
+  /* バッジの装飾 */
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  /* 余白の調整 */
+  padding: var(--spacing-xs) var(--spacing-sm); /* 上下左右の余白を指定 */
+}
+
+.plan-name {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: name;
+}
+
+.plan-price {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: price;
+  text-align: center;
+
+  & > span {
+    /* 単位との間隔 */
+    margin-left: var(--spacing-xs);
+  }
+}
+
+.plan-features {
+  /* grid-template-areasで指定された名前を定義する */
+  grid-area: features;
+  display: grid;
+  /* 1列で、横幅いっぱいに表示します */
+  grid-template-columns: 1fr;
+
+  /* 余白の調整 */
+  gap: var(--spacing-xs);       /* 特徴の間隔を指定 */
+  padding: 0 var(--spacing-sm); /* 左右の余白を指定 */
+}
+
+.plan-feature {
+  /* 余白の調整 */
+  padding: var(--spacing-xs) 0; /* 上下の余白を指定 */
+
+  /* 装飾 */
+  border-bottom: 1px solid var(--color-border);
+}
+```
+
+## 終わりに
+
+最後まで読んでいただき、ありがとうございます。
+読者の皆さんの、CSSに対する苦手意識が少しでも克服できれば幸いです。
+他にもこんなのが知りたい、という要望があれば、ぜひコメントやXなどで教えてください。

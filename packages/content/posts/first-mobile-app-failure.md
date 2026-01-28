@@ -1,0 +1,211 @@
+---
+title: 'はじめてモバイルアプリ開発して諦めた話'
+publishedAt: '2024-08-13'
+summary: '3ヶ月ほど、モバイルアプリを開発していましたが、最終的には諦めることになりました。端的に言えば、iOSのバックグラウンド実行に制約が多く、思い描いていたものを実現できなかったのです。この記事では、開発経緯と諦めた理由についてお話しします。くぅ〜疲れましたw'
+tags: ["フロントエンド"]
+index: false
+---
+
+3ヶ月ほど、モバイルアプリを開発していましたが、最終的には諦めることになりました。
+端的に言えば、**iOSのバックグラウンド実行に制約**が多く、思い描いていたものを実現できなかったのです。
+この記事では、開発経緯と諦めた理由についてお話しします。くぅ〜疲れましたw
+
+## 開発したかったアプリの概要
+
+私が開発したのは、**アラームを共有するアプリ**です。
+家族やグループで同じ時間に起床することが多いため、皆が同じ時間に起きられるように、
+**グループ内でアラームの時間や曜日を共有できるアプリ**があれば便利だと考えました。
+似たようなアプリは少数ありましたが、どれも私のニーズに完全には合致しなかったため、
+自分で作ることにしました。
+
+実際に作ったアラーム共有アプリの画面は、以下のとおりです。
+
+![アラーム共有(iOS)](http://res.cloudinary.com/silverbirder/image/upload/v1723344679/ypmvtlw47psksvdapsg2.png)
+
+このアラーム共有アプリでは、アラームのON/OFF、時間、曜日、サウンド、
+音量の設定が可能です。サウンドと音量は試聴することもできます。
+
+**ログインなしに、アラームを共有する**ことが可能です。
+アラームを作成した人がオーナーとなり、共有コードを友達に伝えることで、
+友達もそのアラームに参加できます。
+オーナーがアラームの時間や曜日を変更すると、共有されているアラームはすべてリアルタイムで同期されます。
+
+## 技術選定：なぜReact Nativeなのか
+
+まず、開発言語はReact Nativeを選びました。
+理由は簡単で、**私がReactに慣れているから**です。
+FlutterやKotlin、Swiftのような他の選択肢もありましたが、
+新しい言語を学ぶコストをかけたくありませんでした。
+いくらキャッチアップが簡単だとしても、
+その周辺知識を学ぶことを踏まえると時間がかかってしまうためです。
+私は、作りたい機能が作れれば良いのです。
+
+## 開発環境の構築
+
+React Nativeを使い、AndroidとiOS向けのフレームワークであるExpoを採用しました。
+目的は、効率よく開発を進めることでした。
+基本的にはExpo SDKを使用し、必要に応じてサードパーティライブラリを追加しました。
+
+Expo SDKで追加したものは以下のとおりです。
+
+- **expo-background-fetch**: バックグラウンド処理用
+- **expo-clipboard**: 共有コードをコピーするために使用
+- **expo-task-manager**: バックグラウンドタスク管理用
+
+サードパーティライブラリで追加したものは以下のとおりです。
+
+- **@react-native-async-storage/async-storage**: ローカルストレージにデータを保存
+- **@react-native-firebase/\***: Realtime Database, Messaging, Function
+- **@notifee/react-native**: 通知管理
+- **@rneui/\***: UIツールキット
+- **react-native-background-timer**: バックグラウンド用のタイマー
+- **react-native-modal-datetime-picker**: 日付選択用
+- **react-native-picker-select**: セレクトボックス
+- **react-native-notification-sounds**: デバイスのサウンド取得
+- **react-native-track-player**: オーディオ再生
+- **react-native-volume-manager**: ボリューム管理
+
+動作確認は、Android/iOSエミュレーターで行いました。
+しかし、一部の機能（例：ボリューム管理）はエミュレーターでは動作せず、本物のデバイスでの確認が必要でした。
+
+デバイスでアプリを動かすには、Expo Goというアプリで実現可能ですが、一部のライブラリが動作しません。
+そこで、EAS（Expo Application Services）でビルドしたアプリを直接デバイスにインストールする必要がありました。
+
+iOSでは、デバイスにインストールするために**有料のApple Developer Programへの登録**が必要で、
+この手続きが非常に面倒でした。
+申請後、1週間以上も反応がなく、問い合わせたところようやく2日後に返答が来るという状況でした。
+（問い合わせたらすぐに返事が来るのはなぜでしょうか…）
+
+## データとアラームトリガー
+
+アラームの時間や音量などのデータは、以下の2つに保存しています。
+
+- ローカルストレージ
+- Firebase Realtime Database
+
+Firebase Realtime Databaseを使用する理由は、アラームを共有した際に共有されたすべてのユーザーに同期させる仕組みを簡単に実現できるからです。
+
+次に、アラームの時間になったときに鳴らすトリガーについて、
+以下のパターンに分けて説明します。
+
+### アプリがバックグラウンドにある時
+
+バックグラウンドとは、以下のいずれかの状態を指します。
+
+- デバイスがロックされた状態
+- アプリが動作しているが画面に表示されていない状態
+- アプリが動作していない(シャットダウンされた)状態
+
+この状態では、アプリは自力で動作することが困難なため(特にiOS...!!!)、
+外部からトリガーを発する必要があります。
+そのため、FCM（Firebase Cloud Messaging）を利用し、
+Firebase Functionのスケジュール実行（内部ではCloud Scheduler）を毎分起動して、
+アラームを鳴らす対象へメッセージを送信し、アラームを鳴らします。
+
+※ 後述しますが、毎分メッセージ通知するとiOSの場合レートリミットがかかります。
+
+### アプリがフォアグラウンドにある時
+
+フォアグラウンドとは、アプリが開いていて画面に表示されている状態です。
+この状態では、React Nativeのコンポーネントがマウントされているため、
+5秒ごとにローカルストレージのデータを参照して、アラームを鳴らします。
+
+## 機能要件と課題
+
+アラーム共有アプリの開発において、以下の要件を満たすことを目標としていました。
+
+- **音量がミュート（サイレント）状態や音量ゼロの状態でも、アラーム時にのみ音量を調整できること**
+  - 理由: アラームを使用する前に、手動でミュートを解除し、大音量に調整する手間を省きたい
+- **バックグラウンドでもアラームが鳴ること**
+  - 理由: アラームをずっとフォアグラウンドにする体験にしたくない
+- **Android/iOSの両プラットフォームをサポートすること**
+  - 理由: 私の家族が、AndroidとiOSの両方を使用しているため
+
+### アラームの音に関する問題
+
+アラームの通知音は、`react-native-notification-sounds` を利用してデバイス内蔵の音を使用しましたが、
+サイレントモードや音量が低い状態では通知音が鳴らないという問題が発生しました。
+
+この問題に対処するため、`react-native-volume-manager` を使用して音量を制御することにしました。
+フォアグラウンドでは音が鳴るようになりましたが、バックグラウンドでは依然として音が鳴らないという課題が残りました。
+そこで、`react-native-track-player`を導入し、音声を再生することで、
+リピート再生やバックグラウンドでの音声再生が可能になりました。
+
+この方法で音の問題はある程度解決しましたが、
+通知(`@notifee/react-native`)に音を付ける場合、サイレントモードや低音量の状態では聞こえない問題が依然として残り、
+この方法は諦めることになりました。
+
+### iOSのバックグラウンド動作制限
+
+ここが、**諦めた最大の理由** です。
+iOSでは、バックグラウンドでアプリを動かすことが非常に困難です。
+
+[Background Tasks - Apple Developer Documentation](https://developer.apple.com/documentation/backgroundtasks) に記載されているとおり、
+`BGAppRefreshTaskRequest` や `BGProcessingTaskRequest` を使用することで、
+バックグラウンドでも一定の処理を実行することが可能です。
+しかし、バックグラウンドでアラームを毎分、何時間も動かす方法は見つかりませんでした。
+
+そこで、[Choosing Background Strategies - Apple Developer Documentation](https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app) にある
+`Wake Your App with a Background Push` の方法を参考にして、
+Firebase Functionのスケジュール実行を毎分動かし、FCMからデータプッシュしてアプリを起動させる方法を試みました。
+プッシュ通知のヘッダーは以下を参考に設定しました。
+
+> When sending a background push, set content-available: to 1 without alert, sound, or badge.
+> The system decides when to launch the app to download the content.
+> To ensure your app launches, set apns-priority to 5, and apns-push-type to background.
+
+しかし、以下のような制限により、この方法も十分には機能しませんでした。
+
+> If you send background pushes more frequently than three times per hour, the system imposes rate limitations.
+> See Pushing background updates to your App for more information.
+
+この制限のため、5分後などに確実にアラームを鳴らすことが難しく、
+安定したアラームの動作を実現できませんでした。
+
+アプリを常にフォアグラウンドで使用してもらうことで回避は可能ですが、
+私自身がポケモンスリープを使用しているため、夜間に同時使用ができないのが現実です。
+ポケモンスリープは寝る前にアプリをフォアグラウンドで放置して使用します。
+
+[Configuring background execution modes | Apple Developer Documentation](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes) を見ると、
+位置情報やBluetoothをアラームに活用する方法が考えられますが、
+具体的なアイデアがなく、いびきを録音したり、寝返りを計測するなどのバックグラウンド機能を追加する必要があるかもしれません。
+無音をずっと鳴らすという方法も考えられますが、バッテリーの消耗が激しくなるリスクがあります。
+
+その他、参考になるリンクを以下に示します。
+
+- [How do you allow tasks that take longer than the 30 seconds allowed in the background thread to continue performing until done? - Apple Developer Forums](https://forums.developer.apple.com/forums/thread/695910)
+- [iOS Background Execution Limits | Apple Developer Forums](https://forums.developer.apple.com/forums/thread/685525)
+
+これらの理由から、バックグラウンドでアラームを安定して鳴らすことは非常に難しいと判断しました。
+
+ちなみに、「おこしてME（Alarmy）」がiOSで上手く動作していて、どのようにこの問題を解決しているのか、とても気になるところです。
+
+- [swift - Wake up application in background using AudioSession like Alarmy iOS app - Stack Overflow](https://stackoverflow.com/questions/55546865/wake-up-application-in-background-using-audiosession-like-alarmy-ios-app)
+
+## 次にモバイルアプリを作るとしたら
+
+今回、React Nativeを選択しましたが、開発スピードは比較的早かったものの、
+トラブルシューティングに多くの時間がかかりました。
+アプリ自体の問題、ライブラリの問題、またはネイティブの仕様に起因する問題を切り分けるのに苦労しました。
+これは、おそらく他のクロスプラットフォーム向けフレームワークでも同様の課題があると思います。
+
+一方で、KotlinやSwiftのようなネイティブ言語を使用した場合、
+このような問題の一部は解決しやすくなるかもしれません。
+もちろん、ネイティブ開発でもライブラリを使用することが一般的だと思うのですが、
+今回の経験を通じて多くのことを学びました。
+
+また、要件を変更すれば、別のアプローチでの開発が可能でした。
+例えば、アラーム音を通知音にすることで、開発自体は進められました。
+ミュートを解除し、音量を上げて通知に音を付ければ、音を鳴らすことができます。
+しかし、通知音は1回しか鳴らず、サイレントモードでの対応を考えると、
+私の理想とする体験には妥協できませんでした。
+そのため、今回の要件を変えることはできませんでした。
+あるいは、視点を変えて考えることで、別の解決策が見つかったかもしれません。
+（アラームのAPIがあればなぁ...）
+
+## まとめ
+
+この3ヶ月間の経験を通じて、モバイルアプリ開発の難しさを痛感しました。
+特に、iOSのバックグラウンド動作に関する制限は、想像以上に厳しく、
+想定した機能を実現するための大きな壁となりました。
+また作りたいアイデアが生まれたら、再チャレンジしたいと思います！

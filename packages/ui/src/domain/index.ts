@@ -1,3 +1,4 @@
+export * from "./cellophane-tape";
 export * from "./disqus";
 export * from "./follow";
 export * from "./link";

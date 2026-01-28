@@ -10,6 +10,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
+  CellophaneTape,
   createFollowSection,
   type FollowLinks,
   Link,
@@ -114,9 +115,32 @@ export const Me = ({ followLinks }: Props) => {
               <Box
                 as="figure"
                 lineHeight="var(--notebook-line-height)"
+                marginInline="auto"
                 marginX={0}
                 marginY="var(--notebook-line-height)"
+                position="relative"
+                width="fit-content"
               >
+                <CellophaneTape
+                  height="calc(var(--notebook-line-height) * 0.75)"
+                  left="calc(var(--notebook-line-height) * -0.55)"
+                  pointerEvents="none"
+                  position="absolute"
+                  top="calc(var(--notebook-line-height) * -0.45)"
+                  transform="rotate(-14deg)"
+                  width="calc(var(--notebook-line-height) * 2.2)"
+                  zIndex={1}
+                />
+                <CellophaneTape
+                  height="calc(var(--notebook-line-height) * 0.75)"
+                  pointerEvents="none"
+                  position="absolute"
+                  right="calc(var(--notebook-line-height) * -0.55)"
+                  top="calc(var(--notebook-line-height) * -0.45)"
+                  transform="rotate(14deg) scaleX(-1)"
+                  width="calc(var(--notebook-line-height) * 2.2)"
+                  zIndex={1}
+                />
                 <Image
                   asChild
                   borderRadius="0"

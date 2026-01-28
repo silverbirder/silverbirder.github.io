@@ -5,8 +5,8 @@ import type { ComponentPropsWithoutRef } from "react";
 import { chakra } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useCallback, useRef } from "react";
-// removed unused MdOpenInNew icon
 
+import { CellophaneTape } from "./cellophane-tape";
 import { Link as DomainLink } from "./link";
 
 type Props = ComponentPropsWithoutRef<"img"> & {
@@ -23,6 +23,9 @@ export const NotebookImage = ({ alt, linkHref, onLoad, ...props }: Props) => {
 
   const altText = alt;
   const hasCaption = Boolean(altText) || Boolean(linkHref);
+  const className = props.className ?? "";
+  const hasRemarkLinkCard = /remark-link-card/.test(className);
+  const shouldShowTape = !hasRemarkLinkCard;
 
   const alignToGrid = useCallback(() => {
     const wrapper = wrapperRef.current;
@@ -57,10 +60,37 @@ export const NotebookImage = ({ alt, linkHref, onLoad, ...props }: Props) => {
     <chakra.figure
       display="block"
       lineHeight="var(--notebook-line-height)"
+      marginInline="auto"
       marginX={0}
       marginY="var(--notebook-line-height)"
+      position="relative"
       ref={wrapperRef}
+      width="fit-content"
     >
+      {shouldShowTape && (
+        <>
+          <CellophaneTape
+            height="calc(var(--notebook-line-height) * 0.75)"
+            left="calc(var(--notebook-line-height) * -0.55)"
+            pointerEvents="none"
+            position="absolute"
+            top="calc(var(--notebook-line-height) * -0.45)"
+            transform="rotate(-14deg)"
+            width="calc(var(--notebook-line-height) * 2.2)"
+            zIndex={1}
+          />
+          <CellophaneTape
+            height="calc(var(--notebook-line-height) * 0.75)"
+            pointerEvents="none"
+            position="absolute"
+            right="calc(var(--notebook-line-height) * -0.55)"
+            top="calc(var(--notebook-line-height) * -0.45)"
+            transform="rotate(14deg) scaleX(-1)"
+            width="calc(var(--notebook-line-height) * 2.2)"
+            zIndex={1}
+          />
+        </>
+      )}
       <chakra.img
         alt={alt ?? ""}
         bg="bg.muted"
@@ -75,6 +105,7 @@ export const NotebookImage = ({ alt, linkHref, onLoad, ...props }: Props) => {
         maxHeight={NOTEBOOK_IMAGE_MAX_HEIGHT}
         maxWidth="100%"
         onLoad={handleLoad}
+        position="relative"
         ref={setImgRef}
         width="auto"
         {...props}

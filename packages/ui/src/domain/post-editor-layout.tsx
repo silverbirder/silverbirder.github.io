@@ -28,6 +28,7 @@ type Props = {
   isLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
+  onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
   onSummaryChange: (value: string) => void;
   onTagInputBlur: () => void;
@@ -39,6 +40,7 @@ type Props = {
   previewContent: null | ReactNode;
   previewIsLoading?: boolean;
   previewTags?: string[];
+  publishedAtValue: string;
   resolveLinkTitlesDisabled?: boolean;
   resolveLinkTitlesIsLoading?: boolean;
   summaryValue: string;
@@ -346,6 +348,7 @@ export const PostEditorLayout = ({
   isLoading = false,
   onBodyChange,
   onCreatePullRequest,
+  onPublishedAtChange,
   onResolveLinkTitles,
   onSummaryChange,
   onTagInputBlur,
@@ -357,6 +360,7 @@ export const PostEditorLayout = ({
   previewContent,
   previewIsLoading,
   previewTags,
+  publishedAtValue,
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
   summaryValue,
@@ -366,7 +370,7 @@ export const PostEditorLayout = ({
   titleValue,
 }: Props) => {
   const t = useTranslations("admin.postEditor");
-  const previewDate = "2025-01-12";
+  const previewDate = publishedAtValue || "2025-01-12";
   const previewTitle = titleValue || t("titlePlaceholder");
   const isPreviewLoading = previewIsLoading ?? previewContent == null;
   const hasHeaderActions =
@@ -422,6 +426,17 @@ export const PostEditorLayout = ({
               type="text"
               value={titleValue}
             />
+          </FieldGroup>
+          <FieldGroup>
+            {t("publishedAtLabel")}
+            <Input
+              disabled={isLoading}
+              name="publishedAt"
+              onChange={(event) => onPublishedAtChange(event.target.value)}
+              type="date"
+              value={publishedAtValue}
+            />
+            <HelperText>{t("publishedAtHelp")}</HelperText>
           </FieldGroup>
           <FieldGroup>
             {t("summaryLabel")}

@@ -23,6 +23,7 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         bodyValue=""
         onBodyChange={() => undefined}
+        onPublishedAtChange={() => undefined}
         onSummaryChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -32,6 +33,7 @@ describe("PostEditorLayout", () => {
         onTitleChange={() => undefined}
         previewContent={<p>Preview</p>}
         previewIsLoading
+        publishedAtValue="2026-01-29"
         summaryValue=""
         tagInputValue=""
         tagSuggestions={[]}
@@ -50,6 +52,7 @@ describe("PostEditorLayout", () => {
 
     expect(heading?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
+    expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);

@@ -43,6 +43,9 @@ describe("PostEditor", () => {
       (label) => label.textContent ?? "",
     );
     const titleInput = document.querySelector("input[name='title']");
+    const publishedAtInput = document.querySelector(
+      "input[name='publishedAt']",
+    );
     const summaryInput = document.querySelector("textarea[name='summary']");
     const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
@@ -52,10 +55,12 @@ describe("PostEditor", () => {
 
     expect(title?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
+    expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
+    expect(publishedAtInput).not.toBeNull();
     expect(summaryInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");

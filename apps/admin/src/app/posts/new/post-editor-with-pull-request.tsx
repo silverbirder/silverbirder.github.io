@@ -70,8 +70,37 @@ const formatTags = (tags: string[]) => {
   return `[${escaped.join(", ")}]`;
 };
 
+const parsePublishedAtDate = (value: string) => {
+  const normalized = value.trim();
+  if (!normalized) {
+    return new Date();
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
+    const parsed = new Date(`${normalized}T00:00:00`);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+  }
+  const parsed = new Date(normalized);
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+};
+
+const normalizePublishedAt = (value: string, date: Date) => {
+  const trimmed = value.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    return trimmed;
+  }
+  return formatDate(date);
+};
+
 const buildMarkdown = (
-  draft: { body: string; summary: string; tags: string[]; title: string },
+  draft: {
+    body: string;
+    publishedAt: string;
+    summary: string;
+    tags: string[];
+    title: string;
+  },
   date: Date,
 ) => {
   if (hasFrontmatter(draft.body)) {
@@ -83,7 +112,7 @@ const buildMarkdown = (
     draft.summary.trim().length > 0
       ? escapeYamlSingleQuotedString(draft.summary.trim())
       : escapeYamlSingleQuotedString(buildSummaryFromBody(draft.body));
-  const publishedAt = formatDate(date);
+  const publishedAt = normalizePublishedAt(draft.publishedAt, date);
   const body = draft.body;
   const tags = formatTags(draft.tags);
 
@@ -108,7 +137,7 @@ export const PostEditorWithPullRequest = ({
         createPullRequestMutation.isPending
       }
       onCreatePullRequest={async (draft) => {
-        const date = new Date();
+        const date = parsePublishedAtDate(draft.publishedAt);
         const existingPosts = postsQuery.data ?? [];
         const fileName = getUniqueDailyFileName(existingPosts, date);
         const content = buildMarkdown(draft, date);

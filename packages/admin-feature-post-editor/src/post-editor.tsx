@@ -14,6 +14,7 @@ type Props = {
   createPullRequestDisabled?: boolean;
   onCreatePullRequest?: (draft: {
     body: string;
+    publishedAt: string;
     summary: string;
     tags: string[];
     title: string;
@@ -32,6 +33,7 @@ export const PostEditor = ({
   tagSuggestions,
   uploadImage,
 }: Props) => {
+  const formatDate = (date: Date) => date.toISOString().slice(0, 10);
   const {
     body,
     isPreviewLoading,
@@ -43,6 +45,7 @@ export const PostEditor = ({
   const [isUploading, setIsUploading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
+  const [publishedAt, setPublishedAt] = useState(() => formatDate(new Date()));
   const [summary, setSummary] = useState("");
   const [summaryMode, setSummaryMode] = useState<"auto" | "manual">("auto");
   const [tags, setTags] = useState<string[]>([]);
@@ -217,6 +220,7 @@ export const PostEditor = ({
     try {
       await onCreatePullRequest({
         body: bodyRef.current,
+        publishedAt,
         summary,
         tags,
         title,
@@ -224,7 +228,18 @@ export const PostEditor = ({
     } finally {
       setIsCreatingPullRequest(false);
     }
-  }, [createPullRequestIsDisabled, onCreatePullRequest, summary, tags, title]);
+  }, [
+    createPullRequestIsDisabled,
+    onCreatePullRequest,
+    publishedAt,
+    summary,
+    tags,
+    title,
+  ]);
+
+  const handlePublishedAtChange = useCallback((value: string) => {
+    setPublishedAt(value);
+  }, []);
 
   const handleSummaryChange = useCallback((value: string) => {
     setSummary(value);
@@ -354,6 +369,7 @@ export const PostEditor = ({
       onCreatePullRequest={
         onCreatePullRequest ? handleCreatePullRequest : undefined
       }
+      onPublishedAtChange={handlePublishedAtChange}
       onResolveLinkTitles={handleResolveLinkTitles}
       onSummaryChange={handleSummaryChange}
       onTagInputBlur={handleTagInputBlur}
@@ -371,6 +387,7 @@ export const PostEditor = ({
       }
       previewIsLoading={isPreviewLoading}
       previewTags={tags}
+      publishedAtValue={publishedAt}
       resolveLinkTitlesDisabled={isBodyEmpty || isUploading || isResolvingLinks}
       resolveLinkTitlesIsLoading={isResolvingLinks}
       summaryValue={summary}

@@ -6,6 +6,7 @@ const meta = {
   args: {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
     onBodyChange: () => undefined,
+    onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,
     onSummaryChange: () => undefined,
     onTagInputBlur: () => undefined,
@@ -25,6 +26,7 @@ const meta = {
     ),
     previewIsLoading: false,
     previewTags: ["Frontend", "Design"],
+    publishedAtValue: "2026-01-29",
     summaryValue:
       "A quick overview of the release notes and improvements shipped this week.",
     tagInputValue: "",

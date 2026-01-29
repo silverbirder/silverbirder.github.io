@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { createCallerFactory } from "@/server/api/trpc";
 
@@ -21,6 +21,18 @@ vi.mock("@/server/better-auth", () => ({
       getAccessToken,
     },
   },
+}));
+
+const { access, readdir, readFile } = vi.hoisted(() => ({
+  access: vi.fn(),
+  readdir: vi.fn(),
+  readFile: vi.fn(),
+}));
+
+vi.mock("node:fs/promises", () => ({
+  access,
+  readdir,
+  readFile,
 }));
 
 let requestMock = vi.fn();
@@ -55,20 +67,27 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+beforeEach(() => {
+  vi.clearAllMocks();
+});
+
 describe("githubRouter.list", () => {
-  it("returns sorted markdown file names", async () => {
-    getAccessToken.mockResolvedValue({ accessToken: "test-token" });
-    requestMock = vi.fn().mockResolvedValue({
-      data: [
-        { name: "b.md", path: "packages/content/posts/b.md", type: "file" },
-        { name: "a.md", path: "packages/content/posts/a.md", type: "file" },
-        {
-          name: "note.txt",
-          path: "packages/content/posts/note.txt",
-          type: "file",
-        },
-        { name: "assets", path: "packages/content/posts/assets", type: "dir" },
-      ],
+  it("returns markdown file names sorted by publishedAt desc", async () => {
+    access.mockResolvedValue(undefined);
+    readdir.mockResolvedValue([
+      { isFile: () => true, name: "b.md" },
+      { isFile: () => true, name: "a.md" },
+      { isFile: () => true, name: "note.txt" },
+      { isFile: () => false, name: "assets" },
+    ]);
+    readFile.mockImplementation(async (filePath: string) => {
+      if (filePath.endsWith("b.md")) {
+        return '---\npublishedAt: "2026-01-02"\n---\nPost b';
+      }
+      if (filePath.endsWith("a.md")) {
+        return '---\npublishedAt: "2026-01-01"\n---\nPost a';
+      }
+      return "";
     });
 
     const caller = createCaller({
@@ -78,11 +97,14 @@ describe("githubRouter.list", () => {
 
     const result = await caller.list();
 
-    expect(result).toEqual(["a.md", "b.md"]);
-    expect(requestMock).toHaveBeenCalledOnce();
+    expect(result).toEqual(["b.md", "a.md"]);
+    expect(access).toHaveBeenCalled();
+    expect(readdir).toHaveBeenCalled();
+    expect(readFile).toHaveBeenCalledTimes(2);
   });
 
   it("returns an empty list when response is not an array", async () => {
+    access.mockRejectedValue(new Error("missing"));
     getAccessToken.mockResolvedValue({ accessToken: "test-token" });
     requestMock = vi.fn().mockResolvedValue({
       data: { message: "Not found" },
@@ -133,5 +155,37 @@ describe("githubRouter.createPullRequest", () => {
     expect(calls).toContain("POST /repos/{owner}/{repo}/git/refs");
     expect(calls).toContain("PUT /repos/{owner}/{repo}/contents/{path}");
     expect(calls).toContain("POST /repos/{owner}/{repo}/pulls");
+  });
+});
+
+describe("githubRouter.listTags", () => {
+  it("returns tags sorted from local markdown files", async () => {
+    access.mockResolvedValue(undefined);
+    readdir.mockResolvedValue([
+      { isFile: () => true, name: "first.md" },
+      { isFile: () => true, name: "second.md" },
+      { isFile: () => false, name: "assets" },
+    ]);
+    readFile.mockImplementation(async (filePath: string) => {
+      if (filePath.endsWith("first.md")) {
+        return "---\ntags: ['alpha', 'beta']\n---\nPost";
+      }
+      if (filePath.endsWith("second.md")) {
+        return "---\ntags: ['beta', 'gamma']\n---\nPost";
+      }
+      return "";
+    });
+
+    const caller = createCaller({
+      headers: new Headers(),
+      session: { session: allowedSession, user: allowedUser },
+    });
+
+    const result = await caller.listTags();
+
+    expect(result).toEqual(["alpha", "beta", "gamma"]);
+    expect(access).toHaveBeenCalled();
+    expect(readdir).toHaveBeenCalled();
+    expect(readFile).toHaveBeenCalledTimes(2);
   });
 });

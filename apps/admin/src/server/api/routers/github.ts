@@ -1,4 +1,6 @@
 import { TRPCError } from "@trpc/server";
+import { access, readdir, readFile } from "node:fs/promises";
+import path from "node:path";
 import { Octokit } from "octokit";
 import { z } from "zod";
 
@@ -103,6 +105,19 @@ const extractTagsFromFrontmatter = (frontmatter: string) => {
   return parseTags(extractFrontmatterValue(frontmatter, "tags"));
 };
 
+const extractPublishedAtFromContent = (content: string) => {
+  const frontmatter = extractFrontmatterBlock(content);
+  if (!frontmatter) {
+    return null;
+  }
+  return extractFrontmatterValue(frontmatter, "publishedAt");
+};
+
+const toDateValue = (publishedAt: string) => {
+  const dateValue = Date.parse(publishedAt);
+  return Number.isNaN(dateValue) ? 0 : dateValue;
+};
+
 const extractTagsFromContent = (content: string) => {
   const frontmatter = extractFrontmatterBlock(content);
   if (!frontmatter) {
@@ -137,6 +152,102 @@ const getRepositoryConfig = () => {
     postsPath: env.CONTENT_POSTS_PATH || defaultPostsPath,
     repo,
   };
+};
+
+const resolveLocalPostsPath = async (postsPath: string) => {
+  const candidates = [
+    path.resolve(process.cwd(), postsPath),
+    path.resolve(process.cwd(), "..", "..", postsPath),
+  ];
+
+  for (const candidate of candidates) {
+    try {
+      await access(candidate);
+      return candidate;
+    } catch {
+      continue;
+    }
+  }
+
+  return null;
+};
+
+const getLocalPostList = async (postsPath: string) => {
+  const resolvedPath = await resolveLocalPostsPath(postsPath);
+  if (!resolvedPath) {
+    return null;
+  }
+
+  const entries = await readdir(resolvedPath, {
+    withFileTypes: true,
+  } as const);
+  const fileNames = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((name) => name.endsWith(".md"));
+
+  const posts = await Promise.all(
+    fileNames.map(async (fileName) => {
+      try {
+        const content = await readFile(
+          path.join(resolvedPath, fileName),
+          "utf8",
+        );
+        const publishedAt = extractPublishedAtFromContent(content);
+        const dateValue = publishedAt ? toDateValue(publishedAt) : 0;
+        return { dateValue, name: fileName };
+      } catch {
+        return { dateValue: 0, name: fileName };
+      }
+    }),
+  );
+
+  return posts
+    .sort((left, right) => {
+      if (right.dateValue !== left.dateValue) {
+        return right.dateValue - left.dateValue;
+      }
+      return left.name.localeCompare(right.name);
+    })
+    .map(({ name }) => name);
+};
+
+const getLocalTagList = async (postsPath: string) => {
+  const resolvedPath = await resolveLocalPostsPath(postsPath);
+  if (!resolvedPath) {
+    return null;
+  }
+
+  const entries = await readdir(resolvedPath, {
+    withFileTypes: true,
+  } as const);
+  const fileNames = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((name) => name.endsWith(".md"));
+
+  const tags = new Set<string>();
+  const contents = await Promise.all(
+    fileNames.map(async (fileName) => {
+      try {
+        return await readFile(path.join(resolvedPath, fileName), "utf8");
+      } catch {
+        return null;
+      }
+    }),
+  );
+
+  for (const content of contents) {
+    if (!content) {
+      continue;
+    }
+    const extracted = extractTagsFromContent(content);
+    for (const tag of extracted) {
+      tags.add(tag);
+    }
+  }
+
+  return Array.from(tags).sort((left, right) => left.localeCompare(right));
 };
 
 export const githubRouter = createTRPCRouter({
@@ -230,6 +341,11 @@ export const githubRouter = createTRPCRouter({
 
   list: protectedProcedure.query(async ({ ctx }) => {
     const { owner, postsPath, repo } = getRepositoryConfig();
+    const localPosts = await getLocalPostList(postsPath);
+    if (localPosts) {
+      return localPosts;
+    }
+
     const { accessToken } = await auth.api.getAccessToken({
       body: {
         providerId: "github",
@@ -256,14 +372,70 @@ export const githubRouter = createTRPCRouter({
       return [];
     }
 
-    return data
+    const fileNames = data
       .filter((item) => item.type === "file" && item.name.endsWith(".md"))
-      .map((item) => item.name)
-      .sort((left, right) => left.localeCompare(right));
+      .map((item) => item.name);
+
+    const chunks = chunkArray(fileNames, 10);
+    const posts: { dateValue: number; name: string }[] = [];
+
+    for (const chunk of chunks) {
+      const contents = await Promise.all(
+        chunk.map(async (fileName) => {
+          try {
+            const filePath = `${postsPath}/${fileName}`;
+            const fileResponse = await octokit.request(
+              "GET /repos/{owner}/{repo}/contents/{path}",
+              {
+                owner,
+                path: filePath,
+                repo,
+              },
+            );
+            if (Array.isArray(fileResponse.data)) {
+              return { fileName, publishedAt: null };
+            }
+            const payload = fileResponse.data as {
+              content?: string;
+              encoding?: string;
+            };
+            const content = decodeGithubContent(payload);
+            const publishedAt = content
+              ? extractPublishedAtFromContent(content)
+              : null;
+            return { fileName, publishedAt };
+          } catch {
+            return { fileName, publishedAt: null };
+          }
+        }),
+      );
+
+      for (const { fileName, publishedAt } of contents) {
+        if (!publishedAt) {
+          posts.push({ dateValue: 0, name: fileName });
+          continue;
+        }
+        posts.push({ dateValue: toDateValue(publishedAt), name: fileName });
+      }
+    }
+
+    return posts
+      .sort((left, right) => {
+        if (right.dateValue !== left.dateValue) {
+          return right.dateValue - left.dateValue;
+        }
+        return left.name.localeCompare(right.name);
+      })
+      .map(({ name }) => name);
   }),
 
   listTags: protectedProcedure.query(async ({ ctx }) => {
     const { owner, postsPath, repo } = getRepositoryConfig();
+    const localTags = await getLocalTagList(postsPath);
+    if (localTags) {
+      return localTags;
+    }
+
     const { accessToken } = await auth.api.getAccessToken({
       body: {
         providerId: "github",

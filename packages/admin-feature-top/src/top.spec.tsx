@@ -30,12 +30,16 @@ describe("Top", () => {
     const title = document.querySelector("h1");
     const signedInAs = document.querySelector("p");
     const button = document.querySelector("button");
+    const newPostLink = document.querySelector(
+      "[data-testid='admin-new-post-link']",
+    );
     const postsTitle = document.querySelector("h2");
     const posts = document.querySelectorAll("li");
 
     expect(title?.textContent ?? "").toContain("管理ホーム");
     expect(signedInAs?.textContent ?? "").toContain("Alice");
     expect(button?.textContent ?? "").toContain("サインアウト");
+    expect(newPostLink?.textContent ?? "").toContain("新規投稿");
     expect(postsTitle?.textContent ?? "").toContain("投稿一覧");
     expect(Array.from(posts).map((post) => post.textContent)).toContain(
       "2025-01-01-first-post.md",

@@ -22,6 +22,7 @@ const meta = {
   args: {
     resolveLinkTitles: defaultResolveLinkTitles,
     resolvePreview: defaultResolvePreview,
+    tagSuggestions: ["Frontend", "Design", "TypeScript"],
     uploadImage: defaultUploadImage,
   },
   component: PostEditor,

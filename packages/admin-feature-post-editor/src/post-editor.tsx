@@ -1,20 +1,26 @@
 "use client";
 
+import type { KeyboardEvent } from "react";
+
 import { MdxClientWrapper, PostEditorLayout } from "@repo/ui";
 import { SerializeResult } from "next-mdx-remote-client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 import { usePostEditorPresenter } from "./post-editor.presenter";
+import { buildSummaryFromBody } from "./summary";
 
 type Props = {
   createPullRequestDisabled?: boolean;
   onCreatePullRequest?: (draft: {
     body: string;
+    summary: string;
+    tags: string[];
     title: string;
   }) => Promise<void>;
   resolveLinkTitles: (source: string) => Promise<string>;
   resolvePreview: (source: string) => Promise<SerializeResult>;
+  tagSuggestions?: string[];
   uploadImage: (formData: FormData) => Promise<{ url: string }>;
 };
 
@@ -23,6 +29,7 @@ export const PostEditor = ({
   onCreatePullRequest,
   resolveLinkTitles,
   resolvePreview,
+  tagSuggestions,
   uploadImage,
 }: Props) => {
   const {
@@ -36,19 +43,44 @@ export const PostEditor = ({
   const [isUploading, setIsUploading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
+  const [summary, setSummary] = useState("");
+  const [summaryMode, setSummaryMode] = useState<"auto" | "manual">("auto");
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagInputValue, setTagInputValue] = useState("");
   const bodyRef = useRef(body);
+  const summaryRef = useRef(summary);
+  const summaryModeRef = useRef(summaryMode);
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     bodyRef.current = body;
   }, [body]);
 
+  useEffect(() => {
+    summaryRef.current = summary;
+  }, [summary]);
+
+  useEffect(() => {
+    summaryModeRef.current = summaryMode;
+  }, [summaryMode]);
+
+  const updateSummaryIfAuto = useCallback((value: string) => {
+    const currentSummary = summaryRef.current;
+    const currentMode = summaryModeRef.current;
+    if (currentMode === "auto" || currentSummary.trim() === "") {
+      const nextSummary = buildSummaryFromBody(value);
+      setSummary(nextSummary);
+      setSummaryMode("auto");
+    }
+  }, []);
+
   const handleBodyChange = useCallback(
     (value: string) => {
       bodyRef.current = value;
       onBodyChange(value);
+      updateSummaryIfAuto(value);
     },
-    [onBodyChange],
+    [onBodyChange, updateSummaryIfAuto],
   );
 
   const uploadImageToCloudinary = useCallback(
@@ -183,11 +215,93 @@ export const PostEditor = ({
     setIsCreatingPullRequest(true);
 
     try {
-      await onCreatePullRequest({ body: bodyRef.current, title });
+      await onCreatePullRequest({
+        body: bodyRef.current,
+        summary,
+        tags,
+        title,
+      });
     } finally {
       setIsCreatingPullRequest(false);
     }
-  }, [createPullRequestIsDisabled, onCreatePullRequest, title]);
+  }, [createPullRequestIsDisabled, onCreatePullRequest, summary, tags, title]);
+
+  const handleSummaryChange = useCallback((value: string) => {
+    setSummary(value);
+    summaryRef.current = value;
+    const isEmpty = value.trim().length === 0;
+    const nextMode = isEmpty ? "auto" : "manual";
+    setSummaryMode(nextMode);
+    summaryModeRef.current = nextMode;
+  }, []);
+
+  const normalizeTagValue = useCallback((value: string) => value.trim(), []);
+
+  const addTagsFromInput = useCallback(
+    (inputValue: string) => {
+      const parts = inputValue
+        .split(/[,、\n]/)
+        .map((part) => normalizeTagValue(part))
+        .filter((part) => part.length > 0);
+
+      if (parts.length === 0) {
+        return;
+      }
+
+      setTags((prev) => {
+        const existing = new Set(prev.map((tag) => tag.toLowerCase()));
+        const next = [...prev];
+        for (const part of parts) {
+          const key = part.toLowerCase();
+          if (existing.has(key)) {
+            continue;
+          }
+          existing.add(key);
+          next.push(part);
+        }
+        return next;
+      });
+      setTagInputValue("");
+    },
+    [normalizeTagValue],
+  );
+
+  const handleTagInputChange = useCallback((value: string) => {
+    setTagInputValue(value);
+  }, []);
+
+  const handleTagInputKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === "Enter" || event.key === ",") {
+        event.preventDefault();
+        addTagsFromInput(event.currentTarget.value);
+      }
+    },
+    [addTagsFromInput],
+  );
+
+  const handleTagInputBlur = useCallback(() => {
+    if (tagInputValue.trim().length > 0) {
+      addTagsFromInput(tagInputValue);
+    }
+  }, [addTagsFromInput, tagInputValue]);
+
+  const handleTagSuggestionClick = useCallback(
+    (tag: string) => {
+      addTagsFromInput(tag);
+    },
+    [addTagsFromInput],
+  );
+
+  const handleTagRemove = useCallback((tag: string) => {
+    setTags((prev) => prev.filter((item) => item !== tag));
+  }, []);
+
+  const normalizedTagSuggestions = useMemo(() => {
+    const selected = new Set(tags.map((tag) => tag.toLowerCase()));
+    const suggestions = tagSuggestions ?? [];
+    return suggestions.filter((tag) => !selected.has(tag.toLowerCase()));
+  }, [tagSuggestions, tags]);
 
   const handleResolveLinkTitles = useCallback(async () => {
     if (isResolvingLinks || isBodyEmpty) {
@@ -241,6 +355,12 @@ export const PostEditor = ({
         onCreatePullRequest ? handleCreatePullRequest : undefined
       }
       onResolveLinkTitles={handleResolveLinkTitles}
+      onSummaryChange={handleSummaryChange}
+      onTagInputBlur={handleTagInputBlur}
+      onTagInputChange={handleTagInputChange}
+      onTagInputKeyDown={handleTagInputKeyDown}
+      onTagRemove={handleTagRemove}
+      onTagSuggestionClick={handleTagSuggestionClick}
       onTitleChange={onTitleChange}
       previewContent={
         previewSource &&
@@ -250,8 +370,13 @@ export const PostEditor = ({
         ) : null
       }
       previewIsLoading={isPreviewLoading}
+      previewTags={tags}
       resolveLinkTitlesDisabled={isBodyEmpty || isUploading || isResolvingLinks}
       resolveLinkTitlesIsLoading={isResolvingLinks}
+      summaryValue={summary}
+      tagInputValue={tagInputValue}
+      tagSuggestions={normalizedTagSuggestions}
+      tagsValue={tags}
       titleValue={title}
     />
   );

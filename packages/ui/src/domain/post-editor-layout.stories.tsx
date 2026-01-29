@@ -7,6 +7,12 @@ const meta = {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
     onBodyChange: () => undefined,
     onResolveLinkTitles: () => undefined,
+    onSummaryChange: () => undefined,
+    onTagInputBlur: () => undefined,
+    onTagInputChange: () => undefined,
+    onTagInputKeyDown: () => undefined,
+    onTagRemove: () => undefined,
+    onTagSuggestionClick: () => undefined,
     onTitleChange: () => undefined,
     previewContent: (
       <>
@@ -18,6 +24,12 @@ const meta = {
       </>
     ),
     previewIsLoading: false,
+    previewTags: ["Frontend", "Design"],
+    summaryValue:
+      "A quick overview of the release notes and improvements shipped this week.",
+    tagInputValue: "",
+    tagSuggestions: ["Frontend", "Design", "TypeScript", "DevOps"],
+    tagsValue: ["Frontend", "Design"],
     titleValue: "Release notes",
   },
   component: PostEditorLayout,

@@ -23,9 +23,19 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         bodyValue=""
         onBodyChange={() => undefined}
+        onSummaryChange={() => undefined}
+        onTagInputBlur={() => undefined}
+        onTagInputChange={() => undefined}
+        onTagInputKeyDown={() => undefined}
+        onTagRemove={() => undefined}
+        onTagSuggestionClick={() => undefined}
         onTitleChange={() => undefined}
         previewContent={<p>Preview</p>}
         previewIsLoading
+        summaryValue=""
+        tagInputValue=""
+        tagSuggestions={[]}
+        tagsValue={[]}
         titleValue="Release notes"
       />,
     );
@@ -40,6 +50,8 @@ describe("PostEditorLayout", () => {
 
     expect(heading?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
+    expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
+    expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(preview?.textContent ?? "").toContain("Preview");
   });

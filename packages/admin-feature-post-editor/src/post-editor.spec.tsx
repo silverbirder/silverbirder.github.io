@@ -33,6 +33,7 @@ describe("PostEditor", () => {
       <PostEditor
         resolveLinkTitles={resolveLinkTitles}
         resolvePreview={resolvePreview}
+        tagSuggestions={["TypeScript"]}
         uploadImage={uploadImage}
       />,
     );
@@ -42,6 +43,8 @@ describe("PostEditor", () => {
       (label) => label.textContent ?? "",
     );
     const titleInput = document.querySelector("input[name='title']");
+    const summaryInput = document.querySelector("textarea[name='summary']");
+    const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
     const preview = document.querySelector(
       "[data-testid='post-editor-preview']",
@@ -49,10 +52,42 @@ describe("PostEditor", () => {
 
     expect(title?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
+    expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
+    expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
+    expect(summaryInput?.getAttribute("placeholder") ?? "").not.toBe("");
+    expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(preview?.textContent ?? "").toContain("プレビュー");
+  });
+
+  it("adds tags from the input", async () => {
+    await renderWithProvider(
+      <PostEditor
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    const tagInput = document.querySelector(
+      "input[name='tags']",
+    ) as HTMLInputElement | null;
+
+    expect(tagInput).not.toBeNull();
+
+    if (tagInput) {
+      tagInput.value = "TypeScript";
+      tagInput.dispatchEvent(new Event("input", { bubbles: true }));
+      tagInput.dispatchEvent(
+        new KeyboardEvent("keydown", { bubbles: true, key: "Enter" }),
+      );
+    }
+
+    await expect
+      .poll(() => document.querySelectorAll("[data-testid='post-editor-tag']"))
+      .toHaveLength(1);
   });
 
   it("keeps body focused while preview loads", async () => {

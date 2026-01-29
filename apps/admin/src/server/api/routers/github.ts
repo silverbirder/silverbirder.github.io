@@ -46,6 +46,89 @@ const buildBranchName = (fileName: string) => {
   return `content/${safe || "post"}-${timestamp}`;
 };
 
+const extractFrontmatterBlock = (content: string) => {
+  const match = content.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
+  return match?.[1] ?? null;
+};
+
+const extractFrontmatterValue = (frontmatter: string, key: string) => {
+  const line = frontmatter
+    .split(/\r?\n/)
+    .find((entry) => entry.startsWith(`${key}:`));
+  if (!line) {
+    return null;
+  }
+
+  const rawValue = line.replace(new RegExp(`^\\s*${key}:\\s*`), "");
+  const raw = rawValue.replace(/^\s+|\s+$/g, "");
+  if (raw === "") {
+    return null;
+  }
+
+  const quote = raw.charAt(0);
+  if ((quote === "'" || quote === '"') && raw.endsWith(quote)) {
+    return raw.slice(1, -1);
+  }
+
+  return raw;
+};
+
+const parseTags = (value: null | string) => {
+  if (!value) {
+    return [];
+  }
+
+  const trimmed = value.replace(/^\s+|\s+$/g, "");
+  if (!trimmed) {
+    return [];
+  }
+
+  const normalized =
+    trimmed.startsWith("[") && trimmed.endsWith("]")
+      ? trimmed.slice(1, -1)
+      : trimmed;
+
+  const tags = normalized
+    .split(",")
+    .map((tag) => {
+      const cleaned = tag.replace(/^\s+|\s+$/g, "");
+      return cleaned.replace(/^['"]+|['"]+$/g, "").replace(/^\s+|\s+$/g, "");
+    })
+    .filter((tag) => tag.length > 0);
+
+  return tags;
+};
+
+const extractTagsFromFrontmatter = (frontmatter: string) => {
+  return parseTags(extractFrontmatterValue(frontmatter, "tags"));
+};
+
+const extractTagsFromContent = (content: string) => {
+  const frontmatter = extractFrontmatterBlock(content);
+  if (!frontmatter) {
+    return [];
+  }
+  return extractTagsFromFrontmatter(frontmatter);
+};
+
+const decodeGithubContent = (payload: {
+  content?: string;
+  encoding?: string;
+}) => {
+  if (!payload.content || payload.encoding !== "base64") {
+    return null;
+  }
+  return Buffer.from(payload.content, "base64").toString("utf8");
+};
+
+const chunkArray = <T>(items: T[], size: number) => {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
+};
+
 const getRepositoryConfig = () => {
   const { owner, repo } = parseRepository(env.CONTENT_GITHUB_REPOSITORY);
   return {
@@ -177,5 +260,81 @@ export const githubRouter = createTRPCRouter({
       .filter((item) => item.type === "file" && item.name.endsWith(".md"))
       .map((item) => item.name)
       .sort((left, right) => left.localeCompare(right));
+  }),
+
+  listTags: protectedProcedure.query(async ({ ctx }) => {
+    const { owner, postsPath, repo } = getRepositoryConfig();
+    const { accessToken } = await auth.api.getAccessToken({
+      body: {
+        providerId: "github",
+      },
+      headers: ctx.headers,
+    });
+
+    if (!accessToken) {
+      throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+
+    const octokit = new Octokit({ auth: accessToken });
+    const response = await octokit.request(
+      "GET /repos/{owner}/{repo}/contents/{path}",
+      {
+        owner,
+        path: postsPath,
+        repo,
+      },
+    );
+
+    const data = response.data as GitHubContentItem[];
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    const fileNames = data
+      .filter((item) => item.type === "file" && item.name.endsWith(".md"))
+      .map((item) => item.name);
+
+    const tags = new Set<string>();
+    const chunks = chunkArray(fileNames, 10);
+
+    for (const chunk of chunks) {
+      const contents = await Promise.all(
+        chunk.map(async (fileName) => {
+          try {
+            const filePath = `${postsPath}/${fileName}`;
+            const fileResponse = await octokit.request(
+              "GET /repos/{owner}/{repo}/contents/{path}",
+              {
+                owner,
+                path: filePath,
+                repo,
+              },
+            );
+            if (Array.isArray(fileResponse.data)) {
+              return null;
+            }
+            const payload = fileResponse.data as {
+              content?: string;
+              encoding?: string;
+            };
+            return decodeGithubContent(payload);
+          } catch {
+            return null;
+          }
+        }),
+      );
+
+      for (const content of contents) {
+        if (!content) {
+          continue;
+        }
+        const extracted = extractTagsFromContent(content);
+        for (const tag of extracted) {
+          tags.add(tag);
+        }
+      }
+    }
+
+    return Array.from(tags).sort((left, right) => left.localeCompare(right));
   }),
 });

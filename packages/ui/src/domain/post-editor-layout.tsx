@@ -3,6 +3,7 @@
 import type {
   HTMLAttributes,
   InputHTMLAttributes,
+  KeyboardEvent,
   ReactNode,
   Ref,
 } from "react";
@@ -28,11 +29,22 @@ type Props = {
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
   onResolveLinkTitles?: () => void;
+  onSummaryChange: (value: string) => void;
+  onTagInputBlur: () => void;
+  onTagInputChange: (value: string) => void;
+  onTagInputKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onTagRemove: (tag: string) => void;
+  onTagSuggestionClick: (tag: string) => void;
   onTitleChange: (value: string) => void;
   previewContent: null | ReactNode;
   previewIsLoading?: boolean;
+  previewTags?: string[];
   resolveLinkTitlesDisabled?: boolean;
   resolveLinkTitlesIsLoading?: boolean;
+  summaryValue: string;
+  tagInputValue: string;
+  tagSuggestions: string[];
+  tagsValue: string[];
   titleValue: string;
 };
 
@@ -175,6 +187,57 @@ const BodyDropzone = chakra("div", {
   },
 });
 
+const TagInputRow = chakra("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.75rem",
+  },
+});
+
+const TagList = chakra("div", {
+  base: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.5rem",
+  },
+});
+
+const TagItem = chakra("span", {
+  base: {
+    alignItems: "center",
+    background: "green.muted",
+    borderRadius: "999px",
+    color: "green.fg",
+    display: "inline-flex",
+    fontSize: "0.85rem",
+    fontWeight: "600",
+    gap: "0.4rem",
+    paddingBlock: "0.25rem",
+    paddingInline: "0.75rem",
+  },
+});
+
+const TagRemoveButton = chakra("button", {
+  base: {
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "green.focusRing",
+      outlineOffset: "2px",
+    },
+    _hover: {
+      color: "green.solid",
+    },
+    background: "transparent",
+    border: "none",
+    color: "green.fg",
+    cursor: "pointer",
+    fontSize: "0.9rem",
+    lineHeight: 1,
+    padding: 0,
+  },
+});
+
 const Input = chakra("input", {
   base: {
     _focusVisible: {
@@ -213,6 +276,65 @@ const Textarea = chakra("textarea", {
   },
 });
 
+const SummaryTextarea = chakra("textarea", {
+  base: {
+    _focusVisible: {
+      borderColor: "green.solid",
+      outline: "none",
+    },
+    background: "bg",
+    borderColor: "green.muted",
+    borderRadius: "0.75rem",
+    borderWidth: "1px",
+    color: "fg",
+    fontSize: "0.95rem",
+    minHeight: "6.5rem",
+    paddingBlock: "0.75rem",
+    paddingInline: "0.9rem",
+    resize: "vertical",
+    width: "100%",
+  },
+});
+
+const HelperText = chakra("span", {
+  base: {
+    color: "fg.muted",
+    fontSize: "0.8rem",
+    fontWeight: "500",
+  },
+});
+
+const SuggestionList = chakra("div", {
+  base: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.5rem",
+  },
+});
+
+const SuggestionButton = chakra("button", {
+  base: {
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "green.focusRing",
+      outlineOffset: "2px",
+    },
+    _hover: {
+      background: "green.subtle",
+    },
+    background: "green.muted",
+    border: "1px solid",
+    borderColor: "green.muted",
+    borderRadius: "999px",
+    color: "green.fg",
+    cursor: "pointer",
+    fontSize: "0.8rem",
+    fontWeight: "600",
+    paddingBlock: "0.2rem",
+    paddingInline: "0.7rem",
+  },
+});
+
 export const PostEditorLayout = ({
   bodyDropzoneInputProps,
   bodyDropzoneProps,
@@ -225,11 +347,22 @@ export const PostEditorLayout = ({
   onBodyChange,
   onCreatePullRequest,
   onResolveLinkTitles,
+  onSummaryChange,
+  onTagInputBlur,
+  onTagInputChange,
+  onTagInputKeyDown,
+  onTagRemove,
+  onTagSuggestionClick,
   onTitleChange,
   previewContent,
   previewIsLoading,
+  previewTags,
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
+  summaryValue,
+  tagInputValue,
+  tagSuggestions,
+  tagsValue,
   titleValue,
 }: Props) => {
   const t = useTranslations("admin.postEditor");
@@ -238,6 +371,7 @@ export const PostEditorLayout = ({
   const isPreviewLoading = previewIsLoading ?? previewContent == null;
   const hasHeaderActions =
     Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
+  const tagRemoveSymbol = t("tagsRemoveSymbol");
 
   return (
     <Main>
@@ -290,6 +424,65 @@ export const PostEditorLayout = ({
             />
           </FieldGroup>
           <FieldGroup>
+            {t("summaryLabel")}
+            <SummaryTextarea
+              disabled={isLoading}
+              name="summary"
+              onChange={(event) => onSummaryChange(event.target.value)}
+              placeholder={t("summaryPlaceholder")}
+              value={summaryValue}
+            />
+            <HelperText>{t("summaryHelp")}</HelperText>
+          </FieldGroup>
+          <FieldGroup>
+            {t("tagsLabel")}
+            <TagInputRow>
+              <Input
+                disabled={isLoading}
+                name="tags"
+                onBlur={onTagInputBlur}
+                onChange={(event) => onTagInputChange(event.target.value)}
+                onKeyDown={onTagInputKeyDown}
+                placeholder={t("tagsPlaceholder")}
+                type="text"
+                value={tagInputValue}
+              />
+              {tagSuggestions.length > 0 ? (
+                <>
+                  <HelperText>{t("tagsSuggestionsLabel")}</HelperText>
+                  <SuggestionList data-testid="post-editor-tag-suggestions">
+                    {tagSuggestions.map((tag) => (
+                      <SuggestionButton
+                        key={tag}
+                        onClick={() => onTagSuggestionClick(tag)}
+                        type="button"
+                      >
+                        {tag}
+                      </SuggestionButton>
+                    ))}
+                  </SuggestionList>
+                </>
+              ) : null}
+              {tagsValue.length > 0 ? (
+                <TagList data-testid="post-editor-tags">
+                  {tagsValue.map((tag) => (
+                    <TagItem data-testid="post-editor-tag" key={tag}>
+                      {tag}
+                      <TagRemoveButton
+                        aria-label={t("tagsRemoveAriaLabel", { tag })}
+                        onClick={() => onTagRemove(tag)}
+                        type="button"
+                      >
+                        {tagRemoveSymbol}
+                      </TagRemoveButton>
+                    </TagItem>
+                  ))}
+                </TagList>
+              ) : null}
+              <HelperText>{t("tagsHelp")}</HelperText>
+            </TagInputRow>
+          </FieldGroup>
+          <FieldGroup>
             {t("contentLabel")}
             <BodyDropzone
               {...bodyDropzoneProps}
@@ -319,7 +512,7 @@ export const PostEditorLayout = ({
             navigation={{}}
             publishedAt={previewDate}
             relatedPosts={[]}
-            tags={[]}
+            tags={previewTags ?? []}
             title={previewTitle}
           >
             {previewContent ?? <p>{t("previewTitle")}</p>}

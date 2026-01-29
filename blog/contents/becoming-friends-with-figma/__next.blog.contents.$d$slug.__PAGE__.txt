@@ -1,0 +1,124 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T1b2a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    img: "img",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "これまで、デザイナーの方々が作成した素晴らしい Figma の成果物を参考にしながら、Web フロントエンドの実装を行ってきました。\n何度もこれを経験するうちに、私も Figma を使いこなせるようになりたいと思うようになりました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "css-フレームワークへの依存",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#css-フレームワークへの依存",
+        children: "CSS フレームワークへの依存"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これまでの個人開発においては、Bootstrap や Material UI などの CSS フレームワークを利用して、見た目が整った Web アプリケーションを開発していました。\n「Bootstrap っぽさが強すぎる」と感じることもしばしばありました。しかし、オリジナリティ溢れる Web の見た目を良くする方法を知らなかったのです。\n数年前からは Tailwind CSS がトレンドとなり、より自由なスタイリングを目指したくなりました。\nさらに、業務で Figma を使ったデザインから React のコードに落とし込む作業が増え、自らスタイリングを行うことが多くなりました。\nそれが、Figma を自分で使いたいと思うようになったきっかけです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "コンセプトの策定",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コンセプトの策定",
+        children: "コンセプトの策定"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["いきなり Figma を開始するのではなく、まずは描きたい Web アプリの目的やターゲット、解決したい問題などを大まかに考えました。\n私が個人開発している「", _jsx(_components.a, {
+        href: "https://bochi-bochi.vercel.app/",
+        children: "bochi bochi"
+      }), "」という食材価格比較サービスを例に、これらを思考しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "デザインシステムの参照",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デザインシステムの参照",
+        children: "デザインシステムの参照"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "コンセプトがある程度固まったら、デジタル庁のデザインシステムを参考にしました。\nタイポグラフィ、カラー、スペーシングなどの基本的なスタイルから、ボタンやテキストフィールドなどのコンポーネントまで、使えそうなものを参考にします。"
+    }), "\n", _jsx(_components.h2, {
+      id: "figma-の使い方を学ぶ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#figma-の使い方を学ぶ",
+        children: "Figma の使い方を学ぶ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "プロジェクトを Figma で開始した際、最初は PC やタブレットのレスポンシブデザインを考慮せず、\nスマートフォン向けのデザインに焦点を当てました。\nFigma の操作には当初苦労しましたが、繰り返し使用することで徐々に機能への理解が深まりました。\n特に、スタイルやコンポーネントの定義と再利用の便利さを実感しました。\n中でも Auto Layout 機能は格別で、その使い勝手の良さから頻繁に利用しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "実際にデザインを行う",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際にデザインを行う",
+        children: "実際にデザインを行う"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実際にデザイン作業を行い、デザインの前後で大きな変化を実感しました。\n以前 Figma を使っていた時は、基本的な形状を積み重ねたり、手書きでラフなスケッチをする程度でした。\nしかし、現在はより構造化された、ちゃんとしたデザインが作成できるようになったと感じています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下は、Figma を使わずに実装した", _jsx(_components.a, {
+        href: "https://bochi-bochi.vercel.app/",
+        children: "bochi bochi"
+      }), "の見た目です。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1708087927/sfejkucd37ran72ljhp7.png",
+        alt: "Before bochi bochi"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そして、この数日間で取り組んだ Figma を使用した", _jsx(_components.a, {
+        href: "https://bochi-bochi.vercel.app/",
+        children: "bochi bochi"
+      }), "の新しいデザインです。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1708087929/v5kdg2iiuz5zsizam0h1.png",
+        alt: "After bochi bochi"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "どちらが優れているかは一概には言えませんが、個人的には新しいデザインに満足しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "まとめ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#まとめ",
+        children: "まとめ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これからは、Figma で作成したデザインを React のコードに落とし込み、既に稼働している", _jsx(_components.a, {
+        href: "https://bochi-bochi.vercel.app/",
+        children: "bochi bochi"
+      }), "にデザイン適用していく予定です。\nFigma との出会いは、私の開発スキルに新たな一歩を加えました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/becoming-friends-with-figma/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":110,"publishedAt":"2024-02-16","tags":["フロントエンド"],"title":"Figmaと仲良くなる"},"navigation":{"next":{"href":"/blog/contents/from-paper-driver-to-road-adventures","publishedAt":"2024-02-22","title":"ペーパードライバーはドライブを楽しみに"},"prev":{"href":"/blog/contents/tips-google-maps-timeline","publishedAt":"2024-02-11","title":"Google Map タイムラインの便利さ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-01-24","slug":"20260124","summary":"最近、ヒューマンインターフェース ガイドライン（HIG）という言葉を知りました。 「ヒューマンインターフェイスガイドライン」には、どのAppleプラットフォームでも優れた体験を設計できるようにするためのガイドとベストプラクティスが含まれてい","tags":["フロントエンド"],"title":"ヒューマンインターフェース ガイドライン という言葉を知りました。"},{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2026-01-20","slug":"20260120","summary":"個人サイトをリニューアルをしています。 ノート風のデザインを目指して、スタイルを調整していました。 ノートの見た目は、現実にあるノートを再現しようとCSSを書いていました。 現在、以下の画像のようなノートになっています。 ノート風デザインの","tags":["フロントエンド"],"title":"CSSで頑張らなくても、SVGで楽にできるときもある"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/becoming-friends-with-figma/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

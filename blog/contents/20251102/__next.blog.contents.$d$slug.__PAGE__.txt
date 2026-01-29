@@ -1,0 +1,75 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T148a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の記事を読みました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.e-aidem.com/ch/listen/entry/2025/10/22/103000",
+          children: "三日坊主だった私が見つけた習慣化のコツ　毎日ブログ更新を7年間継続できた「小さなルール」 - りっすん by イーアイデム"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["「毎日ブログを投稿する」は本当にすごい。", _jsx(_components.br, {}), "\nネタは尽きないのだろうか、とつい思います。私自身、月1本書けたら良いほうでした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私がブログを書く最大の目的は", _jsx(_components.strong, {
+        children: "知識の整理"
+      }), "です。", _jsx(_components.br, {}), "\n「書こう！」という熱は、たいてい技術を学んだり、これから学ぼうとする時に生まれます。", _jsx(_components.br, {}), "\n学んだことを言語化すると曖昧な点が浮き彫りになり、調べ直して理解が深まる。", _jsx(_components.br, {}), "\n一方で、書き終える頃には熱がすっと引くこともしばしばです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["最近はCSSに触れる機会が多く、見えてきたベストプラクティスを言語化しています。", _jsx(_components.br, {}), "\nブラウザごとの描画の差に疑問を持ち、小さなプロトタイプで仕組みを検証して記事にしたこともあります。", _jsx(_components.br, {}), "\nReact や GraphQL の歴史整理、簡単な技術 Tips、「やってみた」の初歩的な内容も書きます。", _jsx(_components.br, {}), "\n誰もが知っていそうでも、自分の言葉で残すことで、知らなかった誰かの助けになることがあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["人は忘れます。だから、未来の自分への備忘としてもブログは役立ちます。", _jsx(_components.br, {}), "\n過去記事のおかげで「あの時は何に悩んでいたか」を思い出せるのはうれしいし、毎年の振り返りも楽しみです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["とはいえ、毎日書くのは難しい。技術ネタだけでは続きません。", _jsx(_components.br, {}), "\nそれでも", _jsx(_components.strong, {
+        children: "投稿頻度が低い"
+      }), "のはもったいない。日々の気づきや学びを残せば、日常はもっと充実するはずです。", _jsx(_components.br, {}), "\nそこで、", _jsx(_components.strong, {
+        children: "毎日投稿"
+      }), "に挑戦します。まずは", _jsx(_components.strong, {
+        children: "短くても毎日書く"
+      }), "ことから始めます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["毎日書くには、日常で", _jsx(_components.strong, {
+        children: "ネタを探す意識"
+      }), "を持つことが大切だと、上記の記事でも語られていました。", _jsx(_components.br, {}), "\nこの1週間はその意識で過ごし、小さな発見があちこちに転がっていると実感しました。", _jsx(_components.br, {}), "\n思いついたらすぐに Google Keep にメモしています。", _jsx(_components.br, {}), "\n最近のメモは「ぬいぐるみを作る方法」「賃貸の最終的な決め手」「マルチプラットフォーム開発のネタ」など。", _jsx(_components.br, {}), "\n以前の私なら気づいても忘れていたはずのことが、今は残せています。", _jsx(_components.br, {}), "\nネタから記事にすれば、1つの資産として形が残るので、将来の自分にも役立つでしょう（たぶん）。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["投稿先は、note や はてなブログのように流入が見込める場所も考えました。", _jsx(_components.br, {}), "\nコミュニティに属してモチベーション維持につながる可能性もあります。", _jsx(_components.br, {}), "\nただ、以前は複数媒体に分散した記事を最終的に自分のサイトへ集約しました。", _jsx(_components.br, {}), "\n今回も、自分のブログで続けることにします。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/20251102/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":154,"publishedAt":"2025-11-02","tags":[],"title":"毎日ブログを投稿する"},"navigation":{"next":{"href":"/blog/contents/20251103","publishedAt":"2025-11-03","title":"さざなみ街道はエモい"},"prev":{"href":"/blog/contents/20251101","publishedAt":"2025-11-01","title":"Fequestを作る — 機能リクエストを見える化するサービス"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20251102/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

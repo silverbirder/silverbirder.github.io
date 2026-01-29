@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T1414,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ネガティブな発言をする人がいるとします。", _jsx(_components.br, {}), "\nその言葉に対して、こちらもマイナスな感情を抱いてしまうことがあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "たとえば、こんな発言です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「なんでこんなところにゴミ置いてるんだ（怒り）」"
+      }), "\n", _jsx(_components.li, {
+        children: "「私って、ほんと何もできないや（悲しみ）」"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ネガティブで返してしまうと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ネガティブで返してしまうと",
+        children: "ネガティブで返してしまうと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "けれど、その発言に対して、こちらもネガティブな言葉で返してしまうと、気づかないうちに悪循環に陥ってしまいます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「知らないよ、私に言わないでよ！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「 私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「わかったよ。だから何もしないで！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "無理にポジティブにならなくていい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#無理にポジティブにならなくていい",
+        children: "無理にポジティブにならなくていい"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そうならないように、ネガティブな発言があったとしても、ぐっとこらえて、ネガティブではない言葉を返してみましょう。", _jsx(_components.br, {}), "\n無理にポジティブになる必要はありません。", _jsx(_components.br, {}), "\n淡々とした、ノーマルな言葉で十分です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「何か急ぎの用事があったのかな？ ゴミは運んでおくよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「そんなことないよ。大丈夫だよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "空気は少しずつ変わっていく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#空気は少しずつ変わっていく",
+        children: "空気は少しずつ変わっていく"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "それだけで、下へ向かっていた空気が、ほんの少しずつ、上へと向きを変えていくはずです。"
+    }), "\n", _jsx(_components.p, {
+      children: "相手は自由に感情を出していて、こちらがこらえる立場になると、もやもやしてしまうこともあるかもしれません。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、ネガティブなやり取りをさらに膨らませて、結果的に自分まで嫌な気分になるくらいなら、少しでもポジティブに、あるいは笑って終われる着地のほうが、後味はずっと良いのではないかと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "by みつを"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/20251217/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":199,"publishedAt":"2025-12-17","tags":[],"title":"ネガティブにネガティブを返さない"},"navigation":{"next":{"href":"/blog/contents/20251218","publishedAt":"2025-12-18","title":"もし今と違う職業を選ぶとしたら？"},"prev":{"href":"/blog/contents/20251216","publishedAt":"2025-12-16","title":"ジェフグルメカードと株主優待"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20251217/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

@@ -1,0 +1,207 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T267c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["買ったものリストを投稿・共有できるサービス『", _jsx(_components.strong, {
+        children: "かったものリスト"
+      }), "』を開発しました。\n今回は、そのサービスの紹介と技術的な話をしようと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ作ったのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ作ったのか",
+        children: "なぜ作ったのか"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "背景",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#背景",
+        children: "背景"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "もともと、私のサイトには、かったものリストを表示するページがありました。\n書籍やガジェットなどの購入履歴を JSON ファイルで管理し、そのデータをもとに簡単な一覧ページを作成していました。\nこの一覧ページは、誰かにお気に入りのアイテムを紹介する場面で役立っていました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、サイトをリニューアルした際に、かったものリストのページがなくなってしまいました。\nそこで、", _jsx(_components.strong, {
+        children: "『かったものリストをサービスとして独立させよう』"
+      }), " と考えました。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "決断",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#決断",
+        children: "決断"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私が求めていたのは、自由にかったものリストを作成し、それを誰でも閲覧できる仕組みです。\nこの仕組みがあれば、自分のかったものリストを気軽に他の人に紹介できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "どう作ろうか悩んでいたとき、年末に「2024年に買ってよかったもの」というフレーズを目にしました。\n実際に、個人ブログでは購入した商品とその良かった点を自由に記述し、公開するケースが多くあります。\nそこで、『これだ！』とひらめき、ベストバイを共有するサービス『かったものリスト』を作ることを決断しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どのようなサービスか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どのようなサービスか",
+        children: "どのようなサービスか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "URLは以下です。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://my-buy-items.vercel.app/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "かったものリスト"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "かったものリストで、お気に入りのアイテムを共有しましょう"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://my-buy-items.vercel.app/icon/48",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "my-buy-items.vercel.app"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://my-buy-items.vercel.app/opengraph-image?568baff3c5fa4a91",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "このサービスは、投稿型で、Notionのように自由な書き方ができます。\n画像や埋め込みも可能です。"
+    }), "\n", _jsx(_components.p, {
+      children: "書いたかったものリストを公開すると、新着リストに掲載されたり、ユーザーごとにまとめて表示されます。\nこのかったものリストを活用すれば、自分のかったものリストを他の人に簡単に共有できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、以下の機能も備えています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "いいね機能"
+      }), "\n", _jsx(_components.li, {
+        children: "投稿の閲覧数表示"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "こうして、私が求めていたサービスが完成しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "開発について",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発について",
+        children: "開発について"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "『かったものリスト』は、約1ヶ月の開発期間で完成しました。\n初回のGitコミットは2025年1月1日23時31分で、最終的に2025年1月29日18時にリリースしました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["開発には、", _jsx(_components.strong, {
+        children: "私オリジナルの個人開発向けのスターターキット"
+      }), " を活用しました。\nこのスターターキットは、T3Stackのコンセプトをベースにし、ホスティングにはVercelを使用しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "主な構成は以下のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "フレームワーク: Next.js"
+      }), "\n", _jsx(_components.li, {
+        children: "API: tRPC"
+      }), "\n", _jsx(_components.li, {
+        children: "認証: Auth.js"
+      }), "\n", _jsx(_components.li, {
+        children: "データベース: Vercel PostgreSQL（ORM: Drizzle / クライアント: Drizzle Studio）"
+      }), "\n", _jsx(_components.li, {
+        children: "ストレージ: Vercel Blob"
+      }), "\n", _jsx(_components.li, {
+        children: "スタイル: TailwindCSS、shadcn/ui"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、以下のセットアップもマニュアル化しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "よく使うUI要素（ヘッダー、フッター）"
+      }), "\n", _jsx(_components.li, {
+        children: "OGP、アイコン、マニフェスト、メタデータ"
+      }), "\n", _jsx(_components.li, {
+        children: "GA設定、問い合わせリンク"
+      }), "\n", _jsx(_components.li, {
+        children: "タスク管理用の TODO.md"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["開発においては、v0とChatGPTを活用しました。", _jsx(_components.br, {}), "\nさらに、今回の開発では以下の技術を導入しました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "エディタ: Tiptap (Novel)"
+      }), "\n", _jsx(_components.li, {
+        children: "ドラッグ&ドロップ: dndkit"
+      }), "\n", _jsx(_components.li, {
+        children: "アバター編集: react-avatar-editor"
+      }), "\n", _jsx(_components.li, {
+        children: "OGPテキストの改行処理: budoux"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本記事では、『かったものリスト』の開発経緯と技術構成について紹介しました。\nこのサービスが、多くの人にとって便利なものになれば嬉しいです。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":136,"publishedAt":"2025-02-01","tags":["振り返り"],"title":"かったものリストサービス開発の振り返り"},"navigation":{"next":{"href":"/blog/contents/opengraph-image-lineclamp-budoux","publishedAt":"2025-02-06","title":"OGPのテキストを任意の行で省略する、lineClampとbudoux"},"prev":{"href":"/blog/contents/testcontainers-integration-test-disposable","publishedAt":"2025-01-03","title":"Testcontainersで実現する、使い捨て結合テスト環境構築とテスト実施"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-12-08","slug":"2024_furikaeri","summary":"今年は、秋が短く感じましたね。毎年恒例の一年の振り返りをお届けします。","tags":["振り返り"],"title":"2024年の振り返り。マイペースな一年"},{"publishedAt":"2023-11-14","slug":"2023_furikaeri","summary":"急に寒くなりましたね。わずか一週間前までは半袖で過ごせたのに、今では暖房が必要不可欠です。もう 11 月も半ばを迎え、今年も残りわずかとなりました。そこで、2023 年を振り返ってみたいと思います。","tags":["振り返り"],"title":"2023年の振り返り。家と車と私"},{"publishedAt":"2022-12-03","slug":"2022_furikaeri","summary":"2022 年の終わりに近づきました。今年の振り返りをしようと思います。これは、自分のために書いていくので、文章の構造化とか不適当にやります。","tags":["振り返り"],"title":"2022年の振り返り。転職と妊活"}],"tag":"振り返り"}],"shareUrl":"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

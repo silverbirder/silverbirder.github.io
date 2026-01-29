@@ -1,0 +1,56 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+4:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:Tba8,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Google Map の約7年分のタイムラインデータが消えてしまいました。", _jsx(_components.br, {}), "\n悲しすぎる。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["原因は、スマホ（Google Pixel）のストレージ整理中に、", _jsx(_components.br, {}), "\nGoogle Map のストレージを誤って削除してしまったこと。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["バックアップ自体は ON にしていたのですが、昨日ストレージを削除したことで、", _jsx(_components.br, {}), "\n空っぽの状態が夜間バックアップで上書きされてしまった模様です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["右上のクラウドアイコンから", _jsx(_components.br, {}), "\nバックアップ → 端末 → インポート", _jsx(_components.br, {}), "\nと進んでも、戻ってくるのは たった1日分のデータだけでした。"]
+    }), "\n", _jsx(_components.p, {
+      children: "あ〜...やらかしました。本当に悲しい。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["タイムラインの保存先がクラウドからデバイスへと仕様変更がありましたよね。", _jsx(_components.br, {}), "\n知ってましたが忘れてました..。", _jsx(_components.br, {}), "\n自動削除の設定はOFFにしていたけど、空データで上書きバックアップって...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["数ヶ月前に一度だけ、タイムラインをエクスポートしたJSONファイルがあったのですが、", _jsx(_components.br, {}), "\nどうやら そのJSONファイルを Google Map へ再インポートする手段はないようです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["さらに、Web版のタイムラインも既に提供終了しており、", _jsx(_components.br, {}), "\n強引な復元方法もなさそう...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["エクスポートしたデータを見ると、2018年からの記録が残っていました。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "約7年分のタイムラインが消失"
+      }), "。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/20251123/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":175,"publishedAt":"2025-11-23","tags":[],"title":"Google Map の7年分のタイムラインデータが消えた"},"navigation":{"next":{"href":"/blog/contents/20251124","publishedAt":"2025-11-24","title":"雪への備え"},"prev":{"href":"/blog/contents/20251122","publishedAt":"2025-11-22","title":"5年目の結婚記念日"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20251123/"}],[["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

@@ -1,0 +1,541 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T6ba9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Google や Github など、様々なサービスのプロフィール情報(画像, etc)を一括更新するツール、puppeteer-account-manager を開発しました。\n開発の目的や、開発から得た知見を紹介します。"
+    }), "\n", _jsx(_components.p, {
+      children: "リポジトリは、こちらです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/puppeteer-account-manager",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/puppeteer-account-manager: puppeteer-account-manager is a tool that get the profiles (photo, aboutMe, etc) from Contentful and updates the profile of each service."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "puppeteer-account-manager is a tool that get the profiles (photo, aboutMe, etc) from Contentful and updates the profile of each service. - silverbirder/puppeteer-account-manager"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://github.githubassets.com/favicons/favicon.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://opengraph.githubassets.com/db13ba4a16473b483da5f29d21ee92c4e4631522ca2868bbd41321cc66599cf5/silverbirder/puppeteer-account-manager",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なんで作ったの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なんで作ったの",
+        children: "なんで作ったの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Github や Twitter、Facebook など、Web サービスにはプロフィール画像を登録することができます。\n私の性格上、どのサービスでも、同じ画像で登録したいと考えています。"
+    }), "\n", _jsx(_components.p, {
+      children: "そのため、いい感じのプロフィール写真を手に入れたら、全サービスのプロフィール画像を再登録しないと気がすまなくなり、とても面倒です。\nそこで、今回、その面倒さを解決したく、このツールを作りました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "それgravatar-で良くない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#それgravatar-で良くない",
+        children: "それ、Gravatar で良くない"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回の面倒さは、Gravatar という Web サービスで解決できるかもしれません。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "http://gravatar.com/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Your Free Avatar, Profile, and Link In Bio | Gravatar"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Create a global avatar and profile image with Gravatar. Get a free one-page personal site to showcase your identity and connect across the web."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "http://gravatar.com/images/favicon-32x32.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "gravatar.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "このサービスは、グローバルなプロフィール画像を提供するサービスです。\nAPI 経由で、プロフィール画像を取得できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、次の問題があったので、却下となりました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["gravatar が提供するプロフィール画像サイズは 80px × 80px\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["サービスによっては、小さすぎる\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "画像サイズを拡大することができるが、画質がよくない"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["gravatar が提供するプロフィール項目が固定\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["画像だけではなく、プロフィール項目も一括登録したかった\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "サービスによっては、プロフィール項目がマッチしない"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "そこで、Contentful という API ベースの CMS を使うことにしました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://www.contentful.com/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Content that scales. Experiences that convert."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Contentful DXP uses AI-driven analytics to help you personalize, optimize, and create standout digital experiences at scale. Effortlessly."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://www.contentful.com/favicon.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "www.contentful.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://images-www.contentful.com/jtqsy5pye0zd/7lBI01K3NAF1S9JZvC4rkV/478c66f4f3db3ef6c500039d3672049d/image.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Contentful では、自由に項目を決めることができます。\n独自に作った項目 (画像や紹介文)を、API 経由で取得できるため、とても便利です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どうやって作ったの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どうやって作ったの",
+        children: "どうやって作ったの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "愚直なやり方です。\nPuppeteer と呼ばれる Chrome ブラウザを自動操作できるライブラリを使いました。\nChrome ブラウザから、\"各サービスへログインし、写真をアップロードする\"処理を自動化しただけです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/puppeteer/puppeteer",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - puppeteer/puppeteer: JavaScript API for Chrome and Firefox"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "JavaScript API for Chrome and Firefox. Contribute to puppeteer/puppeteer development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://github.githubassets.com/favicons/favicon.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://opengraph.githubassets.com/30dbfe629637b3e3d8d73712daed83e9f1c79ecd2d4c7dbaa12410d3599b6a37/puppeteer/puppeteer",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "プロフィール画像を更新する-api-はなかったの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#プロフィール画像を更新する-api-はなかったの",
+        children: "プロフィール画像を更新する API は、なかったの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サービスによってはあります。例えば、Twitter には、次のようなプロフィール画像を更新する API があります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile_image",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "POST\naccount/update_profile_image"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://abs.twimg.com/favicons/twitter.3.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "developer.twitter.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://developer.x.com/content/dam/developer-twitter/x_sharing_card.png.twimg.768.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、全てのサービスには、そのような API はありません。\nAPI を使って更新するのが正しい姿ですが、全サービスの実装方法の足並みを揃えるために、\nPuppeteer で自動操作することにしました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "パスワードって大丈夫",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#パスワードって大丈夫",
+        children: "パスワードって大丈夫"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Puppeteer を動かす node アプリケーションと、Chrome ブラウザを同一マシン内で動作するようにしました。\nそのため、node アプリケーション実行中に、パスワードを傍受されることはありません。\nまた、パスワードの設定は環境変数から注入するようにしています。\nDocker コンテナで動作できるようにしているので、ローカルでも、コンテナサービスでも動かすことができます。"
+    }), "\n", _jsx(_components.p, {
+      children: "今後、パスワードの管理は、Keepass や Lastpass のようなサービスと連携したいと思っています。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/keeweb/kdbxweb",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - keeweb/kdbxweb: Web Kdbx library"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Web Kdbx library. Contribute to keeweb/kdbxweb development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "https://github.githubassets.com/favicons/favicon.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://opengraph.githubassets.com/8b66173b13ddaf2e47b1881c3636d2129b1ce689ebd976cd9771c78f089195ea/keeweb/kdbxweb",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "どのサービスが対応している",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どのサービスが対応している",
+        children: "どのサービスが対応している"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これは、私が楽になりたいために作ったため、使い方が、限定的になっています。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "サービス名"
+          }), _jsx(_components.th, {
+            children: "認証手段"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Hatena"
+          }), _jsx(_components.td, {
+            children: "Google 認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Qiita"
+          }), _jsx(_components.td, {
+            children: "Google 認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Medium"
+          }), _jsx(_components.td, {
+            children: "Google 認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Note"
+          }), _jsx(_components.td, {
+            children: "Twitter 認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "devTo"
+          }), _jsx(_components.td, {
+            children: "Github 認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Twitter"
+          }), _jsx(_components.td, {
+            children: "通常認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Github"
+          }), _jsx(_components.td, {
+            children: "通常認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Google"
+          }), _jsx(_components.td, {
+            children: "通常認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Facebook"
+          }), _jsx(_components.td, {
+            children: "通常認証"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "LinkedIn"
+          }), _jsx(_components.td, {
+            children: "通常認証"
+          })]
+        })]
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "詳しくは、"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://github.com/silverbirder/puppeteer-account-manager/blob/master/src/index.ts",
+        children: "https://github.com/silverbirder/puppeteer-account-manager/blob/master/src/index.ts"
+      }), " をご確認下さい。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "どんな学びがあった",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どんな学びがあった",
+        children: "どんな学びがあった"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "結構色々とハマりました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "極力-セレクタ指定したコードを書かない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#極力-セレクタ指定したコードを書かない",
+        children: "極力 セレクタ指定したコードを書かない"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web サービスが返す HTML は、いつもずっと変わらないことはありません。\nある id や class の html タグがずっと残り続けるとは限りません。"
+    }), "\n", _jsx(_components.p, {
+      children: "そこで、できる限り、セレクタを指定せずにブラウザ操作をするようにしました。\n例えば、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["ボタンやリンクをクリックしてページ遷移するのではなく、目的のページへ最短で直接遷移する\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.a, {
+              href: "https://medium.com/me",
+              children: "https://medium.com/me"
+            }), " とか。"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "submit ボタンをクリックするのではなく、エンターキーを入力する"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "です。こうすることで、安定した自動化ができました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "xpath-が意外と使える",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#xpath-が意外と使える",
+        children: "XPath が意外と使える"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google や Medium では、id や class がランダム値になっています。\nそのため、単純な id や class を指定して進めることができません。"
+    }), "\n", _jsx(_components.p, {
+      children: "そこで、『○○』のテキストが含まれているセレクタの指定することが、XPath でできます。\nこれは、助かりました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ログインが難しいものは無理せず諦める",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ログインが難しいものは無理せず諦める",
+        children: "ログインが難しいものは、無理せず諦める"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Amazon のログインは、2 段階認証が発生します。\nテキストメッセージや、音声電話によるログインが求められ、Puppeteer 単体ではどうしようもありません。"
+    }), "\n", _jsx(_components.p, {
+      children: "この 2 段階認証の機能を解除することもできますが、セキュリティ上よろしくないので、ここは無理せず諦めることにしました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "並列処理をガンガン実行する",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#並列処理をガンガン実行する",
+        children: "並列処理をガンガン実行する"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "処理速度向上のため、全サービスを Promise.all で並列処理しました。それぞれが、シークレットウィンドウで開くことで、独立して処理するようにもしました。\nしかし、たまに Puppeteer が落ちてしまうことがあります。原因は、実行しているマシンのスペック(Core 数)にも影響しますが、サービス側からの影響も受けたりします。\nそのため、落ちても大丈夫のようにエラーハンドリングし、リトライするようにしました。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、失敗したらどういった画面なのか知りたいので、スクリーンショットを撮るようにもしました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "docker-で実行可能に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#docker-で実行可能に",
+        children: "Docker で実行可能に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Puppeteer に必要なモジュールを Docker に詰め込み、ログイン情報等を環境変数から外注することで、\n環境非依存の実行環境ができました。そのため、Pub/Sub と Container Engine 等を組み合わせれば、\nContentful の Webfook 経由で、アカウント情報を更新することができます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私の性格がもっと大雑把であれば、このツールを作らなかったのですが、どうしても気になって仕方がなく... (笑)\n最後まで読んでいただき、ありがとうございました。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/puppeteer_account_manager/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":46,"publishedAt":"2020-06-04","tags":["成果物"],"title":"アカウント画像一括更新ツールを作ったので、紹介と学びについて"},"navigation":{"next":{"href":"/blog/contents/zoom-meeting-creator","publishedAt":"2020-06-06","title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"},"prev":{"href":"/blog/contents/microfrontends","publishedAt":"2020-05-04","title":"Micro Frontends を学んだすべて"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"},{"publishedAt":"2025-11-01","slug":"20251101","summary":"久しぶりにWebアプリを開発します。これまでの成果物は、以下にまとめています。","tags":["成果物"],"title":"Fequestを作る — 機能リクエストを見える化するサービス"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/puppeteer_account_manager/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

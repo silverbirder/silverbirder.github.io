@@ -1,0 +1,56 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+4:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:Tab5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    blockquote: "blockquote",
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "なんでやねん！"
+    }), "\n", _jsxs(_components.p, {
+      children: ["AIに指摘をしたとき、なんかモヤっとする。", _jsx(_components.br, {}), "\n「するどい指摘です！」とか言われると、褒められてるようでいて、どこかズレてる感じ。", _jsx(_components.br, {}), "\n反論しても不毛なので、冷静に淡々と指示を出そう。", _jsx(_components.br, {}), "\n「いい気づきです！」みたいな返しもあるけれど……ぬぬぬ。"]
+    }), "\n", _jsx(_components.p, {
+      children: "最近よく見る文末がこれ。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "「ご希望があれば、XXの方向やYYの方向で修正できます。どちらの方向に整えましょうか？」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これ、9割以上は希望していない方向が多い印象。", _jsx(_components.br, {}), "\nそういうときも、やっぱり冷静に淡々と指示を続けるのが吉。"]
+    }), "\n", _jsx(_components.p, {
+      children: "GitHub のプルリクエストで AI からのレビューコメントを見ていると、"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "「このコードは XX という点で問題があります。修正を推奨します。」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["といったコメントが出てくることがある。", _jsx(_components.br, {}), "\nでも実際は、問題ではないケースのほうが多い。", _jsx(_components.br, {}), "\nむしろ、提案された修正を適用するとバグることすらある。", _jsx(_components.br, {}), "\nなので、これらのコメントは“気持ち程度”に見るぐらいがちょうどいい。", _jsx(_components.br, {}), "\n（たまにドキッとするやつもありますが）"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/20251111/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":163,"publishedAt":"2025-11-11","tags":[],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"},"navigation":{"next":{"href":"/blog/contents/20251112","publishedAt":"2025-11-12","title":"車のヒヤリハット"},"prev":{"href":"/blog/contents/20251110","publishedAt":"2025-11-10","title":"モダンな(?)フロントエンド技術セット"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20251111/"}],[["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

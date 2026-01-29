@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+4:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:T563,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["これまで、ブログへのコメントサービスに", _jsx(_components.a, {
+        href: "https://giscus.app/ja",
+        children: "Giscus"
+      }), "をブログサイトに設置していました。\n本日、同コメントサービスの", _jsx(_components.a, {
+        href: "https://disqus.com/",
+        children: "Disqus"
+      }), "に切り替えました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Giscusの場合、GitHubアカウントが必須だったのですが、DisqusならGoogleやXなどのアカウントでも可能となるからです。\nこれで、非エンジニアでもコメントできるようになります！はろー！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/install-disqus-on-my-site/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":114,"publishedAt":"2024-03-13","tags":[],"title":"Disqusを設置したよ!"},"navigation":{"next":{"href":"/blog/contents/try-document-testing","publishedAt":"2024-03-14","title":"Typescript で Document Testing したい"},"prev":{"href":"/blog/contents/mindfulness-meditation-beginner","publishedAt":"2024-03-12","title":"毎朝のマインドフルネス瞑想を1ヶ月間やってみた"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/install-disqus-on-my-site/"}],[["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

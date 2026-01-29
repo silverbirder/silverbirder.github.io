@@ -1,0 +1,172 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/4f8baa2cacfd53be.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/13e979d8fbc54d56.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T23d3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。\nこれを自分の PC で動かそうとすると、GPU が必要になります。\n(CPU で動かせる", _jsx(_components.a, {
+        href: "https://github.com/bes-dev/stable_diffusion.openvino",
+        children: "stable_diffusion.openvino"
+      }), " というのもあります)"]
+    }), "\n", _jsx(_components.p, {
+      children: "できれば、どの PC でも使えるように、かつ、Slack などサービスと連携できるよう API がほしいなと思いました。\nそこで、Stable Diffusion の API を開発しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "結論",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#結論",
+        children: "結論"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["DreamStudio.ai の SDK、 ", _jsx(_components.a, {
+        href: "https://github.com/Stability-AI/stability-sdk",
+        children: "stability-sdk"
+      }), "を使いました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "成果物は、次のリポジトリに置いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/stable-diffusion-API",
+          children: "https://github.com/silverbirder/stable-diffusion-API"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ローカル環境でも、Docker コンテナでも、動きます。"
+    }), "\n", _jsx(_components.p, {
+      children: "動かすには、DreamStudio.ai の API Key が必要になります。\nDocker で動くので、Docker をデプロイできるサービスなら、どこでも動きます。(GPU は不要です)"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は、GCP が好きなので、CloudRun というサービスにデプロイしました。\nAPI は、とりあえず、", _jsx(_components.code, {
+        children: "<url>/?prompt=<text>"
+      }), " というパラメータを受け取り、画像を返却します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Slack で使ってみると、こんな感じになりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1662177842/silver-birder.github.io/blog/stable-diffusion-api-on-slack.jpg",
+        alt: "stable-diffusion-api-on-slack"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ひとまず、API で Stable Diffusion を動かせました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "gpu-と設計",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#gpu-と設計",
+        children: "GPU と設計"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://github.com/Stability-AI/stability-sdk",
+        children: "stability-sdk"
+      }), "を使う前までは、自前で Stable Diffusion を動かす環境を用意しようと設計を考えました。設計の調査メモは、次のリンクにメモを残しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://zenn.dev/silverbirder/scraps/3842c715662551",
+          children: "https://zenn.dev/silverbirder/scraps/3842c715662551"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "具体的に、次のようなパターンを考えました。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Google Colaboratory の GPU を使って Stable Diffusion を動かし、簡易な API で公開する"
+      }), "\n", _jsx(_components.li, {
+        children: "サーバー(GCE や CloudRun など) で GPU を使って Stable Diffusion を動かし、簡易な API で公開する"
+      }), "\n", _jsx(_components.li, {
+        children: "バッチ(Cloud Batch)で GPU を使って Stable Diffusion を動かし、必要なときに動かす。(API からバッチ処理をキックする)"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "1 番目は、Google Colaboratory の利用は 12 時間制限というのがあり、そこを回避する何かが必要なります。ただし、本来の用途と外れていると思うので、却下しました。"
+    }), "\n", _jsx(_components.p, {
+      children: "2 番目は、金銭的に数万~数十万円以上のランニングコストが発生するので却下です。"
+    }), "\n", _jsx(_components.p, {
+      children: "3 番目は、一番最初の構想したものです。2 番目のような GPU のサーバを常時起動しているとめちゃくちゃもったいないので、\nバッチ処理として 3 番目の案を考えていました。3 番目で実際に構築してみると、(何が原因か深く調べていないですが) 起動に 30 分以上かかってしまい、使い物にならなさそうでした。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["で、悩んだ結果、", _jsx(_components.a, {
+        href: "https://github.com/Stability-AI/stability-sdk",
+        children: "stability-sdk"
+      }), " がメンテナンスやランニングコストも不要で、シュッとできそうだったことに気づきました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "もちろん、デメリットはあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "SDK に依存するので、自身がコントロールできない(img2img できない)"
+      }), "\n", _jsx(_components.li, {
+        children: "課金制"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、個人レベルで利用するという前提でしたので、デメリットよりもメリットの方が大きいと判断しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "stability-sdk",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#stability-sdk",
+        children: "stability-sdk"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["DreamStudio.ai は、Stable Diffusion を使っています。\nAPI として、", _jsx(_components.a, {
+        href: "https://github.com/Stability-AI/stability-sdk",
+        children: "stability-sdk"
+      }), " を公開しています。\n使うには、Python で書く必要があります。\nソースコードを読むと、gRPC を使っているため、別言語で SDK を書くのは比較的簡単だと思います。\n私は、Python でシュッと書けるので、flask と stability-sdk を使いました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/stable-diffusion-API",
+          children: "https://github.com/silverbirder/stable-diffusion-API"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ひとまず、Prompt だけを受け付ける超絶シンプルな API を書きました。\n", _jsx(_components.a, {
+        href: "https://github.com/Stability-AI/stability-sdk",
+        children: "stability-sdk"
+      }), "は、様々パラメータがあるので、それも受け付けられるようにしようかなと思ったり、Midjourney の discord のボットのようなモノを書いても面白そうだなと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "マークダウンで、画像を読み込むときに、今回開発した API を指定すると、マークダウンを開いたタイミングで画像が毎回変わります。\nprompt と seed を指定すれば固定できるんですけど、こういうのも面白いなと思っています。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vvmDSdxdqs7Rzh0ay0EVY","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/using_stability_ai_API/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":90,"publishedAt":"2022-09-03","tags":["AI","バックエンド","成果物"],"title":"Stable Diffusion API 開発"},"navigation":{"next":{"href":"/blog/contents/ernie_vilg_demo","publishedAt":"2022-09-03","title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},"prev":{"href":"/blog/contents/prompt_phrases_useful_in_Midjourney_StableDiffusion","publishedAt":"2022-08-28","title":"Midjourney, StableDiffusion で役立つPrompt フレーズ集"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2024-09-15","slug":"gpt-driven-development","summary":"GPTを活用した開発では、AIが生成する出力の正確性を判断するスキルが欠かせません。すべてをGPT任せにせず、開発者自身の積極的な関与が求められます。","tags":["AI"],"title":"GPT駆動開発：GPTsと共に進める効率的なアプリ開発"},{"publishedAt":"2024-05-22","slug":"frontend-development-in-the-age-of-generative-ai","summary":"2022年11月にChatGPTがリリースされて、1年と約半年が経過しました。私はChatGPTが話題になった頃から、継続して利用しています。ChatGPTを使い続けていると、Webアプリケーションのフロントエンド開発に役立つことがありました。そこで、本記事ではフロントエンド開発でChatGPTを活用して効率よく進める3つのパターンにまとめました。これらのパターンを紹介し、読者の皆さんの開発に役立ててもらえればと思います。以下は、本記事で紹介するFigma、ソースコード、デプロイ先URLです。","tags":["AI","フロントエンド"],"title":"生成AI時代のフロントエンド開発術"}],"tag":"AI"},{"posts":[{"publishedAt":"2024-03-07","slug":"trpc-msw-mocking","summary":"はじめに tRPCは、型安全なAPIを簡単に構築できるフレームワークです。開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。この記事では、maloguertin/msw-trpc を用いて、tRPC通信をMSWでモックする方法について解説します。実用例として、サンプルコードをGitHubリポジトリ silverbirder/trpc-msw-storybook-nextjs で共有しています。","tags":["テスト","バックエンド"],"title":"Storybook上で tRPC通信をMSWでモックする方法"},{"publishedAt":"2022-10-15","slug":"graphql_guild_ecosystem_is_useful","summary":"GraphQL Guild ってご存知ですか？GraphQL 界隈だと、Code Generator が有名と思いますが","tags":["バックエンド"],"title":"GraphQL Guildのエコシステムって便利だね"},{"publishedAt":"2022-08-23","slug":"try_dagger","summary":"前々から気になっていた、CI/CD の非ベンダーロックインな Dagger というツールを試してみました。本記事では、試した内容について共有しようと思います。","tags":["バックエンド","DevOps","クローリング"],"title":"CI/CDのDaggerで、GithubActionsとCircleCIにシュッと連携してみた"}],"tag":"バックエンド"},{"posts":[{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"},{"publishedAt":"2025-11-01","slug":"20251101","summary":"久しぶりにWebアプリを開発します。これまでの成果物は、以下にまとめています。","tags":["成果物"],"title":"Fequestを作る — 機能リクエストを見える化するサービス"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/using_stability_ai_API/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/13e979d8fbc54d56.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

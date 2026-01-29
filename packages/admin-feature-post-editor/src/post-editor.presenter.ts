@@ -5,12 +5,18 @@ import type { SerializeResult } from "next-mdx-remote-client/serialize";
 import { useRef, useState } from "react";
 
 type Props = {
+  initialBody?: string;
+  initialTitle?: string;
   resolvePreview: (source: string) => Promise<SerializeResult>;
 };
 
-export const usePostEditorPresenter = ({ resolvePreview }: Props) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+export const usePostEditorPresenter = ({
+  initialBody,
+  initialTitle,
+  resolvePreview,
+}: Props) => {
+  const [title, setTitle] = useState(initialTitle ?? "");
+  const [body, setBody] = useState(initialBody ?? "");
   const [previewSource, setPreviewSource] = useState<null | SerializeResult>(
     null,
   );

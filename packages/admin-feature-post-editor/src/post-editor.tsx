@@ -12,6 +12,11 @@ import { buildSummaryFromBody } from "./summary";
 
 type Props = {
   createPullRequestDisabled?: boolean;
+  initialBody?: string;
+  initialPublishedAt?: string;
+  initialSummary?: string;
+  initialTags?: string[];
+  initialTitle?: string;
   onCreatePullRequest?: (draft: {
     body: string;
     publishedAt: string;
@@ -27,6 +32,11 @@ type Props = {
 
 export const PostEditor = ({
   createPullRequestDisabled,
+  initialBody,
+  initialPublishedAt,
+  initialSummary,
+  initialTags,
+  initialTitle,
   onCreatePullRequest,
   resolveLinkTitles,
   resolvePreview,
@@ -41,18 +51,27 @@ export const PostEditor = ({
     onTitleChange,
     previewSource,
     title,
-  } = usePostEditorPresenter({ resolvePreview });
+  } = usePostEditorPresenter({
+    initialBody,
+    initialTitle,
+    resolvePreview,
+  });
   const [isUploading, setIsUploading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
-  const [publishedAt, setPublishedAt] = useState(() => formatDate(new Date()));
-  const [summary, setSummary] = useState("");
-  const [summaryMode, setSummaryMode] = useState<"auto" | "manual">("auto");
-  const [tags, setTags] = useState<string[]>([]);
+  const [publishedAt, setPublishedAt] = useState(() =>
+    initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
+  );
+  const [summary, setSummary] = useState(initialSummary ?? "");
+  const [summaryMode, setSummaryMode] = useState<"auto" | "manual">(() =>
+    initialSummary && initialSummary.trim().length > 0 ? "manual" : "auto",
+  );
+  const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [tagInputValue, setTagInputValue] = useState("");
   const bodyRef = useRef(body);
   const summaryRef = useRef(summary);
   const summaryModeRef = useRef(summaryMode);
+  const initialAppliedRef = useRef(false);
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -66,6 +85,57 @@ export const PostEditor = ({
   useEffect(() => {
     summaryModeRef.current = summaryMode;
   }, [summaryMode]);
+
+  useEffect(() => {
+    if (initialAppliedRef.current) {
+      return;
+    }
+
+    const hasInitialValues =
+      initialBody !== undefined ||
+      initialTitle !== undefined ||
+      initialPublishedAt !== undefined ||
+      initialSummary !== undefined ||
+      (initialTags && initialTags.length > 0);
+
+    if (!hasInitialValues) {
+      return;
+    }
+
+    if (initialTitle !== undefined) {
+      onTitleChange(initialTitle);
+    }
+
+    if (initialSummary !== undefined) {
+      const nextMode = initialSummary.trim().length > 0 ? "manual" : "auto";
+      setSummary(initialSummary);
+      setSummaryMode(nextMode);
+      summaryRef.current = initialSummary;
+      summaryModeRef.current = nextMode;
+    }
+
+    if (initialTags) {
+      setTags(initialTags);
+    }
+
+    if (initialPublishedAt) {
+      setPublishedAt(initialPublishedAt);
+    }
+
+    if (initialBody !== undefined) {
+      onBodyChange(initialBody);
+    }
+
+    initialAppliedRef.current = true;
+  }, [
+    initialBody,
+    initialPublishedAt,
+    initialSummary,
+    initialTags,
+    initialTitle,
+    onBodyChange,
+    onTitleChange,
+  ]);
 
   const updateSummaryIfAuto = useCallback((value: string) => {
     const currentSummary = summaryRef.current;

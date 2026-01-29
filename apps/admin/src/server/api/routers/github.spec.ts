@@ -158,6 +158,80 @@ describe("githubRouter.createPullRequest", () => {
   });
 });
 
+describe("githubRouter.updatePullRequest", () => {
+  it("updates an existing file and opens a pull request", async () => {
+    getAccessToken.mockResolvedValue({ accessToken: "test-token" });
+    requestMock = vi
+      .fn()
+      .mockResolvedValueOnce({ data: { object: { sha: "base-sha" } } })
+      .mockResolvedValueOnce({ data: {} })
+      .mockResolvedValueOnce({ data: { sha: "file-sha" } })
+      .mockResolvedValueOnce({ data: {} })
+      .mockResolvedValueOnce({
+        data: { html_url: "https://example/pr/2", number: 2 },
+      });
+
+    const caller = createCaller({
+      headers: new Headers(),
+      session: { session: allowedSession, user: allowedUser },
+    });
+
+    const result = await caller.updatePullRequest({
+      content: "# update",
+      fileName: "20260114.md",
+      pullRequestBody: "body",
+      pullRequestTitle: "title",
+    });
+
+    expect(result.url).toBe("https://example/pr/2");
+    expect(result.number).toBe(2);
+    expect(result.filePath).toBe("packages/content/posts/20260114.md");
+    expect(requestMock).toHaveBeenCalled();
+
+    const calls = requestMock.mock.calls.map((call) => call[0]);
+    expect(calls).toContain("GET /repos/{owner}/{repo}/git/ref/{ref}");
+    expect(calls).toContain("POST /repos/{owner}/{repo}/git/refs");
+    expect(calls).toContain("GET /repos/{owner}/{repo}/contents/{path}");
+    expect(calls).toContain("PUT /repos/{owner}/{repo}/contents/{path}");
+    expect(calls).toContain("POST /repos/{owner}/{repo}/pulls");
+  });
+});
+
+describe("githubRouter.getPost", () => {
+  it("returns post details from local markdown content", async () => {
+    access.mockResolvedValue(undefined);
+    readFile.mockResolvedValue(
+      [
+        "---",
+        'title: "Hello"',
+        'publishedAt: "2026-01-02"',
+        'summary: "Summary"',
+        'tags: ["alpha", "beta"]',
+        "---",
+        "",
+        "Body content",
+      ].join("\n"),
+    );
+
+    const caller = createCaller({
+      headers: new Headers(),
+      session: { session: allowedSession, user: allowedUser },
+    });
+
+    const result = await caller.getPost({ slug: "hello-post" });
+
+    expect(result).toEqual({
+      body: "Body content",
+      publishedAt: "2026-01-02",
+      summary: "Summary",
+      tags: ["alpha", "beta"],
+      title: "Hello",
+    });
+    expect(access).toHaveBeenCalled();
+    expect(readFile).toHaveBeenCalled();
+  });
+});
+
 describe("githubRouter.listTags", () => {
   it("returns tags sorted from local markdown files", async () => {
     access.mockResolvedValue(undefined);

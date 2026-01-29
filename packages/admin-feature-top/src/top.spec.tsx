@@ -34,14 +34,14 @@ describe("Top", () => {
       "[data-testid='admin-new-post-link']",
     );
     const postsTitle = document.querySelector("h2");
-    const posts = document.querySelectorAll("li");
+    const postNames = document.querySelectorAll("[data-testid='post-name']");
 
     expect(title?.textContent ?? "").toContain("管理ホーム");
     expect(signedInAs?.textContent ?? "").toContain("Alice");
     expect(button?.textContent ?? "").toContain("サインアウト");
     expect(newPostLink?.textContent ?? "").toContain("新規投稿");
     expect(postsTitle?.textContent ?? "").toContain("投稿一覧");
-    expect(Array.from(posts).map((post) => post.textContent)).toContain(
+    expect(Array.from(postNames).map((post) => post.textContent)).toContain(
       "2025-01-01-first-post.md",
     );
   });

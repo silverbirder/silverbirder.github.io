@@ -114,6 +114,7 @@ export const Top = ({ name, onSignOut, posts }: Props) => {
                     borderColor="green.muted"
                     color="green.fg"
                     formAction={onSignOut}
+                    type="submit"
                     variant="outline"
                   >
                     {t("signOut")}
@@ -211,22 +212,46 @@ export const Top = ({ name, onSignOut, posts }: Props) => {
             <Box borderColor="green.muted" borderTop="1px solid" mb={4} />
             {hasPosts ? (
               <VStack align="stretch" as="ul" gap={3} listStyleType="none">
-                {posts.map((post) => (
-                  <Box
-                    as="li"
-                    bg="bg"
-                    borderColor="green.muted"
-                    borderRadius="lg"
-                    borderWidth="1px"
-                    key={post}
-                    px={4}
-                    py={3}
-                  >
-                    <Text color="fg" fontWeight="600">
-                      {post}
-                    </Text>
-                  </Box>
-                ))}
+                {posts.map((post) => {
+                  const slug = post.replace(/\.md$/i, "");
+                  return (
+                    <Box
+                      as="li"
+                      bg="bg"
+                      borderColor="green.muted"
+                      borderRadius="lg"
+                      borderWidth="1px"
+                      key={post}
+                      px={4}
+                      py={3}
+                    >
+                      <Flex align="center" gap={3} justify="space-between">
+                        <Text
+                          color="fg"
+                          data-testid="post-name"
+                          fontWeight="600"
+                        >
+                          {post}
+                        </Text>
+                        <UiLink
+                          {...baseLinkButton}
+                          _hover={{ background: "green.subtle" }}
+                          border="1px solid"
+                          borderColor="green.muted"
+                          borderRadius="0.6rem"
+                          color="green.fg"
+                          fontSize="0.8rem"
+                          href={`/posts/${slug}`}
+                          paddingBlock="0.3rem"
+                          paddingInline="0.8rem"
+                          transition="background 0.2s ease"
+                        >
+                          {t("postsEditAction")}
+                        </UiLink>
+                      </Flex>
+                    </Box>
+                  );
+                })}
               </VStack>
             ) : (
               <Text color="fg.muted">{t("postsEmpty")}</Text>

@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { buildSearchIndex, searchIndex } from "./search";
 
 describe("searchIndex", () => {
-  it("prefers title matches over body matches", () => {
+  it("orders matches by latest published date", () => {
     const documents = buildSearchIndex([
       {
         body: "body includes next",
@@ -45,6 +45,30 @@ describe("searchIndex", () => {
         slug: "lower",
         title: "React Hooks",
       },
+    ]);
+  });
+
+  it("returns newer posts first even when only the body matches", () => {
+    const documents = buildSearchIndex([
+      {
+        body: "query",
+        publishedAt: "2025-01-01",
+        slug: "older-title-match",
+        title: "Query",
+      },
+      {
+        body: "query",
+        publishedAt: "2025-02-01",
+        slug: "newer-body-match",
+        title: "no match",
+      },
+    ]);
+
+    const result = searchIndex(documents, "query");
+
+    expect(result.map((item) => item.slug)).toEqual([
+      "newer-body-match",
+      "older-title-match",
     ]);
   });
 

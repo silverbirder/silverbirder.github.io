@@ -73,11 +73,11 @@ export const searchIndex = (
       } => entry !== null,
     )
     .sort((a, b) => {
-      if (a.score !== b.score) {
-        return a.score - b.score;
-      }
       if (a.doc.dateValue !== b.doc.dateValue) {
         return b.doc.dateValue - a.doc.dateValue;
+      }
+      if (a.score !== b.score) {
+        return a.score - b.score;
       }
       return a.doc.order - b.doc.order;
     })

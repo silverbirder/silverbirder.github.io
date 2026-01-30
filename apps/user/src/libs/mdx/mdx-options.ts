@@ -52,7 +52,6 @@ const baseRemarkPlugins: Pluggable[] = [
     remarkLinkCardPlus,
     {
       cache: true,
-      ignoreExtensions: [".pdf"],
       noThumbnail: false,
       shortenUrl: true,
     },

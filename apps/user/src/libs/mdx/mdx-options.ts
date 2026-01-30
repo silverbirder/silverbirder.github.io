@@ -47,11 +47,12 @@ const rehypePlugins: Pluggable[] = [
 
 const baseRemarkPlugins: Pluggable[] = [
   remarkGfm,
-  createRemarkLinkCardGuard(),
+  createRemarkLinkCardGuard,
   [
     remarkLinkCardPlus,
     {
       cache: true,
+      ignoreExtensions: [".pdf"],
       noThumbnail: false,
       shortenUrl: true,
     },

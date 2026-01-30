@@ -15,6 +15,7 @@ export type SearchResult = {
 export type SearchStatus = "error" | "loading" | "ready";
 
 type Props = {
+  initialQuery?: string;
   onResultsChange: (
     results: SearchResult[],
     query: string,
@@ -26,13 +27,17 @@ const SEARCH_RESULT_LIMIT = 20;
 const SEARCH_INDEX_CACHE_KEY = "blog-search-index";
 const SEARCH_INDEX_VERSION_KEY = "blog-search-index-version";
 
-export const PostSearchPanel = ({ onResultsChange }: Props) => {
+export const PostSearchPanel = ({
+  initialQuery = "",
+  onResultsChange,
+}: Props) => {
   const t = useTranslations("user.blog");
   const searchInputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const workerRef = useRef<null | Worker>(null);
+  const onResultsChangeRef = useRef(onResultsChange);
   const queryRef = useRef("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [searchStatus, setSearchStatus] = useState<SearchStatus>("loading");
   const searchIndexPath = useMemo(
@@ -46,12 +51,20 @@ export const PostSearchPanel = ({ onResultsChange }: Props) => {
   const trimmedSearchQuery = searchQuery.trim();
 
   useEffect(() => {
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
+
+  useEffect(() => {
+    onResultsChangeRef.current = onResultsChange;
+  }, [onResultsChange]);
+
+  useEffect(() => {
     queryRef.current = trimmedSearchQuery;
   }, [trimmedSearchQuery]);
 
   useEffect(() => {
-    onResultsChange(searchResults, trimmedSearchQuery, searchStatus);
-  }, [onResultsChange, searchResults, searchStatus, trimmedSearchQuery]);
+    onResultsChangeRef.current(searchResults, trimmedSearchQuery, searchStatus);
+  }, [searchResults, searchStatus, trimmedSearchQuery]);
 
   useEffect(() => {
     const worker = new Worker(new URL("./search.worker.ts", import.meta.url));

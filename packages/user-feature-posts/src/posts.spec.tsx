@@ -33,6 +33,7 @@ let mockedSearchParams = "";
 vi.mock("next/navigation", () => {
   return {
     usePathname: () => "/blog",
+    useRouter: () => ({ replace: vi.fn() }),
     useSearchParams: () => new URLSearchParams(mockedSearchParams),
   };
 });
@@ -170,5 +171,13 @@ describe("Posts", () => {
     expect(prev).toBeUndefined();
     expect(page1).toBeUndefined();
     expect(next).toBeUndefined();
+  });
+
+  it("prefills the search input from the query string", async () => {
+    mockedSearchParams = "q=TypeScript";
+    await renderWithProvider(<Posts posts={[...createPosts()]} />);
+
+    const input = document.querySelector<HTMLInputElement>("input");
+    expect(input?.value).toBe("TypeScript");
   });
 });

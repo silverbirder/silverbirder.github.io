@@ -1,10 +1,12 @@
 "use client";
 
+import type { Route } from "next";
+
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import { Notebook, NotebookPostItem, Tag, ViewTransitionLink } from "@repo/ui";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   PostSearchPanel,
@@ -29,9 +31,12 @@ type Props = {
 
 export const Posts = ({ posts }: Props) => {
   const searchParams = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+  const searchQueryParam = searchParams.get("q") ?? "";
+  const [searchQuery, setSearchQuery] = useState(searchQueryParam);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [searchStatus, setSearchStatus] = useState<SearchStatus>("loading");
+  const searchUrlSyncTimerRef = useRef<null | number>(null);
 
   const selectedYear = searchParams.get("year") ?? null;
   const selectedTag = searchParams.get("tag") ?? null;
@@ -62,46 +67,101 @@ export const Posts = ({ posts }: Props) => {
     pagination.totalPages,
   );
 
-  const buildHref = (input: {
-    page?: null | number;
-    tag?: null | string;
-    year?: null | string;
-  }) => {
-    const params = new URLSearchParams();
-    const resolvedYear = input.year === undefined ? selectedYear : input.year;
-    const resolvedTag = input.tag === undefined ? selectedTag : input.tag;
-    const resolvedPage =
-      input.page === undefined ? currentPage : (input.page ?? undefined);
-
-    if (resolvedYear) {
-      params.set("year", resolvedYear);
+  useEffect(() => {
+    if (searchQueryParam !== searchQuery) {
+      setSearchQuery(searchQueryParam);
     }
+  }, [searchQuery, searchQueryParam]);
 
-    if (resolvedTag) {
-      params.set("tag", resolvedTag);
-    }
+  useEffect(() => {
+    return () => {
+      if (searchUrlSyncTimerRef.current) {
+        window.clearTimeout(searchUrlSyncTimerRef.current);
+      }
+    };
+  }, []);
 
-    if (resolvedPage && resolvedPage > 1) {
-      params.set("page", String(resolvedPage));
-    }
+  const buildHref = useCallback(
+    (input: {
+      page?: null | number;
+      query?: null | string;
+      tag?: null | string;
+      year?: null | string;
+    }) => {
+      const params = new URLSearchParams();
+      const resolvedYear = input.year === undefined ? selectedYear : input.year;
+      const resolvedTag = input.tag === undefined ? selectedTag : input.tag;
+      const resolvedPage =
+        input.page === undefined ? currentPage : (input.page ?? undefined);
+      const resolvedQuery =
+        input.query === undefined
+          ? searchQueryParam
+          : (input.query ?? undefined);
 
-    const query = params.toString();
-    return query ? `/blog?${query}` : "/blog";
-  };
+      if (resolvedYear) {
+        params.set("year", resolvedYear);
+      }
+
+      if (resolvedTag) {
+        params.set("tag", resolvedTag);
+      }
+
+      if (resolvedPage && resolvedPage > 1) {
+        params.set("page", String(resolvedPage));
+      }
+
+      if (resolvedQuery) {
+        params.set("q", resolvedQuery);
+      }
+
+      const query = params.toString();
+      return query ? `/blog?${query}` : "/blog";
+    },
+    [currentPage, searchQueryParam, selectedTag, selectedYear],
+  );
+
+  const syncSearchQueryToUrl = useCallback(
+    (nextQuery: string) => {
+      if (searchUrlSyncTimerRef.current) {
+        window.clearTimeout(searchUrlSyncTimerRef.current);
+      }
+      if (nextQuery === searchQueryParam) {
+        return;
+      }
+      searchUrlSyncTimerRef.current = window.setTimeout(() => {
+        router.replace(
+          buildHref({
+            page: null,
+            query: nextQuery || null,
+          }) as Route,
+          {
+            scroll: false,
+          },
+        );
+      }, 250);
+    },
+    [buildHref, router, searchQueryParam],
+  );
 
   const handleSearchResults = useCallback(
     (results: SearchResult[], query: string, status: SearchStatus) => {
       setSearchResults(results);
       setSearchQuery(query);
       setSearchStatus(status);
+      syncSearchQueryToUrl(query);
     },
-    [],
+    [syncSearchQueryToUrl],
   );
 
   return (
     <Box w="full">
       <Notebook
-        headerRight={<PostSearchPanel onResultsChange={handleSearchResults} />}
+        headerRight={
+          <PostSearchPanel
+            initialQuery={searchQueryParam}
+            onResultsChange={handleSearchResults}
+          />
+        }
         navigation={{}}
         relatedPosts={[]}
         tags={[]}

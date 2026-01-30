@@ -6,11 +6,11 @@ tags: ["開発ツール", "フロントエンド", "Rust"]
 index: false
 ---
 
-コンパイラ基盤である LLVM について、全く知識がない私が、
-javascript ソースコードをパースし LLVM でコンパイルできるようになりました。
+コンパイラ基盤であるLLVMについて、全く知識がない私が、
+javascriptソースコードをパースしLLVMでコンパイルできるようになりました。
 
-LLVM の記事は数多くありますが、初心者向けの記事が少なく感じたため、
-本記事では、できる限り分かりやすく LLVM について紹介できる記事を書こうと思います。
+LLVMの記事は数多くありますが、初心者向けの記事が少なく感じたため、
+本記事では、できる限り分かりやすくLLVMについて紹介できる記事を書こうと思います。
 
 ソースコードは、こちらに置いています。
 
@@ -18,16 +18,19 @@ https://github.com/silverbirder/rustscript
 
 ## 自己紹介
 
-ふだん、javascript や python などインタプリタ言語を使うエンジニアです。
-LLVM について、全く知識がなかった人間です。
+ふだん、javascriptやpythonなどインタプリタ言語を使うエンジニアです。
+LLVMについて、全く知識がなかった人間です。
 
 ## 背景
 
-過去に、おもちゃのブラウザ自作をやってみました。([ブラウザの仕組みを学ぶ](./learning_browser_engine))
-HTML と CSS を解析し、レンダリングするところを書き、基本的な動作を知ることができました。
-HTML と CSS とくれば、次は JS だと思い、JS を実行するエンジンを書いてみたくなりました。
-ただし、Web ブラウザの API と JS 実行エンジンをバインディングする箇所(EX.DOM 操作)は難しいので、
-まずは、単純な処理、四則演算や fizzbuzz が処理できるものを作ろうと思いました。
+過去に、おもちゃのブラウザ自作をやってみました。
+
+https://silverbirder.github.io/blog/contents/learning_browser_engine
+
+HTMLとCSSを解析し、レンダリングするところを書き、基本的な動作を知ることができました。
+HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを書いてみたくなりました。
+ただし、WebブラウザのAPIとJS実行エンジンをバインディングする箇所(EX.DOM操作)は難しいので、
+まずは、単純な処理、四則演算やfizzbuzzが処理できるものを作ろうと思いました。
 
 ## コンパイラとは
 
@@ -44,24 +47,19 @@ HTML と CSS とくれば、次は JS だと思い、JS を実行するエンジ
 
 プログラムをコンパイルするというのは、主に次の順番で処理されます。
 
-1. ソースコード
-1. 字句解析
-1. 構文解析
-1. 構文木
-1. 中間言語
-1. コード生成
+![plantuml](https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIfAJIv9p4lFILLutBJtSVEUnqqx7pTj1Z6QEv4adwwT_hH_wOlbYv_Dcu0a_6nvzxDfxJY4dyrPWIJsPCVQbzCclrZHy6BLF1HRePOzdpB_MSS4BYvCPoZesg7QZym1IQAu0fc3a0Iv1Su22QCu1va3aaHtb4DgNWemi000)
 
 ---
 
-字句解析 ~ 構文木は、lex や yacc というソフトウェアが有名だと思います。
-今回は、swc_ecma_parser というものを使います。swc_ecma_parser は、[swc](https://github.com/swc-project/swc)で使われるパーサです。
+字句解析 ~ 構文木は、lexやyaccというソフトウェアが有名だと思います。
+今回は、swc_ecma_parserというものを使います。swc_ecma_parserは、[swc](https://github.com/swc-project/swc)で使われるパーサです。
 
 > EcmaScript/TypeScript parser for the rust programming language.
-> Passes almost all tests from tc39/test262.
+Passes almost all tests from tc39/test262.
 
 ※ [swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)
 
-tc39/test262 のテストケースをほとんどパスしているようです。
+tc39/test262のテストケースをほとんどパスしているようです。
 [tc39/test262](https://github.com/tc39/test262)は、次の仕様動作を保証するテストスイートです。
 
 ```text
@@ -79,81 +77,84 @@ ECMA-404, The JSON Data Interchange Format (pdf)
 
 1. 言語文法の理解
 1. パース処理の実装
-1. BNF や PEG からパース自動生成も可
+    1. BNFやPEGからパース自動生成も可
 
-① 番の言語文法について知るために、ecmascript の BNF ってどれだろうなと調べていました。
+①番の言語文法について知るために、ecmascriptのBNFってどれだろうなと調べていました。
 そうすると、私の調べた範囲では、次のページにたどり着きました。
 
-[https://tc39.es/ecma262/#sec-grammar-summary](https://tc39.es/ecma262/#sec-grammar-summary)
+https://tc39.es/ecma262/#sec-grammar-summary
 
 これは、先程の[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)のテストスイート対象[tc39/test262/test](https://github.com/tc39/test262/tree/main/test)であったので、あえて再構築する気になれず、自作は諦めました。
 
 ---
 
-中間言語 ~ コード生成については、LLVM というコンパイル基盤を使おうと思います。
+中間言語 ~ コード生成については、LLVMというコンパイル基盤を使おうと思います。
 
-## LLVM とは
+## LLVMとは
 
-LLVM とは、公式ページより、
+LLVMとは、公式ページより、
 
 > The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
 
 ※ [ttps://llvm.org/](https://llvm.org/)
 
-LLVM プロジェクトとは、再利用性が高いコンパイラとツールチェイン技術の総称です。
-LLVM は、次の特徴があります。
+LLVMプロジェクトとは、再利用性が高いコンパイラとツールチェイン技術の総称です。
+LLVMは、次の特徴があります。
 
 > LLVM is a set of compiler and toolchain technologies, which can be used to develop a front end for any programming language and a back end for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes.
 
 ※ [https://en.wikipedia.org/wiki/LLVM](https://en.wikipedia.org/wiki/LLVM)
 
-LLVM は、任意のフロントエンド言語(コンパイラという文脈でいう変換前の言語)から任意の命令セットアーキテクチャ(以下、ISA)バックエンドへ変換できます。
+LLVMは、任意のフロントエンド言語(コンパイラという文脈でいう変換前の言語)から任意の命令セットアーキテクチャ(以下、ISA)バックエンドへ変換できます。
+
+---
+
+ISAは、次の意味になります。
+
+> 命令セットとは、あるマイクロプロセッサ（CPU/MPU）を動作させるための命令語の体系。プロセッサが直に解釈して実行できる機械語（マシン語）の仕様を定めたもの。
+
+※ [https://e-words.jp/w/命令セット.html](https://e-words.jp/w/命令セット.html)
+
+プロセッサを動作させるための命令は、例えばLoad(LDR)とStore(STR)です。Loadは、メモリからレジスタへセットし、Storeは、その逆です。
+(Rust:inkwellのリファレンスですが)[こちら(Instruction)](https://thedan64.github.io/inkwell/inkwell/builder/struct.Builder.html)に一覧があります。
+
+---
+
 また、非言語依存な中間言語(以下、IR)を中心として設計されています。
 
 ![Retargetablity - The Architecture of Open Source Applications: LLVM](https://res.cloudinary.com/silverbirder/image/upload/v1693376952/silver-birder.github.io/blog/RetargetableCompiler.png)
 
 ---
 
-命令セットアーキテクチャは、次の意味になります。
-
-> 命令セットとは、あるマイクロプロセッサ（CPU/MPU）を動作させるための命令語の体系。プロセッサが直に解釈して実行できる機械語（マシン語）の仕様を定めたもの。
-
-※ [https://e-words.jp/w/命令セット.html](https://e-words.jp/w/命令セット.html)
-
-プロセッサを動作させるための命令は、例えば Load(LDR)と Store(STR)です。Load は、メモリからレジスタへセットし、Store は、その逆です。
-後で紹介する[Instruction(Builder)](https://thedan64.github.io/inkwell/inkwell/builder/struct.Builder.html)に一覧があります。
+今回、LLVMのフロントエンド言語は、タイトルにある通り、Rustで書こうと思います。
+単にRustでやってみたかっただけです。
+LLVMライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を使用します。
+これは、LLVMのC APIを安全に使えるようにする薄いラッパーライブラリです。
 
 ---
 
-今回、LLVM のフロントエンド言語は、タイトルにある通り、Rust で書こうと思います。
-単に Rust でやってみたかっただけです。
-LLVM ライブラリとして、[inkwell](https://github.com/TheDan64/inkwell)を使用します。
-これは、LLVM の C API を安全に使えるようにする薄いラッパーライブラリです。
-
----
-
-LLVM のバックエンドは、ローカルマシンで動かすこととします。
+LLVMのバックエンドは、ローカルマシンで動かすこととします。
 具体的には、`x86_64-apple-darwin20.6.0` になります。
 
-試していないですが、WASM もバックエンドとして選択できるようです。
-というのも、過去の記事([WebAssembly に正式対応した「LLVM 8.0」がリリース － Publickey](https://www.publickey1.jp/blog/19/webassemblyllvm_80.html))ですが、LLVM がバックエンドとして WebAssembly(以下,WASM)をサポートしました。
+試していないですが、WASMもバックエンドとして選択できるようです。
+というのも、過去の記事([WebAssemblyに正式対応した「LLVM 8.0」がリリース － Publickey](https://www.publickey1.jp/blog/19/webassemblyllvm_80.html))ですが、LLVMがバックエンドとしてWebAssembly(以下,WASM)をサポートしました。
 
-- [Target initialize_webassembly](https://thedan64.github.io/inkwell/inkwell/targets/struct.Target.html#method.initialize_webassembly)
+* [Target initialize_webassembly](https://thedan64.github.io/inkwell/inkwell/targets/struct.Target.html#method.initialize_webassembly)
 
-ちなみに、WASM は、仮想的な ISA として設計されています。
+ちなみに、WASMは、仮想的なISAとして設計されています。
 
 > WebAssembly, or "wasm", is a general-purpose virtual ISA designed to be a compilation target for a wide variety of programming languages.
 
 [WebAssembly Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md)
 
-## LLVM 開発で、知っておくべきこと
+## LLVM開発で、知っておくべきこと
 
-LLVM では、IR を生成します。
-その IR では、`Module ⊇ Function ⊇ Block ⊇ Instruction(Builder)` という構成になっています。
-これを知っていないと、LLVM のコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
+LLVMでは、IRを生成します。
+そのIRでは、`Module ⊇ Function ⊇ Block ⊇ Instruction(Builder)` という構成になっています。
+これを知っていないと、LLVMのコードを見ても、理解しにくいと思います。(自身が持つ言葉で解釈して誤った理解になりかねません)
 
-小さな C 言語コードと IR で例を示します。
-Rust じゃなく、C を選んだのは、clang から手軽に IR を出力できるからです。
+小さなC言語コードとIRで例を示します。
+Rustじゃなく、Cを選んだのは、clangから手軽にIRを出力できるからです。
 
 ```c
 // if.c
@@ -171,17 +172,16 @@ int main(void)
 }
 ```
 
-これを IR に変換
+これをIRに変換
 
-```shell session
+```shell
 clang -S -emit-llvm -O3 if.c
-```text
-
-出力されたファイルは、`if.ll`という IR ファイルです。
-そこから、`@main`コードを見ます。
-
 ```
 
+出力されたファイルは、`if.ll`というIRファイルです。
+そこから、`@main`コードを見ます。
+
+```text
 @.str = private unnamed_addr constant [10 x i8] c"i is one.\00", align 1
 
 define i32 @main() local_unnamed_addr #0 {
@@ -200,16 +200,15 @@ define i32 @main() local_unnamed_addr #0 {
 declare i32 @rand() local_unnamed_addr #1
 
 declare noundef i32 @printf(i8* nocapture noundef readonly, ...) local_unnamed_addr #2
+```
 
-```text
-
-IR を Module,Function,Block,Instruction で区切って見ると、次の画像のとおりです。
+IRをModule,Function,Block,Instructionで区切って見ると、次の画像のとおりです。
 
 ![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png)
 
 それぞれ、どういうものか簡単に説明します。
 
-## Module
+### Module
 
 > LLVM programs are composed of Module’s, each of which is a translation unit of the input programs.
 
@@ -218,16 +217,16 @@ IR を Module,Function,Block,Instruction で区切って見ると、次の画像
 モジュールは、入力プログラムの変換単位になります。
 モジュールには、関数、グローバル変数、シンボルテーブルエントリを持ちます。
 
-## Function
+### Function
 
 > LLVM function definitions consist of the “define” keyword.
-> A function definition contains a list of basic blocks.
+A function definition contains a list of basic blocks.
 
 ※ [https://llvm.org/docs/LangRef.html#functions](https://llvm.org/docs/LangRef.html#functions)
 
 関数は、複数のブロック(Block)を持ちます。
 
-## Block
+### Block
 
 > Each basic block may optionally start with a label (giving the basic block a symbol table entry), contains a list of instructions, and ends with a terminator instruction (such as a branch or function return).
 
@@ -235,7 +234,7 @@ IR を Module,Function,Block,Instruction で区切って見ると、次の画像
 
 ブロックは、ラベルから始まり、複数の命令(Instruction)を持ちます。
 
-## Instruction
+### Instruction
 
 > The LLVM instruction set consists of several different classifications of instructions: terminator instructions, binary instructions, bitwise binary instructions, memory instructions, and other instructions.
 
@@ -243,64 +242,64 @@ IR を Module,Function,Block,Instruction で区切って見ると、次の画像
 
 命令は、バイナリ命令やメモリ命令など、様々な命令があります。
 
-## 参考資料
+### 参考資料
 
 参考になる資料たちは、次のとおりです。
 
-- チュートリアル
-  - C++ [Kaleidoscope](https://llvm.org/docs/tutorial/)
-  - Rust [Kaleidoscope](https://github.com/jauhien/iron-kaleidoscope)
-    - codegen が動かないため、途中までしか使えません
-  - Rust + inkwell [Kaleidoscope](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope)
-- LLVM リファレンス
-  - [LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html)
+* チュートリアル
+  * C++ [Kaleidoscope](https://llvm.org/docs/tutorial/)
+  * Rust [Kaleidoscope](https://github.com/jauhien/iron-kaleidoscope)
+    * codegenが動かないため、途中までしか使えません
+  * Rust + inkwell [Kaleidoscope](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope)
+* LLVMリファレンス
+  * [LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html)
 
-## LLVM をやってみよう
+## LLVMをやってみよう
 
-前置きが長くなりましたが、実際に LLVM をやっていきたいと思います。
+前置きが長くなりましたが、実際にLLVMをやっていきたいと思います。
 
-## 開発環境
+### 開発環境
 
 私の環境(Mac)はこちらです。
 
-```shell session
-sw_vers
+```shell
+$ sw_vers 
 ProductName:    macOS
 ProductVersion: 11.6
 BuildVersion:   20G165
-cargo --version && rustc --version
+$ cargo --version && rustc --version
 cargo 1.56.0-nightly (18751dd3f 2021-09-01)
 rustc 1.56.0-nightly (50171c310 2021-09-01)
 ```
 
-llvm のインストールは、Mac ユーザなので、[brew から llvm](https://formulae.brew.sh/formula/llvm)をインストールします。
+llvmのインストールは、Macユーザなので、[brewからllvm](https://formulae.brew.sh/formula/llvm)をインストールします。
 [公式ページからダウンロード](https://releases.llvm.org/download.html)もできるようです。
 
-インストールが完了すると、clang や llc といったツールが使えます。
+インストールが完了すると、clangやllcといったツールが使えます。
 
-```shell session
-clang --version
+```shell
+$ clang --version
 Homebrew clang version 13.0.0
 Target: x86_64-apple-darwin20.6.0
 Thread model: posix
 InstalledDir: /usr/local/opt/llvm/bin
-llc -version
+$ llc -version
 Homebrew LLVM version 12.0.1
-```text
+```
 
-Mac には Xcode に clang が含まれているようです。こちらを使っても問題ありません。
-(ただ、xcode の clang には、[wasm には対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
+MacにはXcodeにclangが含まれているようです。こちらを使っても問題ありません。
+(ただ、xcodeのclangには、[wasmには対応していないです](https://github.com/WebAssembly/wasi-sdk/issues/172#issuecomment-772399153))
 
-```shell session
-## xcode付属のclangの場合
-clang --version
+```shell
+# xcode付属のclangの場合
+$ clang --version
 Apple clang version 12.0.5 (clang-1205.0.22.9)
 Target: x86_64-apple-darwin20.6.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
 
-Cargo.toml の`dependencies`は、次のとおりです。
+Cargo.tomlの`dependencies`は、次のとおりです。
 
 ```toml
 [dependencies]
@@ -310,10 +309,10 @@ swc_common = { version = "0.13.0", features=["tty-emitter"] }
 swc_ecma_ast = "0.54.0"
 ```
 
-## "Hello World" を出力
+### "Hello World" を出力
 
 まずは、Hello World を出力します。
-Rust のコードは、次のものになります。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -355,17 +354,16 @@ fn main() {
 
 実行してみます。
 
-```shell session
-cargo run
+```shell
+$ cargo run
 Hello, world!
-```text
-
-LLVM の JIT コンパイラで実行できました。
-ちなみに、IR がどんなものか確認したい場合は、`module.print_to_file` を使いましょう。
-実際に出力してみると、次の結果になります。
-
 ```
 
+LLVMのJITコンパイラで実行できました。
+ちなみに、IRがどんなものか確認したい場合は、`module.print_to_file` を使いましょう。
+実際に出力してみると、次の結果になります。
+
+```text
 ; ModuleID = 'main'
 source_filename = "main"
 
@@ -378,19 +376,18 @@ entry:
   %call = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([15 x i8], [15 x i8]* @hw, i32 0, i32 0))
   ret i32 0
 }
+```
 
-```text
+Rustの`execution_engine.get_function::<unsafe extern "C" fn()>("main").unwrap().call();`は、IRの`@main`関数を実行しています。
+`@main`関数では、`@printf`関数を実行していますが、それは、C言語の`printf`になります。
 
-Rust の`execution_engine.get_function::<unsafe extern "C" fn()>("main").unwrap().call();`は、IR の`@main`関数を実行しています。
-`@main`関数では、`@printf`関数を実行していますが、それは、C 言語の`printf`になります。
-
-IR のコードに関する調査は、[LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html) が重宝します。
+IRのコードに関する調査は、[LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html) が重宝します。
 `getelementptr`を調査してみると面白いです。
 
-## SUM
+### SUM
 
-次は、3 つの数値を引数とし、足し算した結果を返す関数 SUM を作成してみます。
-Rust のコードは、次のものになります。
+次は、3つの数値を引数とし、足し算した結果を返す関数SUMを作成してみます。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -425,7 +422,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let execution_engine = module.create_jit_execution_engine(OptimizationLevel::None)?;
 
-    unsafe {
+    unsafe { 
         let x = 1u64;
         let y = 2u64;
         let z = 3u64;
@@ -434,17 +431,17 @@ fn main() -> Result<(), Box<dyn Error>> {
     };
     Ok(())
 }
-```text
+```
 
 実行してみます。
 
-```shell session
-cargo run
+```shell
+$ cargo run
 6
 ```
 
 見事、`1 + 2 + 3`の足し算ができました。
-ちなみに、IR も出力しておきます。
+ちなみに、IRも出力しておきます。
 
 ```text
 ; ModuleID = 'main'
@@ -459,13 +456,13 @@ entry:
 }
 ```
 
-前回同様、Rust の`execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);`は、IR の`@sum`関数に該当します。
+前回同様、Rustの`execution_engine.get_function::<unsafe extern "C" fn(u64, u64, u64)-> u64>("sum")?.call(x, y , z);`は、IRの`@sum`関数に該当します。
 足し算の`Instruction`が使えました。
 
-## FizzBuzz
+### FizzBuzz
 
-では、次は FizzBuzz をしてみます。割り算や if の命令が新しく使います。
-Rust のコードは、次のものになります。
+では、次はFizzBuzzをしてみます。割り算やifの命令が新しく使います。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -599,20 +596,19 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
-if 文では、`build_conditional_branch`と`build_unconditional_branch`がどうやら使うそうです。
+if文では、`build_conditional_branch`と`build_unconditional_branch`がどうやら使うそうです。
 [inkwell/examples/kaleidoscope/main.rs](https://github.com/TheDan64/inkwell/blob/master/examples/kaleidoscope/main.rs)で書いてありましたので、使ってみました。
-実行してみます。15 を引数として呼んでいます。
+実行してみます。15を引数として呼んでいます。
 
-```shell session
-cargo run
+```shell
+$ cargo run
 FizzBuzz
-```text
-
-成功です！
-ちなみに、IR も出力しておきます。
-
 ```
 
+成功です！
+ちなみに、IRも出力しておきます。
+
+```text
 ; ModuleID = 'fizz_buzz'
 source_filename = "fizz_buzz"
 
@@ -657,25 +653,24 @@ else_2:                                           ; preds = %else_1
 end_block:                                        ; preds = %num, %buzz, %fizz, %fizz_buzz
   ret i8* null
 }
+```
 
-```text
-
-Block がめちゃくちゃ増えました。それは FizzBuzz の if,else が多いからですね。
-LLVM について、少し自信がついてきました。
-これまで`中間言語 ~ コード生成`を LLVM でやってみました。
+Blockがめちゃくちゃ増えました。それはFizzBuzzのif,elseが多いからですね。
+LLVMについて、少し自信がついてきました。
+これまで`中間言語 ~ コード生成`をLLVMでやってみました。
 少し戻って、`字句解析 ~ 構文木`の部分、つまりパース処理をやってみます。
 
-## 四則演算する Javascript をパース
+### 四則演算するJavascriptをパース
 
-javascript をパースしてみます。[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)を使います。
-パースする javascript は、次のものになります。
+javascriptをパースしてみます。[swc_ecma_parser](https://rustdoc.swc.rs/swc_ecma_parser/)を使います。
+パースするjavascriptは、次のものになります。
 
 ```javascript
 // ./src/test.js
-20 / 10;
-```text
+20 / 10
+```
 
-Rust のコードは、次のものになります。
+Rustのコードは、次のものになります。
 
 ```rust
 #[macro_use]
@@ -720,29 +715,29 @@ fn main() {
 
     println!("{:?}", _module);
 }
-```text
+```
 
 実行してみます。
 
-```shell session
-cargo run
+```shell
+$ cargo run
 Module { span: Span { lo: BytePos(0), hi: BytePos(8), ctxt: #0 }, body: [Stmt(Expr(ExprStmt { span: Span { lo: BytePos(0), hi: BytePos(8), ctxt: #0 }, expr: Bin(BinExpr { span: Span { lo: BytePos(0), hi: BytePos(7), ctxt: #0 }, op: "/", left: Lit(Num(Number { span: Span { lo: BytePos(0), hi: BytePos(2), ctxt: #0 }, value: 20.0 })), right: Lit(Num(Number { span: Span { lo: BytePos(5), hi: BytePos(7), ctxt: #0 }, value: 10.0 })) }) }))], shebang: None }
 ```
 
-それっぽい結果(20.0 や 10.0)が出力されましたね！
+それっぽい結果(20.0や10.0、`op: "/"`)が出力されましたね！
 
-## 四則演算する Javascript を LLVM で実行
+### 四則演算するJavascriptをLLVMで実行
 
-最後に、swc_ecma_parser と LLVM を組み合わせて、`字句解析 ~ 構文木`と`中間言語 ~ コード生成`を繋げ、四則演算する JS をパースし、LLVM で実行してみます。
+最後に、swc_ecma_parserとLLVMを組み合わせて、`字句解析 ~ 構文木`と`中間言語 ~ コード生成`を繋げ、四則演算するJSをパースし、LLVMで実行してみます。
 
-パースする javascript は、次のものになります。
+パースするjavascriptは、次のものになります。
 
 ```javascript
 // ./src/test.js
 20 / 10;
 ```
 
-Rust のコードは、次のものになります。
+Rustのコードは、次のものになります。
 
 ```rust
 extern crate inkwell;
@@ -845,15 +840,15 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 実行してみます。
 
-```shell session
-cargo run
+```shell
+$ cargo run
 2
-```text
+```
 
 `20 / 10`つまり、`2`が出力されました！やった！
 
 ## 終わりに
 
-これにて、簡単な javascript コードをパースし、LLVM で実行できるところまでたどり着きました。
-当初、LLVM の使い方って全然わからなかったのですが、段階的にできる部分が増えると、分かる領域が増えて、モチベーションが高まります。
-LLVM の勉強をされている方、参考にしてみてください。
+これにて、簡単なjavascriptコードをパースし、LLVMで実行できるところまでたどり着きました。
+当初、LLVMの使い方って全然わからなかったのですが、段階的にできる部分が増えると、分かる領域が増えて、モチベーションが高まります。
+LLVMの勉強をされている方、参考にしてみてください。

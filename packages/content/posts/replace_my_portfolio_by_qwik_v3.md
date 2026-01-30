@@ -13,10 +13,6 @@ https://silverbirder.github.io/blog/
 
 これで、私のブログページの刷新は 4 回目になります。この記事では、その過程で得た学びや経験を共有します。
 
-ちなみに、これまでの刷新に関する記事は、以下のリンクより確認できますので、よければご覧ください。
-
-https://silverbirder.github.io/blog/tags/portfolio/
-
 GitHub のリリースタグも利用していますので、以下のリンクから過去のソースコードを参照できます。
 
 https://github.com/silverbirder/silverbirder.github.io/tags

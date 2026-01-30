@@ -145,12 +145,6 @@ https://jwt.io/
 - Lighthouse
 - WebpageTest
 
-## Proxy
-
-コンポジションプロキシ。テンプレートを組み合わせる。
-
-https://github.com/tes/compoxure
-
 ## アクセス履歴
 
 https://developer.mozilla.org/ja/docs/Web/API/History_API

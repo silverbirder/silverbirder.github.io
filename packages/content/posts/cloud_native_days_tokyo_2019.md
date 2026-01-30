@@ -196,7 +196,7 @@ https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019
 
 ## Spinnaker
 
-https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker:embed]9
+https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker
 
 ## Istio
 

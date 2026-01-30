@@ -21,6 +21,7 @@ describe("Top", () => {
   it("renders the notebook copy and children", async () => {
     const blogSummary = {
       latestPublishedAt: "2026-01-27",
+      streakDays: 3,
       totalCount: 123,
     };
     await renderWithProvider(
@@ -45,6 +46,7 @@ describe("Top", () => {
     expect(textContent).toContain("ブログ");
     expect(textContent).toContain("最新更新: 2026-01-27");
     expect(textContent).toContain("記事数: 123");
+    expect(textContent).toContain("連続投稿日数: 3日");
     expect(textContent).toContain("タイムライン");
     expect(textContent).toContain("2026-01-26");
     expect(textContent).toContain("その他");

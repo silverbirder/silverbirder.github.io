@@ -16,9 +16,67 @@ vi.mock("@/libs", () => ({
   getTimelineList: vi.fn().mockResolvedValue([]),
 }));
 
-import Page, { metadata } from "./page";
+import Page, { buildBlogSummary, metadata } from "./page";
 
 describe("Page", () => {
+  it("builds blog summary with consecutive day count", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-01-05T03:00:00Z"));
+    const posts = [
+      { publishedAt: "2026-01-05" },
+      { publishedAt: "2026-01-05" },
+      { publishedAt: "2026-01-04" },
+      { publishedAt: "2026-01-03" },
+      { publishedAt: "2026-01-01" },
+    ];
+
+    const summary = buildBlogSummary(posts);
+
+    expect(summary).toEqual({
+      latestPublishedAt: "2026-01-05",
+      streakDays: 3,
+      totalCount: 5,
+    });
+    vi.useRealTimers();
+  });
+
+  it("counts streak from yesterday when there is no post today", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-01-05T03:00:00Z"));
+    const posts = [
+      { publishedAt: "2026-01-04" },
+      { publishedAt: "2026-01-03" },
+      { publishedAt: "2026-01-01" },
+    ];
+
+    const summary = buildBlogSummary(posts);
+
+    expect(summary).toEqual({
+      latestPublishedAt: "2026-01-04",
+      streakDays: 2,
+      totalCount: 3,
+    });
+    vi.useRealTimers();
+  });
+
+  it("uses the latest post date when it is later than today", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-01-30T03:00:00Z"));
+    const posts = [
+      { publishedAt: "2026-01-31" },
+      { publishedAt: "2026-01-29" },
+    ];
+
+    const summary = buildBlogSummary(posts);
+
+    expect(summary).toEqual({
+      latestPublishedAt: "2026-01-31",
+      streakDays: 1,
+      totalCount: 2,
+    });
+    vi.useRealTimers();
+  });
+
   it("renders the top feature entry", async () => {
     const element = await Page();
 

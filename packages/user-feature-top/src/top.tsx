@@ -18,6 +18,7 @@ import type { TimelineItem } from "./timeline";
 
 type BlogSummary = {
   latestPublishedAt: string;
+  streakDays: number;
   totalCount: number;
 };
 
@@ -30,6 +31,7 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
   const blogStatsLabel = t("toc.reader.items.blogStats", {
     latestDate: blogSummary.latestPublishedAt,
+    streakDays: blogSummary.streakDays,
     totalCount: blogSummary.totalCount,
   });
   const timelineIconMap = {

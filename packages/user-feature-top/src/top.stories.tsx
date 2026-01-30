@@ -6,6 +6,7 @@ const meta = {
   args: {
     blogSummary: {
       latestPublishedAt: "2024-01-01",
+      streakDays: 7,
       totalCount: 42,
     },
   },

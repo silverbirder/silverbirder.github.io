@@ -47,8 +47,16 @@ const rehypePlugins: Pluggable[] = [
 
 const baseRemarkPlugins: Pluggable[] = [
   remarkGfm,
-  createRemarkLinkCardGuard,
-  [remarkLinkCardPlus, { cache: true, noThumbnail: false, shortenUrl: true }],
+  createRemarkLinkCardGuard(),
+  [
+    remarkLinkCardPlus,
+    {
+      cache: true,
+      ignoreExtensions: [".pdf"],
+      noThumbnail: false,
+      shortenUrl: true,
+    },
+  ],
 ];
 
 const createOptions = (remarkPlugins: Pluggable[]): MdxOptions => ({

@@ -5,28 +5,9 @@ import { createCallerFactory } from "@/server/api/trpc";
 vi.mock("@/env", () => ({
   env: {
     ADMIN_ALLOWED_EMAILS: "allowed@example.com",
-    HATENA_GITHUB_BASE_BRANCH: "main",
-    HATENA_GITHUB_REPOSITORY: "silverbirder/hatena",
-  },
-}));
-
-const { getAccessToken } = vi.hoisted(() => ({
-  getAccessToken: vi.fn(),
-}));
-
-vi.mock("@/server/better-auth", () => ({
-  auth: {
-    api: {
-      getAccessToken,
-    },
-  },
-}));
-
-let requestMock = vi.fn();
-
-vi.mock("octokit", () => ({
-  Octokit: class {
-    request = (...args: Parameters<typeof requestMock>) => requestMock(...args);
+    HATENA_API_KEY: "test-api-key",
+    HATENA_BLOG_DOMAIN: "silverbirder.hatenablog.jp",
+    HATENA_ID: "silverbirdr",
   },
 }));
 
@@ -52,71 +33,62 @@ const allowedSession = {
 
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 beforeEach(() => {
   vi.clearAllMocks();
 });
 
-describe("hatenaRouter.createPullRequest", () => {
-  it("dispatches the draft workflow and updates the draft file content", async () => {
-    getAccessToken.mockResolvedValue({ accessToken: "test-token" });
-    requestMock = vi
-      .fn()
-      .mockResolvedValueOnce({ data: {} })
-      .mockResolvedValueOnce({
-        data: [
-          {
-            head: { ref: "hatena/test-branch" },
-            html_url: "https://example/pr/1",
-            number: 1,
-            title: "Hatena Draft Title",
-          },
-        ],
-      })
-      .mockResolvedValueOnce({
-        data: [
-          {
-            name: "draft.md",
-            path: "draft_entries/draft.md",
-            type: "file",
-          },
-        ],
-      })
-      .mockResolvedValueOnce({
-        data: {
-          content: Buffer.from(
-            "---\nTitle: Hatena Draft Title\nDraft: true\n---\n\nOld body",
-            "utf8",
-          ).toString("base64"),
-          encoding: "base64",
-          sha: "file-sha",
-        },
-      })
-      .mockResolvedValueOnce({ data: {} });
+describe("hatenaRouter.createDraft", () => {
+  it("posts a draft entry and returns preview and edit URLs", async () => {
+    const fetchMock = vi.fn(
+      async (): Promise<Response> =>
+        ({
+          ok: true,
+          status: 201,
+          statusText: "Created",
+          text: async () =>
+            `<?xml version="1.0" encoding="utf-8"?>
+        <entry xmlns="http://www.w3.org/2005/Atom">
+          <link rel="edit" href="https://blog.hatena.ne.jp/silverbirdr/silverbirder.hatenablog.jp/atom/entry/1" />
+          <link rel="preview" href="https://silverbirder.hatenablog.jp/draft/entry/1" />
+        </entry>`,
+        }) as Response,
+    );
+    vi.stubGlobal("fetch", fetchMock);
 
     const caller = createCaller({
       headers: new Headers(),
       session: { session: allowedSession, user: allowedUser },
     });
 
-    const result = await caller.createPullRequest({
-      content: "---\nTitle: Hatena Draft Title\nDraft: true\n---\n\nHello",
+    const result = await caller.createDraft({
+      body: "Hello from Hatena",
       title: "Hatena Draft Title",
     });
 
-    expect(result.url).toBe("https://example/pr/1");
-    expect(result.number).toBe(1);
-    expect(result.filePath).toBe("draft_entries/draft.md");
-    expect(result.branchName).toBe("hatena/test-branch");
-    expect(requestMock).toHaveBeenCalled();
-
-    const calls = requestMock.mock.calls.map((call) => call[0]);
-    expect(calls).toContain(
-      "POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches",
+    expect(result.previewUrl).toBe(
+      "https://silverbirder.hatenablog.jp/draft/entry/1",
     );
-    expect(calls).toContain("GET /repos/{owner}/{repo}/pulls");
-    expect(calls).toContain("GET /repos/{owner}/{repo}/contents/{path}");
-    expect(calls).toContain("PUT /repos/{owner}/{repo}/contents/{path}");
+    expect(result.editUrl).toBe(
+      "https://blog.hatena.ne.jp/silverbirdr/silverbirder.hatenablog.jp/atom/entry/1",
+    );
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const firstCall = fetchMock.mock.calls[0] as
+      | Parameters<typeof fetch>
+      | undefined;
+    if (!firstCall) {
+      throw new Error("fetch was not called");
+    }
+    const [url, options] = firstCall;
+    expect(url).toBe(
+      "https://blog.hatena.ne.jp/silverbirdr/silverbirder.hatenablog.jp/atom/entry",
+    );
+    expect(options?.method).toBe("POST");
+    const headers = new Headers(options?.headers);
+    expect(headers.get("Authorization") ?? "").toMatch(/^Basic /);
+    expect(String(options?.body ?? "")).toContain("Hatena Draft Title");
   });
 });

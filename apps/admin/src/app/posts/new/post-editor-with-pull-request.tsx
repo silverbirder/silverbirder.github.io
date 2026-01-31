@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 
 import { api } from "@/trpc/react";
 
-import { buildHatenaMarkdown } from "../post-editor-hatena-markdown";
 import {
   buildMarkdown,
   getUniqueDailyFileName,
@@ -32,8 +31,7 @@ export const PostEditorWithPullRequest = ({
   const createPullRequestMutation = api.github.createPullRequest.useMutation();
   const createZennPullRequestMutation =
     api.zenn.createPullRequest.useMutation();
-  const createHatenaPullRequestMutation =
-    api.hatena.createPullRequest.useMutation();
+  const createHatenaDraftMutation = api.hatena.createDraft.useMutation();
 
   return (
     <PostEditor
@@ -42,7 +40,7 @@ export const PostEditorWithPullRequest = ({
         postsQuery.isError ||
         createPullRequestMutation.isPending ||
         createZennPullRequestMutation.isPending ||
-        createHatenaPullRequestMutation.isPending
+        createHatenaDraftMutation.isPending
       }
       enableHatenaSync
       enableZennSync
@@ -88,17 +86,22 @@ export const PostEditorWithPullRequest = ({
 
           if (shouldSyncHatena && draft.hatena) {
             try {
-              const hatenaContent = buildHatenaMarkdown({
+              const hatenaResult = await createHatenaDraftMutation.mutateAsync({
                 body: draft.body,
                 title: draft.title,
               });
-              const hatenaResult =
-                await createHatenaPullRequestMutation.mutateAsync({
-                  content: hatenaContent,
-                  title: draft.title,
-                });
-              if (hatenaResult.url) {
-                window.open(hatenaResult.url, "_blank", "noopener,noreferrer");
+              if (hatenaResult.previewUrl) {
+                window.open(
+                  hatenaResult.previewUrl,
+                  "_blank",
+                  "noopener,noreferrer",
+                );
+              } else if (hatenaResult.editUrl) {
+                window.open(
+                  hatenaResult.editUrl,
+                  "_blank",
+                  "noopener,noreferrer",
+                );
               } else {
                 window.alert(t("createHatenaPullRequestError"));
               }

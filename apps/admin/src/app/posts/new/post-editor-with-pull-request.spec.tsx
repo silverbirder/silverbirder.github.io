@@ -17,7 +17,7 @@ const createZennPullRequestMutation = {
   isPending: false,
   mutateAsync: vi.fn(),
 };
-const createHatenaPullRequestMutation = {
+const createHatenaDraftMutation = {
   isPending: false,
   mutateAsync: vi.fn(),
 };
@@ -40,8 +40,8 @@ vi.mock("@/trpc/react", () => ({
       },
     },
     hatena: {
-      createPullRequest: {
-        useMutation: () => createHatenaPullRequestMutation,
+      createDraft: {
+        useMutation: () => createHatenaDraftMutation,
       },
     },
     zenn: {

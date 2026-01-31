@@ -29,11 +29,17 @@ type Props = {
 
 export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
-  const blogStatsLabel = t("toc.reader.items.blogStats", {
-    latestDate: blogSummary.latestPublishedAt,
-    streakDays: blogSummary.streakDays,
-    totalCount: blogSummary.totalCount,
-  });
+  const blogStatsLines = [
+    t("toc.reader.items.blogStats.latest", {
+      latestDate: blogSummary.latestPublishedAt,
+    }),
+    t("toc.reader.items.blogStats.total", {
+      totalCount: blogSummary.totalCount,
+    }),
+    t("toc.reader.items.blogStats.streak", {
+      streakDays: blogSummary.streakDays,
+    }),
+  ];
   const timelineIconMap = {
     bookmark: FaBookmark,
     share: FaShareNodes,
@@ -59,20 +65,23 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
           <Box>
             <Heading as="h2">{t("toc.reader.title")}</Heading>
             <VStack alignItems="flex-start" gap={0}>
-              <HStack alignItems="baseline" gap={0}>
-                <ViewTransitionLink
-                  href="/blog"
-                  lineHeight="var(--notebook-line-height)"
-                >
-                  {t("toc.reader.items.blog")}
-                </ViewTransitionLink>
-                <Text
-                  lineHeight="var(--notebook-line-height)"
-                  my={0}
-                  textStyle="2xs"
-                >
-                  {blogStatsLabel}
-                </Text>
+              <ViewTransitionLink
+                href="/blog"
+                lineHeight="var(--notebook-line-height)"
+              >
+                {t("toc.reader.items.blog")}
+              </ViewTransitionLink>
+              <HStack alignItems="flex-start" gap={4} wrap="wrap">
+                {blogStatsLines.map((line) => (
+                  <Text
+                    fontSize="2xs"
+                    key={line}
+                    lineHeight="var(--notebook-line-height)"
+                    my={0}
+                  >
+                    {line}
+                  </Text>
+                ))}
               </HStack>
             </VStack>
           </Box>

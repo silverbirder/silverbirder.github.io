@@ -154,13 +154,12 @@ jobs:
         with:
           script: |
             const owner = context.repo.owner;
-            const repo = context.repo.repo;
             const prNumber = context.payload.pull_request.number;
-            const url = `https://${owner}.github.io/${repo}/pr-${prNumber}/`;
+            const url = `https://${owner}.github.io/pr-${prNumber}/`;
 
             await github.rest.issues.createComment({
               owner,
-              repo,
+              repo: context.repo.repo,
               issue_number: prNumber,
               body: `Preview deployed: ${url}`
             });

@@ -58,6 +58,7 @@ const normalizeHost = (rawHost: string) =>
     .replace(/^www\./, "");
 
 const ignoredLinkCardHosts = [
+  "cucumber.io",
   "3tene.com",
   "apps.apple.com",
   "cloudnativedays.jp",

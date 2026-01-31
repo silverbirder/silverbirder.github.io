@@ -78,7 +78,7 @@ https://custom-elements-everywhere.com/
 
 Project Fugu というものがあります。
 
-https://www.heise.de/developer/artikel/Google-Projekt-Fugu-Die-Macht-des-Kugelfisches-4255636.html
+https://www.heise.de/blog/Fugu-Die-Macht-des-Kugelfisches-4255636.html
 
 > Unter dem Codenamen Fugu plant Google die Einführung zahlreicher Webschnittstellen in seinem Webbrowser Chrome, welche die Lücke zwischen Progressive Web Apps und ihren nativen Gegenstücken schließen wollen.
 

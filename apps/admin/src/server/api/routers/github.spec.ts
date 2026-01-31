@@ -207,6 +207,7 @@ describe("githubRouter.getPost", () => {
         'publishedAt: "2026-01-02"',
         'summary: "Summary"',
         'tags: ["alpha", "beta"]',
+        "index: true",
         "---",
         "",
         "Body content",
@@ -222,6 +223,7 @@ describe("githubRouter.getPost", () => {
 
     expect(result).toEqual({
       body: "Body content",
+      index: true,
       publishedAt: "2026-01-02",
       summary: "Summary",
       tags: ["alpha", "beta"],

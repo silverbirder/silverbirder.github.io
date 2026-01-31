@@ -5,7 +5,9 @@ import { PostEditorLayout } from "./post-editor-layout";
 const meta = {
   args: {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
+    indexValue: false,
     onBodyChange: () => undefined,
+    onIndexChange: () => undefined,
     onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,
     onSummaryChange: () => undefined,

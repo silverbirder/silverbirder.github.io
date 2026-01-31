@@ -22,7 +22,9 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue=""
+        indexValue={false}
         onBodyChange={() => undefined}
+        onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
         onSummaryChange={() => undefined}
         onTagInputBlur={() => undefined}
@@ -53,6 +55,9 @@ describe("PostEditorLayout", () => {
     expect(heading?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
+    expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
+      true,
+    );
     expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);

@@ -129,6 +129,25 @@ const extractSummaryFromContent = (content: string) => {
   return extractFrontmatterValue(frontmatter, "summary");
 };
 
+const extractIndexFromContent = (content: string) => {
+  const frontmatter = extractFrontmatterBlock(content);
+  if (!frontmatter) {
+    return null;
+  }
+  const value = extractFrontmatterValue(frontmatter, "index");
+  if (!value) {
+    return null;
+  }
+  const normalized = value.trim().toLowerCase();
+  if (["0", "false", "no"].includes(normalized)) {
+    return false;
+  }
+  if (["1", "true", "yes"].includes(normalized)) {
+    return true;
+  }
+  return null;
+};
+
 const extractTagsFromContent = (content: string) => {
   const frontmatter = extractFrontmatterBlock(content);
   if (!frontmatter) {
@@ -154,6 +173,7 @@ const stripFrontmatter = (content: string) => {
 const buildDraftFromContent = (content: string) => {
   return {
     body: stripFrontmatter(content),
+    index: extractIndexFromContent(content) ?? false,
     publishedAt: extractPublishedAtFromContent(content) ?? "",
     summary: extractSummaryFromContent(content) ?? "",
     tags: extractTagsFromContent(content),

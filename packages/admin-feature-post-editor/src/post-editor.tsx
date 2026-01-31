@@ -13,12 +13,14 @@ import { buildSummaryFromBody } from "./summary";
 type Props = {
   createPullRequestDisabled?: boolean;
   initialBody?: string;
+  initialIndex?: boolean;
   initialPublishedAt?: string;
   initialSummary?: string;
   initialTags?: string[];
   initialTitle?: string;
   onCreatePullRequest?: (draft: {
     body: string;
+    index: boolean;
     publishedAt: string;
     summary: string;
     tags: string[];
@@ -33,6 +35,7 @@ type Props = {
 export const PostEditor = ({
   createPullRequestDisabled,
   initialBody,
+  initialIndex,
   initialPublishedAt,
   initialSummary,
   initialTags,
@@ -62,6 +65,7 @@ export const PostEditor = ({
   const [publishedAt, setPublishedAt] = useState(() =>
     initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
   );
+  const [indexEnabled, setIndexEnabled] = useState(() => initialIndex ?? false);
   const [summary, setSummary] = useState(initialSummary ?? "");
   const [summaryMode, setSummaryMode] = useState<"auto" | "manual">(() =>
     initialSummary && initialSummary.trim().length > 0 ? "manual" : "auto",
@@ -93,6 +97,7 @@ export const PostEditor = ({
 
     const hasInitialValues =
       initialBody !== undefined ||
+      initialIndex !== undefined ||
       initialTitle !== undefined ||
       initialPublishedAt !== undefined ||
       initialSummary !== undefined ||
@@ -122,6 +127,10 @@ export const PostEditor = ({
       setPublishedAt(initialPublishedAt);
     }
 
+    if (initialIndex !== undefined) {
+      setIndexEnabled(initialIndex);
+    }
+
     if (initialBody !== undefined) {
       onBodyChange(initialBody);
     }
@@ -132,6 +141,7 @@ export const PostEditor = ({
     initialPublishedAt,
     initialSummary,
     initialTags,
+    initialIndex,
     initialTitle,
     onBodyChange,
     onTitleChange,
@@ -290,6 +300,7 @@ export const PostEditor = ({
     try {
       await onCreatePullRequest({
         body: bodyRef.current,
+        index: indexEnabled,
         publishedAt,
         summary,
         tags,
@@ -301,6 +312,7 @@ export const PostEditor = ({
   }, [
     createPullRequestIsDisabled,
     onCreatePullRequest,
+    indexEnabled,
     publishedAt,
     summary,
     tags,
@@ -309,6 +321,10 @@ export const PostEditor = ({
 
   const handlePublishedAtChange = useCallback((value: string) => {
     setPublishedAt(value);
+  }, []);
+
+  const handleIndexChange = useCallback((value: boolean) => {
+    setIndexEnabled(value);
   }, []);
 
   const handleSummaryChange = useCallback((value: string) => {
@@ -433,12 +449,14 @@ export const PostEditor = ({
       bodyValue={body}
       createPullRequestDisabled={createPullRequestIsDisabled}
       createPullRequestIsLoading={isCreatingPullRequest}
+      indexValue={indexEnabled}
       isBodyDragActive={isDragActive}
       isLoading={isUploading || isResolvingLinks || isCreatingPullRequest}
       onBodyChange={handleBodyChange}
       onCreatePullRequest={
         onCreatePullRequest ? handleCreatePullRequest : undefined
       }
+      onIndexChange={handleIndexChange}
       onPublishedAtChange={handlePublishedAtChange}
       onResolveLinkTitles={handleResolveLinkTitles}
       onSummaryChange={handleSummaryChange}

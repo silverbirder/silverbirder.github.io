@@ -24,10 +24,12 @@ type Props = {
   bodyValue: string;
   createPullRequestDisabled?: boolean;
   createPullRequestIsLoading?: boolean;
+  indexValue: boolean;
   isBodyDragActive?: boolean;
   isLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
+  onIndexChange: (value: boolean) => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
   onSummaryChange: (value: string) => void;
@@ -258,6 +260,24 @@ const Input = chakra("input", {
   },
 });
 
+const Select = chakra("select", {
+  base: {
+    _focusVisible: {
+      borderColor: "green.solid",
+      outline: "none",
+    },
+    background: "bg",
+    borderColor: "green.muted",
+    borderRadius: "0.75rem",
+    borderWidth: "1px",
+    color: "fg",
+    fontSize: "1rem",
+    paddingBlock: "0.75rem",
+    paddingInline: "0.9rem",
+    width: "100%",
+  },
+});
+
 const Textarea = chakra("textarea", {
   base: {
     _focusVisible: {
@@ -344,10 +364,12 @@ export const PostEditorLayout = ({
   bodyValue,
   createPullRequestDisabled = false,
   createPullRequestIsLoading = false,
+  indexValue,
   isBodyDragActive = false,
   isLoading = false,
   onBodyChange,
   onCreatePullRequest,
+  onIndexChange,
   onPublishedAtChange,
   onResolveLinkTitles,
   onSummaryChange,
@@ -437,6 +459,19 @@ export const PostEditorLayout = ({
               value={publishedAtValue}
             />
             <HelperText>{t("publishedAtHelp")}</HelperText>
+          </FieldGroup>
+          <FieldGroup>
+            {t("indexLabel")}
+            <Select
+              disabled={isLoading}
+              name="index"
+              onChange={(event) => onIndexChange(event.target.value === "true")}
+              value={String(indexValue)}
+            >
+              <option value="true">{t("indexOptionTrue")}</option>
+              <option value="false">{t("indexOptionFalse")}</option>
+            </Select>
+            <HelperText>{t("indexHelp")}</HelperText>
           </FieldGroup>
           <FieldGroup>
             {t("summaryLabel")}

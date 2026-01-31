@@ -67,6 +67,7 @@ export const PostEditorWithUpdate = ({
         updatePullRequestMutation.isPending
       }
       initialBody={post?.body}
+      initialIndex={post?.index}
       initialPublishedAt={post?.publishedAt}
       initialSummary={post?.summary}
       initialTags={post?.tags}

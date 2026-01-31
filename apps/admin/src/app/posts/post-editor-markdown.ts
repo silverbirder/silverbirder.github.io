@@ -83,6 +83,7 @@ const normalizePublishedAt = (value: string, date: Date) => {
 export const buildMarkdown = (
   draft: {
     body: string;
+    index: boolean;
     publishedAt: string;
     summary: string;
     tags: string[];
@@ -103,5 +104,7 @@ export const buildMarkdown = (
   const body = draft.body;
   const tags = formatTags(draft.tags);
 
-  return `---\ntitle: '${title}'\npublishedAt: '${publishedAt}'\nsummary: '${summary}'\ntags: ${tags}\nindex: false\n---\n\n${body}\n`;
+  const index = draft.index ? "true" : "false";
+
+  return `---\ntitle: '${title}'\npublishedAt: '${publishedAt}'\nsummary: '${summary}'\ntags: ${tags}\nindex: ${index}\n---\n\n${body}\n`;
 };

@@ -12,12 +12,15 @@ import { buildSummaryFromBody } from "./summary";
 
 type Props = {
   createPullRequestDisabled?: boolean;
+  enableZennSync?: boolean;
   initialBody?: string;
   initialIndex?: boolean;
   initialPublishedAt?: string;
   initialSummary?: string;
   initialTags?: string[];
   initialTitle?: string;
+  initialZennEnabled?: boolean;
+  initialZennType?: string;
   onCreatePullRequest?: (draft: {
     body: string;
     index: boolean;
@@ -25,6 +28,12 @@ type Props = {
     summary: string;
     tags: string[];
     title: string;
+    zenn?: {
+      enabled: boolean;
+      slug: string;
+      topics: string[];
+      type: string;
+    };
   }) => Promise<void>;
   resolveLinkTitles: (source: string) => Promise<string>;
   resolvePreview: (source: string) => Promise<SerializeResult>;
@@ -34,12 +43,15 @@ type Props = {
 
 export const PostEditor = ({
   createPullRequestDisabled,
+  enableZennSync = false,
   initialBody,
   initialIndex,
   initialPublishedAt,
   initialSummary,
   initialTags,
   initialTitle,
+  initialZennEnabled,
+  initialZennType,
   onCreatePullRequest,
   resolveLinkTitles,
   resolvePreview,
@@ -72,6 +84,24 @@ export const PostEditor = ({
   );
   const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [tagInputValue, setTagInputValue] = useState("");
+  const [zennEnabled, setZennEnabled] = useState(initialZennEnabled ?? false);
+  const [zennSlug, setZennSlug] = useState("");
+  const [zennType, setZennType] = useState(initialZennType ?? "tech");
+  const generateZennSlug = useCallback(() => {
+    const length = 12;
+    const bytes = new Uint8Array(length / 2);
+    if (globalThis.crypto?.getRandomValues) {
+      globalThis.crypto.getRandomValues(bytes);
+    } else {
+      for (let i = 0; i < bytes.length; i += 1) {
+        bytes[i] = Math.floor(Math.random() * 256);
+      }
+    }
+    return Array.from(bytes)
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("")
+      .slice(0, length);
+  }, []);
   const bodyRef = useRef(body);
   const summaryRef = useRef(summary);
   const summaryModeRef = useRef(summaryMode);
@@ -101,7 +131,9 @@ export const PostEditor = ({
       initialTitle !== undefined ||
       initialPublishedAt !== undefined ||
       initialSummary !== undefined ||
-      (initialTags && initialTags.length > 0);
+      (initialTags && initialTags.length > 0) ||
+      initialZennEnabled !== undefined ||
+      initialZennType !== undefined;
 
     if (!hasInitialValues) {
       return;
@@ -121,6 +153,14 @@ export const PostEditor = ({
 
     if (initialTags) {
       setTags(initialTags);
+    }
+
+    if (initialZennEnabled !== undefined) {
+      setZennEnabled(initialZennEnabled);
+    }
+
+    if (initialZennType !== undefined) {
+      setZennType(initialZennType);
     }
 
     if (initialPublishedAt) {
@@ -143,9 +183,21 @@ export const PostEditor = ({
     initialTags,
     initialIndex,
     initialTitle,
+    initialZennEnabled,
+    initialZennType,
     onBodyChange,
     onTitleChange,
   ]);
+
+  useEffect(() => {
+    if (!enableZennSync || !zennEnabled) {
+      return;
+    }
+    if (zennSlug.length > 0) {
+      return;
+    }
+    setZennSlug(generateZennSlug());
+  }, [enableZennSync, generateZennSlug, zennEnabled, zennSlug]);
 
   const updateSummaryIfAuto = useCallback((value: string) => {
     const currentSummary = summaryRef.current;
@@ -288,7 +340,10 @@ export const PostEditor = ({
     isUploading ||
     isResolvingLinks ||
     isCreatingPullRequest ||
-    !onCreatePullRequest;
+    !onCreatePullRequest ||
+    (enableZennSync &&
+      zennEnabled &&
+      (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
 
   const handleCreatePullRequest = useCallback(async () => {
     if (!onCreatePullRequest || createPullRequestIsDisabled) {
@@ -305,6 +360,12 @@ export const PostEditor = ({
         summary,
         tags,
         title,
+        zenn: {
+          enabled: enableZennSync && zennEnabled,
+          slug: zennSlug,
+          topics: [],
+          type: zennType,
+        },
       });
     } finally {
       setIsCreatingPullRequest(false);
@@ -317,6 +378,10 @@ export const PostEditor = ({
     summary,
     tags,
     title,
+    enableZennSync,
+    zennEnabled,
+    zennSlug,
+    zennType,
   ]);
 
   const handlePublishedAtChange = useCallback((value: string) => {
@@ -398,6 +463,14 @@ export const PostEditor = ({
     setTags((prev) => prev.filter((item) => item !== tag));
   }, []);
 
+  const handleZennEnabledChange = useCallback((value: boolean) => {
+    setZennEnabled(value);
+  }, []);
+
+  const handleZennTypeChange = useCallback((value: string) => {
+    setZennType(value);
+  }, []);
+
   const normalizedTagSuggestions = useMemo(() => {
     const selected = new Set(tags.map((tag) => tag.toLowerCase()));
     const suggestions = tagSuggestions ?? [];
@@ -466,6 +539,8 @@ export const PostEditor = ({
       onTagRemove={handleTagRemove}
       onTagSuggestionClick={handleTagSuggestionClick}
       onTitleChange={onTitleChange}
+      onZennEnabledChange={enableZennSync ? handleZennEnabledChange : undefined}
+      onZennTypeChange={enableZennSync ? handleZennTypeChange : undefined}
       previewContent={
         previewSource &&
         "compiledSource" in previewSource &&
@@ -483,6 +558,8 @@ export const PostEditor = ({
       tagSuggestions={normalizedTagSuggestions}
       tagsValue={tags}
       titleValue={title}
+      zennEnabledValue={zennEnabled}
+      zennTypeValue={zennType}
     />
   );
 };

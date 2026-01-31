@@ -39,6 +39,8 @@ type Props = {
   onTagRemove: (tag: string) => void;
   onTagSuggestionClick: (tag: string) => void;
   onTitleChange: (value: string) => void;
+  onZennEnabledChange?: (value: boolean) => void;
+  onZennTypeChange?: (value: string) => void;
   previewContent: null | ReactNode;
   previewIsLoading?: boolean;
   previewTags?: string[];
@@ -50,6 +52,8 @@ type Props = {
   tagSuggestions: string[];
   tagsValue: string[];
   titleValue: string;
+  zennEnabledValue?: boolean;
+  zennTypeValue?: string;
 };
 
 const Main = chakra("main", {
@@ -169,6 +173,16 @@ const PanelTitle = chakra("h2", {
     fontSize: "0.7rem",
     fontWeight: "700",
     letterSpacing: "0.2em",
+    textTransform: "uppercase",
+  },
+});
+
+const SectionTitle = chakra("h3", {
+  base: {
+    color: "green.fg",
+    fontSize: "0.7rem",
+    fontWeight: "700",
+    letterSpacing: "0.18em",
     textTransform: "uppercase",
   },
 });
@@ -379,6 +393,8 @@ export const PostEditorLayout = ({
   onTagRemove,
   onTagSuggestionClick,
   onTitleChange,
+  onZennEnabledChange,
+  onZennTypeChange,
   previewContent,
   previewIsLoading,
   previewTags,
@@ -390,6 +406,8 @@ export const PostEditorLayout = ({
   tagSuggestions,
   tagsValue,
   titleValue,
+  zennEnabledValue = false,
+  zennTypeValue = "",
 }: Props) => {
   const t = useTranslations("admin.postEditor");
   const previewDate = publishedAtValue || "2025-01-12";
@@ -532,6 +550,45 @@ export const PostEditorLayout = ({
               <HelperText>{t("tagsHelp")}</HelperText>
             </TagInputRow>
           </FieldGroup>
+          {onZennEnabledChange ? (
+            <>
+              <SectionTitle>{t("zennSectionTitle")}</SectionTitle>
+              <FieldGroup>
+                {t("zennEnabledLabel")}
+                <Select
+                  disabled={isLoading}
+                  name="zennEnabled"
+                  onChange={(event) =>
+                    onZennEnabledChange(event.target.value === "true")
+                  }
+                  value={String(zennEnabledValue)}
+                >
+                  <option value="false">{t("zennEnabledOptionFalse")}</option>
+                  <option value="true">{t("zennEnabledOptionTrue")}</option>
+                </Select>
+                <HelperText>{t("zennEnabledHelp")}</HelperText>
+              </FieldGroup>
+              {zennEnabledValue ? (
+                <>
+                  <FieldGroup>
+                    {t("zennTypeLabel")}
+                    <Select
+                      disabled={isLoading}
+                      name="zennType"
+                      onChange={(event) =>
+                        onZennTypeChange?.(event.target.value)
+                      }
+                      value={zennTypeValue}
+                    >
+                      <option value="tech">{t("zennTypeOptionTech")}</option>
+                      <option value="idea">{t("zennTypeOptionIdea")}</option>
+                    </Select>
+                    <HelperText>{t("zennTypeHelp")}</HelperText>
+                  </FieldGroup>
+                </>
+              ) : null}
+            </>
+          ) : null}
           <FieldGroup>
             {t("contentLabel")}
             <BodyDropzone

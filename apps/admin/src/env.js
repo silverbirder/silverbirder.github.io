@@ -32,6 +32,9 @@ export const env = createEnv({
     CONTENT_GITHUB_REPOSITORY: process.env.CONTENT_GITHUB_REPOSITORY,
     CONTENT_POSTS_PATH: process.env.CONTENT_POSTS_PATH,
     NODE_ENV: process.env.NODE_ENV,
+    ZENN_ARTICLES_PATH: process.env.ZENN_ARTICLES_PATH,
+    ZENN_GITHUB_BASE_BRANCH: process.env.ZENN_GITHUB_BASE_BRANCH,
+    ZENN_GITHUB_REPOSITORY: process.env.ZENN_GITHUB_REPOSITORY,
   },
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
@@ -53,6 +56,9 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"]) 
       .default("development"),
+    ZENN_ARTICLES_PATH: z.string().default("articles"),
+    ZENN_GITHUB_BASE_BRANCH: z.string().default("main"),
+    ZENN_GITHUB_REPOSITORY: z.string(),
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -1,6 +1,7 @@
 import { cloudinaryRouter } from "@/server/api/routers/cloudinary";
 import { githubRouter } from "@/server/api/routers/github";
 import { mdxRouter } from "@/server/api/routers/mdx";
+import { zennRouter } from "@/server/api/routers/zenn";
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 
 /**
@@ -12,6 +13,7 @@ export const appRouter = createTRPCRouter({
   cloudinary: cloudinaryRouter,
   github: githubRouter,
   mdx: mdxRouter,
+  zenn: zennRouter,
 });
 
 // export type definition of API

@@ -180,4 +180,39 @@ describe("PostEditor", () => {
       uploadMock.mockReset();
     }
   });
+
+  it("creates a Zenn draft payload when Zenn sync is enabled", async () => {
+    const onCreatePullRequest = vi.fn().mockResolvedValue(undefined);
+    const getRandomValues = (arr: Uint8Array) => {
+      arr.fill(1);
+      return arr;
+    };
+    vi.stubGlobal("crypto", { getRandomValues });
+
+    await renderWithProvider(
+      <PostEditor
+        enableZennSync
+        initialBody="Hello"
+        initialTitle="Title"
+        initialZennEnabled
+        onCreatePullRequest={onCreatePullRequest}
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    const button = document.querySelector(
+      "[data-testid='post-editor-create-pull-request']",
+    ) as HTMLButtonElement | null;
+    await expect.poll(() => button?.disabled).toBe(false);
+    button?.click();
+
+    await expect.poll(() => onCreatePullRequest.mock.calls.length).toBe(1);
+
+    const payload = onCreatePullRequest.mock.calls[0]?.[0];
+    expect(payload.zenn?.enabled).toBe(true);
+    expect(payload.zenn?.slug).toBe("010101010101");
+    expect(payload.zenn?.type).toBe("tech");
+  });
 });

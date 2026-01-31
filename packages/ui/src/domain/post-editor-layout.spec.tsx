@@ -63,4 +63,39 @@ describe("PostEditorLayout", () => {
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(preview?.textContent ?? "").toContain("Preview");
   });
+
+  it("renders Zenn section when handlers are provided", async () => {
+    await renderWithProvider(
+      <PostEditorLayout
+        bodyValue="Body"
+        indexValue={false}
+        onBodyChange={() => undefined}
+        onIndexChange={() => undefined}
+        onPublishedAtChange={() => undefined}
+        onSummaryChange={() => undefined}
+        onTagInputBlur={() => undefined}
+        onTagInputChange={() => undefined}
+        onTagInputKeyDown={() => undefined}
+        onTagRemove={() => undefined}
+        onTagSuggestionClick={() => undefined}
+        onTitleChange={() => undefined}
+        onZennEnabledChange={() => undefined}
+        onZennTypeChange={() => undefined}
+        previewContent={<p>Preview</p>}
+        publishedAtValue="2026-01-29"
+        summaryValue=""
+        tagInputValue=""
+        tagSuggestions={[]}
+        tagsValue={[]}
+        titleValue="Release notes"
+        zennEnabledValue
+        zennTypeValue="tech"
+      />,
+    );
+
+    const section = document.querySelector("h3");
+    expect(section?.textContent ?? "").toContain("Zenn");
+    const zennTypeSelect = document.querySelector("select[name='zennType']");
+    expect(zennTypeSelect).not.toBeNull();
+  });
 });

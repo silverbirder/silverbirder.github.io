@@ -31,6 +31,8 @@ export const env = createEnv({
     CONTENT_GITHUB_BASE_BRANCH: process.env.CONTENT_GITHUB_BASE_BRANCH,
     CONTENT_GITHUB_REPOSITORY: process.env.CONTENT_GITHUB_REPOSITORY,
     CONTENT_POSTS_PATH: process.env.CONTENT_POSTS_PATH,
+    HATENA_GITHUB_BASE_BRANCH: process.env.HATENA_GITHUB_BASE_BRANCH,
+    HATENA_GITHUB_REPOSITORY: process.env.HATENA_GITHUB_REPOSITORY,
     NODE_ENV: process.env.NODE_ENV,
     ZENN_ARTICLES_PATH: process.env.ZENN_ARTICLES_PATH,
     ZENN_GITHUB_BASE_BRANCH: process.env.ZENN_GITHUB_BASE_BRANCH,
@@ -53,6 +55,8 @@ export const env = createEnv({
       .string()
       .default("silverbirder/silverbirder.github.io"),
     CONTENT_POSTS_PATH: z.string().default("packages/content/posts"),
+    HATENA_GITHUB_BASE_BRANCH: z.string().default("main"),
+    HATENA_GITHUB_REPOSITORY: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"]) 
       .default("development"),

@@ -24,11 +24,13 @@ type Props = {
   bodyValue: string;
   createPullRequestDisabled?: boolean;
   createPullRequestIsLoading?: boolean;
+  hatenaEnabledValue?: boolean;
   indexValue: boolean;
   isBodyDragActive?: boolean;
   isLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
+  onHatenaEnabledChange?: (value: boolean) => void;
   onIndexChange: (value: boolean) => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
@@ -378,11 +380,13 @@ export const PostEditorLayout = ({
   bodyValue,
   createPullRequestDisabled = false,
   createPullRequestIsLoading = false,
+  hatenaEnabledValue = false,
   indexValue,
   isBodyDragActive = false,
   isLoading = false,
   onBodyChange,
   onCreatePullRequest,
+  onHatenaEnabledChange,
   onIndexChange,
   onPublishedAtChange,
   onResolveLinkTitles,
@@ -550,6 +554,26 @@ export const PostEditorLayout = ({
               <HelperText>{t("tagsHelp")}</HelperText>
             </TagInputRow>
           </FieldGroup>
+          {onHatenaEnabledChange ? (
+            <>
+              <SectionTitle>{t("hatenaSectionTitle")}</SectionTitle>
+              <FieldGroup>
+                {t("hatenaEnabledLabel")}
+                <Select
+                  disabled={isLoading}
+                  name="hatenaEnabled"
+                  onChange={(event) =>
+                    onHatenaEnabledChange(event.target.value === "true")
+                  }
+                  value={String(hatenaEnabledValue)}
+                >
+                  <option value="false">{t("hatenaEnabledOptionFalse")}</option>
+                  <option value="true">{t("hatenaEnabledOptionTrue")}</option>
+                </Select>
+                <HelperText>{t("hatenaEnabledHelp")}</HelperText>
+              </FieldGroup>
+            </>
+          ) : null}
           {onZennEnabledChange ? (
             <>
               <SectionTitle>{t("zennSectionTitle")}</SectionTitle>

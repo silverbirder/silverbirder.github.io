@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 
 import { api } from "@/trpc/react";
 
+import { buildHatenaMarkdown } from "../post-editor-hatena-markdown";
 import {
   buildMarkdown,
   getUniqueDailyFileName,
@@ -31,6 +32,8 @@ export const PostEditorWithPullRequest = ({
   const createPullRequestMutation = api.github.createPullRequest.useMutation();
   const createZennPullRequestMutation =
     api.zenn.createPullRequest.useMutation();
+  const createHatenaPullRequestMutation =
+    api.hatena.createPullRequest.useMutation();
 
   return (
     <PostEditor
@@ -38,8 +41,10 @@ export const PostEditorWithPullRequest = ({
         postsQuery.isLoading ||
         postsQuery.isError ||
         createPullRequestMutation.isPending ||
-        createZennPullRequestMutation.isPending
+        createZennPullRequestMutation.isPending ||
+        createHatenaPullRequestMutation.isPending
       }
+      enableHatenaSync
       enableZennSync
       onCreatePullRequest={async (draft) => {
         const date = parsePublishedAtDate(draft.publishedAt);
@@ -47,6 +52,7 @@ export const PostEditorWithPullRequest = ({
         const fileName = getUniqueDailyFileName(existingPosts, date);
         const content = buildMarkdown(draft, date);
         const shouldSyncZenn = draft.zenn?.enabled === true;
+        const shouldSyncHatena = draft.hatena?.enabled === true;
 
         try {
           const result = await createPullRequestMutation.mutateAsync({
@@ -77,6 +83,27 @@ export const PostEditorWithPullRequest = ({
               }
             } catch {
               window.alert(t("createZennPullRequestError"));
+            }
+          }
+
+          if (shouldSyncHatena && draft.hatena) {
+            try {
+              const hatenaContent = buildHatenaMarkdown({
+                body: draft.body,
+                title: draft.title,
+              });
+              const hatenaResult =
+                await createHatenaPullRequestMutation.mutateAsync({
+                  content: hatenaContent,
+                  title: draft.title,
+                });
+              if (hatenaResult.url) {
+                window.open(hatenaResult.url, "_blank", "noopener,noreferrer");
+              } else {
+                window.alert(t("createHatenaPullRequestError"));
+              }
+            } catch {
+              window.alert(t("createHatenaPullRequestError"));
             }
           }
 

@@ -98,4 +98,37 @@ describe("PostEditorLayout", () => {
     const zennTypeSelect = document.querySelector("select[name='zennType']");
     expect(zennTypeSelect).not.toBeNull();
   });
+
+  it("renders Hatena section when handlers are provided", async () => {
+    await renderWithProvider(
+      <PostEditorLayout
+        bodyValue="Body"
+        hatenaEnabledValue
+        indexValue={false}
+        onBodyChange={() => undefined}
+        onHatenaEnabledChange={() => undefined}
+        onIndexChange={() => undefined}
+        onPublishedAtChange={() => undefined}
+        onSummaryChange={() => undefined}
+        onTagInputBlur={() => undefined}
+        onTagInputChange={() => undefined}
+        onTagInputKeyDown={() => undefined}
+        onTagRemove={() => undefined}
+        onTagSuggestionClick={() => undefined}
+        onTitleChange={() => undefined}
+        previewContent={<p>Preview</p>}
+        publishedAtValue="2026-01-29"
+        summaryValue=""
+        tagInputValue=""
+        tagSuggestions={[]}
+        tagsValue={[]}
+        titleValue="Release notes"
+      />,
+    );
+
+    const section = document.querySelector("h3");
+    expect(section?.textContent ?? "").toContain("はてな");
+    const hatenaSelect = document.querySelector("select[name='hatenaEnabled']");
+    expect(hatenaSelect).not.toBeNull();
+  });
 });

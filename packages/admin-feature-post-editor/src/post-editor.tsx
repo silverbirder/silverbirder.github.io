@@ -12,8 +12,10 @@ import { buildSummaryFromBody } from "./summary";
 
 type Props = {
   createPullRequestDisabled?: boolean;
+  enableHatenaSync?: boolean;
   enableZennSync?: boolean;
   initialBody?: string;
+  initialHatenaEnabled?: boolean;
   initialIndex?: boolean;
   initialPublishedAt?: string;
   initialSummary?: string;
@@ -23,6 +25,9 @@ type Props = {
   initialZennType?: string;
   onCreatePullRequest?: (draft: {
     body: string;
+    hatena?: {
+      enabled: boolean;
+    };
     index: boolean;
     publishedAt: string;
     summary: string;
@@ -43,8 +48,10 @@ type Props = {
 
 export const PostEditor = ({
   createPullRequestDisabled,
+  enableHatenaSync = false,
   enableZennSync = false,
   initialBody,
+  initialHatenaEnabled,
   initialIndex,
   initialPublishedAt,
   initialSummary,
@@ -84,6 +91,9 @@ export const PostEditor = ({
   );
   const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [tagInputValue, setTagInputValue] = useState("");
+  const [hatenaEnabled, setHatenaEnabled] = useState(
+    initialHatenaEnabled ?? false,
+  );
   const [zennEnabled, setZennEnabled] = useState(initialZennEnabled ?? false);
   const [zennSlug, setZennSlug] = useState("");
   const [zennType, setZennType] = useState(initialZennType ?? "tech");
@@ -132,6 +142,7 @@ export const PostEditor = ({
       initialPublishedAt !== undefined ||
       initialSummary !== undefined ||
       (initialTags && initialTags.length > 0) ||
+      initialHatenaEnabled !== undefined ||
       initialZennEnabled !== undefined ||
       initialZennType !== undefined;
 
@@ -153,6 +164,10 @@ export const PostEditor = ({
 
     if (initialTags) {
       setTags(initialTags);
+    }
+
+    if (initialHatenaEnabled !== undefined) {
+      setHatenaEnabled(initialHatenaEnabled);
     }
 
     if (initialZennEnabled !== undefined) {
@@ -183,6 +198,7 @@ export const PostEditor = ({
     initialTags,
     initialIndex,
     initialTitle,
+    initialHatenaEnabled,
     initialZennEnabled,
     initialZennType,
     onBodyChange,
@@ -341,6 +357,7 @@ export const PostEditor = ({
     isResolvingLinks ||
     isCreatingPullRequest ||
     !onCreatePullRequest ||
+    (enableHatenaSync && hatenaEnabled && title.length === 0) ||
     (enableZennSync &&
       zennEnabled &&
       (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
@@ -355,6 +372,9 @@ export const PostEditor = ({
     try {
       await onCreatePullRequest({
         body: bodyRef.current,
+        hatena: {
+          enabled: enableHatenaSync && hatenaEnabled,
+        },
         index: indexEnabled,
         publishedAt,
         summary,
@@ -378,6 +398,8 @@ export const PostEditor = ({
     summary,
     tags,
     title,
+    enableHatenaSync,
+    hatenaEnabled,
     enableZennSync,
     zennEnabled,
     zennSlug,
@@ -463,6 +485,10 @@ export const PostEditor = ({
     setTags((prev) => prev.filter((item) => item !== tag));
   }, []);
 
+  const handleHatenaEnabledChange = useCallback((value: boolean) => {
+    setHatenaEnabled(value);
+  }, []);
+
   const handleZennEnabledChange = useCallback((value: boolean) => {
     setZennEnabled(value);
   }, []);
@@ -522,12 +548,16 @@ export const PostEditor = ({
       bodyValue={body}
       createPullRequestDisabled={createPullRequestIsDisabled}
       createPullRequestIsLoading={isCreatingPullRequest}
+      hatenaEnabledValue={hatenaEnabled}
       indexValue={indexEnabled}
       isBodyDragActive={isDragActive}
       isLoading={isUploading || isResolvingLinks || isCreatingPullRequest}
       onBodyChange={handleBodyChange}
       onCreatePullRequest={
         onCreatePullRequest ? handleCreatePullRequest : undefined
+      }
+      onHatenaEnabledChange={
+        enableHatenaSync ? handleHatenaEnabledChange : undefined
       }
       onIndexChange={handleIndexChange}
       onPublishedAtChange={handlePublishedAtChange}

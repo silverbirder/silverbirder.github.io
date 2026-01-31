@@ -215,4 +215,32 @@ describe("PostEditor", () => {
     expect(payload.zenn?.slug).toBe("010101010101");
     expect(payload.zenn?.type).toBe("tech");
   });
+
+  it("creates a Hatena draft payload when Hatena sync is enabled", async () => {
+    const onCreatePullRequest = vi.fn().mockResolvedValue(undefined);
+
+    await renderWithProvider(
+      <PostEditor
+        enableHatenaSync
+        initialBody="Hello"
+        initialHatenaEnabled
+        initialTitle="Title"
+        onCreatePullRequest={onCreatePullRequest}
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    const button = document.querySelector(
+      "[data-testid='post-editor-create-pull-request']",
+    ) as HTMLButtonElement | null;
+    await expect.poll(() => button?.disabled).toBe(false);
+    button?.click();
+
+    await expect.poll(() => onCreatePullRequest.mock.calls.length).toBe(1);
+
+    const payload = onCreatePullRequest.mock.calls[0]?.[0];
+    expect(payload.hatena?.enabled).toBe(true);
+  });
 });

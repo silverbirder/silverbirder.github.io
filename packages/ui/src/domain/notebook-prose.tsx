@@ -367,6 +367,8 @@ export const NotebookProse = chakra("div", {
       color: "var(--shiki-light)",
     },
     [inWhere("& strong")]: {
+      backgroundImage:
+        "linear-gradient(transparent 80%, var(--chakra-colors-green-solid) 20%)",
       fontWeight: "600",
     },
     [inWhere("& table")]: {

@@ -32,3 +32,20 @@ export const formatPublishedDate = (value: string, locale = "ja-JP") => {
     year: "numeric",
   }).format(date);
 };
+
+export const formatDate = (date: Date) => date.toISOString().slice(0, 10);
+
+export const parsePublishedAtDate = (value: string) => {
+  const normalized = value.trim();
+  if (!normalized) {
+    return new Date();
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
+    const parsed = new Date(`${normalized}T00:00:00`);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+  }
+  const parsed = new Date(normalized);
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+};

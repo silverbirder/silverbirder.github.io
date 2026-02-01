@@ -1,14 +1,7 @@
-import { buildSummaryFromBody } from "../summary";
+import { formatDate, hasFrontmatter } from "@repo/util";
+import { escapeYamlSingleQuotedString, formatYamlStringList } from "@repo/util";
 
-const hasFrontmatter = (source: string) => {
-  const trimmed = source.trimStart();
-  if (!trimmed.startsWith("---")) {
-    return false;
-  }
-  return /^---\n[\s\S]*?\n---\n/.test(trimmed);
-};
-
-const formatDate = (date: Date) => date.toISOString().slice(0, 10);
+import { buildSummaryFromBody } from "./summary";
 
 const formatDailyBaseName = (date: Date) => {
   const year = String(date.getFullYear());
@@ -41,36 +34,7 @@ export const getUniqueDailyFileName = (
   return `${base}-${Date.now()}.md`;
 };
 
-const escapeYamlSingleQuotedString = (value: string) =>
-  value.replace(/'/g, "''");
-
-const formatTags = (tags: string[]) => {
-  const normalized = Array.from(
-    new Set(tags.map((tag) => tag.trim()).filter(Boolean)),
-  );
-  if (normalized.length === 0) {
-    return "[]";
-  }
-  const escaped = normalized.map(
-    (tag) => `'${escapeYamlSingleQuotedString(tag)}'`,
-  );
-  return `[${escaped.join(", ")}]`;
-};
-
-export const parsePublishedAtDate = (value: string) => {
-  const normalized = value.trim();
-  if (!normalized) {
-    return new Date();
-  }
-  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
-    const parsed = new Date(`${normalized}T00:00:00`);
-    if (!Number.isNaN(parsed.getTime())) {
-      return parsed;
-    }
-  }
-  const parsed = new Date(normalized);
-  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
-};
+const formatTags = (tags: string[]) => formatYamlStringList(tags);
 
 const normalizePublishedAt = (value: string, date: Date) => {
   const trimmed = value.trim();

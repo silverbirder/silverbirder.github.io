@@ -1,11 +1,11 @@
 import {
   buildMarkdown,
+  buildZennMarkdown,
   getUniqueDailyFileName,
   parsePublishedAtDate,
 } from "@repo/admin-feature-post-editor/libs";
 import { getTranslations } from "next-intl/server";
 
-import { buildZennMarkdown } from "@/app/libs";
 import { api } from "@/trpc/server";
 
 type CreatePullRequestAction =

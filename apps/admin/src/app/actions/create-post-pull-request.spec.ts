@@ -43,12 +43,9 @@ const loadAction = async ({
 
   vi.doMock("@repo/admin-feature-post-editor/libs", () => ({
     buildMarkdown: () => "markdown",
+    buildZennMarkdown: () => "zenn-markdown",
     getUniqueDailyFileName: () => "20260201.md",
     parsePublishedAtDate: () => new Date("2026-02-01T00:00:00Z"),
-  }));
-
-  vi.doMock("@/app/libs", () => ({
-    buildZennMarkdown: () => "zenn-markdown",
   }));
 
   const mod = await import("./create-post-pull-request");

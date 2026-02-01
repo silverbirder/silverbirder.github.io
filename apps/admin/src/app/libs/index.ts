@@ -1,1 +1,0 @@
-export { buildZennMarkdown } from "./zenn";

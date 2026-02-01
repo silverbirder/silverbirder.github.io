@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildZennMarkdown } from "./post-editor-zenn-markdown";
+import { buildZennMarkdown } from "./zenn";
 
 describe("buildZennMarkdown", () => {
   it("builds frontmatter with type, topics and published false", () => {

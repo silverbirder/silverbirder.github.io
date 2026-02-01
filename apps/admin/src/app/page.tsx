@@ -1,6 +1,6 @@
 import { Top } from "@repo/admin-feature-top";
 
-import { handleSignOut } from "@/app/actions/sign-out";
+import { handleSignOut } from "@/app/actions";
 import { getSession } from "@/server/better-auth/server";
 import { api, HydrateClient } from "@/trpc/server";
 

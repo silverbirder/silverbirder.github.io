@@ -30,7 +30,7 @@ describe("sign-in access helpers", () => {
     );
 
     try {
-      redirectIfAllowed({ user: { email: "allowed@example.com" } });
+      await redirectIfAllowed({ user: { email: "allowed@example.com" } });
     } catch {
       // redirect throws to halt rendering
     }
@@ -43,7 +43,7 @@ describe("sign-in access helpers", () => {
       "allowed@example.com",
     );
 
-    const result = redirectIfAllowed({
+    const result = await redirectIfAllowed({
       user: { email: "blocked@example.com" },
     });
 
@@ -59,7 +59,7 @@ describe("sign-in access helpers", () => {
       "allowed@example.com,other@example.com",
     );
 
-    const result = redirectIfAllowed(null);
+    const result = await redirectIfAllowed(null);
 
     expect(redirect).not.toHaveBeenCalled();
     expect(result).toEqual({

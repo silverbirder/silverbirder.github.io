@@ -1,14 +1,24 @@
-import { resolveLinkTitles } from "@/app/actions/resolve-link-titles";
-import { resolvePreview } from "@/app/actions/resolve-preview";
-import { uploadImage } from "@/app/actions/upload-image";
+import { PostEditor } from "@repo/admin-feature-post-editor";
 
-import { PostEditorWithPullRequest } from "./post-editor-with-pull-request";
+import {
+  createPostPullRequest,
+  resolveLinkTitles,
+  resolvePreview,
+  uploadImage,
+} from "@/app/actions";
+import { api } from "@/trpc/server";
 
-export default function Page() {
+export default async function Page() {
+  const tagSuggestions = await api.github.listTags();
+
   return (
-    <PostEditorWithPullRequest
+    <PostEditor
+      enableHatenaSync
+      enableZennSync
+      onCreatePullRequest={createPostPullRequest}
       resolveLinkTitles={resolveLinkTitles}
       resolvePreview={resolvePreview}
+      tagSuggestions={tagSuggestions}
       uploadImage={uploadImage}
     />
   );

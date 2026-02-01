@@ -5,25 +5,22 @@ import { describe, expect, it, vi } from "vitest";
 const renderPage = async () => {
   vi.resetModules();
 
-  vi.doMock("@/app/actions/resolve-preview", () => ({
-    resolvePreview: vi.fn(),
-  }));
-  vi.doMock("@/app/actions/resolve-link-titles", () => ({
+  vi.doMock("@/app/actions", () => ({
+    createPostPullRequest: vi.fn(),
     resolveLinkTitles: vi.fn(),
-  }));
-  vi.doMock("@/app/actions/upload-image", () => ({
+    resolvePreview: vi.fn(),
     uploadImage: vi.fn(),
+  }));
+  vi.doMock("@/trpc/server", () => ({
+    api: {
+      github: {
+        listTags: vi.fn().mockResolvedValue(["tag"]),
+      },
+    },
   }));
 
   vi.doMock("@repo/admin-feature-post-editor", () => ({
     PostEditor: () =>
-      React.createElement("div", {
-        "data-testid": "post-editor",
-      }),
-  }));
-
-  vi.doMock("./post-editor-with-pull-request", () => ({
-    PostEditorWithPullRequest: () =>
       React.createElement("div", {
         "data-testid": "post-editor",
       }),

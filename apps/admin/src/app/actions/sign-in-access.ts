@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 
-import { env } from "@/env";
 import { isAllowedEmail, parseAllowedEmails } from "@/server/allowed-users";
 
 type Session = null | { user?: { email?: string } };
 
-export const redirectIfAllowed = (session: Session) => {
+export const redirectIfAllowed = async (session: Session) => {
+  const { env } = await import("@/env");
   const allowedEmails = parseAllowedEmails(env.ADMIN_ALLOWED_EMAILS);
   const isAllowed =
     !!session?.user && isAllowedEmail(session.user.email, allowedEmails);

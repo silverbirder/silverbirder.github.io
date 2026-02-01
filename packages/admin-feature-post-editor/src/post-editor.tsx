@@ -39,7 +39,11 @@ type Props = {
       topics: string[];
       type: string;
     };
-  }) => Promise<void>;
+  }) => Promise<void | {
+    actions?: Array<
+      { message: string; type: "alert" } | { type: "open"; url: string }
+    >;
+  }>;
   resolveLinkTitles: (source: string) => Promise<string>;
   resolvePreview: (source: string) => Promise<SerializeResult>;
   tagSuggestions?: string[];
@@ -370,7 +374,7 @@ export const PostEditor = ({
     setIsCreatingPullRequest(true);
 
     try {
-      await onCreatePullRequest({
+      const result = await onCreatePullRequest({
         body: bodyRef.current,
         hatena: {
           enabled: enableHatenaSync && hatenaEnabled,
@@ -387,6 +391,21 @@ export const PostEditor = ({
           type: zennType,
         },
       });
+      if (
+        result &&
+        typeof result === "object" &&
+        "actions" in result &&
+        Array.isArray(result.actions)
+      ) {
+        for (const action of result.actions) {
+          if (action?.type === "open") {
+            window.open(action.url, "_blank", "noopener,noreferrer");
+          }
+          if (action?.type === "alert") {
+            window.alert(action.message);
+          }
+        }
+      }
     } finally {
       setIsCreatingPullRequest(false);
     }

@@ -1,13 +1,11 @@
 import { SignIn } from "@repo/admin-feature-sign-in";
 
-import { handleSignIn } from "@/app/actions/sign-in";
-import { redirectIfAllowed } from "@/app/actions/sign-in-access";
-import { handleSignOut } from "@/app/actions/sign-out";
+import { handleSignIn, handleSignOut, redirectIfAllowed } from "@/app/actions";
 import { getSession } from "@/server/better-auth/server";
 
 export default async function SignInPage() {
   const session = await getSession();
-  const { allowedEmails, isAllowed } = redirectIfAllowed(session);
+  const { allowedEmails, isAllowed } = await redirectIfAllowed(session);
 
   const hasAllowList = allowedEmails.length > 0;
   const status = session?.user

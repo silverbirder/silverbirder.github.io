@@ -1,8 +1,12 @@
-import { resolveLinkTitles } from "@/app/actions/resolve-link-titles";
-import { resolvePreview } from "@/app/actions/resolve-preview";
-import { uploadImage } from "@/app/actions/upload-image";
+import { PostEditor } from "@repo/admin-feature-post-editor";
 
-import { PostEditorWithUpdate } from "./post-editor-with-update";
+import {
+  resolveLinkTitles,
+  resolvePreview,
+  updatePostPullRequest,
+  uploadImage,
+} from "@/app/actions";
+import { api } from "@/trpc/server";
 
 type Props = {
   params: Promise<{
@@ -12,11 +16,26 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
+  const normalizedSlug = slug?.trim() ?? "";
+  if (!normalizedSlug) {
+    return null;
+  }
+  const [post, tagSuggestions] = await Promise.all([
+    api.github.getPost({ slug: normalizedSlug }),
+    api.github.listTags(),
+  ]);
   return (
-    <PostEditorWithUpdate
+    <PostEditor
+      initialBody={post?.body}
+      initialIndex={post?.index}
+      initialPublishedAt={post?.publishedAt}
+      initialSummary={post?.summary}
+      initialTags={post?.tags}
+      initialTitle={post?.title}
+      onCreatePullRequest={updatePostPullRequest.bind(null, normalizedSlug)}
       resolveLinkTitles={resolveLinkTitles}
       resolvePreview={resolvePreview}
-      slug={slug}
+      tagSuggestions={tagSuggestions}
       uploadImage={uploadImage}
     />
   );

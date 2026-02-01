@@ -1,4 +1,4 @@
-import { buildSummaryFromBody } from "@repo/admin-feature-post-editor";
+import { buildSummaryFromBody } from "../summary";
 
 const hasFrontmatter = (source: string) => {
   const trimmed = source.trimStart();

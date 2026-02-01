@@ -36,17 +36,20 @@ const loadPage = async ({
     getSession: vi.fn().mockResolvedValue(session),
   }));
 
-  vi.doMock("@/app/actions/sign-in", () => ({
-    handleSignIn: vi.fn(),
-  }));
-
-  vi.doMock("@/app/actions/sign-out", () => ({
-    handleSignOut: vi.fn(),
-  }));
-
   vi.doMock("next/navigation", () => ({
     redirect,
   }));
+
+  vi.doMock("@/app/actions", async () => {
+    const actual = await vi.importActual<
+      typeof import("@/app/actions/sign-in-access")
+    >("@/app/actions/sign-in-access");
+    return {
+      handleSignIn: vi.fn(),
+      handleSignOut: vi.fn(),
+      redirectIfAllowed: actual.redirectIfAllowed,
+    };
+  });
 
   vi.doMock("@repo/admin-feature-sign-in", () => ({
     SignIn: (props: Record<string, unknown>) => {

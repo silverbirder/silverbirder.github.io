@@ -82,9 +82,6 @@ export const usePostEditorPresenter = ({
   );
   const [indexEnabled, setIndexEnabled] = useState(() => initialIndex ?? false);
   const [summary, setSummary] = useState(initialSummary ?? "");
-  const [summaryMode, setSummaryMode] = useState<"auto" | "manual">(() =>
-    initialSummary && initialSummary.trim().length > 0 ? "manual" : "auto",
-  );
   const [hatenaEnabled, setHatenaEnabled] = useState(
     initialHatenaEnabled ?? false,
   );
@@ -93,8 +90,6 @@ export const usePostEditorPresenter = ({
   const [zennType, setZennType] = useState(initialZennType ?? "tech");
 
   const bodyRef = useRef(body);
-  const summaryRef = useRef(summary);
-  const summaryModeRef = useRef(summaryMode);
   const initialAppliedRef = useRef(false);
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -137,23 +132,18 @@ export const usePostEditorPresenter = ({
     [schedulePreview],
   );
 
-  const updateSummaryIfAuto = useCallback((value: string) => {
-    const currentSummary = summaryRef.current;
-    const currentMode = summaryModeRef.current;
-    if (currentMode === "auto" || currentSummary.trim() === "") {
-      const nextSummary = buildSummaryFromBody(value);
-      setSummary(nextSummary);
-      setSummaryMode("auto");
-    }
+  const updateSummaryFromBody = useCallback((value: string) => {
+    const nextSummary = buildSummaryFromBody(value);
+    setSummary(nextSummary);
   }, []);
 
   const handleBodyChange = useCallback(
     (value: string) => {
       bodyRef.current = value;
       onBodyChange(value);
-      updateSummaryIfAuto(value);
+      updateSummaryFromBody(value);
     },
-    [onBodyChange, updateSummaryIfAuto],
+    [onBodyChange, updateSummaryFromBody],
   );
 
   const { getInputProps, getRootProps, isDragActive, isUploading } =
@@ -238,15 +228,6 @@ export const usePostEditorPresenter = ({
     zennType,
   ]);
 
-  const handleSummaryChange = useCallback((value: string) => {
-    setSummary(value);
-    summaryRef.current = value;
-    const isEmpty = value.trim().length === 0;
-    const nextMode = isEmpty ? "auto" : "manual";
-    setSummaryMode(nextMode);
-    summaryModeRef.current = nextMode;
-  }, []);
-
   const handleResolveLinkTitles = useCallback(async () => {
     if (isResolvingLinks || isBodyEmpty) {
       return;
@@ -286,9 +267,7 @@ export const usePostEditorPresenter = ({
 
   useEffect(() => {
     bodyRef.current = body;
-    summaryRef.current = summary;
-    summaryModeRef.current = summaryMode;
-  }, [body, summary, summaryMode]);
+  }, [body, summary]);
 
   useEffect(() => {
     if (initialAppliedRef.current) {
@@ -315,11 +294,7 @@ export const usePostEditorPresenter = ({
     }
 
     if (initialSummary !== undefined) {
-      const nextMode = initialSummary.trim().length > 0 ? "manual" : "auto";
       setSummary(initialSummary);
-      setSummaryMode(nextMode);
-      summaryRef.current = initialSummary;
-      summaryModeRef.current = nextMode;
     }
 
     if (initialTags) {
@@ -396,7 +371,6 @@ export const usePostEditorPresenter = ({
     onIndexChange: setIndexEnabled,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
-    onSummaryChange: handleSummaryChange,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,

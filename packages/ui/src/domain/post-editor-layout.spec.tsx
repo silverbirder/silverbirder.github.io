@@ -26,7 +26,6 @@ describe("PostEditorLayout", () => {
         onBodyChange={() => undefined}
         onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
-        onSummaryChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
         onTagInputKeyDown={() => undefined}
@@ -44,15 +43,16 @@ describe("PostEditorLayout", () => {
       />,
     );
 
-    const heading = document.querySelector("h1");
     const labels = Array.from(document.querySelectorAll("label")).map(
       (label) => label.textContent ?? "",
     );
     const preview = document.querySelector(
       "[data-testid='post-editor-preview']",
     );
+    const indexCheckbox = document.querySelector(
+      "input[name='index'][type='checkbox']",
+    );
 
-    expect(heading?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
@@ -62,9 +62,10 @@ describe("PostEditorLayout", () => {
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(preview?.textContent ?? "").toContain("Preview");
+    expect(indexCheckbox).not.toBeNull();
   });
 
-  it("renders Zenn section when handlers are provided", async () => {
+  it("renders integration section with Zenn controls", async () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue="Body"
@@ -72,7 +73,6 @@ describe("PostEditorLayout", () => {
         onBodyChange={() => undefined}
         onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
-        onSummaryChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
         onTagInputKeyDown={() => undefined}
@@ -94,12 +94,16 @@ describe("PostEditorLayout", () => {
     );
 
     const section = document.querySelector("h3");
-    expect(section?.textContent ?? "").toContain("Zenn");
+    expect(section?.textContent ?? "").toContain("連携");
+    const zennCheckbox = document.querySelector(
+      "input[name='zennEnabled'][type='checkbox']",
+    );
+    expect(zennCheckbox).not.toBeNull();
     const zennTypeSelect = document.querySelector("select[name='zennType']");
     expect(zennTypeSelect).not.toBeNull();
   });
 
-  it("renders Hatena section when handlers are provided", async () => {
+  it("renders integration section with Hatena controls", async () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue="Body"
@@ -109,7 +113,6 @@ describe("PostEditorLayout", () => {
         onHatenaEnabledChange={() => undefined}
         onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
-        onSummaryChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
         onTagInputKeyDown={() => undefined}
@@ -127,8 +130,10 @@ describe("PostEditorLayout", () => {
     );
 
     const section = document.querySelector("h3");
-    expect(section?.textContent ?? "").toContain("はてな");
-    const hatenaSelect = document.querySelector("select[name='hatenaEnabled']");
-    expect(hatenaSelect).not.toBeNull();
+    expect(section?.textContent ?? "").toContain("連携");
+    const hatenaCheckbox = document.querySelector(
+      "input[name='hatenaEnabled'][type='checkbox']",
+    );
+    expect(hatenaCheckbox).not.toBeNull();
   });
 });

@@ -25,7 +25,6 @@ export const PostEditor = (props: Props) => {
     onIndexChange,
     onPublishedAtChange,
     onResolveLinkTitles,
-    onSummaryChange,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,
@@ -65,7 +64,6 @@ export const PostEditor = (props: Props) => {
       onIndexChange={onIndexChange}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}
-      onSummaryChange={onSummaryChange}
       onTagInputBlur={onTagInputBlur}
       onTagInputChange={onTagInputChange}
       onTagInputKeyDown={onTagInputKeyDown}

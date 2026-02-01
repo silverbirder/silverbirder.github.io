@@ -38,7 +38,6 @@ describe("PostEditor", () => {
       />,
     );
 
-    const title = document.querySelector("h1");
     const labels = Array.from(document.querySelectorAll("label")).map(
       (label) => label.textContent ?? "",
     );
@@ -46,15 +45,12 @@ describe("PostEditor", () => {
     const publishedAtInput = document.querySelector(
       "input[name='publishedAt']",
     );
-    const indexSelect = document.querySelector("select[name='index']");
-    const summaryInput = document.querySelector("textarea[name='summary']");
+    const indexCheckbox = document.querySelector(
+      "input[name='index'][type='checkbox']",
+    );
     const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
-    const preview = document.querySelector(
-      "[data-testid='post-editor-preview']",
-    );
 
-    expect(title?.textContent ?? "").toContain("ブログ");
     expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
@@ -65,11 +61,9 @@ describe("PostEditor", () => {
     expect(labels.some((label) => label.includes("本文"))).toBe(true);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(publishedAtInput).not.toBeNull();
-    expect(indexSelect).not.toBeNull();
-    expect(summaryInput?.getAttribute("placeholder") ?? "").not.toBe("");
+    expect(indexCheckbox).not.toBeNull();
     expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");
-    expect(preview?.textContent ?? "").toContain("プレビュー");
   });
 
   it("adds tags from the input", async () => {

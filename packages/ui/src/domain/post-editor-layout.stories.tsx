@@ -5,18 +5,21 @@ import { PostEditorLayout } from "./post-editor-layout";
 const meta = {
   args: {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
+    hatenaEnabledValue: true,
     indexValue: false,
     onBodyChange: () => undefined,
+    onHatenaEnabledChange: () => undefined,
     onIndexChange: () => undefined,
     onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,
-    onSummaryChange: () => undefined,
     onTagInputBlur: () => undefined,
     onTagInputChange: () => undefined,
     onTagInputKeyDown: () => undefined,
     onTagRemove: () => undefined,
     onTagSuggestionClick: () => undefined,
     onTitleChange: () => undefined,
+    onZennEnabledChange: () => undefined,
+    onZennTypeChange: () => undefined,
     previewContent: (
       <>
         <h2>Highlights</h2>
@@ -35,6 +38,8 @@ const meta = {
     tagSuggestions: ["Frontend", "Design", "TypeScript", "DevOps"],
     tagsValue: ["Frontend", "Design"],
     titleValue: "Release notes",
+    zennEnabledValue: true,
+    zennTypeValue: "tech",
   },
   component: PostEditorLayout,
   title: "UI/Domain/PostEditorLayout",

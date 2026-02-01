@@ -34,7 +34,6 @@ type Props = {
   onIndexChange: (value: boolean) => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
-  onSummaryChange: (value: string) => void;
   onTagInputBlur: () => void;
   onTagInputChange: (value: string) => void;
   onTagInputKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
@@ -94,23 +93,6 @@ const HeaderActions = chakra("div", {
   },
 });
 
-const Title = chakra("h1", {
-  base: {
-    color: "green.fg",
-    fontSize: { base: "2rem", md: "2.5rem" },
-    fontWeight: "700",
-    letterSpacing: "-0.02em",
-  },
-});
-
-const Description = chakra("p", {
-  base: {
-    color: "fg.muted",
-    fontSize: "md",
-    maxWidth: "60ch",
-  },
-});
-
 const ActionButton = chakra("button", {
   base: {
     _disabled: {
@@ -166,16 +148,6 @@ const PreviewPanel = chakra("section", {
     display: "flex",
     flexDirection: "column",
     gap: "1.25rem",
-  },
-});
-
-const PanelTitle = chakra("h2", {
-  base: {
-    color: "green.fg",
-    fontSize: "0.7rem",
-    fontWeight: "700",
-    letterSpacing: "0.2em",
-    textTransform: "uppercase",
   },
 });
 
@@ -314,12 +286,8 @@ const Textarea = chakra("textarea", {
   },
 });
 
-const SummaryTextarea = chakra("textarea", {
+const SummaryText = chakra("p", {
   base: {
-    _focusVisible: {
-      borderColor: "green.solid",
-      outline: "none",
-    },
     background: "bg",
     borderColor: "green.muted",
     borderRadius: "0.75rem",
@@ -329,16 +297,34 @@ const SummaryTextarea = chakra("textarea", {
     minHeight: "6.5rem",
     paddingBlock: "0.75rem",
     paddingInline: "0.9rem",
-    resize: "vertical",
-    width: "100%",
+    whiteSpace: "pre-wrap",
   },
 });
 
-const HelperText = chakra("span", {
+const IntegrationGroup = chakra("div", {
   base: {
-    color: "fg.muted",
-    fontSize: "0.8rem",
-    fontWeight: "500",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.75rem",
+  },
+});
+
+const CheckboxLabel = chakra("label", {
+  base: {
+    alignItems: "center",
+    color: "fg",
+    display: "flex",
+    fontSize: "0.95rem",
+    fontWeight: "600",
+    gap: "0.6rem",
+  },
+});
+
+const CheckboxInput = chakra("input", {
+  base: {
+    accentColor: "green.solid",
+    height: "1rem",
+    width: "1rem",
   },
 });
 
@@ -390,7 +376,6 @@ export const PostEditorLayout = ({
   onIndexChange,
   onPublishedAtChange,
   onResolveLinkTitles,
-  onSummaryChange,
   onTagInputBlur,
   onTagInputChange,
   onTagInputKeyDown,
@@ -420,12 +405,13 @@ export const PostEditorLayout = ({
   const hasHeaderActions =
     Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
   const tagRemoveSymbol = t("tagsRemoveSymbol");
+  const hasIntegrationSection =
+    Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
 
   return (
     <Main>
       <Header>
         <HeaderRow>
-          <Title>{t("title")}</Title>
           {hasHeaderActions ? (
             <HeaderActions>
               {onCreatePullRequest ? (
@@ -455,11 +441,9 @@ export const PostEditorLayout = ({
             </HeaderActions>
           ) : null}
         </HeaderRow>
-        <Description>{t("description")}</Description>
       </Header>
       <EditorGrid>
         <EditorPanel aria-busy={isLoading} data-testid="post-editor">
-          <PanelTitle>{t("editorTitle")}</PanelTitle>
           <FieldGroup>
             {t("titleLabel")}
             <Input
@@ -480,31 +464,24 @@ export const PostEditorLayout = ({
               type="date"
               value={publishedAtValue}
             />
-            <HelperText>{t("publishedAtHelp")}</HelperText>
           </FieldGroup>
-          <FieldGroup>
-            {t("indexLabel")}
-            <Select
-              disabled={isLoading}
-              name="index"
-              onChange={(event) => onIndexChange(event.target.value === "true")}
-              value={String(indexValue)}
-            >
-              <option value="true">{t("indexOptionTrue")}</option>
-              <option value="false">{t("indexOptionFalse")}</option>
-            </Select>
-            <HelperText>{t("indexHelp")}</HelperText>
+          <FieldGroup as="div">
+            <CheckboxLabel>
+              <CheckboxInput
+                checked={indexValue}
+                disabled={isLoading}
+                name="index"
+                onChange={(event) => onIndexChange(event.target.checked)}
+                type="checkbox"
+              />
+              {t("indexLabel")}
+            </CheckboxLabel>
           </FieldGroup>
           <FieldGroup>
             {t("summaryLabel")}
-            <SummaryTextarea
-              disabled={isLoading}
-              name="summary"
-              onChange={(event) => onSummaryChange(event.target.value)}
-              placeholder={t("summaryPlaceholder")}
-              value={summaryValue}
-            />
-            <HelperText>{t("summaryHelp")}</HelperText>
+            <SummaryText data-testid="post-editor-summary">
+              {summaryValue}
+            </SummaryText>
           </FieldGroup>
           <FieldGroup>
             {t("tagsLabel")}
@@ -521,7 +498,6 @@ export const PostEditorLayout = ({
               />
               {tagSuggestions.length > 0 ? (
                 <>
-                  <HelperText>{t("tagsSuggestionsLabel")}</HelperText>
                   <SuggestionList data-testid="post-editor-tag-suggestions">
                     {tagSuggestions.map((tag) => (
                       <SuggestionButton
@@ -551,49 +527,41 @@ export const PostEditorLayout = ({
                   ))}
                 </TagList>
               ) : null}
-              <HelperText>{t("tagsHelp")}</HelperText>
             </TagInputRow>
           </FieldGroup>
-          {onHatenaEnabledChange ? (
+          {hasIntegrationSection ? (
             <>
-              <SectionTitle>{t("hatenaSectionTitle")}</SectionTitle>
-              <FieldGroup>
-                {t("hatenaEnabledLabel")}
-                <Select
-                  disabled={isLoading}
-                  name="hatenaEnabled"
-                  onChange={(event) =>
-                    onHatenaEnabledChange(event.target.value === "true")
-                  }
-                  value={String(hatenaEnabledValue)}
-                >
-                  <option value="false">{t("hatenaEnabledOptionFalse")}</option>
-                  <option value="true">{t("hatenaEnabledOptionTrue")}</option>
-                </Select>
-                <HelperText>{t("hatenaEnabledHelp")}</HelperText>
-              </FieldGroup>
-            </>
-          ) : null}
-          {onZennEnabledChange ? (
-            <>
-              <SectionTitle>{t("zennSectionTitle")}</SectionTitle>
-              <FieldGroup>
-                {t("zennEnabledLabel")}
-                <Select
-                  disabled={isLoading}
-                  name="zennEnabled"
-                  onChange={(event) =>
-                    onZennEnabledChange(event.target.value === "true")
-                  }
-                  value={String(zennEnabledValue)}
-                >
-                  <option value="false">{t("zennEnabledOptionFalse")}</option>
-                  <option value="true">{t("zennEnabledOptionTrue")}</option>
-                </Select>
-                <HelperText>{t("zennEnabledHelp")}</HelperText>
-              </FieldGroup>
-              {zennEnabledValue ? (
-                <>
+              <SectionTitle>{t("integrationSectionTitle")}</SectionTitle>
+              <IntegrationGroup>
+                {onHatenaEnabledChange ? (
+                  <CheckboxLabel>
+                    <CheckboxInput
+                      checked={hatenaEnabledValue}
+                      disabled={isLoading}
+                      name="hatenaEnabled"
+                      onChange={(event) =>
+                        onHatenaEnabledChange(event.target.checked)
+                      }
+                      type="checkbox"
+                    />
+                    {t("hatenaEnabledLabel")}
+                  </CheckboxLabel>
+                ) : null}
+                {onZennEnabledChange ? (
+                  <CheckboxLabel>
+                    <CheckboxInput
+                      checked={zennEnabledValue}
+                      disabled={isLoading}
+                      name="zennEnabled"
+                      onChange={(event) =>
+                        onZennEnabledChange(event.target.checked)
+                      }
+                      type="checkbox"
+                    />
+                    {t("zennEnabledLabel")}
+                  </CheckboxLabel>
+                ) : null}
+                {onZennEnabledChange && zennEnabledValue ? (
                   <FieldGroup>
                     {t("zennTypeLabel")}
                     <Select
@@ -607,10 +575,9 @@ export const PostEditorLayout = ({
                       <option value="tech">{t("zennTypeOptionTech")}</option>
                       <option value="idea">{t("zennTypeOptionIdea")}</option>
                     </Select>
-                    <HelperText>{t("zennTypeHelp")}</HelperText>
                   </FieldGroup>
-                </>
-              ) : null}
+                ) : null}
+              </IntegrationGroup>
             </>
           ) : null}
           <FieldGroup>
@@ -636,7 +603,6 @@ export const PostEditorLayout = ({
           </FieldGroup>
         </EditorPanel>
         <PreviewPanel>
-          <PanelTitle>{t("previewTitle")}</PanelTitle>
           <Notebook
             aria-busy={isPreviewLoading}
             data-testid="post-editor-preview"
@@ -646,7 +612,7 @@ export const PostEditorLayout = ({
             tags={previewTags ?? []}
             title={previewTitle}
           >
-            {previewContent ?? <p>{t("previewTitle")}</p>}
+            {previewContent}
           </Notebook>
         </PreviewPanel>
       </EditorGrid>

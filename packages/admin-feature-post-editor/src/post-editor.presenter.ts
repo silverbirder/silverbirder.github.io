@@ -1,13 +1,14 @@
 "use client";
 
 import type { SerializeResult } from "next-mdx-remote-client";
-import type { KeyboardEvent } from "react";
 
 import { formatDate, hasFrontmatter } from "@repo/util";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useDropzone } from "react-dropzone";
 
 import { buildSummaryFromBody, generateZennSlug } from "./libs";
+import { useDebouncedCallback } from "./post-editor.debounce";
+import { useImageDropzone } from "./post-editor.image-dropzone";
+import { usePostEditorTags } from "./post-editor.tags";
 
 type Props = {
   createPullRequestDisabled?: boolean;
@@ -74,7 +75,6 @@ export const usePostEditorPresenter = ({
     null,
   );
   const [isPreviewLoading, setIsPreviewLoading] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
   const [publishedAt, setPublishedAt] = useState(() =>
@@ -85,8 +85,6 @@ export const usePostEditorPresenter = ({
   const [summaryMode, setSummaryMode] = useState<"auto" | "manual">(() =>
     initialSummary && initialSummary.trim().length > 0 ? "manual" : "auto",
   );
-  const [tags, setTags] = useState<string[]>(initialTags ?? []);
-  const [tagInputValue, setTagInputValue] = useState("");
   const [hatenaEnabled, setHatenaEnabled] = useState(
     initialHatenaEnabled ?? false,
   );
@@ -94,7 +92,6 @@ export const usePostEditorPresenter = ({
   const [zennSlug, setZennSlug] = useState("");
   const [zennType, setZennType] = useState(initialZennType ?? "tech");
 
-  const debounceRef = useRef<null | number>(null);
   const bodyRef = useRef(body);
   const summaryRef = useRef(summary);
   const summaryModeRef = useRef(summaryMode);
@@ -105,49 +102,39 @@ export const usePostEditorPresenter = ({
 
   const hasFrontmatterValue = useMemo(() => hasFrontmatter(body), [body]);
 
-  const createPullRequestIsDisabled =
-    createPullRequestDisabled === true ||
-    isBodyEmpty ||
-    (title.length === 0 && !hasFrontmatterValue) ||
-    isUploading ||
-    isResolvingLinks ||
-    isCreatingPullRequest ||
-    !onCreatePullRequest ||
-    (enableHatenaSync && hatenaEnabled && title.length === 0) ||
-    (enableZennSync &&
-      zennEnabled &&
-      (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
+  const {
+    normalizedTagSuggestions,
+    onTagInputBlur,
+    onTagInputChange,
+    onTagInputKeyDown,
+    onTagRemove,
+    onTagSuggestionClick,
+    setTags,
+    tagInputValue,
+    tags,
+  } = usePostEditorTags({ initialTags, tagSuggestions });
 
-  const normalizedTagSuggestions = useMemo(() => {
-    const selected = new Set(tags.map((tag) => tag.toLowerCase()));
-    const suggestions = tagSuggestions ?? [];
-    return suggestions.filter((tag) => !selected.has(tag.toLowerCase()));
-  }, [tagSuggestions, tags]);
-
-  const isLoading = isUploading || isResolvingLinks || isCreatingPullRequest;
+  const { schedule: schedulePreview } = useDebouncedCallback(
+    async (value: string) => {
+      try {
+        const data = await resolvePreview(value);
+        setPreviewSource(data ?? null);
+      } catch {
+        setPreviewSource(null);
+      } finally {
+        setIsPreviewLoading(false);
+      }
+    },
+    350,
+  );
 
   const onBodyChange = useCallback(
     (value: string) => {
       setBody(value);
-
-      if (debounceRef.current) {
-        clearTimeout(debounceRef.current);
-      }
-
       setIsPreviewLoading(true);
-
-      debounceRef.current = window.setTimeout(async () => {
-        try {
-          const data = await resolvePreview(value);
-          setPreviewSource(data ?? null);
-        } catch {
-          setPreviewSource(null);
-        } finally {
-          setIsPreviewLoading(false);
-        }
-      }, 350);
+      schedulePreview(value);
     },
-    [resolvePreview],
+    [schedulePreview],
   );
 
   const updateSummaryIfAuto = useCallback((value: string) => {
@@ -169,112 +156,28 @@ export const usePostEditorPresenter = ({
     [onBodyChange, updateSummaryIfAuto],
   );
 
-  const uploadImageToCloudinary = useCallback(
-    async (file: File) => {
-      const formData = new FormData();
-      formData.append("file", file);
+  const { getInputProps, getRootProps, isDragActive, isUploading } =
+    useImageDropzone({
+      bodyRef,
+      bodyTextareaRef,
+      onBodyChange: handleBodyChange,
+      uploadImage,
+    });
 
-      const payload = await uploadImage(formData);
+  const createPullRequestIsDisabled =
+    createPullRequestDisabled === true ||
+    isBodyEmpty ||
+    (title.length === 0 && !hasFrontmatterValue) ||
+    isUploading ||
+    isResolvingLinks ||
+    isCreatingPullRequest ||
+    !onCreatePullRequest ||
+    (enableHatenaSync && hatenaEnabled && title.length === 0) ||
+    (enableZennSync &&
+      zennEnabled &&
+      (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
 
-      if (!payload.url) {
-        throw new Error("Upload response is missing url.");
-      }
-
-      return payload.url;
-    },
-    [uploadImage],
-  );
-
-  const normalizeAltText = useCallback((fileName: string) => {
-    const trimmed = fileName.replace(/\.[^.]+$/, "");
-    const replaced = trimmed.replace(/[-_]+/g, " ");
-    return replaced.length > 0 ? replaced : "image";
-  }, []);
-
-  const buildMarkdownImage = useCallback(
-    (file: File, url: string) => {
-      const alt = normalizeAltText(file.name);
-      return `![${alt}](${url})`;
-    },
-    [normalizeAltText],
-  );
-
-  const insertAtCursor = useCallback(
-    (snippet: string) => {
-      const textarea = bodyTextareaRef.current;
-      const currentBody = bodyRef.current;
-
-      if (!textarea) {
-        handleBodyChange(
-          `${currentBody}${currentBody ? "\n\n" : ""}${snippet}`,
-        );
-        return;
-      }
-
-      const selectionStart = textarea.selectionStart ?? currentBody.length;
-      const selectionEnd = textarea.selectionEnd ?? currentBody.length;
-      const before = currentBody.slice(0, selectionStart);
-      const after = currentBody.slice(selectionEnd);
-      const needsLeadingSpace = before.length > 0 && !before.endsWith("\n");
-      const needsTrailingSpace = after.length > 0 && !after.startsWith("\n");
-      const prefix = needsLeadingSpace ? "\n\n" : "";
-      const suffix = needsTrailingSpace ? "\n" : "";
-      const nextBody = `${before}${prefix}${snippet}${suffix}${after}`;
-
-      handleBodyChange(nextBody);
-
-      requestAnimationFrame(() => {
-        const cursor = before.length + prefix.length + snippet.length;
-        textarea.focus();
-        textarea.setSelectionRange(cursor, cursor);
-      });
-    },
-    [handleBodyChange],
-  );
-
-  const handleDrop = useCallback(
-    async (acceptedFiles: File[]) => {
-      if (acceptedFiles.length === 0) {
-        return;
-      }
-
-      setIsUploading(true);
-
-      try {
-        const uploadedUrls = await Promise.all(
-          acceptedFiles.map((file) => uploadImageToCloudinary(file)),
-        );
-        const markdown = acceptedFiles
-          .map((file, index) => {
-            const url = uploadedUrls[index];
-            return url ? buildMarkdownImage(file, url) : null;
-          })
-          .filter((value): value is string => value !== null)
-          .join("\n\n");
-
-        insertAtCursor(markdown);
-      } catch {
-        // ignore upload errors to avoid breaking the editor flow
-      } finally {
-        setIsUploading(false);
-      }
-    },
-    [buildMarkdownImage, insertAtCursor, uploadImageToCloudinary],
-  );
-
-  const dropzoneConfig = useMemo(
-    () => ({
-      accept: { "image/*": [] },
-      multiple: true,
-      noClick: true,
-      noKeyboard: true,
-      onDrop: handleDrop,
-    }),
-    [handleDrop],
-  );
-
-  const { getInputProps, getRootProps, isDragActive } =
-    useDropzone(dropzoneConfig);
+  const isLoading = isUploading || isResolvingLinks || isCreatingPullRequest;
 
   const handleCreatePullRequest = useCallback(async () => {
     if (!onCreatePullRequest || createPullRequestIsDisabled) {
@@ -344,58 +247,6 @@ export const usePostEditorPresenter = ({
     summaryModeRef.current = nextMode;
   }, []);
 
-  const addTagsFromInput = useCallback((inputValue: string) => {
-    const parts = inputValue
-      .split(/[,、\n]/)
-      .map((part) => part.trim())
-      .filter((part) => part.length > 0);
-
-    if (parts.length === 0) {
-      return;
-    }
-
-    setTags((prev) => {
-      const existing = new Set(prev.map((tag) => tag.toLowerCase()));
-      const next = [...prev];
-      for (const part of parts) {
-        const key = part.toLowerCase();
-        if (existing.has(key)) {
-          continue;
-        }
-        existing.add(key);
-        next.push(part);
-      }
-      return next;
-    });
-    setTagInputValue("");
-  }, []);
-
-  const handleTagInputKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === "Enter" || event.key === ",") {
-        event.preventDefault();
-        addTagsFromInput(event.currentTarget.value);
-      }
-    },
-    [addTagsFromInput],
-  );
-
-  const handleTagInputBlur = useCallback(() => {
-    if (tagInputValue.trim().length > 0) {
-      addTagsFromInput(tagInputValue);
-    }
-  }, [addTagsFromInput, tagInputValue]);
-
-  const handleTagSuggestionClick = useCallback(
-    (tag: string) => {
-      addTagsFromInput(tag);
-    },
-    [addTagsFromInput],
-  );
-
-  const handleTagRemove = (tag: string) => {
-    setTags((prev) => prev.filter((item) => item !== tag));
-  };
   const handleResolveLinkTitles = useCallback(async () => {
     if (isResolvingLinks || isBodyEmpty) {
       return;
@@ -512,6 +363,7 @@ export const usePostEditorPresenter = ({
     initialZennType,
     onBodyChange,
     setTitle,
+    setTags,
   ]);
 
   useEffect(() => {
@@ -545,11 +397,11 @@ export const usePostEditorPresenter = ({
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
     onSummaryChange: handleSummaryChange,
-    onTagInputBlur: handleTagInputBlur,
-    onTagInputChange: setTagInputValue,
-    onTagInputKeyDown: handleTagInputKeyDown,
-    onTagRemove: handleTagRemove,
-    onTagSuggestionClick: handleTagSuggestionClick,
+    onTagInputBlur,
+    onTagInputChange,
+    onTagInputKeyDown,
+    onTagRemove,
+    onTagSuggestionClick,
     onTitleChange: setTitle,
     onZennEnabledChange: enableZennSync ? setZennEnabled : undefined,
     onZennTypeChange: enableZennSync ? setZennType : undefined,

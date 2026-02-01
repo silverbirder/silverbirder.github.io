@@ -2,7 +2,7 @@
 title: 'NFC Automation Trigger + SESAME API による自動解錠と考察'
 publishedAt: '2019-12-28'
 summary: 'まえおき これからiOSを前提として話を進めていきますが、話の主題としてはiOSかどうかはあまり関係ありません。 NFC Automation Trigger 13.1のiOSリリース によりNFC Automation Triggerが使えるようになりました。NFCとは、Wikiによると次のようなものです。'
-tags: []
+tags: ["趣味"]
 ---
 
 ## まえおき

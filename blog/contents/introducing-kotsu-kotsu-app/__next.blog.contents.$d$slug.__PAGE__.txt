@@ -1,0 +1,192 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/10d862411f764998.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/bcbcfc75f55d353d.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T1fb4,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "はじめに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#はじめに",
+        children: "はじめに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["何でも", _jsx(_components.strong, {
+        children: "こつこつ"
+      }), "記録して可視化できるWebアプリ、", _jsx(_components.a, {
+        href: "https://kotsu-kotsu.vercel.app",
+        children: "こつこつ"
+      }), "を作りました！"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716635435/wepuhxujcptqz2rixztk.png",
+        alt: "kotsu-kotsu AreaChart"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ作ったのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ作ったのか",
+        children: "なぜ作ったのか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "家計簿や筋トレのような専門的な記録アプリはありますが、ニッチなものを記録したいと思いました。例えば、以下のようなものです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "薬を飲んだ日と錠剤名"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "鼻炎薬をたまに飲むのですが、飲む頻度を抑えたいので、どれくらい飲んでいるのかを記録したかったのです。また、コーヒーの摂取量（ml）も同様の理由で記録したい時があります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "コンタクトレンズを交換した日"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "コンタクトレンズは2週間用のものを使っていますが、週末に交換するようにしていたものの、1週間で捨てることもあったためです。もったいないので記録して改善したいと思いました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "夜中に起きた回数"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "夜中に起きてしまうことがたびたび発生していました。\n熟睡したいので、何が影響しているのか分析するために、起きたかどうか記録しようと思いました。"
+    }), "\n", _jsx(_components.p, {
+      children: "これらを記録するアプリがあればそれを使えば良いのですが、そんなものはないので今回作ってみました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "こつこつの使い方",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#こつこつの使い方",
+        children: "こつこつの使い方"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "「こつこつ」の使い方はシンプルです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "記録するフォーマットを自由に定義できる「ノートブック」を作成します。"
+      }), "\n", _jsx(_components.li, {
+        children: "定義したフォーマットでデータを登録できる「ページ」を作成します。"
+      }), "\n", _jsx(_components.li, {
+        children: "ノートブックに登録されたページをもとに、グラフを表示します。"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "記録するフォーマットの項目名として、以下のパターンを選べます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "文字"
+      }), "\n", _jsx(_components.li, {
+        children: "数値"
+      }), "\n", _jsx(_components.li, {
+        children: "はい・いいえ"
+      }), "\n", _jsx(_components.li, {
+        children: "カテゴリ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下は、ノートブックとページの例です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716643172/vtodrr6bzzg3siw2zel0.png",
+        alt: "kotsu-kotsu Notebook"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716643174/oqobq91izn1nin1wlruw.png",
+        alt: "kotsu-kotsu Page"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "可視化の例",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#可視化の例",
+        children: "可視化の例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "初めてログインすると、サンプルのデータが登録されます。そのデータを使って、以下のようなグラフが表示されます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716635435/wepuhxujcptqz2rixztk.png",
+        alt: "kotsu-kotsu AreaChart"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716635437/mudp6eb8karjcsr4ghqf.png",
+        alt: "kotsu-kotsu BarChart"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716635439/vptkdthlk9ky035xhwkf.png",
+        alt: "kotsu-kotsu LineChart"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1716635442/gvl19gniunq5hy29gxjn.png",
+        alt: "kotsu-kotsu DonutChart & PieChart"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "未実装の機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#未実装の機能",
+        children: "未実装の機能"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の機能はまだ実装していません。何か要望があれば実装します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "データのインポート/エクスポート"
+      }), "\n", _jsx(_components.li, {
+        children: "可視化グラフの共有機能"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私はこつこつと記録することが好きで、振り返って可視化するのも好きです。\nこのアプリはそんな私にピッタリです。興味のある方はぜひ試してみてください。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"X2tO8sVhR5_Sr5D-_wslB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/introducing-kotsu-kotsu-app/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":121,"publishedAt":"2024-05-25","tags":["成果物"],"title":"自由フォーマットでこつこつ記録して可視化するアプリを作った"},"navigation":{"next":{"href":"/blog/contents/switching-from-iphone-to-google-pixel-8a","publishedAt":"2024-05-28","title":"長年愛用していたiPhoneからGoogle Pixelに機種変更した"},"prev":{"href":"/blog/contents/frontend-development-in-the-age-of-generative-ai","publishedAt":"2024-05-22","title":"生成AI時代のフロントエンド開発術"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/introducing-kotsu-kotsu-app/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/bcbcfc75f55d353d.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

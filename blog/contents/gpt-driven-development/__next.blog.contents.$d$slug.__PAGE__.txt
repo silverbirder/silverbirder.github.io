@@ -1,0 +1,279 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/10d862411f764998.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/bcbcfc75f55d353d.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T3bf3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "GPTを活用した開発では、AIが生成する出力の正確性を判断するスキルが欠かせません。すべてをGPT任せにせず、開発者自身の積極的な関与が求められます。"
+    }), "\n", _jsx(_components.p, {
+      children: "本記事では、最近手がけた2つの個人Webアプリ開発を例に、GPT駆動開発の実践方法とその効果をご紹介します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "開発フローと使用ツール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発フローと使用ツール",
+        children: "開発フローと使用ツール"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下のダイアグラムは、GPTを活用した開発フローを示しています。この図は ", _jsx(_components.a, {
+        href: "https://app.eraser.io",
+        children: "DiagramGPT"
+      }), " を使用して作成しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/GPT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA%E3%83%95%E3%83%AD%E3%83%BC.png",
+        alt: "GPT駆動開発フロー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ダイアグラムを直接ご覧になりたい方は、", _jsx(_components.a, {
+        href: "https://app.eraser.io/workspace/gAcNphpXbCuDjYQq4tU1?elements=A2JnuhPG7Cx3eZVzwzjS3Q",
+        children: "こちら"
+      }), "からご確認ください。"]
+    }), "\n", _jsx(_components.p, {
+      children: "私は主にディレクションを担当し、ChatGPTやV0などのGPTツール（以下、GPTs）に具体的な指示を出して成果物を作成しています。ツールは以下のように使い分けています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "汎用的な用途"
+        }), "：", _jsx(_components.a, {
+          href: "https://chat.openai.com/",
+          children: "ChatGPT"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "デザイン"
+        }), "：", _jsx(_components.a, {
+          href: "https://v0.dev",
+          children: "V0"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.strong, {
+              children: "UIコンポーネント"
+            }), "：", _jsx(_components.a, {
+              href: "https://ui.shadcn.com/",
+              children: "ui.shadcn"
+            })]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "アイコン"
+        }), "：", _jsx(_components.a, {
+          href: "https://logoai.com",
+          children: "LogoAI"
+        }), _jsx(_components.br, {}), "\n※現在は他のツールを検討中。良いものがあればぜひ教えてください！"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "実装支援"
+        }), "：", _jsx(_components.a, {
+          href: "https://github.com/features/copilot",
+          children: "GitHub Copilot"
+        }), _jsx(_components.br, {}), "\n※最終的にはChatGPTを使用しています"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["GPTsから得られた成果物は、", _jsx(_components.strong, {
+        children: "何度も評価・修正を重ねて最終的な形に仕上げています"
+      }), "。出力が期待通りでない場合は、自分で実装することもあります。後述する問題解決の際には、GPTsで対応が難しい場合もあるため、自ら調査を行います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "APIやデータベースなどのインフラ設計やアプリケーション設計については、慣れ親しんだものを採用し、個人開発向けにコストの低いものを選択しています。"
+    }), "\n", _jsx(_components.p, {
+      children: "次に、開発したアプリの例をご紹介します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "クチコミ仲間アプリの事例",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#クチコミ仲間アプリの事例",
+        children: "クチコミ仲間アプリの事例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Googleマップで共通のクチコミを持つ投稿者を見つけるWebアプリ「クチコミ仲間（仮）」を開発しました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/%E3%82%AF%E3%83%81%E3%82%B3%E3%83%9F%E4%BB%B2%E9%96%93_%E4%BB%AE_-_%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3.png",
+        alt: "クチコミ仲間（仮）- アーキテクチャ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ダイアグラムを直接ご覧になりたい方は、", _jsx(_components.a, {
+        href: "https://app.eraser.io/workspace/3vjLLD4J9wE9bl96067E?elements=dy5KZbkEICES9M3yCHcYFQ",
+        children: "こちら"
+      }), "からご確認ください。"]
+    }), "\n", _jsx(_components.p, {
+      children: "画面イメージは以下のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E4%BB%B2%E9%96%93_%E4%BB%AE.png",
+        alt: "クチコミ仲間（仮）- 画面イメージ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://review-connect.vercel.app",
+        children: "アプリリンク"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "技術スタックは以下のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Webフレームワーク"
+        }), "：", _jsx(_components.a, {
+          href: "https://create.t3.gg",
+          children: "Next.js - T3 Stack"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "クローリング"
+        }), "：", _jsx(_components.a, {
+          href: "https://crawlee.dev",
+          children: "Crawlee"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "ヘッドレスブラウザ"
+        }), "：", _jsx(_components.a, {
+          href: "https://playwright.dev/",
+          children: "Chromium - Playwright"
+        })]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "外部要因（例：Google Mapsのメモリ問題）によるトラブルが発生した際は、自ら積極的に問題解決に取り組みました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "開発中に直面した問題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発中に直面した問題",
+        children: "開発中に直面した問題"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "メモリリークの問題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メモリリークの問題",
+        children: "メモリリークの問題"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google Mapsを長時間動作させると、メモリ使用量が増加してクラッシュする問題が発生しました。本来はPlaywrightのページを新しく作り直すのが理想でしたが、Crawleeの制約により、ページをリロードすることで一時的に対処しました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["こうした予期せぬ問題に対しては、トライアンドエラーを繰り返しながら、GPTツールと共に解決策を模索しています。エラーログをGPTに送信する際、", _jsx(_components.strong, {
+        children: "あえて自分の考察を伝えずに客観的なアドバイスを求める"
+      }), " ようにしています。エラーの原因に心当たりがある場合は、その考察も含めてGPTに伝え、早期解決を図ります。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "同じことを繰り返す問題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#同じことを繰り返す問題",
+        children: "同じことを繰り返す問題"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GPTとの対話を続けていると、同じ回答が繰り返されることがあります。例えば、特定の制約下で仕様を満たすロジックを考えてほしいと伝えると、GPTは回避策を提案してくれます。しかし、そのロジックが一部の仕様を満たしていない場合に「●●がうまく動作していないので修正してほしい」と依頼すると、元の制約を無視してしまうことがあります。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["このような場合、", _jsx(_components.strong, {
+        children: "制約条件を常に明示的に伝えて修正を依頼する"
+      }), " ようにしています。これにより、GPTが制約を再認識し、期待通りの出力を得やすくなります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "もうひとつのシンプルなアプリ元とらなアカン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#もうひとつのシンプルなアプリ元とらなアカン",
+        children: "もうひとつのシンプルなアプリ：「元とらなアカン」"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "「元とらなアカン」というWebアプリも開発しました。これは、商品価格を使用頻度や期間から1日あたりのコストを計算するシンプルな電卓アプリです。画面イメージは以下のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1726449647/silver-birder.github.io/blog/%E5%85%83%E3%81%A8%E3%82%89%E3%81%AA%E3%82%A2%E3%82%AB%E3%83%B3.png",
+        alt: "元とらなアカン - 画面イメージ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://moto-torana-akan.vercel.app",
+        children: "アプリリンク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["デザインは ", _jsx(_components.a, {
+        href: "https://v0.dev",
+        children: "V0"
+      }), " に任せ、シンプルな1ページ構成で完結しています。API通信も行っておらず、軽量なアプリとなっています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ここでの課題はあまり感じませんでした。", _jsx(_components.a, {
+        href: "https://v0.dev",
+        children: "V0"
+      }), " には、", _jsx(_components.a, {
+        href: "https://v0.dev/chat",
+        children: "v0.dev/chat"
+      }), " というチャット形式でWebデザインを作成する機能があります。構成としては、Next.js と ", _jsx(_components.a, {
+        href: "https://ui.shadcn.com/",
+        children: "ui.shadcn"
+      }), " でプレビューされます。精度が高く、ほとんどそのまま採用しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "一点気になったのは、特定のCSSフレームワークなどを使用したい場合、バージョン指定が必要で、指定しないとエラーになることです。"
+    }), "\n", _jsx(_components.h3, {
+      id: "印象的だったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#印象的だったこと",
+        children: "印象的だったこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Webアプリのデザインがまだ固まっていない段階で、アプリのコンセプトや実現したい体験を V0 に伝えると、驚くほど洗練されたWebデザインを提案してくれました。"
+    }), "\n", _jsx(_components.p, {
+      children: "さらに、「もっと遊び心を加えてほしい」といった抽象的なリクエストにも、グラデーションやアイコン、アニメーションなどを取り入れて応えてくれます。その柔軟性と創造性には非常に感動しました。具体的な要望を細かく伝えなかったのが、かえって良かったと感じます。"
+    }), "\n", _jsx(_components.p, {
+      children: "特筆すべきは、V0 とのわずか2回のやり取りでスイカゲーム風のアプリが完成したことです。これは衝撃的な体験でした。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://v0.dev/chat/a8RfpL90mO4",
+          children: "V0で作成したスイカゲーム風アプリ"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "おわりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おわりに",
+        children: "おわりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GPTに頼る部分は多いものの、役割を明確に分担することで、効率的な開発が可能であると実感しています。以前はすべてをゼロから実装していましたが、現在では GPT ツールに叩き台を用意してもらうことで、チーム開発のようなスピード感でプロジェクトを進められています。"
+    }), "\n", _jsx(_components.p, {
+      children: "今後も GPT 駆動開発を活用し、新たなアプリやサービスの開発に挑戦していきたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"X2tO8sVhR5_Sr5D-_wslB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/gpt-driven-development/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":124,"publishedAt":"2024-09-15","tags":["AI"],"title":"GPT駆動開発：GPTsと共に進める効率的なアプリ開発"},"navigation":{"next":{"href":"/blog/contents/reflections-after-7-months-4-day-workweek","publishedAt":"2024-09-16","title":"週4勤務で7ヶ月経過した所感"},"prev":{"href":"/blog/contents/first-mobile-app-failure","publishedAt":"2024-08-13","title":"はじめてモバイルアプリ開発して諦めた話"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2024-05-22","slug":"frontend-development-in-the-age-of-generative-ai","summary":"2022年11月にChatGPTがリリースされて、1年と約半年が経過しました。私はChatGPTが話題になった頃から、継続して利用しています。ChatGPTを使い続けていると、Webアプリケーションのフロントエンド開発に役立つことがありました。そこで、本記事ではフロントエンド開発でChatGPTを活用して効率よく進める3つのパターンにまとめました。これらのパターンを紹介し、読者の皆さんの開発に役立ててもらえればと思います。以下は、本記事で紹介するFigma、ソースコード、デプロイ先URLです。","tags":["AI","フロントエンド"],"title":"生成AI時代のフロントエンド開発術"},{"publishedAt":"2023-07-17","slug":"writing_efficiency_tool_introducing_ai_ghostwriter","summary":"最近、ビアードパパの焼きチーズケーキシューにハマっている silverbirder です。文章作成が苦手な私は、AI が文章を代筆する「AI Ghostwriter」という Chrome の拡張機能を開発しました。今回は、この便利なツールの紹介をします。","tags":["ブラウザ","AI","成果物"],"title":"ライティングの効率化ツール：AI Ghostwriterの紹介"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/gpt-driven-development/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/bcbcfc75f55d353d.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

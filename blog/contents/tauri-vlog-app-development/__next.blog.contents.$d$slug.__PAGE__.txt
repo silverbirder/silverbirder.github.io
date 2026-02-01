@@ -1,0 +1,224 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/10d862411f764998.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/bcbcfc75f55d353d.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T3661,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["最近、Mac 向けに画面と自分の姿を同時に記録する VLog アプリを Tauri で作りました。\n開発の背景やつまずき、乗り越えた工夫を振り返ります。\nソースコードと署名なしの ", _jsx(_components.code, {
+        children: ".dmg"
+      }), " は GitHub に置いています。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/vlog",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/vlog: スクリーン・カメラを同時に記録できる macOS 向けデスクトップアプリ"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "スクリーン・カメラを同時に記録できる macOS 向けデスクトップアプリ. Contribute to silverbirder/vlog development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7a710385e2de9c95d89fdcd576e93102a602acbc5d628c134abbfd738c7b9ff6.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "アプリの雰囲気が伝わるように、スクリーンショットを 2 枚載せておきます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1759582696/silver-birder.github.io/blog/vlog-intro-1.png",
+        alt: "VLog アプリのホーム画面"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "起動直後のホーム画面です。保存先や自動停止時間などをここで設定できます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1759582703/silver-birder.github.io/blog/vlog-intro-2.png",
+        alt: "録画中の VLog アプリと PiP 表示"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "録画中はこのように ピクチャ・イン・ピクチャ (PiP) でカメラ映像を前面に固定しながら、画面全体をキャプチャします。"
+    }), "\n", _jsx(_components.h2, {
+      id: "背景",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#背景",
+        children: "背景"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["YouTube や TikTok を見て、日常を短い動画で残す VLog 文化があることを知りました。\n私は自分で書いたブログ記事を読み返したり、自分が歩いた記録が残る Google マップのタイムラインや撮りためた Google フォトのアルバムを眺めたりして、", _jsx(_components.strong, {
+        children: "過去を振り返る時間が好きです"
+      }), "。\n「動画でも記録しておけたら面白そうだな」と思ったのが、今回の起点でした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["日々の大半は自宅で過ごし、パソコン作業の時間が長いです。\nそれなら ", _jsx(_components.strong, {
+        children: "Mac の画面と自分の姿を同時に録画できるデスクトップアプリを自作しよう"
+      }), " と決めました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術選定の迷いと-tauri-採用",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術選定の迷いと-tauri-採用",
+        children: "技術選定の迷いと Tauri 採用"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["当初は経験のある Electron を使うつもりでした。\nしかし、公式の React テンプレートが無かったり、Electron Fiddle がうまく動かなかったり、", _jsx(_components.code, {
+        children: "npm install electron"
+      }), " が通らなかったりと、序盤からストレスが溜まり始めました。\n過去にも同じような壁に当たった記憶があったので、Electron で進む気持ちは一気にしぼみました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで思い出したのが、以前にメジャーアップデートのニュースで見かけた Tauri です。\nモバイル対応は検討していませんでしたが、デスクトップアプリを作れるし、React テンプレートも整備されています。\nクイックスタートをなぞるだけで数分後には開発環境が整い、", _jsx(_components.code, {
+        children: ".dmg"
+      }), " ビルドまで一気に到達できました。\n「これなら作り切れそうだ」と実感し、Tauri 採用を決めました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "動画保存まわりの試行錯誤",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動画保存まわりの試行錯誤",
+        children: "動画保存まわりの試行錯誤"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["録画には Web API の ", _jsx(_components.code, {
+        children: "MediaDevices.getDisplayMedia()"
+      }), " と ", _jsx(_components.code, {
+        children: "MediaDevices.getUserMedia()"
+      }), " を使いました。\n", _jsx(_components.code, {
+        children: "getDisplayMedia"
+      }), " が画面キャプチャ、", _jsx(_components.code, {
+        children: "getUserMedia"
+      }), " がカメラ映像の取得を担当します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "最初は、取得した映像チャンクをフロントエンドで蓄積し、録画停止時にまとめて Rust 側へ送る構成を採用しました。\n保存するのはスクリーン録画 (mp4)、カメラ映像 (mp4)、マイク音声 (m4a) の 3 ファイルです。\nAI Agent に下書きしてもらったコードがそのまま動いたので、早速録画してみました。\nところが、完成した動画は冒頭の数分だけが動き、その後は静止画になっていました。\nチャンク処理をフロントエンドで抱えきれず、途中で詰まってしまったようです。"
+    }), "\n", _jsx(_components.p, {
+      children: "次に、Rust 側で直接キャプチャする方法を調査しました。\nただしネイティブ API に踏み込む必要があり、理解コストが高そうだったので見送りました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで ", _jsx(_components.strong, {
+        children: "フロントエンドでチャンクを保持せず、取得したデータを即座に Rust 側へ送り、ファイルに追記する"
+      }), " 方式へ切り替えました。\n結果として、録画が途中で止まる問題は解消され、停止ボタンを押すだけで保存が完了するようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "欲しかった機能を揃える",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#欲しかった機能を揃える",
+        children: "欲しかった機能を揃える"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "使い続けるうちに、次のような要望が浮かびました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["一定時間で自動停止したい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ずっと録画し続けるのではなく、15 分や 30 分で区切りたい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["停止に気づける通知が欲しい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "集中していると録画状態を忘れるので、自動停止時に気づきたい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["カメラやマイクを切り替えたい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "外付けデバイスを接続したときに選択したい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["停止後にすぐ再開したい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "録画停止と開始を繰り返す操作を簡単にしたい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらを一つずつ実装し、特に使っていなかったマイク録音は機能ごと削除しました。\n余計な設定が消えて、アプリ全体の使い心地が軽くなった感覚があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "pip-をどう実現したか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#pip-をどう実現したか",
+        children: "PiP をどう実現したか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "スクリーンとカメラを別々に保存していると、見返すときに視線が忙しく感じました。\nそこで PiP のような、スクリーン上にカメラの映像を重ねて録画する方法を探りました。"
+    }), "\n", _jsx(_components.p, {
+      children: "まずはフロントエンドでスクリーンとカメラの映像を合成し、単一の動画として保存する方式を試しました。\nところが処理が重く、FPS が落ちてカクつきが目立ったため断念しました。\n次に、録画後に ffmpeg で合成する案も検討しましたが、15 分の動画でも処理時間が長く、運用したい気持ちになれませんでした。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["最終的にたどり着いたのは、", _jsx(_components.strong, {
+        children: "録画中にカメラ映像を常に前面表示し、そのままスクリーン録画に写し込む"
+      }), " というシンプルな方法です。\nリアルタイム合成も後処理も不要で、狙い通りの PiP 動画が撮れるようになりました。\n唯一の課題は、VS Code などをフルスクリーン表示すると PiP ウィンドウを最前面に固定できないことです。\n今はフルスクリーンを控えることで運用しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "おわりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おわりに",
+        children: "おわりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "React の “Learn Once, Write Anywhere” というスローガンがありますが、Tauri でも同じ感覚でデスクトップアプリを作れたのが嬉しいポイントでした。\n今回は Rust 側の実装を最小限に抑え、フロントエンドの改善に注力したことで、迷子にならずにリリースまでたどり着けました。"
+    }), "\n", _jsx(_components.p, {
+      children: "Tauri はデスクトップやモバイル、Web までを React の知識でカバーできる仕組みがすでに整っています。\nひと昔前なら Electron と React Native、さらに React Native for Web を組み合わせていた場面が、一つの選択肢にまとまるイメージです。\n今後も Tauri を使って、日常を記録するためのツールを少しずつ育てていきたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"X2tO8sVhR5_Sr5D-_wslB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/tauri-vlog-app-development/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":145,"publishedAt":"2025-10-04","tags":["成果物"],"title":"Tauri でつくる自分用 VLog アプリ開発記"},"navigation":{"next":{"href":"/blog/contents/unit-test-writing-guidelines","publishedAt":"2025-10-20","title":"単体テストコードのお作法"},"prev":{"href":"/blog/contents/google-my-activity-visualization","publishedAt":"2025-09-17","title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/tauri-vlog-app-development/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/bcbcfc75f55d353d.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

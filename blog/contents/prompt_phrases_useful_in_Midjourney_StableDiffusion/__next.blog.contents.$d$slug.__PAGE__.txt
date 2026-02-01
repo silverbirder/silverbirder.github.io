@@ -1,0 +1,354 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/10d862411f764998.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/bcbcfc75f55d353d.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:T352d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Midjourney や StableDiffusion を使っていると、どういうフレーズを使えばよいかわからなくなります。\nそこで、フレーズ集を作って、Prompt で役立てたいなと思っています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "練習場",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#練習場",
+        children: "練習場"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "どこで Prompt の練習したら良いか悩むので、まとめておきました。\nお勧めは、DreamStudio.ai です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Midjourney\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.a, {
+              href: "https://discord.com/app/invite-with-guild-onboarding/midjourney",
+              children: "Discord"
+            }), "\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "課金制(無料枠あり)"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["StableDiffusion\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["OSS\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: _jsx(_components.a, {
+                  href: "https://github.com/CompVis/stable-diffusion",
+                  children: "stable-diffusion"
+                })
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["Google Colab\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: _jsx(_components.a, {
+                  href: "https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/stable_diffusion.ipynb",
+                  children: "text2img"
+                })
+              }), "\n", _jsx(_components.li, {
+                children: _jsx(_components.a, {
+                  href: "https://colab.research.google.com/github/cedro3/others2/blob/main/Stable_Diffusion2.ipynb",
+                  children: "img2img"
+                })
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["WebApp\n", _jsxs(_components.ul, {
+              children: ["\n", _jsxs(_components.li, {
+                children: ["DreamStudio.ai\n", _jsxs(_components.ul, {
+                  children: ["\n", _jsxs(_components.li, {
+                    children: ["課金制(無料枠あり)\n", _jsxs(_components.ul, {
+                      children: ["\n", _jsxs(_components.li, {
+                        children: ["API\n", _jsxs(_components.ul, {
+                          children: ["\n", _jsx(_components.li, {
+                            children: _jsx(_components.a, {
+                              href: "https://github.com/Stability-AI/stability-sdk",
+                              children: "stability-sdk"
+                            })
+                          }), "\n"]
+                        }), "\n"]
+                      }), "\n"]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n"]
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["Docker\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: _jsx(_components.a, {
+                  href: "https://github.com/fboulnois/stable-diffusion-docker",
+                  children: "stable-diffusion-docker"
+                })
+              }), "\n", _jsx(_components.li, {
+                children: _jsx(_components.a, {
+                  href: "https://github.com/NickLucche/stable-diffusion-nvidia-docker",
+                  children: "stable-diffusion-nvidia-docker"
+                })
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "prompt-で入力する文章構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#prompt-で入力する文章構成",
+        children: "Prompt で入力する文章構成"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Prompt で入力する文章は、AI に理解しやすい構成である方が良いです。その方が欲しい画像を手に入れやすくなります。\n文章の構成は、次のフォーマットです。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜全体のフォーマット＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜主題＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜主題の補足＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜作者＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜全体の補足＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜フレーバー＞"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "例:"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜全体フォーマット＞Detailing oil painting of"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜主題＞The great white castle on deep forest landscape"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜英霊＞by CASPAR DAVID FRIEDRICH and CLAUDE LORRAIN,"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜全体の補足＞ perfect lighting, golden hour,"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "＜フレーバー＞ taken with Canon 5D Mk4"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://note.com/fladdict/n/n0f0be20e3e23",
+        children: "魔術として理解するお絵描き AI 講座"
+      }), " より引用"]
+    }), "\n", _jsx(_components.p, {
+      children: "各項目についてのフレーズを、まとめておきました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "全体のフォーマット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#全体のフォーマット",
+        children: "全体のフォーマット"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Ancient of"
+      }), "\n", _jsx(_components.li, {
+        children: "Beautiful concept art of"
+      }), "\n", _jsx(_components.li, {
+        children: "Cartoon of"
+      }), "\n", _jsx(_components.li, {
+        children: "Concept art of"
+      }), "\n", _jsx(_components.li, {
+        children: "Detailed illustration of"
+      }), "\n", _jsx(_components.li, {
+        children: "Detailed water painting of"
+      }), "\n", _jsx(_components.li, {
+        children: "Detailing oil painting of"
+      }), "\n", _jsx(_components.li, {
+        children: "Futuristic of"
+      }), "\n", _jsx(_components.li, {
+        children: "Illustration of"
+      }), "\n", _jsx(_components.li, {
+        children: "Image of nightmare of"
+      }), "\n", _jsx(_components.li, {
+        children: "Logo about"
+      }), "\n", _jsx(_components.li, {
+        children: "Pencil sketch of"
+      }), "\n", _jsx(_components.li, {
+        children: "Photo of"
+      }), "\n", _jsx(_components.li, {
+        children: "Pop art of"
+      }), "\n", _jsx(_components.li, {
+        children: "Portrait of"
+      }), "\n", _jsx(_components.li, {
+        children: "Scene of graphic novel that"
+      }), "\n", _jsx(_components.li, {
+        children: "Scene of the movie that"
+      }), "\n", _jsx(_components.li, {
+        children: "Screenshot of UE5 of"
+      }), "\n", _jsx(_components.li, {
+        children: "Side profile of"
+      }), "\n", _jsx(_components.li, {
+        children: "Sketch of"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "作者",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#作者",
+        children: "作者"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "by 作者"
+      }), "\n", _jsx(_components.li, {
+        children: "in 作者 style"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "全体の補足",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#全体の補足",
+        children: "全体の補足"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "8k"
+      }), "\n", _jsx(_components.li, {
+        children: "art"
+      }), "\n", _jsx(_components.li, {
+        children: "beautiful shadow"
+      }), "\n", _jsx(_components.li, {
+        children: "collection sheet"
+      }), "\n", _jsx(_components.li, {
+        children: "comic"
+      }), "\n", _jsx(_components.li, {
+        children: "golden hour"
+      }), "\n", _jsx(_components.li, {
+        children: "grid"
+      }), "\n", _jsx(_components.li, {
+        children: "kawaii"
+      }), "\n", _jsx(_components.li, {
+        children: "manga"
+      }), "\n", _jsx(_components.li, {
+        children: "perfect lighting"
+      }), "\n", _jsx(_components.li, {
+        children: "pixiv"
+      }), "\n", _jsx(_components.li, {
+        children: "realistic photo"
+      }), "\n", _jsx(_components.li, {
+        children: "unreal engine"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "フレーバー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フレーバー",
+        children: "フレーバー"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "11mm"
+      }), "\n", _jsx(_components.li, {
+        children: "by Canon EOS 5D Mark4 and SIGMA Art Lens 35mm F1.4 DG HSM, F1.4, ISO 200 Shutter Speed 2000"
+      }), "\n", _jsx(_components.li, {
+        children: "EF11-24mm F4L USM"
+      }), "\n", _jsx(_components.li, {
+        children: "no background"
+      }), "\n", _jsx(_components.li, {
+        children: "taken with Canon 5D Mk4"
+      }), "\n", _jsx(_components.li, {
+        children: "white background"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "フレーズをまとめておくと、Prompt で文章入力するときに、参考にできて便利でした。\n別件で、そもそも私には英語力がないため、Deepl を欠かせないことに気づきました...。\nでは、よい お絵かきライフを!"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"X2tO8sVhR5_Sr5D-_wslB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/prompt_phrases_useful_in_Midjourney_StableDiffusion/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":89,"publishedAt":"2022-08-28","tags":["AI","クローリング"],"title":"Midjourney, StableDiffusion で役立つPrompt フレーズ集"},"navigation":{"next":{"href":"/blog/contents/using_stability_ai_API","publishedAt":"2022-09-03","title":"Stable Diffusion API 開発"},"prev":{"href":"/blog/contents/try_dagger","publishedAt":"2022-08-23","title":"CI/CDのDaggerで、GithubActionsとCircleCIにシュッと連携してみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2024-09-15","slug":"gpt-driven-development","summary":"GPTを活用した開発では、AIが生成する出力の正確性を判断するスキルが欠かせません。すべてをGPT任せにせず、開発者自身の積極的な関与が求められます。","tags":["AI"],"title":"GPT駆動開発：GPTsと共に進める効率的なアプリ開発"},{"publishedAt":"2024-05-22","slug":"frontend-development-in-the-age-of-generative-ai","summary":"2022年11月にChatGPTがリリースされて、1年と約半年が経過しました。私はChatGPTが話題になった頃から、継続して利用しています。ChatGPTを使い続けていると、Webアプリケーションのフロントエンド開発に役立つことがありました。そこで、本記事ではフロントエンド開発でChatGPTを活用して効率よく進める3つのパターンにまとめました。これらのパターンを紹介し、読者の皆さんの開発に役立ててもらえればと思います。以下は、本記事で紹介するFigma、ソースコード、デプロイ先URLです。","tags":["AI","フロントエンド"],"title":"生成AI時代のフロントエンド開発術"}],"tag":"AI"},{"posts":[{"publishedAt":"2023-01-07","slug":"zod_refine_path","summary":"zodのrefineを使っていたのですが、pathの使い方を全く理解できておらず、小一時間ほどハマってしまったことがあったので、備忘録として残しておきます。","tags":["フロントエンド","クローリング","JavaScript"],"title":"zodのrefineにあるpathにハマった"},{"publishedAt":"2022-10-18","slug":"obsidian-git-muti-device","summary":"WikiWikiWeb というコンセプトが好きで、そのコンセプトが含まれている Obsidian や Scrapbox が好きです。Obsidian には、obsidian-gitという Git 連携のプラグインがあります。こちらには、デスクトップだけでなく、モバイルからでも Git Commit できるようになりました。","tags":["開発ツール","クローリング"],"title":"ObsidianでiPhoneからGit Commitする"},{"publishedAt":"2022-09-14","slug":"crawlee-was-useful-for-crawling","summary":"スクレイピングしたいときって、あると思います。Crawlee という OSS が便利だったので、共有します。","tags":["クローリング"],"title":"クローリングをシュッとやるのに、Crawleeが便利だった"}],"tag":"クローリング"}],"shareUrl":"https://silverbirder.github.io/blog/contents/prompt_phrases_useful_in_Midjourney_StableDiffusion/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/bcbcfc75f55d353d.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

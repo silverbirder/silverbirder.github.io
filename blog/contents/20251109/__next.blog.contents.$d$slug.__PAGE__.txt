@@ -1,0 +1,53 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/bf74a39339583e3f.js","/_next/static/chunks/10d862411f764998.js","/_next/static/chunks/3690aecf487a9fb0.js","/_next/static/chunks/bcbcfc75f55d353d.js"],"PostArticle"]
+7:I[49032,["/_next/static/chunks/67e37ec50aac1031.js","/_next/static/chunks/e04b806875559f41.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+3:Tc11,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人開発アプリのWebデザインを考える際に、Figma Makeを使って壁打ちしてみました。", _jsx(_components.br, {}), "\nこれまではVercelのv0を利用していましたが、無料プランの利用制限に引っかかってしまったため、代わりとなるAIデザインツールを探していました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["最初に思い出したのはGoogle LabsのStitchでしたが、レスポンス速度やデザイン精度、調整の自由度が今ひとつだったため見送りました。", _jsx(_components.br, {}), "\nそこで、以前少し触ったことのあるFigma Makeを再び試してみることにしました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Figma Makeは、Figmaプラットフォーム上のツールだけあって、Figmaとの相性がとても良いです。", _jsx(_components.br, {}), "\nテキスト指示によるデザイン生成に加え、shadcnベースのコード生成や、Figmaデータのエクスポートにも対応しています。", _jsx(_components.br, {}), "\nさらに、既存のFigmaデータをインポートして活用できる点も魅力的です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["特に良かったのは、Figma Makeで生成したデザインをFigmaにエクスポートし、気になる箇所だけをコピーして再度Figma Makeに貼り付けることで、部分的な改善提案を得られることです。", _jsx(_components.br, {}), "\nデザイン全体を作り直すことなく、ピンポイントで修正できるのは便利でした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["v0とFigma Makeはいずれも、デザイン修正依頼やコンテキストの注入といった点で似ていますが、", _jsx(_components.strong, {
+        children: "「Figmaとの連携」という明確な差別化ポイント"
+      }), "がFigma Makeの魅力だと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただし注意点として、FigmaのStarterプランでは利用できる機能がかなり限られます。", _jsx(_components.br, {}), "\n途中で行き詰まることもあるため、継続的に使う場合はProfessionalプランなどの課金を検討したほうが良いでしょう。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"X2tO8sVhR5_Sr5D-_wslB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"comments":{"shortname":"https-silverbirder-github-io","url":"https://silverbirder.github.io/blog/contents/20251109/"},"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":161,"publishedAt":"2025-11-09","tags":["フロントエンド"],"title":"Figma Make を使ってみた"},"navigation":{"next":{"href":"/blog/contents/20251110","publishedAt":"2025-11-10","title":"モダンな(?)フロントエンド技術セット"},"prev":{"href":"/blog/contents/20251108","publishedAt":"2025-11-08","title":"Technology Radar Vol. 33 所感"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-01-24","slug":"20260124","summary":"最近、ヒューマンインターフェース ガイドライン（HIG）という言葉を知りました。 「ヒューマンインターフェイスガイドライン」には、どのAppleプラットフォームでも優れた体験を設計できるようにするためのガイドとベストプラクティスが含まれてい","tags":["フロントエンド"],"title":"ヒューマンインターフェース ガイドライン という言葉を知りました。"},{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2026-01-20","slug":"20260120","summary":"個人サイトをリニューアルをしています。 ノート風のデザインを目指して、スタイルを調整していました。 ノートの見た目は、現実にあるノートを再現しようとCSSを書いていました。 現在、以下の画像のようなノートになっています。 ノート風デザインの","tags":["フロントエンド"],"title":"CSSで頑張らなくても、SVGで楽にできるときもある"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251109/"}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3690aecf487a9fb0.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/bcbcfc75f55d353d.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

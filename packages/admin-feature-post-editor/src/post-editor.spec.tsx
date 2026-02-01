@@ -17,6 +17,13 @@ describe("PostEditor", () => {
   const uploadImage = async () => ({
     url: "https://res.cloudinary.com/demo/image/upload/sample.png",
   });
+  const openDrawer = async () => {
+    const drawerTrigger = document.querySelector(
+      "[data-testid='post-editor-drawer-trigger']",
+    );
+    drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+  };
 
   it.each(Object.entries(Stories))("should %s snapshot", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
@@ -38,6 +45,8 @@ describe("PostEditor", () => {
       />,
     );
 
+    await openDrawer();
+
     const labels = Array.from(document.querySelectorAll("label")).map(
       (label) => label.textContent ?? "",
     );
@@ -51,14 +60,13 @@ describe("PostEditor", () => {
     const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
 
-    expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
+    expect(labels.some((label) => label.includes("タイトル"))).toBe(false);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
       true,
     );
-    expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
-    expect(labels.some((label) => label.includes("本文"))).toBe(true);
+    expect(labels.some((label) => label.includes("本文"))).toBe(false);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(publishedAtInput).not.toBeNull();
     expect(indexCheckbox).not.toBeNull();
@@ -74,6 +82,8 @@ describe("PostEditor", () => {
         uploadImage={uploadImage}
       />,
     );
+
+    await openDrawer();
 
     const tagInput = document.querySelector(
       "input[name='tags']",
@@ -196,6 +206,8 @@ describe("PostEditor", () => {
       />,
     );
 
+    await openDrawer();
+
     const button = document.querySelector(
       "[data-testid='post-editor-create-pull-request']",
     ) as HTMLButtonElement | null;
@@ -225,6 +237,8 @@ describe("PostEditor", () => {
         uploadImage={uploadImage}
       />,
     );
+
+    await openDrawer();
 
     const button = document.querySelector(
       "[data-testid='post-editor-create-pull-request']",

@@ -49,20 +49,13 @@ describe("PostEditorLayout", () => {
     const preview = document.querySelector(
       "[data-testid='post-editor-preview']",
     );
-    const indexCheckbox = document.querySelector(
-      "input[name='index'][type='checkbox']",
+    const drawerTrigger = document.querySelector(
+      "[data-testid='post-editor-drawer-trigger']",
     );
 
-    expect(labels.some((label) => label.includes("タイトル"))).toBe(true);
-    expect(labels.some((label) => label.includes("公開日"))).toBe(true);
-    expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
-      true,
-    );
-    expect(labels.some((label) => label.includes("サマリー"))).toBe(true);
-    expect(labels.some((label) => label.includes("タグ"))).toBe(true);
-    expect(labels.some((label) => label.includes("本文"))).toBe(true);
+    expect(labels.some((label) => label.includes("本文"))).toBe(false);
     expect(preview?.textContent ?? "").toContain("Preview");
-    expect(indexCheckbox).not.toBeNull();
+    expect(drawerTrigger).not.toBeNull();
   });
 
   it("renders integration section with Zenn controls", async () => {
@@ -92,6 +85,12 @@ describe("PostEditorLayout", () => {
         zennTypeValue="tech"
       />,
     );
+
+    const drawerTrigger = document.querySelector(
+      "[data-testid='post-editor-drawer-trigger']",
+    );
+    drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     const section = document.querySelector("h3");
     expect(section?.textContent ?? "").toContain("連携");
@@ -128,6 +127,12 @@ describe("PostEditorLayout", () => {
         titleValue="Release notes"
       />,
     );
+
+    const drawerTrigger = document.querySelector(
+      "[data-testid='post-editor-drawer-trigger']",
+    );
+    drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     const section = document.querySelector("h3");
     expect(section?.textContent ?? "").toContain("連携");

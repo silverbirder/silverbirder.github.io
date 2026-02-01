@@ -8,7 +8,7 @@ import type {
   Ref,
 } from "react";
 
-import { chakra } from "@chakra-ui/react";
+import { chakra, CloseButton, Drawer, Portal } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 
 import { Notebook } from "./notebook";
@@ -82,7 +82,7 @@ const HeaderRow = chakra("div", {
     alignItems: "center",
     display: "flex",
     gap: "1rem",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
   },
 });
 
@@ -133,13 +133,12 @@ const EditorGrid = chakra("div", {
 const EditorPanel = chakra("section", {
   base: {
     background: "bg",
-    borderColor: "green.muted",
-    borderRadius: "1rem",
-    borderWidth: "1px",
+    borderRadius: 0,
+    borderWidth: 0,
     display: "flex",
     flexDirection: "column",
     gap: "1.25rem",
-    padding: "1.5rem",
+    padding: 0,
   },
 });
 
@@ -148,6 +147,22 @@ const PreviewPanel = chakra("section", {
     display: "flex",
     flexDirection: "column",
     gap: "1.25rem",
+  },
+});
+
+const DrawerBodyStack = chakra("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1.5rem",
+  },
+});
+
+const DrawerActionStack = chakra("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.75rem",
   },
 });
 
@@ -233,13 +248,12 @@ const TagRemoveButton = chakra("button", {
 const Input = chakra("input", {
   base: {
     _focusVisible: {
-      borderColor: "green.solid",
       outline: "none",
     },
     background: "bg",
-    borderColor: "green.muted",
     borderRadius: "0.75rem",
-    borderWidth: "1px",
+    borderWidth: 0,
+    boxShadow: "none",
     color: "fg",
     fontSize: "1rem",
     paddingBlock: "0.75rem",
@@ -269,13 +283,12 @@ const Select = chakra("select", {
 const Textarea = chakra("textarea", {
   base: {
     _focusVisible: {
-      borderColor: "green.solid",
       outline: "none",
     },
     background: "bg",
-    borderColor: "green.muted",
     borderRadius: "0.75rem",
-    borderWidth: "1px",
+    borderWidth: 0,
+    boxShadow: "none",
     color: "fg",
     fontSize: "1rem",
     minHeight: "36rem",
@@ -283,21 +296,6 @@ const Textarea = chakra("textarea", {
     paddingInline: "0.9rem",
     resize: "vertical",
     width: "100%",
-  },
-});
-
-const SummaryText = chakra("p", {
-  base: {
-    background: "bg",
-    borderColor: "green.muted",
-    borderRadius: "0.75rem",
-    borderWidth: "1px",
-    color: "fg",
-    fontSize: "0.95rem",
-    minHeight: "6.5rem",
-    paddingBlock: "0.75rem",
-    paddingInline: "0.9rem",
-    whiteSpace: "pre-wrap",
   },
 });
 
@@ -390,7 +388,6 @@ export const PostEditorLayout = ({
   publishedAtValue,
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
-  summaryValue,
   tagInputValue,
   tagSuggestions,
   tagsValue,
@@ -402,7 +399,7 @@ export const PostEditorLayout = ({
   const previewDate = publishedAtValue || "2025-01-12";
   const previewTitle = titleValue || t("titlePlaceholder");
   const isPreviewLoading = previewIsLoading ?? previewContent == null;
-  const hasHeaderActions =
+  const hasDrawerActions =
     Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
   const tagRemoveSymbol = t("tagsRemoveSymbol");
   const hasIntegrationSection =
@@ -412,41 +409,217 @@ export const PostEditorLayout = ({
     <Main>
       <Header>
         <HeaderRow>
-          {hasHeaderActions ? (
-            <HeaderActions>
-              {onCreatePullRequest ? (
+          <HeaderActions>
+            <Drawer.Root placement="end">
+              <Drawer.Trigger asChild>
                 <ActionButton
-                  data-testid="post-editor-create-pull-request"
-                  disabled={createPullRequestDisabled}
-                  onClick={onCreatePullRequest}
+                  data-testid="post-editor-drawer-trigger"
                   type="button"
                 >
-                  {createPullRequestIsLoading
-                    ? t("createPullRequestLoading")
-                    : t("createPullRequestAction")}
+                  {t("drawerTrigger")}
                 </ActionButton>
-              ) : null}
-              {onResolveLinkTitles ? (
-                <ActionButton
-                  data-testid="post-editor-resolve-links"
-                  disabled={resolveLinkTitlesDisabled}
-                  onClick={onResolveLinkTitles}
-                  type="button"
-                >
-                  {resolveLinkTitlesIsLoading
-                    ? t("linkUpdateLoading")
-                    : t("linkUpdateAction")}
-                </ActionButton>
-              ) : null}
-            </HeaderActions>
-          ) : null}
+              </Drawer.Trigger>
+              <Portal>
+                <Drawer.Backdrop />
+                <Drawer.Positioner>
+                  <Drawer.Content
+                    background="bg"
+                    borderColor="green.muted"
+                    borderRadius="1rem"
+                    borderWidth="1px"
+                    color="fg"
+                    data-testid="post-editor-drawer"
+                  >
+                    <Drawer.Header>
+                      <Drawer.Title>{t("drawerTitle")}</Drawer.Title>
+                      <Drawer.CloseTrigger asChild>
+                        <CloseButton aria-label={t("drawerCloseLabel")} />
+                      </Drawer.CloseTrigger>
+                    </Drawer.Header>
+                    <Drawer.Body>
+                      <DrawerBodyStack>
+                        <FieldGroup>
+                          {t("publishedAtLabel")}
+                          <Input
+                            disabled={isLoading}
+                            name="publishedAt"
+                            onChange={(event) =>
+                              onPublishedAtChange(event.target.value)
+                            }
+                            type="date"
+                            value={publishedAtValue}
+                          />
+                        </FieldGroup>
+                        <FieldGroup as="div">
+                          <CheckboxLabel>
+                            <CheckboxInput
+                              checked={indexValue}
+                              disabled={isLoading}
+                              name="index"
+                              onChange={(event) =>
+                                onIndexChange(event.target.checked)
+                              }
+                              type="checkbox"
+                            />
+                            {t("indexLabel")}
+                          </CheckboxLabel>
+                        </FieldGroup>
+                        <FieldGroup>
+                          {t("tagsLabel")}
+                          <TagInputRow>
+                            <Input
+                              disabled={isLoading}
+                              name="tags"
+                              onBlur={onTagInputBlur}
+                              onChange={(event) =>
+                                onTagInputChange(event.target.value)
+                              }
+                              onKeyDown={onTagInputKeyDown}
+                              placeholder={t("tagsPlaceholder")}
+                              type="text"
+                              value={tagInputValue}
+                            />
+                            {tagSuggestions.length > 0 ? (
+                              <>
+                                <SuggestionList data-testid="post-editor-tag-suggestions">
+                                  {tagSuggestions.map((tag) => (
+                                    <SuggestionButton
+                                      key={tag}
+                                      onClick={() => onTagSuggestionClick(tag)}
+                                      type="button"
+                                    >
+                                      {tag}
+                                    </SuggestionButton>
+                                  ))}
+                                </SuggestionList>
+                              </>
+                            ) : null}
+                            {tagsValue.length > 0 ? (
+                              <TagList data-testid="post-editor-tags">
+                                {tagsValue.map((tag) => (
+                                  <TagItem
+                                    data-testid="post-editor-tag"
+                                    key={tag}
+                                  >
+                                    {tag}
+                                    <TagRemoveButton
+                                      aria-label={t("tagsRemoveAriaLabel", {
+                                        tag,
+                                      })}
+                                      onClick={() => onTagRemove(tag)}
+                                      type="button"
+                                    >
+                                      {tagRemoveSymbol}
+                                    </TagRemoveButton>
+                                  </TagItem>
+                                ))}
+                              </TagList>
+                            ) : null}
+                          </TagInputRow>
+                        </FieldGroup>
+                        {hasIntegrationSection ? (
+                          <>
+                            <SectionTitle>
+                              {t("integrationSectionTitle")}
+                            </SectionTitle>
+                            <IntegrationGroup>
+                              {onHatenaEnabledChange ? (
+                                <CheckboxLabel>
+                                  <CheckboxInput
+                                    checked={hatenaEnabledValue}
+                                    disabled={isLoading}
+                                    name="hatenaEnabled"
+                                    onChange={(event) =>
+                                      onHatenaEnabledChange(
+                                        event.target.checked,
+                                      )
+                                    }
+                                    type="checkbox"
+                                  />
+                                  {t("hatenaEnabledLabel")}
+                                </CheckboxLabel>
+                              ) : null}
+                              {onZennEnabledChange ? (
+                                <CheckboxLabel>
+                                  <CheckboxInput
+                                    checked={zennEnabledValue}
+                                    disabled={isLoading}
+                                    name="zennEnabled"
+                                    onChange={(event) =>
+                                      onZennEnabledChange(event.target.checked)
+                                    }
+                                    type="checkbox"
+                                  />
+                                  {t("zennEnabledLabel")}
+                                </CheckboxLabel>
+                              ) : null}
+                              {onZennEnabledChange && zennEnabledValue ? (
+                                <FieldGroup>
+                                  {t("zennTypeLabel")}
+                                  <Select
+                                    disabled={isLoading}
+                                    name="zennType"
+                                    onChange={(event) =>
+                                      onZennTypeChange?.(event.target.value)
+                                    }
+                                    value={zennTypeValue}
+                                  >
+                                    <option value="tech">
+                                      {t("zennTypeOptionTech")}
+                                    </option>
+                                    <option value="idea">
+                                      {t("zennTypeOptionIdea")}
+                                    </option>
+                                  </Select>
+                                </FieldGroup>
+                              ) : null}
+                            </IntegrationGroup>
+                          </>
+                        ) : null}
+                      </DrawerBodyStack>
+                    </Drawer.Body>
+                    {hasDrawerActions ? (
+                      <Drawer.Footer>
+                        <DrawerActionStack>
+                          {onCreatePullRequest ? (
+                            <ActionButton
+                              data-testid="post-editor-create-pull-request"
+                              disabled={createPullRequestDisabled}
+                              onClick={onCreatePullRequest}
+                              type="button"
+                            >
+                              {createPullRequestIsLoading
+                                ? t("createPullRequestLoading")
+                                : t("createPullRequestAction")}
+                            </ActionButton>
+                          ) : null}
+                          {onResolveLinkTitles ? (
+                            <ActionButton
+                              data-testid="post-editor-resolve-links"
+                              disabled={resolveLinkTitlesDisabled}
+                              onClick={onResolveLinkTitles}
+                              type="button"
+                            >
+                              {resolveLinkTitlesIsLoading
+                                ? t("linkUpdateLoading")
+                                : t("linkUpdateAction")}
+                            </ActionButton>
+                          ) : null}
+                        </DrawerActionStack>
+                      </Drawer.Footer>
+                    ) : null}
+                  </Drawer.Content>
+                </Drawer.Positioner>
+              </Portal>
+            </Drawer.Root>
+          </HeaderActions>
         </HeaderRow>
       </Header>
       <EditorGrid>
         <EditorPanel aria-busy={isLoading} data-testid="post-editor">
           <FieldGroup>
-            {t("titleLabel")}
             <Input
+              aria-label={t("titleLabel")}
               disabled={isLoading}
               name="title"
               onChange={(event) => onTitleChange(event.target.value)}
@@ -456,132 +629,6 @@ export const PostEditorLayout = ({
             />
           </FieldGroup>
           <FieldGroup>
-            {t("publishedAtLabel")}
-            <Input
-              disabled={isLoading}
-              name="publishedAt"
-              onChange={(event) => onPublishedAtChange(event.target.value)}
-              type="date"
-              value={publishedAtValue}
-            />
-          </FieldGroup>
-          <FieldGroup as="div">
-            <CheckboxLabel>
-              <CheckboxInput
-                checked={indexValue}
-                disabled={isLoading}
-                name="index"
-                onChange={(event) => onIndexChange(event.target.checked)}
-                type="checkbox"
-              />
-              {t("indexLabel")}
-            </CheckboxLabel>
-          </FieldGroup>
-          <FieldGroup>
-            {t("summaryLabel")}
-            <SummaryText data-testid="post-editor-summary">
-              {summaryValue}
-            </SummaryText>
-          </FieldGroup>
-          <FieldGroup>
-            {t("tagsLabel")}
-            <TagInputRow>
-              <Input
-                disabled={isLoading}
-                name="tags"
-                onBlur={onTagInputBlur}
-                onChange={(event) => onTagInputChange(event.target.value)}
-                onKeyDown={onTagInputKeyDown}
-                placeholder={t("tagsPlaceholder")}
-                type="text"
-                value={tagInputValue}
-              />
-              {tagSuggestions.length > 0 ? (
-                <>
-                  <SuggestionList data-testid="post-editor-tag-suggestions">
-                    {tagSuggestions.map((tag) => (
-                      <SuggestionButton
-                        key={tag}
-                        onClick={() => onTagSuggestionClick(tag)}
-                        type="button"
-                      >
-                        {tag}
-                      </SuggestionButton>
-                    ))}
-                  </SuggestionList>
-                </>
-              ) : null}
-              {tagsValue.length > 0 ? (
-                <TagList data-testid="post-editor-tags">
-                  {tagsValue.map((tag) => (
-                    <TagItem data-testid="post-editor-tag" key={tag}>
-                      {tag}
-                      <TagRemoveButton
-                        aria-label={t("tagsRemoveAriaLabel", { tag })}
-                        onClick={() => onTagRemove(tag)}
-                        type="button"
-                      >
-                        {tagRemoveSymbol}
-                      </TagRemoveButton>
-                    </TagItem>
-                  ))}
-                </TagList>
-              ) : null}
-            </TagInputRow>
-          </FieldGroup>
-          {hasIntegrationSection ? (
-            <>
-              <SectionTitle>{t("integrationSectionTitle")}</SectionTitle>
-              <IntegrationGroup>
-                {onHatenaEnabledChange ? (
-                  <CheckboxLabel>
-                    <CheckboxInput
-                      checked={hatenaEnabledValue}
-                      disabled={isLoading}
-                      name="hatenaEnabled"
-                      onChange={(event) =>
-                        onHatenaEnabledChange(event.target.checked)
-                      }
-                      type="checkbox"
-                    />
-                    {t("hatenaEnabledLabel")}
-                  </CheckboxLabel>
-                ) : null}
-                {onZennEnabledChange ? (
-                  <CheckboxLabel>
-                    <CheckboxInput
-                      checked={zennEnabledValue}
-                      disabled={isLoading}
-                      name="zennEnabled"
-                      onChange={(event) =>
-                        onZennEnabledChange(event.target.checked)
-                      }
-                      type="checkbox"
-                    />
-                    {t("zennEnabledLabel")}
-                  </CheckboxLabel>
-                ) : null}
-                {onZennEnabledChange && zennEnabledValue ? (
-                  <FieldGroup>
-                    {t("zennTypeLabel")}
-                    <Select
-                      disabled={isLoading}
-                      name="zennType"
-                      onChange={(event) =>
-                        onZennTypeChange?.(event.target.value)
-                      }
-                      value={zennTypeValue}
-                    >
-                      <option value="tech">{t("zennTypeOptionTech")}</option>
-                      <option value="idea">{t("zennTypeOptionIdea")}</option>
-                    </Select>
-                  </FieldGroup>
-                ) : null}
-              </IntegrationGroup>
-            </>
-          ) : null}
-          <FieldGroup>
-            {t("contentLabel")}
             <BodyDropzone
               {...bodyDropzoneProps}
               data-testid="post-editor-body-dropzone"
@@ -590,6 +637,7 @@ export const PostEditorLayout = ({
                 <input {...bodyDropzoneInputProps} hidden />
               ) : null}
               <Textarea
+                aria-label={t("contentLabel")}
                 borderColor={isBodyDragActive ? "fg" : undefined}
                 data-testid="post-editor-body"
                 disabled={isLoading}

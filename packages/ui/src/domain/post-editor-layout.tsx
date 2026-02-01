@@ -15,11 +15,13 @@ import {
   createListCollection,
   Drawer,
   Portal,
+  RadioGroup,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 
 import { Notebook } from "./notebook";
+import { Tag } from "./tag";
 
 type Props = {
   bodyDropzoneInputProps?: InputHTMLAttributes<HTMLInputElement> & {
@@ -210,44 +212,10 @@ const TagInputRow = chakra("div", {
 
 const TagList = chakra("div", {
   base: {
+    "--notebook-line-height": "2rem",
     display: "flex",
     flexWrap: "wrap",
     gap: "0.5rem",
-  },
-});
-
-const TagItem = chakra("span", {
-  base: {
-    alignItems: "center",
-    background: "green.muted",
-    borderRadius: "999px",
-    color: "green.fg",
-    display: "inline-flex",
-    fontSize: "0.85rem",
-    fontWeight: "600",
-    gap: "0.4rem",
-    paddingBlock: "0.25rem",
-    paddingInline: "0.75rem",
-  },
-});
-
-const TagRemoveButton = chakra("button", {
-  base: {
-    _focusVisible: {
-      outline: "2px solid",
-      outlineColor: "green.focusRing",
-      outlineOffset: "2px",
-    },
-    _hover: {
-      color: "green.solid",
-    },
-    background: "transparent",
-    border: "none",
-    color: "green.fg",
-    cursor: "pointer",
-    fontSize: "0.9rem",
-    lineHeight: 1,
-    padding: 0,
   },
 });
 
@@ -268,21 +236,11 @@ const Input = chakra("input", {
   },
 });
 
-const Select = chakra("select", {
+const RadioRow = chakra("div", {
   base: {
-    _focusVisible: {
-      borderColor: "green.solid",
-      outline: "none",
-    },
-    background: "bg",
-    borderColor: "green.muted",
-    borderRadius: "0.75rem",
-    borderWidth: "1px",
-    color: "fg",
-    fontSize: "1rem",
-    paddingBlock: "0.75rem",
-    paddingInline: "0.9rem",
-    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.75rem",
   },
 });
 
@@ -374,7 +332,6 @@ export const PostEditorLayout = ({
   const isPreviewLoading = previewIsLoading ?? previewContent == null;
   const hasDrawerActions =
     Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
-  const tagRemoveSymbol = t("tagsRemoveSymbol");
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
   const filteredTagSuggestions = useMemo(() => {
@@ -501,21 +458,21 @@ export const PostEditorLayout = ({
                             {tagsValue.length > 0 ? (
                               <TagList data-testid="post-editor-tags">
                                 {tagsValue.map((tag) => (
-                                  <TagItem
+                                  <Tag
+                                    aria-label={t("tagsRemoveAriaLabel", {
+                                      tag,
+                                    })}
                                     data-testid="post-editor-tag"
+                                    href="#"
+                                    iconType="tag"
+                                    isSelected
                                     key={tag}
-                                  >
-                                    {tag}
-                                    <TagRemoveButton
-                                      aria-label={t("tagsRemoveAriaLabel", {
-                                        tag,
-                                      })}
-                                      onClick={() => onTagRemove(tag)}
-                                      type="button"
-                                    >
-                                      {tagRemoveSymbol}
-                                    </TagRemoveButton>
-                                  </TagItem>
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      onTagRemove(tag);
+                                    }}
+                                    tag={tag}
+                                  />
                                 ))}
                               </TagList>
                             ) : null}
@@ -560,21 +517,33 @@ export const PostEditorLayout = ({
                               {onZennEnabledChange && zennEnabledValue ? (
                                 <FieldGroup>
                                   {t("zennTypeLabel")}
-                                  <Select
+                                  <RadioGroup.Root
                                     disabled={isLoading}
                                     name="zennType"
-                                    onChange={(event) =>
-                                      onZennTypeChange?.(event.target.value)
-                                    }
+                                    onValueChange={(details) => {
+                                      if (details.value) {
+                                        onZennTypeChange?.(details.value);
+                                      }
+                                    }}
                                     value={zennTypeValue}
                                   >
-                                    <option value="tech">
-                                      {t("zennTypeOptionTech")}
-                                    </option>
-                                    <option value="idea">
-                                      {t("zennTypeOptionIdea")}
-                                    </option>
-                                  </Select>
+                                    <RadioRow>
+                                      <RadioGroup.Item value="tech">
+                                        <RadioGroup.ItemHiddenInput />
+                                        <RadioGroup.ItemIndicator />
+                                        <RadioGroup.ItemText>
+                                          {t("zennTypeOptionTech")}
+                                        </RadioGroup.ItemText>
+                                      </RadioGroup.Item>
+                                      <RadioGroup.Item value="idea">
+                                        <RadioGroup.ItemHiddenInput />
+                                        <RadioGroup.ItemIndicator />
+                                        <RadioGroup.ItemText>
+                                          {t("zennTypeOptionIdea")}
+                                        </RadioGroup.ItemText>
+                                      </RadioGroup.Item>
+                                    </RadioRow>
+                                  </RadioGroup.Root>
                                 </FieldGroup>
                               ) : null}
                             </IntegrationGroup>

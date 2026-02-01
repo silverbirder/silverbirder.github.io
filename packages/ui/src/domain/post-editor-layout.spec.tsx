@@ -94,8 +94,10 @@ describe("PostEditorLayout", () => {
       "input[name='zennEnabled'][type='checkbox']",
     );
     expect(zennCheckbox).not.toBeNull();
-    const zennTypeSelect = document.querySelector("select[name='zennType']");
-    expect(zennTypeSelect).not.toBeNull();
+    const zennTypeRadios = document.querySelectorAll(
+      "input[name='zennType'][type='radio']",
+    );
+    expect(zennTypeRadios.length).toBeGreaterThan(0);
   });
 
   it("renders integration section with Hatena controls", async () => {

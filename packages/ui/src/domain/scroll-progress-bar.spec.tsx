@@ -10,12 +10,25 @@ const Stories = composeStories(stories);
 describe("ScrollProgressBar", () => {
   it.each(Object.entries(Stories))("should render %s", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
+    const styleTag = document.createElement("style");
+    styleTag.dataset.testid = "scroll-progress-bar-test-style";
+    styleTag.textContent = `
+      .scroll-progress-bar {
+        animation: none !important;
+        animation-timeline: none !important;
+        scale: 1 1 !important;
+      }
+    `;
+    document.head.appendChild(styleTag);
 
-    await Story.run();
+    try {
+      await Story.run();
 
-    await expect(document.body).toMatchScreenshot();
-
-    document.body.innerHTML = originalInnerHtml;
+      await expect(document.body).toMatchScreenshot();
+    } finally {
+      document.body.innerHTML = originalInnerHtml;
+      styleTag.remove();
+    }
   });
 
   it("renders progress bar element", async () => {

@@ -16,7 +16,6 @@ type Props = {
   enableZennSync?: boolean;
   initialBody?: string;
   initialHatenaEnabled?: boolean;
-  initialIndex?: boolean;
   initialPublishedAt?: string;
   initialSummary?: string;
   initialTags?: string[];
@@ -56,7 +55,6 @@ export const usePostEditorPresenter = ({
   enableZennSync = false,
   initialBody,
   initialHatenaEnabled,
-  initialIndex,
   initialPublishedAt,
   initialSummary,
   initialTags,
@@ -80,7 +78,6 @@ export const usePostEditorPresenter = ({
   const [publishedAt, setPublishedAt] = useState(() =>
     initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
   );
-  const [indexEnabled, setIndexEnabled] = useState(() => initialIndex ?? false);
   const [summary, setSummary] = useState(initialSummary ?? "");
   const [hatenaEnabled, setHatenaEnabled] = useState(
     initialHatenaEnabled ?? false,
@@ -94,6 +91,8 @@ export const usePostEditorPresenter = ({
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const isBodyEmpty = body.length === 0;
+  const shouldNoindex =
+    (enableHatenaSync && hatenaEnabled) || (enableZennSync && zennEnabled);
 
   const hasFrontmatterValue = useMemo(() => hasFrontmatter(body), [body]);
 
@@ -182,7 +181,7 @@ export const usePostEditorPresenter = ({
         hatena: {
           enabled: enableHatenaSync && hatenaEnabled,
         },
-        index: indexEnabled,
+        index: !shouldNoindex,
         publishedAt,
         summary,
         tags,
@@ -215,7 +214,6 @@ export const usePostEditorPresenter = ({
   }, [
     createPullRequestIsDisabled,
     onCreatePullRequest,
-    indexEnabled,
     publishedAt,
     summary,
     tags,
@@ -223,6 +221,7 @@ export const usePostEditorPresenter = ({
     enableHatenaSync,
     hatenaEnabled,
     enableZennSync,
+    shouldNoindex,
     zennEnabled,
     zennSlug,
     zennType,
@@ -276,7 +275,6 @@ export const usePostEditorPresenter = ({
 
     const hasInitialValues =
       initialBody !== undefined ||
-      initialIndex !== undefined ||
       initialTitle !== undefined ||
       initialPublishedAt !== undefined ||
       initialSummary !== undefined ||
@@ -317,10 +315,6 @@ export const usePostEditorPresenter = ({
       setPublishedAt(initialPublishedAt);
     }
 
-    if (initialIndex !== undefined) {
-      setIndexEnabled(initialIndex);
-    }
-
     if (initialBody !== undefined) {
       onBodyChange(initialBody);
     }
@@ -331,7 +325,6 @@ export const usePostEditorPresenter = ({
     initialPublishedAt,
     initialSummary,
     initialTags,
-    initialIndex,
     initialTitle,
     initialHatenaEnabled,
     initialZennEnabled,
@@ -358,7 +351,6 @@ export const usePostEditorPresenter = ({
     getInputProps,
     getRootProps,
     hatenaEnabled,
-    indexEnabled,
     isCreatingPullRequest,
     isDragActive,
     isLoading,
@@ -368,7 +360,6 @@ export const usePostEditorPresenter = ({
       ? handleCreatePullRequest
       : undefined,
     onHatenaEnabledChange: enableHatenaSync ? setHatenaEnabled : undefined,
-    onIndexChange: setIndexEnabled,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
     onTagInputBlur,

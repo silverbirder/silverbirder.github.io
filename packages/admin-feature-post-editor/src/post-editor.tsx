@@ -14,7 +14,6 @@ export const PostEditor = (props: Props) => {
     getInputProps,
     getRootProps,
     hatenaEnabled,
-    indexEnabled,
     isCreatingPullRequest,
     isDragActive,
     isLoading,
@@ -22,7 +21,6 @@ export const PostEditor = (props: Props) => {
     onBodyChange,
     onCreatePullRequest,
     onHatenaEnabledChange,
-    onIndexChange,
     onPublishedAtChange,
     onResolveLinkTitles,
     onTagInputBlur,
@@ -55,13 +53,11 @@ export const PostEditor = (props: Props) => {
       createPullRequestDisabled={createPullRequestIsDisabled}
       createPullRequestIsLoading={isCreatingPullRequest}
       hatenaEnabledValue={hatenaEnabled}
-      indexValue={indexEnabled}
       isBodyDragActive={isDragActive}
       isLoading={isLoading}
       onBodyChange={onBodyChange}
       onCreatePullRequest={onCreatePullRequest}
       onHatenaEnabledChange={onHatenaEnabledChange}
-      onIndexChange={onIndexChange}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}
       onTagInputBlur={onTagInputBlur}

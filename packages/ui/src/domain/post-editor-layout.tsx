@@ -8,8 +8,16 @@ import type {
   Ref,
 } from "react";
 
-import { chakra, CloseButton, Drawer, Portal } from "@chakra-ui/react";
+import {
+  chakra,
+  CloseButton,
+  Combobox,
+  createListCollection,
+  Drawer,
+  Portal,
+} from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 import { Notebook } from "./notebook";
 
@@ -25,13 +33,11 @@ type Props = {
   createPullRequestDisabled?: boolean;
   createPullRequestIsLoading?: boolean;
   hatenaEnabledValue?: boolean;
-  indexValue: boolean;
   isBodyDragActive?: boolean;
   isLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
   onHatenaEnabledChange?: (value: boolean) => void;
-  onIndexChange: (value: boolean) => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
   onTagInputBlur: () => void;
@@ -326,37 +332,6 @@ const CheckboxInput = chakra("input", {
   },
 });
 
-const SuggestionList = chakra("div", {
-  base: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "0.5rem",
-  },
-});
-
-const SuggestionButton = chakra("button", {
-  base: {
-    _focusVisible: {
-      outline: "2px solid",
-      outlineColor: "green.focusRing",
-      outlineOffset: "2px",
-    },
-    _hover: {
-      background: "green.subtle",
-    },
-    background: "green.muted",
-    border: "1px solid",
-    borderColor: "green.muted",
-    borderRadius: "999px",
-    color: "green.fg",
-    cursor: "pointer",
-    fontSize: "0.8rem",
-    fontWeight: "600",
-    paddingBlock: "0.2rem",
-    paddingInline: "0.7rem",
-  },
-});
-
 export const PostEditorLayout = ({
   bodyDropzoneInputProps,
   bodyDropzoneProps,
@@ -365,13 +340,11 @@ export const PostEditorLayout = ({
   createPullRequestDisabled = false,
   createPullRequestIsLoading = false,
   hatenaEnabledValue = false,
-  indexValue,
   isBodyDragActive = false,
   isLoading = false,
   onBodyChange,
   onCreatePullRequest,
   onHatenaEnabledChange,
-  onIndexChange,
   onPublishedAtChange,
   onResolveLinkTitles,
   onTagInputBlur,
@@ -404,6 +377,23 @@ export const PostEditorLayout = ({
   const tagRemoveSymbol = t("tagsRemoveSymbol");
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
+  const filteredTagSuggestions = useMemo(() => {
+    if (!tagInputValue) {
+      return tagSuggestions;
+    }
+    const query = tagInputValue.toLowerCase();
+    return tagSuggestions.filter((tag) => tag.toLowerCase().includes(query));
+  }, [tagInputValue, tagSuggestions]);
+  const tagCollection = useMemo(
+    () =>
+      createListCollection({
+        items: filteredTagSuggestions.map((tag) => ({
+          label: tag,
+          value: tag,
+        })),
+      }),
+    [filteredTagSuggestions],
+  );
 
   return (
     <Main>
@@ -450,50 +440,64 @@ export const PostEditorLayout = ({
                             value={publishedAtValue}
                           />
                         </FieldGroup>
-                        <FieldGroup as="div">
-                          <CheckboxLabel>
-                            <CheckboxInput
-                              checked={indexValue}
-                              disabled={isLoading}
-                              name="index"
-                              onChange={(event) =>
-                                onIndexChange(event.target.checked)
-                              }
-                              type="checkbox"
-                            />
-                            {t("indexLabel")}
-                          </CheckboxLabel>
-                        </FieldGroup>
                         <FieldGroup>
                           {t("tagsLabel")}
                           <TagInputRow>
-                            <Input
-                              disabled={isLoading}
-                              name="tags"
-                              onBlur={onTagInputBlur}
-                              onChange={(event) =>
-                                onTagInputChange(event.target.value)
+                            <Combobox.Root
+                              closeOnSelect
+                              collection={tagCollection}
+                              inputValue={tagInputValue}
+                              onInputValueChange={(details) =>
+                                onTagInputChange(details.inputValue)
                               }
-                              onKeyDown={onTagInputKeyDown}
-                              placeholder={t("tagsPlaceholder")}
-                              type="text"
-                              value={tagInputValue}
-                            />
-                            {tagSuggestions.length > 0 ? (
-                              <>
-                                <SuggestionList data-testid="post-editor-tag-suggestions">
-                                  {tagSuggestions.map((tag) => (
-                                    <SuggestionButton
-                                      key={tag}
-                                      onClick={() => onTagSuggestionClick(tag)}
-                                      type="button"
-                                    >
-                                      {tag}
-                                    </SuggestionButton>
-                                  ))}
-                                </SuggestionList>
-                              </>
-                            ) : null}
+                              onValueChange={(details) => {
+                                const value = details.value?.[0];
+                                if (value) {
+                                  onTagSuggestionClick(value);
+                                }
+                              }}
+                              openOnClick
+                              selectionBehavior="clear"
+                              width="100%"
+                            >
+                              <Combobox.Control
+                                background="bg"
+                                borderRadius="0.75rem"
+                                borderWidth="0"
+                                paddingBlock="0.25rem"
+                                paddingInline="0.75rem"
+                              >
+                                <Combobox.Input
+                                  aria-label={t("tagsLabel")}
+                                  disabled={isLoading}
+                                  name="tags"
+                                  onBlur={onTagInputBlur}
+                                  onKeyDown={onTagInputKeyDown}
+                                  placeholder={t("tagsPlaceholder")}
+                                />
+                                <Combobox.IndicatorGroup>
+                                  <Combobox.Trigger />
+                                </Combobox.IndicatorGroup>
+                              </Combobox.Control>
+                              <Portal>
+                                <Combobox.Positioner>
+                                  <Combobox.Content>
+                                    <Combobox.Empty>
+                                      {t("tagsEmpty")}
+                                    </Combobox.Empty>
+                                    {tagCollection.items.map((item) => (
+                                      <Combobox.Item
+                                        item={item}
+                                        key={item.value}
+                                      >
+                                        {item.label}
+                                        <Combobox.ItemIndicator />
+                                      </Combobox.Item>
+                                    ))}
+                                  </Combobox.Content>
+                                </Combobox.Positioner>
+                              </Portal>
+                            </Combobox.Root>
                             {tagsValue.length > 0 ? (
                               <TagList data-testid="post-editor-tags">
                                 {tagsValue.map((tag) => (

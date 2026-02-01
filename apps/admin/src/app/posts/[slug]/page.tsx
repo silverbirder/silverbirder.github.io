@@ -27,7 +27,6 @@ export default async function Page({ params }: Props) {
   return (
     <PostEditor
       initialBody={post?.body}
-      initialIndex={post?.index}
       initialPublishedAt={post?.publishedAt}
       initialSummary={post?.summary}
       initialTags={post?.tags}

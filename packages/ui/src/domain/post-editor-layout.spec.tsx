@@ -22,9 +22,7 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue=""
-        indexValue={false}
         onBodyChange={() => undefined}
-        onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -62,9 +60,7 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue="Body"
-        indexValue={false}
         onBodyChange={() => undefined}
-        onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -107,10 +103,8 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         bodyValue="Body"
         hatenaEnabledValue
-        indexValue={false}
         onBodyChange={() => undefined}
         onHatenaEnabledChange={() => undefined}
-        onIndexChange={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}

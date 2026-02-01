@@ -54,22 +54,15 @@ describe("PostEditor", () => {
     const publishedAtInput = document.querySelector(
       "input[name='publishedAt']",
     );
-    const indexCheckbox = document.querySelector(
-      "input[name='index'][type='checkbox']",
-    );
     const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
 
     expect(labels.some((label) => label.includes("タイトル"))).toBe(false);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
-    expect(labels.some((label) => label.includes("検索インデックス"))).toBe(
-      true,
-    );
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(false);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(publishedAtInput).not.toBeNull();
-    expect(indexCheckbox).not.toBeNull();
     expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");
   });
@@ -220,6 +213,7 @@ describe("PostEditor", () => {
     expect(payload.zenn?.enabled).toBe(true);
     expect(payload.zenn?.slug).toBe("010101010101");
     expect(payload.zenn?.type).toBe("tech");
+    expect(payload.index).toBe(false);
   });
 
   it("creates a Hatena draft payload when Hatena sync is enabled", async () => {
@@ -250,5 +244,6 @@ describe("PostEditor", () => {
 
     const payload = onCreatePullRequest.mock.calls[0]?.[0];
     expect(payload.hatena?.enabled).toBe(true);
+    expect(payload.index).toBe(false);
   });
 });

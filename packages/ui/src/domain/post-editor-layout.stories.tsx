@@ -6,10 +6,8 @@ const meta = {
   args: {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
     hatenaEnabledValue: true,
-    indexValue: false,
     onBodyChange: () => undefined,
     onHatenaEnabledChange: () => undefined,
-    onIndexChange: () => undefined,
     onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,
     onTagInputBlur: () => undefined,

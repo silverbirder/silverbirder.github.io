@@ -6,6 +6,7 @@ const renderPage = async () => {
   vi.resetModules();
 
   vi.doMock("@/app/actions", () => ({
+    fixMarkdownLint: vi.fn(),
     resolveLinkTitles: vi.fn(),
     resolvePreview: vi.fn(),
     updatePostPullRequest: vi.fn(),

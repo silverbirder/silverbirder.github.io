@@ -127,6 +127,40 @@ describe("PostEditor", () => {
     }
   });
 
+  it("fixes markdown lint and updates the body", async () => {
+    const fixMarkdownLint = vi.fn().mockResolvedValue("Fixed body");
+
+    await renderWithProvider(
+      <PostEditor
+        fixMarkdownLint={fixMarkdownLint}
+        initialBody="bad body"
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    await openDrawer();
+
+    const button = document.querySelector(
+      "[data-testid='post-editor-markdownlint-fix']",
+    ) as HTMLButtonElement | null;
+    await expect.poll(() => button?.disabled).toBe(false);
+    button?.click();
+
+    await expect.poll(() => fixMarkdownLint.mock.calls.length).toBe(1);
+    await expect
+      .poll(
+        () =>
+          (
+            document.querySelector(
+              "textarea[name='body']",
+            ) as HTMLTextAreaElement | null
+          )?.value ?? "",
+      )
+      .toBe("Fixed body");
+  });
+
   it("uploads dropped images and inserts markdown", async () => {
     const uploadUrl =
       "https://res.cloudinary.com/example/image/upload/sample.png";

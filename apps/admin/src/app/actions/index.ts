@@ -1,4 +1,5 @@
 export { createPostPullRequest } from "./create-post-pull-request";
+export { fixMarkdownLint } from "./fix-markdown-lint";
 export { resolveLinkTitles } from "./resolve-link-titles";
 export { resolvePreview } from "./resolve-preview";
 export { handleSignIn } from "./sign-in";

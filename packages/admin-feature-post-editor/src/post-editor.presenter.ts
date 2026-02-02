@@ -14,6 +14,7 @@ type Props = {
   createPullRequestDisabled?: boolean;
   enableHatenaSync?: boolean;
   enableZennSync?: boolean;
+  fixMarkdownLint?: (source: string) => Promise<string>;
   initialBody?: string;
   initialHatenaEnabled?: boolean;
   initialPublishedAt?: string;
@@ -53,6 +54,7 @@ export const usePostEditorPresenter = ({
   createPullRequestDisabled,
   enableHatenaSync = false,
   enableZennSync = false,
+  fixMarkdownLint,
   initialBody,
   initialHatenaEnabled,
   initialPublishedAt,
@@ -75,6 +77,7 @@ export const usePostEditorPresenter = ({
   const [isPreviewLoading, setIsPreviewLoading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
+  const [isLinting, setIsLinting] = useState(false);
   const [publishedAt, setPublishedAt] = useState(() =>
     initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
   );
@@ -166,7 +169,15 @@ export const usePostEditorPresenter = ({
       zennEnabled &&
       (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
 
-  const isLoading = isUploading || isResolvingLinks || isCreatingPullRequest;
+  const lintFixDisabled =
+    isBodyEmpty ||
+    isUploading ||
+    isResolvingLinks ||
+    isCreatingPullRequest ||
+    isLinting;
+
+  const isLoading =
+    isUploading || isResolvingLinks || isCreatingPullRequest || isLinting;
 
   const handleCreatePullRequest = useCallback(async () => {
     if (!onCreatePullRequest || createPullRequestIsDisabled) {
@@ -264,6 +275,43 @@ export const usePostEditorPresenter = ({
     }
   }, [handleBodyChange, isBodyEmpty, isResolvingLinks, resolveLinkTitles]);
 
+  const handleFixMarkdownLint = useCallback(async () => {
+    if (!fixMarkdownLint || isLinting || isBodyEmpty) {
+      return;
+    }
+
+    const currentBody = bodyRef.current;
+    if (currentBody.length === 0) {
+      return;
+    }
+
+    const textarea = bodyTextareaRef.current;
+    const selectionStart = textarea?.selectionStart ?? null;
+    const selectionEnd = textarea?.selectionEnd ?? null;
+
+    setIsLinting(true);
+
+    try {
+      const fixed = await fixMarkdownLint(currentBody);
+      if (typeof fixed === "string" && fixed !== currentBody) {
+        handleBodyChange(fixed);
+      }
+    } catch {
+      // ignore lint errors to avoid breaking the editor flow
+    } finally {
+      setIsLinting(false);
+      requestAnimationFrame(() => {
+        if (!textarea) {
+          return;
+        }
+        textarea.focus();
+        if (selectionStart !== null && selectionEnd !== null) {
+          textarea.setSelectionRange(selectionStart, selectionEnd);
+        }
+      });
+    }
+  }, [fixMarkdownLint, handleBodyChange, isBodyEmpty, isLinting]);
+
   useEffect(() => {
     bodyRef.current = body;
   }, [body, summary]);
@@ -355,10 +403,13 @@ export const usePostEditorPresenter = ({
     isDragActive,
     isLoading,
     isPreviewLoading,
+    lintFixDisabled,
+    lintFixIsLoading: isLinting,
     onBodyChange: handleBodyChange,
     onCreatePullRequest: onCreatePullRequest
       ? handleCreatePullRequest
       : undefined,
+    onFixMarkdownLint: fixMarkdownLint ? handleFixMarkdownLint : undefined,
     onHatenaEnabledChange: enableHatenaSync ? setHatenaEnabled : undefined,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
@@ -372,7 +423,8 @@ export const usePostEditorPresenter = ({
     onZennTypeChange: enableZennSync ? setZennType : undefined,
     previewSource,
     publishedAt,
-    resolveLinkTitlesDisabled: isBodyEmpty || isUploading || isResolvingLinks,
+    resolveLinkTitlesDisabled:
+      isBodyEmpty || isUploading || isResolvingLinks || isLinting,
     resolveLinkTitlesIsLoading: isResolvingLinks,
     summary,
     tagInputValue,

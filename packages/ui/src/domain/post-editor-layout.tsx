@@ -37,8 +37,11 @@ type Props = {
   hatenaEnabledValue?: boolean;
   isBodyDragActive?: boolean;
   isLoading?: boolean;
+  lintFixDisabled?: boolean;
+  lintFixIsLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
+  onFixMarkdownLint?: () => void;
   onHatenaEnabledChange?: (value: boolean) => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
@@ -300,8 +303,11 @@ export const PostEditorLayout = ({
   hatenaEnabledValue = false,
   isBodyDragActive = false,
   isLoading = false,
+  lintFixDisabled = false,
+  lintFixIsLoading = false,
   onBodyChange,
   onCreatePullRequest,
+  onFixMarkdownLint,
   onHatenaEnabledChange,
   onPublishedAtChange,
   onResolveLinkTitles,
@@ -331,7 +337,9 @@ export const PostEditorLayout = ({
   const previewTitle = titleValue || t("titlePlaceholder");
   const isPreviewLoading = previewIsLoading ?? previewContent == null;
   const hasDrawerActions =
-    Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
+    Boolean(onResolveLinkTitles) ||
+    Boolean(onCreatePullRequest) ||
+    Boolean(onFixMarkdownLint);
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
   const filteredTagSuggestions = useMemo(() => {
@@ -564,6 +572,18 @@ export const PostEditorLayout = ({
                               {createPullRequestIsLoading
                                 ? t("createPullRequestLoading")
                                 : t("createPullRequestAction")}
+                            </ActionButton>
+                          ) : null}
+                          {onFixMarkdownLint ? (
+                            <ActionButton
+                              data-testid="post-editor-markdownlint-fix"
+                              disabled={lintFixDisabled}
+                              onClick={onFixMarkdownLint}
+                              type="button"
+                            >
+                              {lintFixIsLoading
+                                ? t("lintFixLoading")
+                                : t("lintFixAction")}
                             </ActionButton>
                           ) : null}
                           {onResolveLinkTitles ? (

@@ -2,6 +2,7 @@ import { PostEditor } from "@repo/admin-feature-post-editor";
 
 import {
   createPostPullRequest,
+  fixMarkdownLint,
   resolveLinkTitles,
   resolvePreview,
   uploadImage,
@@ -15,6 +16,7 @@ export default async function Page() {
     <PostEditor
       enableHatenaSync
       enableZennSync
+      fixMarkdownLint={fixMarkdownLint}
       onCreatePullRequest={createPostPullRequest}
       resolveLinkTitles={resolveLinkTitles}
       resolvePreview={resolvePreview}

@@ -7,6 +7,7 @@ const meta = {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
     hatenaEnabledValue: true,
     onBodyChange: () => undefined,
+    onFixMarkdownLint: () => undefined,
     onHatenaEnabledChange: () => undefined,
     onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,

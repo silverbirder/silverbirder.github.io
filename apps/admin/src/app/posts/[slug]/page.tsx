@@ -1,6 +1,7 @@
 import { PostEditor } from "@repo/admin-feature-post-editor";
 
 import {
+  fixMarkdownLint,
   resolveLinkTitles,
   resolvePreview,
   updatePostPullRequest,
@@ -26,6 +27,7 @@ export default async function Page({ params }: Props) {
   ]);
   return (
     <PostEditor
+      fixMarkdownLint={fixMarkdownLint}
       initialBody={post?.body}
       initialPublishedAt={post?.publishedAt}
       initialSummary={post?.summary}

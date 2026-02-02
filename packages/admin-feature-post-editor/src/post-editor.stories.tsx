@@ -10,6 +10,7 @@ const defaultResolvePreview = async (source: string) => ({
   scope: {},
 });
 const defaultResolveLinkTitles = async (source: string) => source;
+const defaultFixMarkdownLint = async (source: string) => source;
 const defaultUploadImage = async () => ({
   url: "https://res.cloudinary.com/demo/image/upload/sample.png",
 });
@@ -20,6 +21,7 @@ type Story = StoryObj<Props>;
 
 const meta = {
   args: {
+    fixMarkdownLint: defaultFixMarkdownLint,
     resolveLinkTitles: defaultResolveLinkTitles,
     resolvePreview: defaultResolvePreview,
     tagSuggestions: ["Frontend", "Design", "TypeScript"],

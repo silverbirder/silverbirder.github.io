@@ -46,14 +46,14 @@ describe("Page", () => {
     const posts = [
       { publishedAt: "2026-01-04" },
       { publishedAt: "2026-01-03" },
-      { publishedAt: "2026-01-01" },
+      { publishedAt: "2026-01-02" },
     ];
 
     const summary = buildBlogSummary(posts);
 
     expect(summary).toEqual({
       latestPublishedAt: "2026-01-04",
-      streakDays: 2,
+      streakDays: 3,
       totalCount: 3,
     });
     vi.useRealTimers();

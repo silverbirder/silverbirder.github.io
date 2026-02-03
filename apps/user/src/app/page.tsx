@@ -54,16 +54,12 @@ const toDayValue = (value: number | string) => {
 
 const countConsecutiveDays = (posts: { publishedAt: string }[]) => {
   const dayValues = new Set<number>();
-  let maxDayValue = -Infinity;
   posts.forEach((post) => {
     const dayValue = toDayValue(post.publishedAt);
     if (dayValue === null) {
       return;
     }
     dayValues.add(dayValue);
-    if (dayValue > maxDayValue) {
-      maxDayValue = dayValue;
-    }
   });
 
   if (dayValues.size === 0) {
@@ -75,11 +71,10 @@ const countConsecutiveDays = (posts: { publishedAt: string }[]) => {
     return 0;
   }
 
-  const baseValue = Math.max(todayValue, maxDayValue);
-  const startValue = dayValues.has(baseValue)
-    ? baseValue
-    : dayValues.has(baseValue - 1)
-      ? baseValue - 1
+  const startValue = dayValues.has(todayValue)
+    ? todayValue
+    : dayValues.has(todayValue - 1)
+      ? todayValue - 1
       : null;
   if (startValue === null) {
     return 0;

@@ -4,11 +4,11 @@ export const uploadImage = async (formData: FormData) => {
   "use server";
   const file = formData.get("file");
 
-  if (!(file instanceof File)) {
+  if (!(file instanceof Blob)) {
     throw new Error("Invalid file.");
   }
 
-  if (!file.type.startsWith("image/")) {
+  if (!file.type || !file.type.startsWith("image/")) {
     throw new Error("Unsupported file type.");
   }
 

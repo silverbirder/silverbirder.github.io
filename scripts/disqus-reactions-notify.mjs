@@ -50,6 +50,14 @@ const toPostUrl = (slug) => {
   return new URL(pathname, siteBaseUrl).toString();
 };
 
+class DisqusApiError extends Error {
+  constructor(message, status, body) {
+    super(message);
+    this.status = status;
+    this.body = body;
+  }
+}
+
 const apiGet = async (endpoint, params) => {
   const url = new URL(`${apiBase}/${endpoint}`);
   url.searchParams.set("api_key", env.DISQUS_API_KEY);
@@ -60,7 +68,18 @@ const apiGet = async (endpoint, params) => {
   });
   const res = await fetch(url.toString());
   if (!res.ok) {
-    throw new Error(`Disqus API error (${res.status}): ${await res.text()}`);
+    const text = await res.text();
+    let body = null;
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = text;
+    }
+    throw new DisqusApiError(
+      `Disqus API error (${res.status})`,
+      res.status,
+      body,
+    );
   }
   return res.json();
 };
@@ -147,6 +166,14 @@ const main = async () => {
       });
       threadId = details?.response?.id ?? "";
     } catch (error) {
+      if (
+        error instanceof DisqusApiError &&
+        error.status === 400 &&
+        error.body?.code === 2
+      ) {
+        // Thread does not exist yet (no comments/engagement). Skip silently.
+        continue;
+      }
       console.error(`[warn] threads/details failed for ${url}`, error);
       continue;
     }

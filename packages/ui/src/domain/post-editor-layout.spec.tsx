@@ -22,6 +22,7 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue=""
+        initialTab="preview"
         onBodyChange={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}

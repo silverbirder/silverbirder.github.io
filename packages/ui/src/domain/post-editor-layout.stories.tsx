@@ -6,6 +6,7 @@ const meta = {
   args: {
     bodyValue: "## Highlights\n\n- Clear structure\n- Short sections",
     hatenaEnabledValue: true,
+    initialTab: "preview",
     onBodyChange: () => undefined,
     onFixMarkdownLint: () => undefined,
     onHatenaEnabledChange: () => undefined,
@@ -53,6 +54,7 @@ export const Ideal: Story = {};
 export const Empty: Story = {
   args: {
     bodyValue: "",
+    initialTab: "input",
     previewContent: null,
     titleValue: "",
   },
@@ -60,6 +62,7 @@ export const Empty: Story = {
 
 export const Error: Story = {
   args: {
+    initialTab: "preview",
     previewContent: <p role="alert">Failed to load preview</p>,
   },
 };
@@ -67,6 +70,7 @@ export const Error: Story = {
 export const Partial: Story = {
   args: {
     bodyValue: "",
+    initialTab: "input",
     previewContent: null,
     titleValue: "Draft in progress",
   },
@@ -74,6 +78,7 @@ export const Partial: Story = {
 
 export const Loading: Story = {
   args: {
+    initialTab: "preview",
     previewContent: <p>Previous preview</p>,
     previewIsLoading: true,
     resolveLinkTitlesIsLoading: true,

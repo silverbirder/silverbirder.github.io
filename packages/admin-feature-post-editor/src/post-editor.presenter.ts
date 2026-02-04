@@ -6,7 +6,6 @@ import { formatDate, hasFrontmatter } from "@repo/util";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { buildSummaryFromBody, generateZennSlug } from "./libs";
-import { useDebouncedCallback } from "./post-editor.debounce";
 import { useImageDropzone } from "./post-editor.image-dropzone";
 import { usePostEditorTags } from "./post-editor.tags";
 
@@ -92,6 +91,7 @@ export const usePostEditorPresenter = ({
   const bodyRef = useRef(body);
   const initialAppliedRef = useRef(false);
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const lastPreviewedBodyRef = useRef<null | string>(null);
 
   const isBodyEmpty = body.length === 0;
   const shouldNoindex =
@@ -111,29 +111,6 @@ export const usePostEditorPresenter = ({
     tags,
   } = usePostEditorTags({ initialTags, tagSuggestions });
 
-  const { schedule: schedulePreview } = useDebouncedCallback(
-    async (value: string) => {
-      try {
-        const data = await resolvePreview(value);
-        setPreviewSource(data ?? null);
-      } catch {
-        setPreviewSource(null);
-      } finally {
-        setIsPreviewLoading(false);
-      }
-    },
-    350,
-  );
-
-  const onBodyChange = useCallback(
-    (value: string) => {
-      setBody(value);
-      setIsPreviewLoading(true);
-      schedulePreview(value);
-    },
-    [schedulePreview],
-  );
-
   const updateSummaryFromBody = useCallback((value: string) => {
     const nextSummary = buildSummaryFromBody(value);
     setSummary(nextSummary);
@@ -141,12 +118,38 @@ export const usePostEditorPresenter = ({
 
   const handleBodyChange = useCallback(
     (value: string) => {
+      setBody(value);
       bodyRef.current = value;
-      onBodyChange(value);
       updateSummaryFromBody(value);
     },
-    [onBodyChange, updateSummaryFromBody],
+    [updateSummaryFromBody],
   );
+
+  const handlePreviewRequest = useCallback(async () => {
+    const currentBody = bodyRef.current;
+    if (currentBody.length === 0) {
+      setPreviewSource(null);
+      setIsPreviewLoading(false);
+      lastPreviewedBodyRef.current = currentBody;
+      return;
+    }
+
+    if (lastPreviewedBodyRef.current === currentBody) {
+      return;
+    }
+
+    setIsPreviewLoading(true);
+
+    try {
+      const data = await resolvePreview(currentBody);
+      setPreviewSource(data ?? null);
+    } catch {
+      setPreviewSource(null);
+    } finally {
+      setIsPreviewLoading(false);
+      lastPreviewedBodyRef.current = currentBody;
+    }
+  }, [resolvePreview]);
 
   const { getInputProps, getRootProps, isDragActive, isUploading } =
     useImageDropzone({
@@ -364,7 +367,9 @@ export const usePostEditorPresenter = ({
     }
 
     if (initialBody !== undefined) {
-      onBodyChange(initialBody);
+      setBody(initialBody);
+      bodyRef.current = initialBody;
+      updateSummaryFromBody(initialBody);
     }
 
     initialAppliedRef.current = true;
@@ -377,7 +382,7 @@ export const usePostEditorPresenter = ({
     initialHatenaEnabled,
     initialZennEnabled,
     initialZennType,
-    onBodyChange,
+    updateSummaryFromBody,
     setTitle,
     setTags,
   ]);
@@ -411,6 +416,7 @@ export const usePostEditorPresenter = ({
       : undefined,
     onFixMarkdownLint: fixMarkdownLint ? handleFixMarkdownLint : undefined,
     onHatenaEnabledChange: enableHatenaSync ? setHatenaEnabled : undefined,
+    onPreviewRequest: handlePreviewRequest,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
     onTagInputBlur,

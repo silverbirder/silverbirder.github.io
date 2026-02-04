@@ -16,11 +16,13 @@ import {
   Drawer,
   Portal,
   RadioGroup,
+  Tabs,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 import { Notebook } from "./notebook";
+import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
 import { Tag } from "./tag";
 
 type Props = {
@@ -35,6 +37,7 @@ type Props = {
   createPullRequestDisabled?: boolean;
   createPullRequestIsLoading?: boolean;
   hatenaEnabledValue?: boolean;
+  initialTab?: "input" | "preview";
   isBodyDragActive?: boolean;
   isLoading?: boolean;
   lintFixDisabled?: boolean;
@@ -43,6 +46,7 @@ type Props = {
   onCreatePullRequest?: () => void;
   onFixMarkdownLint?: () => void;
   onHatenaEnabledChange?: (value: boolean) => void;
+  onPreviewRequest?: () => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
   onTagInputBlur: () => void;
@@ -133,14 +137,6 @@ const ActionButton = chakra("button", {
   },
 });
 
-const EditorGrid = chakra("div", {
-  base: {
-    display: "grid",
-    gap: "2rem",
-    gridTemplateColumns: { base: "1fr", lg: "1fr 1fr" },
-  },
-});
-
 const EditorPanel = chakra("section", {
   base: {
     background: "bg",
@@ -158,6 +154,14 @@ const PreviewPanel = chakra("section", {
     display: "flex",
     flexDirection: "column",
     gap: "1.25rem",
+  },
+});
+
+const PreviewPlaceholder = chakra("p", {
+  base: {
+    color: "muted",
+    fontSize: "0.95rem",
+    margin: 0,
   },
 });
 
@@ -301,6 +305,7 @@ export const PostEditorLayout = ({
   createPullRequestDisabled = false,
   createPullRequestIsLoading = false,
   hatenaEnabledValue = false,
+  initialTab = "input",
   isBodyDragActive = false,
   isLoading = false,
   lintFixDisabled = false,
@@ -309,6 +314,7 @@ export const PostEditorLayout = ({
   onCreatePullRequest,
   onFixMarkdownLint,
   onHatenaEnabledChange,
+  onPreviewRequest,
   onPublishedAtChange,
   onResolveLinkTitles,
   onTagInputBlur,
@@ -333,9 +339,11 @@ export const PostEditorLayout = ({
   zennTypeValue = "",
 }: Props) => {
   const t = useTranslations("admin.postEditor");
+  const [activeTab, setActiveTab] = useState<"input" | "preview">(initialTab);
   const previewDate = publishedAtValue || "2025-01-12";
   const previewTitle = titleValue || t("titlePlaceholder");
-  const isPreviewLoading = previewIsLoading ?? previewContent == null;
+  const isPreviewLoading = previewIsLoading ?? false;
+  const shouldShowPreviewEmpty = !isPreviewLoading && previewContent == null;
   const hasDrawerActions =
     Boolean(onResolveLinkTitles) ||
     Boolean(onCreatePullRequest) ||
@@ -608,55 +616,86 @@ export const PostEditorLayout = ({
           </HeaderActions>
         </HeaderRow>
       </Header>
-      <EditorGrid>
-        <EditorPanel aria-busy={isLoading} data-testid="post-editor">
-          <FieldGroup>
-            <Input
-              aria-label={t("titleLabel")}
-              disabled={isLoading}
-              name="title"
-              onChange={(event) => onTitleChange(event.target.value)}
-              placeholder={t("titlePlaceholder")}
-              type="text"
-              value={titleValue}
-            />
-          </FieldGroup>
-          <FieldGroup>
-            <BodyDropzone
-              {...bodyDropzoneProps}
-              data-testid="post-editor-body-dropzone"
-            >
-              {bodyDropzoneInputProps ? (
-                <input {...bodyDropzoneInputProps} hidden />
-              ) : null}
-              <Textarea
-                aria-label={t("contentLabel")}
-                borderColor={isBodyDragActive ? "fg" : undefined}
-                data-testid="post-editor-body"
+      <Tabs.Root
+        aria-label={t("contentLabel")}
+        onValueChange={(details) => {
+          const value = details.value as "input" | "preview";
+          if (!value) {
+            return;
+          }
+          setActiveTab(value);
+          if (value === "preview") {
+            onPreviewRequest?.();
+          }
+        }}
+        value={activeTab}
+      >
+        <Tabs.List>
+          <Tabs.Trigger data-testid="post-editor-tab-input" value="input">
+            {t("editorTabInput")}
+          </Tabs.Trigger>
+          <Tabs.Trigger data-testid="post-editor-tab-preview" value="preview">
+            {t("editorTabPreview")}
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="input">
+          <EditorPanel aria-busy={isLoading} data-testid="post-editor">
+            <FieldGroup>
+              <Input
+                aria-label={t("titleLabel")}
                 disabled={isLoading}
-                name="body"
-                onChange={(event) => onBodyChange(event.target.value)}
-                placeholder={t("contentPlaceholder")}
-                ref={bodyTextareaRef}
-                value={bodyValue}
+                name="title"
+                onChange={(event) => onTitleChange(event.target.value)}
+                placeholder={t("titlePlaceholder")}
+                type="text"
+                value={titleValue}
               />
-            </BodyDropzone>
-          </FieldGroup>
-        </EditorPanel>
-        <PreviewPanel>
-          <Notebook
+            </FieldGroup>
+            <FieldGroup>
+              <BodyDropzone
+                {...bodyDropzoneProps}
+                data-testid="post-editor-body-dropzone"
+              >
+                {bodyDropzoneInputProps ? (
+                  <input {...bodyDropzoneInputProps} hidden />
+                ) : null}
+                <Textarea
+                  aria-label={t("contentLabel")}
+                  borderColor={isBodyDragActive ? "fg" : undefined}
+                  data-testid="post-editor-body"
+                  disabled={isLoading}
+                  name="body"
+                  onChange={(event) => onBodyChange(event.target.value)}
+                  placeholder={t("contentPlaceholder")}
+                  ref={bodyTextareaRef}
+                  value={bodyValue}
+                />
+              </BodyDropzone>
+            </FieldGroup>
+          </EditorPanel>
+        </Tabs.Content>
+        <Tabs.Content pt={NOTEBOOK_LINE_HEIGHT} value="preview">
+          <PreviewPanel
             aria-busy={isPreviewLoading}
-            data-testid="post-editor-preview"
-            navigation={{}}
-            publishedAt={previewDate}
-            relatedPosts={[]}
-            tags={previewTags ?? []}
-            title={previewTitle}
+            data-testid="post-editor-preview-panel"
           >
-            {previewContent}
-          </Notebook>
-        </PreviewPanel>
-      </EditorGrid>
+            <Notebook
+              aria-busy={isPreviewLoading}
+              data-testid="post-editor-preview"
+              navigation={{}}
+              publishedAt={previewDate}
+              relatedPosts={[]}
+              tags={previewTags ?? []}
+              title={previewTitle}
+            >
+              {previewContent ??
+                (shouldShowPreviewEmpty ? (
+                  <PreviewPlaceholder>{t("previewEmpty")}</PreviewPlaceholder>
+                ) : null)}
+            </Notebook>
+          </PreviewPanel>
+        </Tabs.Content>
+      </Tabs.Root>
     </Main>
   );
 };

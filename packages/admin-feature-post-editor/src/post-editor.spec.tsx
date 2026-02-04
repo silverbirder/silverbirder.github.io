@@ -97,34 +97,31 @@ describe("PostEditor", () => {
       .toHaveLength(1);
   });
 
-  it("keeps body focused while preview loads", async () => {
-    vi.useFakeTimers();
+  it("requests preview when switching to the preview tab", async () => {
+    const resolvePreviewMock = vi.fn().mockResolvedValue({
+      compiledSource:
+        '/*@jsxRuntime automatic @jsxImportSource react*/\nimport { jsx as _jsx } from "react/jsx-runtime";\nexport default function MDXContent(){return _jsx("p", { children: "Preview" });}',
+      frontmatter: {},
+      scope: {},
+    });
 
-    try {
-      await renderWithProvider(
-        <PostEditor
-          resolveLinkTitles={resolveLinkTitles}
-          resolvePreview={() => new Promise(() => undefined)}
-          uploadImage={uploadImage}
-        />,
-      );
+    await renderWithProvider(
+      <PostEditor
+        initialBody="Hello"
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreviewMock}
+        uploadImage={uploadImage}
+      />,
+    );
 
-      const bodyInput = document.querySelector(
-        "textarea[name='body']",
-      ) as HTMLTextAreaElement | null;
+    expect(resolvePreviewMock).not.toHaveBeenCalled();
 
-      bodyInput?.focus();
-      if (bodyInput) {
-        bodyInput.value = "Hello";
-        bodyInput.dispatchEvent(new Event("input", { bubbles: true }));
-      }
+    const previewTab = document.querySelector(
+      "[data-testid='post-editor-tab-preview']",
+    );
+    previewTab?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
-      await vi.advanceTimersByTimeAsync(400);
-
-      expect(document.activeElement).toBe(bodyInput);
-    } finally {
-      vi.useRealTimers();
-    }
+    await expect.poll(() => resolvePreviewMock.mock.calls.length).toBe(1);
   });
 
   it("fixes markdown lint and updates the body", async () => {

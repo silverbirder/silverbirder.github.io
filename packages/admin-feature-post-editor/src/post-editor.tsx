@@ -24,6 +24,7 @@ export const PostEditor = (props: Props) => {
     onCreatePullRequest,
     onFixMarkdownLint,
     onHatenaEnabledChange,
+    onPreviewRequest,
     onPublishedAtChange,
     onResolveLinkTitles,
     onTagInputBlur,
@@ -64,6 +65,7 @@ export const PostEditor = (props: Props) => {
       onCreatePullRequest={onCreatePullRequest}
       onFixMarkdownLint={onFixMarkdownLint}
       onHatenaEnabledChange={onHatenaEnabledChange}
+      onPreviewRequest={onPreviewRequest}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}
       onTagInputBlur={onTagInputBlur}

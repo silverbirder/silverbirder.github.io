@@ -7,6 +7,7 @@ const REQUIRED_ENV = [
   "SLACK_WEBHOOK_URL",
   "SITE_BASE_URL",
 ];
+const OPTIONAL_ENV = ["DISQUS_MAX_THREADS_PER_RUN"];
 
 const getEnv = (key) => {
   const value = process.env[key];
@@ -17,6 +18,11 @@ const getEnv = (key) => {
 };
 
 const env = Object.fromEntries(REQUIRED_ENV.map((key) => [key, getEnv(key)]));
+for (const key of OPTIONAL_ENV) {
+  if (process.env[key]) {
+    env[key] = process.env[key];
+  }
+}
 
 const rootDir = process.cwd();
 const contentDir = path.join(rootDir, "packages", "content", "posts");
@@ -42,6 +48,15 @@ const parseFrontmatterTitle = (source) => {
   if (endIndex === -1) return "";
   const frontmatter = source.slice(3, endIndex);
   const match = frontmatter.match(/^title:\s*(.+)$/m);
+  return normalizeTitle(match?.[1] ?? "");
+};
+
+const parseFrontmatterPublishedAt = (source) => {
+  if (!source.startsWith("---")) return "";
+  const endIndex = source.indexOf("\n---", 3);
+  if (endIndex === -1) return "";
+  const frontmatter = source.slice(3, endIndex);
+  const match = frontmatter.match(/^publishedAt:\s*(.+)$/m);
   return normalizeTitle(match?.[1] ?? "");
 };
 
@@ -153,9 +168,35 @@ const main = async () => {
   const nextState = { threads: {} };
   const changes = [];
 
+  const maxPerRun = Number(env.DISQUS_MAX_THREADS_PER_RUN ?? 100);
+  const posts = [];
   for (const slug of slugs) {
     const source = await readFile(path.join(contentDir, `${slug}.md`), "utf8");
     const title = parseFrontmatterTitle(source) || slug;
+    const publishedAt = parseFrontmatterPublishedAt(source);
+    const publishedAtMs = publishedAt ? Date.parse(publishedAt) : 0;
+    if (!publishedAtMs) {
+      continue;
+    }
+    posts.push({ slug, title, publishedAtMs, publishedAt });
+  }
+
+  posts.sort((a, b) => {
+    if (a.publishedAtMs && b.publishedAtMs) {
+      return b.publishedAtMs - a.publishedAtMs;
+    }
+    if (a.publishedAtMs) return -1;
+    if (b.publishedAtMs) return 1;
+    return a.slug.localeCompare(b.slug);
+  });
+
+  const slice = posts.slice(0, maxPerRun);
+
+  for (const post of slice) {
+    const { slug, title, publishedAt } = post;
+    console.log(
+      `[check] ${title} (${publishedAt || "publishedAt:unknown"})`,
+    );
     const url = toPostUrl(slug);
 
     let threadId = "";

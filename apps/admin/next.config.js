@@ -9,6 +9,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 const config = {
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
   },
   output: "standalone",
   reactCompiler: true,

@@ -9,15 +9,15 @@ export const contentType = "image/png";
 const NOTEBOOK_LINE_HEIGHT = 32; // 2rem
 const NOTEBOOK_LINE_COLOR = "#f4f4f5"; // var(--chakra-colors-border-muted)
 
-export default async function OpenGraphImage() {
+export const buildOpenGraphImage = async () => {
   const logo = await readFile(
-    new URL("../../public/assets/logo.png", import.meta.url),
+    new URL("../../../public/assets/logo.png", import.meta.url),
   );
   const notoSansJpRegular = await readFile(
-    new URL("../../public/fonts/NotoSansJP-Regular.ttf", import.meta.url),
+    new URL("../../../public/fonts/NotoSansJP-Regular.ttf", import.meta.url),
   );
   const notoSansJpBold = await readFile(
-    new URL("../../public/fonts/NotoSansJP-Bold.ttf", import.meta.url),
+    new URL("../../../public/fonts/NotoSansJP-Bold.ttf", import.meta.url),
   );
   const logoBase64 = `data:image/png;base64,${logo.toString("base64")}`;
 
@@ -94,4 +94,8 @@ export default async function OpenGraphImage() {
       ],
     },
   );
+};
+
+export async function GET() {
+  return buildOpenGraphImage();
 }

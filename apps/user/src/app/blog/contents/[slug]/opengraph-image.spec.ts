@@ -12,12 +12,6 @@ const { getPostFrontmatter, getPostSlugs } = vi.hoisted(() => ({
   getPostSlugs: vi.fn(),
 }));
 
-const { notFound } = vi.hoisted(() => ({
-  notFound: vi.fn(() => {
-    throw new Error("NOT_FOUND");
-  }),
-}));
-
 vi.mock("node:fs/promises", () => ({
   readFile,
 }));
@@ -26,20 +20,18 @@ vi.mock("next/og", () => ({
   ImageResponse,
 }));
 
-vi.mock("next/navigation", () => ({
-  notFound,
-}));
-
 vi.mock("@/libs", () => ({
   getPostFrontmatter,
   getPostSlugs,
 }));
 
-import OpenGraphImage, {
+import {
+  buildOpenGraphImage,
   contentType,
   generateStaticParams,
+  GET,
   size,
-} from "./opengraph-image";
+} from "./opengraph-image/route";
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -50,9 +42,7 @@ describe("blog/contents/[slug]/opengraph-image", () => {
     readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
     getPostFrontmatter.mockResolvedValue({ title: "テストタイトル" });
 
-    const result = await OpenGraphImage({
-      params: Promise.resolve({ slug: "my-post" }),
-    });
+    const result = await buildOpenGraphImage("my-post");
 
     expect(contentType).toBe("image/png");
     expect(size).toEqual({ height: 630, width: 1200 });
@@ -90,14 +80,14 @@ describe("blog/contents/[slug]/opengraph-image", () => {
     });
   });
 
-  it("throws notFound when title is missing", async () => {
+  it("returns 404 response when title is missing", async () => {
     readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
     getPostFrontmatter.mockResolvedValue({ title: "" });
 
-    await expect(
-      OpenGraphImage({ params: Promise.resolve({ slug: "missing" }) }),
-    ).rejects.toThrow("NOT_FOUND");
-    expect(notFound).toHaveBeenCalledTimes(1);
+    const result = await buildOpenGraphImage("missing");
+
+    expect(result).toBeInstanceOf(Response);
+    expect(result.status).toBe(404);
   });
 
   it("returns static params from slugs", async () => {
@@ -107,5 +97,28 @@ describe("blog/contents/[slug]/opengraph-image", () => {
       { slug: "one" },
       { slug: "two" },
     ]);
+  });
+
+  it("serves image response on GET", async () => {
+    readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
+    getPostFrontmatter.mockResolvedValue({ title: "テストタイトル" });
+
+    const result = await GET(new Request("https://example.com"), {
+      params: Promise.resolve({ slug: "my-post" }),
+    });
+
+    expect(ImageResponse).toHaveBeenCalledTimes(1);
+    expect(result).toEqual({
+      args: [
+        expect.anything(),
+        expect.objectContaining({
+          ...size,
+          fonts: [
+            expect.objectContaining({ name: "Noto Sans JP", weight: 400 }),
+            expect.objectContaining({ name: "Noto Sans JP", weight: 700 }),
+          ],
+        }),
+      ],
+    });
   });
 });

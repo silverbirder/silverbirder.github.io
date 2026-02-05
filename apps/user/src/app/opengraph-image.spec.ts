@@ -15,7 +15,12 @@ vi.mock("next/og", () => ({
   ImageResponse,
 }));
 
-import OpenGraphImage, { contentType, size } from "./opengraph-image";
+import {
+  buildOpenGraphImage,
+  contentType,
+  GET,
+  size,
+} from "./opengraph-image/route";
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -25,7 +30,7 @@ describe("opengraph-image", () => {
   it("builds a png image response", async () => {
     readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
 
-    const result = await OpenGraphImage();
+    const result = await buildOpenGraphImage();
 
     expect(contentType).toBe("image/png");
     expect(size).toEqual({ height: 630, width: 1200 });
@@ -48,6 +53,26 @@ describe("opengraph-image", () => {
         ],
       }),
     );
+    expect(result).toEqual({
+      args: [
+        expect.anything(),
+        expect.objectContaining({
+          ...size,
+          fonts: [
+            expect.objectContaining({ name: "Noto Sans JP", weight: 400 }),
+            expect.objectContaining({ name: "Noto Sans JP", weight: 700 }),
+          ],
+        }),
+      ],
+    });
+  });
+
+  it("serves image response on GET", async () => {
+    readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
+
+    const result = await GET();
+
+    expect(ImageResponse).toHaveBeenCalledTimes(1);
     expect(result).toEqual({
       args: [
         expect.anything(),

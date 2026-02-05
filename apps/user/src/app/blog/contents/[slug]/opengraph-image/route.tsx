@@ -1,6 +1,5 @@
 import { siteThemeColor } from "@repo/metadata";
 import { jaModel, Parser } from "budoux";
-import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 
@@ -26,35 +25,37 @@ export async function generateStaticParams() {
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-export default async function OpenGraphImage(props: {
-  params: Promise<{ slug: string }>;
-}) {
+const getTitle = async (slug: string) => {
+  try {
+    const frontmatter = await getPostFrontmatter(slug);
+    return frontmatter.title ?? "";
+  } catch {
+    return "";
+  }
+};
+
+export const buildOpenGraphImage = async (slug: string) => {
   const logo = await readFile(
-    new URL("../../../../../public/assets/logo.png", import.meta.url),
+    new URL("../../../../../../public/assets/logo.png", import.meta.url),
   );
   const notoSansJpRegular = await readFile(
     new URL(
-      "../../../../../public/fonts/NotoSansJP-Regular.ttf",
+      "../../../../../../public/fonts/NotoSansJP-Regular.ttf",
       import.meta.url,
     ),
   );
   const notoSansJpBold = await readFile(
-    new URL("../../../../../public/fonts/NotoSansJP-Bold.ttf", import.meta.url),
+    new URL(
+      "../../../../../../public/fonts/NotoSansJP-Bold.ttf",
+      import.meta.url,
+    ),
   );
   const logoBase64 = `data:image/png;base64,${logo.toString("base64")}`;
 
-  const { slug } = await props.params;
-
-  let title = "";
-  try {
-    const frontmatter = await getPostFrontmatter(slug);
-    title = frontmatter.title ?? "";
-  } catch {
-    notFound();
-  }
+  const title = await getTitle(slug);
 
   if (!title) {
-    notFound();
+    return new Response("Not Found", { status: 404 });
   }
 
   const titleLines = await splitTextIntoLines(
@@ -160,6 +161,14 @@ export default async function OpenGraphImage(props: {
       ],
     },
   );
+};
+
+export async function GET(
+  _request: Request,
+  { params }: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await params;
+  return buildOpenGraphImage(slug);
 }
 
 /**

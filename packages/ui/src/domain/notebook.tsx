@@ -7,6 +7,7 @@ import {
   Button,
   Flex,
   Heading,
+  HStack,
   Icon,
   SimpleGrid,
   Stack,
@@ -20,6 +21,7 @@ import { usePathname } from "next/navigation";
 import type { FollowSection } from "./follow";
 
 import { NotebookDash } from "./notebook-dash";
+import { NotebookLike } from "./notebook-like";
 import { NotebookPostItem } from "./notebook-post-item";
 import { NOTEBOOK_LINE_HEIGHT, NotebookProse } from "./notebook-prose";
 import { RobotBadge } from "./robot-badge";
@@ -41,6 +43,10 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   headerRight?: ReactNode;
   indexStatus?: "index" | "noindex";
   isBackToBlog?: boolean;
+  like?: {
+    name: string;
+    namespace: string;
+  };
   navigation: {
     next?: {
       href: string;
@@ -107,6 +113,7 @@ export const Notebook = ({
   headerRight,
   indexStatus = "index",
   isBackToBlog,
+  like,
   navigation,
   postNumber,
   publishedAt,
@@ -266,6 +273,16 @@ export const Notebook = ({
               <Tag key={tag} mr={2} tag={tag} />
             ))}
           </Stack>
+        )}
+        {like && (
+          <HStack
+            as="section"
+            h={NOTEBOOK_LINE_HEIGHT}
+            justify="center"
+            mb={NOTEBOOK_LINE_HEIGHT}
+          >
+            <NotebookLike name={like.name} namespace={like.namespace} />
+          </HStack>
         )}
         {share && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>

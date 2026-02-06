@@ -1,0 +1,37 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "check-types": "next typegen && tsc --noEmit",
+    "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
+    "db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push --config=drizzle.config.ts",
+    "dev": "next dev --port 3002",
+    "lint": "eslint --max-warnings 0",
+    "start": "next start --port 3002",
+    "test": "vitest --run"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.44.5",
+    "next": "16.1.0",
+    "postgres": "^3.4.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/vitest-config": "workspace:*",
+    "@types/node": "^22.19.7",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "drizzle-kit": "^0.31.8",
+    "eslint": "^9.39.2",
+    "typescript": "5.9.2",
+    "vitest": "^4.0.18"
+  }
+}

@@ -13,6 +13,26 @@ type ToggleLikeBody = {
   slug?: string;
 };
 
+const notifySlack = async (payload: {
+  action: "like" | "unlike";
+  count: number;
+  slug: string;
+}) => {
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  if (!webhookUrl) return;
+
+  const text = `:thumbsup: ${payload.action} ${payload.slug} (count: ${payload.count})`;
+  try {
+    await fetch(webhookUrl, {
+      body: JSON.stringify({ text }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+  } catch (error) {
+    console.error("Slack webhook failed", error);
+  }
+};
+
 const getCount = async (slug: string) => {
   const rows = await db
     .select({ count: likes.count })
@@ -151,6 +171,12 @@ export async function POST(request: Request) {
       .limit(1);
 
     return { count: count[0]?.count ?? 0, liked: true };
+  });
+
+  void notifySlack({
+    action: result.liked ? "like" : "unlike",
+    count: result.count,
+    slug: normalizedSlug,
   });
 
   return NextResponse.json(result, { headers: buildCorsHeaders(origin) });

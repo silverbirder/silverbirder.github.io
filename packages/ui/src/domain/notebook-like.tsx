@@ -2,7 +2,7 @@
 
 import type { IconButtonProps } from "@chakra-ui/react";
 
-import { Box, IconButton } from "@chakra-ui/react";
+import { IconButton, Text, VStack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { LuThumbsUp } from "react-icons/lu";
@@ -167,7 +167,7 @@ export const NotebookLike = ({
   const countLabel = count ?? "-";
 
   return (
-    <Box alignItems="center" display="inline-flex" position="relative">
+    <VStack alignItems="center" gap={0}>
       <IconButton
         aria-label={t("likeButtonAriaLabel")}
         aria-pressed={liked}
@@ -186,22 +186,7 @@ export const NotebookLike = ({
       >
         <LuThumbsUp />
       </IconButton>
-      <Box
-        bg="green.solid"
-        borderRadius="full"
-        bottom="-6px"
-        color="white"
-        fontSize="xs"
-        lineHeight="1"
-        minW="1.5rem"
-        position="absolute"
-        px={1}
-        py="2px"
-        right="-6px"
-        textAlign="center"
-      >
-        {countLabel}
-      </Box>
-    </Box>
+      <Text m={0}>{countLabel}</Text>
+    </VStack>
   );
 };

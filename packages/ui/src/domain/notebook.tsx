@@ -7,7 +7,6 @@ import {
   Button,
   Flex,
   Heading,
-  HStack,
   Icon,
   SimpleGrid,
   Stack,
@@ -275,14 +274,9 @@ export const Notebook = ({
           </Stack>
         )}
         {like && (
-          <HStack
-            as="section"
-            h={NOTEBOOK_LINE_HEIGHT}
-            justify="center"
-            mb={NOTEBOOK_LINE_HEIGHT}
-          >
+          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
             <NotebookLike name={like.name} namespace={like.namespace} />
-          </HStack>
+          </Box>
         )}
         {share && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>

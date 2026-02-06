@@ -19,7 +19,6 @@ import { usePathname } from "next/navigation";
 
 import type { FollowSection } from "./follow";
 
-import { Disqus } from "./disqus";
 import { NotebookDash } from "./notebook-dash";
 import { NotebookPostItem } from "./notebook-post-item";
 import { NOTEBOOK_LINE_HEIGHT, NotebookProse } from "./notebook-prose";
@@ -38,10 +37,6 @@ import { ViewTransitionLink } from "./view-transition-link";
 
 type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   children: ReactNode;
-  comments?: {
-    shortname: string;
-    url: string;
-  };
   follow?: FollowSection;
   headerRight?: ReactNode;
   indexStatus?: "index" | "noindex";
@@ -108,7 +103,6 @@ const formatNotebookDate = (value: string) => {
 
 export const Notebook = ({
   children,
-  comments,
   follow,
   headerRight,
   indexStatus = "index",
@@ -486,9 +480,6 @@ export const Notebook = ({
               {t("backToBlog")}
             </ViewTransitionLink>
           </Box>
-        )}
-        {comments && (
-          <Disqus shortname={comments.shortname} url={comments.url} />
         )}
       </NotebookProse>
       <Box

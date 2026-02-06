@@ -122,14 +122,9 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
     );
     const postNumber =
       currentIndex >= 0 ? normalizedPosts.length - currentIndex : undefined;
-    const disqus = {
-      shortname: "https-silverbirder-github-io",
-      url: buildSiteUrl(`blog/contents/${slug}/`),
-    };
 
     return (
       <PostArticle
-        comments={disqus}
         compiledSource={compiled.compiledSource}
         followLinks={followLinks}
         meta={{

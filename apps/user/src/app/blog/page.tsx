@@ -9,7 +9,7 @@ import { getPostList } from "@/libs";
 const title = "ブログ";
 const description = `${siteName}のブログ記事一覧。技術や日々の学びをまとめています。`;
 const canonical = buildSiteUrl("blog/");
-const ogImageUrl = buildSiteUrl("blog/opengraph-image");
+const ogImageUrl = buildSiteUrl("blog/opengraph-image.png");
 
 export const metadata: Metadata = {
   alternates: {

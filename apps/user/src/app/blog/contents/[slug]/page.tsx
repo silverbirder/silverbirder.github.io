@@ -23,7 +23,7 @@ export async function generateMetadata(
   props: PageProps<"/blog/contents/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const ogImageUrl = buildSiteUrl(`blog/contents/${slug}/opengraph-image`);
+  const ogImageUrl = buildSiteUrl(`blog/contents/${slug}/opengraph-image.png`);
 
   try {
     const frontmatter = await getPostFrontmatter(slug);

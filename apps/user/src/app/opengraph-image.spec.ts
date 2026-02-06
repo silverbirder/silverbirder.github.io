@@ -20,13 +20,13 @@ import {
   contentType,
   GET,
   size,
-} from "./opengraph-image/route";
+} from "./opengraph-image.png/route";
 
 afterEach(() => {
   vi.clearAllMocks();
 });
 
-describe("opengraph-image", () => {
+describe("opengraph-image.png", () => {
   it("builds a png image response", async () => {
     readFile.mockResolvedValue(Buffer.from([1, 2, 3]));
 

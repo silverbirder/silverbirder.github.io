@@ -56,11 +56,11 @@ describe("createSiteMetadata", () => {
       {
         alt: siteName,
         height: 630,
-        url: "url:opengraph-image",
+        url: "url:opengraph-image.png",
         width: 1200,
       },
     ]);
-    expect(result.twitter?.images).toEqual(["url:opengraph-image"]);
+    expect(result.twitter?.images).toEqual(["url:opengraph-image.png"]);
     expect(buildSitePath).toHaveBeenCalledWith("apple-icon");
     expect(buildSiteUrl).toHaveBeenCalledWith("");
     expect(getSiteMetadataBase).toHaveBeenCalledTimes(1);

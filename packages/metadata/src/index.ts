@@ -31,7 +31,7 @@ export const createSiteMetadata = (): Metadata => {
   }));
   const siteUrl = buildSiteUrl("");
   const appleIconPath = buildSitePath("apple-icon");
-  const ogImageUrl = buildSiteUrl("opengraph-image");
+  const ogImageUrl = buildSiteUrl("opengraph-image.png");
 
   return {
     alternates: {

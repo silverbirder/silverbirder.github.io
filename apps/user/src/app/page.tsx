@@ -10,7 +10,7 @@ const title = "ジブンノート";
 const description =
   "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。";
 const canonical = buildSiteUrl("");
-const ogImageUrl = buildSiteUrl("opengraph-image");
+const ogImageUrl = buildSiteUrl("opengraph-image.png");
 
 export const metadata: Metadata = {
   alternates: {

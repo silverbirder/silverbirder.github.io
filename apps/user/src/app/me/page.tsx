@@ -7,7 +7,7 @@ import { buildSiteUrl } from "@repo/util";
 const title = "自己紹介";
 const description = `${siteName}についての紹介ページ。職歴や成果物、お気に入りの技術などを掲載しています。`;
 const canonical = buildSiteUrl("me/");
-const ogImageUrl = buildSiteUrl("me/opengraph-image");
+const ogImageUrl = buildSiteUrl("me/opengraph-image.png");
 
 export const metadata: Metadata = {
   alternates: {

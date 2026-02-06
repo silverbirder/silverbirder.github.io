@@ -107,8 +107,7 @@ export const NotebookProse = chakra("div", {
       display: "block",
       flexShrink: 0,
       height: "100%",
-      maxWidth: "16rem",
-      width: "33%",
+      maxWidth: "30dvw",
     },
     "& .remark-link-card-plus__thumbnail figcaption": {
       display: "none",

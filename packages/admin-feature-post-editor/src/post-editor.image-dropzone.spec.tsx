@@ -10,7 +10,7 @@ vi.mock("react-dropzone", () => ({
   useDropzone: useDropzoneMock,
 }));
 
-const setup = () => {
+const setup = async () => {
   const bodyRef = { current: "Hello" };
   const bodyTextareaRef = { current: null } as {
     current: HTMLTextAreaElement | null;
@@ -44,7 +44,7 @@ const setup = () => {
     return null;
   };
 
-  render(<Test />);
+  await render(<Test />);
 
   return {
     bodyRef,
@@ -58,7 +58,7 @@ const setup = () => {
 describe("useImageDropzone", () => {
   it("uploads dropped images and appends markdown", async () => {
     // Arrange
-    const { onBodyChange, state, uploadImage } = setup();
+    const { onBodyChange, state, uploadImage } = await setup();
     const file = new File(["dummy"], "sample-image.png", {
       type: "image/png",
     });
@@ -77,7 +77,7 @@ describe("useImageDropzone", () => {
 
   it("ignores empty drops", async () => {
     // Arrange
-    const { onBodyChange, state, uploadImage } = setup();
+    const { onBodyChange, state, uploadImage } = await setup();
 
     // Act
     await state.dropzoneConfig?.onDrop?.([]);

@@ -46,7 +46,7 @@ describe("PostArticle", () => {
     document.body.innerHTML = originalInnerHtml;
   });
 
-  it("renders the article with notebook prose", () => {
+  it("renders the article with notebook prose", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -59,7 +59,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -79,7 +79,7 @@ return {
     expect(document.body.textContent ?? "").toContain("Test title");
   });
 
-  it("renders the robot badge as indexed by default", () => {
+  it("renders the robot badge as indexed by default", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -92,7 +92,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -114,7 +114,7 @@ return {
     expect(robotBadge?.getAttribute("data-index-status")).toBe("index");
   });
 
-  it("renders the robot badge as noindex when index is false", () => {
+  it("renders the robot badge as noindex when index is false", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -127,7 +127,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -196,7 +196,7 @@ return {
     expect(paragraph?.textContent ?? "").toContain("Body copy.");
   });
 
-  it("renders share buttons", () => {
+  it("renders share buttons", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -209,7 +209,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -267,7 +267,7 @@ return {
     ).not.toBeNull();
   });
 
-  it("renders scroll progress bar", () => {
+  it("renders scroll progress bar", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -280,7 +280,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -349,7 +349,7 @@ return {
     expect(document.body.textContent ?? "").toContain("Design");
   });
 
-  it("renders related posts grouped by tag", () => {
+  it("renders related posts grouped by tag", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -362,7 +362,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
@@ -397,7 +397,7 @@ return {
     expect(document.body.textContent ?? "").toContain("TypeScript Post");
   });
 
-  it("renders previous/next navigation when provided", () => {
+  it("renders previous/next navigation when provided", async () => {
     const compiledSource = `"use strict";
 const {jsx: _jsx} = arguments[0];
 function MDXContent() {
@@ -410,7 +410,7 @@ return {
 };
 `;
 
-    renderWithProvider(
+    await renderWithProvider(
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}

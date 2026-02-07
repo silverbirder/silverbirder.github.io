@@ -8,10 +8,10 @@ import { usePostEditorTags } from "./post-editor.tags";
 
 type HookState = ReturnType<typeof usePostEditorTags>;
 
-const renderHook = (args: {
+const renderHook = async (args: {
   initialTags?: string[];
   tagSuggestions?: string[];
-}): { getState: () => HookState } => {
+}): Promise<{ getState: () => HookState }> => {
   const stateRef = { current: null as HookState | null };
 
   const Test = () => {
@@ -19,7 +19,7 @@ const renderHook = (args: {
     return null;
   };
 
-  render(<Test />);
+  await render(<Test />);
 
   const getState = () => {
     if (!stateRef.current) {
@@ -32,9 +32,9 @@ const renderHook = (args: {
 };
 
 describe("usePostEditorTags", () => {
-  it("filters tag suggestions to exclude selected tags", () => {
+  it("filters tag suggestions to exclude selected tags", async () => {
     // Arrange
-    const { getState } = renderHook({
+    const { getState } = await renderHook({
       initialTags: ["React"],
       tagSuggestions: ["react", "TypeScript"],
     });
@@ -48,7 +48,7 @@ describe("usePostEditorTags", () => {
 
   it("adds tags from input and clears the input value", async () => {
     // Arrange
-    const { getState } = renderHook({ initialTags: ["React"] });
+    const { getState } = await renderHook({ initialTags: ["React"] });
 
     // Act
     await act(async () => {
@@ -64,9 +64,11 @@ describe("usePostEditorTags", () => {
     expect(getState().tagInputValue).toBe("");
   });
 
-  it("removes tags when requested", () => {
+  it("removes tags when requested", async () => {
     // Arrange
-    const { getState } = renderHook({ initialTags: ["React", "Next.js"] });
+    const { getState } = await renderHook({
+      initialTags: ["React", "Next.js"],
+    });
 
     // Act
     act(() => {

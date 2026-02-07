@@ -195,13 +195,17 @@ export async function POST(request: Request) {
     return { count: count[0]?.count ?? 0, liked: true };
   });
 
-  void notifySlack({
-    action: result.liked ? "like" : "unlike",
-    count: result.count,
-    slug: normalizedSlug,
-    title,
-    url: buildPostUrl(origin, normalizedSlug),
-  });
+  try {
+    await notifySlack({
+      action: result.liked ? "like" : "unlike",
+      count: result.count,
+      slug: normalizedSlug,
+      title,
+      url: buildPostUrl(origin, normalizedSlug),
+    });
+  } catch (error) {
+    console.error("Slack notification failed", error);
+  }
 
   return NextResponse.json(result, { headers: buildCorsHeaders(origin) });
 }

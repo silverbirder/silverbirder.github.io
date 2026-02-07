@@ -45,6 +45,7 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   like?: {
     name: string;
     namespace: string;
+    title?: string;
   };
   navigation: {
     next?: {
@@ -275,7 +276,11 @@ export const Notebook = ({
         )}
         {like && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <NotebookLike name={like.name} namespace={like.namespace} />
+            <NotebookLike
+              name={like.name}
+              namespace={like.namespace}
+              title={like.title}
+            />
           </Box>
         )}
         {share && (

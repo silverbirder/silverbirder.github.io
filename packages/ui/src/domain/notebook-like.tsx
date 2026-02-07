@@ -16,6 +16,7 @@ type Props = {
   name: string;
   namespace: string;
   size?: IconButtonProps["size"];
+  title?: string;
 };
 
 type Status = "error" | "idle" | "loading";
@@ -74,6 +75,7 @@ export const NotebookLike = ({
   name,
   namespace,
   size = "sm",
+  title,
 }: Props) => {
   const t = useTranslations("ui.notebook");
   const [count, setCount] = useState<null | number>(initialCount ?? null);
@@ -143,7 +145,7 @@ export const NotebookLike = ({
         throw new Error("anonId is not available");
       }
       const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/api/likes`, {
-        body: JSON.stringify({ anonId, slug: name }),
+        body: JSON.stringify({ anonId, slug: name, title }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
       });

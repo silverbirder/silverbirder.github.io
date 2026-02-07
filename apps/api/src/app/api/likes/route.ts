@@ -11,23 +11,44 @@ export const runtime = "nodejs";
 type ToggleLikeBody = {
   anonId?: string;
   slug?: string;
+  title?: string;
+};
+
+const buildPostUrl = (origin: null | string, slug: string) => {
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    origin?.replace(/\/$/, "") ??
+    "";
+  if (!base) return "";
+  return `${base}/blog/contents/${slug}/`;
 };
 
 const notifySlack = async (payload: {
   action: "like" | "unlike";
   count: number;
   slug: string;
+  title?: string;
+  url?: string;
 }) => {
   const webhookUrl = process.env.SLACK_WEBHOOK_URL;
-  if (!webhookUrl) return;
+  if (!webhookUrl) {
+    console.warn("SLACK_WEBHOOK_URL is not set.");
+    return;
+  }
 
-  const text = `:thumbsup: ${payload.action} ${payload.slug} (count: ${payload.count})`;
+  const title = payload.title?.trim() || payload.slug;
+  const urlSuffix = payload.url ? `\n${payload.url}` : "";
+  const text = `:thumbsup: ${payload.action} ${title} (count: ${payload.count})${urlSuffix}`;
   try {
-    await fetch(webhookUrl, {
+    const res = await fetch(webhookUrl, {
       body: JSON.stringify({ text }),
       headers: { "Content-Type": "application/json" },
       method: "POST",
     });
+    if (!res.ok) {
+      const body = await res.text();
+      console.error("Slack webhook failed", res.status, body);
+    }
   } catch (error) {
     console.error("Slack webhook failed", error);
   }
@@ -96,6 +117,7 @@ export async function POST(request: Request) {
   const body = (await request.json()) as ToggleLikeBody;
   const slug = body.slug;
   const anonId = body.anonId;
+  const title = body.title;
   const origin = request.headers.get("origin");
   const corsOrigin = resolveCorsOrigin(origin);
 
@@ -177,6 +199,8 @@ export async function POST(request: Request) {
     action: result.liked ? "like" : "unlike",
     count: result.count,
     slug: normalizedSlug,
+    title,
+    url: buildPostUrl(origin, normalizedSlug),
   });
 
   return NextResponse.json(result, { headers: buildCorsHeaders(origin) });

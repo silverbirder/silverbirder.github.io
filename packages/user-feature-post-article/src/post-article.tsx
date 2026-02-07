@@ -101,6 +101,7 @@ export const PostArticle = ({
   const like = {
     name: toCounterName(shareUrl),
     namespace: COUNTER_NAMESPACE,
+    title: meta.title,
   };
   return (
     <Box w="full">

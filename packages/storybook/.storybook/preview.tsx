@@ -3,12 +3,13 @@ import type { Preview } from "@storybook/nextjs-vite";
 import { jaMessages } from "@repo/message";
 import { Provider } from "@repo/ui";
 import { NextIntlClientProvider } from "next-intl";
-import { Noto_Sans_JP } from "next/font/google";
+import { Klee_One } from "next/font/google";
 
-const notoSansJP = Noto_Sans_JP({
+const kleeOne = Klee_One({
   display: "swap",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  variable: "--font-klee-one",
+  weight: ["400", "600"],
 });
 
 const preview: Preview = {
@@ -16,7 +17,7 @@ const preview: Preview = {
     (Story) => (
       <Provider>
         <NextIntlClientProvider locale="ja" messages={jaMessages}>
-          <div className={notoSansJP.className}>
+          <div className={`${kleeOne.className} ${kleeOne.variable}`}>
             <Story />
           </div>
         </NextIntlClientProvider>

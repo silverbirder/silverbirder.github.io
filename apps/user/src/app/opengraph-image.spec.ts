@@ -39,8 +39,8 @@ describe("opengraph-image.png", () => {
     expect(readFileTargets).toEqual(
       expect.arrayContaining([
         expect.stringContaining("/public/assets/logo.png"),
-        expect.stringContaining("/public/fonts/NotoSansJP-Regular.ttf"),
-        expect.stringContaining("/public/fonts/NotoSansJP-Bold.ttf"),
+        expect.stringContaining("/public/fonts/KleeOne-Regular.ttf"),
+        expect.stringContaining("/public/fonts/KleeOne-SemiBold.ttf"),
       ]),
     );
     expect(ImageResponse).toHaveBeenCalledWith(
@@ -48,8 +48,8 @@ describe("opengraph-image.png", () => {
       expect.objectContaining({
         ...size,
         fonts: [
-          expect.objectContaining({ name: "Noto Sans JP", weight: 400 }),
-          expect.objectContaining({ name: "Noto Sans JP", weight: 700 }),
+          expect.objectContaining({ name: "Klee One", weight: 400 }),
+          expect.objectContaining({ name: "Klee One", weight: 600 }),
         ],
       }),
     );
@@ -59,8 +59,8 @@ describe("opengraph-image.png", () => {
         expect.objectContaining({
           ...size,
           fonts: [
-            expect.objectContaining({ name: "Noto Sans JP", weight: 400 }),
-            expect.objectContaining({ name: "Noto Sans JP", weight: 700 }),
+            expect.objectContaining({ name: "Klee One", weight: 400 }),
+            expect.objectContaining({ name: "Klee One", weight: 600 }),
           ],
         }),
       ],
@@ -79,8 +79,8 @@ describe("opengraph-image.png", () => {
         expect.objectContaining({
           ...size,
           fonts: [
-            expect.objectContaining({ name: "Noto Sans JP", weight: 400 }),
-            expect.objectContaining({ name: "Noto Sans JP", weight: 700 }),
+            expect.objectContaining({ name: "Klee One", weight: 400 }),
+            expect.objectContaining({ name: "Klee One", weight: 600 }),
           ],
         }),
       ],

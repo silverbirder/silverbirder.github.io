@@ -38,15 +38,15 @@ export const buildOpenGraphImage = async (slug: string) => {
   const logo = await readFile(
     new URL("../../../../../../public/assets/logo.png", import.meta.url),
   );
-  const notoSansJpRegular = await readFile(
+  const kleeOneRegular = await readFile(
     new URL(
-      "../../../../../../public/fonts/NotoSansJP-Regular.ttf",
+      "../../../../../../public/fonts/KleeOne-Regular.ttf",
       import.meta.url,
     ),
   );
-  const notoSansJpBold = await readFile(
+  const kleeOneSemiBold = await readFile(
     new URL(
-      "../../../../../../public/fonts/NotoSansJP-Bold.ttf",
+      "../../../../../../public/fonts/KleeOne-SemiBold.ttf",
       import.meta.url,
     ),
   );
@@ -74,7 +74,7 @@ export const buildOpenGraphImage = async (slug: string) => {
         border: `${NOTEBOOK_LINE_HEIGHT}px solid ${siteThemeColor}`,
         display: "flex",
         flexDirection: "column",
-        fontFamily: '"Noto Sans JP"',
+        fontFamily: '"Klee One"',
         gap: `${NOTEBOOK_LINE_HEIGHT}px`,
         height: "100%",
         justifyContent: "space-between",
@@ -100,7 +100,7 @@ export const buildOpenGraphImage = async (slug: string) => {
             display: "flex",
             flexDirection: "column",
             fontSize: `${FONT_SIZE}px`,
-            fontWeight: 700,
+            fontWeight: 600,
             gap: 0,
             textAlign: "left",
           }}
@@ -157,16 +157,16 @@ export const buildOpenGraphImage = async (slug: string) => {
       ...size,
       fonts: [
         {
-          data: notoSansJpRegular,
-          name: "Noto Sans JP",
+          data: kleeOneRegular,
+          name: "Klee One",
           style: "normal",
           weight: 400,
         },
         {
-          data: notoSansJpBold,
-          name: "Noto Sans JP",
+          data: kleeOneSemiBold,
+          name: "Klee One",
           style: "normal",
-          weight: 700,
+          weight: 600,
         },
       ],
     },

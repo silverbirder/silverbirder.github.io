@@ -5,15 +5,16 @@ import { createSiteMetadata } from "@repo/metadata";
 import { Provider, UserLayout } from "@repo/ui";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Noto_Sans_JP } from "next/font/google";
+import { Klee_One } from "next/font/google";
 import { Suspense, ViewTransition } from "react";
 
 export const metadata: Metadata = createSiteMetadata();
 
-const notoSansJP = Noto_Sans_JP({
+const kleeOne = Klee_One({
   display: "swap",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  variable: "--font-klee-one",
+  weight: ["400", "600"],
 });
 
 type Props = Readonly<{
@@ -24,7 +25,7 @@ export default async function RootLayout({ children }: Props) {
   const messages = await getMessages();
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={notoSansJP.className}>
+      <body className={`${kleeOne.className} ${kleeOne.variable}`}>
         <Provider>
           <NextIntlClientProvider messages={messages}>
             <ViewTransition>

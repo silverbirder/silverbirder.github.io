@@ -22,7 +22,10 @@ vi.mock("next-intl/server", () => ({
 }));
 
 vi.mock("next/font/google", () => ({
-  Noto_Sans_JP: () => ({ className: "noto-font" }),
+  Klee_One: () => ({
+    className: "klee-font",
+    variable: "klee-font-variable",
+  }),
 }));
 
 describe("RootLayout", () => {
@@ -44,7 +47,7 @@ describe("RootLayout", () => {
     const bodyElement = element.props.children;
 
     expect(bodyElement.type).toBe("body");
-    expect(bodyElement.props.className).toBe("noto-font");
+    expect(bodyElement.props.className).toBe("klee-font klee-font-variable");
 
     const bodyChildren = React.Children.toArray(bodyElement.props.children);
     const uiProviderCandidate = bodyChildren[0];

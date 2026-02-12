@@ -25,7 +25,10 @@ const renderLayout = async () => {
   }));
 
   vi.doMock("next/font/google", () => ({
-    Noto_Sans_JP: () => ({ className: "font-class" }),
+    Klee_One: () => ({
+      className: "font-class",
+      variable: "font-variable",
+    }),
   }));
 
   const mod = await import("./layout");

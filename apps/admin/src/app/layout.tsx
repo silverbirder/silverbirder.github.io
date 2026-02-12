@@ -2,7 +2,7 @@ import { Provider } from "@repo/ui";
 import { type Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Noto_Sans_JP } from "next/font/google";
+import { Klee_One } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
 
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
   title: "Create T3 App",
 };
 
-const notoSansJP = Noto_Sans_JP({
+const kleeOne = Klee_One({
   display: "swap",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  variable: "--font-klee-one",
+  weight: ["400", "600"],
 });
 
 type Props = Readonly<{
@@ -26,7 +27,7 @@ export default async function RootLayout({ children }: Props) {
   const messages = await getMessages();
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={notoSansJP.className}>
+      <body className={`${kleeOne.className} ${kleeOne.variable}`}>
         <Provider>
           <TRPCReactProvider>
             <NextIntlClientProvider messages={messages}>

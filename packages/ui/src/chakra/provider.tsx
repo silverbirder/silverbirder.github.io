@@ -9,7 +9,16 @@ import {
 } from "@chakra-ui/react";
 import { ThemeProvider, type ThemeProviderProps } from "next-themes";
 
-const config = defineConfig({});
+const config = defineConfig({
+  theme: {
+    tokens: {
+      fonts: {
+        body: { value: "var(--font-klee-one), sans-serif" },
+        heading: { value: "var(--font-klee-one), sans-serif" },
+      },
+    },
+  },
+});
 const system = createSystem(defaultConfig, config);
 
 type Props = ThemeProviderProps;

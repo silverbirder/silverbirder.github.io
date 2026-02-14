@@ -8,7 +8,6 @@ const meta = {
     hatenaEnabledValue: true,
     initialTab: "preview",
     onBodyChange: () => undefined,
-    onFixMarkdownLint: () => undefined,
     onHatenaEnabledChange: () => undefined,
     onPublishedAtChange: () => undefined,
     onResolveLinkTitles: () => undefined,

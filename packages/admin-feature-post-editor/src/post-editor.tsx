@@ -19,11 +19,8 @@ export const PostEditor = (props: Props) => {
     isLoading,
     isPreviewLoading,
     isSavingDraft,
-    lintFixDisabled,
-    lintFixIsLoading,
     onBodyChange,
     onCreatePullRequest,
-    onFixMarkdownLint,
     onHatenaEnabledChange,
     onPreviewRequest,
     onPublishedAtChange,
@@ -61,11 +58,8 @@ export const PostEditor = (props: Props) => {
       hatenaEnabledValue={hatenaEnabled}
       isBodyDragActive={isDragActive}
       isLoading={isLoading}
-      lintFixDisabled={lintFixDisabled}
-      lintFixIsLoading={lintFixIsLoading}
       onBodyChange={onBodyChange}
       onCreatePullRequest={onCreatePullRequest}
-      onFixMarkdownLint={onFixMarkdownLint}
       onHatenaEnabledChange={onHatenaEnabledChange}
       onPreviewRequest={onPreviewRequest}
       onPublishedAtChange={onPublishedAtChange}

@@ -2,7 +2,6 @@ import { PostEditor } from "@repo/admin-feature-post-editor";
 
 import {
   createPostPullRequest,
-  fixMarkdownLint,
   resolveLinkTitles,
   resolvePreview,
   savePostDraft,
@@ -26,7 +25,6 @@ export default async function Page({ searchParams }: Props = {}) {
     <PostEditor
       enableHatenaSync
       enableZennSync
-      fixMarkdownLint={fixMarkdownLint}
       initialBody={draft?.body}
       initialDraftId={draft?.id}
       initialHatenaEnabled={draft?.hatenaEnabled}

@@ -40,11 +40,8 @@ type Props = {
   initialTab?: "input" | "preview";
   isBodyDragActive?: boolean;
   isLoading?: boolean;
-  lintFixDisabled?: boolean;
-  lintFixIsLoading?: boolean;
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
-  onFixMarkdownLint?: () => void;
   onHatenaEnabledChange?: (value: boolean) => void;
   onPreviewRequest?: () => void;
   onPublishedAtChange: (value: string) => void;
@@ -310,11 +307,8 @@ export const PostEditorLayout = ({
   initialTab = "input",
   isBodyDragActive = false,
   isLoading = false,
-  lintFixDisabled = false,
-  lintFixIsLoading = false,
   onBodyChange,
   onCreatePullRequest,
-  onFixMarkdownLint,
   onHatenaEnabledChange,
   onPreviewRequest,
   onPublishedAtChange,
@@ -351,7 +345,6 @@ export const PostEditorLayout = ({
   const hasDrawerActions =
     Boolean(onResolveLinkTitles) ||
     Boolean(onCreatePullRequest) ||
-    Boolean(onFixMarkdownLint) ||
     Boolean(onSaveDraft);
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
@@ -597,18 +590,6 @@ export const PostEditorLayout = ({
                               {saveDraftIsLoading
                                 ? t("saveDraftLoading")
                                 : t("saveDraftAction")}
-                            </ActionButton>
-                          ) : null}
-                          {onFixMarkdownLint ? (
-                            <ActionButton
-                              data-testid="post-editor-markdownlint-fix"
-                              disabled={lintFixDisabled}
-                              onClick={onFixMarkdownLint}
-                              type="button"
-                            >
-                              {lintFixIsLoading
-                                ? t("lintFixLoading")
-                                : t("lintFixAction")}
                             </ActionButton>
                           ) : null}
                           {onResolveLinkTitles ? (

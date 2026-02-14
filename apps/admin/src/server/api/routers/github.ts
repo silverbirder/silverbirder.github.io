@@ -10,7 +10,6 @@ import { auth } from "@/server/better-auth";
 
 type GitHubContentItem = {
   name: string;
-  path: string;
   type: "dir" | "file";
 };
 
@@ -113,72 +112,12 @@ const extractPublishedAtFromContent = (content: string) => {
   return extractFrontmatterValue(frontmatter, "publishedAt");
 };
 
-const extractTitleFromContent = (content: string) => {
-  const frontmatter = extractFrontmatterBlock(content);
-  if (!frontmatter) {
-    return null;
-  }
-  return extractFrontmatterValue(frontmatter, "title");
-};
-
-const extractSummaryFromContent = (content: string) => {
-  const frontmatter = extractFrontmatterBlock(content);
-  if (!frontmatter) {
-    return null;
-  }
-  return extractFrontmatterValue(frontmatter, "summary");
-};
-
-const extractIndexFromContent = (content: string) => {
-  const frontmatter = extractFrontmatterBlock(content);
-  if (!frontmatter) {
-    return null;
-  }
-  const value = extractFrontmatterValue(frontmatter, "index");
-  if (!value) {
-    return null;
-  }
-  const normalized = value.trim().toLowerCase();
-  if (["0", "false", "no"].includes(normalized)) {
-    return false;
-  }
-  if (["1", "true", "yes"].includes(normalized)) {
-    return true;
-  }
-  return null;
-};
-
 const extractTagsFromContent = (content: string) => {
   const frontmatter = extractFrontmatterBlock(content);
   if (!frontmatter) {
     return [];
   }
   return extractTagsFromFrontmatter(frontmatter);
-};
-
-const stripFrontmatter = (content: string) => {
-  const match = content.match(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n?/);
-  if (!match) {
-    return content;
-  }
-  let body = content.slice(match[0].length);
-  if (body.startsWith("\r\n")) {
-    body = body.slice(2);
-  } else if (body.startsWith("\n")) {
-    body = body.slice(1);
-  }
-  return body;
-};
-
-const buildDraftFromContent = (content: string) => {
-  return {
-    body: stripFrontmatter(content),
-    index: extractIndexFromContent(content) ?? false,
-    publishedAt: extractPublishedAtFromContent(content) ?? "",
-    summary: extractSummaryFromContent(content) ?? "",
-    tags: extractTagsFromContent(content),
-    title: extractTitleFromContent(content) ?? "",
-  };
 };
 
 const toDateValue = (publishedAt: string) => {
@@ -310,20 +249,6 @@ const getLocalTagList = async (postsPath: string) => {
   return Array.from(tags).sort((left, right) => left.localeCompare(right));
 };
 
-const getLocalPost = async (postsPath: string, fileName: string) => {
-  const resolvedPath = await resolveLocalPostsPath(postsPath);
-  if (!resolvedPath) {
-    return null;
-  }
-
-  try {
-    const content = await readFile(path.join(resolvedPath, fileName), "utf8");
-    return content;
-  } catch {
-    return null;
-  }
-};
-
 export const githubRouter = createTRPCRouter({
   createPullRequest: protectedProcedure
     .input(
@@ -411,58 +336,6 @@ export const githubRouter = createTRPCRouter({
         number: prData.number ?? null,
         url: prData.html_url ?? null,
       };
-    }),
-
-  getPost: protectedProcedure
-    .input(
-      z.object({
-        slug: z.string().min(1),
-      }),
-    )
-    .query(async ({ ctx, input }) => {
-      const { owner, postsPath, repo } = getRepositoryConfig();
-      const normalizedFileName = normalizeMarkdownFileName(input.slug);
-      const localContent = await getLocalPost(postsPath, normalizedFileName);
-      if (localContent) {
-        return buildDraftFromContent(localContent);
-      }
-
-      const { accessToken } = await auth.api.getAccessToken({
-        body: {
-          providerId: "github",
-        },
-        headers: ctx.headers,
-      });
-
-      if (!accessToken) {
-        throw new TRPCError({ code: "UNAUTHORIZED" });
-      }
-
-      const octokit = new Octokit({ auth: accessToken });
-      const filePath = `${postsPath}/${normalizedFileName}`;
-      const response = await octokit.request(
-        "GET /repos/{owner}/{repo}/contents/{path}",
-        {
-          owner,
-          path: filePath,
-          repo,
-        },
-      );
-
-      if (Array.isArray(response.data)) {
-        throw new TRPCError({ code: "NOT_FOUND" });
-      }
-
-      const payload = response.data as {
-        content?: string;
-        encoding?: string;
-      };
-      const content = decodeGithubContent(payload);
-      if (!content) {
-        throw new TRPCError({ code: "NOT_FOUND" });
-      }
-
-      return buildDraftFromContent(content);
     }),
 
   list: protectedProcedure.query(async ({ ctx }) => {
@@ -635,112 +508,4 @@ export const githubRouter = createTRPCRouter({
 
     return Array.from(tags).sort((left, right) => left.localeCompare(right));
   }),
-
-  updatePullRequest: protectedProcedure
-    .input(
-      z.object({
-        content: z.string().min(1),
-        fileName: z.string().min(1),
-        pullRequestBody: z.string().optional(),
-        pullRequestTitle: z.string().optional(),
-      }),
-    )
-    .mutation(async ({ ctx, input }) => {
-      const { baseBranch, owner, postsPath, repo } = getRepositoryConfig();
-      const { accessToken } = await auth.api.getAccessToken({
-        body: {
-          providerId: "github",
-        },
-        headers: ctx.headers,
-      });
-
-      if (!accessToken) {
-        throw new TRPCError({ code: "UNAUTHORIZED" });
-      }
-
-      const octokit = new Octokit({ auth: accessToken });
-      const normalizedFileName = normalizeMarkdownFileName(input.fileName);
-      const branchName = buildBranchName(normalizedFileName);
-
-      const baseRefResponse = await octokit.request(
-        "GET /repos/{owner}/{repo}/git/ref/{ref}",
-        {
-          owner,
-          ref: `heads/${baseBranch}`,
-          repo,
-        },
-      );
-
-      const baseSha = (baseRefResponse.data as { object?: { sha?: string } })
-        .object?.sha;
-      if (!baseSha) {
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to resolve base branch SHA.",
-        });
-      }
-
-      await octokit.request("POST /repos/{owner}/{repo}/git/refs", {
-        owner,
-        ref: `refs/heads/${branchName}`,
-        repo,
-        sha: baseSha,
-      });
-
-      const filePath = `${postsPath}/${normalizedFileName}`;
-      const existingResponse = await octokit.request(
-        "GET /repos/{owner}/{repo}/contents/{path}",
-        {
-          owner,
-          path: filePath,
-          ref: baseBranch,
-          repo,
-        },
-      );
-
-      const existingData = existingResponse.data as { sha?: string };
-      const fileSha = existingData.sha;
-      if (!fileSha) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: "Post not found.",
-        });
-      }
-
-      const commitMessage = `docs: update ${normalizedFileName}`;
-
-      await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-        branch: branchName,
-        content: Buffer.from(input.content, "utf8").toString("base64"),
-        message: commitMessage,
-        owner,
-        path: filePath,
-        repo,
-        sha: fileSha,
-      });
-
-      const prTitle = input.pullRequestTitle
-        ? input.pullRequestTitle
-        : `docs: update ${normalizedFileName}`;
-      const prResponse = await octokit.request(
-        "POST /repos/{owner}/{repo}/pulls",
-        {
-          base: baseBranch,
-          body: input.pullRequestBody,
-          head: branchName,
-          owner,
-          repo,
-          title: prTitle,
-        },
-      );
-
-      const prData = prResponse.data as { html_url?: string; number?: number };
-
-      return {
-        branchName,
-        filePath,
-        number: prData.number ?? null,
-        url: prData.html_url ?? null,
-      };
-    }),
 });

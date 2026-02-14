@@ -179,7 +179,7 @@ Webサービスを作る立場として、これからも「本当にユーザ�
 
 この記事に関連して、以下の記事もおすすめです！
 
-- 『[縁の下のUIデザインを読みました](../en-no-shita-ui-design/)』
-- 『[サクッと学べるデザイン心理法則108を読みました](../review_of_108-design-psychology-laws-you-can-learn-quickly/)』
-- 『[はじめてのUXデザイン図鑑を読みました](../review_of_hajimete-no-ux-zukan/)』
-- 『[マイクロインタラクション―UI/UXデザインの神が宿る細部を読みました。](../micro-interactions-the-god-given-details-of-ui-ux-design/)』
+- 『[縁の下のUIデザインを読みました](https://silverbirder.github.io/blog/contents/en-no-shita-ui-design/)』
+- 『[サクッと学べるデザイン心理法則108を読みました](https://silverbirder.github.io/blog/contents/review_of_108-design-psychology-laws-you-can-learn-quickly/)』
+- 『[はじめてのUXデザイン図鑑を読みました](https://silverbirder.github.io/blog/contents/review_of_hajimete-no-ux-zukan/)』
+- 『[マイクロインタラクション―UI/UXデザインの神が宿る細部を読みました。](https://silverbirder.github.io/blog/contents/micro-interactions-the-god-given-details-of-ui-ux-design/)』

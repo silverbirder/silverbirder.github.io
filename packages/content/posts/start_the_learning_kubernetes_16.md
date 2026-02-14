@@ -7,26 +7,26 @@ tags: ["クラウドインフラ"]
 
 ## ストーリー
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](./start_the_learning_kubernetes_01)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](./start_the_learning_kubernetes_02)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](./start_the_learning_kubernetes_03)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](./start_the_learning_kubernetes_04)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](./start_the_learning_kubernetes_05)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](./start_the_learning_kubernetes_06)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](./start_the_learning_kubernetes_07)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](./start_the_learning_kubernetes_08)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](./start_the_learning_kubernetes_09)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](./start_the_learning_kubernetes_10)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](./start_the_learning_kubernetes_11)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](./start_the_learning_kubernetes_12)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](./start_the_learning_kubernetes_13)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](./start_the_learning_kubernetes_14)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](./start_the_learning_kubernetes_15)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](./start_the_learning_kubernetes_16)
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_01/)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_02/)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03/)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_04/)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_05/)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_06/)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_07/)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_08/)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_09/)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_10/)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_11/)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_12/)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_13/)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_14/)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_15/)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_16/)
 
 ## 前回
 
-[一足遅れて Kubernetes を学び始める - 15. セキュリティ -](./start_the_learning_kubernetes_15)では、RBAC による権限について学習しました。今回は最後に Kubernetes のコンポーネントについて学習します。
+[一足遅れて Kubernetes を学び始める - 15. セキュリティ -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_15/)では、RBAC による権限について学習しました。今回は最後に Kubernetes のコンポーネントについて学習します。
 
 ## コンポーネント
 
@@ -76,7 +76,7 @@ kube-scheduler-raspi001            1/1     Running   87         42d   192.168.3.
 
 coredns は、Master1 台と Worker1 台で動いています。
 
-※ [このとき](./start_the_learning_kubernetes_03)に設定しました。
+※ [このとき](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03/)に設定しました。
 
 ## etcd
 
@@ -132,7 +132,7 @@ Operator Framework と呼ばれるもので簡単に作成できるそうです�
 実際に kubernetes を raspberryPi 上で動かしてみると、
 いろいろな発見があってのめり込んでしまいました。
 
-ただ、[一足遅れて Kubernetes を学び始める - 12. リソース制限 -](./start_the_learning_kubernetes_12)ぐらいから、いろいろとあって、
+ただ、[一足遅れて Kubernetes を学び始める - 12. リソース制限 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_12/)ぐらいから、いろいろとあって、
 書籍の内容を、ほぼそのまま使わさせてもらいました。（笑)
 
 これからは、実際に GKE を使ってアプリケーション開発をしてみようと思います。

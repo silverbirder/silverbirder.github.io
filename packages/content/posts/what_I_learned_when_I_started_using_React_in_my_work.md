@@ -14,7 +14,7 @@ index: false
 なんで React って生まれたんだろうって気になりました。
 簡単ですが、ちょこっとだけ調べて、次の記事にまとめました。
 
-- [React を学ぶ前に歴史を知る](./know_the_history_before_learning_React)
+- [React を学ぶ前に歴史を知る](https://silverbirder.github.io/blog/contents/know_the_history_before_learning_React/)
 
 React は、次の問題を解決したかったんだと思います。
 

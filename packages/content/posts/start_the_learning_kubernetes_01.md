@@ -7,22 +7,22 @@ tags: ["クラウドインフラ"]
 
 ## ストーリー
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](./start_the_learning_kubernetes_01)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](./start_the_learning_kubernetes_02)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](./start_the_learning_kubernetes_03)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](./start_the_learning_kubernetes_04)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](./start_the_learning_kubernetes_05)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](./start_the_learning_kubernetes_06)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](./start_the_learning_kubernetes_07)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](./start_the_learning_kubernetes_08)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](./start_the_learning_kubernetes_09)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](./start_the_learning_kubernetes_10)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](./start_the_learning_kubernetes_11)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](./start_the_learning_kubernetes_12)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](./start_the_learning_kubernetes_13)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](./start_the_learning_kubernetes_14)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](./start_the_learning_kubernetes_15)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](./start_the_learning_kubernetes_16)
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_01/)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_02/)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03/)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_04/)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_05/)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_06/)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_07/)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_08/)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_09/)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_10/)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_11/)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_12/)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_13/)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_14/)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_15/)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_16/)
 
 ## 経緯
 
@@ -62,4 +62,4 @@ iMac (21.5-inch, 2017)
 ちょっと意味がわからない状態で、GKE 動かしたらお金がかかる上に、何してるのか分からないから、もったいない。
 Docker For Mac に Kubernetes 使えるみたいだから、まずはそっちを使って学んでいこうかな。。。 💪
 
-次回は[こちら](./start_the_learning_kubernetes_02)です。
+次回は[こちら](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_02/)です。

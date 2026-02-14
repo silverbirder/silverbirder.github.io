@@ -27,7 +27,7 @@ Microservices 化によって、Scalability、Agility、Independency、Availabil
 
 ## 導入企業 👨‍💼👩‍💼
 
-実績企業としては、IKEA、DAZN、Spotify などが挙げられます。他の例は、[Micro Frontends を調べたすべて](./think_micro_frontends) にリストアップしていますので、興味がある方はご覧ください。
+実績企業としては、IKEA、DAZN、Spotify などが挙げられます。他の例は、[Micro Frontends を調べたすべて](https://silverbirder.github.io/blog/contents/think_micro_frontends/) にリストアップしていますので、興味がある方はご覧ください。
 
 ## メリット・デメリット 🔍
 
@@ -39,7 +39,7 @@ MFE を導入することによるメリット・デメリットについて、(
 私が思う最大のデメリットは、 **Independency の難しさ** だと思います。例えば、UI/UX の指針となるデザインシステムが Web サービスにあったとして、それをすべてのフロントエンドへ適用しなければいけません。そのため、全体を通した **一貫性のある UI/UX であるかどうか** の品質担保が難しいです。
 他には、あるチームのビルドツールを改善したとしても、他のチームではその恩恵を受けれなかったり、アプリケーション設計における全体共通(アクセス履歴、イベント管理、状態管理など)部分を、どうするか考える必要があります。
 
-こちら [Micro Frontends を調べたすべて#ProsCons](./think_micro_frontends#proscons) にも簡単にメリット・デメリットを書いていますので、気になる方はご覧ください。
+こちら [Micro Frontends を調べたすべて#ProsCons](https://silverbirder.github.io/blog/contents/think_micro_frontends/#proscons) にも簡単にメリット・デメリットを書いていますので、気になる方はご覧ください。
 
 ## 統合パターン 🔮
 
@@ -48,7 +48,7 @@ MFE では、各フロントエンドのフラグメント(HTML)を、どのタ�
 
 [![[翻訳記事]マイクロフロントエンド > mfe-three-teams](https://micro-frontends-japanese.org/resources/three-teams.png)](https://micro-frontends-japanese.org/)
 
-詳しくは、[Micro Frontends を調べたすべて#統合パターン](./think_micro_frontends) をご覧ください。
+詳しくは、[Micro Frontends を調べたすべて#統合パターン](https://silverbirder.github.io/blog/contents/think_micro_frontends/) をご覧ください。
 
 ## ビルド時統合パターン
 
@@ -70,13 +70,13 @@ MFE では、各フロントエンドのフラグメント(HTML)を、どのタ�
 
 サーバーサイドのサンプルコードは、次にまとめています。
 
-- [Micro Frontends を学んだすべて](./microfrontends)
-- [Ara-Framework で Micro Frontends with SSR](./ara-framework)
-- [Zalando tailor で Micro Frontends with ( LitElement & etcetera)](./tailor)
+- [Micro Frontends を学んだすべて](https://silverbirder.github.io/blog/contents/microfrontends/)
+- [Ara-Framework で Micro Frontends with SSR](https://silverbirder.github.io/blog/contents/ara-framework/)
+- [Zalando tailor で Micro Frontends with ( LitElement & etcetera)](https://silverbirder.github.io/blog/contents/tailor/)
 
 また、サーバーサイドというより Edge での統合パターンを下記リンクで紹介しています。
 
-- [Cloudflare Workers (Edge Workers) で Micro Frontends](./cloudflare_workers_mfe)
+- [Cloudflare Workers (Edge Workers) で Micro Frontends](https://silverbirder.github.io/blog/contents/cloudflare_workers_mfe/)
 
 ※ リッチなインタラクション UI を表現したいなら、サーバーサイドとクライアントの Hydration をする必要があります。
 
@@ -100,12 +100,12 @@ MFE のアプローチを実際に導入した企業は、国内だとまだ比�
 
 私が書いた MFE 関連の記事です。もしよければご覧ください。
 
-- [Micro Frontends を学んだすべて](./microfrontends)
-- [Micro Frontends を調べたすべて](./think_micro_frontends)
+- [Micro Frontends を学んだすべて](https://silverbirder.github.io/blog/contents/microfrontends/)
+- [Micro Frontends を調べたすべて](https://silverbirder.github.io/blog/contents/think_micro_frontends/)
 - [MFE 関連資料リンク集](https://github.com/silverbirder/think-micro-frontends/blob/master/research/docs/read.md)
-- [Ara-Framework で Micro Frontends with SSR](./ara-framework)
-- [Zalando tailor で Micro Frontends with ( LitElement & etcetera)](./tailor)
-- [Cloudflare Workers (Edge Workers) で Micro Frontends](./cloudflare_workers_mfe)
+- [Ara-Framework で Micro Frontends with SSR](https://silverbirder.github.io/blog/contents/ara-framework/)
+- [Zalando tailor で Micro Frontends with ( LitElement & etcetera)](https://silverbirder.github.io/blog/contents/tailor/)
+- [Cloudflare Workers (Edge Workers) で Micro Frontends](https://silverbirder.github.io/blog/contents/cloudflare_workers_mfe/)
 - [github.com/silverbirder/micro-frontends-on-kubernetes](https://github.com/silverbirder/micro-frontends-on-kubernetes)
 - [speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial](https://speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial)
 - [github.com/silverbirder/think-micro-frontends](https://github.com/silverbirder/think-micro-frontends)

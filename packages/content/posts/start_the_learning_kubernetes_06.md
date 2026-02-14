@@ -7,26 +7,26 @@ tags: ["クラウドインフラ"]
 
 ## ストーリー
 
-1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](./start_the_learning_kubernetes_01)
-1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](./start_the_learning_kubernetes_02)
-1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](./start_the_learning_kubernetes_03)
-1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](./start_the_learning_kubernetes_04)
-1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](./start_the_learning_kubernetes_05)
-1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](./start_the_learning_kubernetes_06)
-1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](./start_the_learning_kubernetes_07)
-1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](./start_the_learning_kubernetes_08)
-1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](./start_the_learning_kubernetes_09)
-1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](./start_the_learning_kubernetes_10)
-1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](./start_the_learning_kubernetes_11)
-1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](./start_the_learning_kubernetes_12)
-1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](./start_the_learning_kubernetes_13)
-1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](./start_the_learning_kubernetes_14)
-1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](./start_the_learning_kubernetes_15)
-1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](./start_the_learning_kubernetes_16)
+1. [一足遅れて Kubernetes を学び始める - 01. 環境選択編 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_01/)
+1. [一足遅れて Kubernetes を学び始める - 02. Docker For Mac -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_02/)
+1. [一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03/)
+1. [一足遅れて Kubernetes を学び始める - 04. kubectl -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_04/)
+1. [一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_05/)
+1. [一足遅れて Kubernetes を学び始める - 06. workloads その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_06/)
+1. [一足遅れて Kubernetes を学び始める - 07. workloads その 3 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_07/)
+1. [一足遅れて Kubernetes を学び始める - 08. discovery&LB その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_08/)
+1. [一足遅れて Kubernetes を学び始める - 09. discovery&LB その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_09/)
+1. [一足遅れて Kubernetes を学び始める - 10. config&storage その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_10/)
+1. [一足遅れて Kubernetes を学び始める - 11. config&storage その 2 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_11/)
+1. [一足遅れて Kubernetes を学び始める - 12. リソース制限 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_12/)
+1. [一足遅れて Kubernetes を学び始める - 13. ヘルスチェックとコンテナライフサイクル -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_13/)
+1. [一足遅れて Kubernetes を学び始める - 14. スケジューリング -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_14/)
+1. [一足遅れて Kubernetes を学び始める - 15. セキュリティ -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_15/)
+1. [一足遅れて Kubernetes を学び始める - 16. コンポーネント -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_16/)
 
 ## 前回
 
-[一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](./start_the_learning_kubernetes_05)では、Pod,ReplicaSet,Deployment の３つを学習しました。今回は DaemonSet,StatefulSet(一部)を学びます。
+[一足遅れて Kubernetes を学び始める - 05. workloads その 1 -](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_05/)では、Pod,ReplicaSet,Deployment の３つを学習しました。今回は DaemonSet,StatefulSet(一部)を学びます。
 
 ## DaemonSet
 
@@ -248,7 +248,7 @@ No resources found.
 
 ### サーバ設定
 
-NFS 用の新たな raspberryPi を用意します。設定手順は[こちら](./start_the_learning_kubernetes_03)を参考にしました。
+NFS 用の新たな raspberryPi を用意します。設定手順は[こちら](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_03/)を参考にしました。
 その後の続きは下記です。
 
 NFS のホスト名は`nfspi`とします。
@@ -421,4 +421,4 @@ pi@raspi001:~/tmp $ k delete pvc www-sample-statefulset-{0,1,2}
 
 StatefulSet を使える状態にするまでに記事が大きくなってしまいました。次回に詳しく学んでいこうと思います。笑
 あと、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)を見て思ったのが、kubernetes のパッケージマネージャである helm を導入した方が、遥かに便利だと思いつつ、手動設定しました。。。
-次回は、[こちら](./start_the_learning_kubernetes_07)です。
+次回は、[こちら](https://silverbirder.github.io/blog/contents/start_the_learning_kubernetes_07/)です。

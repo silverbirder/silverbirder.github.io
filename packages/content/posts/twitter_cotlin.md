@@ -7,14 +7,7 @@ tags: ["成果物", "サービス", "Google"]
 
 Twitter に投稿されている Link を収集するツール Cotlin を作りました。
 
-**
-  <span style={{color: "#d32f2f"}}>Co</span>
-**
-llec
-**
-  <span style={{color: "#d32f2f"}}>t lin</span>
-**
-ks in tweet
+**Co**llec**t lin**ks in tweet
 
 から、Cotlin という名前にしました。Android のアレに似ています。
 

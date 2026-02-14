@@ -28,11 +28,11 @@ Markdown は、Qiita や Zenn、はてなブログなどの各サービス(以�
 
 > Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
 
-Markdown は、**Web ライター**向けに開発された PlainText から HTML へ変換するためのツールです。
-また、Markdown には**書きやすさ、読みやすさが大切**です。
+Markdown は、 **Web ライター** 向けに開発された PlainText から HTML へ変換するためのツールです。
+また、Markdown には **書きやすさ、読みやすさが大切** です。
 
 Web ライターは、ブログ記事やネット広告の文章など、Web 向けコンテンツを執筆する人です。
-そう、**執筆**です。Markdown は、執筆のための道具です。
+そう、 **執筆** です。Markdown は、執筆のための道具です。
 
 そのため、ブログ記事や Git リポジトリの説明書に Markdown を用いるのは、目的に合っています。
 逆に、構造的な特徴を利用して、一種のデータファイルとして Markdown を使ったり、ショッピングやゲームといったアプリケーションに Markdown を使うのは、目的に反します。
@@ -51,7 +51,7 @@ Markdown には、見出しや箇条書き、テーブルなどの記法(シン�
 Markdown には HTML が使えます。執筆サービスの Markdown で、HTML を書いてみると、恐らく使えるはずです。
 
 Markdown は HTML へ変換するという目的を考えると、HTML が使用できるというのは納得できると思います。
-ただし、**HTML を使用することで、読みやすさや書きやすさは少し悪くなってしまうため、多用は避けなければいけません**。
+ただし、 **HTML を使用することで、読みやすさや書きやすさは少し悪くなってしまうため、多用は避けなければいけません** 。
 
 ## HTML では物足りない
 
@@ -66,7 +66,7 @@ Markdown は HTML へ変換するという目的を考えると、HTML が使用
 当たり前ですが、Markdown には、そのような機能が存在しません。
 Markdown は、記法を定義しているだけなので、Markdown に機能拡張を望んでいる訳ではありません。
 
-しかし、執筆をしていくと、それらの機能が**どうしても欲しくなってきます**。
+しかし、執筆をしていくと、それらの機能が **どうしても欲しくなってきます** 。
 機能がなくても、Markdown 記法を駆使すれば、埋め込みコンテンツっぽく表示できますし、目次も手動で生成できます。
 ただ、本来執筆に集中したいのに、見出しが増えるたびに、目次を手動更新するというのは、非効率的です。
 
@@ -150,10 +150,10 @@ node transform.js
 これは簡単な例ですが、機能拡張していくと、transform.js の処理が増えたり、README.md にマーカーがたくさん書かれていきます。
 
 このように変換処理に機能拡張するのは、変換処理に機能を一任できるというメリットがあります。
-ですが、**Markdown が変換処理に依存してしまう**こととなってしまいます。
-これは、変換処理を違うものへ移行するときに**移行コスト**が発生してしまいます。
+ですが、 **Markdown が変換処理に依存してしまう** こととなってしまいます。
+これは、変換処理を違うものへ移行するときに **移行コスト** が発生してしまいます。
 
-また、Markdown 自体に、**Markdown 記法や HTML でもないマーカーを埋める**というのも、ちょっと違和感を感じます。
+また、Markdown 自体に、 **Markdown 記法や HTML でもないマーカーを埋める** というのも、ちょっと違和感を感じます。
 
 ### 案 2. WebComponents で、機能拡張する
 
@@ -200,7 +200,7 @@ Markdown は HTML を許容するため、`<generate-toc />`が、そのまま H
 
 これで、ブラウザは `generate-toc`を識別できるようになったため、期待通り目次が表示されます。
 
-WebComponents を利用するメリットは、**変換処理に依存せず WebComponents に依存します**。ブラウザの標準技術に依存するというのは、全く問題ありません。
+WebComponents を利用するメリットは、 **変換処理に依存せず WebComponents に依存します** 。ブラウザの標準技術に依存するというのは、全く問題ありません。
 変換処理の移行をしても、WebComponents のコードがあれば、同じ動作が実現できます。
 
 また、再掲ですが、Markdown に次の文章があったとしても、Markdown の仕様に反しません。
@@ -298,7 +298,7 @@ customElements.define("my-div", MyDiv);
 ````
 
 これを Rocket で実行すると、画面に `Hello World` と表示されます。
-このように、Markdown 上に WebComponents を定義し、インタラクティブに実行されるため、**即座に WebComponents を使うことができます**。
+このように、Markdown 上に WebComponents を定義し、インタラクティブに実行されるため、 **即座に WebComponents を使うことができます** 。
 
 使い捨ての WebComponents であればこれで良いのですが、使いまわしたいときがあると思います。
 そういう場合は、共通する箇所に WebComponents を定義するのが良いでしょう。

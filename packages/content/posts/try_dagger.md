@@ -102,7 +102,7 @@ dagger do test --log-format plain
 ちなみに、`actions.source` が実行されているのは、`actions.test`が`actions.source`に依存しているためと思います。
 
 ```bash
-NETLIFY_TOKEN=**** USER=**** dagger do deploy
+NETLIFY_TOKEN=USER dagger do deploy
 [✔] actions.deploy.container.script                                                                                                        0.2s
 [✔] actions.build.install.container                                                                                                        3.8s
 [✔] client.env                                                                                                                             0.0s

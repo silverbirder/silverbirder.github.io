@@ -7,14 +7,14 @@ index: false
 ---
 
 3ヶ月ほど、モバイルアプリを開発していましたが、最終的には諦めることになりました。
-端的に言えば、**iOSのバックグラウンド実行に制約**が多く、思い描いていたものを実現できなかったのです。
+端的に言えば、 **iOSのバックグラウンド実行に制約** が多く、思い描いていたものを実現できなかったのです。
 この記事では、開発経緯と諦めた理由についてお話しします。くぅ〜疲れましたw
 
 ## 開発したかったアプリの概要
 
-私が開発したのは、**アラームを共有するアプリ**です。
+私が開発したのは、 **アラームを共有するアプリ** です。
 家族やグループで同じ時間に起床することが多いため、皆が同じ時間に起きられるように、
-**グループ内でアラームの時間や曜日を共有できるアプリ**があれば便利だと考えました。
+**グループ内でアラームの時間や曜日を共有できるアプリ** があれば便利だと考えました。
 似たようなアプリは少数ありましたが、どれも私のニーズに完全には合致しなかったため、
 自分で作ることにしました。
 
@@ -25,7 +25,7 @@ index: false
 このアラーム共有アプリでは、アラームのON/OFF、時間、曜日、サウンド、
 音量の設定が可能です。サウンドと音量は試聴することもできます。
 
-**ログインなしに、アラームを共有する**ことが可能です。
+**ログインなしに、アラームを共有する** ことが可能です。
 アラームを作成した人がオーナーとなり、共有コードを友達に伝えることで、
 友達もそのアラームに参加できます。
 オーナーがアラームの時間や曜日を変更すると、共有されているアラームはすべてリアルタイムで同期されます。
@@ -33,7 +33,7 @@ index: false
 ## 技術選定：なぜReact Nativeなのか
 
 まず、開発言語はReact Nativeを選びました。
-理由は簡単で、**私がReactに慣れているから**です。
+理由は簡単で、 **私がReactに慣れているから** です。
 FlutterやKotlin、Swiftのような他の選択肢もありましたが、
 新しい言語を学ぶコストをかけたくありませんでした。
 いくらキャッチアップが簡単だとしても、
@@ -48,22 +48,22 @@ React Nativeを使い、AndroidとiOS向けのフレームワークであるExpo
 
 Expo SDKで追加したものは以下のとおりです。
 
-- **expo-background-fetch**: バックグラウンド処理用
-- **expo-clipboard**: 共有コードをコピーするために使用
-- **expo-task-manager**: バックグラウンドタスク管理用
+- **expo-background-fetch** : バックグラウンド処理用
+- **expo-clipboard** : 共有コードをコピーするために使用
+- **expo-task-manager** : バックグラウンドタスク管理用
 
 サードパーティライブラリで追加したものは以下のとおりです。
 
-- **@react-native-async-storage/async-storage**: ローカルストレージにデータを保存
+- **@react-native-async-storage/async-storage** : ローカルストレージにデータを保存
 - **@react-native-firebase/\***: Realtime Database, Messaging, Function
-- **@notifee/react-native**: 通知管理
+- **@notifee/react-native** : 通知管理
 - **@rneui/\***: UIツールキット
-- **react-native-background-timer**: バックグラウンド用のタイマー
-- **react-native-modal-datetime-picker**: 日付選択用
-- **react-native-picker-select**: セレクトボックス
-- **react-native-notification-sounds**: デバイスのサウンド取得
-- **react-native-track-player**: オーディオ再生
-- **react-native-volume-manager**: ボリューム管理
+- **react-native-background-timer** : バックグラウンド用のタイマー
+- **react-native-modal-datetime-picker** : 日付選択用
+- **react-native-picker-select** : セレクトボックス
+- **react-native-notification-sounds** : デバイスのサウンド取得
+- **react-native-track-player** : オーディオ再生
+- **react-native-volume-manager** : ボリューム管理
 
 動作確認は、Android/iOSエミュレーターで行いました。
 しかし、一部の機能（例：ボリューム管理）はエミュレーターでは動作せず、本物のデバイスでの確認が必要でした。
@@ -71,7 +71,7 @@ Expo SDKで追加したものは以下のとおりです。
 デバイスでアプリを動かすには、Expo Goというアプリで実現可能ですが、一部のライブラリが動作しません。
 そこで、EAS（Expo Application Services）でビルドしたアプリを直接デバイスにインストールする必要がありました。
 
-iOSでは、デバイスにインストールするために**有料のApple Developer Programへの登録**が必要で、
+iOSでは、デバイスにインストールするために **有料のApple Developer Programへの登録** が必要で、
 この手続きが非常に面倒でした。
 申請後、1週間以上も反応がなく、問い合わせたところようやく2日後に返答が来るという状況でした。
 （問い合わせたらすぐに返事が来るのはなぜでしょうか…）
@@ -137,7 +137,7 @@ Firebase Functionのスケジュール実行（内部ではCloud Scheduler）を
 
 ### iOSのバックグラウンド動作制限
 
-ここが、**諦めた最大の理由** です。
+ここが、 **諦めた最大の理由** です。
 iOSでは、バックグラウンドでアプリを動かすことが非常に困難です。
 
 [Background Tasks - Apple Developer Documentation](https://developer.apple.com/documentation/backgroundtasks) に記載されているとおり、

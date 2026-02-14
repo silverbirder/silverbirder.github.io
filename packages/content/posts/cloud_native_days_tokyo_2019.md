@@ -20,7 +20,7 @@ https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6
 発表者は、OSDT 実行委員長である長谷川さんです。
 
 来場者アンケート 1354 人から聞いた「クラウドネイティブ技術を活用フェーズについて」の紹介がありました。
-既に本番環境に適用している人は、なんと**46%**という驚きの結果でした。また、開発環境に至っては、**63%**ということでした。  
+既に本番環境に適用している人は、なんと **46%** という驚きの結果でした。また、開発環境に至っては、 **63%** ということでした。  
 このイベントに参加している時点である程度フィルターはかかっていると思いますが、それでも大きな割合だと感じました。
 
 次の図では、CNCF プロジェクトの 180 日間における Commit 数をグラフ化したものです。
@@ -29,7 +29,7 @@ https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6
 [![https://www.stackalytics.com/cncf?date=180](https://res.cloudinary.com/silverbirder/image/upload/v1614429648/silver-birder.github.io/blog/stackalytics_cncf.png)](https://www.stackalytics.com/cncf?date=180)
 ※ 2019/07/24 時点
 
-ただ、CNCF のメンバーとして日本企業は**17 社**しかないそうで、まだまだこれからといったところでしょうか。
+ただ、CNCF のメンバーとして日本企業は **17 社** しかないそうで、まだまだこれからといったところでしょうか。
 
 https://landscape.cncf.io/members
 
@@ -234,6 +234,6 @@ https://cloudnativedays.jp/cndk2019/
 https://codezine.jp/article/detail/11291
 
 青山さんは Kubernetes にとても詳しい方で、世代が近いせいか、私もこれぐらい夢中になれるものを見つけたいと感じるようになりました。  
-私は Web に関わるものなら何でも好きで、Kubernetes も含まれます。そこで、青山さん著作の[Kubernetes 完全ガイド](http://www.wasdkeyboards.com/index.php/products/printed-keycap-singles/custom-art-cherry-mx-keycaps.html)を全て実践することにしてみました。もちろん**お家 Kubernetes**でです。
+私は Web に関わるものなら何でも好きで、Kubernetes も含まれます。そこで、青山さん著作の[Kubernetes 完全ガイド](http://www.wasdkeyboards.com/index.php/products/printed-keycap-singles/custom-art-cherry-mx-keycaps.html)を全て実践することにしてみました。もちろん **お家 Kubernetes** でです。
 実際に触ってみると、スケールする簡単さに驚きました。ほぼコマンド一発で Pod が複製されて、「え！？」とびっくりです。  
 そこから、段々とハマっていき今回のイベントに参加することになりました。

@@ -238,7 +238,7 @@ No resources found.
 
 1 は、書いておいてなんですが、却下です。理由は、せっかく raspberryPi で構築したのでクラウドサービスを利用したくないからです。
 
-2 は、[Kubernetes: Local Volume の検証](https://qiita.com/ysakashita/items/67a452e76260b1211920)の参考にして**試した**のですが、 記事にも書いてあるとおり「Local Volume は他の Pod から共有で利用することができない」ため、statefulset が`replica:1`でなければ動きません。それはそれで動くので学習になり良いのですが、せっかくなら replica の制限なしにしたいです(ReadWriteMany にしたい)。
+2 は、[Kubernetes: Local Volume の検証](https://qiita.com/ysakashita/items/67a452e76260b1211920)の参考にして **試した** のですが、 記事にも書いてあるとおり「Local Volume は他の Pod から共有で利用することができない」ため、statefulset が`replica:1`でなければ動きません。それはそれで動くので学習になり良いのですが、せっかくなら replica の制限なしにしたいです(ReadWriteMany にしたい)。
 
 3 は、もう一台 raspberryPi を用意して、それを NFS と見立てて PersistentVolume にしてみる方法です。
 
@@ -346,7 +346,7 @@ pi@raspi001:~/external-storage/nfs-client $ k delete -f deploy/test-pod.yaml -f 
 ## statefulset をリトライ
 
 以上で、StorageClass を用意できました。よって後は、PersistentVolume 作って、PersistentVolumeClaim 作って...となる予定でした。
-しかし、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)には、**dynamic provisioning**という機能が備わっており、PersistentVolume を作らなくても、PersistentVolumeClaim するだけで良くなります。この件については、storage を学習する際に書きます。
+しかし、[nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)には、 **dynamic provisioning** という機能が備わっており、PersistentVolume を作らなくても、PersistentVolumeClaim するだけで良くなります。この件については、storage を学習する際に書きます。
 
 raspi001 に移動して、sample-statefulset.yaml をもう一度 apply します。
 (storageClassName: managed-nfs-storage を追加, ReadWriteOnce→ReadWriteMany に変更)

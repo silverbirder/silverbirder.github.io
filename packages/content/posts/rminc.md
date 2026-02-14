@@ -17,7 +17,7 @@ tags: ["成果物", "Google"]
 - 映画館(TOHO シネマ)でネット予約した際、上映日が記載されたメール
 - ホテルをネット予約した際、宿泊日が記載されたメール
 
-『いつ商品が届くのかな？メールを確認しよう』が、**面倒と感じませんか**？私は面倒と思います。
+『いつ商品が届くのかな？メールを確認しよう』が、 **面倒と感じませんか** ？私は面倒と思います。
 Google は気を利かせて、次のような予定を勝手に登録してくれることがあります。（良い悪いがありますが...）
 
 ![unknownorganizer@calendar.google.com](https://res.cloudinary.com/silverbirder/image/upload/v1614431051/silver-birder.github.io/blog/unknownorganizer_google_calendar.png)
@@ -67,7 +67,7 @@ https://www.npmjs.com/package/@silverbirder/rminc
 
 小さくて見えないと思いますが、お届け予定日、タイトル、配達先、メールリンクが登録されています。
 
-このツール([sample.js](https://github.com/silverbirder/rMinc/blob/master/sample/sample.js))を GAS 上で**<span style={{color: "#d32f2f"}}>定期的に動かしておくだけ</span>**で、自動的に GCalendar へ予定登録されます。当たり前ですが、無料です。
+このツール([sample.js](https://github.com/silverbirder/rMinc/blob/master/sample/sample.js))を GAS 上で **定期的に動かしておくだけ** で、自動的に GCalendar へ予定登録されます。当たり前ですが、無料です。
 
 ※ RMinc は、[README.md](https://github.com/silverbirder/rMinc/blob/master/README.md)にある APP ID を登録する必要あり
 
@@ -75,5 +75,5 @@ https://www.npmjs.com/package/@silverbirder/rminc
 
 Google Apps Script は、エンジニアにとって、とても強力な武器です。特に、G Suite を積極的に使っている人にとっては、欠かせないものです。
 
-こういった **<span style={{color: "#d32f2f"}}>かゆいところに手が届く</span>** ことができるのは、Google Apps Script の魅力的なところです。
+こういった **かゆいところに手が届く** ことができるのは、Google Apps Script の魅力的なところです。
 ぜひぜひ、積極的に活用していきたいですね！

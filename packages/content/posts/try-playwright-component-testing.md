@@ -44,7 +44,7 @@ export default defineConfig({
 import "todomvc-app-css/index.css";
 ```
 
-playwright-ctの仕組みは、**コードをコンパイルし、それをローカルWebサーバーで提供し、playwright/index.html に読み込ませて描画し、テストします** 。
+playwright-ctの仕組みは、 **コードをコンパイルし、それをローカルWebサーバーで提供し、playwright/index.html に読み込ませて描画し、テストします** 。
 
 ## テストコードの例
 

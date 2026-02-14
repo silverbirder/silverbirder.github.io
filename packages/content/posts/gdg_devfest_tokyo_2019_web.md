@@ -29,7 +29,7 @@ https://tokyo.gdgjapan.org/devfest2019
 | DevFest Day1 / 2019 年 12 月 15 日（日） | Special Hands-on、Office Tour / 14:00 〜 17:00 予定 / ※14 日にご参加いただいた方の中から抽選で 100 名ご招待 / 開催場所：Google Japan / 〒 150-0002 東京都渋谷区渋谷 3 丁目 21−3              |
 
 私は、DevFest Day1 のみの参加でした。
-開催場所は、**電気通信大学**です。スタッフさんの多くは学生さんだったと思います。積極的にサポートされていた姿は、立派だなと勉強になりました。
+開催場所は、 **電気通信大学** です。スタッフさんの多くは学生さんだったと思います。積極的にサポートされていた姿は、立派だなと勉強になりました。
 
 ## DevFests
 
@@ -38,7 +38,7 @@ https://tokyo.gdgjapan.org/devfest2019
 https://devfest.withgoogle.com/
 
 DevFests 自体は、グローバルで活動されている GDG がホストのイベントです。
-下の図は、**2019 年**の活動実績&予定です。全国各地で広く活発的に行われていることが分かると思います。
+下の図は、 **2019 年** の活動実績&予定です。全国各地で広く活発的に行われていることが分かると思います。
 
 ![Find an upcoming community-led DevFest near yo](https://res.cloudinary.com/silverbirder/image/upload/v1614428965/silver-birder.github.io/blog/find_an_upcoming_community-led_dev_fest_near_yo.png)
 

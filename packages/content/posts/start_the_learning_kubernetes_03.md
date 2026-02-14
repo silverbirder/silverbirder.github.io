@@ -72,7 +72,7 @@ WiFi を使うために、LAN ケーブルや WiFi 親機などがなくなり�
 
 [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/)をダウンロードしておきます。
 
-Step の 1 から 3 までの手順を**RaspberryPi 一台ずつ** 、下記の手続きを踏んでいきます。
+Step の 1 から 3 までの手順を **RaspberryPi 一台ずつ** 、下記の手続きを踏んでいきます。
 
 ## 1. 初期設定
 
@@ -89,7 +89,7 @@ vim cmdline.txt
 cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
 ```
 
-イメージを書き込み際、**r** をつける (rdisk3)と、高速になるそうです。
+イメージを書き込み際、 **r** をつける (rdisk3)と、高速になるそうです。
 
 ## 2. RaspberryPi に接続
 

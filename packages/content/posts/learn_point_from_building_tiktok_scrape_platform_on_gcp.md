@@ -11,7 +11,7 @@ GCP 構築のシステム設計話と、その構築時に、ハマったこと�
 
 ## きっかけ
 
-2020 年、最もダウンロードされたアプリが Facebook を抜いて**TikTok**が一位になったそうです。
+2020 年、最もダウンロードされたアプリが Facebook を抜いて **TikTok** が一位になったそうです。
 
 https://gigazine.net/news/20210811-tiktok-overtakes-facebook/
 
@@ -49,7 +49,7 @@ https://www.npmjs.com/package/tiktok-scraper
 
 ![様々な切り口で、メタ情報をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224935/silver-birder.github.io/blog/tiktok_scraper_doc3.png)
 
-手に入れられない情報は、**ログインが必要なもの**です。
+手に入れられない情報は、 **ログインが必要なもの** です。
 例えば、私がフォローしているユーザーとかです。
 その情報が欲しかったので、どうにかして手に入れました。(詳細は省きます)
 そのユーザー情報を使って、先程のユーザーという切り口で TikTok の動画やメタ情報を収集するバッチを作ろうと考えました。
@@ -126,7 +126,7 @@ PubSub でワークフローを制御するよりも、Cloud Workflows の yaml 
 
 https://cloud.google.com/workflows/quotas?hl=ja
 
-特に困ったのが、全ての変数のメモリ合計が、**64kb** だということです。
+特に困ったのが、全ての変数のメモリ合計が、 **64kb** だということです。
 HTTP レスポンスの Body を変数保持する構成を取ると、そのサイズを考慮しなければいけません。
 いくつかやり方を見直してみたのですが、思うような形に仕上げることができず、断念しました。
 結果、PubSub を使って Cloud Run を連携することになりました。

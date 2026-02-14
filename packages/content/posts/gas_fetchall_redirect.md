@@ -86,7 +86,7 @@ Twitter の API レスポンスに `urls` がありました。説明はあり�
 https://www.monotalk.xyz/blog/google-app-script-%E3%81%AE-urlfetchapp-%E3%81%AE-%E4%BE%8B%E5%A4%96%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/
 
 fetch や fetchAll は、`muteHttpExceptions: true` としたとしても、ExceptionError が発生してしまいます。
-そうすると、例えば 1000 件の URL を fetchAll した場合、**どれが成功で、どれが失敗で、どれが未実施か** がわからないというところです。
+そうすると、例えば 1000 件の URL を fetchAll した場合、 **どれが成功で、どれが失敗で、どれが未実施か** がわからないというところです。
 
 ![FetchAllとRedirectURL (Error)](https://res.cloudinary.com/silverbirder/image/upload/v1614429297/silver-birder.github.io/blog/FetchAll_and_RedirectURL_error.png)
 

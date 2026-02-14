@@ -9,7 +9,7 @@ tags: ["Google", "バックエンド", "成果物"]
 
 最近、自身の[ポートフォリオページ](https://silverbirder.github.io/)刷新を検討しており、プロフィール画像をどうするか悩みました。ポートフォリオのベースドキュメントは、Markdown を採用しています。
 
-プロフィール画像を固定で保持させず、API 経由でプロフィール画像を設定できないかと思い、今回、**Google アカウント画像を返却するだけの API、Google Account Photo API**を作成しました。
+プロフィール画像を固定で保持させず、API 経由でプロフィール画像を設定できないかと思い、今回、 **Google アカウント画像を返却するだけの API、Google Account Photo API** を作成しました。
 
 API のソースコードは、[こちら(Github)](https://github.com/silverbirder/Google-Account-Photo-API)です。1 時間程度で作ったので、正常パターンしか見ていません。(笑) ご了承ください。
 

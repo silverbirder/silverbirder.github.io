@@ -15,7 +15,7 @@ Micro Frontends という Web フロントエンドアーキテクチャがあ�
 一方で、フロントエンドは依然モノリシックなままの状態です。
 
 EC サイトのような Web アプリケーションでは、様々な専門知識(商品、注文、検索など)を必要とし、フロントエンド開発者の守備範囲がとても広くなってしまいます。
-開発者には限界があり、いつしか**トラブルシューティングに追われる日々**になってしまいます。
+開発者には限界があり、いつしか **トラブルシューティングに追われる日々** になってしまいます。
 
 そこで、Micro Frontends というアーキテクチャの出番です。
 
@@ -38,30 +38,30 @@ https://micro-frontends-japanese.org/
 また、次の書籍を読むと、
 https://www.manning.com/books/micro-frontends-in-action
 
-> Amazon does not talk a lot about its internal development structure. However, there are reports that **the teams who run its e-commerce site have been working like this**for a long time. ...
+> Amazon does not talk a lot about its internal development structure. However, there are reports that **the teams who run its e-commerce site have been working like this** for a long time. ...
 > **Micro frontends are indeed quite popular in the e-commerce** sector. **
 > In 2012
 >** the Otto Group, a Germany based mail order company and one of the world’s
 > largest e-commerce players started to split up its monolith. ...
-> The Swedish furniture company **IKEA and Zalando**, one of Europes biggest fashion retailers, moved to this model. ...
+> The Swedish furniture company **IKEA and Zalando** , one of Europes biggest fashion retailers, moved to this model. ...
 > But micro frontends are also used in other industries. **Spotify** organizes itself in autonomous end-to-end teams they call Squads. ...
 
 Excerpt From: Michael Geers. “Micro Frontends in Action MEAP V03.” iBooks.
 
 という内容があります。
 
-IKEA や Zalando といった**EC サイトが Micro Frontends を採用する**ケースが多く、公には言っていませんが、Amazon も Micro Frontends で取り組んでいるようです。
+IKEA や Zalando といった **EC サイトが Micro Frontends を採用する** ケースが多く、公には言っていませんが、Amazon も Micro Frontends で取り組んでいるようです。
 EC サイトだけでなく、Spotify のようなサービスにも適用されるケースがあります。
 
 ## Micro Frontends の良さ
 
-私が思う Micro Frontends から得られる最大の恩恵は、"**局所化**" だと思います。
+私が思う Micro Frontends から得られる最大の恩恵は、" **局所化** " だと思います。
 
 フロントエンドをサービス毎(商品、注文、検索など)に分割することで
 
-- サービスの**専門性**向上
+- サービスの **専門性** 向上
   - ex. 対象サービスのフロントエンドだけに集中できる
-- サービスの**開発速度**向上
+- サービスの **開発速度** 向上
   - ex. 対象サービスのソースコードだけ読めば良い
   - ex. 対象サービスだけにライブラリアップデートすれば良い
   - ex. フレームワークの切り替えは対象サービスだけすれば良い
@@ -85,7 +85,7 @@ EC サイトだけでなく、Spotify のようなサービスにも適用され
 ## Micro Frontends の作る上で考えること
 
 フロントエンドをマイクロサービス化するということは、各サービスで HTML/CSS/JS を作ることになります。
-それらの**サービスを統合するサービス**が重要になってきます。
+それらの **サービスを統合するサービス** が重要になってきます。
 
 大きく分けて 2 つの統合パターンがあります。
 
@@ -102,7 +102,7 @@ EC サイトだけでなく、Spotify のようなサービスにも適用され
 | クライアントサイド統合 | さまざまなチームのユーザーインターフェイスを 1 つの画面に統合する必要があるインタラクティブなアプリケーションを構築すること |
 
 今回、私はサーバーサイド統合(Podium)を選択しました。
-ただ、インタラクティブなアプローチも必要だったため、**Hydration**を使いました。
+ただ、インタラクティブなアプローチも必要だったため、 **Hydration** を使いました。
 
 > Hydration refers to the client-side process during which Vue takes over the static HTML sent by the server and turns it into dynamic DOM that can react to client-side data changes.
 
@@ -275,7 +275,7 @@ messageBus.subscribe("search", "search.word", (event) => {
 
 https://fly.io/
 
-CDN で SSR が実行できる **Edge Worker**を使用しています。
+CDN で SSR が実行できる **Edge Worker** を使用しています。
 これにより、SSR 結果をキャッシュし、高速にレスポンスを返却できます。
 
 ただ、サンプル Web アプリでは、全くその力を引き出せていないです...
@@ -287,8 +287,8 @@ https://mizchi.hatenablog.com/entry/2019/02/21/235403
 
 ## SSR + CSR (Hydration) が実現可能
 
-**サーバーサイド統合であっても、CSR は実現可能**です。 ただし、Hydration には
-**パフォーマンス面に難有り**なため、このあたりは課題として残ります。 また、CSR
+**サーバーサイド統合であっても、CSR は実現可能** です。 ただし、Hydration には
+**パフォーマンス面に難有り** なため、このあたりは課題として残ります。 また、CSR
 するための bundle した javascript の size には注意が必要です。
 
 例えば、次のリポジトリにある "shared_vendor_webpack_dll" のように、vendor ファイルを共有することで、
@@ -309,7 +309,7 @@ https://github.com/zalando/tailor
 今回では、React.js と Vue.js を使用しています。
 これを Riot.js や Svelte.js にも切り替えることも可能です。
 
-**フロントエンド界隈では、JS フレームワークの変化が激しい**ので、
+**フロントエンド界隈では、JS フレームワークの変化が激しい** ので、
 このメリットは大切だと思います。
 
 ただし、Podium の manifest.json を返却しなければなりません。
@@ -333,7 +333,7 @@ EC サイトのようなアプリケーションでは『商品を探しやす�
 そういうサービスにおけるフロントエンドがモノリシックであれば、
 統一性が欠けてしまったり、知らぬ間にバグを埋め込んでしまうケースが発生してしまいます。
 
-Micro Frontends は、このような**複雑化するフロントエンドにメスを入れる良いアーキテクチャ**だと思います。
+Micro Frontends は、このような **複雑化するフロントエンドにメスを入れる良いアーキテクチャ** だと思います。
 ただし、バックエンドにおけるマイクロサービス化による課題があるように、フロントエンドにおける
 マイクロサービス化にも課題はあるはずです。
 

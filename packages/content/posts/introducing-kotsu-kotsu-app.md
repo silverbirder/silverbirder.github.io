@@ -8,7 +8,7 @@ index: false
 
 ## はじめに
 
-何でも**こつこつ**記録して可視化できるWebアプリ、[こつこつ](https://kotsu-kotsu.vercel.app)を作りました！
+何でも **こつこつ** 記録して可視化できるWebアプリ、[こつこつ](https://kotsu-kotsu.vercel.app)を作りました！
 
 ![kotsu-kotsu AreaChart](http://res.cloudinary.com/silverbirder/image/upload/v1716635435/wepuhxujcptqz2rixztk.png)
 

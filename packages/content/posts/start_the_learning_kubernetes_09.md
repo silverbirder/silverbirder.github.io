@@ -129,7 +129,7 @@ raspi002 を公開したので、その Node に存在する Pod がランダム
 
 ## NodePort
 
-ExternalIP のような特定 Node を公開するのと違って、NodePort は、**全て**の Node を公開します。
+ExternalIP のような特定 Node を公開するのと違って、NodePort は、 **全て** の Node を公開します。
 
 試してみます。
 
@@ -165,7 +165,7 @@ sample-nodeport   NodePort    10.96.173.243   <none>        8080:30080/TCP   66s
 
 ## LoadBalancer
 
-ExternalIP や NodePort の場合、ロードバランシングするのはクラスタ内の Node になります。そのため、アクセスが集中することで、Node 単一障害が発生しやすいそうです。そこで、LoadBalancer を使うことで、**クラスタ外**にロードバランサを作成します。
+ExternalIP や NodePort の場合、ロードバランシングするのはクラスタ内の Node になります。そのため、アクセスが集中することで、Node 単一障害が発生しやすいそうです。そこで、LoadBalancer を使うことで、 **クラスタ外** にロードバランサを作成します。
 
 ただ、クラスタ外にロードバランサを作成する際は、プラットフォームによって対応しているか確認が必要です。私のような raspberryPi 環境では、もちろんそういった機能がないため、準備する必要があります。
 
@@ -335,7 +335,7 @@ sample-externalname.default.svc.cluster.local. 5 IN CNAME example.com.
 example.com.  5 IN A 93.184.216.34
 ```
 
-確かに、`sample-externalname.default.svc.cluster.local`と問い合わせすることで、外部の[example.com](http://example.com/)への CNAME を取得できます。また、外部のサイトを切り替えたいときは、問い合わせ先は**変わらず**に、sample-externalname.yaml の spec.externalName を変更するだけで済みます。これは切り替えが楽ですね。
+確かに、`sample-externalname.default.svc.cluster.local`と問い合わせすることで、外部の[example.com](http://example.com/)への CNAME を取得できます。また、外部のサイトを切り替えたいときは、問い合わせ先は **変わらず** に、sample-externalname.yaml の spec.externalName を変更するだけで済みます。これは切り替えが楽ですね。
 
 ## None-Selector
 

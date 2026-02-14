@@ -234,9 +234,9 @@ sample-rs-p2jsc   2/2     Running       0          53s   10.244.1.28   raspi002 
 
 ## 少し待ち時間が長いような
 
-[Kubernetes はクラスタで障害があったとき、どういう動きをするのか](http://dr-asa.hatenablog.com/entry/2018/04/02/174006)という記事によれば、kube-controller-manager が検知して、kube-scheduler が正しい数に揃えているみたいです。**数十秒待たされた**のは、検知の間隔のせいでしょうか。
+[Kubernetes はクラスタで障害があったとき、どういう動きをするのか](http://dr-asa.hatenablog.com/entry/2018/04/02/174006)という記事によれば、kube-controller-manager が検知して、kube-scheduler が正しい数に揃えているみたいです。 **数十秒待たされた** のは、検知の間隔のせいでしょうか。
 
-[kube-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)のオプションで、`--attach-detach-reconcile-sync-period duration Default: 1m0s`とあります。**1 分間隔**なのですかね。
+[kube-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)のオプションで、`--attach-detach-reconcile-sync-period duration Default: 1m0s`とあります。 **1 分間隔** なのですかね。
 
 ## Pod を特定の Node で動かさないようにしたい
 
@@ -493,7 +493,7 @@ sample-rs-6mgcr                      2/2     Running             0          7h31
 sample-rs-lc225                      2/2     Running             0          7h31m
 ```
 
-おー、deployment の pod が作り変わっていっています。これが**ローリングアップデート**です。
+おー、deployment の pod が作り変わっていっています。これが **ローリングアップデート** です。
 ローリングアップデートは、spec.template 以下が更新されると変化したとみなすそうです。
 また、ロールバックは、rollout コマンドで実施できますし、revision 指定で戻すこともできます。
 しかし、基本的にはマニュフェストを戻して apply すべきです。

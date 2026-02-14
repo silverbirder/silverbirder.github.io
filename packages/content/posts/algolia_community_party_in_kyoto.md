@@ -23,8 +23,8 @@ https://algolia.connpass.com/event/128524/
   - [https://www.bringmeister.de/](https://www.bringmeister.de/)
   - [https://8tracks.com/explore/all](https://8tracks.com/explore/all)
 
-どれも**爆速**に結果が返ってきませんか !?
-これ、 実は**SaaS**で動いているんですよ ?
+どれも **爆速** に結果が返ってきませんか !?
+これ、 実は **SaaS** で動いているんですよ ?
 
 ## 概要
 

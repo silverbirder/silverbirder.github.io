@@ -277,4 +277,38 @@ describe("PostEditor", () => {
     expect(payload.hatena?.enabled).toBe(true);
     expect(payload.index).toBe(false);
   });
+
+  it("saves a draft payload", async () => {
+    const onSaveDraft = vi.fn().mockResolvedValue({
+      actions: [{ message: "saved", type: "alert" }],
+      id: "draft-1",
+    });
+    const alertSpy = vi.spyOn(window, "alert").mockImplementation(() => {});
+
+    await renderWithProvider(
+      <PostEditor
+        initialBody="Hello"
+        initialTitle="Title"
+        onSaveDraft={onSaveDraft}
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    await openDrawer();
+
+    const saveButton = document.querySelector(
+      "[data-testid='post-editor-save-draft']",
+    ) as HTMLButtonElement | null;
+    await expect.poll(() => saveButton?.disabled).toBe(false);
+    saveButton?.click();
+
+    await expect.poll(() => onSaveDraft.mock.calls.length).toBe(1);
+    const payload = onSaveDraft.mock.calls[0]?.[0];
+    expect(payload.title).toBe("Title");
+    expect(payload.body).toBe("Hello");
+    expect(payload.id).toBeUndefined();
+    expect(alertSpy).toHaveBeenCalledWith("saved");
+  });
 });

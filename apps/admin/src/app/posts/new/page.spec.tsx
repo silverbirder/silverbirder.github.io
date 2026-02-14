@@ -10,10 +10,14 @@ const renderPage = async () => {
     fixMarkdownLint: vi.fn(),
     resolveLinkTitles: vi.fn(),
     resolvePreview: vi.fn(),
+    savePostDraft: vi.fn(),
     uploadImage: vi.fn(),
   }));
   vi.doMock("@/trpc/server", () => ({
     api: {
+      draft: {
+        get: vi.fn().mockResolvedValue(null),
+      },
       github: {
         listTags: vi.fn().mockResolvedValue(["tag"]),
       },

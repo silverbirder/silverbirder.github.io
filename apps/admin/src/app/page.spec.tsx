@@ -11,6 +11,16 @@ const renderHome = async () => {
         "data-testid": "top",
       }),
   }));
+  vi.doMock("@/app/actions", () => ({
+    deletePostDraft: vi.fn(),
+  }));
+  vi.doMock("@/trpc/server", () => ({
+    api: {
+      draft: {
+        list: vi.fn().mockResolvedValue([]),
+      },
+    },
+  }));
 
   vi.doMock("next/headers", () => ({
     headers: vi.fn().mockResolvedValue(new Headers()),

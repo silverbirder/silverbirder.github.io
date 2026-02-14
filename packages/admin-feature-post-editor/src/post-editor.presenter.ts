@@ -15,6 +15,7 @@ type Props = {
   enableZennSync?: boolean;
   fixMarkdownLint?: (source: string) => Promise<string>;
   initialBody?: string;
+  initialDraftId?: string;
   initialHatenaEnabled?: boolean;
   initialPublishedAt?: string;
   initialSummary?: string;
@@ -43,6 +44,20 @@ type Props = {
       { message: string; type: "alert" } | { type: "open"; url: string }
     >;
   }>;
+  onSaveDraft?: (draft: {
+    body: string;
+    hatenaEnabled: boolean;
+    id?: string;
+    publishedAt: string;
+    summary: string;
+    tags: string[];
+    title: string;
+    zennEnabled: boolean;
+    zennType: string;
+  }) => Promise<void | {
+    actions?: Array<{ message: string; type: "alert" }>;
+    id?: string;
+  }>;
   resolveLinkTitles: (source: string) => Promise<string>;
   resolvePreview: (source: string) => Promise<SerializeResult>;
   tagSuggestions?: string[];
@@ -55,6 +70,7 @@ export const usePostEditorPresenter = ({
   enableZennSync = false,
   fixMarkdownLint,
   initialBody,
+  initialDraftId,
   initialHatenaEnabled,
   initialPublishedAt,
   initialSummary,
@@ -63,6 +79,7 @@ export const usePostEditorPresenter = ({
   initialZennEnabled,
   initialZennType,
   onCreatePullRequest,
+  onSaveDraft,
   resolveLinkTitles,
   resolvePreview,
   tagSuggestions,
@@ -76,6 +93,8 @@ export const usePostEditorPresenter = ({
   const [isPreviewLoading, setIsPreviewLoading] = useState(false);
   const [isResolvingLinks, setIsResolvingLinks] = useState(false);
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
+  const [draftId, setDraftId] = useState(initialDraftId);
+  const [isSavingDraft, setIsSavingDraft] = useState(false);
   const [isLinting, setIsLinting] = useState(false);
   const [publishedAt, setPublishedAt] = useState(() =>
     initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
@@ -166,6 +185,7 @@ export const usePostEditorPresenter = ({
     isUploading ||
     isResolvingLinks ||
     isCreatingPullRequest ||
+    isSavingDraft ||
     !onCreatePullRequest ||
     (enableHatenaSync && hatenaEnabled && title.length === 0) ||
     (enableZennSync &&
@@ -177,10 +197,15 @@ export const usePostEditorPresenter = ({
     isUploading ||
     isResolvingLinks ||
     isCreatingPullRequest ||
+    isSavingDraft ||
     isLinting;
 
   const isLoading =
-    isUploading || isResolvingLinks || isCreatingPullRequest || isLinting;
+    isUploading ||
+    isResolvingLinks ||
+    isCreatingPullRequest ||
+    isSavingDraft ||
+    isLinting;
 
   const handleCreatePullRequest = useCallback(async () => {
     if (!onCreatePullRequest || createPullRequestIsDisabled) {
@@ -238,6 +263,67 @@ export const usePostEditorPresenter = ({
     shouldNoindex,
     zennEnabled,
     zennSlug,
+    zennType,
+  ]);
+
+  const handleSaveDraft = useCallback(async () => {
+    if (!onSaveDraft || isUploading || isResolvingLinks || isLinting) {
+      return;
+    }
+
+    setIsSavingDraft(true);
+
+    try {
+      const result = await onSaveDraft({
+        body: bodyRef.current,
+        hatenaEnabled: enableHatenaSync && hatenaEnabled,
+        id: draftId,
+        publishedAt,
+        summary,
+        tags,
+        title,
+        zennEnabled: enableZennSync && zennEnabled,
+        zennType,
+      });
+
+      if (
+        result &&
+        typeof result === "object" &&
+        "id" in result &&
+        typeof result.id === "string"
+      ) {
+        setDraftId(result.id);
+      }
+
+      if (
+        result &&
+        typeof result === "object" &&
+        "actions" in result &&
+        Array.isArray(result.actions)
+      ) {
+        for (const action of result.actions) {
+          if (action?.type === "alert") {
+            window.alert(action.message);
+          }
+        }
+      }
+    } finally {
+      setIsSavingDraft(false);
+    }
+  }, [
+    onSaveDraft,
+    isUploading,
+    isResolvingLinks,
+    isLinting,
+    enableHatenaSync,
+    hatenaEnabled,
+    draftId,
+    publishedAt,
+    summary,
+    tags,
+    title,
+    enableZennSync,
+    zennEnabled,
     zennType,
   ]);
 
@@ -397,6 +483,10 @@ export const usePostEditorPresenter = ({
     setZennSlug(generateZennSlug());
   }, [enableZennSync, zennEnabled, zennSlug]);
 
+  useEffect(() => {
+    setDraftId(initialDraftId);
+  }, [initialDraftId]);
+
   return {
     body,
     bodyTextareaRef,
@@ -408,6 +498,7 @@ export const usePostEditorPresenter = ({
     isDragActive,
     isLoading,
     isPreviewLoading,
+    isSavingDraft,
     lintFixDisabled,
     lintFixIsLoading: isLinting,
     onBodyChange: handleBodyChange,
@@ -419,6 +510,7 @@ export const usePostEditorPresenter = ({
     onPreviewRequest: handlePreviewRequest,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
+    onSaveDraft: onSaveDraft ? handleSaveDraft : undefined,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,

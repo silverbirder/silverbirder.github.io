@@ -1,4 +1,5 @@
 import { cloudinaryRouter } from "@/server/api/routers/cloudinary";
+import { draftRouter } from "@/server/api/routers/draft";
 import { githubRouter } from "@/server/api/routers/github";
 import { hatenaRouter } from "@/server/api/routers/hatena";
 import { mdxRouter } from "@/server/api/routers/mdx";
@@ -12,6 +13,7 @@ import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   cloudinary: cloudinaryRouter,
+  draft: draftRouter,
   github: githubRouter,
   hatena: hatenaRouter,
   mdx: mdxRouter,

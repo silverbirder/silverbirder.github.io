@@ -18,6 +18,7 @@ export const PostEditor = (props: Props) => {
     isDragActive,
     isLoading,
     isPreviewLoading,
+    isSavingDraft,
     lintFixDisabled,
     lintFixIsLoading,
     onBodyChange,
@@ -27,6 +28,7 @@ export const PostEditor = (props: Props) => {
     onPreviewRequest,
     onPublishedAtChange,
     onResolveLinkTitles,
+    onSaveDraft,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,
@@ -68,6 +70,7 @@ export const PostEditor = (props: Props) => {
       onPreviewRequest={onPreviewRequest}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}
+      onSaveDraft={onSaveDraft}
       onTagInputBlur={onTagInputBlur}
       onTagInputChange={onTagInputChange}
       onTagInputKeyDown={onTagInputKeyDown}
@@ -88,6 +91,7 @@ export const PostEditor = (props: Props) => {
       publishedAtValue={publishedAt}
       resolveLinkTitlesDisabled={resolveLinkTitlesDisabled}
       resolveLinkTitlesIsLoading={resolveLinkTitlesIsLoading}
+      saveDraftIsLoading={isSavingDraft}
       summaryValue={summary}
       tagInputValue={tagInputValue}
       tagSuggestions={tagSuggestions}

@@ -49,6 +49,7 @@ type Props = {
   onPreviewRequest?: () => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
+  onSaveDraft?: () => void;
   onTagInputBlur: () => void;
   onTagInputChange: (value: string) => void;
   onTagInputKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
@@ -63,6 +64,7 @@ type Props = {
   publishedAtValue: string;
   resolveLinkTitlesDisabled?: boolean;
   resolveLinkTitlesIsLoading?: boolean;
+  saveDraftIsLoading?: boolean;
   summaryValue: string;
   tagInputValue: string;
   tagSuggestions: string[];
@@ -317,6 +319,7 @@ export const PostEditorLayout = ({
   onPreviewRequest,
   onPublishedAtChange,
   onResolveLinkTitles,
+  onSaveDraft,
   onTagInputBlur,
   onTagInputChange,
   onTagInputKeyDown,
@@ -331,6 +334,7 @@ export const PostEditorLayout = ({
   publishedAtValue,
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
+  saveDraftIsLoading = false,
   tagInputValue,
   tagSuggestions,
   tagsValue,
@@ -347,7 +351,8 @@ export const PostEditorLayout = ({
   const hasDrawerActions =
     Boolean(onResolveLinkTitles) ||
     Boolean(onCreatePullRequest) ||
-    Boolean(onFixMarkdownLint);
+    Boolean(onFixMarkdownLint) ||
+    Boolean(onSaveDraft);
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
   const filteredTagSuggestions = useMemo(() => {
@@ -580,6 +585,18 @@ export const PostEditorLayout = ({
                               {createPullRequestIsLoading
                                 ? t("createPullRequestLoading")
                                 : t("createPullRequestAction")}
+                            </ActionButton>
+                          ) : null}
+                          {onSaveDraft ? (
+                            <ActionButton
+                              data-testid="post-editor-save-draft"
+                              disabled={isLoading}
+                              onClick={onSaveDraft}
+                              type="button"
+                            >
+                              {saveDraftIsLoading
+                                ? t("saveDraftLoading")
+                                : t("saveDraftAction")}
                             </ActionButton>
                           ) : null}
                           {onFixMarkdownLint ? (

@@ -173,4 +173,39 @@ describe("PostEditorLayout", () => {
     );
     expect(lintButton).not.toBeNull();
   });
+
+  it("renders save draft action in the drawer", async () => {
+    await renderWithProvider(
+      <PostEditorLayout
+        bodyValue="Body"
+        onBodyChange={() => undefined}
+        onPublishedAtChange={() => undefined}
+        onSaveDraft={() => undefined}
+        onTagInputBlur={() => undefined}
+        onTagInputChange={() => undefined}
+        onTagInputKeyDown={() => undefined}
+        onTagRemove={() => undefined}
+        onTagSuggestionClick={() => undefined}
+        onTitleChange={() => undefined}
+        previewContent={<p>Preview</p>}
+        publishedAtValue="2026-01-29"
+        summaryValue=""
+        tagInputValue=""
+        tagSuggestions={[]}
+        tagsValue={[]}
+        titleValue="Release notes"
+      />,
+    );
+
+    const drawerTrigger = document.querySelector(
+      "[data-testid='post-editor-drawer-trigger']",
+    );
+    drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const saveButton = document.querySelector(
+      "[data-testid='post-editor-save-draft']",
+    );
+    expect(saveButton).not.toBeNull();
+  });
 });

@@ -19,11 +19,26 @@ describe("Top", () => {
   });
 
   it("renders labels from messages", async () => {
-    await renderWithProvider(<Top />);
+    await renderWithProvider(
+      <Top
+        drafts={[
+          {
+            id: "draft-1",
+            publishedAt: "2026-02-14",
+            title: "下書きタイトル",
+            updatedAt: "2026-02-14T12:00:00.000Z",
+          },
+        ]}
+      />,
+    );
     const newPostLink = document.querySelector(
       "[data-testid='admin-new-post-link']",
     );
+    const draftItem = document.querySelector(
+      "[data-testid='admin-draft-item']",
+    );
 
     expect(newPostLink?.textContent ?? "").toContain("新規投稿");
+    expect(draftItem?.textContent ?? "").toContain("下書きタイトル");
   });
 });

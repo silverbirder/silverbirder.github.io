@@ -1,7 +1,9 @@
 export { createPostPullRequest } from "./create-post-pull-request";
+export { deletePostDraft } from "./delete-post-draft";
 export { fixMarkdownLint } from "./fix-markdown-lint";
 export { resolveLinkTitles } from "./resolve-link-titles";
 export { resolvePreview } from "./resolve-preview";
+export { savePostDraft } from "./save-post-draft";
 export { handleSignIn } from "./sign-in";
 export { redirectIfAllowed } from "./sign-in-access";
 export { handleSignOut } from "./sign-out";

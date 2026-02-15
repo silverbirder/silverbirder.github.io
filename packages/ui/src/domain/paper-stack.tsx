@@ -1,5 +1,7 @@
 "use client";
 
+import { chakra } from "@chakra-ui/react";
+
 type Layer = {
   cx: number;
   cy: number;
@@ -70,7 +72,9 @@ for (
 
 export const PaperStack = ({ className, count }: Props) => {
   if (count <= 0) {
-    return <svg aria-hidden="true" className={className} viewBox="0 0 1 1" />;
+    return (
+      <chakra.svg aria-hidden="true" className={className} viewBox="0 0 1 1" />
+    );
   }
 
   const radian = (ROTATE_DEGREE * Math.PI) / 180;
@@ -119,7 +123,7 @@ export const PaperStack = ({ className, count }: Props) => {
   const translateY = VIEWBOX_PADDING - bounds.minY;
 
   return (
-    <svg
+    <chakra.svg
       aria-hidden="true"
       className={className}
       fill="none"
@@ -128,29 +132,29 @@ export const PaperStack = ({ className, count }: Props) => {
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       width="100%"
     >
-      <g transform={`translate(${translateX} ${translateY})`}>
+      <chakra.g transform={`translate(${translateX} ${translateY})`}>
         {layers.map(({ cx, cy, index, x, y }) => (
-          <g
+          <chakra.g
             key={`paper-${index}`}
             transform={`rotate(${ROTATE_DEGREE} ${cx} ${cy})`}
           >
-            <polygon
+            <chakra.polygon
               data-testid="paper-layer"
-              fill="white"
+              fill="bg"
               points={getPaperCorners(x, y)
                 .map((point) => `${point.x},${point.y}`)
                 .join(" ")}
-              stroke="black"
+              stroke="green.border"
               strokeWidth={STROKE_WIDTH}
             />
             {paperLineOffsets.map((offset) => {
               const topX = x + PAPER_SKEW_OFFSET + offset;
               const bottomX = x + offset;
               return (
-                <line
+                <chakra.line
                   data-testid="paper-line"
                   key={`paper-${index}-line-${offset}`}
-                  stroke="black"
+                  stroke="green.fg"
                   strokeOpacity={0.2}
                   strokeWidth={PAPER_LINE_STROKE_WIDTH}
                   x1={topX}
@@ -160,9 +164,9 @@ export const PaperStack = ({ className, count }: Props) => {
                 />
               );
             })}
-          </g>
+          </chakra.g>
         ))}
-      </g>
-    </svg>
+      </chakra.g>
+    </chakra.svg>
   );
 };

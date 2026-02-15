@@ -15,8 +15,6 @@ type Props = {
 
 const RECT_WIDTH = 240;
 const RECT_HEIGHT = 180;
-const RECT_RX = 10;
-const RECT_RY = 10;
 const STROKE_WIDTH = 2;
 const ROTATE_DEGREE = -45;
 const BASE_X = 60;
@@ -24,12 +22,16 @@ const BASE_Y = 90;
 const STEP_X = 0;
 const STEP_Y = -30;
 const VIEWBOX_PADDING = 12;
-const PAPER_LINE_START_X = 24;
-const PAPER_LINE_END_X = RECT_WIDTH - 24;
-const PAPER_LINE_START_Y = 20;
-const PAPER_LINE_END_Y = RECT_HEIGHT - 20;
-const PAPER_LINE_GAP = 20;
+const PAPER_SKEW_OFFSET = 36;
+const PAPER_LINE_START_OFFSET = 12;
+const PAPER_LINE_END_OFFSET = RECT_WIDTH - PAPER_SKEW_OFFSET - 24;
+const PAPER_LINE_GAP = 24;
 const PAPER_LINE_STROKE_WIDTH = 1.5;
+
+type Point = {
+  x: number;
+  y: number;
+};
 
 const rotatePoint = (
   x: number,
@@ -49,14 +51,21 @@ const rotatePoint = (
   };
 };
 
+const getPaperCorners = (x: number, y: number): Point[] => [
+  { x: x + PAPER_SKEW_OFFSET, y },
+  { x: x + RECT_WIDTH, y },
+  { x: x + RECT_WIDTH - PAPER_SKEW_OFFSET, y: y + RECT_HEIGHT },
+  { x, y: y + RECT_HEIGHT },
+];
+
 const paperLineOffsets: number[] = [];
 
 for (
-  let offsetX = PAPER_LINE_START_X;
-  offsetX <= PAPER_LINE_END_X;
-  offsetX += PAPER_LINE_GAP
+  let offset = PAPER_LINE_START_OFFSET;
+  offset <= PAPER_LINE_END_OFFSET;
+  offset += PAPER_LINE_GAP
 ) {
-  paperLineOffsets.push(offsetX);
+  paperLineOffsets.push(offset);
 }
 
 export const PaperStack = ({ className, count }: Props) => {
@@ -80,12 +89,9 @@ export const PaperStack = ({ className, count }: Props) => {
     (acc, layer) => {
       const { cx, cy, x, y } = layer;
 
-      const corners = [
-        rotatePoint(x, y, cx, cy, radian),
-        rotatePoint(x + RECT_WIDTH, y, cx, cy, radian),
-        rotatePoint(x, y + RECT_HEIGHT, cx, cy, radian),
-        rotatePoint(x + RECT_WIDTH, y + RECT_HEIGHT, cx, cy, radian),
-      ];
+      const corners = getPaperCorners(x, y).map((point) =>
+        rotatePoint(point.x, point.y, cx, cy, radian),
+      );
 
       const minX = Math.min(...corners.map((point) => point.x)) - strokePadding;
       const maxX = Math.max(...corners.map((point) => point.x)) + strokePadding;
@@ -128,31 +134,32 @@ export const PaperStack = ({ className, count }: Props) => {
             key={`paper-${index}`}
             transform={`rotate(${ROTATE_DEGREE} ${cx} ${cy})`}
           >
-            <rect
+            <polygon
               data-testid="paper-layer"
               fill="white"
-              height={RECT_HEIGHT}
-              rx={RECT_RX}
-              ry={RECT_RY}
+              points={getPaperCorners(x, y)
+                .map((point) => `${point.x},${point.y}`)
+                .join(" ")}
               stroke="black"
               strokeWidth={STROKE_WIDTH}
-              width={RECT_WIDTH}
-              x={x}
-              y={y}
             />
-            {paperLineOffsets.map((offsetX) => (
-              <line
-                data-testid="paper-line"
-                key={`paper-${index}-line-${offsetX}`}
-                stroke="black"
-                strokeOpacity={0.2}
-                strokeWidth={PAPER_LINE_STROKE_WIDTH}
-                x1={x + offsetX}
-                x2={x + offsetX}
-                y1={y + PAPER_LINE_START_Y}
-                y2={y + PAPER_LINE_END_Y}
-              />
-            ))}
+            {paperLineOffsets.map((offset) => {
+              const topX = x + PAPER_SKEW_OFFSET + offset;
+              const bottomX = x + offset;
+              return (
+                <line
+                  data-testid="paper-line"
+                  key={`paper-${index}-line-${offset}`}
+                  stroke="black"
+                  strokeOpacity={0.2}
+                  strokeWidth={PAPER_LINE_STROKE_WIDTH}
+                  x1={topX}
+                  x2={bottomX}
+                  y1={y}
+                  y2={y + RECT_HEIGHT}
+                />
+              );
+            })}
           </g>
         ))}
       </g>

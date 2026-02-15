@@ -29,7 +29,7 @@ describe("PaperStack", () => {
     const { container } = await renderWithProvider(<PaperStack count={2} />);
 
     const lines = container.querySelectorAll('[data-testid="paper-line"]');
-    expect(lines).toHaveLength(20);
+    expect(lines).toHaveLength(16);
   });
 
   it("does not render paper layers for zero or negative counts", async () => {

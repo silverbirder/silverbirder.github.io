@@ -25,6 +25,13 @@ describe("PaperStack", () => {
     expect(layers).toHaveLength(7);
   });
 
+  it("renders short-side-aligned lines inside each paper layer", async () => {
+    const { container } = await renderWithProvider(<PaperStack count={2} />);
+
+    const lines = container.querySelectorAll('[data-testid="paper-line"]');
+    expect(lines).toHaveLength(20);
+  });
+
   it("does not render paper layers for zero or negative counts", async () => {
     const { container: zeroCountContainer } = await renderWithProvider(
       <PaperStack count={0} />,

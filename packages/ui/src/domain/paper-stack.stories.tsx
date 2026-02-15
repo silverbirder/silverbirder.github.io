@@ -2,10 +2,17 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { PaperStack } from "./paper-stack";
 
-const meta = {
+const meta: Meta<typeof PaperStack> = {
   component: PaperStack,
+  decorators: [
+    (Story) => (
+      <div style={{ height: "120px", width: "120px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   title: "UI/Domain/PaperStack",
-} satisfies Meta<typeof PaperStack>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -24,6 +24,12 @@ const BASE_Y = 90;
 const STEP_X = 0;
 const STEP_Y = -30;
 const VIEWBOX_PADDING = 12;
+const PAPER_LINE_START_X = 24;
+const PAPER_LINE_END_X = RECT_WIDTH - 24;
+const PAPER_LINE_START_Y = 20;
+const PAPER_LINE_END_Y = RECT_HEIGHT - 20;
+const PAPER_LINE_GAP = 20;
+const PAPER_LINE_STROKE_WIDTH = 1.5;
 
 const rotatePoint = (
   x: number,
@@ -42,6 +48,16 @@ const rotatePoint = (
     y: cy + dx * sin + dy * cos,
   };
 };
+
+const paperLineOffsets: number[] = [];
+
+for (
+  let offsetX = PAPER_LINE_START_X;
+  offsetX <= PAPER_LINE_END_X;
+  offsetX += PAPER_LINE_GAP
+) {
+  paperLineOffsets.push(offsetX);
+}
 
 export const PaperStack = ({ className, count }: Props) => {
   if (count <= 0) {
@@ -108,20 +124,36 @@ export const PaperStack = ({ className, count }: Props) => {
     >
       <g transform={`translate(${translateX} ${translateY})`}>
         {layers.map(({ cx, cy, index, x, y }) => (
-          <rect
-            data-testid="paper-layer"
-            fill="white"
-            height={RECT_HEIGHT}
+          <g
             key={`paper-${index}`}
-            rx={RECT_RX}
-            ry={RECT_RY}
-            stroke="black"
-            strokeWidth={STROKE_WIDTH}
             transform={`rotate(${ROTATE_DEGREE} ${cx} ${cy})`}
-            width={RECT_WIDTH}
-            x={x}
-            y={y}
-          />
+          >
+            <rect
+              data-testid="paper-layer"
+              fill="white"
+              height={RECT_HEIGHT}
+              rx={RECT_RX}
+              ry={RECT_RY}
+              stroke="black"
+              strokeWidth={STROKE_WIDTH}
+              width={RECT_WIDTH}
+              x={x}
+              y={y}
+            />
+            {paperLineOffsets.map((offsetX) => (
+              <line
+                data-testid="paper-line"
+                key={`paper-${index}-line-${offsetX}`}
+                stroke="black"
+                strokeOpacity={0.2}
+                strokeWidth={PAPER_LINE_STROKE_WIDTH}
+                x1={x + offsetX}
+                x2={x + offsetX}
+                y1={y + PAPER_LINE_START_Y}
+                y2={y + PAPER_LINE_END_Y}
+              />
+            ))}
+          </g>
         ))}
       </g>
     </svg>

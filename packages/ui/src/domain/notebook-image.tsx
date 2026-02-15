@@ -118,12 +118,13 @@ export const NotebookImage = ({ alt, linkHref, onLoad, ...props }: Props) => {
           fontSize="sm"
           lineHeight="var(--notebook-line-height)"
           margin={0}
+          maxWidth="100%"
           textAlign="center"
         >
           <chakra.span
-            alignItems="center"
-            display="inline-flex"
-            justifyContent="center"
+            overflowWrap="anywhere"
+            whiteSpace="normal"
+            wordBreak="break-word"
           >
             {linkHref ? (
               <DomainLink

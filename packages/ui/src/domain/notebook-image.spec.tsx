@@ -100,6 +100,31 @@ describe("NotebookImage", () => {
     expect(newTabLink?.getAttribute("target")).toBe("_blank");
   });
 
+  it("applies wrapping styles to long caption text", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookImage
+        alt="VeryLongCaptionWithoutSpacesVeryLongCaptionWithoutSpacesVeryLongCaptionWithoutSpaces"
+        src="/test.png"
+      />,
+    );
+
+    const caption = container.querySelector("figcaption");
+    const captionText = container.querySelector("figcaption span");
+
+    expect(caption).not.toBeNull();
+    expect(captionText).not.toBeNull();
+    expect(getComputedStyle(caption as HTMLElement).maxWidth).toBe("100%");
+    expect(getComputedStyle(captionText as HTMLElement).overflowWrap).toBe(
+      "anywhere",
+    );
+    expect(getComputedStyle(captionText as HTMLElement).wordBreak).toBe(
+      "break-word",
+    );
+    expect(getComputedStyle(captionText as HTMLElement).whiteSpace).toBe(
+      "normal",
+    );
+  });
+
   it("passes href from mdx anchor wrapper to NotebookImage", async () => {
     const A = mdxComponents.a as unknown as ComponentType<
       ComponentPropsWithoutRef<"a">

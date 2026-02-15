@@ -20,16 +20,13 @@ https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repos
 
 このトリガーは、GitHub API を経由して、GitHub Actions のワークフローを起動することができます。そのため、次のように 異なるリポジトリでの GitHub Actions ワークフローを連携できます。
 
-[![efac2e9d6d0821370603fe52c9cac4017da30ca64df4949c264605124386e36d](https://res.cloudinary.com/silverbirder/image/upload/v1693362902/silver-birder.github.io/blog/efac2e9d6d0821370603fe52c9cac4017da30ca64df4949c264605124386e36d.png)](https://mermaid.live/edit#pako:eNp9kD1rwzAQhv-KuDmmuymeSrbSoaugXKRzLLA-erqDhJD_XslO6RCoBiGO59UrPTdw2ROMUOlbKTl6C3hmjDaZtlAlJ40nYpv2SUGW4ELBJOZDFmKD1ZyDLHr6Yiq5Bsl8fdVKnDDSS-7M9Jw9cm77_9m5M5T89Fu-FQ7TtIVHQxdyKmT-soMPtaC4Zec37pl3TCg0FF3Xgfu3q8ABInHE4JuKW09baGWRLIzt6GlGXcWCTfeGdi2f1-RgFFY6gBbfLnyYg3HGtbYp-f6m913vZvn-A1JSg1Q)
+[![repository_dispatchで別リポジトリのワークフローを起動する流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693362902/silver-birder.github.io/blog/efac2e9d6d0821370603fe52c9cac4017da30ca64df4949c264605124386e36d.png)](https://mermaid.live/edit#pako:eNp9kD1rwzAQhv-KuDmmuymeSrbSoaugXKRzLLA-erqDhJD_XslO6RCoBiGO59UrPTdw2ROMUOlbKTl6C3hmjDaZtlAlJ40nYpv2SUGW4ELBJOZDFmKD1ZyDLHr6Yiq5Bsl8fdVKnDDSS-7M9Jw9cm77_9m5M5T89Fu-FQ7TtIVHQxdyKmT-soMPtaC4Zec37pl3TCg0FF3Xgfu3q8ABInHE4JuKW09baGWRLIzt6GlGXcWCTfeGdi2f1-RgFFY6gBbfLnyYg3HGtbYp-f6m913vZvn-A1JSg1Q)
 
 repository-dispatch と create-pull-request は、次の GitHub Actions です。
 
-https://github.com/peter-evans/repository-dispatch
-https://github.com/peter-evans/create-pull-request
-
-- respository-dispatch
+- https://github.com/peter-evans/repository-dispatch
   - repository-dispatch-event を dispatch する Action
-- create-pull-request
+- https://github.com/peter-evans/create-pull-request
   - Pull Request を作成する Action
 
 これらの GitHub Actions を使わずに `gh` などを使って代替できますが、便利なモノを使って楽をします。
@@ -38,11 +35,11 @@ https://github.com/peter-evans/create-pull-request
 
 GitHub のリポジトリ(username/other)からトリガーだけでなく、他のサービスからでもトリガーできます。例えば、Google Sheets からだと、Google Apps Script から GitHub API を呼べばよいです。
 
-[![207138540b3a001131d8bda0a09520285fb6b001d967242fbca20b8c8db88e0e](https://res.cloudinary.com/silverbirder/image/upload/v1693362926/silver-birder.github.io/blog/207138540b3a001131d8bda0a09520285fb6b001d967242fbca20b8c8db88e0e.png)](https://mermaid.live/edit#pako:eNplkMtqwzAQRX9l0DqmexMMgdK0i0IhW0OYSDexQK9Ko9IQ8u-V7ZYsqpU03Dm6nJvS0UD1quCzImg8W75k9mOgdrhKDNWfkMewThJnsdomDkKHCRDiQpcYLw7HMr_L_9xLjmHNWZnq6ZiRYrES83VbC3Jgj6fznEEww99HC7wbhmW5J83OkUygvZXXeqLdx9v2wemMLYlFTx2-EGSghvO0X2rRLqVCB51tkhW9IB9ofENXAekMFnSpOtfl2UYRtVEe2bM1zdBt3h5VK-Exqr5dDc5cnYxqDPcWnW0drkGrXnLFRtVkGvBXqOrP7EqbwsyV31fri_z7DxDMiec)
+[![Google Sheets（GAS）からGitHub Actionsを起動する流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693362926/silver-birder.github.io/blog/207138540b3a001131d8bda0a09520285fb6b001d967242fbca20b8c8db88e0e.png)](https://mermaid.live/edit#pako:eNplkMtqwzAQRX9l0DqmexMMgdK0i0IhW0OYSDexQK9Ko9IQ8u-V7ZYsqpU03Dm6nJvS0UD1quCzImg8W75k9mOgdrhKDNWfkMewThJnsdomDkKHCRDiQpcYLw7HMr_L_9xLjmHNWZnq6ZiRYrES83VbC3Jgj6fznEEww99HC7wbhmW5J83OkUygvZXXeqLdx9v2wemMLYlFTx2-EGSghvO0X2rRLqVCB51tkhW9IB9ofENXAekMFnSpOtfl2UYRtVEe2bM1zdBt3h5VK-Exqr5dDc5cnYxqDPcWnW0drkGrXnLFRtVkGvBXqOrP7EqbwsyV31fri_z7DxDMiec)
 
 他にも、Kibela の outgoing webhook を、Server が受けて、Server が GitHub API を呼び出す方法があります。
 
-[![e3da40e838b6c83226e0337b3e7e920b1eadb09c1be118fa6ab9087d0a5e35ba](https://res.cloudinary.com/silverbirder/image/upload/v1693362959/silver-birder.github.io/blog/e3da40e838b6c83226e0337b3e7e920b1eadb09c1be118fa6ab9087d0a5e35ba.png)](https://mermaid.live/edit#pako:eNplkVtrwzAMhf-K8XPD3k0JDMYujMFgr4ah2Gpi6ttsOVsp_e9z4oxC5wcjDudIH9KZq6CRC57xq6BX-GBgTOCkZ_VBoeCLGzBJ35QIiYwyETyxoxnQwn89Y5qXxK3-mEL9IbPR0FSGz4QxZEMhnfalZjw4vDssHvS6_xvYhnR93wrBStRAuOlMrXbKN-aGIDYUllChmTGz15YKhVRwzviRfeMwhXBs-Wav-RVVMAXWMpqQPRl6LgO7f3_ZX6k7bXIEUlOHc2XoW481em2BP6hK5VUJK3YXi7VdWnadie-4w-TA6Lr_85KWvA5zKLmopcYDFEuSS3-p1uUWHyevuKBUcMfbHrZzcXEAm6uKekF7azddT3v5BVs-q2Y)
+[![KibelaのWebhook経由でGitHub Actionsを起動する流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693362959/silver-birder.github.io/blog/e3da40e838b6c83226e0337b3e7e920b1eadb09c1be118fa6ab9087d0a5e35ba.png)](https://mermaid.live/edit#pako:eNplkVtrwzAMhf-K8XPD3k0JDMYujMFgr4ah2Gpi6ttsOVsp_e9z4oxC5wcjDudIH9KZq6CRC57xq6BX-GBgTOCkZ_VBoeCLGzBJ35QIiYwyETyxoxnQwn89Y5qXxK3-mEL9IbPR0FSGz4QxZEMhnfalZjw4vDssHvS6_xvYhnR93wrBStRAuOlMrXbKN-aGIDYUllChmTGz15YKhVRwzviRfeMwhXBs-Wav-RVVMAXWMpqQPRl6LgO7f3_ZX6k7bXIEUlOHc2XoW481em2BP6hK5VUJK3YXi7VdWnadie-4w-TA6Lr_85KWvA5zKLmopcYDFEuSS3-p1uUWHyevuKBUcMfbHrZzcXEAm6uKekF7azddT3v5BVs-q2Y)
 
 Server は、IFTTT や Zapier のようなサービスでも良いですし、自前のサーバーでも良いでしょう。
 
@@ -50,7 +47,7 @@ Server は、IFTTT や Zapier のようなサービスでも良いですし、�
 
 schema ファイルから、型を生成したい(yarn codegen)こともあると思います。そういうときは、次のフローを追加します。
 
-[![84bd13ddb0d7a355068241f2f6a56fad73521f96b19930891ace4a223c2aeee0](https://res.cloudinary.com/silverbirder/image/upload/v1693362977/silver-birder.github.io/blog/84bd13ddb0d7a355068241f2f6a56fad73521f96b19930891ace4a223c2aeee0.png)](https://mermaid.live/edit#pako:eNp9kU9rwzAMxb-K8WmDhNGOHhZGTmO3scOuhqHYSmqI_0yWYaH0u89OOnboqA_CiN-TeHonqYNB2cmEXxm9xhcLE4FTXpQHmYPPbkBSfutEILbaRvAs3vmIJCCJyfIxD5-EMSTLgZbnnJA8OHwIlemvta8USr2tHSuD3vS_y9eFbd-v4k7gN-rMKP60rbEpAuvjxq_cNa8JgbGNeZ5bqrYTbzyhZkHTcLd72jViv38s5XC4_3fYAuRFvd2E_ua2YrCtd2x1cK7-NdtwkRRzspEOyYE1JYRTbStZbDpUsitfgyPkmZVU_lzQOuhj8Vp2TBkbmaMpVi6ZyW6EOZUumnqNty3YNd_zD41uqeo)
+[![コード生成後に自動コミットしてPRを作る流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693362977/silver-birder.github.io/blog/84bd13ddb0d7a355068241f2f6a56fad73521f96b19930891ace4a223c2aeee0.png)](https://mermaid.live/edit#pako:eNp9kU9rwzAMxb-K8WmDhNGOHhZGTmO3scOuhqHYSmqI_0yWYaH0u89OOnboqA_CiN-TeHonqYNB2cmEXxm9xhcLE4FTXpQHmYPPbkBSfutEILbaRvAs3vmIJCCJyfIxD5-EMSTLgZbnnJA8OHwIlemvta8USr2tHSuD3vS_y9eFbd-v4k7gN-rMKP60rbEpAuvjxq_cNa8JgbGNeZ5bqrYTbzyhZkHTcLd72jViv38s5XC4_3fYAuRFvd2E_ua2YrCtd2x1cK7-NdtwkRRzspEOyYE1JYRTbStZbDpUsitfgyPkmZVU_lzQOuhj8Vp2TBkbmaMpVi6ZyW6EOZUumnqNty3YNd_zD41uqeo)
 
 git-auto-commit-action は、変更したファイルを git commit するだけの Action です。
 
@@ -81,12 +78,12 @@ jobs:
 
 Figma のデザイントークンや、i18n のメッセージファイルを更新したとき、Preview できる仕組みがあると、画面の確認ができて、良いです。
 
-[![77341dff8054c17e4df812bd7d2bf51737cc4e3c3ce113168e878f8030b18a31](https://res.cloudinary.com/silverbirder/image/upload/v1693362979/silver-birder.github.io/blog/77341dff8054c17e4df812bd7d2bf51737cc4e3c3ce113168e878f8030b18a31.png)](https://mermaid.live/edit#pako:eNp9kUtLAzEUhf9KyEqhg7TShYPMqnQnLtwOSJqczgQmD29u1FL6301mFBcVs7iEw3fu8yx1MJCtTHjL8Bo7qwZSrveiPJU5-OwOoN4vSlTEVtuoPItnHkFCJTFYHvPhlRBDshzo9JgTyCuHu1CZ7tq7p1Di_95jZeBN91N8Lth03WxuBT6hM0P8ehtjU1Ssx4WfuWteExSjiXmaGqpjJ154gmZBw-Fm_bBeic3mvoTt9vbPZJHwbvEhdohTODl4TgtXGpYr6UBOWVMWe65yL0vrDr1sy9fgqPLEvez9paB1yS8nr2XLlLGSOZrS3vcdZHtUUyoqTJ3waTnWfLPLF6JHmvQ)
+[![PR更新をPreview環境で確認する流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693362979/silver-birder.github.io/blog/77341dff8054c17e4df812bd7d2bf51737cc4e3c3ce113168e878f8030b18a31.png)](https://mermaid.live/edit#pako:eNp9kUtLAzEUhf9KyEqhg7TShYPMqnQnLtwOSJqczgQmD29u1FL6301mFBcVs7iEw3fu8yx1MJCtTHjL8Bo7qwZSrveiPJU5-OwOoN4vSlTEVtuoPItnHkFCJTFYHvPhlRBDshzo9JgTyCuHu1CZ7tq7p1Di_95jZeBN91N8Lth03WxuBT6hM0P8ehtjU1Ssx4WfuWteExSjiXmaGqpjJ154gmZBw-Fm_bBeic3mvoTt9vbPZJHwbvEhdohTODl4TgtXGpYr6UBOWVMWe65yL0vrDr1sy9fgqPLEvez9paB1yS8nr2XLlLGSOZrS3vcdZHtUUyoqTJ3waTnWfLPLF6JHmvQ)
 
 例えば、vercel や chromatic の preview です。
 
-https://vercel.com/docs/concepts/deployments/preview-deployments
-https://www.chromatic.com/docs/review
+- https://vercel.com/docs/concepts/deployments/preview-deployments
+- https://www.chromatic.com/docs/review
 
 ## サンプルコード
 
@@ -97,7 +94,7 @@ i18n のメッセージファイルをフロントエンドへ同期する GitHu
 | username/frontend | i18n のメッセージファイルを利用 |
 | username/message  | i18n のメッセージファイルを管理 |
 
-[![253d2d7c485f079449b9bf2b259f325d45156b1d538d78bda0c158049af50dfe](https://res.cloudinary.com/silverbirder/image/upload/v1693363954/silver-birder.github.io/blog/253d2d7c485f079449b9bf2b259f325d45156b1d538d78bda0c158049af50dfe.png)](https://mermaid.live/edit#pako:eNp9kk9LxDAQxb9KyGFR2CrepEgviuChJ68FmU1m22gziZNELct-d9M_6yKum0MIk_fLPCZvJ5XTKEsZ8D0hKXww0DLYhkRekKKjZDfIDS0VFR2LGkOAFmugvPN844GjUcYDRVELCKI1sUubF0bvgsnUcJcCMoHFazvz1V_ykV3ez9PbUYOkq4Op33aKqqrLkRfKWWviRfIaIgpzc0uHzlevwdGlWK0mnU-hW17K8GShFPiFKmXs6KDQJniIatFOuqN-ACbRIiHnZuXS56Ty8LJizNLCp74veBx_iCf1HkIQ90-n7xg_DH4Kjb53g0WK4Z-ZLIDqUL0JRz9kyDaQzkMWuUUxGhWLUbmWuWjB6Jyd3Ug3MnZosZFlPmrcQupjIxvaZ-mYo-eBlCwjJ1zL-UeWqMlyC33IVdTjmOs5j1Ms9987Oeuw)
+[![messageリポジトリ更新をfrontendへ同期してPRを作る流れ](https://res.cloudinary.com/silverbirder/image/upload/v1693363954/silver-birder.github.io/blog/253d2d7c485f079449b9bf2b259f325d45156b1d538d78bda0c158049af50dfe.png)](https://mermaid.live/edit#pako:eNp9kk9LxDAQxb9KyGFR2CrepEgviuChJ68FmU1m22gziZNELct-d9M_6yKum0MIk_fLPCZvJ5XTKEsZ8D0hKXww0DLYhkRekKKjZDfIDS0VFR2LGkOAFmugvPN844GjUcYDRVELCKI1sUubF0bvgsnUcYCMoHFazvz1V_ykV3ez9PbUYOkq4Op33aKqqrLkRfKWWviRfIaIgpzc0uHzlevwdGlWK0mnU-hW17K8GShFPiFKmXs6KDQJniIatFOuqN-ACbRIiHnZuXS56Ty8LJizNLCp74veBx_iCf1HkIQ90-n7xg_DH4Kjb53g0WK4Z-ZLIDqUL0JRz9kyDaQzkMWuUUxGhWLUbmWuWjB6Jyd3Ug3MnZosZFlPmrcQupjIxvaZ-mYo-eBlCwjJ1zL-UeWqMlyC33IVdTjmOs5j1Ms9987Oeuw)
 
 ```yml
 ## <username/message>/.github/workflows/main.yml

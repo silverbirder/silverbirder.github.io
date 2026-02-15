@@ -4,6 +4,7 @@ import {
   filterPosts,
   getAvailableTags,
   getAvailableYears,
+  getPaginationItems,
   paginatePosts,
   type PostSummary,
 } from "./posts.presenter";
@@ -103,5 +104,21 @@ describe("posts presenter", () => {
     const page2 = paginatePosts(paginationPosts, 2);
 
     expect(page2.items).toHaveLength(1);
+  });
+
+  it("getPaginationItems shows 3 pages on each side of current page", () => {
+    expect(getPaginationItems(10, 30)).toEqual([
+      { isCurrent: false, page: 1, type: "page" },
+      { key: "1-7", type: "ellipsis" },
+      { isCurrent: false, page: 7, type: "page" },
+      { isCurrent: false, page: 8, type: "page" },
+      { isCurrent: false, page: 9, type: "page" },
+      { isCurrent: true, page: 10, type: "page" },
+      { isCurrent: false, page: 11, type: "page" },
+      { isCurrent: false, page: 12, type: "page" },
+      { isCurrent: false, page: 13, type: "page" },
+      { key: "13-30", type: "ellipsis" },
+      { isCurrent: false, page: 30, type: "page" },
+    ]);
   });
 });

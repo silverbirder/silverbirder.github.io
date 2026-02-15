@@ -17,6 +17,7 @@ type PaginationItem =
   | { key: string; type: "ellipsis" };
 
 const PAGE_SIZE = 10;
+const PAGINATION_SIBLING_COUNT = 3;
 
 const toDateValue = (publishedAt: string) => {
   const dateValue = Date.parse(publishedAt);
@@ -94,7 +95,11 @@ export const getPaginationItems = (
   }
 
   const pages = new Set<number>([1, totalPages]);
-  for (const offset of [-1, 0, 1]) {
+  for (
+    let offset = -PAGINATION_SIBLING_COUNT;
+    offset <= PAGINATION_SIBLING_COUNT;
+    offset += 1
+  ) {
     const page = currentPage + offset;
     if (page >= 1 && page <= totalPages) {
       pages.add(page);

@@ -63,6 +63,101 @@ type Props = {
   uploadImage: (formData: FormData) => Promise<{ url: string }>;
 };
 
+const POST_DRAFTS_STORAGE_KEY = "silverbirder-admin-post-drafts";
+
+type LocalDraft = {
+  body: string;
+  hatenaEnabled: boolean;
+  id: string;
+  publishedAt: string;
+  summary: string;
+  tags: string[];
+  title: string;
+  updatedAt: string;
+  zennEnabled: boolean;
+  zennType: string;
+};
+
+const sortLocalDrafts = (drafts: LocalDraft[]): LocalDraft[] => {
+  return [...drafts].sort((left, right) => {
+    const leftDate = Date.parse(left.updatedAt);
+    const rightDate = Date.parse(right.updatedAt);
+    const leftValue = Number.isNaN(leftDate) ? 0 : leftDate;
+    const rightValue = Number.isNaN(rightDate) ? 0 : rightDate;
+
+    if (rightValue !== leftValue) {
+      return rightValue - leftValue;
+    }
+
+    return left.id.localeCompare(right.id);
+  });
+};
+
+const isLocalDraft = (value: unknown): value is LocalDraft => {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+
+  const candidate = value as Partial<LocalDraft>;
+  return (
+    typeof candidate.body === "string" &&
+    typeof candidate.hatenaEnabled === "boolean" &&
+    typeof candidate.id === "string" &&
+    candidate.id.length > 0 &&
+    typeof candidate.publishedAt === "string" &&
+    typeof candidate.summary === "string" &&
+    Array.isArray(candidate.tags) &&
+    candidate.tags.every((tag) => typeof tag === "string") &&
+    typeof candidate.title === "string" &&
+    typeof candidate.updatedAt === "string" &&
+    typeof candidate.zennEnabled === "boolean" &&
+    typeof candidate.zennType === "string"
+  );
+};
+
+const readLocalDrafts = (): LocalDraft[] => {
+  if (typeof window === "undefined") {
+    return [];
+  }
+
+  try {
+    const raw = window.localStorage.getItem(POST_DRAFTS_STORAGE_KEY);
+    if (!raw) {
+      return [];
+    }
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return sortLocalDrafts(parsed.filter(isLocalDraft));
+  } catch {
+    return [];
+  }
+};
+
+const writeLocalDrafts = (drafts: LocalDraft[]) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+  window.localStorage.setItem(
+    POST_DRAFTS_STORAGE_KEY,
+    JSON.stringify(sortLocalDrafts(drafts)),
+  );
+};
+
+const findLocalDraft = (id: string) =>
+  readLocalDrafts().find((draft) => draft.id === id) ?? null;
+
+const createDraftId = () => {
+  if (
+    typeof globalThis.crypto !== "undefined" &&
+    typeof globalThis.crypto.randomUUID === "function"
+  ) {
+    return globalThis.crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+};
+
 export const usePostEditorPresenter = ({
   createPullRequestDisabled,
   enableHatenaSync = false,
@@ -271,14 +366,41 @@ export const usePostEditorPresenter = ({
         zennType,
       });
 
+      let nextDraftId = draftId;
+
       if (
         result &&
         typeof result === "object" &&
         "id" in result &&
         typeof result.id === "string"
       ) {
-        setDraftId(result.id);
+        nextDraftId = result.id;
       }
+
+      if (!nextDraftId) {
+        nextDraftId = createDraftId();
+      }
+
+      setDraftId(nextDraftId);
+
+      const updatedAt = new Date().toISOString();
+      const nextDraft: LocalDraft = {
+        body: bodyRef.current,
+        hatenaEnabled: enableHatenaSync && hatenaEnabled,
+        id: nextDraftId,
+        publishedAt,
+        summary,
+        tags,
+        title,
+        updatedAt,
+        zennEnabled: enableZennSync && zennEnabled,
+        zennType,
+      };
+      const nextDrafts = readLocalDrafts().filter(
+        (entry) => entry.id !== nextDraftId,
+      );
+      nextDrafts.push(nextDraft);
+      writeLocalDrafts(nextDrafts);
 
       if (
         result &&
@@ -367,7 +489,27 @@ export const usePostEditorPresenter = ({
       initialZennEnabled !== undefined ||
       initialZennType !== undefined;
 
-    if (!hasInitialValues) {
+    const localDraft =
+      initialDraftId && !hasInitialValues
+        ? findLocalDraft(initialDraftId)
+        : null;
+
+    if (!hasInitialValues && !localDraft) {
+      return;
+    }
+
+    if (localDraft && !hasInitialValues) {
+      setTitle(localDraft.title);
+      setSummary(localDraft.summary);
+      setTags(localDraft.tags);
+      setHatenaEnabled(localDraft.hatenaEnabled);
+      setZennEnabled(localDraft.zennEnabled);
+      setZennType(localDraft.zennType);
+      setPublishedAt(localDraft.publishedAt);
+      setBody(localDraft.body);
+      bodyRef.current = localDraft.body;
+      setDraftId(localDraft.id);
+      initialAppliedRef.current = true;
       return;
     }
 
@@ -408,6 +550,7 @@ export const usePostEditorPresenter = ({
     initialAppliedRef.current = true;
   }, [
     initialBody,
+    initialDraftId,
     initialPublishedAt,
     initialSummary,
     initialTags,

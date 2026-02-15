@@ -1,11 +1,12 @@
 import { composeStories } from "@storybook/nextjs-vite";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PostEditor } from "./post-editor";
 import * as stories from "./post-editor.stories";
 import { renderWithProvider } from "./test-util";
 
 const Stories = composeStories(stories);
+const POST_DRAFTS_STORAGE_KEY = "silverbirder-admin-post-drafts";
 
 describe("PostEditor", () => {
   const resolveLinkTitles = async (source: string) => source;
@@ -24,6 +25,10 @@ describe("PostEditor", () => {
     drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     await new Promise((resolve) => setTimeout(resolve, 0));
   };
+
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
 
   it.each(Object.entries(Stories))("should %s snapshot", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
@@ -276,5 +281,64 @@ describe("PostEditor", () => {
     expect(payload.body).toBe("Hello");
     expect(payload.id).toBeUndefined();
     expect(alertSpy).toHaveBeenCalledWith("saved");
+    const raw = window.localStorage.getItem(POST_DRAFTS_STORAGE_KEY);
+    expect(raw).not.toBeNull();
+    const parsed = JSON.parse(raw ?? "[]") as Array<{
+      id: string;
+      title: string;
+    }>;
+    expect(parsed).toHaveLength(1);
+    expect(parsed[0]?.id).toBe("draft-1");
+    expect(parsed[0]?.title).toBe("Title");
+  });
+
+  it("restores draft from local storage when draft id is provided", async () => {
+    window.localStorage.setItem(
+      POST_DRAFTS_STORAGE_KEY,
+      JSON.stringify([
+        {
+          body: "restored body",
+          hatenaEnabled: false,
+          id: "local-draft-1",
+          publishedAt: "2026-02-14",
+          summary: "restored summary",
+          tags: ["TypeScript"],
+          title: "restored title",
+          updatedAt: "2026-02-14T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+      ]),
+    );
+
+    await renderWithProvider(
+      <PostEditor
+        initialDraftId="local-draft-1"
+        onSaveDraft={vi.fn()}
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    await openDrawer();
+
+    await expect
+      .poll(() => {
+        const titleInput = document.querySelector(
+          "input[name='title']",
+        ) as HTMLInputElement | null;
+        return titleInput?.value ?? "";
+      })
+      .toBe("restored title");
+
+    await expect
+      .poll(() => {
+        const bodyInput = document.querySelector(
+          "textarea[name='body']",
+        ) as HTMLTextAreaElement | null;
+        return bodyInput?.value ?? "";
+      })
+      .toBe("restored body");
   });
 });

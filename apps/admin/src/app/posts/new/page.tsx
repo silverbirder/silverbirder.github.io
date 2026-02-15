@@ -19,21 +19,12 @@ export default async function Page({ searchParams }: Props = {}) {
   const tagSuggestions = await api.github.listTags();
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const draftId = resolvedSearchParams?.draftId;
-  const draft = draftId ? await api.draft.get({ id: draftId }) : null;
 
   return (
     <PostEditor
       enableHatenaSync
       enableZennSync
-      initialBody={draft?.body}
-      initialDraftId={draft?.id}
-      initialHatenaEnabled={draft?.hatenaEnabled}
-      initialPublishedAt={draft?.publishedAt}
-      initialSummary={draft?.summary}
-      initialTags={draft?.tags}
-      initialTitle={draft?.title}
-      initialZennEnabled={draft?.zennEnabled}
-      initialZennType={draft?.zennType}
+      initialDraftId={draftId}
       onCreatePullRequest={createPostPullRequest}
       onSaveDraft={savePostDraft}
       resolveLinkTitles={resolveLinkTitles}

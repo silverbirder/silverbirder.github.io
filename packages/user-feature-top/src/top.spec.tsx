@@ -57,4 +57,24 @@ describe("Top", () => {
     );
     expect(featureRequestLink).not.toBeNull();
   });
+
+  it("splits paper stacks into groups of ten and remainder", async () => {
+    await renderWithProvider(
+      <Top
+        blogSummary={{
+          latestPublishedAt: "2026-01-27",
+          streakDays: 3,
+          totalCount: 11,
+        }}
+      />,
+    );
+
+    const fullStack = document.querySelector('[data-paper-stack-count="10"]');
+    const partialStack = document.querySelector('[data-paper-stack-count="1"]');
+    const paperStacks = document.querySelectorAll("[data-paper-stack-count]");
+
+    expect(fullStack).not.toBeNull();
+    expect(partialStack).not.toBeNull();
+    expect(paperStacks).toHaveLength(2);
+  });
 });

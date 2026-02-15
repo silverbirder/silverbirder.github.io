@@ -13,6 +13,7 @@ type Layer = {
 type Props = {
   className?: string;
   count: number;
+  maxCount: number;
 };
 
 const RECT_WIDTH = 240;
@@ -70,26 +71,23 @@ for (
   paperLineOffsets.push(offset);
 }
 
-export const PaperStack = ({ className, count }: Props) => {
-  if (count <= 0) {
-    return (
-      <chakra.svg aria-hidden="true" className={className} viewBox="0 0 1 1" />
-    );
-  }
+const createLayer = (index: number): Layer => {
+  const x = BASE_X + index * STEP_X;
+  const y = BASE_Y + index * STEP_Y;
+  const cx = x + RECT_WIDTH / 2;
+  const cy = y + RECT_HEIGHT / 2;
 
-  const radian = (ROTATE_DEGREE * Math.PI) / 180;
-  const strokePadding = STROKE_WIDTH / 2;
-  const layers: Layer[] = [];
+  return { cx, cy, index, x, y };
+};
 
-  for (let index = 0; index < count; index += 1) {
-    const x = BASE_X + index * STEP_X;
-    const y = BASE_Y + index * STEP_Y;
-    const cx = x + RECT_WIDTH / 2;
-    const cy = y + RECT_HEIGHT / 2;
-    layers.push({ cx, cy, index, x, y });
-  }
-
-  const bounds = layers.reduce(
+const getBoundsFromLayerCount = (
+  layerCount: number,
+  radian: number,
+  strokePadding: number,
+) => {
+  return Array.from({ length: layerCount }, (_, index) =>
+    createLayer(index),
+  ).reduce(
     (acc, layer) => {
       const { cx, cy, x, y } = layer;
 
@@ -116,6 +114,27 @@ export const PaperStack = ({ className, count }: Props) => {
       minY: Number.POSITIVE_INFINITY,
     },
   );
+};
+
+export const PaperStack = ({ className, count, maxCount }: Props) => {
+  if (count <= 0) {
+    return (
+      <chakra.svg aria-hidden="true" className={className} viewBox="0 0 1 1" />
+    );
+  }
+
+  const radian = (ROTATE_DEGREE * Math.PI) / 180;
+  const strokePadding = STROKE_WIDTH / 2;
+  const layers = Array.from({ length: count }, (_, index) =>
+    createLayer(index),
+  );
+  const referenceLayerCount = maxCount > 0 ? maxCount : count;
+  const boundsLayerCount = Math.max(count, referenceLayerCount);
+  const bounds = getBoundsFromLayerCount(
+    boundsLayerCount,
+    radian,
+    strokePadding,
+  );
 
   const viewBoxWidth = bounds.maxX - bounds.minX + VIEWBOX_PADDING * 2;
   const viewBoxHeight = bounds.maxY - bounds.minY + VIEWBOX_PADDING * 2;
@@ -128,7 +147,7 @@ export const PaperStack = ({ className, count }: Props) => {
       className={className}
       fill="none"
       height="100%"
-      preserveAspectRatio="xMinYMin meet"
+      preserveAspectRatio="xMinYMax meet"
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       width="100%"
     >

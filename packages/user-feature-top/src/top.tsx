@@ -36,10 +36,11 @@ type Props = {
 export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
   const paperStackCellWidth = "calc(var(--notebook-line-height) * 0.3)";
+  const maxPaperStackCount = 10;
   const fullStackCount = Math.floor(blogSummary.totalCount / 10);
-  const remainderCount = blogSummary.totalCount % 10;
+  const remainderCount = blogSummary.totalCount % maxPaperStackCount;
   const paperStackCounts = [
-    ...Array.from({ length: fullStackCount }, () => 10),
+    ...Array.from({ length: fullStackCount }, () => maxPaperStackCount),
     ...(remainderCount > 0 ? [remainderCount] : []),
   ];
   const blogStatsLines = [
@@ -88,6 +89,7 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
                 <HStack alignItems="flex-start" flexWrap="wrap" gap={0}>
                   {paperStackCounts.map((paperStackCount, index) => (
                     <Box
+                      data-paper-stack-count={paperStackCount}
                       h="var(--notebook-line-height)"
                       key={`paper-stack-${paperStackCount}-${index}`}
                       overflow="visible"
@@ -97,7 +99,10 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
                         h="var(--notebook-line-height)"
                         w="var(--notebook-line-height)"
                       >
-                        <PaperStack count={paperStackCount} />
+                        <PaperStack
+                          count={paperStackCount}
+                          maxCount={maxPaperStackCount}
+                        />
                       </Box>
                     </Box>
                   ))}

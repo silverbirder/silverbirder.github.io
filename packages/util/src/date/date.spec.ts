@@ -1,16 +1,35 @@
 import { describe, expect, it } from "vitest";
 
-import { formatDate, formatPublishedDate, parsePublishedAtDate } from "./date";
+import {
+  formatDate,
+  formatNotebookDate,
+  formatPublishedDate,
+  parsePublishedAtDate,
+} from "./date";
 
 describe("formatPublishedDate", () => {
-  it("formats YYYY-MM-DD to Japanese numeric date", () => {
+  it("formats YYYY-MM-DD to Japanese year-month-day date", () => {
     const formatted = formatPublishedDate("2025-01-02");
 
-    expect(formatted).toBe("2025/01/02");
+    expect(formatted).toBe("2025年01月02日");
   });
 
   it("returns the input when it cannot parse the date", () => {
     const formatted = formatPublishedDate("not-a-date");
+
+    expect(formatted).toBe("not-a-date");
+  });
+});
+
+describe("formatNotebookDate", () => {
+  it("formats YYYY-MM-DD to notebook date style", () => {
+    const formatted = formatNotebookDate("2025-01-02");
+
+    expect(formatted).toBe("2025. 01. 02");
+  });
+
+  it("returns the input when it cannot parse the date", () => {
+    const formatted = formatNotebookDate("not-a-date");
 
     expect(formatted).toBe("not-a-date");
   });

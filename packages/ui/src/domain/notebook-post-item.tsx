@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 
 import { Flex, Stack, Text } from "@chakra-ui/react";
+import { formatPublishedDate } from "@repo/util";
 
 import { Tag } from "./tag";
 import { ViewTransitionLink } from "./view-transition-link";
@@ -35,6 +36,9 @@ export const NotebookPostItem = ({
   const showMetaRow = Boolean(post.publishedAt) || showTags;
   const showMetaSeparator =
     showTags && Boolean(post.publishedAt) && metaSeparator;
+  const formattedPublishedAt = post.publishedAt
+    ? formatPublishedDate(post.publishedAt)
+    : undefined;
 
   return (
     <Stack
@@ -68,9 +72,9 @@ export const NotebookPostItem = ({
           rowGap={0}
           wrap="wrap"
         >
-          {post.publishedAt ? (
+          {formattedPublishedAt ? (
             <Text fontSize="sm" whiteSpace="nowrap">
-              {post.publishedAt}
+              {formattedPublishedAt}
             </Text>
           ) : null}
           {showMetaSeparator ? (

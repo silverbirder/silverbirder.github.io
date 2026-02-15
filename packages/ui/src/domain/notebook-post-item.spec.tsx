@@ -20,7 +20,7 @@ describe("NotebookPostItem", () => {
 
     expect(container.textContent ?? "").toContain("Notebook Post");
     expect(container.textContent ?? "").toContain("Notebook summary");
-    expect(container.textContent ?? "").toContain("2025-01-03");
+    expect(container.textContent ?? "").toContain("2025年01月03日");
     expect(container.textContent ?? "").toContain("/");
     expect(container.textContent ?? "").toContain("Notebook");
     expect(container.textContent ?? "").toContain("UI");
@@ -40,7 +40,7 @@ describe("NotebookPostItem", () => {
     );
 
     expect(container.textContent ?? "").toContain("Related Post");
-    expect(container.textContent ?? "").toContain("2025-01-03");
+    expect(container.textContent ?? "").toContain("2025年01月03日");
   });
 
   it("links tags with provided href and marks selected tag", async () => {

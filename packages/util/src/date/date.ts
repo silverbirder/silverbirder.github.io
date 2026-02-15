@@ -19,18 +19,28 @@ const toUtcDate = (value: string) => {
   return new Date(value);
 };
 
-export const formatPublishedDate = (value: string, locale = "ja-JP") => {
+export const formatPublishedDate = (value: string) => {
   const date = toUtcDate(value);
   if (Number.isNaN(date.getTime())) {
     return value;
   }
 
-  return new Intl.DateTimeFormat(locale, {
-    day: "2-digit",
-    month: "2-digit",
-    timeZone: "UTC",
-    year: "numeric",
-  }).format(date);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}年${month}月${day}日`;
+};
+
+export const formatNotebookDate = (value: string) => {
+  const date = toUtcDate(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}. ${month}. ${day}`;
 };
 
 export const formatDate = (date: Date) => date.toISOString().slice(0, 10);

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { siteName } from "@repo/metadata";
 import { Top } from "@repo/user-feature-top";
-import { buildSiteUrl } from "@repo/util";
+import { buildSiteUrl, formatPublishedDate } from "@repo/util";
 
 import { getPostList, getTimelineList } from "@/libs";
 
@@ -103,6 +103,21 @@ export default async function Page() {
     getPostList(),
   ]);
   const blogSummary = buildBlogSummary(posts);
+  const formattedBlogSummary = {
+    ...blogSummary,
+    latestPublishedAt: blogSummary.latestPublishedAt
+      ? formatPublishedDate(blogSummary.latestPublishedAt)
+      : "",
+  };
+  const formattedTimelineItems = timelineItems.map((item) => ({
+    ...item,
+    date: formatPublishedDate(item.date),
+  }));
 
-  return <Top blogSummary={blogSummary} timelineItems={timelineItems} />;
+  return (
+    <Top
+      blogSummary={formattedBlogSummary}
+      timelineItems={formattedTimelineItems}
+    />
+  );
 }

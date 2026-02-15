@@ -13,7 +13,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { formatPublishedDate } from "@repo/util";
+import { formatNotebookDate } from "@repo/util";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
@@ -99,14 +99,6 @@ type ShareSection = {
   url: string;
 };
 
-const formatNotebookDate = (value: string) => {
-  const formatted = formatPublishedDate(value);
-  if (formatted === value) {
-    return value;
-  }
-  return `${formatted.replaceAll("/", ". ")}`;
-};
-
 export const Notebook = ({
   children,
   follow,
@@ -125,7 +117,6 @@ export const Notebook = ({
 }: Props) => {
   const t = useTranslations("ui.notebook");
   const pathname = usePathname();
-
   const formattedPublishedAt = publishedAt
     ? formatNotebookDate(publishedAt)
     : undefined;

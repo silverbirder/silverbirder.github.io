@@ -9,7 +9,13 @@ import {
   Timeline,
   VStack,
 } from "@chakra-ui/react";
-import { Link, MdxClientWrapper, Notebook, ViewTransitionLink } from "@repo/ui";
+import {
+  Link,
+  MdxClientWrapper,
+  Notebook,
+  PaperStack,
+  ViewTransitionLink,
+} from "@repo/ui";
 import { NOTEBOOK_LINE_HEIGHT } from "@repo/ui";
 import { useTranslations } from "next-intl";
 import { FaBookmark, FaCommentDots, FaShareNodes } from "react-icons/fa6";
@@ -29,15 +35,22 @@ type Props = {
 
 export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
+  const paperStackCellWidth = "calc(var(--notebook-line-height) * 0.3)";
+  const fullStackCount = Math.floor(blogSummary.totalCount / 10);
+  const remainderCount = blogSummary.totalCount % 10;
+  const paperStackCounts = [
+    ...Array.from({ length: fullStackCount }, () => 10),
+    ...(remainderCount > 0 ? [remainderCount] : []),
+  ];
   const blogStatsLines = [
-    t("toc.reader.items.blogStats.latest", {
-      latestDate: blogSummary.latestPublishedAt,
-    }),
     t("toc.reader.items.blogStats.total", {
       totalCount: blogSummary.totalCount,
     }),
     t("toc.reader.items.blogStats.streak", {
       streakDays: blogSummary.streakDays,
+    }),
+    t("toc.reader.items.blogStats.latest", {
+      latestDate: blogSummary.latestPublishedAt,
     }),
   ];
   const timelineIconMap = {
@@ -71,18 +84,38 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
               >
                 {t("toc.reader.items.blog")}
               </ViewTransitionLink>
-              <HStack alignItems="flex-start" gap={4} wrap="wrap">
-                {blogStatsLines.map((line) => (
-                  <Text
-                    fontSize="2xs"
-                    key={line}
-                    lineHeight="var(--notebook-line-height)"
-                    my={0}
-                  >
-                    {line}
-                  </Text>
-                ))}
-              </HStack>
+              <VStack alignItems="flex-start" gap={0}>
+                <HStack alignItems="flex-start" flexWrap="wrap" gap={0}>
+                  {paperStackCounts.map((paperStackCount, index) => (
+                    <Box
+                      h="var(--notebook-line-height)"
+                      key={`paper-stack-${paperStackCount}-${index}`}
+                      overflow="visible"
+                      w={paperStackCellWidth}
+                    >
+                      <Box
+                        h="var(--notebook-line-height)"
+                        w="var(--notebook-line-height)"
+                      >
+                        <PaperStack count={paperStackCount} />
+                      </Box>
+                    </Box>
+                  ))}
+                </HStack>
+                <HStack alignItems="flex-start" gap={0} wrap="wrap">
+                  {blogStatsLines.map((line, index) => (
+                    <Text
+                      fontSize="2xs"
+                      key={line}
+                      lineHeight="var(--notebook-line-height)"
+                      ml={index === 0 ? 0 : 2}
+                      my={0}
+                    >
+                      {line}
+                    </Text>
+                  ))}
+                </HStack>
+              </VStack>
             </VStack>
           </Box>
           <Box mt={NOTEBOOK_LINE_HEIGHT}>

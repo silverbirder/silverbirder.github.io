@@ -8,6 +8,7 @@ export * from "./notebook-image";
 export * from "./notebook-like";
 export * from "./notebook-post-item";
 export * from "./notebook-prose";
+export * from "./paper-stack";
 export * from "./post-editor-layout";
 export * from "./robot-badge";
 export * from "./rss-button";

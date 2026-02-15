@@ -87,7 +87,7 @@ describe("SignInPage", () => {
     expect(redirect).toHaveBeenCalledWith("/");
   });
 
-  it("marks forbidden status and shows sign-out when user is not allowed", async () => {
+  it("passes sign-out action when user is not allowed", async () => {
     const { getCapturedProps, Page, redirect } = await loadPage({
       allowedEmails: "allowed@example.com",
       session: { user: { email: "blocked@example.com" } },
@@ -99,11 +99,10 @@ describe("SignInPage", () => {
     expect(redirect).not.toHaveBeenCalled();
 
     const props = getCapturedProps();
-    expect(props?.status).toBe("forbidden");
     expect(typeof props?.onSignOut).toBe("function");
   });
 
-  it("keeps default status when no session exists", async () => {
+  it("does not pass sign-out action when no session exists", async () => {
     const { getCapturedProps, Page, redirect } = await loadPage({
       allowedEmails: "allowed@example.com",
       session: null,
@@ -115,7 +114,6 @@ describe("SignInPage", () => {
     expect(redirect).not.toHaveBeenCalled();
 
     const props = getCapturedProps();
-    expect(props?.status).toBe("default");
     expect(props?.onSignOut).toBeUndefined();
   });
 });

@@ -5,20 +5,12 @@ import { getSession } from "@/server/better-auth/server";
 
 export default async function SignInPage() {
   const session = await getSession();
-  const { allowedEmails, isAllowed } = await redirectIfAllowed(session);
-
-  const hasAllowList = allowedEmails.length > 0;
-  const status = session?.user
-    ? hasAllowList
-      ? "forbidden"
-      : "missingAllowList"
-    : "default";
+  await redirectIfAllowed(session);
 
   return (
     <SignIn
       onSignIn={handleSignIn}
-      onSignOut={session?.user && !isAllowed ? handleSignOut : undefined}
-      status={status}
+      onSignOut={session?.user ? handleSignOut : undefined}
     />
   );
 }

@@ -43,28 +43,20 @@ describe("sign-in access helpers", () => {
       "allowed@example.com",
     );
 
-    const result = await redirectIfAllowed({
+    await redirectIfAllowed({
       user: { email: "blocked@example.com" },
     });
 
     expect(redirect).not.toHaveBeenCalled();
-    expect(result).toEqual({
-      allowedEmails: ["allowed@example.com"],
-      isAllowed: false,
-    });
   });
 
-  it("returns allowed emails even when session is missing", async () => {
+  it("does not redirect when session is missing", async () => {
     const { redirect, redirectIfAllowed } = await loadModule(
       "allowed@example.com,other@example.com",
     );
 
-    const result = await redirectIfAllowed(null);
+    await redirectIfAllowed(null);
 
     expect(redirect).not.toHaveBeenCalled();
-    expect(result).toEqual({
-      allowedEmails: ["allowed@example.com", "other@example.com"],
-      isAllowed: false,
-    });
   });
 });

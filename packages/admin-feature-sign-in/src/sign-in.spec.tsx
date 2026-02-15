@@ -18,13 +18,6 @@ describe("SignIn", () => {
     document.body.innerHTML = originalInnerHtml;
   });
 
-  it("shows the error message when provided", async () => {
-    await renderWithProvider(<SignIn status="forbidden" />);
-
-    const alert = document.querySelector("[role='alert']");
-    expect(alert?.textContent ?? "").not.toBe("");
-  });
-
   it("renders the sign-out action when onSignOut is provided", async () => {
     await renderWithProvider(<SignIn onSignOut={async () => {}} />);
 

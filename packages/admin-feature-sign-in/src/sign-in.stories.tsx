@@ -19,9 +19,7 @@ export const Empty: Story = {
 };
 
 export const Error: Story = {
-  args: {
-    status: "forbidden",
-  },
+  args: {},
 };
 
 export const Partial: Story = {

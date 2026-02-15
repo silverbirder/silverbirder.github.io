@@ -1,0 +1,244 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/5b4116f0790e322a.js","/_next/static/chunks/57ebdbb770f1dcfe.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T350c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "最近、ビアードパパの焼きチーズケーキシューにハマっている silverbirder です。\n文章作成が苦手な私は、AI が文章を代筆する「AI Ghostwriter」という Chrome の拡張機能を開発しました。今回は、この便利なツールの紹介をします。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Chrome ウェブストアで公開しています。気になる方は、以下のリンクよりダウンロードしてください! 無料です!\n", _jsx(_components.a, {
+        href: "https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa",
+        children: "https://chrome.google.com/webstore/detail/ai-ghostwriter/hpcokeldeijnfmbbbjkedhnedjjbjmoa"
+      })]
+    }), "\n", _jsx(_components.h2, {
+      id: "ai-ghostwriter-って",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ai-ghostwriter-って",
+        children: "AI Ghostwriter って"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "AI Ghostwriter は、ChatGPT を活用して執筆者のライティング作業を助け、その品質を向上させる Chrome 拡張機能です。これはブラウザ上で選択したテキストに対して様々なアクションを実行できるツールで、ライティングにおけるあらゆる問題を解決します。"
+    }), "\n", _jsx(_components.p, {
+      children: "アクションは、デフォルトで以下の 3 つを用意しています。(後述しますがカスタマイズ可能です!)"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "校正(Proofreading)"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "タイトル生成(Generate title)"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "続きの文章生成(Generate following text)"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["仕組みは、とてもシンプルです。選択されたテキストを", _jsx(_components.a, {
+        href: "https://platform.openai.com/docs/api-reference/chat/create",
+        children: "OpenAI の API"
+      }), "のパラメータとして指定した状態でリクエストし、レスポンスをサイドパネルに表示するだけです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "百聞は一見にしかず、デモ動画を紹介します。以下の画像をクリックするとデモ動画が再生されます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1693381103/silver-birder.github.io/blog/ai_ghost_writer_demo.gif",
+        alt: "AI Ghostwriter DEMO"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下は、デモ動画で紹介している AI Ghostwriter の操作手順です。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "右上の AI Ghostwriter アイコンをクリックし、サイドパネルを開く"
+      }), "\n", _jsx(_components.li, {
+        children: "ブラウザ上のテキストを選択する"
+      }), "\n", _jsx(_components.li, {
+        children: "右クリックし、コンテキストメニューを開き、校正などのアクションをクリック"
+      }), "\n", _jsx(_components.li, {
+        children: "サイドパネルに、AI Ghostwriter からコメントが表示される"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "コンテキストメニューのアクションをカスタマイズ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コンテキストメニューのアクションをカスタマイズ",
+        children: "コンテキストメニューのアクションをカスタマイズ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "コンテキストメニューのアクションは、ユーザーのニーズに合わせて自由にカスタマイズ可能です。具体的には、アクションの追加・削除・編集が可能です。以下の画像の通りです。アクションは、オプションページで登録できます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1693364104/silver-birder.github.io/blog/088188b02d18-20230716.png",
+        alt: "Chrome拡張機能のオプションページ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "※ オプションページは、右上の AI Ghostwriter アイコンを右クリックするとオプションという選択肢があり、それをクリックするとオプションページに遷移できます。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["カスタマイズにより、ご自身の好みに合わせたライティング補助が可能となります。つまり、 ", _jsx(_components.strong, {
+        children: "自分だけのアクションを作成し、より効率的なライティングを実現できます"
+      }), " 。AI からのコメントがイマイチの場合、コンテンツパラメータのテキストに少し手を加えてみると良いでしょう。また、 ", _jsx(_components.strong, {
+        children: "翻訳や要約"
+      }), " といったアクションも便利だと感じるかもしれません。これらの機能を活用して、より効率的なライティング体験を実感してみてください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "その他の機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他の機能",
+        children: "その他の機能"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "その他に、ユーザーの利便性を考慮して、以下の機能も提供しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "多言語対応"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "英語と日本語に対応しています。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "フィードバックリンク"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ユーザーからのフィードバックを受け付けるためのリンクを設置しています。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "誤操作防止"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "API トークンが未定義であったり、サイドパネルが未オープンであったりする場合に、Chrome の通知を通じて誤操作を防止します。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "生成停止"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "不要な生成処理を停止するために、アクションを停止するボタンも用意"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "ショートカットキーの設置"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "サイドパネルをショートカットキーで開くようにしています"
+          }), "\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "chrome://extensions/shortcuts"
+            }), " で確認できます"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "AI Ghostwriter のおかげで、私の執筆効率はとてもよくなりました。既にアクションが 6 つあります(笑)。皆さんの執筆効率もよくなることを願っています！"
+    }), "\n", _jsx(_components.h2, {
+      id: "余談-開発経緯",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#余談-開発経緯",
+        children: "余談: 開発経緯"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ここからは、余談です。なぜ、このアプリを開発に至ったかについて簡単に紹介します。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "アイデアの出発点"
+          }), " : 日頃から ChatGPT をブログ執筆に活用していた経験から、何か新しいものを創れないかと考え始めました。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "市場調査"
+          }), " : AI ライティング補助のサービスを調査しましたが、既存のサービスはメールテンプレート生成など、私が求めていた特定テキストの校正機能を持っていませんでした。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "アプリのイメージ"
+          }), " : 特定テキストに対する特定アクション、具体的には校正機能を持つアプリを作りたいと考えました。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "開発方法の検討"
+          }), " : 新しい Web フレームワークや技術を試すことも考えましたが、継続性を考慮し、既存の経験と知識を活用することにしました。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "Vercel のテンプレート"
+          }), " : Vercel のテンプレートにある", _jsx(_components.a, {
+            href: "https://vercel.com/templates/next.js/novel",
+            children: "novel"
+          }), "というものを見つけ、これが理想的なツールだと感じました。このエディタは Notion のような形式で、OpenAI の組み込みが可能で、選択したテキストに対してアクションを実行できます。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "エディタ開発の断念"
+          }), " : しかし、エディタを作ることは大変で、開発時間が伸びることから断念しました。私が求めていたのは、任意のテキストを校正した結果を知るだけでした。"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: [_jsx(_components.strong, {
+            children: "Chrome 拡張機能の活用"
+          }), " : その考えを元に、Deepl の Chrome 拡張機能を思い出しました。Chrome 拡張機能にはコンテキストメニューの API がビルドインされており、最近リリースされたサイドパネル機能を使えば、現在開いているタブの隣に別のウィンドウを表示できます。そこに校正後のテキストを表示すれば良いと考えました。"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "以上、私の簡単な開発経緯についてでした。最後までお読み頂きありがとうございました。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"vn7ViMiFF5K-9qi6kN95r","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":103,"publishedAt":"2023-07-17","tags":["ブラウザ","AI","成果物"],"title":"ライティングの効率化ツール：AI Ghostwriterの紹介"},"navigation":{"next":{"href":"/blog/contents/left_my_full-time_job","publishedAt":"2023-07-17","title":"正社員を辞めました"},"prev":{"href":"/blog/contents/increased_TOEIC_score_by_285_points_in_6_months","publishedAt":"2023-07-05","title":"6ヶ月でTOEICのスコアを285点アップ"}},"relatedPosts":[{"posts":[{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"},{"publishedAt":"2025-02-06","slug":"opengraph-image-lineclamp-budoux","summary":"ブログ記事のOGP画像に、ブログタイトルを入れたい場面があります。その際、タイトルが長い場合は複数行に分けたり、省略したりする必要があります。今回は、試してみてよさそうだった2つの方法を紹介します。","tags":["ブラウザ"],"title":"OGPのテキストを任意の行で省略する、lineClampとbudoux"}],"tag":"ブラウザ"},{"posts":[{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド","AI"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2026-01-04","slug":"20260104","summary":"最近、AI エージェントに Playwright MCP を設定した状態で、CSS の調整作業を行っていました。 デザイン上どうしても原因を特定できず、修正に行き詰まっていたスタイルがあったのですが、Playwright MCP を使って調","tags":["フロントエンド","AI"],"title":"Playwright MCPでCSSの修正が楽になった"},{"publishedAt":"2025-11-11","slug":"20251111","summary":"なんでやねん！AIに指摘をしたとき、なんかモヤっとする。「するどい指摘です！」とか言われると、褒められてるようでいて、微妙にずれてる感じ。反論しても不毛なので、冷静に淡々と指示を出そう。「いい気づきです！」みたいな返事もあるけれど……ぬぬぬ。","tags":["AI"],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/writing_efficiency_tool_introducing_ai_ghostwriter/"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/57ebdbb770f1dcfe.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

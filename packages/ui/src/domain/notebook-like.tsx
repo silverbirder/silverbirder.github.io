@@ -2,9 +2,9 @@
 
 import type { IconButtonProps } from "@chakra-ui/react";
 
-import { IconButton, Text, VStack } from "@chakra-ui/react";
+import { Box, IconButton, Text, VStack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { LuThumbsUp } from "react-icons/lu";
 
 import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
@@ -22,6 +22,8 @@ type Props = {
 type Status = "error" | "idle" | "loading";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_LIKES_API_URL ?? "";
+const CLICK_BALLOON_DURATION_MS = 1800;
+const BALLOON_HIDE_DURATION_MS = 200;
 
 const getCountFromPayload = (payload: unknown) => {
   if (!payload || typeof payload !== "object") return null;
@@ -84,6 +86,23 @@ export const NotebookLike = ({
   );
   const [liked, setLiked] = useState(false);
   const [anonId, setAnonId] = useState<null | string>(null);
+  const [hovered, setHovered] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [visibleBalloonLabel, setVisibleBalloonLabel] = useState<null | string>(
+    null,
+  );
+  const clickedTimerRef = useRef<null | ReturnType<typeof setTimeout>>(null);
+  const balloonHideTimerRef = useRef<null | ReturnType<typeof setTimeout>>(
+    null,
+  );
+
+  const clearClicked = () => {
+    if (clickedTimerRef.current) {
+      clearTimeout(clickedTimerRef.current);
+      clickedTimerRef.current = null;
+    }
+    setClicked(false);
+  };
 
   const storageKey = useMemo(
     () => buildStorageKey(namespace, name),
@@ -96,6 +115,17 @@ export const NotebookLike = ({
       setAnonId(resolved);
     }
   }, [storageKey]);
+
+  useEffect(() => {
+    return () => {
+      if (clickedTimerRef.current) {
+        clearTimeout(clickedTimerRef.current);
+      }
+      if (balloonHideTimerRef.current) {
+        clearTimeout(balloonHideTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (disableAutoLoad) return;
@@ -136,6 +166,18 @@ export const NotebookLike = ({
 
   const handleLike = async () => {
     if (status === "loading") return;
+    setClicked(true);
+    if (clickedTimerRef.current) {
+      clearTimeout(clickedTimerRef.current);
+      clickedTimerRef.current = null;
+    }
+    if (!hovered) {
+      clickedTimerRef.current = setTimeout(() => {
+        setClicked(false);
+        clickedTimerRef.current = null;
+      }, CLICK_BALLOON_DURATION_MS);
+    }
+
     setStatus("loading");
     try {
       if (!API_BASE_URL) {
@@ -167,27 +209,85 @@ export const NotebookLike = ({
   };
 
   const countLabel = count ?? "-";
+  const balloonLabel = clicked
+    ? t("likeButtonClickedBalloon")
+    : hovered
+      ? t("likeButtonHoverBalloon")
+      : null;
+
+  useEffect(() => {
+    if (balloonLabel) {
+      if (balloonHideTimerRef.current) {
+        clearTimeout(balloonHideTimerRef.current);
+        balloonHideTimerRef.current = null;
+      }
+      setVisibleBalloonLabel(balloonLabel);
+      return;
+    }
+    if (!visibleBalloonLabel) return;
+    if (balloonHideTimerRef.current) {
+      clearTimeout(balloonHideTimerRef.current);
+    }
+    balloonHideTimerRef.current = setTimeout(() => {
+      setVisibleBalloonLabel(null);
+      balloonHideTimerRef.current = null;
+    }, BALLOON_HIDE_DURATION_MS);
+  }, [balloonLabel, visibleBalloonLabel]);
 
   return (
     <VStack alignItems="center" gap={0}>
-      <IconButton
-        aria-label={t("likeButtonAriaLabel")}
-        aria-pressed={liked}
-        disabled={status === "loading"}
-        display="inline-flex"
-        height={NOTEBOOK_LINE_HEIGHT}
-        lineHeight="1"
-        loading={status === "loading"}
-        minW="auto"
-        onClick={handleLike}
-        p={0}
-        rounded="full"
-        size={size}
-        variant={liked ? "solid" : "outline"}
-        width={NOTEBOOK_LINE_HEIGHT}
+      <Box
+        h={NOTEBOOK_LINE_HEIGHT}
+        position="relative"
+        w={NOTEBOOK_LINE_HEIGHT}
       >
-        <LuThumbsUp />
-      </IconButton>
+        <Text
+          aria-hidden="true"
+          data-testid="notebook-like-balloon"
+          fontSize="md"
+          left="50%"
+          m={0}
+          opacity={balloonLabel ? 1 : 0}
+          pointerEvents="none"
+          position="absolute"
+          top={`calc(${NOTEBOOK_LINE_HEIGHT} * -0.75)`}
+          transform={
+            balloonLabel ? "translate(-50%, 0)" : "translate(-50%, 0.45rem)"
+          }
+          transition="opacity 0.2s ease-out, transform 0.2s ease-out"
+          whiteSpace="nowrap"
+        >
+          {visibleBalloonLabel}
+        </Text>
+        <IconButton
+          aria-label={t("likeButtonAriaLabel")}
+          aria-pressed={liked}
+          disabled={status === "loading"}
+          display="inline-flex"
+          height={NOTEBOOK_LINE_HEIGHT}
+          lineHeight="1"
+          loading={status === "loading"}
+          minW="auto"
+          onBlur={() => {
+            setHovered(false);
+            clearClicked();
+          }}
+          onClick={handleLike}
+          onFocus={() => setHovered(true)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => {
+            setHovered(false);
+            clearClicked();
+          }}
+          p={0}
+          rounded="full"
+          size={size}
+          variant={liked ? "solid" : "outline"}
+          width={NOTEBOOK_LINE_HEIGHT}
+        >
+          <LuThumbsUp />
+        </IconButton>
+      </Box>
       <Text m={0}>{countLabel}</Text>
     </VStack>
   );

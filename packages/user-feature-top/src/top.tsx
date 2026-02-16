@@ -89,14 +89,14 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
                   {paperStackCounts.map((paperStackCount, index) => (
                     <Box
                       data-paper-stack-count={paperStackCount}
-                      h="calc(var(--notebook-line-height) * 3)"
+                      h="calc(var(--notebook-line-height) * 1)"
                       key={`paper-stack-${paperStackCount}-${index}`}
                       overflow="visible"
-                      w={`calc(var(--notebook-line-height) * 1.4)`}
+                      w={`calc(var(--notebook-line-height) * 0.5)`}
                     >
                       <Box
-                        h="calc(var(--notebook-line-height) * 3)"
-                        w="calc(var(--notebook-line-height) * 3)"
+                        h="calc(var(--notebook-line-height) * 1)"
+                        w="calc(var(--notebook-line-height) * 1)"
                       >
                         <PaperStack
                           count={paperStackCount}

@@ -6,10 +6,50 @@ import { NotebookLike } from "./notebook-like";
 import * as stories from "./notebook-like.stories";
 
 const Stories = composeStories(stories);
+const originalMatchMedia = window.matchMedia;
+const createMatchMediaMock = (hoverMatches: boolean) =>
+  vi.fn().mockImplementation((query: string) => ({
+    addEventListener: vi.fn(),
+    addListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+    matches: query.includes("(hover: hover)") ? hoverMatches : false,
+    media: query,
+    onchange: null,
+    removeEventListener: vi.fn(),
+    removeListener: vi.fn(),
+  }));
+const getBalloonText = (container: HTMLElement) =>
+  container.querySelector('[data-testid="notebook-like-balloon"]')
+    ?.textContent ?? "";
+const getLikeButton = (container: HTMLElement) => {
+  const button = container.querySelector(
+    'button[aria-label="この記事にいいねする"]',
+  );
+  expect(button).not.toBeNull();
+  return button as HTMLButtonElement;
+};
+const triggerLikeClick = (button: HTMLButtonElement) => {
+  button.dispatchEvent(
+    new MouseEvent("click", { bubbles: true, cancelable: true }),
+  );
+};
+const waitForBalloonText = async (
+  container: HTMLElement,
+  expectedText: string,
+) => {
+  await vi.waitFor(() => {
+    expect(getBalloonText(container)).toBe(expectedText);
+  });
+};
 
 describe("NotebookLike", () => {
   afterEach(() => {
     vi.useRealTimers();
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      value: originalMatchMedia,
+      writable: true,
+    });
   });
 
   it.each(Object.entries(Stories))("should render %s", async (_, Story) => {
@@ -51,22 +91,19 @@ describe("NotebookLike", () => {
       />,
     );
 
-    const button = container.querySelector(
-      'button[aria-label="この記事にいいねする"]',
-    ) as HTMLButtonElement | null;
-    button?.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
-    button?.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    const button = getLikeButton(container);
+    button.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
+    button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    button.focus();
     await vi.waitFor(() => {
-      expect(
-        container.querySelector('[data-testid="notebook-like-balloon"]')
-          ?.textContent ?? "",
-      ).toBe("\\ ｲｲﾈ /");
+      expect(getBalloonText(container)).toBe("\\ ｲｲﾈ /");
     });
   });
 
-  it("keeps click balloon while hovered and hides it after hover out", async () => {
+  it("keeps click balloon after hover out and hides it after timeout", async () => {
     const { container } = await renderWithProvider(
       <NotebookLike
+        clickBalloonDurationMs={60}
         disableAutoLoad
         initialCount={3}
         name="sample-post"
@@ -74,35 +111,70 @@ describe("NotebookLike", () => {
       />,
     );
 
-    const button = container.querySelector(
-      'button[aria-label="この記事にいいねする"]',
-    ) as HTMLButtonElement | null;
-    button?.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
-    button?.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
-    button?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    await vi.waitFor(() => {
-      expect(
-        container.querySelector('[data-testid="notebook-like-balloon"]')
-          ?.textContent ?? "",
-      ).toBe("\\ ｻﾝｷｭｰ! /");
-    });
+    const button = getLikeButton(container);
+    button.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
+    button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+    button.focus();
+    triggerLikeClick(button);
+    await waitForBalloonText(container, "\\ ｻﾝｷｭｰ! /");
+
+    expect(getBalloonText(container)).toBe("\\ ｻﾝｷｭｰ! /");
+
+    button.dispatchEvent(new MouseEvent("mouseleave", { bubbles: false }));
+    button.dispatchEvent(new MouseEvent("mouseout", { bubbles: true }));
+    button.blur();
 
     await new Promise((resolve) => {
-      setTimeout(resolve, 100);
+      setTimeout(resolve, 20);
     });
 
-    expect(
-      container.querySelector('[data-testid="notebook-like-balloon"]')
-        ?.textContent ?? "",
-    ).toBe("\\ ｻﾝｷｭｰ! /");
+    expect(getBalloonText(container)).toBe("\\ ｻﾝｷｭｰ! /");
 
-    button?.dispatchEvent(new MouseEvent("mouseleave", { bubbles: false }));
-    button?.dispatchEvent(new MouseEvent("mouseout", { bubbles: true }));
-    await vi.waitFor(() => {
-      expect(
-        container.querySelector('[data-testid="notebook-like-balloon"]')
-          ?.textContent ?? "",
-      ).toBe("");
+    await waitForBalloonText(container, "");
+  });
+
+  it("shows apology balloon when clicking an already liked button", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookLike
+        disableAutoLoad
+        initialCount={3}
+        initialLiked
+        name="sample-post"
+        namespace="silverbirder-github-io"
+      />,
+    );
+
+    const button = getLikeButton(container);
+    triggerLikeClick(button);
+    await waitForBalloonText(container, "\\ ｽﾏﾝﾅ! /");
+
+    expect(getBalloonText(container)).toBe("\\ ｽﾏﾝﾅ! /");
+  });
+
+  it("does not keep hover balloon on non-hover devices after click timeout", async () => {
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      value: createMatchMediaMock(false),
+      writable: true,
     });
+
+    const { container } = await renderWithProvider(
+      <NotebookLike
+        clickBalloonDurationMs={60}
+        disableAutoLoad
+        initialCount={3}
+        name="sample-post"
+        namespace="silverbirder-github-io"
+      />,
+    );
+
+    const button = getLikeButton(container);
+    button.focus();
+    triggerLikeClick(button);
+    await waitForBalloonText(container, "\\ ｻﾝｷｭｰ! /");
+
+    expect(getBalloonText(container)).toBe("\\ ｻﾝｷｭｰ! /");
+
+    await waitForBalloonText(container, "");
   });
 });

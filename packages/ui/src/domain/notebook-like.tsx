@@ -10,8 +10,10 @@ import { LuThumbsUp } from "react-icons/lu";
 import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
 
 type Props = {
+  clickBalloonDurationMs?: number;
   disableAutoLoad?: boolean;
   initialCount?: number;
+  initialLiked?: boolean;
   initialStatus?: Status;
   name: string;
   namespace: string;
@@ -22,8 +24,9 @@ type Props = {
 type Status = "error" | "idle" | "loading";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_LIKES_API_URL ?? "";
-const CLICK_BALLOON_DURATION_MS = 1800;
+const CLICK_BALLOON_DURATION_MS = 3000;
 const BALLOON_HIDE_DURATION_MS = 200;
+const HOVER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
 
 const getCountFromPayload = (payload: unknown) => {
   if (!payload || typeof payload !== "object") return null;
@@ -70,9 +73,17 @@ const resolveAnonId = (storageKey: string) => {
   return id;
 };
 
+const canUseHoverBalloon = () => {
+  if (typeof window === "undefined") return false;
+  if (typeof window.matchMedia !== "function") return true;
+  return window.matchMedia(HOVER_MEDIA_QUERY).matches;
+};
+
 export const NotebookLike = ({
+  clickBalloonDurationMs = CLICK_BALLOON_DURATION_MS,
   disableAutoLoad = false,
   initialCount,
+  initialLiked = false,
   initialStatus = "idle",
   name,
   namespace,
@@ -84,10 +95,11 @@ export const NotebookLike = ({
   const [status, setStatus] = useState<Status>(() =>
     disableAutoLoad ? initialStatus : "loading",
   );
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(initialLiked);
   const [anonId, setAnonId] = useState<null | string>(null);
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [clickedWhenLiked, setClickedWhenLiked] = useState(false);
   const [visibleBalloonLabel, setVisibleBalloonLabel] = useState<null | string>(
     null,
   );
@@ -95,14 +107,6 @@ export const NotebookLike = ({
   const balloonHideTimerRef = useRef<null | ReturnType<typeof setTimeout>>(
     null,
   );
-
-  const clearClicked = () => {
-    if (clickedTimerRef.current) {
-      clearTimeout(clickedTimerRef.current);
-      clickedTimerRef.current = null;
-    }
-    setClicked(false);
-  };
 
   const storageKey = useMemo(
     () => buildStorageKey(namespace, name),
@@ -166,17 +170,16 @@ export const NotebookLike = ({
 
   const handleLike = async () => {
     if (status === "loading") return;
+    setClickedWhenLiked(liked);
     setClicked(true);
     if (clickedTimerRef.current) {
       clearTimeout(clickedTimerRef.current);
       clickedTimerRef.current = null;
     }
-    if (!hovered) {
-      clickedTimerRef.current = setTimeout(() => {
-        setClicked(false);
-        clickedTimerRef.current = null;
-      }, CLICK_BALLOON_DURATION_MS);
-    }
+    clickedTimerRef.current = setTimeout(() => {
+      setClicked(false);
+      clickedTimerRef.current = null;
+    }, clickBalloonDurationMs);
 
     setStatus("loading");
     try {
@@ -208,12 +211,21 @@ export const NotebookLike = ({
     }
   };
 
+  const handleHoverStart = () => {
+    setHovered(canUseHoverBalloon());
+  };
+
   const countLabel = count ?? "-";
   const balloonLabel = clicked
-    ? t("likeButtonClickedBalloon")
+    ? t(
+        clickedWhenLiked
+          ? "likeButtonClickedWhenLikedBalloon"
+          : "likeButtonClickedBalloon",
+      )
     : hovered
       ? t("likeButtonHoverBalloon")
       : null;
+  const renderedBalloonLabel = balloonLabel ?? visibleBalloonLabel;
 
   useEffect(() => {
     if (balloonLabel) {
@@ -257,7 +269,7 @@ export const NotebookLike = ({
           transition="opacity 0.2s ease-out, transform 0.2s ease-out"
           whiteSpace="nowrap"
         >
-          {visibleBalloonLabel}
+          {renderedBalloonLabel}
         </Text>
         <IconButton
           aria-label={t("likeButtonAriaLabel")}
@@ -268,17 +280,11 @@ export const NotebookLike = ({
           lineHeight="1"
           loading={status === "loading"}
           minW="auto"
-          onBlur={() => {
-            setHovered(false);
-            clearClicked();
-          }}
+          onBlur={() => setHovered(false)}
           onClick={handleLike}
-          onFocus={() => setHovered(true)}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => {
-            setHovered(false);
-            clearClicked();
-          }}
+          onFocus={handleHoverStart}
+          onMouseEnter={handleHoverStart}
+          onMouseLeave={() => setHovered(false)}
           p={0}
           rounded="full"
           size={size}

@@ -35,7 +35,6 @@ type Props = {
 
 export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
-  const paperStackCellWidth = "calc(var(--notebook-line-height) * 0.3)";
   const maxPaperStackCount = 10;
   const fullStackCount = Math.floor(blogSummary.totalCount / 10);
   const remainderCount = blogSummary.totalCount % maxPaperStackCount;
@@ -90,14 +89,14 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
                   {paperStackCounts.map((paperStackCount, index) => (
                     <Box
                       data-paper-stack-count={paperStackCount}
-                      h="var(--notebook-line-height)"
+                      h="calc(var(--notebook-line-height) * 3)"
                       key={`paper-stack-${paperStackCount}-${index}`}
                       overflow="visible"
-                      w={paperStackCellWidth}
+                      w={`calc(var(--notebook-line-height) * 1.4)`}
                     >
                       <Box
-                        h="var(--notebook-line-height)"
-                        w="var(--notebook-line-height)"
+                        h="calc(var(--notebook-line-height) * 3)"
+                        w="calc(var(--notebook-line-height) * 3)"
                       >
                         <PaperStack
                           count={paperStackCount}

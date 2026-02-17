@@ -65,10 +65,4 @@ describe("PaperStack", () => {
       tenSvg?.getAttribute("viewBox"),
     );
   });
-
-  it("aligns paper stack to the bottom of the viewport", async () => {
-    const { container } = await renderWithProvider(<PaperStack count={3} />);
-    const svg = container.querySelector("svg");
-    expect(svg?.getAttribute("preserveAspectRatio")).toBe("xMinYMax meet");
-  });
 });

@@ -45,7 +45,6 @@ export const PaperStack = ({ className, count }: Props) => {
       className={className}
       fill="none"
       height="100%"
-      preserveAspectRatio="xMinYMax meet"
       viewBox="0 0 300 600"
       width="100%"
     >

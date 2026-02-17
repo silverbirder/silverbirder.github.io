@@ -36,7 +36,9 @@ type Props = {
 export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
   const t = useTranslations("user.top");
   const maxPaperStackCount = 10;
-  const fullStackCount = Math.floor(blogSummary.totalCount / 10);
+  const fullStackCount = Math.floor(
+    blogSummary.totalCount / maxPaperStackCount,
+  );
   const remainderCount = blogSummary.totalCount % maxPaperStackCount;
   const paperStackCounts = [
     ...Array.from({ length: fullStackCount }, () => maxPaperStackCount),
@@ -98,10 +100,7 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
                         h="calc(var(--notebook-line-height) * 1)"
                         w="calc(var(--notebook-line-height) * 1)"
                       >
-                        <PaperStack
-                          count={paperStackCount}
-                          maxCount={maxPaperStackCount}
-                        />
+                        <PaperStack count={paperStackCount} />
                       </Box>
                     </Box>
                   ))}

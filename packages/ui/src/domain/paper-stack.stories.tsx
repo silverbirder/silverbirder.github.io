@@ -3,9 +3,6 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { PaperStack } from "./paper-stack";
 
 const meta: Meta<typeof PaperStack> = {
-  args: {
-    maxCount: 10,
-  },
   component: PaperStack,
   decorators: [
     (Story) => (

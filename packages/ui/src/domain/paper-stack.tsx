@@ -19,6 +19,7 @@ const BASE_Y = 90;
 const PAPER_SKEW_OFFSET = 36;
 const PAPER_LINE_START_OFFSET = 24;
 const PAPER_LINE_GAP = 24;
+const PAPER_LINE_COUNT = 6;
 
 type Point = {
   x: number;
@@ -61,13 +62,7 @@ export const PaperStack = ({ className, count }: Props) => {
               strokeWidth={2}
             />
             {Array.from(
-              {
-                length:
-                  Math.floor(
-                    (RECT_HEIGHT - 24 - PAPER_LINE_START_OFFSET) /
-                      PAPER_LINE_GAP,
-                  ) + 1,
-              },
+              { length: PAPER_LINE_COUNT },
               (_, lineIndex) =>
                 PAPER_LINE_START_OFFSET + lineIndex * PAPER_LINE_GAP,
             ).map((offset) => {

@@ -1,5 +1,7 @@
 export { createPostPullRequest } from "./create-post-pull-request";
 export { deletePostDraft } from "./delete-post-draft";
+export { pullPostDraftsFromGists } from "./pull-post-drafts-from-gists";
+export { pushPostDraftsToGists } from "./push-post-drafts-to-gists";
 export { resolveLinkTitles } from "./resolve-link-titles";
 export { resolvePreview } from "./resolve-preview";
 export { savePostDraft } from "./save-post-draft";

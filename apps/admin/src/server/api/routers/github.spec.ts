@@ -189,3 +189,197 @@ describe("githubRouter.listTags", () => {
     expect(readFile).toHaveBeenCalledTimes(2);
   });
 });
+
+describe("githubRouter.pushDraftsToGists", () => {
+  it("upserts drafts to gists using draft id in description", async () => {
+    getAccessToken.mockResolvedValue({ accessToken: "test-token" });
+    requestMock = vi
+      .fn()
+      .mockResolvedValueOnce({
+        data: [
+          {
+            description: "silverbirder-admin-draft:draft-1",
+            id: "gist-1",
+          },
+        ],
+      })
+      .mockResolvedValueOnce({ data: {} })
+      .mockResolvedValueOnce({ data: {} });
+
+    const caller = createCaller({
+      headers: new Headers(),
+      session: { session: allowedSession, user: allowedUser },
+    });
+
+    const result = await caller.pushDraftsToGists({
+      drafts: [
+        {
+          body: "body-1",
+          hatenaEnabled: false,
+          id: "draft-1",
+          publishedAt: "2026-02-18",
+          summary: "summary-1",
+          tags: ["tag-1"],
+          title: "title-1",
+          updatedAt: "2026-02-18T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+        {
+          body: "body-2",
+          hatenaEnabled: false,
+          id: "draft-2",
+          publishedAt: "2026-02-19",
+          summary: "summary-2",
+          tags: ["tag-2"],
+          title: "title-2",
+          updatedAt: "2026-02-19T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+      ],
+    });
+
+    expect(result).toEqual({ count: 2 });
+    expect(requestMock).toHaveBeenCalledWith("GET /gists", {
+      page: 1,
+      per_page: 100,
+    });
+    expect(requestMock).toHaveBeenCalledWith("PATCH /gists/{gist_id}", {
+      description: "silverbirder-admin-draft:draft-1",
+      files: {
+        "draft.json": {
+          content: expect.any(String),
+        },
+      },
+      gist_id: "gist-1",
+    });
+    expect(requestMock).toHaveBeenCalledWith("POST /gists", {
+      description: "silverbirder-admin-draft:draft-2",
+      files: {
+        "draft.json": {
+          content: expect.any(String),
+        },
+      },
+      public: false,
+    });
+  });
+});
+
+describe("githubRouter.pullDraftsFromGists", () => {
+  it("returns all draft gists and deletes them", async () => {
+    getAccessToken.mockResolvedValue({ accessToken: "test-token" });
+    requestMock = vi
+      .fn()
+      .mockResolvedValueOnce({
+        data: [
+          {
+            description: "silverbirder-admin-draft:draft-1",
+            id: "gist-1",
+          },
+          {
+            description: "silverbirder-admin-draft:draft-2",
+            id: "gist-2",
+          },
+          {
+            description: "other",
+            id: "gist-other",
+          },
+        ],
+      })
+      .mockResolvedValueOnce({
+        data: {
+          files: {
+            "draft.json": {
+              content: JSON.stringify({
+                body: "body-1",
+                hatenaEnabled: false,
+                id: "draft-1",
+                publishedAt: "2026-02-18",
+                summary: "summary-1",
+                tags: ["tag-1"],
+                title: "title-1",
+                updatedAt: "2026-02-18T12:00:00.000Z",
+                zennEnabled: false,
+                zennType: "tech",
+              }),
+            },
+          },
+        },
+      })
+      .mockResolvedValueOnce({
+        data: {
+          files: {
+            "draft.json": {
+              content: JSON.stringify({
+                body: "body-2",
+                hatenaEnabled: false,
+                id: "draft-2",
+                publishedAt: "2026-02-19",
+                summary: "summary-2",
+                tags: ["tag-2"],
+                title: "title-2",
+                updatedAt: "2026-02-19T12:00:00.000Z",
+                zennEnabled: false,
+                zennType: "tech",
+              }),
+            },
+          },
+        },
+      })
+      .mockResolvedValueOnce({ data: {} })
+      .mockResolvedValueOnce({ data: {} });
+
+    const caller = createCaller({
+      headers: new Headers(),
+      session: { session: allowedSession, user: allowedUser },
+    });
+
+    const result = await caller.pullDraftsFromGists();
+
+    expect(result).toEqual({
+      drafts: [
+        {
+          body: "body-2",
+          hatenaEnabled: false,
+          id: "draft-2",
+          publishedAt: "2026-02-19",
+          summary: "summary-2",
+          tags: ["tag-2"],
+          title: "title-2",
+          updatedAt: "2026-02-19T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+        {
+          body: "body-1",
+          hatenaEnabled: false,
+          id: "draft-1",
+          publishedAt: "2026-02-18",
+          summary: "summary-1",
+          tags: ["tag-1"],
+          title: "title-1",
+          updatedAt: "2026-02-18T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+      ],
+    });
+    expect(requestMock).toHaveBeenCalledWith("GET /gists", {
+      page: 1,
+      per_page: 100,
+    });
+    expect(requestMock).toHaveBeenCalledWith("GET /gists/{gist_id}", {
+      gist_id: "gist-1",
+    });
+    expect(requestMock).toHaveBeenCalledWith("GET /gists/{gist_id}", {
+      gist_id: "gist-2",
+    });
+    expect(requestMock).toHaveBeenCalledWith("DELETE /gists/{gist_id}", {
+      gist_id: "gist-1",
+    });
+    expect(requestMock).toHaveBeenCalledWith("DELETE /gists/{gist_id}", {
+      gist_id: "gist-2",
+    });
+  });
+});

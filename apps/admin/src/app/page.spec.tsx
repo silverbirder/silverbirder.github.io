@@ -13,6 +13,8 @@ const renderHome = async () => {
   }));
   vi.doMock("@/app/actions", () => ({
     deletePostDraft: vi.fn(),
+    pullPostDraftsFromGists: vi.fn(),
+    pushPostDraftsToGists: vi.fn(),
   }));
   vi.doMock("@/trpc/server", () => ({
     api: {

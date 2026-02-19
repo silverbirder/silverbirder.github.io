@@ -12,12 +12,45 @@ import {
 } from "@/server/api/trpc";
 import { auth } from "@/server/better-auth";
 
+type DraftGist = {
+  body: string;
+  hatenaEnabled: boolean;
+  id: string;
+  publishedAt: string;
+  summary: string;
+  tags: string[];
+  title: string;
+  updatedAt: string;
+  zennEnabled: boolean;
+  zennType: string;
+};
+
+type GistSummary = {
+  description: null | string;
+  id: string;
+};
+
 type GitHubContentItem = {
   name: string;
   type: "dir" | "file";
 };
 
 const defaultPostsPath = "packages/content/posts";
+const DRAFT_GIST_DESCRIPTION_PREFIX = "silverbirder-admin-draft:";
+const DRAFT_GIST_FILE_NAME = "draft.json";
+
+const draftGistSchema = z.object({
+  body: z.string(),
+  hatenaEnabled: z.boolean(),
+  id: z.string().min(1),
+  publishedAt: z.string(),
+  summary: z.string(),
+  tags: z.array(z.string()),
+  title: z.string(),
+  updatedAt: z.string(),
+  zennEnabled: z.boolean(),
+  zennType: z.string(),
+});
 
 const parseRepository = (repository: string) => {
   const [owner, repo, ...rest] = repository.split("/");
@@ -251,6 +284,117 @@ const getLocalTagList = async (postsPath: string) => {
   }
 
   return Array.from(tags).sort((left, right) => left.localeCompare(right));
+};
+
+const toUpdatedAtValue = (updatedAt: string) => {
+  const value = Date.parse(updatedAt);
+  return Number.isNaN(value) ? 0 : value;
+};
+
+const sortDrafts = (drafts: DraftGist[]) => {
+  return [...drafts].sort((left, right) => {
+    const leftValue = toUpdatedAtValue(left.updatedAt);
+    const rightValue = toUpdatedAtValue(right.updatedAt);
+    if (rightValue !== leftValue) {
+      return rightValue - leftValue;
+    }
+    return left.id.localeCompare(right.id);
+  });
+};
+
+const mergeDrafts = (drafts: DraftGist[]) => {
+  const merged = new Map<string, DraftGist>();
+  for (const draft of drafts) {
+    const existing = merged.get(draft.id);
+    if (!existing) {
+      merged.set(draft.id, draft);
+      continue;
+    }
+
+    const existingValue = toUpdatedAtValue(existing.updatedAt);
+    const draftValue = toUpdatedAtValue(draft.updatedAt);
+    if (draftValue >= existingValue) {
+      merged.set(draft.id, draft);
+    }
+  }
+  return sortDrafts([...merged.values()]);
+};
+
+const isDraftGist = (gist: GistSummary) => {
+  return (
+    typeof gist.description === "string" &&
+    gist.description.startsWith(DRAFT_GIST_DESCRIPTION_PREFIX)
+  );
+};
+
+const listDraftGists = async (octokit: Octokit) => {
+  const draftGists: GistSummary[] = [];
+  let page = 1;
+
+  while (true) {
+    const response = await octokit.request("GET /gists", {
+      page,
+      per_page: 100,
+    });
+    const data = response.data as Array<{
+      description?: null | string;
+      id?: string;
+    }>;
+    if (!Array.isArray(data) || data.length === 0) {
+      break;
+    }
+
+    for (const item of data) {
+      if (typeof item.id !== "string") {
+        continue;
+      }
+      const gist = {
+        description: item.description ?? null,
+        id: item.id,
+      };
+      if (isDraftGist(gist)) {
+        draftGists.push(gist);
+      }
+    }
+
+    if (data.length < 100) {
+      break;
+    }
+    page += 1;
+  }
+
+  return draftGists;
+};
+
+const parseDraftGistFromContent = (content: string) => {
+  try {
+    const parsed = JSON.parse(content) as unknown;
+    const validation = draftGistSchema.safeParse(parsed);
+    if (!validation.success) {
+      return null;
+    }
+    return validation.data;
+  } catch {
+    return null;
+  }
+};
+
+const parseDraftGistFromDetail = (detail: {
+  files?: Record<string, undefined | { content?: string }>;
+}) => {
+  if (!detail.files) {
+    return null;
+  }
+  for (const file of Object.values(detail.files)) {
+    if (!file || typeof file.content !== "string") {
+      continue;
+    }
+    const draft = parseDraftGistFromContent(file.content);
+    if (draft) {
+      return draft;
+    }
+  }
+  return null;
 };
 
 export const githubRouter = createTRPCRouter({
@@ -512,4 +656,115 @@ export const githubRouter = createTRPCRouter({
 
     return Array.from(tags).sort((left, right) => left.localeCompare(right));
   }),
+
+  pullDraftsFromGists: protectedProcedure.query(async ({ ctx }) => {
+    const { accessToken } = await auth.api.getAccessToken({
+      body: {
+        providerId: "github",
+      },
+      headers: ctx.headers,
+    });
+
+    if (!accessToken) {
+      throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+
+    const octokit = new Octokit({ auth: accessToken });
+    const gistSummaries = await listDraftGists(octokit);
+    const drafts: DraftGist[] = [];
+
+    for (const gist of gistSummaries) {
+      try {
+        const response = await octokit.request("GET /gists/{gist_id}", {
+          gist_id: gist.id,
+        });
+        const detail = response.data as {
+          files?: Record<string, undefined | { content?: string }>;
+        };
+        const draft = parseDraftGistFromDetail(detail);
+        if (draft) {
+          drafts.push(draft);
+        }
+      } catch {
+        continue;
+      }
+    }
+
+    for (const gist of gistSummaries) {
+      try {
+        await octokit.request("DELETE /gists/{gist_id}", {
+          gist_id: gist.id,
+        });
+      } catch {
+        continue;
+      }
+    }
+
+    return {
+      drafts: mergeDrafts(drafts),
+    };
+  }),
+
+  pushDraftsToGists: protectedProcedure
+    .input(
+      z.object({
+        drafts: z.array(draftGistSchema),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { accessToken } = await auth.api.getAccessToken({
+        body: {
+          providerId: "github",
+        },
+        headers: ctx.headers,
+      });
+
+      if (!accessToken) {
+        throw new TRPCError({ code: "UNAUTHORIZED" });
+      }
+
+      const octokit = new Octokit({ auth: accessToken });
+      const gistSummaries = await listDraftGists(octokit);
+      const gistByDescription = new Map(
+        gistSummaries
+          .filter(
+            (gist): gist is GistSummary & { description: string } =>
+              typeof gist.description === "string",
+          )
+          .map((gist) => [gist.description, gist.id]),
+      );
+
+      for (const draft of input.drafts) {
+        const description = `${DRAFT_GIST_DESCRIPTION_PREFIX}${draft.id}`;
+        const content = JSON.stringify(draft, null, 2);
+        const existingId = gistByDescription.get(description);
+
+        if (existingId) {
+          await octokit.request("PATCH /gists/{gist_id}", {
+            description,
+            files: {
+              [DRAFT_GIST_FILE_NAME]: {
+                content,
+              },
+            },
+            gist_id: existingId,
+          });
+          continue;
+        }
+
+        await octokit.request("POST /gists", {
+          description,
+          files: {
+            [DRAFT_GIST_FILE_NAME]: {
+              content,
+            },
+          },
+          public: false,
+        });
+      }
+
+      return {
+        count: input.drafts.length,
+      };
+    }),
 });

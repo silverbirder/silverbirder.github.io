@@ -223,7 +223,15 @@ const resolveLinkTitlesInMarkdown = async (source: string) => {
     .use(remarkMdx)
     .use(remarkFrontmatter, ["yaml", "toml"])
     .use(createRemarkLinkTitlePlugin)
-    .use(remarkStringify)
+    .use(remarkStringify, {
+      bullet: "-",
+      // Keep hard breaks serialized as trailing spaces to avoid adding "\".
+      handlers: {
+        break() {
+          return "  \n";
+        },
+      },
+    })
     .process(source);
 
   return String(file);

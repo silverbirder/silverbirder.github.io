@@ -39,4 +39,44 @@ describe("resolveLinkTitles", () => {
     });
     expect(result).toContain("Example Page - example.com");
   });
+
+  it("keeps hard-break representation without backslash", async () => {
+    vi.stubGlobal("fetch", mockFetch);
+    mockFetch.mockResolvedValue({
+      ok: true,
+      text: async () =>
+        "<!doctype html><html><head><title>Example Page</title></head><body></body></html>",
+    });
+
+    const { resolveLinkTitles } = await loadAction();
+    const source = "Line 1  \nSee [link](https://example.com).";
+
+    const result = await resolveLinkTitles(source);
+
+    expect(result).toContain("Example Page - example.com");
+    expect(result).toContain("Line 1  \n");
+    expect(result).not.toContain("\\\n");
+  });
+
+  it("keeps list marker style as hyphen", async () => {
+    vi.stubGlobal("fetch", mockFetch);
+    mockFetch.mockResolvedValue({
+      ok: true,
+      text: async () =>
+        "<!doctype html><html><head><title>Example Page</title></head><body></body></html>",
+    });
+
+    const { resolveLinkTitles } = await loadAction();
+    const source = "- [link](https://example.com)\n- second";
+
+    const result = await resolveLinkTitles(source);
+
+    expect(result).toContain(
+      "- [Example Page - example.com](https://example.com)",
+    );
+    expect(result).toContain("- second");
+    expect(result).not.toContain(
+      "* [Example Page - example.com](https://example.com)",
+    );
+  });
 });

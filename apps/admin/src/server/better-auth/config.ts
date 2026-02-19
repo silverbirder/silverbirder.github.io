@@ -5,10 +5,10 @@ import { env } from "@/env";
 
 export const sessionConfig = {
   cookieCache: {
-    maxAge: 60 * 60,
+    maxAge: 60 * 3,
   },
   disableSessionRefresh: true,
-  expiresIn: 60 * 60,
+  expiresIn: 60 * 3,
 };
 
 export const auth = betterAuth({

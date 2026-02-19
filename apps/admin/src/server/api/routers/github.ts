@@ -5,7 +5,11 @@ import { Octokit } from "octokit";
 import { z } from "zod";
 
 import { env } from "@/env";
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "@/server/api/trpc";
 import { auth } from "@/server/better-auth";
 
 type GitHubContentItem = {
@@ -338,7 +342,7 @@ export const githubRouter = createTRPCRouter({
       };
     }),
 
-  list: protectedProcedure.query(async ({ ctx }) => {
+  list: publicProcedure.query(async ({ ctx }) => {
     const { owner, postsPath, repo } = getRepositoryConfig();
     const localPosts = await getLocalPostList(postsPath);
     if (localPosts) {
@@ -428,7 +432,7 @@ export const githubRouter = createTRPCRouter({
       .map(({ name }) => name);
   }),
 
-  listTags: protectedProcedure.query(async ({ ctx }) => {
+  listTags: publicProcedure.query(async ({ ctx }) => {
     const { owner, postsPath, repo } = getRepositoryConfig();
     const localTags = await getLocalTagList(postsPath);
     if (localTags) {

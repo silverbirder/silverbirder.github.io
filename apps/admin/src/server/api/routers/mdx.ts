@@ -9,10 +9,10 @@ import remarkLinkCardPlus from "remark-link-card-plus";
 import remarkMdx from "remark-mdx";
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const mdxRouter = createTRPCRouter({
-  preview: protectedProcedure
+  preview: publicProcedure
     .input(
       z.object({
         source: z.string(),

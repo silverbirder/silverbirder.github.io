@@ -62,6 +62,7 @@ type Props = {
   resolveLinkTitlesDisabled?: boolean;
   resolveLinkTitlesIsLoading?: boolean;
   saveDraftIsLoading?: boolean;
+  showPullRequestFlowNotice?: boolean;
   summaryValue: string;
   tagInputValue: string;
   tagSuggestions: string[];
@@ -177,6 +178,14 @@ const DrawerActionStack = chakra("div", {
     display: "flex",
     flexDirection: "column",
     gap: "0.75rem",
+  },
+});
+
+const NoticeText = chakra("p", {
+  base: {
+    color: "muted",
+    fontSize: "0.8rem",
+    margin: 0,
   },
 });
 
@@ -329,6 +338,7 @@ export const PostEditorLayout = ({
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
   saveDraftIsLoading = false,
+  showPullRequestFlowNotice = false,
   tagInputValue,
   tagSuggestions,
   tagsValue,
@@ -341,6 +351,8 @@ export const PostEditorLayout = ({
   const previewDate = publishedAtValue || "2025-01-12";
   const previewTitle = titleValue || t("titlePlaceholder");
   const isPreviewLoading = previewIsLoading ?? false;
+  const shouldShowPullRequestFlowNotice =
+    showPullRequestFlowNotice || createPullRequestIsLoading;
   const shouldShowPreviewEmpty = !isPreviewLoading && previewContent == null;
   const hasDrawerActions =
     Boolean(onResolveLinkTitles) ||
@@ -613,6 +625,11 @@ export const PostEditorLayout = ({
             </Drawer.Root>
           </HeaderActions>
         </HeaderRow>
+        {shouldShowPullRequestFlowNotice ? (
+          <NoticeText data-testid="post-editor-flow-notice">
+            {t("createPullRequestFlowNotice")}
+          </NoticeText>
+        ) : null}
       </Header>
       <Tabs.Root
         aria-label={t("contentLabel")}

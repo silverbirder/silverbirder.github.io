@@ -292,6 +292,65 @@ describe("PostEditor", () => {
     expect(parsed[0]?.title).toBe("Title");
   });
 
+  it("removes local draft after pull request creation succeeds", async () => {
+    const onCreatePullRequest = vi.fn().mockResolvedValue({
+      actions: [{ type: "clearDraft" }],
+    });
+    window.history.replaceState(
+      null,
+      "",
+      "/posts/new?draftId=draft-1&resumePullRequest=1",
+    );
+
+    window.localStorage.setItem(
+      POST_DRAFTS_STORAGE_KEY,
+      JSON.stringify([
+        {
+          body: "Hello",
+          hatenaEnabled: false,
+          id: "draft-1",
+          publishedAt: "2026-02-14",
+          summary: "summary",
+          tags: [],
+          title: "Title",
+          updatedAt: "2026-02-14T12:00:00.000Z",
+          zennEnabled: false,
+          zennType: "tech",
+        },
+      ]),
+    );
+
+    await renderWithProvider(
+      <PostEditor
+        initialBody="Hello"
+        initialDraftId="draft-1"
+        initialTitle="Title"
+        onCreatePullRequest={onCreatePullRequest}
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    await openDrawer();
+
+    const button = document.querySelector(
+      "[data-testid='post-editor-create-pull-request']",
+    ) as HTMLButtonElement | null;
+    await expect.poll(() => button?.disabled).toBe(false);
+    button?.click();
+
+    await expect.poll(() => onCreatePullRequest.mock.calls.length).toBe(1);
+    await expect
+      .poll(() => {
+        const raw = window.localStorage.getItem(POST_DRAFTS_STORAGE_KEY);
+        const parsed = JSON.parse(raw ?? "[]") as Array<{ id: string }>;
+        return parsed;
+      })
+      .toEqual([]);
+    expect(window.location.search).toBe("");
+  });
+
   it("restores draft from local storage when draft id is provided", async () => {
     window.localStorage.setItem(
       POST_DRAFTS_STORAGE_KEY,

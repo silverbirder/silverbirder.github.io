@@ -7,29 +7,31 @@ import {
   savePostDraft,
   uploadImage,
 } from "@/app/actions";
-import { api } from "@/trpc/server";
 
 type Props = {
   searchParams?: Promise<{
     draftId?: string;
+    resumePullRequest?: string;
   }>;
 };
 
 export default async function Page({ searchParams }: Props = {}) {
-  const tagSuggestions = await api.github.listTags();
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const draftId = resolvedSearchParams?.draftId;
+  const shouldResumePullRequest =
+    resolvedSearchParams?.resumePullRequest === "1";
 
   return (
     <PostEditor
       enableHatenaSync
       enableZennSync
+      initialAutoCreatePullRequest={shouldResumePullRequest}
       initialDraftId={draftId}
       onCreatePullRequest={createPostPullRequest}
       onSaveDraft={savePostDraft}
       resolveLinkTitles={resolveLinkTitles}
       resolvePreview={resolvePreview}
-      tagSuggestions={tagSuggestions}
+      tagSuggestions={[]}
       uploadImage={uploadImage}
     />
   );

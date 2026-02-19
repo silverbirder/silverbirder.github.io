@@ -2,7 +2,7 @@ import { v2 as cloudinary } from "cloudinary";
 import { z } from "zod";
 
 import { env } from "@/env";
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 cloudinary.config({
   cloudinary_url: env.CLOUDINARY_URL,
@@ -10,7 +10,7 @@ cloudinary.config({
 });
 
 export const cloudinaryRouter = createTRPCRouter({
-  upload: protectedProcedure
+  upload: publicProcedure
     .input(
       z.object({
         dataUrl: z.string(),

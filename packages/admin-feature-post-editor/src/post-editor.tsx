@@ -38,6 +38,7 @@ export const PostEditor = (props: Props) => {
     publishedAt,
     resolveLinkTitlesDisabled,
     resolveLinkTitlesIsLoading,
+    showPullRequestFlowNotice,
     summary,
     tagInputValue,
     tags,
@@ -86,6 +87,7 @@ export const PostEditor = (props: Props) => {
       resolveLinkTitlesDisabled={resolveLinkTitlesDisabled}
       resolveLinkTitlesIsLoading={resolveLinkTitlesIsLoading}
       saveDraftIsLoading={isSavingDraft}
+      showPullRequestFlowNotice={showPullRequestFlowNotice}
       summaryValue={summary}
       tagInputValue={tagInputValue}
       tagSuggestions={tagSuggestions}

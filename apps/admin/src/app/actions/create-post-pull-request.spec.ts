@@ -2,12 +2,18 @@ import { describe, expect, it, vi } from "vitest";
 
 const loadAction = async ({
   createPullRequestImpl,
+  listImpl,
+  signInSocialImpl,
 }: {
   createPullRequestImpl?: () => Promise<{ url: null | string }>;
+  listImpl?: () => Promise<string[]>;
+  signInSocialImpl?: () => Promise<{ url: null | string }>;
 } = {}) => {
   vi.resetModules();
 
-  const list = vi.fn().mockResolvedValue(["20260101.md"]);
+  const list = vi
+    .fn()
+    .mockImplementation(listImpl ?? (() => Promise.resolve(["20260101.md"])));
   const createPullRequest = vi
     .fn()
     .mockImplementation(
@@ -21,6 +27,12 @@ const loadAction = async ({
     editUrl: null,
     previewUrl: "https://example.com/hatena-preview",
   });
+  const signInSocial = vi
+    .fn()
+    .mockImplementation(
+      signInSocialImpl ??
+        (() => Promise.resolve({ url: "https://example.com/oauth" })),
+    );
 
   vi.doMock("@/trpc/server", () => ({
     api: {
@@ -33,6 +45,13 @@ const loadAction = async ({
       },
       zenn: {
         createPullRequest: createZennPullRequest,
+      },
+    },
+  }));
+  vi.doMock("@/server/better-auth", () => ({
+    auth: {
+      api: {
+        signInSocial,
       },
     },
   }));
@@ -56,6 +75,7 @@ const loadAction = async ({
     createPullRequest,
     createZennPullRequest,
     list,
+    signInSocial,
   };
 };
 
@@ -71,6 +91,7 @@ describe("createPostPullRequest", () => {
 
     const result = await createPostPullRequest({
       body: "Hello",
+      draftId: "draft-1",
       hatena: { enabled: true },
       index: false,
       publishedAt: "2026-02-01",
@@ -104,6 +125,7 @@ describe("createPostPullRequest", () => {
       actions: [
         { type: "open", url: "https://example.com/zenn-pr" },
         { type: "open", url: "https://example.com/hatena-preview" },
+        { type: "clearDraft" },
         { type: "open", url: "https://example.com/pr" },
       ],
     });
@@ -121,6 +143,7 @@ describe("createPostPullRequest", () => {
 
     const result = await createPostPullRequest({
       body: "Hello",
+      draftId: "draft-1",
       hatena: { enabled: true },
       index: false,
       publishedAt: "2026-02-01",
@@ -140,6 +163,81 @@ describe("createPostPullRequest", () => {
     expect(createDraft).not.toHaveBeenCalled();
     expect(result).toEqual({
       actions: [{ message: "message:createPullRequestError", type: "alert" }],
+    });
+  });
+
+  it("returns sign-in guidance when authentication is required", async () => {
+    const { createPostPullRequest, list, signInSocial } = await loadAction({
+      listImpl: () =>
+        Promise.reject({
+          code: "UNAUTHORIZED",
+        }),
+    });
+
+    const result = await createPostPullRequest({
+      body: "Hello",
+      draftId: "draft-1",
+      hatena: { enabled: false },
+      index: false,
+      publishedAt: "2026-02-01",
+      summary: "",
+      tags: [],
+      title: "Title",
+      zenn: {
+        enabled: false,
+        slug: "zenn-slug",
+        topics: [],
+        type: "tech",
+      },
+    });
+
+    expect(list).toHaveBeenCalledOnce();
+    expect(signInSocial).toHaveBeenCalledWith({
+      body: {
+        callbackURL: "/posts/new?draftId=draft-1&resumePullRequest=1",
+        provider: "github",
+      },
+    });
+    expect(result).toEqual({
+      actions: [{ type: "redirect", url: "https://example.com/oauth" }],
+    });
+  });
+
+  it("returns forbidden guidance when user is not allowed", async () => {
+    const { createPostPullRequest, list, signInSocial } = await loadAction({
+      listImpl: () =>
+        Promise.reject({
+          code: "FORBIDDEN",
+        }),
+    });
+
+    const result = await createPostPullRequest({
+      body: "Hello",
+      draftId: "draft-1",
+      hatena: { enabled: false },
+      index: false,
+      publishedAt: "2026-02-01",
+      summary: "",
+      tags: [],
+      title: "Title",
+      zenn: {
+        enabled: false,
+        slug: "zenn-slug",
+        topics: [],
+        type: "tech",
+      },
+    });
+
+    expect(list).toHaveBeenCalledOnce();
+    expect(signInSocial).not.toHaveBeenCalled();
+    expect(result).toEqual({
+      actions: [
+        {
+          message: "message:createPullRequestForbidden",
+          type: "alert",
+        },
+        { type: "open", url: "/sign-in" },
+      ],
     });
   });
 });

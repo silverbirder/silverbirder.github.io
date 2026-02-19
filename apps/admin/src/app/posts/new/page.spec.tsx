@@ -17,9 +17,6 @@ const renderPage = async () => {
       draft: {
         get: vi.fn().mockResolvedValue(null),
       },
-      github: {
-        listTags: vi.fn().mockResolvedValue(["tag"]),
-      },
     },
   }));
 

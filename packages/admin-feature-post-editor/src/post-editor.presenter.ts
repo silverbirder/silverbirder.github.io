@@ -9,10 +9,17 @@ import { buildSummaryFromBody, generateZennSlug } from "./libs";
 import { useImageDropzone } from "./post-editor.image-dropzone";
 import { usePostEditorTags } from "./post-editor.tags";
 
+type CreatePullRequestAction =
+  | { message: string; type: "alert" }
+  | { type: "clearDraft" }
+  | { type: "open"; url: string }
+  | { type: "redirect"; url: string };
+
 type Props = {
   createPullRequestDisabled?: boolean;
   enableHatenaSync?: boolean;
   enableZennSync?: boolean;
+  initialAutoCreatePullRequest?: boolean;
   initialBody?: string;
   initialDraftId?: string;
   initialHatenaEnabled?: boolean;
@@ -24,6 +31,7 @@ type Props = {
   initialZennType?: string;
   onCreatePullRequest?: (draft: {
     body: string;
+    draftId?: string;
     hatena?: {
       enabled: boolean;
     };
@@ -39,9 +47,7 @@ type Props = {
       type: string;
     };
   }) => Promise<void | {
-    actions?: Array<
-      { message: string; type: "alert" } | { type: "open"; url: string }
-    >;
+    actions?: CreatePullRequestAction[];
   }>;
   onSaveDraft?: (draft: {
     body: string;
@@ -148,6 +154,35 @@ const writeLocalDrafts = (drafts: LocalDraft[]) => {
 const findLocalDraft = (id: string) =>
   readLocalDrafts().find((draft) => draft.id === id) ?? null;
 
+const upsertLocalDraft = (draft: LocalDraft) => {
+  const drafts = readLocalDrafts().filter((entry) => entry.id !== draft.id);
+  drafts.push(draft);
+  writeLocalDrafts(drafts);
+};
+
+const removeLocalDraft = (id: string) => {
+  const drafts = readLocalDrafts().filter((entry) => entry.id !== id);
+  writeLocalDrafts(drafts);
+};
+
+const removeDraftQueryParamsFromUrl = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const url = new URL(window.location.href);
+  const hasDraftId = url.searchParams.has("draftId");
+  const hasResumePullRequest = url.searchParams.has("resumePullRequest");
+
+  if (!hasDraftId && !hasResumePullRequest) {
+    return;
+  }
+
+  url.searchParams.delete("draftId");
+  url.searchParams.delete("resumePullRequest");
+  window.history.replaceState(null, "", url.toString());
+};
+
 const createDraftId = () => {
   if (
     typeof globalThis.crypto !== "undefined" &&
@@ -162,6 +197,7 @@ export const usePostEditorPresenter = ({
   createPullRequestDisabled,
   enableHatenaSync = false,
   enableZennSync = false,
+  initialAutoCreatePullRequest = false,
   initialBody,
   initialDraftId,
   initialHatenaEnabled,
@@ -188,6 +224,9 @@ export const usePostEditorPresenter = ({
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
   const [draftId, setDraftId] = useState(initialDraftId);
   const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const [isResumingPullRequestFlow, setIsResumingPullRequestFlow] = useState(
+    initialAutoCreatePullRequest,
+  );
   const [publishedAt, setPublishedAt] = useState(() =>
     initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
   );
@@ -198,6 +237,7 @@ export const usePostEditorPresenter = ({
   const [zennEnabled, setZennEnabled] = useState(initialZennEnabled ?? false);
   const [zennSlug, setZennSlug] = useState("");
   const [zennType, setZennType] = useState(initialZennType ?? "tech");
+  const autoCreateHandledRef = useRef(false);
 
   const bodyRef = useRef(body);
   const initialAppliedRef = useRef(false);
@@ -292,11 +332,31 @@ export const usePostEditorPresenter = ({
       return;
     }
 
+    const currentDraftId = draftId ?? createDraftId();
+    if (!draftId) {
+      setDraftId(currentDraftId);
+    }
+
+    upsertLocalDraft({
+      body: bodyRef.current,
+      hatenaEnabled: enableHatenaSync && hatenaEnabled,
+      id: currentDraftId,
+      publishedAt,
+      summary,
+      tags,
+      title,
+      updatedAt: new Date().toISOString(),
+      zennEnabled: enableZennSync && zennEnabled,
+      zennType,
+    });
+
     setIsCreatingPullRequest(true);
+    let isRedirecting = false;
 
     try {
       const result = await onCreatePullRequest({
         body: bodyRef.current,
+        draftId: currentDraftId,
         hatena: {
           enabled: enableHatenaSync && hatenaEnabled,
         },
@@ -319,8 +379,19 @@ export const usePostEditorPresenter = ({
         Array.isArray(result.actions)
       ) {
         for (const action of result.actions) {
+          if (action?.type === "clearDraft") {
+            removeLocalDraft(currentDraftId);
+            setDraftId(undefined);
+            removeDraftQueryParamsFromUrl();
+          }
           if (action?.type === "open") {
             window.open(action.url, "_blank", "noopener,noreferrer");
+          }
+          if (action?.type === "redirect") {
+            isRedirecting = true;
+            setIsResumingPullRequestFlow(true);
+            window.location.assign(action.url);
+            return;
           }
           if (action?.type === "alert") {
             window.alert(action.message);
@@ -329,9 +400,13 @@ export const usePostEditorPresenter = ({
       }
     } finally {
       setIsCreatingPullRequest(false);
+      if (!isRedirecting) {
+        setIsResumingPullRequestFlow(false);
+      }
     }
   }, [
     createPullRequestIsDisabled,
+    draftId,
     onCreatePullRequest,
     publishedAt,
     summary,
@@ -577,6 +652,35 @@ export const usePostEditorPresenter = ({
     setDraftId(initialDraftId);
   }, [initialDraftId]);
 
+  useEffect(() => {
+    if (!initialAutoCreatePullRequest) {
+      return;
+    }
+    if (autoCreateHandledRef.current) {
+      return;
+    }
+    if (!onCreatePullRequest || createPullRequestIsDisabled) {
+      return;
+    }
+
+    autoCreateHandledRef.current = true;
+    setIsResumingPullRequestFlow(true);
+    void handleCreatePullRequest();
+
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has("resumePullRequest")) {
+        url.searchParams.delete("resumePullRequest");
+        window.history.replaceState(null, "", url.toString());
+      }
+    }
+  }, [
+    initialAutoCreatePullRequest,
+    onCreatePullRequest,
+    createPullRequestIsDisabled,
+    handleCreatePullRequest,
+  ]);
+
   return {
     body,
     bodyTextareaRef,
@@ -610,6 +714,7 @@ export const usePostEditorPresenter = ({
     publishedAt,
     resolveLinkTitlesDisabled: isBodyEmpty || isUploading || isResolvingLinks,
     resolveLinkTitlesIsLoading: isResolvingLinks,
+    showPullRequestFlowNotice: isResumingPullRequestFlow,
     summary,
     tagInputValue,
     tags,

@@ -8,11 +8,11 @@ vi.mock("@/env", () => ({
 }));
 
 describe("better-auth session config", () => {
-  it("sets 1-hour expiry and cookie cache", async () => {
+  it("sets 3-minute expiry and cookie cache", async () => {
     const { sessionConfig } = await import("./config");
 
-    expect(sessionConfig.expiresIn).toBe(60 * 60);
+    expect(sessionConfig.expiresIn).toBe(60 * 3);
     expect(sessionConfig.disableSessionRefresh).toBe(true);
-    expect(sessionConfig.cookieCache?.maxAge).toBe(60 * 60);
+    expect(sessionConfig.cookieCache?.maxAge).toBe(60 * 3);
   });
 });

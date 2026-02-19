@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 const saveDraftInputSchema = z.object({
   body: z.string(),
@@ -16,7 +16,7 @@ const saveDraftInputSchema = z.object({
 });
 
 export const draftRouter = createTRPCRouter({
-  delete: protectedProcedure
+  delete: publicProcedure
     .input(
       z.object({
         id: z.string().min(1),
@@ -26,7 +26,7 @@ export const draftRouter = createTRPCRouter({
       return { deleted: false };
     }),
 
-  get: protectedProcedure
+  get: publicProcedure
     .input(
       z.object({
         id: z.string().min(1),
@@ -36,11 +36,11 @@ export const draftRouter = createTRPCRouter({
       return null;
     }),
 
-  list: protectedProcedure.query(async () => {
+  list: publicProcedure.query(async () => {
     return [];
   }),
 
-  save: protectedProcedure
+  save: publicProcedure
     .input(saveDraftInputSchema)
     .mutation(async ({ input }) => {
       const now = new Date().toISOString();

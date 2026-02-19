@@ -7,6 +7,7 @@ import {
   savePostDraft,
   uploadImage,
 } from "@/app/actions";
+import { api } from "@/trpc/server";
 
 type Props = {
   searchParams?: Promise<{
@@ -20,6 +21,7 @@ export default async function Page({ searchParams }: Props = {}) {
   const draftId = resolvedSearchParams?.draftId;
   const shouldResumePullRequest =
     resolvedSearchParams?.resumePullRequest === "1";
+  const tagSuggestions = await api.github.listTags().catch(() => []);
 
   return (
     <PostEditor
@@ -31,7 +33,7 @@ export default async function Page({ searchParams }: Props = {}) {
       onSaveDraft={savePostDraft}
       resolveLinkTitles={resolveLinkTitles}
       resolvePreview={resolvePreview}
-      tagSuggestions={[]}
+      tagSuggestions={tagSuggestions}
       uploadImage={uploadImage}
     />
   );

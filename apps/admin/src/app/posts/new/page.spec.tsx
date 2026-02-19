@@ -14,8 +14,8 @@ const renderPage = async () => {
   }));
   vi.doMock("@/trpc/server", () => ({
     api: {
-      draft: {
-        get: vi.fn().mockResolvedValue(null),
+      github: {
+        listTags: vi.fn().mockResolvedValue(["tag"]),
       },
     },
   }));

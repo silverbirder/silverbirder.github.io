@@ -55,14 +55,20 @@ const buildApiUrl = (slug: string, anonId?: string) => {
 
 const resolveAnonId = (storageKey: string) => {
   if (typeof window === "undefined") return null;
-  const existing = window.localStorage.getItem(storageKey);
-  if (existing) return existing;
-  const id =
-    typeof crypto.randomUUID === "function"
+  try {
+    const existing = window.localStorage.getItem(storageKey);
+    if (existing) return existing;
+    const id =
+      typeof crypto.randomUUID === "function"
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    window.localStorage.setItem(storageKey, id);
+    return id;
+  } catch {
+    return typeof crypto.randomUUID === "function"
       ? crypto.randomUUID()
       : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  window.localStorage.setItem(storageKey, id);
-  return id;
+  }
 };
 
 const canUseHoverBalloon = () => {

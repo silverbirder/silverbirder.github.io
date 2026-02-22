@@ -215,4 +215,19 @@ describe("NotebookLike", () => {
     await vi.advanceTimersByTimeAsync(4000);
     await waitForBalloonText(container, "");
   });
+
+  it("does not crash when localStorage is unavailable", async () => {
+    vi.spyOn(Storage.prototype, "getItem").mockImplementationOnce(() => {
+      throw new Error("storage unavailable");
+    });
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ count: 3, liked: false }), { status: 200 }),
+    );
+
+    const { container } = await renderWithProvider(
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
+    );
+
+    expect(getLikeButton(container)).not.toBeNull();
+  });
 });

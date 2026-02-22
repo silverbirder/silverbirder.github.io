@@ -97,7 +97,9 @@ describe("Posts", () => {
 
   it("renders up to 10 posts per page in descending order", async () => {
     mockedSearchParams = "";
-    await renderWithProvider(<Posts posts={[...createPosts()]} />);
+    await renderWithProvider(
+      <Posts posts={[...createPosts()]} rssUrl="https://example.com/rss.xml" />,
+    );
 
     const links = Array.from(
       document.querySelectorAll<HTMLAnchorElement>(
@@ -129,7 +131,9 @@ describe("Posts", () => {
 
   it("falls back to page 1 when requesting page 2 within 10 items", async () => {
     mockedSearchParams = "page=2";
-    await renderWithProvider(<Posts posts={[...createPosts()]} />);
+    await renderWithProvider(
+      <Posts posts={[...createPosts()]} rssUrl="https://example.com/rss.xml" />,
+    );
 
     const links = Array.from(
       document.querySelectorAll<HTMLAnchorElement>(
@@ -175,9 +179,26 @@ describe("Posts", () => {
 
   it("prefills the search input from the query string", async () => {
     mockedSearchParams = "q=TypeScript";
-    await renderWithProvider(<Posts posts={[...createPosts()]} />);
+    await renderWithProvider(
+      <Posts posts={[...createPosts()]} rssUrl="https://example.com/rss.xml" />,
+    );
 
     const input = document.querySelector<HTMLInputElement>("input");
     expect(input?.value).toBe("TypeScript");
+  });
+
+  it("renders subscription section under filters with rss button", async () => {
+    mockedSearchParams = "";
+    await renderWithProvider(
+      <Posts posts={[...createPosts()]} rssUrl="https://example.com/rss.xml" />,
+    );
+
+    expect(document.body.textContent ?? "").toContain("絞り込み");
+    expect(document.body.textContent ?? "").toContain("購読する");
+    expect(
+      document
+        .querySelector('a[aria-label="RSSをフォロー"]')
+        ?.getAttribute("href"),
+    ).toBe("https://example.com/rss.xml");
   });
 });

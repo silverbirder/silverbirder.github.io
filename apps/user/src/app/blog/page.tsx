@@ -42,6 +42,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const posts = await getPostList();
+  const rssUrl = buildSiteUrl("rss.xml");
 
-  return <Posts posts={posts} />;
+  return <Posts posts={posts} rssUrl={rssUrl} />;
 }

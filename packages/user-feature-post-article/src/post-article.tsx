@@ -80,7 +80,6 @@ export const PostArticle = ({
       bluesky: t("followBlueskyLabel"),
       github: t("followGithubLabel"),
       heading: t("followHeading"),
-      rss: t("followRssLabel"),
       threads: t("followThreadsLabel"),
       x: t("followXLabel"),
     },
@@ -91,6 +90,11 @@ export const PostArticle = ({
     name: slug,
     namespace: COUNTER_NAMESPACE,
     title: meta.title,
+  };
+  const subscription = {
+    heading: t("subscribeHeading"),
+    label: t("followRssLabel"),
+    url: followLinks.rss,
   };
 
   return (
@@ -106,6 +110,7 @@ export const PostArticle = ({
         publishedAt={meta.publishedAt}
         relatedPosts={relatedPosts}
         share={share}
+        subscription={subscription}
         tags={meta.tags}
         title={meta.title}
       >

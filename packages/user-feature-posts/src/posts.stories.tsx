@@ -52,6 +52,7 @@ const basePosts: PostSummary[] = [
 const meta = {
   args: {
     posts: basePosts,
+    rssUrl: "https://example.com/rss.xml",
   },
   component: Posts,
   title: "Feature/User/Posts",

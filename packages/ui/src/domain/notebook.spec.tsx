@@ -83,6 +83,11 @@ describe("Notebook", () => {
           text: "Share text",
           url: "https://example.com",
         }}
+        subscription={{
+          heading: "購読する",
+          label: "RSSをフォロー",
+          url: "https://example.com/rss.xml",
+        }}
         tags={[]}
         title="Notebook Preview"
       >
@@ -92,12 +97,15 @@ describe("Notebook", () => {
 
     expect(container.textContent ?? "").toContain("Share");
     expect(container.textContent ?? "").toContain("Follow");
+    expect(container.textContent ?? "").toContain("購読する");
 
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
     const followLink = container.querySelector('a[aria-label="Xをフォロー"]');
+    const rssLink = container.querySelector('a[aria-label="RSSをフォロー"]');
 
     expect(shareLink).not.toBeNull();
     expect(followLink).not.toBeNull();
+    expect(rssLink).not.toBeNull();
   });
 
   it("renders related posts grouped by heading", async () => {

@@ -24,6 +24,7 @@ import { NotebookLike } from "./notebook-like";
 import { NotebookPostItem } from "./notebook-post-item";
 import { NOTEBOOK_LINE_HEIGHT, NotebookProse } from "./notebook-prose";
 import { RobotBadge } from "./robot-badge";
+import { RssButton } from "./rss-button";
 import { ShareButtonBluesky } from "./share-button-bluesky";
 import { ShareButtonCopy } from "./share-button-copy";
 import { ShareButtonFacebook } from "./share-button-facebook";
@@ -63,6 +64,7 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   publishedAt?: string;
   relatedPosts: RelatedPostGroup[];
   share?: ShareSection;
+  subscription?: SubscriptionSection;
   tags: string[];
   title: string;
 };
@@ -99,6 +101,12 @@ type ShareSection = {
   url: string;
 };
 
+type SubscriptionSection = {
+  heading: string;
+  label: string;
+  url: string;
+};
+
 export const Notebook = ({
   children,
   follow,
@@ -111,6 +119,7 @@ export const Notebook = ({
   publishedAt,
   relatedPosts,
   share,
+  subscription,
   tags,
   title,
   ...notebookProps
@@ -380,6 +389,21 @@ export const Notebook = ({
                   </a>
                 </Button>
               ))}
+            </Stack>
+          </Box>
+        )}
+        {subscription && (
+          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
+            <Heading as="h2" textAlign="center">
+              {subscription.heading}
+            </Heading>
+            <Stack align="center" direction="row" justify="center">
+              <RssButton
+                height={actionButtonSize}
+                label={subscription.label}
+                url={subscription.url}
+                width={actionButtonSize}
+              />
             </Stack>
           </Box>
         )}

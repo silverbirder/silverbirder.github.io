@@ -9,7 +9,6 @@ describe("createFollowSection", () => {
         bluesky: "Blueskyをフォロー",
         github: "GitHubをフォロー",
         heading: "フォローする",
-        rss: "RSSをフォロー",
         threads: "Threadsをフォロー",
         x: "Xをフォロー",
       },
@@ -23,7 +22,7 @@ describe("createFollowSection", () => {
     });
 
     expect(follow.heading).toBe("フォローする");
-    expect(follow.items).toHaveLength(5);
+    expect(follow.items).toHaveLength(4);
     expect(follow.items[0]).toMatchObject({
       href: "https://example.com/x",
       label: "Xをフォロー",
@@ -39,10 +38,6 @@ describe("createFollowSection", () => {
     expect(follow.items[3]).toMatchObject({
       href: "https://example.com/threads",
       label: "Threadsをフォロー",
-    });
-    expect(follow.items[4]).toMatchObject({
-      href: "https://example.com/rss",
-      label: "RSSをフォロー",
     });
   });
 });

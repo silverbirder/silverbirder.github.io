@@ -3,7 +3,13 @@
 import type { Route } from "next";
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
-import { Notebook, NotebookPostItem, Tag, ViewTransitionLink } from "@repo/ui";
+import {
+  Notebook,
+  NotebookPostItem,
+  RssButton,
+  Tag,
+  ViewTransitionLink,
+} from "@repo/ui";
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -27,9 +33,10 @@ const ELLIPSIS = "…";
 
 type Props = {
   posts: PostSummary[];
+  rssUrl: string;
 };
 
-export const Posts = ({ posts }: Props) => {
+export const Posts = ({ posts, rssUrl }: Props) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const searchQueryParam = searchParams.get("q") ?? "";
@@ -48,6 +55,7 @@ export const Posts = ({ posts }: Props) => {
 
   const t = useTranslations("user.blog");
   const metaSeparator = t("metaSeparator");
+  const actionButtonSize = "var(--notebook-line-height)";
   const normalizedPosts = normalizePosts(posts);
   const postsBySlug = useMemo(() => {
     return new Map(normalizedPosts.map((post) => [post.slug, post]));
@@ -313,54 +321,72 @@ export const Posts = ({ posts }: Props) => {
               </Box>
             )}
           </Box>
-          {searchQuery.length === 0 &&
-            (availableYears.length > 0 || availableTags.length > 0) && (
-              <Box
-                flexBasis="calc(var(--notebook-line-height) * 6)"
-                flexGrow={9999}
-              >
+          {searchQuery.length === 0 && (
+            <Box
+              flexBasis="calc(var(--notebook-line-height) * 6)"
+              flexGrow={9999}
+            >
+              <Stack gap="var(--notebook-line-height)">
+                {(availableYears.length > 0 || availableTags.length > 0) && (
+                  <Stack gap="var(--notebook-line-height)">
+                    <Heading as="h2" lineHeight="var(--notebook-line-height)">
+                      {t("filtersTitle")}
+                    </Heading>
+                    {availableYears.length > 0 && (
+                      <Box>
+                        <Stack direction="row" gap={0} wrap="wrap">
+                          {availableYears.map((year) => (
+                            <Tag
+                              href={buildHref({
+                                page: null,
+                                year: selectedYear === year ? null : year,
+                              })}
+                              iconType="year"
+                              isSelected={selectedYear === year}
+                              key={year}
+                              mr={2}
+                              tag={year}
+                            />
+                          ))}
+                        </Stack>
+                      </Box>
+                    )}
+                    {availableTags.length > 0 && (
+                      <Box>
+                        <Stack direction="row" gap={0} wrap="wrap">
+                          {availableTags.map((tag) => (
+                            <Tag
+                              href={buildHref({
+                                page: null,
+                                tag: selectedTag === tag ? null : tag,
+                              })}
+                              isSelected={selectedTag === tag}
+                              key={tag}
+                              mr={2}
+                              tag={tag}
+                            />
+                          ))}
+                        </Stack>
+                      </Box>
+                    )}
+                  </Stack>
+                )}
                 <Stack gap="var(--notebook-line-height)">
-                  <Heading as="h2">{t("filtersTitle")}</Heading>
-                  {availableYears.length > 0 && (
-                    <Box>
-                      <Stack direction="row" gap={0} wrap="wrap">
-                        {availableYears.map((year) => (
-                          <Tag
-                            href={buildHref({
-                              page: null,
-                              year: selectedYear === year ? null : year,
-                            })}
-                            iconType="year"
-                            isSelected={selectedYear === year}
-                            key={year}
-                            mr={2}
-                            tag={year}
-                          />
-                        ))}
-                      </Stack>
-                    </Box>
-                  )}
-                  {availableTags.length > 0 && (
-                    <Box>
-                      <Stack direction="row" gap={0} wrap="wrap">
-                        {availableTags.map((tag) => (
-                          <Tag
-                            href={buildHref({
-                              page: null,
-                              tag: selectedTag === tag ? null : tag,
-                            })}
-                            isSelected={selectedTag === tag}
-                            key={tag}
-                            mr={2}
-                            tag={tag}
-                          />
-                        ))}
-                      </Stack>
-                    </Box>
-                  )}
+                  <Heading as="h2" lineHeight="var(--notebook-line-height)">
+                    {t("subscribeHeading")}
+                  </Heading>
+                  <Stack direction="row">
+                    <RssButton
+                      height={actionButtonSize}
+                      label={t("followRssLabel")}
+                      url={rssUrl}
+                      width={actionButtonSize}
+                    />
+                  </Stack>
                 </Stack>
-              </Box>
-            )}
+              </Stack>
+            </Box>
+          )}
         </Stack>
       </Notebook>
     </Box>

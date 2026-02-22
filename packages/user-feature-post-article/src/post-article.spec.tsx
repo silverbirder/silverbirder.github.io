@@ -231,6 +231,7 @@ return {
     const bodyText = document.body.textContent ?? "";
     expect(bodyText).toContain("シェアする");
     expect(bodyText).toContain("フォローする");
+    expect(bodyText).toContain("購読する");
     expect(document.querySelector('a[aria-label="Xでシェア"]')).not.toBeNull();
     expect(
       document.querySelector('a[aria-label="Blueskyでシェア"]'),
@@ -268,6 +269,9 @@ return {
     expect(
       document.querySelector('a[aria-label="RSSをフォロー"]'),
     ).not.toBeNull();
+    expect(
+      document.querySelectorAll('a[aria-label="RSSをフォロー"]'),
+    ).toHaveLength(1);
   });
 
   it("renders scroll progress bar", async () => {

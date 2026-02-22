@@ -1,16 +1,27 @@
 "use client";
 
+import type { ComponentProps } from "react";
+
 import { Button, Icon } from "@chakra-ui/react";
 import { MdRssFeed } from "react-icons/md";
 
 type Props = {
+  height?: ComponentProps<typeof Button>["h"];
   label: string;
   loading?: boolean;
   loadingText?: string;
   url: string;
+  width?: ComponentProps<typeof Button>["w"];
 };
 
-export const RssButton = ({ label, loading, loadingText, url }: Props) => {
+export const RssButton = ({
+  height = 9,
+  label,
+  loading,
+  loadingText,
+  url,
+  width = 9,
+}: Props) => {
   const ariaLabel = loading && loadingText ? loadingText : label;
 
   return (
@@ -24,13 +35,13 @@ export const RssButton = ({ label, loading, loadingText, url }: Props) => {
       bg="#f97316"
       borderRadius="full"
       color="white"
-      h={9}
+      h={height}
       loading={loading}
-      minW={9}
+      minW={width}
       p={0}
       size="sm"
       variant="solid"
-      w={9}
+      w={width}
     >
       <a href={url} rel="noopener noreferrer" target="_blank">
         <Icon size="sm">

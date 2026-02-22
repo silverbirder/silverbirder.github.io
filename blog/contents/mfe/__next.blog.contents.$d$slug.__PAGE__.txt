@@ -1,0 +1,345 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T503b,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "micro-frontends-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#micro-frontends-とは",
+        children: "Micro Frontends とは?🤔"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["皆さん、 ", _jsx(_components.strong, {
+        children: "Micro Fronends"
+      }), " (以下、MFE)をご存知でしょうか。説明をざっくりしますと、Microservices の考え方をフロントエンドまで拡張した考え方です。Microservices は、バックエンド側で適用される事例をよく耳にしますが、フロントエンドでの適用事例は、あまり聞いたことがありません。"]
+    }), "\n", _jsx(_components.p, {
+      children: "従来、Web サービス開発ではモノリスな構成からスタートします。そこから、規模が拡大するにつれて様々な理由により、フロントエンドとバックエンドの分離、バックエンドの Microservices 化が行われます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://micro-frontends-japanese.org/",
+        children: _jsx(_components.img, {
+          src: "https://micro-frontends-japanese.org/resources/monolith-frontback-microservices.png",
+          alt: "[翻訳記事]マイクロフロントエンド > monolith-frontback-microservices"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Microservices 化によって、Scalability、Agility、Independency、Availability の大幅な向上が期待できます。しかし、依然フロントエンドはモノリスなままです。そこで、次の画像のように、Microservices と同様にフロントエンドも縦(専門領域)に分割します。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://micro-frontends-japanese.org/",
+        children: _jsx(_components.img, {
+          src: "https://micro-frontends-japanese.org/resources/verticals-headline.png",
+          alt: "[翻訳記事]マイクロフロントエンド > verticals-headline"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ただし、全ての Web サービスを MFE にする必要はありません。先程の説明にもあった通り、規模が拡大した際に MFE を検討する必要があるため、小・中規模の Web サービスでは時期尚早です。また、次の画像にもある通り、静的ページ(Web サイト,Web ドキュメント)や動的ページ(Web アプリ)の両極端に位置する Web サービスは MFE の適用するのには不向きです(と書いています)。両方の要素が求められる Web サービスに MFE が役立ちます。MFE の適用される Web サービス事例では、EC サイトが挙げられます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.linkedin.com/pulse/microfrontends-approach-building-scalable-web-apps-vinci-rufus",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1613832627/silver-birder.github.io/blog/mfe-web-document-to-web-app.png",
+          alt: "Microfrontends: An approach to building Scalable Web Apps"
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ MFE という言葉は、", _jsx(_components.a, {
+        href: "https://www.thoughtworks.com/radar/techniques/micro-frontends",
+        children: "Micro frontends | Technology Radar | ThoughtWorks"
+      }), " の記事より生まれたみたいです。\n※ ", _jsx(_components.a, {
+        href: "https://www.manning.com/books/micro-frontends-in-action",
+        children: "Micro Frontends in Action"
+      }), "にも記載されていますが、この考え方は Web サービスを対象としており、ネイティブアプリは対象としていません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "導入企業-",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#導入企業-",
+        children: "導入企業 👨‍💼👩‍💼"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["実績企業としては、IKEA、DAZN、Spotify などが挙げられます。他の例は、", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/think_micro_frontends/",
+        children: "Micro Frontends を調べたすべて"
+      }), " にリストアップしていますので、興味がある方はご覧ください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "メリットデメリット-",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メリットデメリット-",
+        children: "メリット・デメリット 🔍"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "MFE を導入することによるメリット・デメリットについて、(プロダクション導入経験無しの私が偏見で)簡単に紹介します。Microservices のメリット・デメリットと似ていると思います。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が思う最大のメリットは、 ", _jsx(_components.strong, {
+        children: "Agility"
+      }), " と思います。規模が中・大規模な Web サービスとなると、様々な業務ドメインが詰め込まれます。先程の MFE の例(EC サイト)でいうと、推薦(inspire)、検索(search)、商品(product)、注文(checkout)などにあたります。これらを 1 つのフロントエンドで構築すると、ドメイン設計を適切に分離できたとしても、 ", _jsx(_components.strong, {
+        children: "開発者の業務ドメイン知識が追いつかず、開発スピードが低下してしまいます"
+      }), " 。結果、特定の開発者の属人化が加速し、ボトルネックとなります。\nそこで、それぞれ ", _jsx(_components.strong, {
+        children: "業務ドメインを分割することで、開発者はそこだけにフォーカスできます。結果、開発スピードは維持できるはずです"
+      }), " 。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が思う最大のデメリットは、 ", _jsx(_components.strong, {
+        children: "Independency の難しさ"
+      }), " だと思います。例えば、UI/UX の指針となるデザインシステムが Web サービスにあったとして、それをすべてのフロントエンドへ適用しなければいけません。そのため、全体を通した ", _jsx(_components.strong, {
+        children: "一貫性のある UI/UX であるかどうか"
+      }), " の品質担保が難しいです。\n他には、あるチームのビルドツールを改善したとしても、他のチームではその恩恵を受けれなかったり、アプリケーション設計における全体共通(アクセス履歴、イベント管理、状態管理など)部分を、どうするか考える必要があります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["こちら ", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/think_micro_frontends/#proscons",
+        children: "Micro Frontends を調べたすべて#ProsCons"
+      }), " にも簡単にメリット・デメリットを書いていますので、気になる方はご覧ください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "統合パターン-",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#統合パターン-",
+        children: "統合パターン 🔮"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "MFE では、各フロントエンドのフラグメント(HTML)を、どのタイミングで統合するのかが重要です。今回はその統合パターンをざっくり紹介します。\n例えば、次の MFE の例で言えば、Team-Product、Team-Checkout、Team-Inspire の 3 つのフロントエンドフラグメント(HTML)があります。これらをどのタイミングで統合するのかがポイントです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://micro-frontends-japanese.org/",
+        children: _jsx(_components.img, {
+          src: "https://micro-frontends-japanese.org/resources/three-teams.png",
+          alt: "[翻訳記事]マイクロフロントエンド > mfe-three-teams"
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["詳しくは、", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/think_micro_frontends/",
+        children: "Micro Frontends を調べたすべて#統合パターン"
+      }), " をご覧ください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ビルド時統合パターン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ビルド時統合パターン",
+        children: "ビルド時統合パターン"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ビルド時統合とは、Web サービスを Publish する前の Build の段階で統合するパターンです。このパターンは、", _jsx(_components.a, {
+        href: "https://bit.dev",
+        children: "bit.dev"
+      }), "がよく使われます。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://bit.dev/",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376955/silver-birder.github.io/blog/e74w0sjnj1r0zpzvd5xfvsk7k1bd.png",
+          alt: "bit.dev"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "フラグメントを Packaging し、Packaging したライブラリを import させて build(統合)します。あとは、build した静的コンテンツを Publish させるだけになります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "サーバーサイド統合パターン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#サーバーサイド統合パターン",
+        children: "サーバーサイド統合パターン"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サーバーサイド統合とは、Web サーバー側の HTML 構築段階で統合するパターンです。このパターンは、SSI や ESI、Podium、Tailor、Ara-Framework などが使われます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.st-andrews.ac.uk/itsnew/web/ssi/index.shtml",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376958/silver-birder.github.io/blog/ssi1.jpg",
+          alt: "Server-side includes (SSI)"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "フラグメントを提供するサーバーを準備し、それらからフラグメント情報を収集し、全体のページ HTML を構築します。それを SSR としてユーザーへ提供します。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/silverbirder/micro-frontends-sample-code-5",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376972/silver-birder.github.io/blog/overview.svg",
+          alt: "cloudflare-worker"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サーバーサイドのサンプルコードは、次にまとめています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/microfrontends/",
+          children: "Micro Frontends を学んだすべて"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/ara-framework/",
+          children: "Ara-Framework で Micro Frontends with SSR"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/tailor/",
+          children: "Zalando tailor で Micro Frontends with ( LitElement & etcetera)"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、サーバーサイドというより Edge での統合パターンを下記リンクで紹介しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/cloudflare_workers_mfe/",
+          children: "Cloudflare Workers (Edge Workers) で Micro Frontends"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ リッチなインタラクション UI を表現したいなら、サーバーサイドとクライアントの Hydration をする必要があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "クライアントサイド統合パターン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#クライアントサイド統合パターン",
+        children: "クライアントサイド統合パターン"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "クライアントサイド統合とは、ブラウザ側レンダリングの段階で統合するパターンです。このパターンは、iframe や WebComponents などが使われます。"
+    }), "\n", _jsx(_components.p, {
+      children: "iframe を使ったページ(フラグメント)埋め込み、全体のページ HTML を統合させたり、WebComponents のようにカスタムエレメントを定義した HTML タグでページを構成したりします。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://bluesoft.com/micro-frontends-the-missing-piece-of-the-puzzle-in-feature-teams/",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376976/silver-birder.github.io/blog/Micro-Frontends-11.jpg",
+          alt: "Micro Frontends – The Missing Piece Of The Puzzle In Feature Teams | BlueSoft"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに-",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに-",
+        children: "終わりに 👨‍💻👩‍💻"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "MFE のアプローチを実際に導入した企業は、国内だとまだ比較的少なく、どういった場面で役立つのかあまり明確ではありません。また、書籍や知見も多くはないため、未知な領域と思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、依然フロントエンドがモノリスな、中・大規模な Web サービスを運用するならば、特に進化が激しいフロントエンド界隈の中で、サービス提供の速度、品質を維持するのは難しいと思います。フロントエンドも Microservices 化する場面が訪れるかもしれません。そんなときに、この記事を思い出して頂ければ幸いです。"
+    }), "\n", _jsx(_components.p, {
+      children: "※ 独り言ですが、MFE の構築アプローチとして、Edge Worker + Web Components の組み合わせが最近好みです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "関連リンク-",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#関連リンク-",
+        children: "関連リンク 🔗"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私が書いた MFE 関連の記事です。もしよければご覧ください。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/microfrontends/",
+          children: "Micro Frontends を学んだすべて"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/think_micro_frontends/",
+          children: "Micro Frontends を調べたすべて"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/think-micro-frontends/blob/master/research/docs/read.md",
+          children: "MFE 関連資料リンク集"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/ara-framework/",
+          children: "Ara-Framework で Micro Frontends with SSR"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/tailor/",
+          children: "Zalando tailor で Micro Frontends with ( LitElement & etcetera)"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/cloudflare_workers_mfe/",
+          children: "Cloudflare Workers (Edge Workers) で Micro Frontends"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-on-kubernetes",
+          children: "github.com/silverbirder/micro-frontends-on-kubernetes"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial",
+          children: "speakerdeck.com/silverbirder/micro-frontends-on-kubernetes-trial"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/think-micro-frontends",
+          children: "github.com/silverbirder/think-micro-frontends"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-sample-code",
+          children: "github.com/silverbirder/micro-frontends-sample-code"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-sample-code-2",
+          children: "github.com/silverbirder/micro-frontends-sample-code-2"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-sample-code-3",
+          children: "github.com/silverbirder/micro-frontends-sample-code-3"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-sample-code-4",
+          children: "github.com/silverbirder/micro-frontends-sample-code-4"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/micro-frontends-sample-code-5",
+          children: "github.com/silverbirder/micro-frontends-sample-code-5"
+        })
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":56,"publishedAt":"2020-11-19","tags":["フロントエンド"],"title":"［覚書］ Micro Frontends"},"navigation":{"next":{"href":"/blog/contents/arch-unit","publishedAt":"2020-11-28","title":"TypescriptでArchUnitしてみた"},"prev":{"href":"/blog/contents/cloudflare_workers_mfe","publishedAt":"2020-11-15","title":"Cloudflare Workers (Edge Worker) で Micro Frontends"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/mfe/","slug":"mfe"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

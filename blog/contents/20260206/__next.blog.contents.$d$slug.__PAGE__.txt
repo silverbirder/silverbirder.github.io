@@ -1,0 +1,138 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T172d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    p: "p",
+    span: "span",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ブログ記事のページ下部に、Disqusを設置しています。", _jsx(_components.br, {}), "\n急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "disqusのメール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#disqusのメール",
+        children: "Disqusのメール"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "メールボックスを漁ってみると、以下のメールがありました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1770378661/silver-birder.github.io/blog/vaqffcebgj7gf0mk9fio.png",
+        alt: "Disqusからのメール"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Ads will begin appearing on your comment section shortly."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "え！ 広告が表示されるようになるの！？ なんで！？"
+    }), "\n", _jsx(_components.h2, {
+      id: "snsを見てみると",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#snsを見てみると",
+        children: "SNSを見てみると"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アクセス数が増えると、広告が発生するようになる説みたい？", _jsx(_components.br, {}), "\n以前は、そんな広告なかったのに。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そういえば、つい最近 Disqus APIを1時間に1回、100回ぐらいAPIコールするようにしました。", _jsx(_components.br, {}), "\nそれも原因なのでしょうか？"]
+    }), "\n", _jsx(_components.p, {
+      children: "原因はなんにせよ、広告が酷いので削除しちゃいたいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "代わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#代わりに",
+        children: "代わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Disqusのいいねボタンだけ欲しいのです。", _jsx(_components.br, {}), "\nCounterAPI で良いねボタンだけ作ろうかしら？"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://counterapi.dev/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "CounterAPI - Simple REST API for Tracking Metrics"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Free unlimited counter API for tracking website traffic and user engagement. Multiple language support with JavaScript and Go libraries."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/71f10273f7962cf50e047622fd580836815e4c37817b8f029d10249aaeb4a1bd.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "counterapi.dev"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5881efbb34bec9c1100b976a6d297b6b6441548c02ce2b693f3a79f9457f1ecf.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これぐらいだったら、自作でも良さそう。", _jsx(_components.br, {}), "\nというわけで、即席でいいねボタンを作成しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "忘れずに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#忘れずに",
+        children: "忘れずに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["消しちゃうと、いいねのデータが全部消えてしまうのはもったいないです。", _jsx(_components.br, {}), "\nAPI等で、いいねのデータを集めておこうかなと思います。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":true,"postNumber":250,"publishedAt":"2026-02-06","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},"navigation":{"next":{"href":"/blog/contents/20260207","publishedAt":"2026-02-07","title":"チュッパチャプス自販機"},"prev":{"href":"/blog/contents/20260205","publishedAt":"2026-02-05","title":"世の食べ放題の種類"}},"relatedPosts":[{"posts":[{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2024-03-21","slug":"try-million-lint","summary":"Million.devを知り、少し試してみました。Million.jsについて このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。 パフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。","tags":["テスト","開発ツール"],"title":"Million Lintを試してみた"},{"publishedAt":"2023-01-03","slug":"automated_synchronisation_using_github_actions_and_pull_requests","summary":"あけまして、おめでとうございます。神社のおみくじで、人生はじめて大吉を引きました、silverbirder です。普段の業務で、FigmaのデザイントークンやAPIのスキーマファイル、i18nのメッセージファイルなどを、フロントエンドへ同期するコミュニケーションが不毛に感じています。そこで、GitHub ActionsとPull Requestを活用して、同期コミュニケーションを削減する仕組みを紹介します。","tags":["DevOps","開発ツール"],"title":"GitHub ActionsとPull Requestを活用した、同期の自動化"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260206/","slug":"20260206"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

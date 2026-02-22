@@ -1,0 +1,1305 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tc467,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    code: "code",
+    div: "div",
+    figure: "figure",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "みなさん、こんにちは。silverbirder です。\n私の最近の興味として、Micro Frontends があります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/microfrontends",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Micro Frontends を学んだすべて"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Micro FrontendsというWebフロントエンドアーキテクチャがあります。このアーキテクチャを知るために、書籍を読み、簡単なサンプルWebアプリを開発しました。そこから学んだことをすべて議事録として残したいと思います。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/4c828d26c3cbda6c298ea92f1f8e7c4883f33752b85c2bdfaf82739072787329",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "silverbirder.github.io"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/43e1602082a09b05ea8b3868ed176a8b08ffb161b766daa629c4d66bf948b973.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "今、Ara-Framework というフレームワークを使った Micro Frontends のアプローチ方法を学んでいます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ara-framework-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ara-framework-とは",
+        children: "Ara-Framework とは"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Build Micro-frontends easily using Airbnb Hypernova"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://ara-framework.github.io/website/",
+        children: "https://ara-framework.github.io/website/"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "Ara-Framework は、Airbnb が開発した Hypernova というフレームワークを使って、Micro Frontends を構築します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "airbnb-hypernova-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#airbnb-hypernova-とは",
+        children: "Airbnb Hypernova とは"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "A service for server-side rendering your JavaScript views"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://github.com/airbnb/hypernova",
+        children: "https://github.com/airbnb/hypernova"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "簡単に説明すると、Hypernova はデータを渡せばレンダリング結果(HTML)を返却してくれるライブラリです。\nこれにより、データ構築とレンダリングを明確に分離することができるメリットがあります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ara-framework-アーキテクチャ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ara-framework-アーキテクチャ",
+        children: "Ara-Framework アーキテクチャ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Ara-Framework のアーキテクチャ図は、次のようなものです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1693362600/silver-birder.github.io/blog/1%2A43CBDwIZ8P2q_ZfGg_ktUQ.png",
+        alt: "ara framework overview"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://ara-framework.github.io/website/docs/nova-architecture",
+        children: "https://ara-framework.github.io/website/docs/nova-architecture"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "構成要素は、次のとおりです。(↑ の公式ページにも説明があります)"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Nova Proxy\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブラウザのアクセスを Layout へプロキシします。"
+          }), "\n", _jsx(_components.li, {
+            children: "Layout から返却された HTML をパースし、Hypernova のプレースホルダーがあれば、Nova Cluster へ問い合わせします。"
+          }), "\n", _jsx(_components.li, {
+            children: "Nova Cluster から返却された HTML を、Hypernova のプレースホルダーに埋め込み、ブラウザへ HTML を返却します。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Nova Directive (Layout)\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "全体の HTML を構築します。Hypernova のプレースホルダーを埋め込みます。"
+          }), "\n", _jsx(_components.li, {
+            children: "Node.js, Laravel, Jinja2 が対応しています。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Nova Cluster\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Nova Binding を管理するクラスタです。"
+          }), "\n", _jsx(_components.li, {
+            children: "Nova Proxy と Nova Bindings の間に位置します。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Nova Bindings (Hypernova)\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "データを渡されて、HTML をレンダリングした結果を返します。 (Hypernova をここで使います)"
+          }), "\n", _jsx(_components.li, {
+            children: "React, Vue.js, Angular, Svelte, Preact が対応しています。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "このように、Layout と Rendering (Nova Bindings) を明確に分けることで、独立性、スケーラビリティ性が良いのかなと感じます。\n各レイアの間にキャッシュレイヤを設けることでパフォーマンス向上も期待できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "詳しくは、公式ページをご確認下さい。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ara-framework-サンプルコード",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ara-framework-サンプルコード",
+        children: "Ara-Framework サンプルコード"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Ara-Framework を実際に使ってみました。サンプルコードは下記にあげています。\n", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/micro-frontends-sample-code-2",
+        children: "https://github.com/silverbirder/micro-frontends-sample-code-2"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "package.json はこんな感じです。"
+    }), "\n", _jsx(_components.p, {
+      children: "package.json"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "json",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "json",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  \"scripts\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"cluster\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"cd cluster && PORT=5000 ara run:cluster --config ./views.json\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"layout\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"cd layout && PORT=8080 node ./bin/www\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"proxy\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"cd proxy && HYPERNOVA_BATCH=http://localhost:5000/batch PORT=8000 ara run:proxy --config ./nova-proxy.json\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"search:dev\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"cd search && PORT=3000 ./node_modules/webpack/bin/webpack.js --watch --mode development\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"product:dev\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"cd product && PORT=3001 ./node_modules/webpack/bin/webpack.js --watch --mode development\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"dev\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"concurrently -n cluster,layout,proxy,search,product "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm run cluster"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " \\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm run layout"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " \\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm run proxy"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " \\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm run search:dev"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " \\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm run product:dev"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "作っていく手順は、次の流れです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Nova Proxy を作成"
+      }), "\n", _jsx(_components.li, {
+        children: "Nova Directive (Layout) を作成"
+      }), "\n", _jsx(_components.li, {
+        children: "Nova Cluster を作成"
+      }), "\n", _jsx(_components.li, {
+        children: "Nova Bindings (Hypernova) を作成"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Ara-Framework を使うためには、次の準備をしておく必要があります。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "npm i -g ara-cli"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "nova-proxy",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nova-proxy",
+        children: "Nova Proxy"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Nova Proxy は、Nova Directive へ Proxy しますので、その host を書きます。"
+    }), "\n", _jsx(_components.p, {
+      children: "nova-proxy.json"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "json",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "json",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "{"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  \"locations\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": ["
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "    {"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "      \"path\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"/\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "      \"host\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"http://localhost:8080\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "      \"modifyResponse\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "true"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "    }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  ]"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、Nova Proxy は、Nova Cluster へ問い合わせするため、", _jsx(_components.code, {
+        children: "HYPERNOVA_BATCH"
+      }), " という変数に URL を指定する必要があります。\nNova Proxy を動かすときは、次のコマンドを実行します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "HYPERNOVA_BATCH=http://localhost:5000/batch PORT=8000 ara run:proxy --config ./nova-proxy.json"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "nova-directive-layout",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nova-directive-layout",
+        children: "Nova Directive (Layout)"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Nova Directvie は、", _jsx(_components.code, {
+        children: "hypernova-handlebars-directive"
+      }), " を使います。\nこれは、Node.js の handlebars テンプレートエンジン(hbs)で使えます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Express の雛形を生成します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "npx express-generator -v hbs layout"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "詳細は割愛しますが、次の HTML ファイル(hbs)を作成します。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ 詳しくはこちら ", _jsx(_components.a, {
+        href: "https://ara-framework.github.io/website/docs/render-on-page",
+        children: "https://ara-framework.github.io/website/docs/render-on-page"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "layout/index.hbs"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<h1>{{title}}</h1>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<p>Welcome to {{title}}</p>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "{{>nova name=\"Search\" data-title=title }}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<script src=\"http://localhost:3000/public/client.js\"></script>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<script src=\"http://localhost:3001/public/client.js\"></script>"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "{{>nova}}"
+      }), " が Hypernova のプレースホルダーである ", _jsx(_components.code, {
+        children: "hypernova-handlebars-directive"
+      }), " です。\nname は、Nova Bindings の名前 (後ほど説明します)、data-*は、Nova Bindings に渡すデータです。\nまた、script で client.js を load しているのは、CSR を実現するためです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "動かすのは、Express を動かすときと同じで、次になります。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "PORT=8080 node ./bin/www"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "nova-cluster",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nova-cluster",
+        children: "Nova Cluster"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Nova Cluster は、Nova Bindings を管理します。"
+    }), "\n", _jsx(_components.p, {
+      children: "views.json"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "json",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "json",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "{"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  \"Search\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"server\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"http://localhost:3000/batch\""
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  },"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  \"Product\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"server\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"http://localhost:3001/batch\""
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Search や Product は、後ほど作成する Nova Bindings の名前です。server は、Nova Bindings が動いている URL です。"
+    }), "\n", _jsx(_components.p, {
+      children: "Nova Cluster を動かすときは、次のコマンドを実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "PORT=5000 ara run:cluster --config ./views.json"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "nova-bindings",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nova-bindings",
+        children: "Nova Bindings"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Nova Bindings を作るために、次のコマンドを実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "ara new:nova search -t react"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "ara new:nova product -t vue"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "そこから、自動生成されたディレクトリから、少し修正したものが次のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: "search/Search.jsx"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "import React, { Component } from 'react'"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "import { Nova } from 'nova-react-bridge'"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "class Search extends Component {"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "  render() {"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "      <div>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "        <div>Search Components!</div>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "        <table>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "          <tr>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "            {['🐙', '🐳', '🐊', '🐍', '🐷', '🐶', '🐯'].map((emoji, key) => {"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "              return <td key={key}>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "                <Nova"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "                  name=\"Product\""
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "                  data={{title: emoji}}/>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "              </td>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "            })}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "          </tr>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "        </table>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "      </div>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今までの説明ではなかったですが、Nova Bridge である ", _jsx(_components.code, {
+        children: "nova-react-bridge"
+      }), " を使っています。\nこれは、Nova Directive に似ているのですが、使えるファイルが React や Vue.js などの JS フレームワークに対応しています。\nそのため、Nuxt.js や Next.js,Gatsby.js にも使えるようになります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ わかりにくいですが、このサンプルの Nova Bridge は、CSR で動作します。SSR で動作させるためには、Nova Proxy を挟む必要が (たぶん) あります。"
+    }), "\n", _jsx(_components.p, {
+      children: "product/Product.vue"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<template>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "  <div>{{title}}</div>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "</template>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "<script>"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "export default {"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "  props: ['title']"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "</script>"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Nova Bindings のこれらを動作させるためには、次のコマンドを実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "## search"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "PORT=3000 ./node_modules/webpack/bin/webpack.js --watch --mode development"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "## product"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "PORT=3001 ./node_modules/webpack/bin/webpack.js --watch --mode development"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "動作確認",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動作確認",
+        children: "動作確認"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今まで紹介したものを同時に実行する必要があります。\nそこで、", _jsx(_components.code, {
+        children: "concurrently"
+      }), " を使います。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "concurrently -n cluster,layout,proxy,search,product \"npm run cluster\" \"npm run layout\" \"npm run proxy\" \"npm run search:dev\" \"npm run product:dev\""
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "動作として、次のような画像になります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430832/silver-birder.github.io/blog/nova_results.png",
+        alt: "nova results"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "繰り返しますが、Ara-Framework を使うとデータ構築(Nova Directive)とレンダリング(Nova Bindings)を明確に分離できます。\nまた、レンダリング部分は、それぞれ独立できます。今回紹介していない API 部分は、誰がどのように管理するのか考える必要があります。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、Nova Bindings で使用する CSR 用 javascript は、重複するコードが含まれてしまい、ブラウザロード時間が長くなってしまいます。\nそこで、webpack 5 から使えるようになった Federation 機能を使って解決するとった手段があります。"
+    }), "\n", _jsx(_components.p, {
+      children: "Ara-Framework の紹介でした！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":50,"publishedAt":"2020-08-23","tags":["バックエンド","フロントエンド","成果物"],"title":"Ara-Framework で Micro Frontends with SSR"},"navigation":{"next":{"href":"/blog/contents/tailor","publishedAt":"2020-10-04","title":"Zalando tailor で Micro Frontends with ( LitElement  & etcetera)"},"prev":{"href":"/blog/contents/apache-beam-kotlin","publishedAt":"2020-07-10","title":"Apache Beam + Kotlin 開発 実践入門"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-03-07","slug":"trpc-msw-mocking","summary":"はじめに tRPCは、型安全なAPIを簡単に構築できるフレームワークです。開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。この記事では、maloguertin/msw-trpc を用いて、tRPC通信をMSWでモックする方法について解説します。実用例として、サンプルコードをGitHubリポジトリ silverbirder/trpc-msw-storybook-nextjs で共有しています。","tags":["テスト","バックエンド"],"title":"Storybook上で tRPC通信をMSWでモックする方法"},{"publishedAt":"2022-10-15","slug":"graphql_guild_ecosystem_is_useful","summary":"GraphQL Guild ってご存知ですか？GraphQL 界隈だと、Code Generator が有名と思いますが","tags":["バックエンド"],"title":"GraphQL Guildのエコシステムって便利だね"},{"publishedAt":"2022-09-03","slug":"using_stability_ai_API","summary":"Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。これを自前で動かそうとすると、GPU が必要になります。","tags":["AI","バックエンド","成果物"],"title":"Stable Diffusion API 開発"}],"tag":"バックエンド"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/ara-framework/","slug":"ara-framework"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

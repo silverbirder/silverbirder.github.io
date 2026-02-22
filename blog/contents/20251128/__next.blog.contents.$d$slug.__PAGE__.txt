@@ -1,0 +1,163 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1ed0,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Web のフロントエンド開発や、Figma でデザインを議論するときに、", _jsx(_components.br, {}), "\nよく「ここにテキストが入ります」といったモックデータを配置して進めることがあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、 ", _jsx(_components.strong, {
+        children: "想像力を高めて気づきを得る"
+      }), " という意味では、", _jsx(_components.br, {}), "\nそこに「実際に入りそうな具体的なデータ」を置いて会話した方が、", _jsx(_components.br, {}), "\n議論の精度もスピードも上がりやすいと感じています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ具体的なデータを使うべきか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ具体的なデータを使うべきか",
+        children: "なぜ具体的なデータを使うべきか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "たとえば、管理画面のブログ記事一覧ページを設計するとします。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ブログタイトル"
+      }), "\n", _jsx(_components.li, {
+        children: "PV 数"
+      }), "\n", _jsx(_components.li, {
+        children: "公開日"
+      }), "\n", _jsx(_components.li, {
+        children: "著者情報"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["といった項目が並ぶ典型的な一覧画面です。", _jsx(_components.br, {}), "\nこのとき、タイトルに"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「ここはタイトルが入ります」"
+      }), "\n", _jsx(_components.li, {
+        children: "「サンプルタイトルです」"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "PV 数に"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「9999」"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "のような架空データを入れるよりも、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "タイトル: 「CSS の技術 Tips 集」"
+      }), "\n", _jsx(_components.li, {
+        children: "PV 数: 652"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["といった “実際にありそうな数値や文言” を入れた方が、", _jsx(_components.br, {}), "\n画面のリアリティが一気に高まり、議論が自然と深まりやすいと感じています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "具体的なデータを使うことで得られるメリットは次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "議論のベースラインが揃う"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "参加者全員のイメージが自然と一致しやすい。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "会話が発散しにくい"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "特定データに縛られすぎないことは前提としても、方向性が定まりやすい。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "ユーザー体験のイメージが明確になる"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "不要な要素を削ぎ落としやすく、文言や動線の妥当性にも気づきやすい。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["もちろんデザインでは最大・最小サイズなどのケースを考慮する必要がありますが、", _jsx(_components.br, {}), "\nUX や仕様の議論では「具体的なデータ」の方が向いているかと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "時系列も一緒に考えるとより深い設計になる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#時系列も一緒に考えるとより深い設計になる",
+        children: "時系列も一緒に考えると、より深い設計になる"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["さらに、データそのものだけでなく、時系列（過去・現在・未来）を想定して会話すると、", _jsx(_components.br, {}), "\n設計の精度は格段に上がります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「初期はデータが少ないけれど、将来的に増える可能性は？」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→ 並び順や表示件数、ページングの必要性が見える。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「セミナーなどを申し込んだ後、画面はどう変化する？」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→ 状態遷移やステータス表示の設計が明確になる。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「処理中にキャンセルをしたい場合は？」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→ 戻り動作やエラーハンドリングの検討につながる。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、どのロールのユーザーがどのような状況で使うのかも合わせて考えると、", _jsx(_components.br, {}), "\n仕様の抜け漏れが減り、議論の解像度も高まります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["可能なら、自分がその画面のユーザーであるかのように想像して話すと、", _jsx(_components.br, {}), "\nさらに現実的な議論がしやすくなると思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私はこの考え方で、プランニングやデザインの議論を進めていました。", _jsx(_components.br, {}), "\nぜひ、皆さんも試してみてください。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":180,"publishedAt":"2025-11-28","tags":["仕事"],"title":"具体的なデータで議論しよう"},"navigation":{"next":{"href":"/blog/contents/20251129","publishedAt":"2025-11-29","title":"StorybookのcomposeStoryとVitestのtoMatchScreenshotを組み合わせたVRT"},"prev":{"href":"/blog/contents/20251127","publishedAt":"2025-11-27","title":"CSSで任意の色から、背景色・文字色を決める方法"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-16","slug":"20260216","summary":"先週日曜日に放送されたサザエさんで、仕事の癖についての話がありました。 私の場合はなんだろう？と思ったので、とりあえず思いつく限り書いてみます。 私の職業は、Webのソフトウェアエンジニアで、特にフロントエンド領域を専門としています。 フォ","tags":["仕事"],"title":"仕事の癖"},{"publishedAt":"2026-01-26","slug":"20260126","summary":"完全に私の早とちりです。 ただの備忘録として、残しておきます...。 確定申告間近で、音信不通？ 去年の11月に税理士さん（Aさん）と記帳代行などの税務業務について業務契約しました。 そして、今年の2月には令和7年度の確定申告が始まります。","tags":["仕事"],"title":"税理士に逃げられたと勘違いした話"},{"publishedAt":"2025-12-25","slug":"20251225","summary":"今年の年始から年末まで、業務委託という形で、週4日・在宅ワークの働き方を続けました。 業界はIT分野で、業務内容はPC作業が中心です。そのため、日中は自宅の仕事部屋にあるデスクで作業をしています。 この働き方を1年間継続してみて、私生活と仕","tags":["仕事"],"title":"2025年仕事の思い出：1年間、週4在宅ワークやってみた"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251128/","slug":"20251128"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

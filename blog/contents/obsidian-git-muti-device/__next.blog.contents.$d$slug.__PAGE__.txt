@@ -1,0 +1,219 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2640,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["WikiWikiWeb というコンセプトが好きで、そのコンセプトが含まれている Obsidian や Scrapbox が好きです。Obsidian には、", _jsx(_components.a, {
+        href: "https://github.com/denolehov/obsidian-git",
+        children: "obsidian-git"
+      }), " という Git 連携のプラグインがあります。こちらには、デスクトップだけでなく、モバイルからでも Git Commit できます。\nそこで、私が持ってる iPhone を使って、Obsidian で Git Commit する手順を紹介します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "手順",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#手順",
+        children: "手順"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: ["iPhone から ", _jsx(_components.a, {
+            href: "https://obsidian.md/",
+            children: "https://obsidian.md/"
+          }), " にアクセスし、アプリをダウンロード"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "アプリを開いて、Create new vault をタップ"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_1.png",
+        alt: "obsidian_1"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Vault name に、適当な名前を入力 (後で変更可能)し、Create をタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_2.png",
+        alt: "obsidian_2"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "左上のサイドバーアイコン → 設定アイコン → コミュニティプラグイン → コミュニティプラグインを有効化 の順でタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_3.png",
+        alt: "obsidian_3"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "コミュニティプラグインを閲覧 → Git を入力 → Obsidian Git をタップし、インストール → 有効化をタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_4.png",
+        alt: "obsidian_4"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "オプションをタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_5.png",
+        alt: "obsidian_5"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Github のアカウント、", _jsx(_components.a, {
+          href: "https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token",
+          children: "Personal Access Token"
+        }), " (repo の権限があれば良い) を入力. バツボタンをタップし、4 の画面に戻る"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_6.png",
+        alt: "obsidian_6"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "下へスクロールして、コマンドパレットを表示 → Clone と入力し、表示された選択肢をタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_7.png",
+        alt: "obsidian_7"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Clone したいリポジトリ URL を入力"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_8.png",
+        alt: "obsidian_8"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Vault Root をタップ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_9.png",
+        alt: "obsidian_9"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "NO をタップ (.obsidian フォルダが repository にあるなら YES)"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_10.png",
+        alt: "obsidian_10"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "Clone が成功すると、リポジトリのファイルが閲覧できる"
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "Obisidian Git の Advanced に、Author name と Authr email を入力し、バツをタップ"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_12.png",
+        alt: "obsidian_12"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "ファイルを適当に変更する"
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "下へスクロールし、コマンドパレットを開く → Git Open source と入力し、表示された選択肢をタップ"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_16.png",
+        alt: "obsidian_16"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "+ボタンで Stage、チェックボタンで Commit、アップロードボタンで Push できる"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/c_scale,w_400/v1666182104/silver-birder.github.io/blog/Obsidian_15.png",
+        alt: "obsidian_15"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "困ったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#困ったこと",
+        children: "困ったこと"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "スマホから、ブランチを作成できるが Push できない"
+      }), "\n", _jsx(_components.li, {
+        children: "スマホから、ローカルには存在しないリモートブランチを(pull しても)Switch できない"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "基本的には、スマホからの操作は、main ブランチでコミットプッシュするしかできなさそうです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これから、スマホからいろいろメモを書いていこうかなと思います！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":95,"publishedAt":"2022-10-18","tags":["開発ツール","クローリング"],"title":"ObsidianでiPhoneからGit Commitする"},"navigation":{"next":{"href":"/blog/contents/review_of_micro-frontends_book","publishedAt":"2022-11-13","title":"「マイクロフロントエンド」を読みました"},"prev":{"href":"/blog/contents/graphql_guild_ecosystem_is_useful","publishedAt":"2022-10-15","title":"GraphQL Guildのエコシステムって便利だね"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2024-03-21","slug":"try-million-lint","summary":"Million.devを知り、少し試してみました。Million.jsについて このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。 パフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。","tags":["テスト","開発ツール"],"title":"Million Lintを試してみた"}],"tag":"開発ツール"},{"posts":[{"publishedAt":"2023-01-07","slug":"zod_refine_path","summary":"zodのrefineを使っていたのですが、pathの使い方を全く理解できておらず、小一時間ほどハマってしまったことがあったので、備忘録として残しておきます。","tags":["フロントエンド","クローリング","JavaScript"],"title":"zodのrefineにあるpathにハマった"},{"publishedAt":"2022-09-14","slug":"crawlee-was-useful-for-crawling","summary":"スクレイピングしたいときって、あると思います。Crawlee という OSS が便利だったので、共有します。","tags":["クローリング"],"title":"クローリングをシュッとやるのに、Crawleeが便利だった"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"}],"tag":"クローリング"}],"shareUrl":"https://silverbirder.github.io/blog/contents/obsidian-git-muti-device/","slug":"obsidian-git-muti-device"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

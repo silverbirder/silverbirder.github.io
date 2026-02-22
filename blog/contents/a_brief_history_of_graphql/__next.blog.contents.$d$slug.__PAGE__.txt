@@ -1,0 +1,389 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T4af6,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "GraphQL を業務で使い始めました。\nいつものように、GraphQL の歴史が気になったので、調べてみました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "参考資料",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#参考資料",
+        children: "参考資料"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://www.youtube.com/watch?v=VjHWkBr3tjI",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: " - YouTube"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/ca144d04ccbe99104bea75530f1fa39d1e09e60131c8764368433ece50ee81e5.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "www.youtube.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL の共同開発者で、GraphQL Foundation エグゼクティブディレクターである Lee Byron さんから、GraphQL の歴史について、紹介されています。"
+    }), "\n", _jsx(_components.p, {
+      children: "次の資料も参考になります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://dev.to/tamerlang/a-brief-history-of-graphql-2jhd",
+          children: "https://dev.to/tamerlang/a-brief-history-of-graphql-2jhd"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://levelup.gitconnected.com/what-is-graphql-87fc7687b042",
+          children: "https://levelup.gitconnected.com/what-is-graphql-87fc7687b042"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "graphql-が生まれる前",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#graphql-が生まれる前",
+        children: "GraphQL が生まれる前"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL が生まれる前の歴史を、簡単に要約しました。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "年"
+          }), _jsx(_components.th, {
+            children: "要約"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "2004"
+          }), _jsx(_components.td, {
+            children: "ソーシャルメディア Web サイト「Thefacebook」が公開され、後に FaceBook になりました"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "2007"
+          }), _jsx(_components.td, {
+            children: "iPhone の登場により、モバイルが急速に普及し始めましたが、FaceBook は HTML5 に賭けすぎて失敗しました"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "2012"
+          }), _jsx(_components.td, {
+            children: "FaceBook はモバイル(iOS) のニュースフィードを REST API で開発し始めました"
+          })]
+        })]
+      })]
+    }), "\n", _jsx(_components.h2, {
+      id: "rest-api-での開発における-3-つの課題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#rest-api-での開発における-3-つの課題",
+        children: "REST API での開発における 3 つの課題"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "REST API で開発を進めていくと、次の 3 つの課題を抱えてしまいました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Slow on network\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "1 つの API から必要なデータが全て返ってこないため、複数のリクエストを何度も往復する必要がありました"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Fragile client/server relationship\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "API の変更を、クライアントコードに慎重に引き継がなければ、クラッシュしてしまいました"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Tedious code & process\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "クライアントの開発は、API のレスポンスに非常に連動しているので、API のレスポンスの変更があれば、クライアントも変更しなければなりません"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらの課題を解決すべく、FaceBook は、スーパーグラフと呼ばれるプロトタイプを開発しました。\nそのベストプラクティスを集めたものが、GraphQL となりました。"
+    }), "\n", _jsx(_components.h3, {
+      id: "例複数のリクエストを何度も往復する",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#例複数のリクエストを何度も往復する",
+        children: "例:複数のリクエストを何度も往復する"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "複数のリクエストをする例が、次のページに書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.howtographql.com/basics/1-graphql-is-the-better-rest/",
+          children: "https://www.howtographql.com/basics/1-graphql-is-the-better-rest/"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "例として、ユーザー情報、ユーザーが投稿したコンテンツ、ユーザーのフォロワーという 3 つの情報を取得するケースです。"
+    }), "\n", _jsx(_components.p, {
+      children: "REST API の場合は、次の画像のように 3 往復することになります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1659191676/silver-birder.github.io/blog/rest_api_flow.png",
+        alt: "REST_API"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL の場合は、1 回の往復だけでデータが取得できます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1659191675/silver-birder.github.io/blog/graphql_flow.png",
+        alt: "GraphQL"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "rest-api-から-graphql-へ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#rest-api-から-graphql-へ",
+        children: "REST API から GraphQL へ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "REST API から、GraphQL に切り替えた結果、次の 3 つのメリットを享受することができました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Fast on network\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "必要なものだけを記述できるため、1 回のリクエストで十分です"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Robust static types\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "どのようなデータが利用可能か、どのような型か、クライアントは知ることができます"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Empowering client evolution\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "レスポンスのフォーマットはクライアントが制御できます。そのため、サーバーサイドはシンプルになり、メンテナンスも容易になります"
+          }), "\n", _jsx(_components.li, {
+            children: "古いフィールドを非推奨とし、機能は継続できます。この後方互換性によりバージョニング管理が不要になります"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "3-つの課題を-改めて考える",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#3-つの課題を-改めて考える",
+        children: "3 つの課題を 改めて考える"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "REST API の 3 つの課題を、2022 年の今、改めて考えてみます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Slow on network\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["2012 年は、3G 回線が普及していた\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "複数リクエストや、API のペイロードが大きいと、ネットワークレイテンシに大きく影響していそう"
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["2022 年は、5G 回線が普及している\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "ネットワークレイテンシは、そこまでクリティカルな問題にはならないのでは"
+              }), "\n", _jsx(_components.li, {
+                children: "もちろん、低ネットワークを利用するユーザーが多いプロダクトなら、考慮が必要かも"
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsx(_components.li, {
+            children: "複数リクエストは、BFF のようなファザードを建てることで、解決できないか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Fragile client/server relationship\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "バージョニングと後方互換性については、今の REST API も変わりなく課題の 1 つ"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Tedious code & process\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "スキーマ駆動な開発で、問題解決できるのではないか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "簡単に書いていますが、3 つの課題は、もっと深い・困難な話だったのかもしれません。\nですが、今の時代で考えてみると、GraphQL を使うユースケースは、エッジケースなのかなと思ってしまいました。\n本件の課題の根幹の 1 つは、ニュースフィードにおけるデータ構造の複雑さ(再帰的,ネスト)じゃないのかなと想像していました。"
+    }), "\n", _jsx(_components.h3, {
+      id: "参考リンク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#参考リンク",
+        children: "参考リンク"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.apollographql.com/blog/graphql/basics/why-use-graphql/",
+          children: "https://www.apollographql.com/blog/graphql/basics/why-use-graphql/"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://wundergraph.com/blog/why_not_use_graphql",
+          children: "https://wundergraph.com/blog/why_not_use_graphql"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "graphql-の魅力",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#graphql-の魅力",
+        children: "GraphQL の魅力"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "データの取捨選択",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データの取捨選択",
+        children: "データの取捨選択"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL の必要なデータを記述できる機能は、魅力的と思います。\n従来の REST API の開発設計では、次のようなパターンを業務で経験してきました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["レスポンスデータのバリエーションをグループ分けするクエリパラメータ Response group\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["Response group\n", _jsxs(_components.ul, {
+              children: ["\n", _jsxs(_components.li, {
+                children: ["small\n", _jsxs(_components.ul, {
+                  children: ["\n", _jsx(_components.li, {
+                    children: "最小セット"
+                  }), "\n"]
+                }), "\n"]
+              }), "\n", _jsxs(_components.li, {
+                children: ["middle\n", _jsxs(_components.ul, {
+                  children: ["\n", _jsx(_components.li, {
+                    children: "small と large の中間"
+                  }), "\n"]
+                }), "\n"]
+              }), "\n", _jsxs(_components.li, {
+                children: ["large\n", _jsxs(_components.ul, {
+                  children: ["\n", _jsx(_components.li, {
+                    children: "全てのフィールド"
+                  }), "\n"]
+                }), "\n"]
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Response group での開発で、特に大きな課題と感じたことはありませんでした。\nデータの取捨選択は、API のスケールのしやすさがメリットのように思います。"
+    }), "\n", _jsx(_components.h3, {
+      id: "データの階層構造",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データの階層構造",
+        children: "データの階層構造"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL は、リクエスト・レスポンスのデータに、階層構造を表せます。\nこれも、魅力的です。"
+    }), "\n", _jsx(_components.p, {
+      children: "従来の REST API では、リクエストのクエリパラメータは、フラットな形で送るしかありませんでした。リクエストボディを使って、JSON を送るという手段もあります。(まあ、これが GraphQL なんですが)"
+    }), "\n", _jsx(_components.p, {
+      children: "REST API のリクエストに、階層構造を表せるのは、データの関係性を示せるため、柔軟性が高く良さそうです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ただ個人的な違和感",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ただ個人的な違和感",
+        children: "ただ、個人的な違和感"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "データ参照も-post",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データ参照も-post",
+        children: "データ参照も POST"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "REST API は、参照なら HTTP GET、更新なら HTTP POST を使うのが当たり前です。\nGraphQL は、参照も更新も HTTP POST を使います。これに違和感があります。\nquery は、HTTP GET、mutation は、HTTP POST で使い分けできるようにしたいです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GraphQL の歴史を簡単に紹介しました。\nまだそんなに使ったことがないので、良さ・悪さをしっかり理解していきたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":85,"publishedAt":"2022-07-30","tags":["バックエンド"],"title":"GraphQLの歴史"},"navigation":{"next":{"href":"/blog/contents/urql_transform_exchange","publishedAt":"2022-08-10","title":"urqlでデータ変換(transform)してみた"},"prev":{"href":"/blog/contents/Lets_debug_with_JavaScript_debugger","publishedAt":"2022-07-09","title":"JavaScriptのdebuggerを使ってデバッグしよう (Browser/Node.js/Jest)"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-03-07","slug":"trpc-msw-mocking","summary":"はじめに tRPCは、型安全なAPIを簡単に構築できるフレームワークです。開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。この記事では、maloguertin/msw-trpc を用いて、tRPC通信をMSWでモックする方法について解説します。実用例として、サンプルコードをGitHubリポジトリ silverbirder/trpc-msw-storybook-nextjs で共有しています。","tags":["テスト","バックエンド"],"title":"Storybook上で tRPC通信をMSWでモックする方法"},{"publishedAt":"2022-10-15","slug":"graphql_guild_ecosystem_is_useful","summary":"GraphQL Guild ってご存知ですか？GraphQL 界隈だと、Code Generator が有名と思いますが","tags":["バックエンド"],"title":"GraphQL Guildのエコシステムって便利だね"},{"publishedAt":"2022-09-03","slug":"using_stability_ai_API","summary":"Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。これを自前で動かそうとすると、GPU が必要になります。","tags":["AI","バックエンド","成果物"],"title":"Stable Diffusion API 開発"}],"tag":"バックエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/a_brief_history_of_graphql/","slug":"a_brief_history_of_graphql"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

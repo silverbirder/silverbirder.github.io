@@ -1,0 +1,208 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T29cd,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["久々に Google Drive のフォルダを整理していたところ、学生時代に作った Web アプリの資料が見つかりました。", _jsx(_components.br, {}), "\n開発したのは ", _jsx(_components.strong, {
+        children: "2016年、今から9年前"
+      }), " 。", _jsx(_components.br, {}), "\n当時の自分の技術スタックや開発の進め方を思い出しながら、ちょっと懐かしく振り返ってみます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "当時作っていた-web-アプリ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#当時作っていた-web-アプリ",
+        children: "当時作っていた Web アプリ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が作っていたのは、 ", _jsx(_components.strong, {
+        children: "動画をアップロードしてコマ画像を抽出し、好きなコマを選んで並び替え Gif 画像に変換するアプリ"
+      }), " です。", _jsx(_components.br, {}), "\n生成した Gif は掲示板に投稿でき、コメントもつけられるという、シンプルながら機能が詰まったサービスでした。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296187/silver-birder.github.io/blog/em59va9jelbttvtq8soo.png",
+        alt: "トップページ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296188/silver-birder.github.io/blog/s1spgaj8xmfazjl2aih7.png",
+        alt: "Gif画像掲示板"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Gif 作成まわりのフローはこんな感じでした。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296189/silver-birder.github.io/blog/kcblm9rzxfecmlmn2fz5.png",
+        alt: "Gif作成 - 動画アップロード中"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296190/silver-birder.github.io/blog/bercvw7wjr1llzcmdlwt.png",
+        alt: "Gif作成 - 動画から画像を抽出"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296190/silver-birder.github.io/blog/des0a3rvohgf4sxzgrbg.png",
+        alt: "Gif作成 - 画像を並び替えてGifに変換"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["当時はもちろん Figma も触っておらず、Web デザインはすべて手書きの HTML と CSS。", _jsx(_components.br, {}), "\nインタラクティブな部分は jQuery、ビューは EJS を使っていました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "使用していた技術",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#使用していた技術",
+        children: "使用していた技術"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "サーバサイド: Node.js + Express v3.5.1"
+      }), "\n", _jsx(_components.li, {
+        children: "ビュー: EJS"
+      }), "\n", _jsx(_components.li, {
+        children: "フロント: jQuery"
+      }), "\n", _jsx(_components.li, {
+        children: "データベース: MongoDB"
+      }), "\n", _jsx(_components.li, {
+        children: "ストレージ: Dropbox"
+      }), "\n", _jsx(_components.li, {
+        children: "動画 → Gif 変換: ffmpeg"
+      }), "\n", _jsx(_components.li, {
+        children: "一時ファイル削除: cron"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "S3 を使う発想はなく、Dropbox に動画や分割した画像を保存していました。\n抽出した画像を ffmpeg で Gif に変換するフローは、いま思えばよく組めていたなと感じます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "学生時代の開発環境",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#学生時代の開発環境",
+        children: "学生時代の開発環境"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "当時の開発環境もなかなか味わい深いものでした。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "サーバー: さくらのレンタルサーバ"
+      }), "\n", _jsx(_components.li, {
+        children: "バージョン管理: Git なし（フォルダにそのまま保存）"
+      }), "\n", _jsx(_components.li, {
+        children: "コードアップロード: WinSCP"
+      }), "\n", _jsx(_components.li, {
+        children: "SSH 接続: たぶん TeraTerm"
+      }), "\n", _jsxs(_components.li, {
+        children: ["デプロイ: SSH 接続 → ", _jsx(_components.code, {
+          children: "npm install"
+        }), " → ", _jsx(_components.code, {
+          children: "express start"
+        })]
+      }), "\n", _jsx(_components.li, {
+        children: "アクセス: IP アドレス + Express のデフォルトポートに直アクセス"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "いまのように AWS や Vercel が当たり前の時代ではなかったので、この運用でも特に疑問を持たず使っていました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "資料2016年当時の画面設計構成図など",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#資料2016年当時の画面設計構成図など",
+        children: "資料（2016年当時の画面設計・構成図など）"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["画面構成やシステム構成は、Microsoft Visio を使って作成していました。", _jsx(_components.br, {}), "\nUI デザインツールを持っていなかったので、Visio の図形を組み合わせてポンチ絵を作っていた記憶があります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296185/silver-birder.github.io/blog/axypr0poguogwqgjn4uw.jpg",
+        alt: "画面構成"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1763296186/silver-birder.github.io/blog/dwcfevei1zdn9i6kr186.jpg",
+        alt: "システム構成"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "当時読んでいた本",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#当時読んでいた本",
+        children: "当時読んでいた本"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["当時の私は、大学では C 言語や Java を学んでおり、Web 系の開発経験はほぼゼロでした。", _jsx(_components.br, {}), "\n友人に「今は Node.js が流行っているらしい」と聞き、手探りで買ったのがこの本でした。", _jsx(_components.br, {}), "\nなんとなく、やってみたい!という気持ちだけで購入した記憶があります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.amazon.co.jp/dp/4797370904",
+          children: "はじめてのNode.js - サーバーサイドJavaScriptでWebアプリを開発する"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "当時の知識は IT パスポート程度で、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ターミナル操作は初めて"
+      }), "\n", _jsx(_components.li, {
+        children: "Node.js や Express のバージョンが書籍と手元で違うことを理解していない"
+      }), "\n", _jsx(_components.li, {
+        children: "HTML/CSS を写経したことがある程度"
+      }), "\n", _jsx(_components.li, {
+        children: "サーバ、データベース、ストレージの概念がほぼゼロ"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "という状態でした。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["それでも本を何度も読み返し、エラーに何度もつまずきながら、少しずつ動く形に近づけていきました。", _jsx(_components.br, {}), "\n気づけば、表紙が擦り切れるほど読み込んでいた気がします。（たぶん1年以上）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今では、AI に任せれば、それっぽい Web アプリが簡単に作れる時代です。", _jsx(_components.br, {}), "\nGit Push するだけで、自動的にデプロイまで完了させることもできます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それでも、学生時代に身につけた ", _jsx(_components.strong, {
+        children: "「エラーが起きたときに原因を探る洞察力」"
+      }), " や", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "「分からない領域を少しずつ自分の理解に置き換えていく地道な作業」"
+      }), " は、今の自分にとって確かな財産になっています。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":168,"publishedAt":"2025-11-16","tags":["雑談"],"title":"9年前の学生の自分が作ったWebアプリを懐かしむ"},"navigation":{"next":{"href":"/blog/contents/20251117","publishedAt":"2025-11-17","title":"GherkinにMarkdownがサポートされている"},"prev":{"href":"/blog/contents/20251115","publishedAt":"2025-11-15","title":"帰りの駐車場で、車が見つからない"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-15","slug":"20260215","summary":"スーパーやECサイトなどでその会社が開発したオリジナル商品、プライベートブラント商品（以下、PB商品）が好きです。 好きな理由はいくつかあります。 比較的、低価格 安かろう悪かろうではない、クオリティ そこでしか買えない、限定感 価格 自社","tags":["雑談"],"title":"プライベートブランドが好き"},{"publishedAt":"2026-02-14","slug":"20260214","summary":"2019年の記事を読んでいました。 2019年の記事 2019年だと、私の当時の年齢は25歳です。 新卒3年目ぐらいでしょうか。 Slerとして新卒入社して、1年目か2年目ぐらいに炎上プロジェクトを経験してしまい、大変な思い出になりました。","tags":["雑談"],"title":"2019年の記事を振り返る"},{"publishedAt":"2026-02-13","slug":"20260213","summary":"今年で32歳になりました。 30歳を超えてから、自分の年齢が何歳なのかたまにわからなくなります。 社会人になって、10年目になりました。 もう立派な大人ですね。 だんだんと、食欲や筋力などが低下していくのでしょうか？ 若く保つ秘訣が知りたく","tags":["雑談"],"title":"2月14日は、私の誕生日"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251116/","slug":"20251116"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

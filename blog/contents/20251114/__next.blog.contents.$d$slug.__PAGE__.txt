@@ -1,0 +1,130 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T14bc,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "AI に 10 分ほどで雑に作らせたのですが、金曜ロードショーで「どの月にどんな映画が多く放送されているか」を可視化してみました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://friday-road-show.vercel.app/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "金曜ロードショー映画ランキング可視化ダッシュボード"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "金曜ロードショーの映画放送データを月別・ランキングで可視化。人気作品や傾向を時系列で直感的にチェックできるNext.jsアプリです。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/310fa242e6cc5c2b062a05d7d0162626c2e8acd9dfefbc879dd7fe88f0ee59c8.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "friday-road-show.vercel.app"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/1410cc20efe109549981859bc50dd9ab62952122b558317378284af76601ced8",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "月ごとに見える傾向",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#月ごとに見える傾向",
+        children: "月ごとに見える“傾向”"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "いくつか面白い偏りがありました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["7月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『となりのトトロ』『魔女の宅急便』が各 8 回"
+          }), "\n", _jsx(_components.li, {
+            children: "夏休みだから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["8月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『火垂るの墓』が 11 回"
+          }), "\n", _jsx(_components.li, {
+            children: "終戦の日だから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["11月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『アナと雪の女王』が 3 回"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["12月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『ホーム・アローン』が 5 回"
+          }), "\n", _jsx(_components.li, {
+            children: "『ホーム・アローン2』が 2 回"
+          }), "\n", _jsx(_components.li, {
+            children: "クリスマス映画の代表作だから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "この感じだと、今年も近いうちに『アナと雪の女王』や『ホーム・アローン』が放送されるかも？\n個人的には「千と千尋の神隠し」や「天空の城ラピュタ」が圧倒的に多いのかと思っていたのですが、実際に可視化してみると意外とそうでもなかったのが面白かったです。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":166,"publishedAt":"2025-11-14","tags":["生活"],"title":"金曜ロードショー月別「よく放送される作品」ランキング"},"navigation":{"next":{"href":"/blog/contents/20251115","publishedAt":"2025-11-15","title":"帰りの駐車場で、車が見つからない"},"prev":{"href":"/blog/contents/20251113","publishedAt":"2025-11-13","title":"冷蔵庫に貼っているホワイトボードをやめたい"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-19","slug":"20260219","summary":"昔大阪に住んでいた頃、UR団地へ住んでいました。 そのUR団地は20棟以上もある敷地面積が広いところで、 1棟の階段は一番少なくて5階建て、多いところで14階建てです。 そのため、多くの世帯がUR団地に暮らしていました。 在宅ワーク そのU","tags":["生活"],"title":"UR団地は1つの町"},{"publishedAt":"2026-01-23","slug":"20260123","summary":"昨日から滋賀県に雪がたくさん降っています。 20cm以上は雪が積もっています。 駐車場に雪がたくさん積っているので、雪かきしないと車が出せません。 ここで雪対策で購入した、ワークマンのスノーブーツがめっちゃ役に立ちました！ https://","tags":["生活"],"title":"大雪とワークマン"},{"publishedAt":"2026-01-13","slug":"20260113","summary":"平日の今日、いつも通り在宅ワークをしていました。 午前中の仕事でひと段落ついたので、休憩の取ろうとリビングに戻ったら妻がソファで横になっていました。 妻は今日仕事が休みなので、寝ているのかなと思ったのですが、小さい声で『頭が痛い...』と震","tags":["生活"],"title":"妻の体調不良と看病"}],"tag":"生活"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251114/","slug":"20251114"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

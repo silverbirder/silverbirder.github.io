@@ -1,0 +1,372 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T5327,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["こんにちは、", _jsx(_components.a, {
+        href: "https://x.com/silverbirder",
+        children: "@silverbirder"
+      }), " です。最近、湖県に移住してWebフロントエンドのお仕事をしています。\nお仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。\n本記事では、その小さな改善となる、3つのことについて書きたいと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "3つのこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#3つのこと",
+        children: "3つのこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "その小さな改善は、Webの世界に必ず存在する、以下の3つの要素を丁寧に扱うことです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["マイクロコピー\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "小さな文章"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["マイクロインタラクション\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "小さな操作"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["リンク\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "導線・動線"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "あるライブラリやフレームワークの話ではありません。Webの基本的な要素です。\nそれぞれについて、私の考えていることをまとめます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "マイクロコピー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロコピー",
+        children: "マイクロコピー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web には、必ずと言っていいほどテキストが表示されています。\n例えば、以下のテキストがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ボタンのラベル"
+      }), "\n", _jsx(_components.li, {
+        children: "入力フォームのプレースホルダー"
+      }), "\n", _jsx(_components.li, {
+        children: "リンク"
+      }), "\n", _jsx(_components.li, {
+        children: "エラーメッセージ"
+      }), "\n", _jsx(_components.li, {
+        children: "説明文"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "考え出すと、いくらでも列挙できるかと思います。それぐらい、Web にはテキストがほぼ必ず存在します。\nこのような、小さな文章（コピー）をマイクロコピーと呼びます。"
+    }), "\n", _jsx(_components.p, {
+      children: "このマイクロコピーは疎かにしてはいけません。\nJavaScriptでプログラムを書くのと同じぐらい、文章を書くことも大事です。\nなぜ大事かというと、1つの文章次第でユーザー体験が大きく変わるからです。文章の書き方一つで、購買率などの指標にも大きく影響します。\nいくつか、例を書いていました。多くの場合、Bの方が良いかと思います。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["購入ボタンのラベル名\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "A: 購入"
+          }), "\n", _jsx(_components.li, {
+            children: "B: 注文を確定する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["返品手続きの案内\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "A: 返品理由を入力してください"
+          }), "\n", _jsx(_components.li, {
+            children: "B: 返品理由を教えていただければ、今後の改善に活かします"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["画像のアップロード\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "A: ファイルを選択"
+          }), "\n", _jsx(_components.li, {
+            children: "B: 画像は 5MB 以内。jpg / png に対応"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["上記について、 ", _jsx(_components.strong, {
+        children: "何かの機能を作るのではなく、文章を変えているだけ"
+      }), " なんです。\n文章を書くという小さなコストで、ユーザー体験が大きく変わる、非常に費用対効果の高い施策ですよね。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、文章を書くにもコストがかかります。\n文章を書くテクニック（コピーライティング）は書籍で様々紹介されているかと思いますが、私は恥ずかしながら知りません。\n知らない私でも、いつも以下について意識するように心掛けています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["文章を書くことに躊躇わない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "短くてストレートに伝わる文章を書ければよいですが、最初からできないです。"
+          }), "\n", _jsx(_components.li, {
+            children: "伝えたい文章をストレートに書いてみて、そこから削るようにしています。"
+          }), "\n", _jsx(_components.li, {
+            children: "デザイン上のスペースが限られている場合や、文章ばかりで窮屈に感じるときは、工夫しましょう。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ユーザー視点と言うが、具体を意識する\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "どういう動線で当該ページに辿り着いたのか、実際に操作したり画面画像を並べてみる。"
+          }), "\n", _jsx(_components.li, {
+            children: "アクセス経路やデータは、できる限り本物にする。"
+          }), "\n", _jsx(_components.li, {
+            children: "できる限り、シンプルな具体に落とし込む。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["メタファーに頼りすぎない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "アイコンだけで完結せず、アイコンは補助的に文章をメインに考える。"
+          }), "\n", _jsx(_components.li, {
+            children: "アイコンだけであっても、ツールチップなどで補足する。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["文章の読み手だけでなく、誰が書いているのか意識する\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "システムが機械的なトーンで書いているのか、人が寄り添って書いているのか。"
+          }), "\n", _jsx(_components.li, {
+            children: "その結果、トーンや言い回しが揃う。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["他には、専門用語を使わない、1文を簡潔に書く、ポジティブな表現で書くなどもありますが、粗末なことです。\nまずは、 ", _jsx(_components.strong, {
+        children: "文章を書くことに躊躇わない"
+      }), " ことが大事と考えています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "文章を書かずにアイコンやアニメーション、インタラクションの振る舞いだけでメッセージを伝えようとする\nスタイリッシュなUIを見かける機会が増えました。コンセプトやサービス形態によってはそれが良い場面も多いかと思います。\nしかし、Web というドキュメントを読んでもらうプラットフォームでは、文章で伝えることが最も確実です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "プログラムを書くより文章を書こう",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#プログラムを書くより文章を書こう",
+        children: "プログラムを書くより、文章を書こう"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "マイクロインタラクション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロインタラクション",
+        children: "マイクロインタラクション"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "チェックボックスをクリックしたら、チェックマークが入ります。"
+      }), "\n", _jsx(_components.li, {
+        children: "トグルボタンをクリックしたら、ON/OFFが切り替わります。"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "そういう、何か操作したら（トリガーを発火したら）何かフィードバックを得る、これがインタラクションと呼ばれます。\nインタラクションは、ユーザーとシステムのやり取り、相互作用のことです。\nそのインタラクションの最小単位を、マイクロインタラクションと呼びます。"
+    }), "\n", _jsx(_components.p, {
+      children: "Webフロントエンドのお仕事をしていると、マイクロインタラクションを作る機会が多いです。\n一例だと、『何かをクリックしたら、（APIが呼ばれてデータが保存されて）メッセージが表示される』などです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["マイクロインタラクションを作る際、 ", _jsx(_components.strong, {
+        children: "フィードバックを疎かにしてはいけません"
+      }), " 。\n例えば、以下のようにフィードバックを疎かにすると、ユーザーは不安になります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["いいねボタンをクリックしても、最初の1秒間 何も反応しない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "即座にいいねの数をカウントアップしてほしい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["フォームの保存ボタンをクリックしても、保存できないときがある\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "保存できなかった原因を表示してほしい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ローディングスピナーが3秒以上ずっと、読み込み中のまま\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "進捗状況を表示してほしい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["リストの並び替え時、どこが並び替わったか分からない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "並び替えたアイテムの位置を示してほしい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "マイクロインタラクションの悪い例の一つは『iPhoneをマナーモードにしても、アラームが鳴ること』です。\n音を鳴らさないマナーモードにしたのに、アラームでは音が鳴るのです。"
+    }), "\n", _jsx(_components.p, {
+      children: "そもそも、マイクロインタラクションとは、どのような構成をしているのでしょうか。\nそれは、以下の構成で表現されます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["トリガー\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "動きを始めるきっかけ。"
+          }), "\n", _jsx(_components.li, {
+            children: "例: クリック。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["条件\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "実行するための前提。"
+          }), "\n", _jsx(_components.li, {
+            children: "例: ログイン中。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["フィードバック\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "操作への返答。"
+          }), "\n", _jsx(_components.li, {
+            children: "例: 送信中…表示。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ループ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "繰り返し続くか。"
+          }), "\n", _jsx(_components.li, {
+            children: "例: アラーム時間まで繰り返す。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "iPhoneの例でいうと、2番の条件にアラームは除外されるのです。それがユーザーにとって不透明なのです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は、 ", _jsx(_components.strong, {
+        children: "些細なことでも良いので、フィードバックを必ず返す"
+      }), " ことを意識しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ボタンをクリックした瞬間にラベルが「送信中…」へ変わる"
+      }), "\n", _jsx(_components.li, {
+        children: "二重送信を防ぐためボタンが一瞬無効化される"
+      }), "\n", _jsx(_components.li, {
+        children: "フォーム送信後、エラーがある箇所へ自動スクロール"
+      }), "\n", _jsx(_components.li, {
+        children: "入力完了したら✓アイコンが表示される"
+      }), "\n", _jsx(_components.li, {
+        children: "コピー完了時に「コピーしました」と小さくトースト表示する"
+      }), "\n", _jsx(_components.li, {
+        children: "入力中の文字数カウントが増える"
+      }), "\n", _jsx(_components.li, {
+        children: "ホバーした行の背景色が変わる"
+      }), "\n", _jsx(_components.li, {
+        children: "リストが空なら「まだデータがありません」と表示"
+      }), "\n", _jsx(_components.li, {
+        children: "長文入力で自動的に高さが広がる"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この細部のマイクロインタラクションを丁寧に作り込むことで、他と差別化できるポイントになると思います。\nマイクロインタラクションを丁寧にすることで ", _jsx(_components.strong, {
+        children: "『神は細部に宿る』"
+      }), " のです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "リンク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#リンク",
+        children: "リンク"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web は、ハイパーテキストを介して様々なページが繋がっています。\nリンクは、Web の基本的な要素です。"
+    }), "\n", _jsx(_components.p, {
+      children: "Webフロントエンドのお仕事では、導線をどのように設計するか考える機会が多いです。\nどのように回遊してもらうか、どのように離脱を防ぐか、意図せず行き止まりにならないか などを考えます。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "リンクは、ページとページをつなぐ架け橋です"
+      }), " 。\nもしリンクが以下のような場合、ユーザーは道に迷うかもしれません。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "目的地へ直線的に行けるリンクがなく、経由地を何度も通らされる"
+      }), "\n", _jsxs(_components.li, {
+        children: ["リンクが一切なく、行き場を失って離脱してしまう\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "逆に、リンク数が多すぎてどれを選んだらよいか分からない"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "リンク先の内容とリンクテキストが一致しない"
+      }), "\n", _jsx(_components.li, {
+        children: "退会などの重要ページへのリンクが、隠されている"
+      }), "\n", _jsx(_components.li, {
+        children: "前に進むリンクはあるけど、戻るリンクはない"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "道の迷わないためにも、以下のことを心がけたいですね。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["リンクは、標準的なスタイルにする\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "アンダーライン、色"
+          }), "\n", _jsx(_components.li, {
+            children: "テキストは、コンテンツ内容を含める"
+          }), "\n", _jsx(_components.li, {
+            children: "異なるドメインの場合は、新しいタブで開く。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ナビゲーションを充実させる\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "グローバルヘッダー・フッターの主要ページへのリンク"
+          }), "\n", _jsx(_components.li, {
+            children: "サイドバーに補足・関連情報へのリンク"
+          }), "\n", _jsx(_components.li, {
+            children: "ページの階層構造を示す パンくず"
+          }), "\n", _jsx(_components.li, {
+            children: "コンテンツの関連リンク・おすすめリンク"
+          }), "\n", _jsx(_components.li, {
+            children: "エラー画面での問い合わせやFAQリンク、トップページリンク"
+          }), "\n", _jsx(_components.li, {
+            children: "データが空のときのアクションリンク"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "短くまとめると、マイクロコピー、マイクロインタラクション、リンクの3点は、小さいけれど重要です。\n文章、操作、リンクを少し変えるだけで、ユーザー体験は確実に良くなります。"
+    }), "\n", _jsx(_components.p, {
+      children: "ここまで読んでいただき、ありがとうございました。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":143,"publishedAt":"2025-08-27","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"},"navigation":{"next":{"href":"/blog/contents/google-my-activity-visualization","publishedAt":"2025-09-17","title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},"prev":{"href":"/blog/contents/storybook-addon-range-controls","publishedAt":"2025-08-20","title":"はじめてのStorybookアドオン開発体験記"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-02-06","slug":"opengraph-image-lineclamp-budoux","summary":"ブログ記事のOGP画像に、ブログタイトルを入れたい場面があります。その際、タイトルが長い場合は複数行に分けたり、省略したりする必要があります。今回は、試してみてよさそうだった2つの方法を紹介します。","tags":["ブラウザ"],"title":"OGPのテキストを任意の行で省略する、lineClampとbudoux"}],"tag":"ブラウザ"}],"shareUrl":"https://silverbirder.github.io/blog/contents/microcopy-microinteractions-and-links/","slug":"microcopy-microinteractions-and-links"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

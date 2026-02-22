@@ -1,0 +1,411 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T4b26,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    em: "em",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["機能リクエスト投票サービス ", _jsx(_components.strong, {
+        children: "fequest"
+      }), " （", _jsx(_components.em, {
+        children: "feature request"
+      }), " の造語）を開発しています。", _jsx(_components.br, {}), "\nユーザー向けと管理者向けの 2 つの Web アプリを構築中です。\n開発中のコードは、以下のGitHubリポジトリで公開しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/fequest",
+          children: "https://github.com/silverbirder/fequest"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "開発方針",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発方針",
+        children: "開発方針"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これまでは慣れたツールセットでスピード重視の開発を行っていましたが、今回は久しぶりに「試してみたい技術」を積極的に取り入れています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["以前はツール導入に全力を注ぎすぎて、肝心のアプリが完成しないこともありました。", _jsx(_components.br, {}), "\nですが今は、AI のサポートによってセットアップが驚くほど簡単になったので、コーヒー片手に気楽に新しい技術を試しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "フォルダ構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フォルダ構成",
+        children: "フォルダ構成"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["apps\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "user: ユーザー向け画面"
+          }), "\n", _jsx(_components.li, {
+            children: "admin: 管理者向け画面"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["packages\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "db: Drizzle で DB 管理"
+          }), "\n", _jsx(_components.li, {
+            children: "eslint-config: ESLint 設定"
+          }), "\n", _jsx(_components.li, {
+            children: "schema: Valibot スキーマ定義"
+          }), "\n", _jsx(_components.li, {
+            children: "storybook: Storybook 設定"
+          }), "\n", _jsx(_components.li, {
+            children: "typescript-config: TypeScript 設定"
+          }), "\n", _jsx(_components.li, {
+            children: "ui: 共通 UI コンポーネント"
+          }), "\n", _jsx(_components.li, {
+            children: "user-feature-xxx: ユーザー向けフィーチャー"
+          }), "\n", _jsx(_components.li, {
+            children: "admin-feature-xxx: 管理者向けフィーチャー"
+          }), "\n", _jsx(_components.li, {
+            children: "vitest-config: Vitest 設定"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["モノリポ構成を採用し、モノレポツールには ", _jsx(_components.strong, {
+        children: "turborepo"
+      }), " を利用しています。", _jsx(_components.br, {}), "\nさらに、UI コンポーネントやフィーチャーコードを自動生成するために ", _jsx(_components.code, {
+        children: "turborepo"
+      }), " のコード生成機能 ", _jsx(_components.strong, {
+        children: "turbo gen"
+      }), " を使用しました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://turborepo.com/docs/guides/generating-code",
+          children: "Generating code | Turborepo"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アプリケーションフレームワーク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アプリケーションフレームワーク",
+        children: "アプリケーションフレームワーク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アプリケーションフレームワークは ", _jsx(_components.strong, {
+        children: "Next.js 16"
+      }), " を採用しています。", _jsx(_components.br, {}), "\n巨人の肩には、もう少し乗っておきたいところです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://nextjs.org/blog/next-16",
+          children: "Next.js 16 | Next.js"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["キャッシュコンポーネントはまだ使用していませんが、今後試してみたいと考えています。", _jsx(_components.br, {}), "\n「キャッシュ」という言葉には、どうしても少し抵抗があるんですよね……。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Next.js の設定には、以下の 2 点を追加しています。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "typedRoutes"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "Link"
+            }), " の URL を型安全に扱える。"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["動的ルーティングでは ", _jsx(_components.code, {
+              children: "pathpida"
+            }), " が必要になるかもしれません。"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "reactCompiler"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "useMemo"
+            }), " や ", _jsx(_components.code, {
+              children: "useCallback"
+            }), " を省略できる。"]
+          }), "\n", _jsx(_components.li, {
+            children: "安定版として使えるようになっているようです(?)。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、", _jsx(_components.code, {
+        children: "PageProps"
+      }), " インターフェースが自動生成され、", _jsx(_components.code, {
+        children: "params"
+      }), " や ", _jsx(_components.code, {
+        children: "searchParams"
+      }), " に型安全にアクセスできるようになっています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "api-通信",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#api-通信",
+        children: "API 通信"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["API 通信には、慣れ親しんだ ", _jsx(_components.strong, {
+        children: "tRPC"
+      }), " を採用しました。", _jsx(_components.br, {}), "\n本来は ", _jsx(_components.code, {
+        children: "packages/trpc"
+      }), " として切り出す予定でしたが、DB や認証との依存関係が複雑だったため、現在は ", _jsx(_components.code, {
+        children: "apps"
+      }), " 内に配置しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://trpc.io/docs/",
+          children: "tRPC | tRPC"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "lint--typescript-設定",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#lint--typescript-設定",
+        children: "Lint / TypeScript 設定"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "eslint-config"
+      }), " と ", _jsx(_components.code, {
+        children: "typescript-config"
+      }), " は、", _jsx(_components.code, {
+        children: "turborepo"
+      }), " の ", _jsx(_components.code, {
+        children: "create-turbo"
+      }), " テンプレート由来で、そのまま利用しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://turborepo.com/docs/guides/frameworks/nextjs",
+          children: "Next.js | Turborepo"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "schema",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#schema",
+        children: "Schema"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["バリデーションスキーマには ", _jsx(_components.strong, {
+        children: "Valibot"
+      }), " を採用しました。", _jsx(_components.br, {}), "\n普段は ", _jsx(_components.strong, {
+        children: "Zod"
+      }), " を使っていますが、Valibot は後発のスキーマバリデーションライブラリなので、試しに導入してみました。", _jsx(_components.br, {}), "\n軽量だと言われていますが、実際のところは未確認です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "storybook",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#storybook",
+        children: "Storybook"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "Storybook v10"
+      }), " を使用し、フレームワークには ", _jsx(_components.code, {
+        children: "@storybook/nextjs-vite"
+      }), " を採用しています。", _jsx(_components.br, {}), "\n現時点では CSF 3 形式を継続使用中です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["v8.5 で Story にタグを付けてフィルタリングできる機能が追加され、v10 ではさらに「除外」もサポートされました。", _jsx(_components.br, {}), "\nこれまでタグ機能をあまり意識していなかったので、今回知る良いきっかけになりました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://storybook.js.org/blog/storybook-10/",
+          children: "Storybook 10"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "vitest-と-vrt",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#vitest-と-vrt",
+        children: "Vitest と VRT"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "Vitest v4"
+      }), " を導入し、Storybook と連携したスナップショットテストを実行しています。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "Story"
+      }), " の ", _jsx(_components.code, {
+        children: "play"
+      }), " 関数にテストを書くのは少し抵抗があるため、現在は描画確認レベルのシンプルなテストにとどめています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://vitest.dev/blog/vitest-4",
+          children: "Vitest 4.0 is out! | Vitest"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["さらに、", _jsx(_components.code, {
+        children: "@storycap-testrun/browser"
+      }), " を導入し、Storybook のテストランナー実行時に各 ", _jsx(_components.code, {
+        children: "Story"
+      }), " の ", _jsx(_components.strong, {
+        children: "VRT (Visual Regression Test)"
+      }), " を自動実行するようにしました。", _jsx(_components.br, {}), "\n当初は Vitest や Storybook の公式機能で対応を試みましたが、うまく動作しなかったため、以下のアドオンを使わさせて貰いました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://storybook.js.org/addons/@storycap-testrun/browser",
+          children: "@storycap-testrun/browser | Storybook integrations"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "vitest-config"
+      }), " では ", _jsxs(_components.strong, {
+        children: ["Browser Mode ** の設定を行い、", _jsx(_components.code, {
+          children: "jsdom"
+        }), " ではなく ** Playwright"]
+      }), " を利用した実 DOM テストを可能にしています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://vitest.dev/guide/browser/",
+          children: "Browser Mode | Guide | Vitest"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これにより、", _jsx(_components.code, {
+        children: "await expect.element(el).toMatchScreenshot();"
+      }), " のような要素単位の VRT も実行できます。", _jsx(_components.br, {}), "\n現状では Story 単位の VRT で十分ですが、テストケースによっては使い分けも検討しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ui-構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ui-構成",
+        children: "UI 構成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "ui"
+      }), " パッケージでは ", _jsx(_components.strong, {
+        children: "Tailwind CSS ** をデザイントークンとして使用し、"
+      }), " shadcn/ui** をベースに共通 UI コンポーネントを構築しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["レイアウトコンポーネントは ", _jsx(_components.strong, {
+        children: "Chakra UI"
+      }), " の思想を参考に自作しました。", _jsx(_components.br, {}), "\n以下のようなレイアウト系コンポーネントを用意しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "Box"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "Center"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "Container"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "VStack"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "HStack"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "Flex"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.code, {
+          children: "Grid"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、テキスト用の ", _jsx(_components.code, {
+        children: "Text"
+      }), " コンポーネントや、見出し用の ", _jsx(_components.code, {
+        children: "Heading"
+      }), " コンポーネントも定義しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "CSS を書くのは好きなのですが、Tailwind を採用している以上、トークンベースで統一した方が保守性が高いため、スタイルはすべて Tailwind で管理しています。"
+    }), "\n", _jsx(_components.p, {
+      children: "このように、"
+    }), "\n", _jsx(_components.h2, {
+      id: "デザイントークン--共通コンポーネントレイアウト--ドメインレベルのコンポーネント",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デザイントークン--共通コンポーネントレイアウト--ドメインレベルのコンポーネント",
+        children: "デザイントークン → 共通コンポーネント／レイアウト → ドメインレベルのコンポーネント"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "という階層構造で UI を組み立てています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["デザイントークンをベースに、共通コンポーネントやレイアウトを使用しているため、基本的に ", _jsx(_components.code, {
+        children: "tailwind"
+      }), " の ", _jsx(_components.code, {
+        children: "className"
+      }), " はこのレイヤーまでで完結します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ドメインレベルのコンポーネントでは、共通コンポーネントやレイアウトの ", _jsx(_components.code, {
+        children: "variant"
+      }), " を利用してスタイルを調整するため、直接 ", _jsx(_components.code, {
+        children: "className"
+      }), " を指定することは原則ありません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["全体としては、 ", _jsx(_components.strong, {
+        children: "Design Token-Based UI Architecture"
+      }), " の考え方を意識し、 ", _jsx(_components.strong, {
+        children: "Option tokens → Decision tokens → Component tokens"
+      }), " の三層構成でデザインを整理しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://martinfowler.com/articles/design-token-based-ui-architecture.html",
+          children: "Design Token-Based UI Architecture"
+        })
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":162,"publishedAt":"2025-11-10","tags":["フロントエンド"],"title":"モダンな(?)フロントエンド技術セット"},"navigation":{"next":{"href":"/blog/contents/20251111","publishedAt":"2025-11-11","title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"},"prev":{"href":"/blog/contents/20251109","publishedAt":"2025-11-09","title":"Figma Make を使ってみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251110/","slug":"20251110"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

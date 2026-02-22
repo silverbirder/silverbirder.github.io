@@ -1,0 +1,155 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1afb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "みなさん、Zoom 使っていますか？\nZoom の Meeting を自動生成する GAS ライブラリを公開しましたので、\nそのきっかけと使い方について紹介しようと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "きっかけ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#きっかけ",
+        children: "きっかけ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "社の Slack で次の qiita の記事を知りました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://qiita.com/kudota/items/b480610cc3f575a8ec6f",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Zoom APIでミーティングの作成をGASから行う - Qiita"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Zoom APIについて Zoomから提供されているAPIで、Zoomの様々な操作を行うことができます。 今回はその中でも、ミーティングの作成をAPIを使って行います。 その他できることはこちらご覧になれます https://marketplace.zoom.us/doc..."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2a7c32c23c7588167818d4f9b39c3a9cab98a843cd60fb50e152d9d357a07525.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "qiita.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/2d10d13046a9851ea17313a1970fc3b8dd6360c8309ce4d50effcae16d360cde.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "GAS から Zoom の Meeting を作れるのって、簡単なんだな〜と思いつつ、\n\"cron のように使いたい\"という Slack のコメントがあったので、サクッと一日で作ってみました。"
+    }), "\n", _jsx(_components.p, {
+      children: "定期的に Zoom の Meeting(ID やパスワード)を更新する会社はあるはずです。\nそういう会社にとっては、このツールは、便利かもしれません。"
+    }), "\n", _jsx(_components.h2, {
+      id: "作ったもの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#作ったもの",
+        children: "作ったもの"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/zoom-meeting-creator",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/zoom-meeting-creator: zoom-meeting-creator is a Google Apps Script for creating zoom meetings."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "zoom-meeting-creator is a Google Apps Script for creating zoom meetings. - silverbirder/zoom-meeting-creator"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7476e7828a330ca3e44f4b7d5f21d92b37fe5f8bf32d36ef9a09906accffbc02.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これを GAS 側でライブラリ追加すると使えます。\nこの GAS では、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Zoom の Meeting を作成"
+      }), "\n", _jsx(_components.li, {
+        children: "Slack との連携"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ができます。この機能を、GAS の定期実行を組み合わせれば、\"Zoom の Meeting 作成を cron のように\"使えるようになります。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":47,"publishedAt":"2020-06-06","tags":["成果物","Google","サービス"],"title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"},"navigation":{"next":{"href":"/blog/contents/testing_pattern","publishedAt":"2020-06-18","title":"Webアプリのテスト観点を調べてまとめてみた (25選)"},"prev":{"href":"/blog/contents/puppeteer_account_manager","publishedAt":"2020-06-04","title":"アカウント画像一括更新ツールを作ったので、紹介と学びについて"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"},{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2021-12-20","slug":"intro_google_account_photo_api","summary":"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"}],"tag":"Google"},{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-05-22","slug":"how_to_display_embedded_twitter_content_after_rendering_on_iframe","summary":"結論 `iframe.contentWindow` から `twttr` オブジェクトを見つけて、`event.bind(\"rendered\", () => {})` の第二引数に、表示処理を書くことです。 背景 `https://twitter.com/openwc/status/1427617679427440643` のような URL から、埋め込みコンテンツをブログサイトなどに表示したいです。 `https://publish.twitter.com/oembed?url=${URL}` のレスポンスの中の html が、埋め込みコンテンツになります。これを iframe の srcdoc に設定することで、埋め込みコンテンツを表示することができます。","tags":["サービス","フロントエンド"],"title":"iframeでTwitterの埋め込みコンテンツの描画後に、画面表示する方法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"サービス"}],"shareUrl":"https://silverbirder.github.io/blog/contents/zoom-meeting-creator/","slug":"zoom-meeting-creator"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

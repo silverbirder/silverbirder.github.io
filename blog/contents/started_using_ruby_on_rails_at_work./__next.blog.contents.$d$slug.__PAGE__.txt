@@ -1,0 +1,98 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T11f2,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "2022 年 1 月より新しい職場で、はじめて Ruby on Rails(以下、Rails)を使うようになりました。\nこれまで、PHP の CakePHP、Node.js の Express、Python の Flask の経験がある私ですが、\nRails に、なかなか慣れない苦労がありました。ゆるく、言語化しようと思います。\nちなみに、Ruby もはじめて使いました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "rails-doctrine",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#rails-doctrine",
+        children: "Rails Doctrine"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Rails という新しく Web フレームワークを学ぶので、どういう思想で作られたのか知りたいなと思いました。\nそこで、下記のページをざっくり読んでみました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://rubyonrails.org/doctrine",
+          children: "https://rubyonrails.org/doctrine"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "PoLS や CoC といった原則により、プログラマは余計な悩み事が減って良いな〜と思います。\nDB のテーブルのカラム名で、post_id なのか postId なのかなんてどうだって良いのは、とても同感です。\nディレクトリ構成も、CoC で決まっているので、論争が生まれることが少ないのかなと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "慣れないところ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#慣れないところ",
+        children: "慣れないところ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "まず、前提として、私が Ruby、Rails どちらも知らないというのがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "引数無し関数の括弧省略と、変数の見分けがつかない"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Ruby の話で、よくある話と聞いています。\nこれは、コード読んで、悩みました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Ruby の関数か、Rails の関数か、独自の関数か、分からない"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "業務で Rails のコードを読んでいると、これは Ruby の関数なのか、\nRails の関数なのか、それとも、独自の関数なのか、いつもわからなくなります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "マイグレーションって、移行という言葉として思ってた"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Rails の文脈だと、マイグレーションって DB 管理の Ruby コードを指すみたいです。\nDB マイグレーションって言わないのね〜って、違和感がありました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "rails って、色々よしなにやってくれて便利〜！と思うこともあれば、\nどう動いているんだっけ？と分からなくなることもあるなと思っています。"
+    }), "\n", _jsx(_components.p, {
+      children: "トレードオフと思うんですが、まだまだ慣れない今日このごろでした。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":75,"publishedAt":"2022-03-24","tags":["Ruby on Rails","クローリング"],"title":"Ruby on Railsを業務で使って思ったこと"},"navigation":{"next":{"href":"/blog/contents/what_i_learned_from_developing_o_embed_web_components","publishedAt":"2022-03-25","title":"WebComponentsでoEmbedのコンポーネントを開発して、学んだこと"},"prev":{"href":"/blog/contents/know_the_history_before_learning_React","publishedAt":"2022-03-11","title":"Reactを学ぶ前に歴史を知る"}},"relatedPosts":[{"posts":[{"publishedAt":"2023-01-07","slug":"zod_refine_path","summary":"zodのrefineを使っていたのですが、pathの使い方を全く理解できておらず、小一時間ほどハマってしまったことがあったので、備忘録として残しておきます。","tags":["フロントエンド","クローリング","JavaScript"],"title":"zodのrefineにあるpathにハマった"},{"publishedAt":"2022-10-18","slug":"obsidian-git-muti-device","summary":"WikiWikiWeb というコンセプトが好きで、そのコンセプトが含まれている Obsidian や Scrapbox が好きです。Obsidian には、obsidian-gitという Git 連携のプラグインがあります。こちらには、デスクトップだけでなく、モバイルからでも Git Commit できるようになりました。","tags":["開発ツール","クローリング"],"title":"ObsidianでiPhoneからGit Commitする"},{"publishedAt":"2022-09-14","slug":"crawlee-was-useful-for-crawling","summary":"スクレイピングしたいときって、あると思います。Crawlee という OSS が便利だったので、共有します。","tags":["クローリング"],"title":"クローリングをシュッとやるのに、Crawleeが便利だった"}],"tag":"クローリング"}],"shareUrl":"https://silverbirder.github.io/blog/contents/started_using_ruby_on_rails_at_work./","slug":"started_using_ruby_on_rails_at_work."}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

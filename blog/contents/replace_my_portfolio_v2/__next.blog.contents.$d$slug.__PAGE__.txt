@@ -1,0 +1,391 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T500e,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    span: "span",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "この度、私のポートフォリオページを刷新致しました。本記事では、\n刷新することになった動機から、刷新内容、今後について紹介したいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "動機",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動機",
+        children: "動機"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "元々、私のポートフォリオページは、静的ページジェネレーターである Hugo を使って\n構築していました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "http://kohki.hatenablog.jp/entry/hugo-portfolio",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Hugo + GitHub Pagesでポートフォリオを作る - プログラミングで世界を変える"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "出来たもの Nakaji Kohki https://nkjzm.github.io/ [ urlの先の内容が変わって趣旨が伝わらなくならないようにするためのgif github.com はじめに 知り合いがGitHubにResume(職務経歴書)をまとめていて良さそうに見えた。 土曜日を1日使ってポートフォリオを公開してみた。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/7bc0c94607e343f35ad67efb4cc718e7027ed0ce194c82923b0c5328343142de.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "kohki.hatenablog.jp"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/0c8d909bc3a98d9cdc56a9cd191af90eeded1a93bb88518920632c99fd99b042.gif",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "こちらの記事を参考にして、Hugo でポートフォリオページを作りました。\nその当時、なぜポートフォリオを作ったのかというと、確か次の 3 つの思いがありました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "私がどういった人かを知ってもらいたい"
+      }), "\n", _jsx(_components.li, {
+        children: "自分のサイトを持ちたい"
+      }), "\n", _jsx(_components.li, {
+        children: "静的ページジェネレーターを使ってみたい"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Hugo で記事を管理する対象は、Markdown であるため、エンジニアにとって書きやすいです。\nまた、デザインテーマは、公開されているテーマがあるので、好きなものを選びます。"
+    }), "\n", _jsx(_components.p, {
+      children: "導入当初は、とても快適でした。手軽にオシャレなポートフォリオサイトを公開できて満足でした。\nしかし、ずっと使っていると、かゆいところに手が届ないもどかしさを感じるようになりました。\nこれは、便利さとのトレードオフだと思いますが、下記のようなデメリットがあると認識し始めました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Javascript で技術的な挑戦が難しい"
+      }), "\n", _jsx(_components.li, {
+        children: "デザインテーマのカスタマイズが難しい"
+      }), "\n", _jsx(_components.li, {
+        children: "SEO のチューニングが難しい"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "便利さというメリットよりも、デメリットの方が大きいように思い始めました。\nそのため、独自にポートフィリオサイトを作成することにしました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "やったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#やったこと",
+        children: "やったこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "AMP を存分に使ったポートフォリオサイトを作成しました。全体像は、下記のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png",
+        alt: "overview"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@ampproject/toolbox-optimizer",
+        children: "AMP Optimizer"
+      }), "を中心とした構成です。\nソースコードは、下記のリポジトリにあります。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/silverbirder.github.io",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/silverbirder.github.io: silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。. Contribute to silverbirder/silverbirder.github.io development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/3e12ef8164d6b5b2212c38675aeff7fa85f7e04baf7ddd7832e7df3c2f008b22.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術選択",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術選択",
+        children: "技術選択"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回のポートフォリオサイトに、必要以上の機能を持つ Web フレームワーク(e.g. Next.js)を使うのは、メンテナンスコストが高くなるので、却下としました。\nまた、静的ページジェネレーター(e.g. Gatsby)も、動機の理由より却下としました。\nそのため、必要最小限な構成を目指しました。結果、次のような流れとなりました。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "コンテンツを用意する(Markdown,HTML,JSON)"
+      }), "\n", _jsxs(_components.li, {
+        children: ["1 をインプットとして", _jsx(_components.a, {
+          href: "https://www.npmjs.com/package/@ampproject/toolbox-optimizer",
+          children: "AMP Optimizer"
+        }), "で AMP 化する"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらの順序を制御するタスクランナーとして、", _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/gulp",
+        children: "Gulp"
+      }), " を採用しました。\n", _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@ampproject/toolbox-optimizer",
+        children: "AMP Optimizer"
+      }), "は、NPM でインストールするので、Node.js と相性が良いタスクランナーを求めました。\nその選択肢として、Grunt や Gulp があったのですが、", _jsx(_components.a, {
+        href: "https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/amp-optimizer-guide/node-amp-optimizer/",
+        children: "AMP の公式サイトでは Gulp を紹介されていた"
+      }), "ので、Gulp を選択しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "大きな技術選択としては、これくらいです。他の細かい所は、下記のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["highlightjs\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "プログラムコードのハイライト機能"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["jsdom\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["html の各処理\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "h1~h6 タグの Anchor 設定(anchorJS 風)"
+              }), "\n", _jsx(_components.li, {
+                children: "HTML のテンプレートとメインコンテンツの Mix"
+              }), "\n", _jsx(_components.li, {
+                children: "...etc"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ampcssframework\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Dark Theme や Grid 機能が欲しかった"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Cloudinary\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "画像管理 SaaS。OGP などに利用"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["SEO 向け\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Google search console"
+          }), "\n", _jsx(_components.li, {
+            children: "Google analytics"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ポートフォリオコンテンツ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ポートフォリオコンテンツ",
+        children: "ポートフォリオコンテンツ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ポートフォリオサイトにどういったコンテンツを用意しようか悩みました。\n", _jsx(_components.a, {
+        href: "https://github.com/ampproject/amp-toolbox/tree/main/packages/optimizer#markdown",
+        children: "AMP Optimizer に Markdown オプション"
+      }), "があります。\nこれは、HTML だけではなく、Markdown も(HTML 経由で)AMP 化することができるようです。\nそのため、ブログのようなコンテンツもポートフォリオページに加えることができそうと気づきました。\nまた、これまで私が書いたブログコンテンツは、Markdown で管理していたので、ちょうど使えそうでした。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果、次のようなコンテンツを用意しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "自己紹介"
+      }), "\n", _jsx(_components.li, {
+        children: "ブログ"
+      }), "\n", _jsx(_components.li, {
+        children: "持っている本検索"
+      }), "\n", _jsxs(_components.li, {
+        children: ["買ったものリスト\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "アマゾンで買ったもの、サブスク"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ウォッチ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "チェックしてる RSS"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["プロジェクト\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "作ったものの紹介"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ウォッチページで、RSS の WebPush 機能を追加しようとしましたが、Push する側である Server が必要となり、開発が伸びそうだったのでやめておきました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "刷新してどうだったか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#刷新してどうだったか",
+        children: "刷新してどうだったか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "想定通り、Hugo ではできなかったような様々なポートフォリオサイトの機能拡張ができるようになりました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Javascript で技術的な挑戦が難しい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "AMP や、Web Worker(amp-script)を試せた"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["デザインテーマのカスタマイズが難しい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "CSS フレームワークや、CSS のチューニングができた"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["SEO のチューニングが難しい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "SearchConsole や GoogleAnalytics が使えた"
+          }), "\n", _jsx(_components.li, {
+            children: "sitemap や meta タグのチューニングができた"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["想定通りにできなかったのは、AMP の制約なのですが、WebComponents のような amp-script 上で動かせない技術もあるということでした。\nまた、WebWorker(amp-script)上で、ES Module(", _jsx(_components.a, {
+        href: "https://skypack.dev/",
+        children: "skypack"
+      }), ")を Import しようとしても、Safari が未対応だったりで、断念したりもしました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、最終的な感想としては、HTML を柔軟に処理できるようになったので、AMP 上でできることは何でもできるようになり、刷新してよかったと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "学んだこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#学んだこと",
+        children: "学んだこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "経験学習モデルより、簡単に振り返ります。(はじめて)"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "経験"
+          }), _jsx(_components.th, {
+            children: "省察"
+          }), _jsx(_components.th, {
+            children: "概念化"
+          }), _jsx(_components.th, {
+            children: "試行"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "AMP を初めて使ってみた"
+          }), _jsx(_components.td, {
+            children: "AMP 使ったことなかったけど、思っていたより課題は少なかった。 / しかし、想定していなかった課題もあった。"
+          }), _jsx(_components.td, {
+            children: "使ったことがない技術要素の課題は、想定していても未知数"
+          }), _jsx(_components.td, {
+            children: "未知数な技術は、軽く試してみる"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Next.js や Gatsby など、フレームワークを使わなかった"
+          }), _jsx(_components.td, {
+            children: "シンプルな構成にしたかった。 / 必要以上に機能が多いフレームワークを入れたくなかった。"
+          }), _jsx(_components.td, {
+            children: "保守性を担保するため、最小限の機能で構成"
+          }), _jsx(_components.td, {
+            children: "大掛かりな技術の選択は、保守性と天秤にかける"
+          })]
+        })]
+      })]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ポートフォリオ刷新をしました。これまで 1 から Web サイトを作ったことがなかったので、\nsitemap や JSON-LD など全て手作りで開発したので、良い勉強になりました。\nまだまだポートフォリオの課題は山積みですが、少しずつ改善していきたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":69,"publishedAt":"2021-12-23","tags":["成果物"],"title":"silverbirderのポートフォリオページ刷新(v2)"},"navigation":{"next":{"href":"/blog/contents/intro_rocket","publishedAt":"2021-12-24","title":"Markdownで執筆するなら、WebComponentsが使えるSSG、Rocketがオススメ！"},"prev":{"href":"/blog/contents/2021_furikaeri","publishedAt":"2021-12-21","title":"2021年の振り返り。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/replace_my_portfolio_v2/","slug":"replace_my_portfolio_v2"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

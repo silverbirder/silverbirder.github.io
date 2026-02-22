@@ -1,0 +1,235 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T31eb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "まえおき",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#まえおき",
+        children: "まえおき"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これから iOS を前提として話を進めていきますが、話の主題としては iOS かどうかはあまり関係ありません。"
+    }), "\n", _jsx(_components.h2, {
+      id: "nfc-automation-trigger",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nfc-automation-trigger",
+        children: "NFC Automation Trigger"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://support.apple.com/ja-jp/HT210393#131",
+        children: "13.1 の iOS リリース"
+      }), "により NFC Automation Trigger が使えるようになりました。NFC とは、Wiki によると次のようなものです。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "狭義には Near field communication（NFC）の訳語。NFC は RFID（Radio Frequency IDentification）と呼ばれる無線通信による個体識別の技術の一種で、近距離の無線通信技術を統一化した世界共通の規格である。IC チップを内蔵した NFC タグを NFC のリーダ・ライタ機能を有する機器で読み取ったり書き込んだりする。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://ja.wikipedia.org/wiki/%E8%BF%91%E8%B7%9D%E9%9B%A2%E7%84%A1%E7%B7%9A%E9%80%9A%E4%BF%A1",
+        children: "https://ja.wikipedia.org/wiki/近距離無線通信"
+      })]
+    }), "\n", _jsxs(_components.p, {
+      children: ["有名なものとしては、", _jsx(_components.a, {
+        href: "https://www.jreast.co.jp/mobilesuica/index.html/",
+        children: "モバイル Suica"
+      }), "でしょうか。AppleWatch がリーダ機として扱われます。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg",
+        alt: "apple_watch_suica"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回のリリースである NFC Automation Trigger は、この NFC を読み込むと自動的に特定のアクションを Trigger することができます。\n例えば、特定の NFC タグを iPhone が読み取ると、3 分のタイマーが起動する！とか。ま、表題の件を用意したんですけどね！（笑）"
+    }), "\n", _jsx(_components.h2, {
+      id: "とりあえずこんなの作ったよ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#とりあえずこんなの作ったよ",
+        children: "とりあえずこんなの作ったよ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["登録している NFC タグを iPhone が読み取ると、扉に設置しているスマートロックアイテム SESAME の", _jsx(_components.a, {
+        href: "https://docs.candyhouse.co/#sesame-api",
+        children: "SESAME API"
+      }), "を Request して扉の鍵が解錠されます。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345607/silver-birder.github.io/blog/sesame_nfc_before.png",
+        alt: "sesame_nfc_before"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "↓ 白色の NFC タグにスマホを近づけると...?"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345642/silver-birder.github.io/blog/sesame_nfc_after.png",
+        alt: "sesame_nfc_after"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "NFC Automation Trigger が作動！解錠！"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1187016726363299840",
+        children: "tweet"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["作成方法は、とっても ", _jsx(_components.strong, {
+        children: "かんたん"
+      }), " です。iPhone 標準アプリ shortcut と、", _jsx(_components.a, {
+        href: "https://www.amazon.co.jp/gp/product/B00GXSGL5G/",
+        children: "NFC タグ(１枚 94 円)"
+      }), "があれば誰でも作れます。もちろん、 ", _jsx(_components.strong, {
+        children: _jsx(_components.a, {
+          href: "https://www.amazon.co.jp/dp/B0787N1L3M",
+          children: "SESAME"
+        })
+      }), " が必要ですけどね（笑)。"]
+    }), "\n", _jsx(_components.p, {
+      children: "shortcut で、次の準備をしました。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://support.apple.com/ja-jp/guide/shortcuts/apd58d46713f/ios",
+          children: "RESTfulAPI のショートカット"
+        }), "を使って", _jsx(_components.a, {
+          href: "https://docs.candyhouse.co/#sesame-api",
+          children: "SESAME API"
+        }), "を設定する。"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://reliphone.jp/nfc-automation/",
+          children: "個人用オートメーション"
+        }), "を作成し、用意した NFC タグをスキャンする。"]
+      }), "\n", _jsx(_components.li, {
+        children: "2 のオートメーションを 1 のショートカットと紐付ける。"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これの良いところは、次の２点でしょうか。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "標準アプリだけで完結"
+      }), "\n", _jsx(_components.li, {
+        children: "NFC タグ自体には何も加工しないため安全"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ SESAME には、扉に近づいたら解錠する ", _jsx(_components.strong, {
+        children: _jsx(_components.a, {
+          href: "https://jp.candyhouse.co/blogs/how-to/%E6%89%8B%E3%81%B6%E3%82%89%E8%A7%A3%E9%8C%A0%E6%A9%9F%E8%83%BD-%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B",
+          children: "手ぶら解錠"
+        })
+      }), " や、スマホをノックするだけで解錠する ", _jsx(_components.strong, {
+        children: _jsx(_components.a, {
+          href: "https://jp.candyhouse.co/blogs/how-to/%E3%83%8E%E3%83%83%E3%82%AF%E6%A9%9F%E8%83%BD%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B",
+          children: "ノック解錠"
+        })
+      }), " というものがあります。本来は、これを使いたかったのですが精度が低いため実用性に欠けると思っています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "考察",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#考察",
+        children: "考察"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["この NFC Automation Trigger は、アイデア次第でいくらでも、便利なことができます。\n今回の目的は 「 ", _jsx(_components.strong, {
+        children: "個人利用"
+      }), " で、 ", _jsx(_components.strong, {
+        children: "ライフハック"
+      }), " できるものを作りたい」というものです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ正直、iPhone をわざわざ NFC に近づける動作は ", _jsx(_components.strong, {
+        children: "面倒"
+      }), " だと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の部屋には", _jsx(_components.a, {
+        href: "https://en.wikipedia.org/wiki/Voice_user_interface",
+        children: "VUI"
+      }), "として", _jsx(_components.a, {
+        href: "https://store.google.com/jp/product/google_home_mini",
+        children: "GoogleHome"
+      }), "があり、スマートリモコンの", _jsx(_components.a, {
+        href: "https://nature.global/",
+        children: "NatureRemo"
+      }), "や、物理ボタン自動化の", _jsx(_components.a, {
+        href: "https://www.switchbot.jp/",
+        children: "SwitchBot"
+      }), "、コンセントのスマート化", _jsx(_components.a, {
+        href: "https://www.amazon.co.jp/dp/B078HSBNMT/",
+        children: "TP-Link"
+      }), "などが GoogleHome と連携しています。\n手で操作するよりも、声で操作する方が、数ステップですが ", _jsx(_components.strong, {
+        children: "遥かに効率的"
+      }), " と感じます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["つまり、VUI で管理できている空間に関しては、NFC の Trigger はあまり役立ちはしないのかなと思っています。逆に、 ", _jsx(_components.strong, {
+        children: "VUI の管理外の空間"
+      }), " 、私の部屋でいうと、トイレとか洗面台、玄関には NFC が役立つかもしれません。また、 ", _jsx(_components.strong, {
+        children: "声を発するのが躊躇われる環境"
+      }), " においても、NFC の方が役立つと思っています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["外の環境では、どうでしょうか。NFC を貼れる場所なので、限定はされます。\n自宅の郵便ポスト、自転車・車、衣類、カバン、傘、学校や職場のマイ机・椅子とかでしょうか。\n", _jsx(_components.a, {
+        href: "https://www.amazon.co.jp/gp/product/B00GXSGL5G/",
+        children: "NFC タグ(１枚 94 円)"
+      }), "は、シールのように柔らかいので、コップやボールにも貼れると思います。", _jsx(_components.a, {
+        href: "https://ja.wikipedia.org/wiki/Amazon_Dash",
+        children: "アマゾンダッシュボタン"
+      }), "が一時流行っていましたが、あれと似たようなこともできます。例えば、「トイレットペーパの入れ物に NFC タグを貼っておいて、なくなりそうになったら NFC タグを読み込んで注文する」みたいな。もちろん、注文する処理は、自前で組む必要がありますよ。アマゾン定期注文には向いていないものには、良いかもですね。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["さらに、shortcut では ", _jsx(_components.strong, {
+        children: "変数を注入できる"
+      }), " ため、例えば、現在地を NFC トリガーに注入することで、\n「現在地から自宅までのタクシーを予約する」NFC トリガーもできちゃいます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "個人利用という括りであっても、NFC Automation Trigger の使い道はとても多いと思います。\n商用利用と考えると、更にあると思いますが、省略します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "さいごに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#さいごに",
+        children: "さいごに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["NFC Automation Trigger という機能は、珍しくありません。\nしかし、とても使いやすくカスタマイズ性が高いため、アイデア次第でいくらでも化けれます。\n一攫千金？を目指すのも良いですが、やっぱり ", _jsx(_components.strong, {
+        children: "ライフハック"
+      }), " をつきつめたいなと思う私でした。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":36,"publishedAt":"2019-12-28","tags":["趣味"],"title":"NFC Automation Trigger + SESAME API による自動解錠と考察"},"navigation":{"next":{"href":"/blog/contents/intelliJ_typescript_docker_remote_debug","publishedAt":"2019-12-28","title":"IntelliJ + TypeScript + Docker で Remote Debug (Break Point)"},"prev":{"href":"/blog/contents/gdg_devfest_tokyo_2019_web","publishedAt":"2019-12-16","title":"GDG DevFest Tokyo 2019に参加したら、Webの未来にワクワクした"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-22","slug":"20260222","summary":"ドラゴンクエストVII Reimagined の体験版を遊んでみました。 https://www.dragonquest.jp/dq7r/ テレビゲームをやるのはかなり久々です。 これまでのドラクエ履歴は、以下のとおりで最近のものを全然して","tags":["趣味"],"title":"ドラゴンクエストVII Reimagined 体験版をやってみたら、夢中になった"},{"publishedAt":"2026-02-04","slug":"20260204","summary":"以下の記事で触れた、ラリホースライムのガチャガチャを発見しました！🎉 https://silverbirder.github.io/blog/contents/20260202/ ラリホースライム 発見した場所 岐阜県の大型ショッピングモ","tags":["趣味"],"title":"ラリホースライムを発見！"},{"publishedAt":"2026-02-03","slug":"20260203","summary":"クレーンゲームで手に入れたキングスライム クレーンゲームって難しくないですか？ 私はぬいぐるみの商品ばかりを狙って遊んでいるのですが、なかなかゲットできません。 写真は、たまたま取れたキングスライムのぬいぐるみです。 攻略動画を見てできる気","tags":["趣味"],"title":"クレーンゲームって難しい"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/nfc_automation_trigger_sesame_api/","slug":"nfc_automation_trigger_sesame_api"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

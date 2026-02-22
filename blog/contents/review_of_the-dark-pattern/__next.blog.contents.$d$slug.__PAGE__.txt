@@ -1,0 +1,282 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T541f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "今回、以下の書籍を読みました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.shoeisha.co.jp/book/detail/9784798177892",
+          children: "ザ・ダークパターン ユーザーの心や行動をあざむくデザイン"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "せっかくなので、感じたことや気づきをまとめてみます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ダークパターンとは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ダークパターンとは",
+        children: "ダークパターンとは"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ざっくり言うと、ユーザーを意図的にだますデザインのことです。\nたとえば、以下の経験はありませんか？"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "気づいたらメルマガを購読していた"
+      }), "\n", _jsx(_components.li, {
+        children: "いつの間にか有料会員になっていた"
+      }), "\n", _jsx(_components.li, {
+        children: "解約方法が分かりづらい・隠されている"
+      }), "\n", _jsx(_components.li, {
+        children: "ボタンだと思ったら実は広告だった"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "こういうのに遭遇すると、「騙された…」と感じてしまいますよね。\n私は一度でもこういう体験をすると、そのサービス自体を使いたくなくなりますし、似たような場面でもつい疑い深くなってしまいます。"
+    }), "\n", _jsx(_components.p, {
+      children: "今回読んだ本では、こうした“ダークパターン”の具体例について、いろいろ紹介されていました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "メルマガ購読チェックボックスうんざりだ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メルマガ購読チェックボックスうんざりだ",
+        children: "メルマガ購読チェックボックス、うんざりだ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1751369916/silver-birder.github.io/blog/%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AB%E3%82%99%E8%B3%BC%E8%AA%AD.png",
+        alt: "メルマガ購読の例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "よくあるのが、メルマガ購読のチェックボックスが最初からONになっているパターン。\n心理学でいう \"デフォルト効果\" を利用したものですが、正直いらないものを勝手に購読させられるのは、もううんざりです。"
+    }), "\n", _jsx(_components.p, {
+      children: "人は、何かをわざわざ変更するよりも、そのままデフォルトの状態で進めがちです。私もです。\nだからこそ、設定次第で「めっちゃ便利」か「やめてよ...」と感じ方が変わってきます。\n本来は、何も選んでいない状態がデフォルトであってほしいし、必要なときだけ自分の意思でONにしたいものです。"
+    }), "\n", _jsx(_components.p, {
+      children: "メルマガ購読のチェックボックスは、基本的にOFFがいい。\n意図的に選ばせるなら、ちゃんとユーザーのアクションを伴ってほしいなと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "キャンセルをキャンセルしますか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キャンセルをキャンセルしますか",
+        children: "キャンセルを、キャンセルしますか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1751369829/silver-birder.github.io/blog/%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB.png",
+        alt: "キャンセルのキャンセルの例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の文章みたいな、「結局どっち？」と一瞬迷う表現に出会うことがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「解約をキャンセルしますか？」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "はい"
+          }), "\n", _jsx(_components.li, {
+            children: "キャンセル"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これ、「はい」を選ぶと解約されないんですよね。\nこういうの、意図的にユーザーを混乱させて解約させないための罠だと思っています。"
+    }), "\n", _jsx(_components.p, {
+      children: "やっぱり、文章はシンプルで肯定的な表現の方が分かりやすいし、ユーザーのアクションも「ONにしたいときはONにする」みたいに直感的であってほしいです。\nチェックボックスも、チェックを入れたらON、外したらOFF、これが一番しっくりきます。"
+    }), "\n", _jsx(_components.p, {
+      children: "あと、たまに「健康を一切気にしないので、解約する」みたいなネガティブな選択肢をわざわざ書かせるパターンも見かけます。\n最近は減った気がしますが、なんでそんなこと書くんでしょうね…。"
+    }), "\n", _jsx(_components.h2, {
+      id: "こちらの物件に5件の予約がありました-本当に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#こちらの物件に5件の予約がありました-本当に",
+        children: "「こちらの物件に、5件の予約がありました」 本当に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1751369829/silver-birder.github.io/blog/%E5%AE%BF%E6%B3%8A%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E4%BE%8B.png",
+        alt: "宿泊予約サイトの例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "宿泊予約サイトや不動産サイトで、「この物件、今5件の予約が入っています！」みたいな表示、見かけませんか？\n「やばい、早く予約しなきゃ…」と焦らせるためのテクニックですが、全部が本当とは限りません。\nシステム的に、ランダムで表示されていることもあるし、実際には予約が入っていないこともあります。"
+    }), "\n", _jsx(_components.p, {
+      children: "他にも「在庫残りわずか！」とか、「今だけ限定！」みたいな煽り文句もよくあります。\nこういうのって、情報の透明性がないからこそ、ユーザーを急がせて購買行動を促しているように感じます。\n口コミも同じで、お金で書かせている偽物（サクラ）もあったりします。\n本物の口コミかどうかは、ユーザー視点だと判断できません。"
+    }), "\n", _jsx(_components.p, {
+      children: "「本当に？」と疑いたくなる場面は多いですが、なかなか確かめる術がないのが現実です。\nちなみに、私が実際に体験したのは、不動産サイトで問い合わせをした翌日、「この物件に1件のお問い合わせがありました」と表示されていたこと。\nこれは本当だなと感じて、少し信じるようになりました。"
+    }), "\n", _jsx(_components.p, {
+      children: "でも、ほとんどの場合は自分でコントロールできないので、つい疑い深くなってしまいます。\n口コミも、星5つばかりや良いことしか書いていないレビューは除外するなど、みなさんも工夫しているんじゃないでしょうか。"
+    }), "\n", _jsx(_components.p, {
+      children: "ユーザーも、こうした手法にだんだん慣れてきて、学習しているんだと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "情報の透明性を担保するのは本当に難しそうです。\nどこまで開示していいのかも悩ましいし、そもそもできない場面も多そうです。\n自分で確認できればいいですが、そうじゃない場合はどうしようもないですよね。"
+    }), "\n", _jsx(_components.p, {
+      children: "サクラレビューをチェックするツールもありますが、特定のサービスの口コミだけです。\n第三者が情報の透明性を保証する仕組みがもっと普及すればいいのにな…と思います（自分が知らないだけかもしれませんが）。"
+    }), "\n", _jsx(_components.h2, {
+      id: "解約は簡単って書いてたのに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#解約は簡単って書いてたのに",
+        children: "解約は簡単って、書いてたのに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1751369829/silver-birder.github.io/blog/%E8%A7%A3%E7%B4%84%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.png",
+        alt: "解約についての例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "「いつでも簡単に解約できます！」って書いてあるサービス、よく見かけますよね...。\nでも、いざ解約しようとすると全然簡単じゃないことが多いです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "解約リンクがどこにも見当たらない"
+      }), "\n", _jsx(_components.li, {
+        children: "平日の限られた時間に電話しないといけない"
+      }), "\n", _jsx(_components.li, {
+        children: "手続きに1週間以上かかる"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Webでサクッと会員登録できたのに、解約だけはやたら面倒…。\nこういう“妨害”があると、解約率は下がるかもしれませんが、その分クレームや不信感が増えるだけだと思います。\n今の時代、SNSでこういう体験がすぐ拡散されて、企業イメージも悪くなりがち。\n本当に、困ったものです…。"
+    }), "\n", _jsx(_components.h2, {
+      id: "これより先は会員登録が必要です",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#これより先は会員登録が必要です",
+        children: "これより先は、会員登録が必要です"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1751369829/silver-birder.github.io/blog/%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2%E3%81%8B%E3%82%99%E5%BF%85%E8%A6%81.png",
+        alt: "会員登録が必要な例"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "toC向けのサービスだと、「ここから先は会員登録してください」と表示されること、よく目にします。\nしかも、登録時にメールアドレスや電話番号、住所、氏名など、いろいろ入力させられるパターンが多いです。\nその結果、知らない番号から電話がかかってきたり、営業メールが届いたり…（ウォーターサーバーの勧誘、ほんとやめてほしい）。"
+    }), "\n", _jsx(_components.p, {
+      children: "こういうのが嫌で、そもそも会員登録したくない人も多いと思います。（個人の感想です）\n私は、住所やメールにはエイリアスを使って、どこで情報が漏れたか分かるようにしていますが、それでもできるだけ入力したくないのが本音です。"
+    }), "\n", _jsx(_components.p, {
+      children: "最近は、何でもかんでもログインしないと使えない機能が増えていますが、「本当にログインが必要？」と思う場面も多いです。\n個人情報が関わる機能ならまだしも、そうでないのにログインを求められると、「なんで？」と感じてしまいます。\nそういうときは、ちゃんと理由や説明がほしいなと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ダークパターンは人を離れさせる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ダークパターンは人を離れさせる",
+        children: "ダークパターンは、人を離れさせる"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "KPIや数字を追いかけていると、つい「どうやったらCVR（コンバージョン率）が上がるんだろう？」と悩むことがあります。\nプレッシャーや納期があると、ついダークパターンに手を出したくなる気持ちも分からなくはありません。\n短期的には数字が伸びるかもしれませんし。"
+    }), "\n", _jsx(_components.p, {
+      children: "でも、これまで挙げてきたような“人を騙す”手法は、結局のところ長期的には信頼を失ってしまいます。\n実際、私もダークパターンに遭遇したサイトは強く印象に残っていて、もう二度と使いたくないな…と思ってしまいます。\nむしろ、他のサービスを選ぶようになります。"
+    }), "\n", _jsx(_components.p, {
+      children: "KPIを上げるときは、逆の指標（カウンターメトリック）も一緒に見ておくのが大事だなと感じます。\nたとえば、メルマガの開封率を上げたいなら解除率も見る、会員解約率を下げたいならクレーム数もチェックする、みたいな感じです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ダークパターンに慣れていく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ダークパターンに慣れていく",
+        children: "ダークパターンに慣れていく"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「メルマガのチェックは最初からOFFにしておく」"
+      }), "\n", _jsx(_components.li, {
+        children: "「レビューは偽物も混じってるかも」"
+      }), "\n", _jsx(_components.li, {
+        children: "「在庫わずかって言われても、まずは落ち着こう」"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "こうした“ダークパターン”に対して、ユーザー側もだんだん学習してきている気がします。\n一度や二度引っかかっても、経験を重ねるうちに「またか」と気づくようになります。\nそうすると、短期的な利益アップもできなくなりますし、むしろ信用の低下やクレーム増加につながることが多いかと思います。\n結局、ダークパターンを使い続けるのは、長い目で見るとマイナスになることが多いんじゃないでしょうか。"
+    }), "\n", _jsx(_components.p, {
+      children: "とはいえ、ITリテラシーが高い人は気づきやすいですが、そうでない人の方が圧倒的に多いのも事実。\n気づかないまま利用してしまう人もたくさんいます。\nだからこそ、身近な人には「こういうの気をつけてね」ぐらいは伝えていこうと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "マイクロコピーが大事",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロコピーが大事",
+        children: "マイクロコピーが大事"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "マイクロコピーとは、Webサイト上に表示される小さなテキストのことです。\nボタンのラベル、エラーメッセージ、説明文など、ユーザーが直接目にする文章全般を指します。\n一見地味ですが、実はユーザー体験を大きく左右する重要な要素と思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "最近よく見かけるのが、テキストを省いてアイコンだけで操作を表現しているサイト。\n確かにスタイリッシュに見えるし、カッコ良いと思います。\nでも、アイコンだけだと「これ押したら何が起こるんだろう？」と迷うことがあります。"
+    }), "\n", _jsx(_components.p, {
+      children: "私も何度か経験があります。ゴミ箱アイコンを見かけたら「削除されるんだろうな」と思うし、「i」のマークがあれば「詳細情報が見られるのかな」と期待します。\nでも、実際に押してみると予想と違う動作をされると、「あれ？」となってしまいます。"
+    }), "\n", _jsx(_components.p, {
+      children: "そういうときこそ、マイクロコピーが活躍します。\n「削除する」「詳細を見る」「設定を変更する」など、ちょっとした説明があるだけで、ユーザーは安心してボタンを押せるようになります。\nボタンの近くにある説明文も同じです。手抜きをせず、ちゃんと分かりやすい言葉で伝えることが大切だなと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "マイクロコピーのライティングって、それだけで専門職があるぐらい奥が深い分野です。\nたった数文字の違いで、ユーザーの行動が変わることもありますし、親しみやすさや信頼感にも影響してくる。\n改めて、マイクロコピーの重要性を感じます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Webサービスを作る立場として、これからも「本当にユーザーのためになっているか？」を意識しながら、ダークパターンに頼らないクリーンな設計を心がけていきたいと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "ここまで読んでいただき、ありがとうございました！"
+    }), "\n", _jsx(_components.h2, {
+      id: "ps",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ps",
+        children: "P.S"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この記事に関連して、以下の記事もおすすめです！"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["『", _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/en-no-shita-ui-design/",
+          children: "縁の下のUIデザインを読みました"
+        }), "』"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["『", _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/review_of_108-design-psychology-laws-you-can-learn-quickly/",
+          children: "サクッと学べるデザイン心理法則108を読みました"
+        }), "』"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["『", _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/review_of_hajimete-no-ux-zukan/",
+          children: "はじめてのUXデザイン図鑑を読みました"
+        }), "』"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["『", _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/micro-interactions-the-god-given-details-of-ui-ux-design/",
+          children: "マイクロインタラクション―UI/UXデザインの神が宿る細部を読みました。"
+        }), "』"]
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":140,"publishedAt":"2025-07-02","tags":["書籍レビュー"],"title":"『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』書籍レビュー"},"navigation":{"next":{"href":"/blog/contents/learn-layout","publishedAt":"2025-07-27","title":"苦手なCSSを克服しよう"},"prev":{"href":"/blog/contents/micro-interactions-the-god-given-details-of-ui-ux-design","publishedAt":"2025-02-22","title":"『マイクロインタラクション―UI/UXデザインの神が宿る細部』を読みました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-12","slug":"20260212","summary":"たまたま、Googleレコメンドに \"Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ\" の本へのリンクが流れてきました。 Webフォントの記事って、あまり見かけなかったのでAmazonでポチりまし","tags":["書籍レビュー"],"title":"『Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ』を読みました。"},{"publishedAt":"2026-02-11","slug":"20260211","summary":"今日、4ヶ月以上放置していた本を読み始めています。 読み始めて、本ってやっぱ良いものだなと思うことがありました。 そのことについて、簡単に書こうかなと思います。 今読んでいる本 \"Webフォント実践ガイド Google Fontsではじめる","tags":["書籍レビュー"],"title":"久々に本を読んでよかったこと"},{"publishedAt":"2025-02-22","slug":"micro-interactions-the-god-given-details-of-ui-ux-design","summary":"マイクロインタラクションという言葉をネットで見かけて、興味を持ちました。詳しく知るには書籍が最適だと思い、オライリー社の『マイクロインタラクション ―UI/UXデザインの神が宿る細部』https://www.oreilly.co.jp/books/9784873116594/を読みました。本書を通じて、細部にこだわることで、「仕方なく使う」から「次も使いたくなる」Webサービスを目指したいと感じました。以下は、その感想です。","tags":["書籍レビュー"],"title":"『マイクロインタラクション―UI/UXデザインの神が宿る細部』を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/review_of_the-dark-pattern/","slug":"review_of_the-dark-pattern"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

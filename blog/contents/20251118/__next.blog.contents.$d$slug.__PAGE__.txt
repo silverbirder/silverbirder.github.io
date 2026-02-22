@@ -1,0 +1,547 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T55e9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以前、Andreas Kutschmann 氏が書いた「Design Token-Based UI Architecture」を読んだことがあります。", _jsx(_components.br, {}), "\n最近ふとその内容を思い出したので、あらためて自分の UI 設計の考え方と重ね合わせて整理してみました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "design-token-based-ui-architecture-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#design-token-based-ui-architecture-とは",
+        children: "Design Token-Based UI Architecture とは"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "原著では、UI を次の 3 種類のトークンで構築する考え方が紹介されています。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Option Tokens", _jsx(_components.br, {}), "\n— UI で利用可能なスタイルの選択肢そのものを定義するトークン"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Decision Tokens", _jsx(_components.br, {}), "\n— Option Tokens の中から「文脈に応じてどのスタイルを使うか」を決めるトークン"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Component Tokens", _jsx(_components.br, {}), "\n— Decision Tokens を参照し、「どのコンポーネントのどこにスタイルを適用するか」を定義するトークン"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "デザイントークンをベースとして、コンポーネントのPropsもトークンで設計する感じです。\n例えば、Buttonだとvariantとして\"primary\"や\"secondary\"のようなインターフェースにする感じです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "私なりの考え方3-層構造で-ui-を整理する",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#私なりの考え方3-層構造で-ui-を整理する",
+        children: "私なりの考え方：3 層構造で UI を整理する"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["原著の考え方はとても理解しやすいのですが、実際のプロダクト開発で扱いやすい形に落とし込むと、", _jsx(_components.br, {}), "\n私は UI を以下の3層構造で整理するのが現実的だと感じています。"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "デザイントークン層（最小単位の値）"
+      }), "\n", _jsx(_components.li, {
+        children: "アトミックコンポーネント層（唯一トークンを直接参照する層）"
+      }), "\n", _jsx(_components.li, {
+        children: "ドメインコンポーネント層（アプリ固有 UI）"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "1-デザイントークン層",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1-デザイントークン層",
+        children: "1. デザイントークン層"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "UI の「最小単位の値」を定義する層です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "色（プリミティブ / セマンティック）"
+      }), "\n", _jsx(_components.li, {
+        children: "スペーシング"
+      }), "\n", _jsx(_components.li, {
+        children: "角丸（radius）"
+      }), "\n", _jsx(_components.li, {
+        children: "タイポグラフィ"
+      }), "\n", _jsx(_components.li, {
+        children: "影・エレベーション"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらは ", _jsx(_components.strong, {
+        children: "Figma のバリアブルを Single Source of Truth"
+      }), " として扱います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Tokens Studio を使うと、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "トークンを JSON として抽出"
+      }), "\n", _jsx(_components.li, {
+        children: "GitHub に PR を自動生成"
+      }), "\n", _jsx(_components.li, {
+        children: "フロント側では CSS 変数として利用"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "というワークフローを組むこともできるはずです。（昔作った記憶あるけど忘れました）"
+    }), "\n", _jsx(_components.h2, {
+      id: "2-アトミックコンポーネント層component-tokens-に相当",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#2-アトミックコンポーネント層component-tokens-に相当",
+        children: "2. アトミックコンポーネント層（Component Tokens に相当）"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["デザイントークンを ", _jsx(_components.strong, {
+        children: "唯一直接参照する UI コンポーネント層"
+      }), " です。"]
+    }), "\n", _jsx(_components.p, {
+      children: "例："
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Button / TextField / Select"
+      }), "\n", _jsx(_components.li, {
+        children: "Heading / Text"
+      }), "\n", _jsx(_components.li, {
+        children: "Flex / Grid / Box / Container"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "使用側は生のトークン値に触れず、抽象化された API で UI を構築します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "tsx",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "tsx",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "// OK（抽象化された API を利用）"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "Button"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " size"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"md\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " variant"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"primary\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " />"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "Flex"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " gap"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"sm\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " bg"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"primary\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " />"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "// NG（トークンの生値を直接使用している）"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "Button"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " padding"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"16px\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " bg"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"#0070f3\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " />"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "Flex"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " gap"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"4px\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " bg"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"#0070f3\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " />"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "なぜ抽象化するのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ抽象化するのか",
+        children: "なぜ抽象化するのか"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "\"16px\""
+        }), " のような生値ではなく、", _jsx(_components.code, {
+          children: "sm / md / lg"
+        }), " のような意味単位で扱える"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["トークン変更時の影響範囲を ", _jsx(_components.strong, {
+          children: "この層に閉じ込める"
+        }), " ことができる"]
+      }), "\n", _jsx(_components.li, {
+        children: "Figma の Variant と揃えやすく、MCP との連携も自然"
+      }), "\n", _jsx(_components.li, {
+        children: "利用側が「どの値を使うべきか」を迷わなくなる"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "内部はトークン、外部は抽象化された API"
+      }), " という設計が理想です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "3-ドメインコンポーネント層アプリ固有-ui",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#3-ドメインコンポーネント層アプリ固有-ui",
+        children: "3. ドメインコンポーネント層（アプリ固有 UI）"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アトミックコンポーネントを組み合わせて構築する、プロダクト固有の UI 層です。"
+    }), "\n", _jsx(_components.p, {
+      children: "例："
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ShopItemCard"
+      }), "\n", _jsx(_components.li, {
+        children: "UserProfile"
+      }), "\n", _jsx(_components.li, {
+        children: "CheckoutForm"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["特徴は ", _jsx(_components.strong, {
+        children: "デザイントークンに直接アクセスしない"
+      }), " という点で、これをルールとして強制します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "この構造がもたらすメリット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#この構造がもたらすメリット",
+        children: "この構造がもたらすメリット"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "3 層に分けることで、UI のトークンのデータフローは一方向になります。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "Figma → デザイントークン → アトミックコンポーネント → ドメインコンポーネント"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この構造により、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "トークン変更の影響範囲が予測しやすい"
+      }), "\n", _jsx(_components.li, {
+        children: "VRT / Playwright で UI 差分を検出しやすい"
+      }), "\n", _jsx(_components.li, {
+        children: "UI の一貫性が自然と保たれる"
+      }), "\n", _jsx(_components.li, {
+        children: "デザイナーとエンジニアの連携が取りやすい"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "というメリットが得られます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "私ならどう構築するか現実的な選択肢",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#私ならどう構築するか現実的な選択肢",
+        children: "私ならどう構築するか（現実的な選択肢）"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "案-a-chakra-ui-に-12-層を任せる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#案-a-chakra-ui-に-12-層を任せる",
+        children: "案 A: Chakra UI に 1〜2 層を任せる"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Variant ベースの設計が強力"
+      }), "\n", _jsx(_components.li, {
+        children: "ただし emotion 採用が気になる場合は注意"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "案-b-tailwind--shadcn--自作アトミックコンポーネント",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#案-b-tailwind--shadcn--自作アトミックコンポーネント",
+        children: "案 B: tailwind + shadcn + 自作アトミックコンポーネント"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "emotion を使わずに済む構成"
+      }), "\n", _jsx(_components.li, {
+        children: "Layout / Typography などの基礎部分だけ自作する運用が現実的"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["この記事を書こうと思った理由は、個人開発で tailwind + shadcn を使って UI を作っているうちに、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "className で直接ユーティリティを大量に書けてしまう環境"
+      }), " によって、", _jsx(_components.br, {}), "\n「どのスタイルを使うべきか」という一貫性が少しずつ失われている気がしたためです。", _jsx(_components.br, {}), "\nそこで、上記の考え方を試験的に試してます。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":170,"publishedAt":"2025-11-18","tags":["フロントエンド"],"title":"Design Token-Based UI Architecture"},"navigation":{"next":{"href":"/blog/contents/20251119","publishedAt":"2025-11-19","title":"結局は、人の熱に動かされる"},"prev":{"href":"/blog/contents/20251117","publishedAt":"2025-11-17","title":"GherkinにMarkdownがサポートされている"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251118/","slug":"20251118"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

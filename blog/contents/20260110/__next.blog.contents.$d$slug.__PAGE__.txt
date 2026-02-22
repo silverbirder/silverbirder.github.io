@@ -1,0 +1,133 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1cc9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "flex-shrink"
+        }), " の指定を忘れて、要素が押しつぶされてしまった"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "z-index"
+        }), " の指定を間違えて、要素が意図せず前面（または背面）に表示されてしまった"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "object-fit"
+        }), " の指定を間違えて、画像の一部が欠損してしまった"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらのデザイン崩れは、実装中に気づくこともあれば、リリース後に初めて気づいてしまうこともあります。", _jsx(_components.br, {}), "\n本記事では、このようなデザイン崩れについて、テストコードによって発生しないことを担保できないかと考え、その可能性を整理します。", _jsx(_components.br, {}), "\nなお、本記事にはサンプルコードは含まれていません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "デザイン崩れをチェックするアドオン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デザイン崩れをチェックするアドオン",
+        children: "デザイン崩れをチェックするアドオン"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "データ増減によるデザイン崩れを発見しやすくするため、私は次の Storybook アドオンを開発しました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/storybook-addon-range-controls",
+        children: "npmjs.com"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアドオンを使うことで、数値や配列などの Props に対して、スライダー UI を用いて簡単にデータを増減させることができます。", _jsx(_components.br, {}), "\nコンポーネントに対して、想定より多い・少ないデータを与えながら表示を確認できる点で、便利なツールです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "一方で、この確認作業は最終的に人の目によるチェックに依存しており、「デザインが崩れていないこと」を仕組みとして保証できているわけではありません。"
+    }), "\n", _jsx(_components.h2, {
+      id: "css-layout-testing",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#css-layout-testing",
+        children: "CSS Layout Testing"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["こうしたデザイン崩れに対して、テストコードを書くことで問題を防げないかと考えました。", _jsx(_components.br, {}), "\nそこで、次のような方法で、レイアウトに関するテスト、CSS Layout Testing を構築できるのではないかと思います。"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Vitest Browser Mode を利用し、Playwright 上でテストを書く\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "JSDOM のような仮想 DOM ではなく、実際のブラウザ上で動かすことが重要です"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["テストコード内で Web API を使い、レイアウトが崩れていないかを検証する\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "getBoundingClientRect"
+            }), ": 要素の表示位置や横幅・縦幅を取得できる"]
+          }), "\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "elementFromPoint"
+            }), ": 指定した位置において、最前面に描画されている要素を取得できる"]
+          }), "\n", _jsx(_components.li, {
+            children: "そのほか、必要に応じた API"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["例えば、「", _jsx(_components.code, {
+        children: "flex-shrink"
+      }), "の指定を忘れて、要素が押しつぶされてしまった」というケースであれば、\n対象となる要素の横幅や縦幅を ", _jsx(_components.code, {
+        children: "getBoundingClientRect"
+      }), " で取得し、一定以上のサイズを保っていることを検証する、といったテストが考えられます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、「", _jsx(_components.code, {
+        children: "z-index"
+      }), "の指定を間違えて、要素が意図せず前面（または背面）に表示されてしまった」というケースでは、該当箇所まで移動した上で、特定の X 軸・Y 軸に対して", _jsx(_components.code, {
+        children: "elementFromPoint"
+      }), " を実行し、取得された要素が意図する要素であることを検証する、といったテストが書けそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらの問題は、CSS Lint の設定によって防げる場合もありますし、Visual Regression Testing（VRT）によって検出できる場合もあります。ただし、Lint ではすべてのデザイン崩れを拾えるわけではありませんし、VRT についても、画像ファイルの管理や実行時間の増加などの制約があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "おわりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おわりに",
+        children: "おわりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サンプルコードを用意しようかと思ったのですが、都合により準備することができませんでした。時間があれば、試してみたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":223,"publishedAt":"2026-01-10","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},"navigation":{"next":{"href":"/blog/contents/20260111","publishedAt":"2026-01-11","title":"TikTokの動画を集める自動化"},"prev":{"href":"/blog/contents/20260109","publishedAt":"2026-01-09","title":"単体テストを全通り書くんじゃない！"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-09","slug":"20260109","summary":"AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。 単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。 興味があれば、参考として読んでもらえると嬉しい","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"},{"publishedAt":"2025-12-26","slug":"20251226","summary":"はじめに Playwright で E2E テストを書く際、playwright codegen や、近年では Playwright MCP を利用して、テストコードの雛形を作成することが多いと思います。 ただし、生成したテストコードが正し","tags":["テスト"],"title":"Playwright の POM を Storybook 上で確認してから E2E テストを書く"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260110/","slug":"20260110"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

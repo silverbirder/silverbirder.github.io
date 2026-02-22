@@ -1,0 +1,1263 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tf74d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    div: "div",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "最近、Property Based Test という言葉を知りました。\n他にどういうテストの種類があるのか気になったので、調べてみました。\n本記事は、テストの種類を列挙します。\n※ 使用する技術は、私の都合上、node.js で選んでいます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト観点一覧",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト観点一覧",
+        children: "テスト観点一覧"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "cache-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cache-test",
+        children: "Cache Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリでは、様々な Cache が使われます。\n例えば、ブラウザ Cache、CDN Cache、プロキシ Cache、バックエンド Cache などなどです。\nCache は、便利な反面、使いすぎると、どこがどう Cache しているのか迷子になってしまいます。\nWeb アプリでも、Cache をテストする必要がありそうです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/http-tests/cache-tests",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - http-tests/cache-tests: Tests for HTTP Caches"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Tests for HTTP Caches. Contribute to http-tests/cache-tests development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/b34e504e87a265fe0bd5e7480304c1d38d08ba03dc8ebfe05fd38a28b43c969f.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "code-size-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#code-size-test",
+        children: "Code Size Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "大きなサイズの JS ライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/ai/size-limit",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - ai/size-limit: Calculate the real cost to run your JS app or lib to keep good performance. Show error in pull request if the cost exceeds the limit."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Calculate the real cost to run your JS app or lib to keep good performance. Show error in pull request if the cost exceeds the limit. - ai/size-limit"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/71d3ffc9a6640db81c87045af0a97bd2d415ee370b0e151b4e5dd9e22851524f.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/ai/size-limit",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png",
+          alt: "https://github.com/ai/size-limit"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "complexity-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#complexity-test",
+        children: "Complexity Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "循環的複雑度(Cyclomatic complexity)は、制御文(if や for)の複雑さを計測します。\n複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://eslint.org/docs/rules/complexity",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "complexity - ESLint - Pluggable JavaScript Linter"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.\n"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/d7d99b148c3a2eadbbc0690391ce1dd2a7ebfc80256da6b0ef83571529dcab62.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "eslint.org"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/bc950f7f19558f39652d3de74f2ea519fc7161b4a35fa78fb12cda8187b9c81d.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "copypaste-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#copypaste-test",
+        children: "Copy&Paste Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Copy&Paste は、DRY の原則に反するため、特別な理由がない限りは、してはいけません。Copy&Paste を検出するツールがあるみたいです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/kucherenko/jscpd",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - kucherenko/jscpd: Copy/paste detector for programming source code."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Copy/paste detector for programming source code. Contribute to kucherenko/jscpd development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/1eab1ac54e3b74f4b8099f4c61da79c9b6dc88fb8679434cabcee7e4fffe13f3.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/kucherenko/jscpd",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png",
+          alt: "jscpd"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "cross-browserplatform-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cross-browserplatform-test",
+        children: "Cross Browser/Platform Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サポートするブラウザや、プラットフォーム(iOS,Android,Desktop など)の動作検証が必要です。\nそのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。\nそういう環境を手軽に使えるサービスがあったりします。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/browserstack",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "github.com"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/f695895e9e477f3452ef43b5df35cb013717237a08f868e199bc5bca1012aff3.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "e2e-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#e2e-test",
+        children: "E2E Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリを、端から端まで (End To End: E2E)を検証します。\n例えば、ユーザーが Web アプリを訪れて、クリックや入力するなど、使ってみることです。\nこのテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。\n例えば、操作する処理の抽象化や、データ固定などです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/cypress-io/cypress",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - cypress-io/cypress: Fast, easy and reliable testing for anything that runs in a browser."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Fast, easy and reliable testing for anything that runs in a browser. - cypress-io/cypress"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/53cce35a326829969465df451ee6d4b47e212600f2bf87c9db50fd21e42749cc.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "exception-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#exception-test",
+        children: "Exception Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "正常系、準正常系、異常系などのテストが必要です。\n準正常系は、システムが意図的にエラーとしているものです。例えば、フォーム入力値エラーとかです。\n異常系は、システムが意図せずエラーとなるものです。例えば、Timeout エラーとかです。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、Java が得意な人なら知っているであろう、検査例外や非検査例外という例外の扱い方があります。\n基本的には検査例外はエラーハンドリングし、非検査例外はエラーハンドリングしない方針が良いです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "flaky-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#flaky-test",
+        children: "Flaky Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "不安定なテストのことを指します。これに対するアプローチ方法の１つに、Google 社の資料があります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf",
+        children: "https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["日本人がまとめて頂いたものが、次の資料です。\n", _jsx(_components.a, {
+        href: "https://speakerdeck.com/nihonbuson/flakytests",
+        children: "speakerdeck.com"
+      })]
+    }), "\n", _jsx(_components.h2, {
+      id: "integration-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#integration-test",
+        children: "Integration Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Integration Test は、Unit Test のような単一機能を統合した検証になります。\n定義によりますが、私は『Unit Test では発見できないようなもの』かなと思います。\nUnit Test でカバーできていなくても、他のテストで検証できていれば、Integration Test は不要になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "logging-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#logging-test",
+        children: "Logging Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ログ出力が適切なレベルで出力されているか検証する必要があります。\nINFO, WARN, ERROR などがルールに基づいて使い分けされているか気になります。\nログを出すことができるかどうかは、ログライブラリの検証になりますので、必要ないかもしれませんが、\n意図したタイミングで、意図したログレベルで、意図したメッセージが出力されるかは、テストしても良いと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "monkey-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#monkey-test",
+        children: "Monkey Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "お猿さんがランダムにテストするような、モンキーテストです。\nテストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/marmelab/gremlins.js/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - marmelab/gremlins.js: Monkey testing library for web apps and Node.js"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Monkey testing library for web apps and Node.js. Contribute to marmelab/gremlins.js development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5df37152cdac324f5322cc026d33d57b8b20bbd9dbbbcb7ba4a56027f351727b.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/marmelab/gremlins.js",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif",
+          alt: "gremlins.js"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "multi-tenanct-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#multi-tenanct-test",
+        children: "Multi Tenanct Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "マルチテナントは、企業者（利用者）毎に区別した、同一のシステムを提供する方式です。\nこれは、企業毎にサブドメインを分けたりするため、その環境毎のテストが必要になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "mutation-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#mutation-test",
+        children: "Mutation Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "テストを検証するため、突然変異テストというものがあります。\nプロダクトコードを破壊することで、テストも壊れるかどうかを検証します。\nもし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/stryker-mutator/stryker",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - stryker-mutator/stryker-js: Mutation testing for JavaScript and friends"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Mutation testing for JavaScript and friends. Contribute to stryker-mutator/stryker-js development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/79816187209da3d248d046f5ec3f192cdac5905977f811ff03f10f73926f5e79.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://stryker-mutator.io/stryker/quickstart",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif",
+          alt: "https://stryker-mutator.io/stryker/quickstart"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "chaos-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#chaos-test",
+        children: "Chaos Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "障害を注入した際に、どういった動きになるのかを検証するテストです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/goldbergyoni/node-chaos-monkey",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - goldbergyoni/node-chaos-monkey: Extremly naughty chaos monkey for Node.js"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Extremly naughty chaos monkey for Node.js. Contribute to goldbergyoni/node-chaos-monkey development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/729d1ac9dd2a9a5ffe913c9f0c5942af481bf62ee3a115e41dd7b6bb151d0b14.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "performance-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#performance-test",
+        children: "Performance Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "パフォーマンスと言っても、\nCPU 使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。\nこれらを計測し、SLO などの基準値を満たせているかを検証しておく必要があります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/bestiejs/benchmark.js/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - bestiejs/benchmark.js: A benchmarking library. As used on jsPerf.com."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "A benchmarking library. As used on jsPerf.com. Contribute to bestiejs/benchmark.js development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/ce522021ae4ddd5ff3c92472a45d805e40f6e80ed1c9b1e30b1f2ad9001c3396.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "property-based-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#property-based-test",
+        children: "Property Based Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "データを半自動生成し、テストをする手法です。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/dubzzz/fast-check",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - dubzzz/fast-check: Property based testing framework for JavaScript (like QuickCheck) written in TypeScript"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Property based testing framework for JavaScript (like QuickCheck) written in TypeScript - dubzzz/fast-check"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/99ea656e14001dd11b729e78748d7fd7683042ef3b69ba24c5e9e0bdc2b322ce.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "regression-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#regression-test",
+        children: "Regression Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Regression Test は、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。\nこのテストは幅広い意味を持つので、ここに内容されるテスト種類は多いと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "robustness-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#robustness-test",
+        children: "Robustness Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリは、ロバストであるべきです。\n何かしら Web アプリ内で障害が発生したとしても、最低限のサービスだけでも提供するのが好まれます。\nもちろん、その際の HTTP ステータスを 200 にせず、障害にあったステータスを返しましょう。"
+    }), "\n", _jsx(_components.h2, {
+      id: "security-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#security-test",
+        children: "Security Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "セキュリティのテストは、どんな Web アプリでも必須になります。\nセキュリティの専門家ではないので、どういうテストが必要なのかは、ここでは割愛します。"
+    }), "\n", _jsx(_components.p, {
+      children: "依存するパッケージ脆弱性検査には、下記のコマンドが有効です。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "npm audit fix"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "seo-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#seo-test",
+        children: "SEO Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリへ流入数を改善するためには、SEO は不可欠です。\nlighthouse というツールで SEO スコアを見ることができるみたいです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/GoogleChrome/lighthouse-ci",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - GoogleChrome/lighthouse-ci: Automate running Lighthouse for every commit, viewing the changes, and preventing regressions"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Automate running Lighthouse for every commit, viewing the changes, and preventing regressions - GoogleChrome/lighthouse-ci"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/0b0cb7140a733c13b02a607043ee87f8d70d06678bbc060dc58ace8a4b66a24f.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/GoogleChrome/lighthouse-ci",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png",
+          alt: "https://github.com/GoogleChrome/lighthouse-ci"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "smoke-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#smoke-test",
+        children: "Smoke Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Smoke Test は、Web アプリが最低限動作するために必要なケースを確保する検証です。\n例えば、トップページへリクエストしたら、レスポンスが HTTP 200 で返却されるとかです。"
+    }), "\n", _jsx(_components.p, {
+      children: "この最低限の動作保証がなければ、これ以上の詳細なテストができません。\n個人的には、Smoke Test → E2E Test の順で進むのかなと思っています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "snapshot-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#snapshot-test",
+        children: "Snapshot Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリへリクエストし、そのレスポンスである HTML(スナップショット)を保存します。\nこの HTML が、変更前と比較して変化がないかの検証をするのが、Snapshot test です。\nリファクタリングなど、変化がない修正に対して有効です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://jestjs.io/docs/ja/snapshot-testing",
+        children: "jestjs.io"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "static-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#static-test",
+        children: "Static Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Static Test は、Web アプリを動かさなくても検証できるテストです。\nよくあるのが、Linter です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: ["HTML\n", _jsx(_components.a, {
+            href: "https://github.com/htmlhint/HTMLHint",
+            children: "https://github.com/htmlhint/HTMLHint"
+          })]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "CSS"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/CSSLint/csslint",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - CSSLint/csslint: Automated linting of Cascading Stylesheets"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Automated linting of Cascading Stylesheets. Contribute to CSSLint/csslint development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/6f911915a023b2ffe5d88e679ece77fa5c65a01df6db2be1c2a61b971374db2e.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "JS"
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/eslint/eslint",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - eslint/eslint: Find and fix problems in your JavaScript code."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Find and fix problems in your JavaScript code. Contribute to eslint/eslint development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7285eb4a154d81076ae919a3ca659ec4681294bf1004542066980b3dd93c5b1a.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "SVG"
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/birjolaxew/svglint",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - simple-icons/svglint: Linter for SVG files"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Linter for SVG files. Contribute to simple-icons/svglint development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/314698ad49de7edbe03cd46d34b1b8067f0b25796db9805edbddd1336631361b.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Commit"
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/conventional-changelog/commitlint",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - conventional-changelog/commitlint: 📓 Lint commit messages"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "📓 Lint commit messages. Contribute to conventional-changelog/commitlint development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7ade76f2d5b79797e82806ea84e3b6209caa8afb3dfaa25f7ddc27bf23774b63.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Docker"
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/RedCoolBeans/dockerlint/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - RedCoolBeans/dockerlint: Linting tool for Dockerfiles"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Linting tool for Dockerfiles. Contribute to RedCoolBeans/dockerlint development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/6a1a27f2cc71b012940bc5c72d0684f48ceeb4ab59b51f8ee5cd0e4ed8d20b15.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/danger/danger",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - danger/danger: 🚫 Stop saying \"you forgot to …\" in code review (in Ruby)"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "🚫 Stop saying \"you forgot to …\" in code review (in Ruby) - danger/danger"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/277e6c2aa1ab343015d551608aaafefc9ee525c1d3639d5b46c57a7312cddcab.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "unit-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#unit-test",
+        children: "Unit Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "単一機能をテストする Unit Test があります。この Unit Test が全て PASS したら、\n他のテストを進めるのが一般的かなと思います。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/facebook/jest",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - jestjs/jest: Delightful JavaScript Testing."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Delightful JavaScript Testing. Contribute to jestjs/jest development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/0e62d7f61d798d43906f49569a25706c469dee524b51fa42ded956f9aa7b747f.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h3, {
+      id: "code-coverage",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#code-coverage",
+        children: "Code Coverage"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Unit テストで、どこをテストできたかのカバレッジを見ることができます。\n感覚としては、全体の 8 割を満たしていれば良いかなと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://jestjs.io/docs/en/cli.html#--coverageboolean",
+        children: "jestjs.io"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実際に動作している JS や CSS のカバレッジを収集することもできます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://gist.github.com/silverbirder/71135913192fbca51a7e26924bd36b8b",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "puppeteer_coverage.js"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "GitHub Gist: instantly share code, notes, and snippets."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "gist.github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/2aa7b6af6d4952e039a330bad683e64ef1473db412de7d26ff4bb8270fb354f4.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "visual-regression-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#visual-regression-test",
+        children: "Visual Regression Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/garris/BackstopJS",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - garris/BackstopJS: Catch CSS curve balls."
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Catch CSS curve balls. Contribute to garris/BackstopJS development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/465ee1546be6bbaf26a82c4629227f0ca9b8f91a06b7adb85cee51e541deb71c.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/garris/BackstopJS",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png",
+          alt: "https://github.com/garris/BackstopJS"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "どういうテストの観点があるのか、調べたり、経験則よりざっと書いてみました。\n全てをテストする必要はなく、『どういう動作の品質を担保したいか』を意識して、\n取捨選択するのが良いと思います。\n最後まで読んでいただき、ありがとございます。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":48,"publishedAt":"2020-06-18","tags":["ブラウザ","テスト"],"title":"Webアプリのテスト観点を調べてまとめてみた (25選)"},"navigation":{"next":{"href":"/blog/contents/apache-beam-kotlin","publishedAt":"2020-07-10","title":"Apache Beam + Kotlin 開発 実践入門"},"prev":{"href":"/blog/contents/zoom-meeting-creator","publishedAt":"2020-06-06","title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"}],"tag":"ブラウザ"},{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-10","slug":"20260110","summary":"Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。 flex-shrink の指定を忘れて、要素が押しつぶされてしまった z-index の指定を間違えて、要素が意図せず前面（また","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},{"publishedAt":"2026-01-09","slug":"20260109","summary":"AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。 単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。 興味があれば、参考として読んでもらえると嬉しい","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/testing_pattern/","slug":"testing_pattern"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

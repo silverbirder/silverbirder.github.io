@@ -1,0 +1,450 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T5ee0,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    p: "p",
+    span: "span",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "今回、また Micro Frontends の構築を試みようと思います。構築パターンの内、サーバーサイド統合パターン、特にエッジサイド統合を試しました。\nその内容を紹介します。サンプルコードは、下記に残しています。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/micro-frontends-sample-code-5/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/micro-frontends-sample-code-5"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Contribute to silverbirder/micro-frontends-sample-code-5 development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/d2e10d4a728c582718577bf4ee19cbdd3aecfc440d076eacc286c98f22eaf4a5.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "edge-side-include-esiって",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#edge-side-include-esiって",
+        children: "Edge Side Include (ESI)って"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://www.w3.org/TR/esi-lang/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "ESI Language Specification 1.0"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/d918cbe9dd241c272dd104ac65e547d965af43dc6999e82457bef07e8e85bde0.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "www.w3.org"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ESI は、SSI と似たようなもので、サーバーサイド側でコンテンツを挿入する仕組みの 1 つです。ESI の場合、挿入するコンテンツ(ページフラグメント)が Edge 側にあると理解しています。\nそのため、Edge キャッシュをコンテンツ毎に効かせれるメリットがあります。\n現状、ESI 言語仕様は W3C へ提出していますが、承認が降りていない状況です。Akamai などの CDN 企業や、Varnish などのキャッシュプロキシサーバは、ESI を一部実装しています。"
+    }), "\n", _jsx(_components.p, {
+      children: "個人で試すのに、Akamai は金銭的に厳しいですし、varnish の VCL を記述したくない(好き嫌い)です。\nそこで、Edge Worker と呼ばれる仕組みを試そうと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "次の引用は Akamai ブログからです。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "EdgeWorkers は、世界中に分散配置された Akamai の Edge サーバー上で、カスタムしたプログラムコードを実行できるようになる新しいサービスです"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://blogs.akamai.com/jp/2019/10/edgeworker.html",
+        children: "https://blogs.akamai.com/jp/2019/10/edgeworker.html"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "要は、Edge Workers とは CDN が提供するプラットフォーム上で、プログラムコード、例えば Javascript などが実行できるサービスです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "edge-workers",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#edge-workers",
+        children: "Edge Workers"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人で使える Edge Workers だと、", _jsx(_components.a, {
+        href: "https://fly.io",
+        children: "fly.io"
+      }), "や", _jsx(_components.a, {
+        href: "https://developers.cloudflare.com/workers/",
+        children: "Cloudflare Workers"
+      }), " があります。後者の Cloudflare Workers には、", _jsx(_components.a, {
+        href: "https://developers.cloudflare.com/workers/runtime-apis/html-rewriter",
+        children: "HTMLRewriter"
+      }), " という HTML を書き換える機能があり、Micro Frontends に使えそうだったため、今回は Cloudflare Workers を使用します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#構成",
+        children: "構成"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次のような構成を考えてみました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png",
+        alt: "Cloudflare worker + Micro Frontends"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://podium-lib.io/",
+        children: "Podium"
+      }), "と", _jsx(_components.a, {
+        href: "https://ara-framework.github.io/website/",
+        children: "Ara-Framework"
+      }), " に影響されています。", _jsx(_components.br, {}), "\n※ ", _jsx(_components.a, {
+        href: "https://draw.io/",
+        children: "draw.io"
+      }), "の sketch style で書きました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "それぞれのブロックが Cloud Workers となります。"
+    }), "\n", _jsx(_components.p, {
+      children: "簡単に、図の左から右の順に説明していきます。\nRouter で、Web アプリケーションのルーティングを管理します。\nルーティングでは、HTTP リクエストの内容に基づいて、どのページか振り分けます。\n振り分けられたページでは、後述するフラグメントを含めて HTML を構築します。\nその HTML を HTMLRewiter で処理し、Proxy に存在するフラグメントがあれば、フラグメントの HTML へ置換されます。\nフラグメントでは、HTML,CSS,JS を取得する PATH を JSON 形式で返却するようにします。\nJSON を返す URL は、/manifest.json と統一しています。"
+    }), "\n", _jsx(_components.p, {
+      children: "このような構成を取ることで、担当領域を分割することができます。\n例えば、フラグメント A とページ X をチーム 1 が管理し、フラグメント B、C、ページ Y をチーム 2 が管理するなどです。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、Rust の WebAssembly を下記のようなテンプレートで組み込むことができます。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/cloudflare/rustwasm-worker-template",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - cloudflare/rustwasm-worker-template: A template for kick starting a Cloudflare Worker project using workers-rs. Write your Cloudflare Worker entirely in Rust!"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "A template for kick starting a Cloudflare Worker project using workers-rs. Write your Cloudflare Worker entirely in Rust! - cloudflare/rustwasm-worker-template"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/565cda76c00768967be7b9c06f6b62ff592f802320feaf451b47c4012b853bac.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "特定の重い処理を Rust の WebAssembly で処理するようなフラグメントをページに混ぜることができます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "構築して困ったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#構築して困ったこと",
+        children: "構築して困ったこと"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "同一ドメイン内での-edge-workers-通信が不可",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#同一ドメイン内での-edge-workers-通信が不可",
+        children: "同一ドメイン内での Edge Workers 通信が不可"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Cloudflare Workers は、任意のドメインで動かすことになります。\n例えば、ドメイン A 内に複数の Cloudflare Workers X と Y があったとすると、\nX から Y への通信ができないです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/94472/37",
+        children: "community.cloudflare.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "そのため、複数の Cloudflare Workers を使用する場合は 複数のドメインが必要になります。\n先程の例なら、ドメイン A に属する Cloudflare Workers X からドメイン B に属する Cloudflare Workers Y へ通信することができます。\n私は、freenom の tk ドメイン(無料)を複数購入しました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://freenom.com/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Freenom - A Name for Everyone"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/3086bde7834c0a1b40c67b85bfc4f5d608882e238cba1763584f978aeba4f49a.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "freenom.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "直接-ip-アドレスへリクエストできない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#直接-ip-アドレスへリクエストできない",
+        children: "直接 IP アドレスへリクエストできない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ローカル開発時に困ったことがあります。\nCloudflare Workers をローカル開発する場合、", _jsx(_components.a, {
+        href: "https://github.com/cloudflare/wrangler#-dev",
+        children: "wrangler:dev"
+      }), " というコマンドで検証します。\n検証中に、他の Cloudflare Workers の URL(localhost:XXXX)へアクセスしようとしても、直接 IP となるため失敗します。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://support.cloudflare.com/hc/ja/articles/360029779472-Cloudflare-1XX-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#error1003",
+        children: "support.cloudflare.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "そのため、下記のようなサービスを使って、私は解決させました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://ngrok.com/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "ngrok – AI & API Gateway for Secure Traffic | Tunnels & Traffic Management"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "ngrok is an all-in-one AI and API gateway that securely routes, transforms, and observes traffic to services running anywhere—powering APIs, AI agents, and LLM workloads."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/e1e3dd178f3a493ce09487f7d888ec340c7e2c49b75b4f7a889040cebc7bc74a.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "ngrok.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7b5ff773ad6235c587d65fecf3a86697d5395f33d8819b8e61945faf2c69f6bf.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/localtunnel/localtunnel",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - localtunnel/localtunnel: expose yourself"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "expose yourself. Contribute to localtunnel/localtunnel development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5f0baebbda210483ee901040733daddffd79558e079716f6741f3054a7681e2c.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "cloudflare-workers-による制約が大きい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cloudflare-workers-による制約が大きい",
+        children: "Cloudflare Workers による制約が大きい"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Cloudflare のプラットフォーム上では、下記のランタイム API が使用できます。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://developers.cloudflare.com/workers/runtime-apis",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Runtime APIs · Cloudflare Workers docs"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "The Workers runtime is designed to be JavaScript standards compliant and web-interoperable. Wherever possible, it uses web platform APIs, so that code can be reused across client and server, as well as across WinterCG JavaScript runtimes."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2cd0c3b7cfaaecd9b667dc2877812366248a6dc14e758e7dc6fbd7cb59acfd02.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "developers.cloudflare.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/8296afa6d6fd4272604efbce5ba273ddbe659264a14439d77e21914a1ff1e54a.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Cloudflare Workers の仕組みを把握していないのですが、この提供されている API 以外は、\n確か使えなかったような気がします。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Edge って、私の印象では、単なる静的コンテンツを置くだけのものと考えていました。\nそれが、動的なコンテンツ、つまり Edge Workers のような存在を知り、Edge の世界が広がったように感じます。\nWeb アプリケーションを、よりユーザーに近い Edge へ配置するようにすれば、レスポンス速度改善が期待できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "Micro Frontends というより、Edge Workers の話が多かったですね。(笑)"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":55,"publishedAt":"2020-11-15","tags":["クラウドインフラ","フロントエンド"],"title":"Cloudflare Workers (Edge Worker) で Micro Frontends"},"navigation":{"next":{"href":"/blog/contents/mfe","publishedAt":"2020-11-19","title":"［覚書］ Micro Frontends"},"prev":{"href":"/blog/contents/20_study_enginner","publishedAt":"2020-10-29","title":"20代後半エンジニアである私がこれから学ぶべきこと"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-03-29","slug":"try-container-structure-test","summary":"Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。","tags":["テスト","クラウドインフラ"],"title":"Docker Image に 構造化テスト container-structure-test を試してみた"},{"publishedAt":"2021-11-26","slug":"a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","summary":"BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。","tags":["フロントエンド","クラウドインフラ","テスト"],"title":"BigQueryだけで完結するモック可能なユニットテスト手法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"クラウドインフラ"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/cloudflare_workers_mfe/","slug":"cloudflare_workers_mfe"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

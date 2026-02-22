@@ -1,0 +1,225 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T360c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    h3: "h3",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["マイクロインタラクションという言葉をネットで見かけて、興味を持ちました。\n詳しく知るには書籍が最適だと思い、オライリー社の", _jsx(_components.a, {
+        href: "https://www.oreilly.co.jp/books/9784873116594/",
+        children: "『マイクロインタラクション ―UI/UXデザインの神が宿る細部』"
+      }), "を読みました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "本書を通じて、細部にこだわることで、「仕方なく使う」から「次も使いたくなる」Webサービスを目指したいと感じました。\n以下は、本書を読んで感じたことや学んだことをまとめたものです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "iphoneのアラーム",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#iphoneのアラーム",
+        children: "iPhoneのアラーム"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書で特に印象的だったのは、コンサート会場でのアラームのエピソードです。\nある人がiPhoneを ", _jsx(_components.strong, {
+        children: "消音モードにしていた"
+      }), " にもかかわらず、コンサート中に ", _jsx(_components.strong, {
+        children: "アラームが鳴ってしまいました"
+      }), " 。\nその結果、周囲の人に迷惑をかけてしまいました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "私も昔、iPhoneユーザーだったので、この状況には共感できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "「消音モードにしたのに、なぜアラームが鳴るの？」と不思議に思う人も多いでしょう。\nこれはiPhoneの仕様の一つですが、実際に経験しないと気づきにくいかもしれません。"
+    }), "\n", _jsx(_components.p, {
+      children: "このケースは、マイクロインタラクションにおける「フィードバック」が適切でない例と言えます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "マイクロインタラクションとは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロインタラクションとは",
+        children: "マイクロインタラクションとは"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["マイクロインタラクションとは、 ", _jsx(_components.strong, {
+        children: "製品やサービスにおける最小単位のインタラクション"
+      }), " を指します。\n具体的には、ユーザーとシステム間の相互作用や、ユーザー同士のやり取りの最小単位を意味します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、ECサイトで商品ページで「カートに入れる」ボタンをクリックすると、カートアイコンの数字が1つ増える動作があります。\nこのとき、商品画像がカートに向かって入るアニメーションが加わると、より直感的な体験になります。"
+    }), "\n", _jsx(_components.p, {
+      children: "このマイクロインタラクションは、「ショッピングカートに商品を追加した」ということを視覚的に伝える役割を果たします。\nこうした仕組みは、良いマイクロインタラクションの例といえます。"
+    }), "\n", _jsx(_components.h3, {
+      id: "マイクロインタラクションの構成要素",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロインタラクションの構成要素",
+        children: "マイクロインタラクションの構成要素"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "マイクロインタラクションは、以下の4つの要素で構成されています。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["トリガー\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "インタラクションのきっかけとなるもの。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ユーザーの操作（手動トリガー）やシステムの状態変化（システムトリガー）によって起動します。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["ルール\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "トリガーによって開始されたインタラクションがどのように動作するかを決定する指針です。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["フィードバック\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ユーザーにインタラクションの結果や進行状況を伝える情報です。視覚的、聴覚的、触覚的な手段で提供されます。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ループとモード\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "インタラクションの繰り返しや状態変化を管理する要素です。ループはインタラクションの繰り返しサイクルを、モードは特定の条件下での動作状態を指します。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["iPhoneの消音モードの例に戻ると、「消音スイッチをONにする」というトリガーに対して、「消音アイコンを画面に表示する」というフィードバックは提供されています。\nしかし、 ", _jsx(_components.strong, {
+        children: "「消音モード中でもアラーム音は鳴る」というルールがユーザーに適切に伝わっていない"
+      }), " ため、意図しないユーザー体験が生じることがあります。\nこのように、フィードバックが不十分だと、ユーザーに混乱や不便をもたらす可能性があります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "webサービスにおけるマイクロインタラクション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#webサービスにおけるマイクロインタラクション",
+        children: "Webサービスにおけるマイクロインタラクション"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Webサービスには、多くのマイクロインタラクションが存在します。\nしかし、多くのWebサービスでは、基本的な機能の開発が優先され、マイクロインタラクションの実装は後回しにされがちです。\nその結果、「とりあえず動くから良い」という状態でリリースされることも少なくありません。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "マイクロインタラクションが不十分だと、ユーザーは無意識のうちに「使いにくい」「魅力に欠ける」と感じてしまう"
+      }), " のかなと思います。\n例えば、以下のようなケースが考えられます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["エラーメッセージの不足\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "フォーム送信後、「エラーがありました」とだけ表示される"
+          }), "\n", _jsx(_components.li, {
+            children: "対策: エラー箇所を明示し、「◯◯を修正してください」と具体的にフィードバックする"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["検索結果が見つからない場合\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ECサイトで検索しても「該当なし」と表示される"
+          }), "\n", _jsx(_components.li, {
+            children: "対策: 「もしかして◯◯ですか？」などの検索候補を提示し、修正を促す"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["一方で、細部までこだわったマイクロインタラクションを導入することで、他のサービスと差別化された「次も使いたくなる」体験を提供できるでしょう。\n", _jsx(_components.strong, {
+        children: "ユーザーが行った操作に対して、直感的にフィードバックが返ってきて、次のアクションがスムーズに進められると、快適に感じます"
+      }), " 。"]
+    }), "\n", _jsx(_components.p, {
+      children: "では、具体的にどのような場面でマイクロインタラクションが活きるのか、考えてみると面白いかもしれません。\nたとえば、以下のような状況では、どのような工夫ができるでしょうか？考えてみるとよいでしょう。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["処理時間が長い場合\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "動画配信サイトで動画をアップロードしたとき"
+          }), "\n", _jsx(_components.li, {
+            children: "ECサイトで商品検索をしたとき"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["フォームの入力時\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "メールアドレスを入力したとき"
+          }), "\n", _jsx(_components.li, {
+            children: "送信ボタンを押したとき"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["通知の受け取り時\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "投稿したコンテンツに「いいね」を送った・もらったとき"
+          }), "\n", _jsx(_components.li, {
+            children: "購読していた記事が編集されたお知らせを受け取ったとき"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["支払い時\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "クレジットカード情報を入力したとき"
+          }), "\n", _jsx(_components.li, {
+            children: "支払い方法としてポイント利用を選択したとき"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["チャットの利用時\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "チャットルームで入力したとき"
+          }), "\n", _jsx(_components.li, {
+            children: "デフォルト言語以外でメッセージを受信したとき"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["もともと、マイクロインタラクションという言葉には、「いいね」ボタンを押したときの鮮やかなエフェクトのような、見た目の演出を指す印象がありました。\nしかし、本書を読んで、それはあくまで ", _jsx(_components.strong, {
+        children: "フィードバックの表現方法の一つ"
+      }), " に過ぎないと気づきました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["本当に大切なのは、ユーザーがインタラクションを行った結果、 ", _jsx(_components.strong, {
+        children: "何が起こったのかをわかりやすく伝えること"
+      }), " です。\nフィードバックが適切であれば、ユーザーは迷うことなく次のアクションを取れます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "視覚的なフィードバックは直感的に理解しやすいため、鮮やかなエフェクトも効果的なアイデアの一つでしょう。\n個人的には、noteの「いいね」ボタンの演出が楽しく、心地よいと感じます。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":139,"publishedAt":"2025-02-22","tags":["書籍レビュー"],"title":"『マイクロインタラクション―UI/UXデザインの神が宿る細部』を読みました。"},"navigation":{"next":{"href":"/blog/contents/review_of_the-dark-pattern","publishedAt":"2025-07-02","title":"『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』書籍レビュー"},"prev":{"href":"/blog/contents/letter-spacing-the-concept-of-letter-spacing-in-typography","publishedAt":"2025-02-11","title":"『レタースペーシング タイポグラフィにおける文字間調整の考え方』を読みました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-12","slug":"20260212","summary":"たまたま、Googleレコメンドに \"Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ\" の本へのリンクが流れてきました。 Webフォントの記事って、あまり見かけなかったのでAmazonでポチりまし","tags":["書籍レビュー"],"title":"『Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ』を読みました。"},{"publishedAt":"2026-02-11","slug":"20260211","summary":"今日、4ヶ月以上放置していた本を読み始めています。 読み始めて、本ってやっぱ良いものだなと思うことがありました。 そのことについて、簡単に書こうかなと思います。 今読んでいる本 \"Webフォント実践ガイド Google Fontsではじめる","tags":["書籍レビュー"],"title":"久々に本を読んでよかったこと"},{"publishedAt":"2025-07-02","slug":"review_of_the-dark-pattern","summary":"今回、以下の書籍を読みました。『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』せっかくなので、感じたことや気づきをまとめてみます。","tags":["書籍レビュー"],"title":"『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』書籍レビュー"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/micro-interactions-the-god-given-details-of-ui-ux-design/","slug":"micro-interactions-the-god-given-details-of-ui-ux-design"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,244 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2d93,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Spotifyで音楽を聴いていると「 ", _jsx(_components.strong, {
+        children: "この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？"
+      }), " 」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。", _jsx(_components.br, {}), "\n私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「 ", _jsx(_components.strong, {
+        children: "簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな"
+      }), " 」と思い、このアプリを作ることにしました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下が、実際に作成したWebアプリの画面とリンクです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1727178744/pvfrczj9b5ogw58ooulu.png",
+        alt: "タイアップ検索 デモ画像"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://tie-track.vercel.app/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "タイアップ検索"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Spotifyで再生中の曲情報を取得し、AIを使ってタイアップ情報を自動で検索します。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/b135c4cfab036fc460f937b6cdba1123e63c91b589b2f8c90572c65efb5821fd.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "tie-track.vercel.app"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5a4bdf2ab1e19b0d09fe6874c47aad1842491b87955b34a16f9cba9915d76fc1.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この記事では、このアプリの ", _jsx(_components.strong, {
+        children: "技術的な部分"
+      }), " について詳しく紹介します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ちなみに、Spotifyでよく", _jsx(_components.a, {
+        href: "https://open.spotify.com/playlist/37i9dQZF1DWT8aqnwgRt92",
+        children: "Anime Now"
+      }), "を聴いています。タイアップ情報の検索にはもってこいです！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アーキテクチャ概要",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アーキテクチャ概要",
+        children: "アーキテクチャ概要"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このアプリは、Spotifyで再生中の曲のタイアップ情報を素早く取得し、ユーザーに表示します。以下がそのアーキテクチャ図です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1727178746/skhbbzuekqszzhkm5lgu.png",
+        alt: "タイアップ検索アーキテクチャ図"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "使用した技術スタックは以下の通りです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Spotify API"
+        }), " : 再生中の曲情報を取得"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Google Custom Search API"
+        }), " : タイアップ情報をGoogle検索"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "OpenAI API"
+        }), " : 検索結果からタイアップ情報を抽出"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Next.js"
+        }), " : アプリケーションフレームワーク\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["デザイン参考: ", _jsx(_components.a, {
+              href: "https://v0.dev/chat",
+              children: "v0.dev/chat"
+            })]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Icon生成"
+        }), " : ", _jsx(_components.a, {
+          href: "https://perchance.org/ai-icon-generator",
+          children: "AI Icon Generator - perchance.org"
+        })]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "開発の流れ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発の流れ",
+        children: "開発の流れ"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "タイアップ情報の取得",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#タイアップ情報の取得",
+        children: "タイアップ情報の取得"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["最初に、タイアップ情報を取得するためのAPIを探しましたが、 ", _jsx(_components.strong, {
+        children: "直接的にタイアップ情報を提供するものは見つかりません"
+      }), " でした。レコチョクなどのサービスも検討しましたが、必要な情報が不足していたため、断念しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に、 ", _jsx(_components.strong, {
+        children: "ChatGPTを使ってタイアップ情報を取得"
+      }), " する方法を試しました。ChatGPTは、Web検索結果を含めた回答を返してくれるため、うまくいくこともありました。しかし、 ", _jsx(_components.strong, {
+        children: "OpenAI APIを使う場合はWeb検索が行われない"
+      }), " ため、タイアップ情報を取得するには不十分でした。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "google-custom-search-api--openai-api",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#google-custom-search-api--openai-api",
+        children: "Google Custom Search API + OpenAI API"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、 ", _jsx(_components.strong, {
+        children: "Google Custom Search API"
+      }), " を使い、タイアップ情報が掲載されているWebページを取得し、その情報を ", _jsx(_components.strong, {
+        children: "OpenAI API"
+      }), " に渡して解析させる手法を採用しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "この組み合わせにより精度の高いタイアップ情報を得ることができました",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#この組み合わせにより精度の高いタイアップ情報を得ることができました",
+        children: "この組み合わせにより、精度の高いタイアップ情報を得ることができました"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "データの保存",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データの保存",
+        children: "データの保存"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["API使用は ", _jsx(_components.strong, {
+        children: "従量課金"
+      }), " のため、コスト管理が重要です。そこで、 ", _jsx(_components.strong, {
+        children: "Google検索結果とOpenAI APIの結果をデータベースに保存"
+      }), " し、同じ情報を何度も検索しないようにしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "結果-spotifyでアニメ主題歌を楽しむ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#結果-spotifyでアニメ主題歌を楽しむ",
+        children: "結果: Spotifyでアニメ主題歌を楽しむ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアプリを使えば、Spotifyで再生中の曲が ", _jsx(_components.strong, {
+        children: "どのアニメやドラマの主題歌"
+      }), " なのか、すぐに確認できます。特に、 ", _jsx(_components.strong, {
+        children: "秋のアニメシーズン"
+      }), " が近づいている今、気になる曲があればすぐに関連作品をチェックできるので、これからが楽しみです！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "1週間で完成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1週間で完成",
+        children: "1週間で完成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アイデアを思いついてから完成までにかかった時間は、", _jsx(_components.a, {
+        href: "https://x.com/silverbirder/status/1838179210403414103",
+        children: "わずか1週間"
+      }), "。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "思いついたアイデアを形にする"
+      }), " のは、本当に楽しい経験でした。"]
+    }), "\n", _jsx(_components.p, {
+      children: "興味がある方はぜひ、アプリをお試しください！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":126,"publishedAt":"2024-09-24","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},"navigation":{"next":{"href":"/blog/contents/site-renewal-with-v0","publishedAt":"2024-10-24","title":"v0と協業した個人サイトリニューアル"},"prev":{"href":"/blog/contents/reflections-after-7-months-4-day-workweek","publishedAt":"2024-09-16","title":"週4勤務で7ヶ月経過した所感"}},"relatedPosts":[{"posts":[{"publishedAt":"2022-05-22","slug":"how_to_display_embedded_twitter_content_after_rendering_on_iframe","summary":"結論 `iframe.contentWindow` から `twttr` オブジェクトを見つけて、`event.bind(\"rendered\", () => {})` の第二引数に、表示処理を書くことです。 背景 `https://twitter.com/openwc/status/1427617679427440643` のような URL から、埋め込みコンテンツをブログサイトなどに表示したいです。 `https://publish.twitter.com/oembed?url=${URL}` のレスポンスの中の html が、埋め込みコンテンツになります。これを iframe の srcdoc に設定することで、埋め込みコンテンツを表示することができます。","tags":["サービス","フロントエンド"],"title":"iframeでTwitterの埋め込みコンテンツの描画後に、画面表示する方法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"},{"publishedAt":"2020-06-06","slug":"zoom-meeting-creator","summary":"みなさん、Zoom使っていますか？ ZoomのMeetingを自動生成するGASライブラリを公開しましたので、そのきっかけと使い方について紹介しようと思います。","tags":["成果物","Google","サービス"],"title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"}],"tag":"サービス"},{"posts":[{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド","AI"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2026-01-04","slug":"20260104","summary":"最近、AI エージェントに Playwright MCP を設定した状態で、CSS の調整作業を行っていました。 デザイン上どうしても原因を特定できず、修正に行き詰まっていたスタイルがあったのですが、Playwright MCP を使って調","tags":["フロントエンド","AI"],"title":"Playwright MCPでCSSの修正が楽になった"},{"publishedAt":"2025-11-11","slug":"20251111","summary":"なんでやねん！AIに指摘をしたとき、なんかモヤっとする。「するどい指摘です！」とか言われると、褒められてるようでいて、微妙にずれてる感じ。反論しても不毛なので、冷静に淡々と指示を出そう。「いい気づきです！」みたいな返事もあるけれど……ぬぬぬ。","tags":["AI"],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"}],"tag":"AI"},{"posts":[{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2021-12-20","slug":"intro_google_account_photo_api","summary":"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"},{"publishedAt":"2020-06-06","slug":"zoom-meeting-creator","summary":"みなさん、Zoom使っていますか？ ZoomのMeetingを自動生成するGASライブラリを公開しましたので、そのきっかけと使い方について紹介しようと思います。","tags":["成果物","Google","サービス"],"title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"}],"tag":"Google"},{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/spotify-tieup-app/","slug":"spotify-tieup-app"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,210 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2558,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "ターゲットユーザー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ターゲットユーザー",
+        children: "ターゲットユーザー"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "GMail と GCalendar を使っている人"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "メールを開くって面倒じゃないですか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メールを開くって面倒じゃないですか",
+        children: "メールを開くって面倒じゃないですか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、次のようなメールを受信していたとします。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "アマゾンで商品を購入した際、お届け予定日が記載されたメール"
+      }), "\n", _jsx(_components.li, {
+        children: "映画館(TOHO シネマ)でネット予約した際、上映日が記載されたメール"
+      }), "\n", _jsx(_components.li, {
+        children: "ホテルをネット予約した際、宿泊日が記載されたメール"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["『いつ商品が届くのかな？メールを確認しよう』が、 ", _jsx(_components.strong, {
+        children: "面倒と感じませんか"
+      }), " ？私は面倒と思います。\nGoogle は気を利かせて、次のような予定を勝手に登録してくれることがあります。（良い悪いがありますが...）"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614431051/silver-birder.github.io/blog/unknownorganizer_google_calendar.png",
+        alt: "unknownorganizer@calendar.google.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この気を利かせるかどうかは、Google の判断によるため未知数です。\n先程あげた例のメールも、同様のことが勝手にしてくれたら良いな〜と思っていました。\nそこで、rMinc というツールを作りました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ 昔、", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/gas-for-amazon-calendar",
+        children: "gas-for-amazon-calendar"
+      }), "という、アマゾンからのお届け予定日が記載しているメールを GCalendar に登録するツールを作りましたが、\nアマゾンのメールに特化しすぎてしまい、汎用性がないものとなりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "rminc-is-何",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#rminc-is-何",
+        children: "rMinc is 何"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@silverbirder/rminc",
+        children: "npmjs.com"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "rMinc is the Google Apps Script Library that register Mail in Calendar."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下サービスからの GMail が届いたときに、その内容を抽出して GCalendar に登録します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.amazon.co.jp/",
+          children: "Amazon"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "発送のお知らせ (お届け予定日)"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.tohotheater.jp/",
+          children: "TOHO CINEMAS"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "チケット購入完了のお知らせ (上映日)"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://shokutakubin.com/",
+          children: "食宅便"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "配送手配のお知らせ (お届け予定日)"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、これ以外にも対応したいサービスがあると思うので、カスタマイズして使えるようにしました。\n詳しくは、", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/rMinc/blob/master/README.md",
+        children: "README.md"
+      }), "をご確認下さい。"]
+    }), "\n", _jsx(_components.p, {
+      children: "概要はこんな感じです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1581769421/rMinc/rMinc_overview.png",
+        alt: "overview"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["特定キーワードでメールを抽出\n", _jsxs(_components.ol, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["アマゾンなら、", _jsx(_components.a, {
+              href: "https://github.com/silverbirder/rMinc/blob/master/src/user/mailRule/amazonMailRule.ts#L61",
+              children: "from:(shipment-tracking@amazon.co.jp) 発送"
+            })]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["メールの下記を抽出\n", _jsxs(_components.ol, {
+          children: ["\n", _jsx(_components.li, {
+            children: "タイトル"
+          }), "\n", _jsxs(_components.li, {
+            children: ["本文\n", _jsxs(_components.ol, {
+              children: ["\n", _jsx(_components.li, {
+                children: "イベント開始日&終了日 (予定日とか）"
+              }), "\n", _jsx(_components.li, {
+                children: "場所 (配達先とか)"
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsx(_components.li, {
+            children: "メールのリンク"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "抽出した内容を GCalendar に登録"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際に使ってみるとこんな感じになります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1581760683/rMinc/rMinc_sample.png",
+        alt: "example"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "小さくて見えないと思いますが、お届け予定日、タイトル、配達先、メールリンクが登録されています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["このツール(", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/rMinc/blob/master/sample/sample.js",
+        children: "sample.js"
+      }), ")を GAS 上で ", _jsx(_components.strong, {
+        children: "定期的に動かしておくだけ"
+      }), " で、自動的に GCalendar へ予定登録されます。当たり前ですが、無料です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ RMinc は、", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/rMinc/blob/master/README.md",
+        children: "README.md"
+      }), "にある APP ID を登録する必要あり"]
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google Apps Script は、エンジニアにとって、とても強力な武器です。特に、G Suite を積極的に使っている人にとっては、欠かせないものです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["こういった ", _jsx(_components.strong, {
+        children: "かゆいところに手が届く"
+      }), " ことができるのは、Google Apps Script の魅力的なところです。\nぜひぜひ、積極的に活用していきたいですね！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":41,"publishedAt":"2020-02-17","tags":["成果物","Google"],"title":"GMailをGCalendarに登録するサービス rMinc を作ってみた"},"navigation":{"next":{"href":"/blog/contents/gas_fetchall_redirect","publishedAt":"2020-02-24","title":"Google Apps Script で FetchAllとRedirctURL の組み合わせは悪い"},"prev":{"href":"/blog/contents/tiqav2_release","publishedAt":"2020-02-08","title":"1コマ漫画検索サービスTiqav2 (Algolia + Cloudinary + Google Cloud Vision API) 作ってみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"},{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2021-12-20","slug":"intro_google_account_photo_api","summary":"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"}],"tag":"Google"}],"shareUrl":"https://silverbirder.github.io/blog/contents/rminc/","slug":"rminc"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

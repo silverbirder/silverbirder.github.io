@@ -1,0 +1,270 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3309,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    div: "div",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "「ここのスーパーの白菜はちょっと高いかな。他に安いところはないのかな？」そんな日常の小さな疑問から、スーパーごとの食材価格を手軽に比較できる Web アプリ「ぼちぼち」を開発しました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1707573620/akdswcwwxatnfemrbo4e.png",
+        alt: "bochi-bochi top page"
+      })
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://bochi-bochi.vercel.app/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "ぼちぼち"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "『どこの食材が一番安い？』。そんな悩みを解決するサービス、ぼちぼちです。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2b7a90858a3aac1c396aa5cd9197ba26c8a92a49be863ba0366f466c34fb00fd.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "bochi-bochi.vercel.app"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アプリの使い方",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アプリの使い方",
+        children: "アプリの使い方"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["トップページから、 ", _jsx(_components.strong, {
+        children: "スーパーを探す"
+      }), " をクリックします。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1707574240/z3li36nol50hxlvcvrha.png",
+        alt: "bochi-bochi search page"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に、スーパーを探す手段を選びます。例えば、 ", _jsx(_components.strong, {
+        children: "現在地から探す"
+      }), " をクリックします。\n現在地を公開したくないので、ここからは画像を割愛します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["近所のスーパーの一覧が Google Map で表示されます。\nまた、画面下部に食材が表示されます。表示された食材をクリックすると、 ", _jsx(_components.strong, {
+        children: "どのスーパーで安く買えるかが一目瞭然"
+      }), " になります。\n表示される食材は、スーパーに食材が登録されている場合に限ります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ スーパーの食材は、一度だけ AI によるスクレイピングでデータ登録されます。"
+    }), "\n", _jsx(_components.h3, {
+      id: "作った結果",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#作った結果",
+        children: "作った結果"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の妻はこのアプリを利用してから、「白菜はここのスーパーが安いね」「ひき肉はあそこのスーパーだね」と言って、 ", _jsx(_components.strong, {
+        children: "満足しながら買い物を楽しんでいます"
+      }), " 。\n買い物後のレシートを使って、食材の価格情報を簡単にアプリに登録する機能も備えています。\nまた、AI 技術を活用してスーパーの食材データを自動で収集・登録する仕組みを構築しています。\nスーパーの検索・表示には Google Map を活用しており、", _jsx(_components.a, {
+        href: "https://mapsplatform.google.com/intl/ja/pricing/",
+        children: "無料枠"
+      }), "をうまく使うことで、コストを抑えつつスーパーの情報を取得しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "全ての食材が安いスーパー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#全ての食材が安いスーパー",
+        children: "全ての食材が安いスーパー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "しかしこのアプリを利用していたある日に、近所に「全ての食材が安いスーパー」ができました。\nそのため、ほとんどの買い物をそこでするようになりました。\n結果、アプリ自体の利用頻度は少なくなりました。(笑)"
+    }), "\n", _jsx(_components.h2, {
+      id: "開発備忘録",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発備忘録",
+        children: "開発備忘録"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "openai-話",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#openai-話",
+        children: "OpenAI 話"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "OpenAI をシステムに組み込む際、全プロセスを一括で行うよりも、段階的に処理を分けることで精度が向上しました。\n具体的には、レシート画像から構造化データを作成するプロセスにおいて、最初に OCR を用いて画像からテキストを抽出し、\nその後抽出したテキストを OpenAI で分析する方法が効果的であることがわかりました。\nまた、指示をシンプルに保つことで、より高精度な結果を得られました。\n例えば、「商品名が商品カテゴリに属するか否か」という明確な問いにすることで、分析の精度が向上しました。"
+    }), "\n", _jsx(_components.h3, {
+      id: "使用した技術スタック",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#使用した技術スタック",
+        children: "使用した技術スタック"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "開発には以下の技術スタックを使用しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Web フレームワーク\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Next.js"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["API\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "tRPC"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["データベース\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "PlanetScale"
+          }), "\n", _jsx(_components.li, {
+            children: "Prisma"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["UI\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "@tremor/react"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["状態管理\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "jotai"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["地図関連\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "@vis.gl/react-google-maps"
+          }), "\n", _jsx(_components.li, {
+            children: "Google Places API"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["レシートデータ抽出\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Google Cloud Vision"
+          }), "\n", _jsx(_components.li, {
+            children: "OpenAI"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["スクレイピング\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Crawlee"
+          }), "\n", _jsx(_components.li, {
+            children: "Cloud Run Jobs"
+          }), "\n", _jsx(_components.li, {
+            children: "OpenAI"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "開発中、妻からの直接的なフィードバックを通じて、アプリの方向性を確認しながら進めることができ、これが非常に楽しい経験となりました。\nUI/UX デザインについてはまだ改善の余地がありますが、現時点では個人利用を目的としているため、このまま使用を続ける予定です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "最後に、私は最近 Bluesky に登録しました。もし興味があれば、ぜひフォローしてください。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://bsky.app/profile/silverbirder.bsky.social",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "silverbirder (@silverbirder.bsky.social)"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "ゆるりと日常や技術について投稿しています。\n毎日ブログ発信中！\n👉 https://silverbirder.github.io/blog/\nソフトウェアエンジニア / 関西 / ミスド,無印,スヌーピー,ドラクエ"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/c2423629c9908528bcc51ca78e95f16228672cf95d0698f9e19f25811dd2b840.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "bsky.app"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5bfa9037bb8f362e7323c5920800074f0aaf3ae6f50793fb2d5654516254bad6.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":108,"publishedAt":"2024-02-10","tags":["成果物"],"title":"手軽に安い食材を見つけられるアプリ「ぼちぼち」を開発"},"navigation":{"next":{"href":"/blog/contents/tips-google-maps-timeline","publishedAt":"2024-02-11","title":"Google Map タイムラインの便利さ"},"prev":{"href":"/blog/contents/2023_furikaeri","publishedAt":"2023-11-14","title":"2023年の振り返り。家と車と私"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/bochi-bochi-app-development/","slug":"bochi-bochi-app-development"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

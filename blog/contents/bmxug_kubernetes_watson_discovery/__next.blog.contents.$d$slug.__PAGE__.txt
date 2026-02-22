@@ -1,0 +1,193 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T260c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["今回、k8s の体験を目的として参加したのですが、意外な収穫があったので、\n共有したく、記事を書くことにしました。hashtag はこちら ", _jsx(_components.a, {
+        href: "https://twitter.com/hashtag/bmxug",
+        children: "#bmxug"
+      })]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://bmxug.connpass.com/event/117966/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "【大阪】BMXUG勉強会 -Kubernates体験＆Watson Discovery入門- (2019/03/27 19:00〜)"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "# はじめに  IBM Cloud勉強会は、IBM Cloudの機能や使い方&Tipsをユーザーグループのみなさん、もしくはベンダーからご紹介をし、ユーザー同士&ベンダーとの議論ができる「語り合う場」として開催しております。 本勉強会は「BMXUG (Bluemix User Group)」が主催する、「IBM Cloud」をテーマにした勉強会です。インフラエンジニアも、開発エンジニアも、営業の方も、そうでない方も、クラウドに興味のある方の参加をお待ちしております。    # どんなことやるの？  「Watson Discovery 入門～知って楽しいDiscovery」では、Disco..."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/ac2207c81885fa9ac16121548d1678428b9b8f29b113d1e252a976d902823c02.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "bmxug.connpass.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/12c0d997ac9dc59cb379e36e5709a1984b84a52ebc6ae8094c9f479cf4a2fb74.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "watson-discovery",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#watson-discovery",
+        children: "Watson Discovery"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "watson-discovery-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#watson-discovery-とは",
+        children: "Watson Discovery とは"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "簡単に言うと、IBM 製の検索 API になります。\n全文検索システムでおなじみに ElasticSearch とは違った「IBM」ならではの機能が搭載されています。\nまた、無料で使えるとのことで、興味津々になってしまいました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どんな特徴があるの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どんな特徴があるの",
+        children: "どんな特徴があるの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "なにかしらの文章データを WatsonDiscovery に渡してあげることで、\n文章にあるコンテキストを種々様々な側面から抽出してくれます。\n特に、大量のドキュメントを検索したいときに使う場合に活躍します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "メタ情報による検索",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メタ情報による検索",
+        children: "メタ情報による検索"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "登録した文章データから良い感じのメタ情報を抽出してくれます。\nたとえば、下記の属性があるみたいです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "エンティティ"
+      }), "\n", _jsx(_components.li, {
+        children: "リレーション"
+      }), "\n", _jsx(_components.li, {
+        children: "キーワード"
+      }), "\n", _jsx(_components.li, {
+        children: "カテゴリー"
+      }), "\n", _jsx(_components.li, {
+        children: "コンセプト"
+      }), "\n", _jsx(_components.li, {
+        children: "セマンティックロール"
+      }), "\n", _jsx(_components.li, {
+        children: "センチメント"
+      }), "\n", _jsx(_components.li, {
+        children: "エモーション"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["例えば、怒っている文章を渡すと WatsonDiscovery では、\n「怒りのエモーション」メタ情報を付与されます。ほえ〜！すごい！\n確かに独自な機能ですよね。", _jsx(_components.br, {}), "\nこの機能は、日本語ではサポートされていませんでしたが、\n2018 年 8 月ごろにできるようになったそうです！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "隠れたコンセプトをみつける",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#隠れたコンセプトをみつける",
+        children: "隠れたコンセプトをみつける"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "文章にあるワードだけでなく、文章にないワードのコンセプトも見出してくれるそうです。\nどうなってるんだ！？"
+    }), "\n", _jsx(_components.h2, {
+      id: "クローラも提供されているwebcrewl",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#クローラも提供されているwebcrewl",
+        children: "クローラも提供されている(WebCrewl)"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "日本語のニュースを定期的にクロールして、ディスカバリーの辞書を更新してくれる機能もあるそうです。\n手段の１つに、URL を指定するだけで勝手にクロールしてくれる方法もあります。簡単だ。。。\nこれを使えば、データを用意しなくて済みますし、お問い合わせ Q&A みたいなのが簡単に作れちゃいます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "サンプル紹介",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#サンプル紹介",
+        children: "サンプル紹介"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、「喜ばれるホワイトデーのプレゼント」で検索してみます。\nまた、メタ情報検索として、センチメンタル「ポジティブ」を指定。\n（データは、WebCrewl で収集済み）"
+    }), "\n", _jsxs(_components.p, {
+      children: ["結果を、種々様々な形式のランキングを表示してくれました。\n例えば、「いくらお金をつかうか？」というランキングでは、TOP が ", _jsx(_components.strong, {
+        children: "無料"
+      }), " でした。これは面白かった。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "visual-insight-ベータ版",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#visual-insight-ベータ版",
+        children: "visual insight (ベータ版)"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ワードの距離を視覚的に見せてくれるそう。wordCloud もありました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "IBM ならではの、独特の全文検索システム API でした。\n無料で使えるそうなので、時間があるときにでも使ってみたいなと思います！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":16,"publishedAt":"2019-05-22","tags":["レポート","クラウドインフラ","AI"],"title":"【大阪】BMXUG勉強会 -Kubernates体験＆Watson Discovery入門- 2019年3月27日参加レポート"},"navigation":{"next":{"href":"/blog/contents/start_the_learning_kubernetes_10","publishedAt":"2019-05-23","title":"一足遅れて Kubernetes を学び始める - 10. config&storage その1 -"},"prev":{"href":"/blog/contents/gcpug_kansai_cloud_next_extended","publishedAt":"2019-05-22","title":"【大阪】GCPUG Kansai 〜 Cloud Next Extended ～ - 2019年5月14日 参加レポート"}},"relatedPosts":[{"posts":[{"publishedAt":"2019-12-16","slug":"gdg_devfest_tokyo_2019_web","summary":"GDG DevFest Tokyo 2019というイベントに参加してきました。最近はプライベートの都合上、中々時間が取れていませんでした。しかし今回、会社の都合上、良い感じに時間を確保できたため、こちらのイベントに参加してきました。`大阪→東京` でわざわざ新幹線を使ってまで参加しましたが、それに見合う発見が多くありました。今回、私が学んだ内容について、報告しようかなと思います。","tags":["レポート","Google","ブラウザ"],"title":"GDG DevFest Tokyo 2019に参加したら、Webの未来にワクワクした"},{"publishedAt":"2019-07-27","slug":"cloud_native_days_tokyo_2019","summary":"今回、東京で開催されましたCloud Native Days Tokyo 2019に2日間とも参加してきましたので、報告しようと思います。セッション毎の報告というより、全体を通した感想を話そうかなと思います。","tags":["レポート","クラウドインフラ"],"title":"Cloud Native Days Tokyo 2019 -2019年7月22-23日参加レポート"},{"publishedAt":"2019-07-20","slug":"frontend_de_kanpai_7","summary":"今回はDeNAさん主催のFrontendのイベントに参加してきましたので、報告しようと思います。hashtagはこちら frokan イベント概要 「Frontend de KANPAI!」（以下、FROKAN）は、フロントエンドエンジニアやフロントエンドに興味がある人が集い、ドリンク片手にゆるく交流・技術交換ができるコミュニティを目指しています。","tags":["レポート","フロントエンド"],"title":"【増枠】Frontend de KANPAI! 7 - Going on 令和 - 2019年7月19日参加レポート"}],"tag":"レポート"},{"posts":[{"publishedAt":"2024-03-29","slug":"try-container-structure-test","summary":"Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。","tags":["テスト","クラウドインフラ"],"title":"Docker Image に 構造化テスト container-structure-test を試してみた"},{"publishedAt":"2021-11-26","slug":"a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","summary":"BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。","tags":["フロントエンド","クラウドインフラ","テスト"],"title":"BigQueryだけで完結するモック可能なユニットテスト手法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"クラウドインフラ"},{"posts":[{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド","AI"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2026-01-04","slug":"20260104","summary":"最近、AI エージェントに Playwright MCP を設定した状態で、CSS の調整作業を行っていました。 デザイン上どうしても原因を特定できず、修正に行き詰まっていたスタイルがあったのですが、Playwright MCP を使って調","tags":["フロントエンド","AI"],"title":"Playwright MCPでCSSの修正が楽になった"},{"publishedAt":"2025-11-11","slug":"20251111","summary":"なんでやねん！AIに指摘をしたとき、なんかモヤっとする。「するどい指摘です！」とか言われると、褒められてるようでいて、微妙にずれてる感じ。反論しても不毛なので、冷静に淡々と指示を出そう。「いい気づきです！」みたいな返事もあるけれど……ぬぬぬ。","tags":["AI"],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/bmxug_kubernetes_watson_discovery/","slug":"bmxug_kubernetes_watson_discovery"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

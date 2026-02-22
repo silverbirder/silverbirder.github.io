@@ -1,0 +1,211 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2bfd,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["紙を積んだイラストをSVGで書こうとしていました。", _jsx(_components.br, {}), "\n（当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。", _jsx(_components.br, {}), "\n所感について、諸々書こうと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "成果物",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#成果物",
+        children: "成果物"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実際に完成したのは、以下の画像ができました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1771326517/silver-birder.github.io/blog/r4idsgxpuer9daqup64a.png",
+        alt: "積んだ紙"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["紙と紙の間が広い感じがしますが、初心者にしては満足しています。", _jsx(_components.br, {}), "\n紙の枚数は動的に制御できます。", _jsx(_components.br, {}), "\n個人サイトのブログ記事枚数に応じて、このSVG画像を表示しています。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://silverbirder.github.io/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "ジブンノート"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/4c828d26c3cbda6c298ea92f1f8e7c4883f33752b85c2bdfaf82739072787329",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "silverbirder.github.io"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/adaa2c9510d16bb1fd516c0e94d47a8fc1e8949194c6c6e0c4cefa5ce5590290.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "作り始めは長方形から",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#作り始めは長方形から",
+        children: "作り始めは、長方形から"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["まずは、紙を1枚表現しようと思いました。", _jsx(_components.br, {}), "\nSVGでは、四角形の表示に ", _jsx(_components.code, {
+        children: "rect"
+      }), "  というSVGの要素が用意されています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/SVG/Reference/Element/rect",
+          children: "<rect> - SVG | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["SVGのビューポートの中心に、長方形を置くだけというのを試しました。", _jsx(_components.br, {}), "\n最初は、これだけでも少し苦労しました。", _jsx(_components.br, {}), "\n長方形を上下左右中央に置くには、SVGのビューポートの大きさと、長方形の置くXY座標の位置と長さを計算する必要があるからです。", _jsx(_components.br, {}), "\n積む前提なので、座標を動的に設定できるようにしないといけないからです。", _jsx(_components.br, {}), "\nとりあえず最初は、全部 数値をハードコードして作りました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developer.mozilla.org/ja/docs/Web/SVG/Tutorials/SVG_from_scratch/Positions",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1771328613/silver-birder.github.io/blog/oahcjejquvzxithjdr2d.png",
+          alt: "位置指定 - SVG | MDN - developer.mozilla.org"
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に長方形を回転させたかったので、", _jsx(_components.code, {
+        children: "transform=rotate()"
+      }), " を使って回転させます。", _jsx(_components.br, {}), "\n長方形が大きすぎると、ビューポートの外に長方形がはみ出てしまうため一回転してもはみ出ない大きさに手直しします。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/SVG/Reference/Attribute/transform",
+          children: "transform - SVG | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "長方形を積む",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#長方形を積む",
+        children: "長方形を積む"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["1枚の長方形ができたら、次は積めるようにしたいです。", _jsx(_components.br, {}), "\n色々と試行錯誤した結果、以下のようなデザインになりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1771328080/silver-birder.github.io/blog/lzqoryyqf7hmtzocnejk.png",
+        alt: "4枚積まれた紙？"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "※ 長方形の角を丸くしています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["SVGの重なり順（Z軸）は、「コードの記述順（描画順）」で決まります。", _jsx(_components.br, {}), "\n後から書かれた要素が、前にある要素の上に表示されます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そのため、一番下にある紙を最初に書き、一番上にある紙を最後に書く必要があります。", _jsx(_components.br, {}), "\nイメージとしては、y座標が少しずつ小さくなる感じです。", _jsx(_components.br, {}), "\nただし最大枚数を指定しないと、ビューポートの外側に紙を置くことになるので、そこは要注意です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "長方形から平行四辺形に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#長方形から平行四辺形に",
+        children: "長方形から、平行四辺形に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["積んだ紙を少し斜め上から眺めると、紙は直角の長方形ではなく鈍角の平行四辺形が理想的です。", _jsx(_components.br, {}), "\nそのため、短形の ", _jsx(_components.code, {
+        children: "rect"
+      }), " ではなく、多角形を表す ", _jsx(_components.code, {
+        children: "polygon"
+      }), " を使用します。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/SVG/Reference/Element/polygon",
+          children: "<polygon> - SVG | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "polygon"
+      }), " では、1つ1つXY座標を指定して線が繋がります。", _jsx(_components.br, {}), "\n平行四辺形の表すためには、", _jsx(_components.strong, {
+        children: "XY座標の位置を決めるために三角関数の知識が必要になりました"
+      }), " 。", _jsx(_components.br, {}), "\n開始位置から角度と長さを使って、サイン、コサイン、タンジェントという懐かしい知識を呼び覚まして、XY座標を見つけます。", _jsx(_components.br, {}), "\nこのあたりは、AIに指示して書かせるようにしました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果、以下の図のような積んだ紙ができました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1771329106/silver-birder.github.io/blog/a1wumoh4vb1qqh6vyant.png",
+        alt: "平行四辺形の紙"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ついでに、紙の上に ", _jsx(_components.code, {
+        children: "path"
+      }), " 線を引いています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "あれ、直角っぽい...？"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AIに任せ始めた途端、SVGのコードがよくわからなくなってしまいました...。", _jsx(_components.br, {}), "\n納得できていないので、ブラッシュアップしていきたいです！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":true,"postNumber":261,"publishedAt":"2026-02-17","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},"navigation":{"next":{"href":"/blog/contents/20260218","publishedAt":"2026-02-18","title":"iframeの難しさ"},"prev":{"href":"/blog/contents/20260216","publishedAt":"2026-02-16","title":"仕事の癖"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-24","slug":"20260124","summary":"最近、ヒューマンインターフェース ガイドライン（HIG）という言葉を知りました。 「ヒューマンインターフェイスガイドライン」には、どのAppleプラットフォームでも優れた体験を設計できるようにするためのガイドとベストプラクティスが含まれてい","tags":["フロントエンド"],"title":"ヒューマンインターフェース ガイドライン という言葉を知りました。"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260217/","slug":"20260217"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

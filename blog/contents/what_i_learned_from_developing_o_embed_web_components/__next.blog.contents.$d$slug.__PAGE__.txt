@@ -1,0 +1,196 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T235e,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "WebComponents で、oEmbed コンポーネントを開発し、公開しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.webcomponents.org/element/Silver-birder/o-embed",
+          children: "https://www.webcomponents.org/element/Silver-birder/o-embed"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.npmjs.com/package/@silverbirder/o-embed",
+          children: "npmjs.com"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "開発していく上で、学んだことを列挙しようと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "スターターキット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スターターキット",
+        children: "スターターキット"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web Components を開発する場合、次のどちらかのスターターキットを使うのが良さそうです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://webcomponents.dev/",
+          children: "webcomponents.dev"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://open-wc.org/",
+          children: "open-wc"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらを使わずとも、Web Components を開発できるのですが、Typescript で書いたり、テストをしたりするには、\nそれなりに準備が必要です。そのため、開発の初速を高めたいなら、スターターキットを使いましょう。"
+    }), "\n", _jsx(_components.p, {
+      children: "もしくは、先にスターターキットを使わず素の Javascript だけで Web Components を作ってみて、その後にスターターキットを使うと良さを実感できるかもしれません。"
+    }), "\n", _jsx(_components.p, {
+      children: "個人的に、open-wc をお勧めします。なぜなら、以下のツールが揃っているからです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Testing"
+      }), "\n", _jsx(_components.li, {
+        children: "Demoing"
+      }), "\n", _jsx(_components.li, {
+        children: "Building"
+      }), "\n", _jsx(_components.li, {
+        children: "Linting"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "もちろん、Typescript もサポートしています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "キャッチアップ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キャッチアップ",
+        children: "キャッチアップ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web Components ってどういうものなのか、キャッチアップするには MDN のサイトが参考になります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/Web_Components",
+          children: "ウェブコンポーネント | MDN"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、日本語で WebComponents(Custom Elements)の仕様書もあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://triple-underscore.github.io/HTML-custom-ja.html",
+          children: "HTML Standard — Custom elements（日本語訳）"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Chrome の中にある Chromium におけるレンダリングエンジン blink の実装コードも、公開されています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/html/custom/README.md",
+          children: "chromium/third_party/blink/renderer/core/html/custom/README.md"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ベストプラクティス",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ベストプラクティス",
+        children: "ベストプラクティス"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google より、Custom Elements のベストプラクティスが公開されています。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developers.google.com/web/fundamentals/web-components/best-practices",
+        children: "Custom Element Best Practices  |  Web Fundamentals  |  Google Developers"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Always accept primitive data (strings, numbers, booleans) as either attributes or properties."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "にあるように、プリミティブなデータのみ HTML の属性に渡すようにしましょう。\nオブジェクトや配列のようなリッチなデータは、シリアル化する必要がありオブジェクト参照がなくなってしまう欠点があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト",
+        children: "テスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web Components のテストを書くには、Shadow DOM に対応する必要があります。\nJSDOM のように、ブラウザ API をラップするライブラリを使っても良いのですが、ヘッドレスブラウザを使ったほうが妥当です。\nそこで、", _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@web/test-runner",
+        children: "@web/test-runner"
+      }), "が便利です。\nこのテストライブラリは、open-wc と同じ Modern Web というモノの 1 つです。\n@web/test-runner には、Puppeteer、Playwright、Selenium の 3 つをサポートしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "publish",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#publish",
+        children: "Publish"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "作成した Web Components を Publish したい場合、次の記事を読むと良いです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://open-wc.org/guides/developing-components/publishing/",
+        children: "Developing Components: Publishing: Open Web Components"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "特に、してはいけないことを読むと、なるほどな〜ってなります。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.p, {
+        children: ["❌ Do not optimize", _jsx(_components.br, {}), "\n❌ Do not bundle", _jsx(_components.br, {}), "\n❌ Do not minify", _jsx(_components.br, {}), "\n❌ Do not use .mjs file extensions", _jsx(_components.br, {}), "\n❌ Do not import polyfills"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "詳しくは、上記の記事を読んでください。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web Components をプロダクションレベルで使えるようになりたいなと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":76,"publishedAt":"2022-03-25","tags":["フロントエンド","ブラウザ"],"title":"WebComponentsでoEmbedのコンポーネントを開発して、学んだこと"},"navigation":{"next":{"href":"/blog/contents/publish_my_web_components","publishedAt":"2022-04-11","title":"OEmbedとOGPのWebComponentsを作ったので、自分のブログサイトに使う"},"prev":{"href":"/blog/contents/started_using_ruby_on_rails_at_work.","publishedAt":"2022-03-24","title":"Ruby on Railsを業務で使って思ったこと"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"}],"tag":"ブラウザ"}],"shareUrl":"https://silverbirder.github.io/blog/contents/what_i_learned_from_developing_o_embed_web_components/","slug":"what_i_learned_from_developing_o_embed_web_components"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

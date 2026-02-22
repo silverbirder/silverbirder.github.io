@@ -1,0 +1,286 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3876,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "2021 年、あけましておめでとうございます。本年も宜しくおねがいします。最近、体重が増えてしまったため、有酸素運動を頑張っています。"
+    }), "\n", _jsx(_components.p, {
+      children: "本記事は、昨年の冬あたりから検証していた クライアントサイド統合での Micro Frontends について話そうと思います。検証したソースコードは、次のリポジトリにあります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/micro-frontends-sample-code-6",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/micro-frontends-sample-code-6"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Contribute to silverbirder/micro-frontends-sample-code-6 development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/a0d1864d28b436a432365ea501c3e2aede7b510440731eba49b463140d953bfc.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "概要",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#概要",
+        children: "概要"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "全体設計イメージ図は、次のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg",
+        alt: "overview"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サーバーサイドは静的コンテンツを返すだけとし、クライアントサイドでアプリケーションを構築します。"
+    }), "\n", _jsx(_components.p, {
+      children: "構築手段は、ブラウザ標準である ES Module Import を使用し、アプリケーションに必要な Javascript(index.js, bootstrap 用)を load します。"
+    }), "\n", _jsx(_components.p, {
+      children: "UI に必要な各 Team の Component は、API 経由で取得し、レンダリングする構成になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "javascript-module",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#javascript-module",
+        children: "Javascript Module"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Javascript(index.js)には、次の Module を含めようと考えていました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["DOM Parser\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "任意の要素の情報を取得する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Imorter\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "任意の Module を取得する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Router\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Web アプリケーション全体の Routing を管理する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Worker\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "バックグランドで実行する処理を管理する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["EventHub\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Module 間の通信を制御する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらをざっと考えていた訳ですが、結局実装したのは Importer と Router ぐらいです (笑)。力尽きてしまいました。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、前提として可能な限り各 Team の依存関係を独立するよう心がけます。Micro Frontends では、独立できてこそのメリットが享受できるため、できる限り各 Team の共通化は避けるようにします。"
+    }), "\n", _jsx(_components.h2, {
+      id: "javascript-importer",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#javascript-importer",
+        children: "Javascript Importer"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "全体設計イメージ図にも書いていますが、Javascript の Importer は、Component Discovery API を通して、各 Team の Component を Import します。この構成は、Microservices の Service Discovery Patterns に似せています。この構成を取ることで、各チーム同士は独立(非依存)することができます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "javascript-router",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#javascript-router",
+        children: "Javascript Router"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Router は、アプリケーション全体の Routing を管理します。例えば、", _jsx(_components.code, {
+        children: "/"
+      }), " は Top ページ、 ", _jsx(_components.code, {
+        children: "/s"
+      }), " は検索ページといった具合です。\nRouter には、後ほど説明する WebComponents との相性が良い vaadin/router を使用しました。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://vaadin.com/router",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "How to use React Router in Hilla applications | Vaadin"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Learn how to integrate and utilize React Router with Hilla for seamless routing."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/bfc144f452becf87971500591ac4db2606f5e6eb0901b9b4e4551511cbe8843f.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "vaadin.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "vaadin/router では、WebComponents を指定して Routing するため、指定された WebComponents は、Importer より取得します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "component",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#component",
+        children: "Component"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Component は LitElement という WebComponents ベースのライブラリを使用しています。各 Team の Component(LitElement のライブラリ込)を Import していると、重複した load となりパフォーマンスがよろしくありません。共通ライブラリを事前に load (import map とかで)することをお勧めします。"
+    }), "\n", _jsx(_components.p, {
+      children: "WebComponents ということなので、Shadow DOM でレンダリングすることになります。CSS のスコープが独立できるため、他へ影響することはありません。ただ、全体的なブランドカラーを統一したい等 Design System がある場合、Component の共通化のやり方を(慎重に)考える必要があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "build-package-design-system-performance-metrics",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#build-package-design-system-performance-metrics",
+        children: "Build Package, Design System, Performance Metrics"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "各 Team を独立したいといっても、共通化しないといけないことがあると考えています。私が想定しているものは、次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Design System\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Component 全体のデザインを統一する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Performance Metrics\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["計測指標のルールを全体で統一する\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "Rendering Time"
+              }), "\n", _jsx(_components.li, {
+                children: "Response Time"
+              }), "\n", _jsx(_components.li, {
+                children: "etc"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Build Package\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["ライブラリの扱い方を統一する\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "External"
+              }), "\n", _jsx(_components.li, {
+                children: "ECM Version"
+              }), "\n", _jsx(_components.li, {
+                children: "etc"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "と書いているだけで、実際に試した訳ではありません(笑)。"
+    }), "\n", _jsx(_components.h2, {
+      id: "所感",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#所感",
+        children: "所感"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Micro Frontends のサーバーサイド統合でもそうでしたが、Component を集約・提供するサービスは、クライアントサイド統合でも必要になりました。今回でいうと、Component Discovery API です。これは、Component 間の依存度を下げるためのレイヤーであり、Micro Frontends では、ほぼ必須の要素なのではないかと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Micro Frontends は、統合パターンも大切ですが、もっと大切なのは、ドメインをどう分解するかだと思います。この分割が適切ではないとどうしても共通化しなければならないケースが誕生し、Micro Frontends のメリットが活かせないと思います。そろそろ、プロダクションレベルで検証したいと思いますが、中々重い腰を上げらない今日このごろです。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":60,"publishedAt":"2021-01-16","tags":["フロントエンド","成果物"],"title":"クライアントサイド(ES Module)でMicro Frontends"},"navigation":{"next":{"href":"/blog/contents/good_and_bad_in_offline_and_online","publishedAt":"2021-03-10","title":"リモートワークになってから『気軽にすぐ聞く』ことが難しくなった"},"prev":{"href":"/blog/contents/2020_furikaeri","publishedAt":"2020-12-30","title":"2020年の振り返り。結婚と継続力"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/client_microfrontends/","slug":"client_microfrontends"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

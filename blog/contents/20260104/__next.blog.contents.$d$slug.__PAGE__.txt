@@ -1,0 +1,214 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3327,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["最近、AI エージェントに Playwright MCP を設定した状態で、CSS の調整作業を行っていました。", _jsx(_components.br, {}), "\nデザイン上どうしても原因を特定できず、修正に行き詰まっていたスタイルがあったのですが、Playwright MCP を使って調査を進めたことで解決に至りました。", _jsx(_components.br, {}), "\n本記事では、そのときの経緯と、CSS の修正がどのように進めやすくなったかを振り返ります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "罫線付きノート風レイアウトの調整",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#罫線付きノート風レイアウトの調整",
+        children: "罫線付きノート風レイアウトの調整"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回対象としていたのは、次のページのような罫線付きノート風のレイアウトです。", _jsx(_components.br, {}), "\nブログサイトのリニューアル作業中のページになります。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/20251226/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Playwright の POM を Storybook 上で確認してから E2E テストを書く"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "はじめに Playwright で E2E テストを書く際、playwright codegen や、近年では Playwright MCP を利用して、テストコードの雛形を作成することが多いと思います。 ただし、生成したテストコードが正し"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/4c828d26c3cbda6c298ea92f1f8e7c4883f33752b85c2bdfaf82739072787329",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "silverbirder.github.io"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/a531cac51f44c3b99e1fc822ca3bb349dee2a51ab07c877b4429304b3211176e.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["このレイアウトでは、横罫線の上に文字が自然に配置されることを前提としてデザインしています。", _jsx(_components.br, {}), "\n一見すると単純な構造ですが、文字と罫線の位置関係がわずかに崩れるだけでも、ノートとしての印象が損なわれてしまいます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "この横罫線と文字配置の調整を進める中で、Playwright MCP が CSS 修正の手助けになる場面がありました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "技術的な構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術的な構成",
+        children: "技術的な構成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["記事本文は Markdown で記述し、Next.js の Markdown パーサを使って HTML に変換しています。", _jsx(_components.br, {}), "\n変換後のコンテンツは、Chakra UI の Prose コンポーネントを利用して表示しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://nextjs.org/docs/app/guides/mdx",
+        children: "https://nextjs.org/docs/app/guides/mdx"
+      }), _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+        href: "https://chakra-ui.com/docs/components/prose",
+        children: "https://chakra-ui.com/docs/components/prose"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "Markdown を使うことで記述自体は簡潔になりますが、表示上は複数の要素が混在する構成になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "罫線デザインと-markdown",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#罫線デザインと-markdown",
+        children: "罫線デザインと Markdown"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["罫線の上に文字を載せるためには、罫線の間隔、文字サイズ、行の高さが適切に対応している必要があります。", _jsx(_components.br, {}), "\nテキストのみで構成されている場合であれば、line-height や margin、padding を罫線間隔の倍数に揃えることで、比較的整った見た目になります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["一方で、Markdown にはテキスト以外にも、画像、テーブル、コードブロックなど、さまざまな要素が含まれます。", _jsx(_components.br, {}), "\nこれらを含んだ状態でも、罫線が途切れず、文字の位置がずれないことを目標に実装を進めていました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "罫線と文字のズレに気づく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#罫線と文字のズレに気づく",
+        children: "罫線と文字のズレに気づく"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実装を進める中で、特定の要素を境に罫線と文字の位置が合わなくなる箇所があることに気づきました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "テーブルの直下から罫線の位置がずれる"
+      }), "\n", _jsx(_components.li, {
+        children: "画像の下から罫線の位置がずれる"
+      }), "\n", _jsx(_components.li, {
+        children: "コードブロックの下から罫線の位置がずれる"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["上下方向の余白や行の高さに影響する CSS プロパティについては、すべて罫線間隔の倍数になるように調整していました。", _jsx(_components.br, {}), "\nそれにもかかわらず、特定の箇所から整合性が崩れ、原因を特定できない状態が続いていました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "playwright-mcp-による調査",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#playwright-mcp-による調査",
+        children: "Playwright MCP による調査"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "調整に行き詰まったため、次のような内容で AI に相談しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「", _jsx(_components.a, {
+          href: "http://localhost:3000/blog/contents/xxx",
+          children: "http://localhost:3000/blog/contents/xxx"
+        }), " の本文途中から、罫線の上に文字が載らなくなる。原因が分からない」"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["すると、Playwright MCP が起動し、ブラウザが立ち上がって該当ページへアクセスし始めました。", _jsx(_components.br, {}), "\nスナップショットの取得や DOM 要素の確認などを行いながら、表示状態を段階的に確認していく様子が見られました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これまでは、記述した CSS の内容や JSX の構造をコンテキストに渡し、それを前提に調査してもらうことがほとんどでした。", _jsx(_components.br, {}), "\n一方で Playwright MCP を使った今回の調査では、実際の描画結果を起点として、画面上の状態を確認しながら原因を追っていく流れになっていた点が印象的でした。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "判明した原因と修正",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#判明した原因と修正",
+        children: "判明した原因と修正"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["調査の結果、コードブロック内で使用している Mono フォントと、本文で使用しているフォントが異なっていることが分かりました。", _jsx(_components.br, {}), "\nフォントの字面の違いにより、同じ line-height を指定していても、実際の表示高さが揃っていませんでした。（たぶん）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その差分が積み重なり、コードブロック以降で罫線と文字の位置がずれて見える状態になっていました。", _jsx(_components.br, {}), "\nコードブロックのフォント指定を本文と揃えることで、罫線の上に文字が自然に配置されるようになりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Mono フォントの使用を検討していましたが、今回は調整が難しかったため見送っています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "技術スタックと-mcp",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術スタックと-mcp",
+        children: "技術スタックと MCP"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "現在の開発では、公式に MCP が提供されている次のライブラリやフレームワークを利用しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Next.js", _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+          href: "https://nextjs.org/docs/app/guides/mcp",
+          children: "https://nextjs.org/docs/app/guides/mcp"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Playwright", _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+          href: "https://github.com/microsoft/playwright-mcp",
+          children: "https://github.com/microsoft/playwright-mcp"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Storybook", _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+          href: "https://storybook.js.org/addons/@storybook/addon-mcp",
+          children: "https://storybook.js.org/addons/@storybook/addon-mcp"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Chakra UI", _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+          href: "https://chakra-ui.com/docs/get-started/ai/mcp-server",
+          children: "https://chakra-ui.com/docs/get-started/ai/mcp-server"
+        })]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["CSS の修正で行き詰まった際に、実際の画面を確認しながら原因を一緒に探れる点は、開発を進める上でとても助かりました。", _jsx(_components.br, {}), "\n既存の知識に加えて、MCP による補助を受けながら作業できる体験は、安心感のある開発体験につながっていると感じています。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":217,"publishedAt":"2026-01-04","tags":["フロントエンド","AI"],"title":"Playwright MCPでCSSの修正が楽になった"},"navigation":{"next":{"href":"/blog/contents/20260105","publishedAt":"2026-01-05","title":"タイミーおじさん"},"prev":{"href":"/blog/contents/20260103","publishedAt":"2026-01-03","title":"ニトリNウォームの布団カバー、もふもふ暖かくて寝過ごした"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-01-22","slug":"20260122","summary":"主にWeb関連の個人開発をしている際に心がけていることを書きます。 月末に近づくにつれ、AIの利用上限に達してしまうことがあります。 その状況になった時、以下のいずれかの選択肢が私の中では残っています。 課金して利用上限を増やす 無料モデル","tags":["フロントエンド","AI"],"title":"AIの利用上限に達した時にすることを残しておく"},{"publishedAt":"2025-11-11","slug":"20251111","summary":"なんでやねん！AIに指摘をしたとき、なんかモヤっとする。「するどい指摘です！」とか言われると、褒められてるようでいて、微妙にずれてる感じ。反論しても不毛なので、冷静に淡々と指示を出そう。「いい気づきです！」みたいな返事もあるけれど……ぬぬぬ。","tags":["AI"],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"},{"publishedAt":"2025-11-06","slug":"20251106","summary":"AIが生成するコードは、必ずレビューしましょう。この記事では、AIが生成CSSをレビューする際の7つのポイントを紹介します。CSSのレビューをする際に参考にしてください。","tags":["フロントエンド","AI"],"title":"AIが生成したCSSをレビューしよう"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260104/","slug":"20260104"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

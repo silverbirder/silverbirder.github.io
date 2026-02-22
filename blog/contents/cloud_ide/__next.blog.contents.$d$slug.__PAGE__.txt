@@ -1,0 +1,490 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T6247,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "2020 年 3 月頃からコロナが流行りだし、もう 12 月になります。働き方が大きく変わり、リモートワークが当たり前の時代となりました。\nエンジニアの働き方も同様に変わりました。そこで、今回は Cloud IDE というものを紹介しようと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "リモートワークと-daas",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#リモートワークと-daas",
+        children: "リモートワークと DaaS"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "リモートワークが増えると、DaaS のようなサービスを利用する企業が増えたのではないでしょうか。\nDaaS の簡単な説明を引用しますと、次のとおりです。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "DaaS とは、“Desktop as a Service”の頭文字を取った略語で「ダース」と読みます。\n普通ならば個人の PC にデスクトップは存在し、データは個人の PC 内に保存されていますが、DaaS においては個人のデスクトップがクラウド上に構築され、ネットワークを通じてそのデスクトップを呼び出して利用することになります。\nここでは、DaaS とはどういう仕組みなのかを説明し、その必要性、メリットについて詳しく述べていきます。\nDaaS はクラウドサービスの一種で、特定のソフトウェアを端末にインストールすることなく、ネットワークを通じて利用できるという特徴があります。\nクラウド上にあるデスクトップ環境を呼び出して利用できるため、個人の PC はディスプレイとキーボードなど必要最低限の機能があれば良いので、テレワークをするために高いスペックの PC を用意する必要はありません。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://www.ascentech.co.jp/solution/column/daas.html",
+        children: "https://www.ascentech.co.jp/solution/column/daas.html"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、クラウド上で開発環境(お気に入りのエディタ, プログラミング言語, 使い慣れたツール, etc)を構築して、そこにアクセスして仕事をするようになります。アクセス元は、私物の PC や会社から支給されている PC などが多いと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "cloud-ide",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cloud-ide",
+        children: "Cloud IDE"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Cloud IDE は、クラウドにある統合開発環境(IDE)のことで、主にブラウザから操作できるようなものが多いです。\nざっと有名なものをリストアップしてみました。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "提供元"
+          }), _jsx(_components.th, {
+            children: "IDE 名"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Microsoft Azure"
+          }), _jsx(_components.td, {
+            children: "Visual Studio Codespaces"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Github"
+          }), _jsx(_components.td, {
+            children: "Codespaces"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Amazon Web Services"
+          }), _jsx(_components.td, {
+            children: "Cloud9"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Google Cloud Platform"
+          }), _jsx(_components.td, {
+            children: "Cloud Shell Editor"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "Coder"
+          }), _jsx(_components.td, {
+            children: "Coder"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "OSS"
+          }), _jsx(_components.td, {
+            children: "Gitpod"
+          })]
+        })]
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "ブラウザで見ると、どんな UI でしょうか。いくつか例を載せておきます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.co.jp/features/codespaces",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376916/silver-birder.github.io/blog/codespaces-vs.png",
+          alt: "visual studio codespaces"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://cloud.google.com/blog/ja/products/application-development/introducing-cloud-shell-editor",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376917/silver-birder.github.io/blog/Cloud_shell_editor.max-2000x2000.png",
+          alt: "cloud shell editor"
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.gitpod.io",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1693376919/silver-birder.github.io/blog/gitpod-editor.jpg",
+          alt: "gitpod"
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Cloud Shell Editor や Gitpod は、OSS の ", _jsx(_components.strong, {
+        children: "Theia"
+      }), " というものを使っています。\nまた、全体的に UI がとても似ていますよね。これは、次の記事でわかりやすく説明されていますので、ご興味があればお読みください。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://qiita.com/monamour555/items/f93287c273a388261968",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Monaco エディタ系クラウドIDEを整理する - Qiita"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "数年前から存在していたものの、クラウド IDE が実用になる環境として注目され始めたのは至近 1 〜 2 年くらいかと思います。 その起爆剤の一つとして、エディタ・エンジン Monaco の存在があります。 web で使えるエディタ・エンジンは、Monaco 登場以前から、..."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2a7c32c23c7588167818d4f9b39c3a9cab98a843cd60fb50e152d9d357a07525.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "qiita.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/8ef539087434515eb89a1fb9a8f2f3ec57322ab42927f32448b8177f72dc0f01.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらの Cloud IDE は、ここ最近 Publickey でよく目にします。記事と投稿日時をまとめてみました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/20/visual_studio_codeeclipse_theia_10vs_codeweb.html",
+          children: "publickey1.jp"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "2020 年 4 月 3 日 投稿"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/20/githubwebidecodespacesgithub.html",
+          children: "publickey1.jp"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "2020 年 5 月 7 日 投稿"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/20/webidevisual_studio_codespaecsgithub_codespaces.html",
+          children: "publickey1.jp"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "2020 年 9 月 7 日 投稿"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/20/githubgitlabwebidegitpodgithub_codespaces.html",
+          children: "publickey1.jp"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "2020 年 9 月 11 日 投稿"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/20/googlevscodeeclipse_theiagoogle_cloud_shell.html",
+          children: "publickey1.jp"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "2020 年 11 月 10 日 投稿"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "稚拙な推測ですが、リモートワークが普及し、働く環境も変化したためかなと思っています。\n物理的な PC で開発するのではなく、クラウド上にある PC で開発する、それが当たり前になるのかなと。"
+    }), "\n", _jsx(_components.h2, {
+      id: "theia",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#theia",
+        children: "Theia"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Theia とは何か、Github の about より引用します。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Eclipse Theia is a cloud & desktop IDE framework implemented in TypeScript"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://github.com/eclipse-theia/theia",
+        children: "https://github.com/eclipse-theia/theia"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "この OSS の興味深いところの 1 つに、設計書が公開されているところです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://docs.google.com/document/d/1aodR1LJEF_zu7xBis2MjpHRyv7JKJzW7EWI9XRYCt48",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Multi-Language IDE implemented in JS Scope and Architecture"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Multi-Language IDE Implemented in JS  Scope and Architecture Overview This document details the scope of the IDE framework implemented in JavaScript, HTML and CSS.  It also details the architecture choices that will guide the development of the software. Scope The Javascript IDE project has the ..."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2b666073a2edc26491c9bec28f24eeba95c93b4468716a645673e32de11a18e3.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "docs.google.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "https://lh7-us.googleusercontent.com/docs/AHkbwyKQy8_ey-Lgp8RcA7m_xMRoAKMJed0f_AfysU8DYIbhwtdyFRFhhAIMLP9RThyfGH7da4menXFv9iaw3mnCfpDKEuC6Gu2b6fs3OAfNkp7ppJ7DHhvv=w1200-h630-p",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Theia は、ローカルで動かすことができます。Web アプリだけじゃなく、ネイティブアプリ(Electron)もあります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/eclipse-theia/theia/blob/master/doc/Developing.md#quick-start",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "theia/doc/Developing.md at master · eclipse-theia/theia"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Eclipse Theia is a cloud & desktop IDE framework implemented in TypeScript. - eclipse-theia/theia"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/00397f96c653ca601e1f0f65a1ec2095de670adebbc0178ed8c94687876cfae4.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、Docker コンテナも公開されています。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/theia-ide/theia-apps",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - theia-ide/theia-apps: Theia applications examples - docker images, desktop apps, packagings"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Theia applications examples - docker images, desktop apps, packagings - theia-ide/theia-apps"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/ee356bd12b921c088dfd58dac7a1d5b94d25275fe30467de0ed345b7b2ee48a6.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ベンダーニュートラルなので、VM インスタンスに Theia を入れて独自に運用するなど、ベンダーに依存しません。"
+    }), "\n", _jsx(_components.h2, {
+      id: "個人的な話",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#個人的な話",
+        children: "個人的な話"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "個人的に、Gitpod を使いたいのですが無料だと月 50 時間までしか使えません。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.gitpod.io/pricing/",
+        children: "gitpod.io"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["\"Professional Open Source\" というものを応募したところ、", _jsx(_components.a, {
+        href: "https://github.com/gitpod-io",
+        children: "Gitpod の組織"
+      }), " へ招待頂き、公開リポジトリの無制限利用ができるようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "gitpod-を使い続けて思うこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#gitpod-を使い続けて思うこと",
+        children: "Gitpod を使い続けて思うこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Gitpod は、.gitpod.yml というファイルで環境構築されます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.gitpod.io/docs/configuration/",
+        children: "gitpod.io"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ベースとなる Docker イメージを指定して、必要なライブラリを事前にインストールできたりします。\n公式ブログに、Gitpod の完全ガイドがあります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.gitpod.io/blog/gitpodify/",
+        children: "gitpod.io"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "また、様々な OSS を Gitpod で簡単に動作確認できます。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://contribute.dev/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Ona for Open Source | Free Credits for Maintainers"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Get up to $200/month in Ona credits for maintaining open source projects. Apply now and accelerate your open source contributions with AI-powered development."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/728c8dbeac87f6828ae25cdb58a019c0d0f5b004b7ea9e3d2be5f6684eb19793",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "contribute.dev"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/3da40376d2ffea595382dd7f121ae66e881fcfada007fe06385f8555b06a9c7a.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際に Gitpod を使ってみると、確かに便利です。\nアクセス元の PC は、非力なノート PC でも良く、Github の Repository 毎に Gitpod のコンテナがあるため、相互に影響しません。\nただ、ネットワーク遅延でちょっと待ったり、Gitpod のショートカットキーより、ブラウザのショートカットキーが上書きされて困ることが多少あります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ブラウザ上で開発するのって、昔からあったように思いますが、あんまり注目されていなかったのでしょうか（私が無知なだけかもしれません）。\nAWS や GCP、Github など各社が積極的に手を出しているところを見ると、これからますます期待できる分野なのだと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":58,"publishedAt":"2020-12-12","tags":["クラウドインフラ"],"title":"コロナ禍におけるエンジニアのためのCloud IDE"},"navigation":{"next":{"href":"/blog/contents/2020_furikaeri","publishedAt":"2020-12-30","title":"2020年の振り返り。結婚と継続力"},"prev":{"href":"/blog/contents/arch-unit","publishedAt":"2020-11-28","title":"TypescriptでArchUnitしてみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-03-29","slug":"try-container-structure-test","summary":"Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。","tags":["テスト","クラウドインフラ"],"title":"Docker Image に 構造化テスト container-structure-test を試してみた"},{"publishedAt":"2021-11-26","slug":"a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","summary":"BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。","tags":["フロントエンド","クラウドインフラ","テスト"],"title":"BigQueryだけで完結するモック可能なユニットテスト手法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"クラウドインフラ"}],"shareUrl":"https://silverbirder.github.io/blog/contents/cloud_ide/","slug":"cloud_ide"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

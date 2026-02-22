@@ -1,0 +1,293 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T37aa,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Twitter に投稿されている Link を収集するツール Cotlin を作りました。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "Co"
+      }), "llec", _jsx(_components.strong, {
+        children: "t lin"
+      }), "ks in tweet"]
+    }), "\n", _jsx(_components.p, {
+      children: "から、Cotlin という名前にしました。Android のアレに似ています。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/Cotlin",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/Cotlin: Cotlin is tools that collect links in tweet by using the Twitter API(Search Tweets)"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Cotlin is tools that collect links in tweet by using the Twitter API(Search Tweets) - silverbirder/Cotlin"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/2511f70fda1801c2979adbc2d291f2e6861aa020237c25c9745b887ae94a67b1.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@silverbirder/cotlin",
+        children: "npmjs.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "動機",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動機",
+        children: "動機"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は、", _jsx(_components.a, {
+        href: "https://connpass.com/",
+        children: "connpass"
+      }), "等を使って、技術系のカンファレンスに参加することがありました。\nカンファレンスで発表された資料は、Twitter で公開されることが多々あるので、それを自動収集できるようにしたいと考えたのが、Cotlin を作った動機です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術スタック",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術スタック",
+        children: "技術スタック"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Apps Script (", _jsx(_components.a, {
+        href: "https://github.com/google/clasp/",
+        children: "Clasp"
+      }), ") + Twitter API (", _jsx(_components.a, {
+        href: "https://developer.twitter.com/en/docs/tweets/search/overview",
+        children: "tweet search API"
+      }), ") です。\n", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/Cotlin#use-by-google-apps-script",
+        children: "ライブラリを公開"
+      }), "していて、それを元に", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/Cotlin/blob/master/sample/api.js",
+        children: "API"
+      }), "と", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/Cotlin/blob/master/sample/client.js",
+        children: "Client"
+      }), "を簡単に作れるようにサンプルコードも用意しています。使い方は、全て", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/Cotlin/blob/master/README.md",
+        children: "README.md"
+      }), "にあります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "困ったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#困ったこと",
+        children: "困ったこと"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Tweet に記述したリンクは、全て", _jsx(_components.a, {
+        href: "https://help.twitter.com/ja/using-twitter/url-shortener",
+        children: "t.co"
+      }), "に短縮されてしまいます。\nこの短縮 URL からオリジナル URL を手に入れるために、リダイレクトする必要があります。\n実際に作ってみると、次のような記事に書いたとおり、GAS で書くと、少し困ったことがありました。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/gas_fetchall_redirect",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Google Apps Script で FetchAllとRedirctURL の組み合わせは悪い"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Google Apps Script (以下、GAS)で、困ったことがあったので備忘録として残しておこうと思います。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/4c828d26c3cbda6c298ea92f1f8e7c4883f33752b85c2bdfaf82739072787329",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "silverbirder.github.io"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/6e617fc8ccd159804df28871162ad8c529e15d376a87176efee4fd9fc77fbd80.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "そこで、複数のリダイレクト URL へリクエストする処理を並列化するために、Golang で開発していました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、そもそも Twitter API (", _jsx(_components.a, {
+        href: "https://developer.twitter.com/en/docs/tweets/search/overview",
+        children: "tweet search API"
+      }), ")のレスポンスには、オリジナル URL が含まれている(", _jsx(_components.a, {
+        href: "https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets",
+        children: "expanded_url"
+      }), ")ことに気づき、結局、Google Apps Script (", _jsx(_components.a, {
+        href: "https://github.com/google/clasp/",
+        children: "Clasp"
+      }), ")で開発することになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "良かったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#良かったこと",
+        children: "良かったこと"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["毎日、プレゼンテーション資料を収集し、スプレットシートに記録するよう、自動化しました。", _jsx(_components.br, {}), "\n※ 都合により、URL のリンクと Tweet のリンクのみ記載しています。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://docs.google.com/spreadsheets/d/1IaJOw9-GdoHhz3D0CzvJfFitrmEN8KpgIleer9rmxiw/edit?usp=sharing",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "【廃止】UseCotlin (github.com/Silver-birder/Cotlin)"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/1327b6a68f44678aa5135bed2d73318d05a11484375a3fcca88ad02fd8f8a013.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "docs.google.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/73824de6f7ab4c13251687cf681b1a9b2112e0f07e1b8584a427cadfc07210e5.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "次のような資料を発見できるようになりました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "世界中"
+        }), " のプレゼンテーション資料"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "知らない技術カンファレンス"
+        }), " の資料"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "個人や学生"
+        }), " が公開した資料"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "そこから、次のような良かったことがありました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『テストについて、同じように困っている人がいた。○○ という技術で解決してるんだ！知らなかった！』"
+      }), "\n", _jsx(_components.li, {
+        children: "『最近気になっている ○○ のアーキテクチャの資料だ。メリット・デメリットがよくまとまってて良い！』"
+      }), "\n", _jsx(_components.li, {
+        children: "『リモートワークを取り組んでいる企業の話だ。これから私もリモートワークになるから、先に知見を知っておこう！』"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "毎日、資料を読んでいると、1 日 2,3 件ほど、自分の琴線に触れるものが現れます。とても刺激を受けて、作ってよかったなと思いました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "動機であった技術カンファレンスの参加は、実は最近減少しています。\n理由は色々ありますが、まあ伏せておきます。"
+    }), "\n", _jsx(_components.p, {
+      children: "こういったツールによって、アンテナを広く張り巡らせておくことができます。\nこれのおかげで、様々な関心事をキャッチアップできるようになりました。"
+    }), "\n", _jsx(_components.p, {
+      children: "上のスプレットシートは、ずっと更新し続ける予定ですので、活用下さい。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":44,"publishedAt":"2020-03-15","tags":["成果物","サービス","Google"],"title":"TwitterにあるLinkを収集するツール Cotlin で、世界中のプレゼンテーション資料を知ろう"},"navigation":{"next":{"href":"/blog/contents/microfrontends","publishedAt":"2020-05-04","title":"Micro Frontends を学んだすべて"},"prev":{"href":"/blog/contents/mac_babiniku","publishedAt":"2020-03-08","title":"Mac で バ美肉 りたい！  (Zoom + Gachikoe + 3Tene or Reality)"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"},{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-05-22","slug":"how_to_display_embedded_twitter_content_after_rendering_on_iframe","summary":"結論 `iframe.contentWindow` から `twttr` オブジェクトを見つけて、`event.bind(\"rendered\", () => {})` の第二引数に、表示処理を書くことです。 背景 `https://twitter.com/openwc/status/1427617679427440643` のような URL から、埋め込みコンテンツをブログサイトなどに表示したいです。 `https://publish.twitter.com/oembed?url=${URL}` のレスポンスの中の html が、埋め込みコンテンツになります。これを iframe の srcdoc に設定することで、埋め込みコンテンツを表示することができます。","tags":["サービス","フロントエンド"],"title":"iframeでTwitterの埋め込みコンテンツの描画後に、画面表示する方法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"サービス"},{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2021-12-20","slug":"intro_google_account_photo_api","summary":"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"}],"tag":"Google"}],"shareUrl":"https://silverbirder.github.io/blog/contents/twitter_cotlin/","slug":"twitter_cotlin"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

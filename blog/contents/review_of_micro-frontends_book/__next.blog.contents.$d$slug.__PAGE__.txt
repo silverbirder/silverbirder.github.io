@@ -1,0 +1,162 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T206f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["DAZN の Luca Mezzalira さんが書かれた", _jsx(_components.a, {
+        href: "https://www.oreilly.co.jp/books/9784814400027/",
+        children: "マイクロフロントエンド"
+      }), " を読みました。簡単な書籍レビューを残しておこうかなと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜマイクロフロントエンドを使うのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜマイクロフロントエンドを使うのか",
+        children: "なぜマイクロフロントエンドを使うのか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "従来のモノリスなフロントエンドから、マイクロフロントエンドに置き換えることで、どういう価値があるのでしょうか。\n書籍に書いてある内容と、自身の意見を混ぜて以下に列挙します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["機能開発のイテレーションが短くなる\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "1 チームに 1 サブドメインという小さなスコープのため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["チーム内の意思決定がしやすい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "コードベースが小さいため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["リリース速度が早い\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "各チームが独立しているため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "1 チームが小さなサブドメインで独立することで、開発やコミュニケーション、リリースなどのコスト低減ができます。\nこれは、最終的には顧客への価値提供するサイクルを短くすることに繋がります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "マイクロフロントエンドの導入方法",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイクロフロントエンドの導入方法",
+        children: "マイクロフロントエンドの導入方法"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "書籍には、実例として既存アプリケーションをマイクロフロントエンドへマイグレーションする話があります。\nマイクロフロントエンドは、その設計の性質上、基本的に(既存アプリケーションからの)マイグレーションとセットです。\nそのため、マイグレーションをどのように進めるかというのは、とても重要です。"
+    }), "\n", _jsx(_components.p, {
+      children: "その中で、マイクロフロントエンドへの最初の一歩として、次のパターンがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "共有コンポーネントをマイクロフロントエンドとしてリリース"
+      }), "\n", _jsx(_components.li, {
+        children: "新機能をマイクロフロントエンドとしてリリース"
+      }), "\n", _jsx(_components.li, {
+        children: "既存アプリケーションの一部をマイクロフロントエンドとしてリリース"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "要は、段階的に導入しましょうという話です。\nまた、マイクロフロントエンドには、従来の SPA 開発に似ている垂直分割という方法が最初の一歩としてお勧めのようです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["垂直分割\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "1 つの画面に 1 つのマイクロフロントエンド"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["水平分割\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "1 つの画面に複数のマイクロフロンエンド"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ちなみに、マイクロフロントエンドとコンポーネントは、次のように区別します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["マイクロフロントエンド\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "サブドメインのビジネス表現"
+          }), "\n", _jsx(_components.li, {
+            children: "ロジックをカプセル化し、イベント通信"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["コンポーネント\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "再利用性の目的で使用される技術的ソリューション"
+          }), "\n", _jsx(_components.li, {
+            children: "拡張しやすく複数のプロパティを公開"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "書籍にあった好きな言葉",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#書籍にあった好きな言葉",
+        children: "書籍にあった好きな言葉"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "付録にある、New Relic で働かれている Erik Grijzen さんのインタビュー記事にて、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Q. マイクロフロントエンドを 3 語で表現すると"
+      }), "\n", _jsx(_components.li, {
+        children: "A. Scaling UI Development"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["という回答がありました。\n", _jsx(_components.code, {
+        children: "Scaling UI Development"
+      }), " という言葉、めちゃくちゃ好きになりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "マイクロフロントエンドは、フロントエンドをサブドメインで分割し、小さく独立した開発が可能となります。\n大規模な 1 つのアプリケーション開発や、1 つのブランド内の様々なプロダクトを提供するアプリケーション開発に対しては、マイクロフロントエンドは効果的だと思っています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "余談ですが、ブログを書く時間が、徐々に減っています。\n1 年前とかは、1 日とか使っていたんですが、今日は 30 分とかです。\n効率化できている訳じゃなく、単純に時間がなくなってきたなと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":96,"publishedAt":"2022-11-13","tags":["フロントエンド","書籍レビュー"],"title":"「マイクロフロントエンド」を読みました"},"navigation":{"next":{"href":"/blog/contents/2022_furikaeri","publishedAt":"2022-12-03","title":"2022年の振り返り。転職と妊活"},"prev":{"href":"/blog/contents/obsidian-git-muti-device","publishedAt":"2022-10-18","title":"ObsidianでiPhoneからGit Commitする"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-12","slug":"20260212","summary":"たまたま、Googleレコメンドに \"Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ\" の本へのリンクが流れてきました。 Webフォントの記事って、あまり見かけなかったのでAmazonでポチりまし","tags":["書籍レビュー"],"title":"『Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ』を読みました。"},{"publishedAt":"2026-02-11","slug":"20260211","summary":"今日、4ヶ月以上放置していた本を読み始めています。 読み始めて、本ってやっぱ良いものだなと思うことがありました。 そのことについて、簡単に書こうかなと思います。 今読んでいる本 \"Webフォント実践ガイド Google Fontsではじめる","tags":["書籍レビュー"],"title":"久々に本を読んでよかったこと"},{"publishedAt":"2025-07-02","slug":"review_of_the-dark-pattern","summary":"今回、以下の書籍を読みました。『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』せっかくなので、感じたことや気づきをまとめてみます。","tags":["書籍レビュー"],"title":"『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』書籍レビュー"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/review_of_micro-frontends_book/","slug":"review_of_micro-frontends_book"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

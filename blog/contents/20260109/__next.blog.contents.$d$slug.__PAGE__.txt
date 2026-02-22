@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2499,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    div: "div",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。", _jsx(_components.br, {}), "\n興味があれば、参考として読んでもらえると嬉しいです。"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://zenn.dev/silverbirder/articles/e62ad1be9cdb40",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "単体テストコードのお作法"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/98677f9d7ded2642522c925df125486c13146e2da739f834fe87b37920080eb9.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "zenn.dev"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/655b89679e16a08a0595eabf92c040bda28463a85e65b6715564a4a73c6f01e7.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "保守や運用の観点で見ると、プロダクションコードを修正した際に、既存のテストが壊れ、そのテストを修理しながら既存機能を担保していく、という点で、単体テストは有効に機能します。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["一方で、テストカバレッジ100%のように、すべての分岐や条件を網羅するテストを書くことについては、費用対効果の面で疑問を感じることもあります。", _jsx(_components.br, {}), "\nどこかで「おおよそ75%程度を目安にすればよい」という話を聞いた記憶もあり、現実的な落とし所を探る必要があるように思います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "AIの力によって、さまざまなパターンのテストを比較的簡単に書けるようになった今だからこそ、どこまでテストを書くべきか、という点で迷いが生まれています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "単体テストを書いていなかった頃の開発体験",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#単体テストを書いていなかった頃の開発体験",
+        children: "単体テストを書いていなかった頃の開発体験"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今から10年ほど前、SIerとして業務システムの新規開発に携わっていた頃、単体テストコードを書かずに開発を進めた経験があります。", _jsx(_components.br, {}), "\n当時はPHPを用いてWebサービスを構築しており、開発プロセスとしてはV字モデルを採用していました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実装した機能は、画面を手動で操作して期待通りに動作することを確認し、その後Subversionに登録して次の機能実装へ進みます。", _jsx(_components.br, {}), "\nすべての機能実装が終わった段階で、Excelにまとめられたテスト仕様書をもとに、自分が実装していない画面に対して、ひたすら手動で確認作業を行っていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["テスト中に不具合が見つかれば修正を行い、再び同じテストをやり直します。", _jsx(_components.br, {}), "\nこのサイクルを繰り返し、ようやく納期に間に合わせて成果物を完成させ、本番環境へ反映し、最終的に発注元に操作してもらう、という流れでした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["手動テストは人が行う以上、どうしても見落としが発生します。", _jsx(_components.br, {}), "\nまた、修正のたびに同じ操作を繰り返す必要があり、規模が大きくなるほど確認項目も増え、負担が大きくなっていきました。私が携わったプロジェクトでは、プロジェクトの関係のないメンバーを何十名もかき集めて、20人近くで みんなで手動テストしていたこともあります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テストコードを書く理由の根っこ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テストコードを書く理由の根っこ",
+        children: "テストコードを書く理由の根っこ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このような経験から、手動テストを自動化したいという思いが、自分の中でテストコードを書く動機として根付いています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["テストと一口に言っても、いわゆるテストピラミッドの考え方のように、単体テスト、統合テスト、E2Eテストなど、役割は分かれます。", _jsx(_components.br, {}), "\nそれでも、根底にある目的は昔から変わっていないと感じています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "手動テストにかかる時間を減らすこと"
+      }), "\n", _jsx(_components.li, {
+        children: "人による確認ミスを減らすこと"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "どこまでテストを書くかという判断",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どこまでテストを書くかという判断",
+        children: "どこまでテストを書くかという判断"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "単体テストですべてのパターンを網羅することよりも、もし手動で確認するとしたら、どのような操作を行うかを意識しながらテストを書く方が、自分の好みに合っています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["数値のバリデーションのように、境界で挙動が変わるものについては、境界値を意識したテストを書きたくなりますし、プロパティベーステストのような手法を取り入れるのも自然だと思います。", _jsx(_components.br, {}), "\nまた、複数の状態の組み合わせによって出力が変わるロジックについては、パラメタライズドテストが有効だと感じています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人的には、循環的複雑度が高そうなロジックについては、意図的にテストケースを厚めに書きます。", _jsx(_components.br, {}), "\n一方で、単純な処理については、代表的な1パターンを確認できれば十分と考え、その時点でテストを終えることも少なくありません。"]
+    }), "\n", _jsx(_components.p, {
+      children: "サンプルコードを示さず、考え方だけを書き連ねましたが、今の自分のテストに対するスタンスは、このようなものです。最後までお読みいただきありがとうございました。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":222,"publishedAt":"2026-01-09","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"},"navigation":{"next":{"href":"/blog/contents/20260110","publishedAt":"2026-01-10","title":"CSS Layout Testing  というテスト手法の提案"},"prev":{"href":"/blog/contents/20260108","publishedAt":"2026-01-08","title":"QiitaかZennか個人サイトか"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-10","slug":"20260110","summary":"Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。 flex-shrink の指定を忘れて、要素が押しつぶされてしまった z-index の指定を間違えて、要素が意図せず前面（また","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},{"publishedAt":"2025-12-26","slug":"20251226","summary":"はじめに Playwright で E2E テストを書く際、playwright codegen や、近年では Playwright MCP を利用して、テストコードの雛形を作成することが多いと思います。 ただし、生成したテストコードが正し","tags":["テスト"],"title":"Playwright の POM を Storybook 上で確認してから E2E テストを書く"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260109/","slug":"20260109"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

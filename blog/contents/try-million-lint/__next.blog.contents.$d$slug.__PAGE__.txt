@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1955,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    img: "img",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://million.dev/",
+        children: "Million.dev"
+      }), " を知り、少し試してみました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "millionjsについて",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#millionjsについて",
+        children: "Million.jsについて"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。\nパフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。"
+    }), "\n", _jsx(_components.p, {
+      children: "一応、公式からも、Million.jsについて引用しておきます。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Million Lint is a VSCode extension that keeps your React website fast.\nWe identify slow code and provide suggestions to fix it. It’s like ESLint, but for performance!"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://million.dev/blog/lint",
+        children: "https://million.dev/blog/lint"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "VSCodeの拡張機能を使うそうです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "実際にやってみた",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際にやってみた",
+        children: "実際にやってみた"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Million Lintを試す過程は非常にシンプルでした。次のコマンドを実行するだけで自動的にインストールされます。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "npx"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " @million/lint@latest"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "インストール後、アプリケーションを起動し、いくつかの操作を行うと、描画回数や描画時間などの情報がVSCode常に表示されました。\nまた、有料オプションとして、Lintによる問題解決の提案も受けることができます。\n例えば、「Callback関数を使用してください」や「Debounceを行ってください」といったアドバイスがありました。\nしかし、無料で利用できるのは3回程度と限られているようでした。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1711022284/jtukcrtmxeo4fxgl9pd8.png",
+        alt: "Million Lint in VSCode"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "所感",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#所感",
+        children: "所感"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "現時点では、パフォーマンス調査には、まだ React DevToolsを使用する"
+      }), " のかなと思います。\nMillion Lintの分析機能は有料であり、また、提案の出力が安定していない（時には提案が表示されず、時にはされる）点が気になりました。\nまた、親コンポーネントの描画やパフォーマンスデータを確認できましたが、子コンポーネントには、それらの情報が表示されませんでした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、 ", _jsx(_components.strong, {
+        children: "VSCode上で描画や処理時間を把握できることは、パフォーマンス問題に直面する前に気づく機会を与えてくれるかもしれないと感じました。"
+      }), "\nMillion Lintの提案は有料ですが、描画や時間に関する情報が表示される点は利用価値があると思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Reactで開発する際、パフォーマンス問題に直面することが多いですが、Million Lintはその解決に向けた一助となる可能性を秘めています。\nただし、その全機能を活用するには課金が必要であり、無料版の利用には限界があることを認識しておく必要があります。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":117,"publishedAt":"2024-03-21","tags":["テスト","開発ツール"],"title":"Million Lintを試してみた"},"navigation":{"next":{"href":"/blog/contents/testcontainers-nextjs-db-integration","publishedAt":"2024-03-25","title":"Testcontainersを用いたNext.jsとDBの結合テスト"},"prev":{"href":"/blog/contents/try-playwright-component-testing","publishedAt":"2024-03-20","title":"Playwright Component Test を試してみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-10","slug":"20260110","summary":"Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。 flex-shrink の指定を忘れて、要素が押しつぶされてしまった z-index の指定を間違えて、要素が意図せず前面（また","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},{"publishedAt":"2026-01-09","slug":"20260109","summary":"AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。 単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。 興味があれば、参考として読んでもらえると嬉しい","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"}],"tag":"テスト"},{"posts":[{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2023-01-03","slug":"automated_synchronisation_using_github_actions_and_pull_requests","summary":"あけまして、おめでとうございます。神社のおみくじで、人生はじめて大吉を引きました、silverbirder です。普段の業務で、FigmaのデザイントークンやAPIのスキーマファイル、i18nのメッセージファイルなどを、フロントエンドへ同期するコミュニケーションが不毛に感じています。そこで、GitHub ActionsとPull Requestを活用して、同期コミュニケーションを削減する仕組みを紹介します。","tags":["DevOps","開発ツール"],"title":"GitHub ActionsとPull Requestを活用した、同期の自動化"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/try-million-lint/","slug":"try-million-lint"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

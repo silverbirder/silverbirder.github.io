@@ -1,0 +1,1893 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T15c5d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    div: "div",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "技術書典 7 で初執筆しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "記事の目的",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#記事の目的",
+        children: "記事の目的"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "執筆でどういったことをしたのかの備忘録"
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "執筆を考えている人"
+        }), " の助けになりたい"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際に販売する本は ↓ のものです。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://techbookfest.org/event/tbf07/circle/5117648689954816",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "技術書典7: silverbirder 詳細"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Web Componentsを誰でも簡単に使えるように紹介します！[無料見本誌あり/サンプルコードあり]"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2beb8d8a2bb5dbaa8a0f9d4357f666f4ed9c28edd111ceb9585216d18452e8c6.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "techbookfest.org"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/e385ad49023431eee8a56ac2e3af440c93a7fe62b4a06fed44017791c9f77b1f.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "きっかけ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#きっかけ",
+        children: "きっかけ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "大学時代の友人である castaneai くんが技術書典 6 で初執筆しました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://castaneai.hatenablog.com/entry/2019/04/24/093514",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "#技術書典 6に初サークル参加（App Engine本を出しました） - castaneaiのブログ"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "4月14日に開催された技術書典6 にサークル参加しました。Google App Engine を使った Webアプリ開発入門の本です。 （▼PDF版は今でも販売中です！） castaneai.booth.pm 作って、頒布して、いろいろな学びがあったのでつらつらと書いていく。 本を作るきっかけ 以前から技術記事を書くのが好きだったので、その延長線上に「本を書く」が浮かんでた。 しかし、本はブログ記事とは違ってぽちっと作れるものでもないので、「いつかは書きたいな〜」という気持ちだけあった。 しかし、そんな中で「技術書典」を見かけて「あ、技術書の同人誌、そういうのもあるのか！」と気付かされる。 そ…"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/24de7fde428f30384b8373f6cd05b5e1d5363c6e8d38bf6d2e09b72c8916e22f.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "castaneai.hatenablog.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/fd21272796695638e066dfd426c7371b1bdad57d38dd033ce4aba0f50a6053ba.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "castaneai くんの話を聞いていると、得られるメリット(実績、交流)が大きいことと、\n製本までのフローがそこまで難しくないことを知りました。\nそこから、私も参加しようと思えるようになりました。\ncastaneai くんは、今回の技術書典 7 も参加するみたいです。興味がある方は是非お立ち寄りください。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://techbookfest.org/event/tbf07/circle/5182251830607872",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "技術書典7: castaneai 詳細"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "gRPCをゆるふわに解説していきます！！"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/2beb8d8a2bb5dbaa8a0f9d4357f666f4ed9c28edd111ceb9585216d18452e8c6.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "techbookfest.org"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/5353f76d803b58bfd5c7e9901be70fad384b4b8d30a1b949730b5d27d93af1d5.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "何をするのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#何をするのか",
+        children: "何をするのか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "大きく分けて３つのステップになります。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "文章作成"
+      }), "\n", _jsx(_components.li, {
+        children: "製本"
+      }), "\n", _jsx(_components.li, {
+        children: "販売準備"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "それぞれ説明していきます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "1-文章作成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1-文章作成",
+        children: "1. 文章作成"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本は何よりも文章が必要です。\nただ文章を書くだけでは、本になりません。\n書籍化するためのツールを使うと効率よく進みます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "11-書籍化ツール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#11-書籍化ツール",
+        children: "1.1. 書籍化ツール"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "文章を書き、本っぽい見た目にする必要があります。\nRe:VIEW Starter というツールを使うと、学習コストゼロで、良い感じの本が出来上がります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://kauplan.org/reviewstarter/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "Re:VIEW Starter"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/89a666ad909a7de1bd47445e82c1b16dcc155c0afdd6b822ce9bad07c528151b.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "kauplan.org"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "次のコマンド１つで本の PDF が作られます。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "shell",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "shell",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "docker"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --rm"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " -v"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " $PWD"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: ":/work"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " kauplan/review2.5"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " /bin/bash"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " -c"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " \"cd /work; rake pdf\""
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png",
+        alt: "ReViewStarter sample page"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "良い感じの本"
+      }), " の PDF が作成されました、最高です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "12-他ツール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#12-他ツール",
+        children: "1.2. 他ツール"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "他にも次のようなツールがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://github.com/textlint/textlint",
+          children: "textlint"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "テキストの表記ゆれを防止"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://circleci.com",
+          children: "CircleCI"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "GitOps 的な執筆が可能"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://github.com/yoshiko-pg/review-live-reload",
+          children: "Review Live Reload"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "テキスト更新後の自動 Preview"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "執筆当初は、これらのツールを調査していました。\nしかし、一人で 100 ページ未満の規模の本を書くなら、特に必要ないかなと思ったので導入しませんでした。\n実際、なくても困りませんでした。"
+    }), "\n", _jsx(_components.h2, {
+      id: "13-レビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#13-レビュー",
+        children: "1.3. レビュー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "文章を書いて終わる訳ではないです。\n文章の構成や表現が適切に伝わっているか確認する必要があります。\n読んでもらいたい対象読書に近い人を探して、レビューしてもらいます。"
+    }), "\n", _jsx(_components.h3, {
+      id: "131-1st-レビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#131-1st-レビュー",
+        children: "1.3.1. 1st レビュー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "文章をざっくりと作り終えた時点でレビューしてもらいます。\nイメージとしては、各章とそれぞれの第一節ぐらいが書き終えている感じです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["各章の構成がおかしくないかをレビューしてもらいます。構成がおかしいと、読者は困惑してしまいます。\n後々になって構成を変更すると、 ", _jsx(_components.strong, {
+        children: "後戻りコスト"
+      }), " が高く付きます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ 実際は時間の都合上していません。"
+    }), "\n", _jsx(_components.h3, {
+      id: "132-2nd-レビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#132-2nd-レビュー",
+        children: "1.3.2. 2nd レビュー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["各章の文章を ", _jsx(_components.strong, {
+        children: "とりあえず"
+      }), " 書き終えた段階でレビューしてもらいます。\nこれも、1st レビューと同様の目的です。\n2st レビューでは、もう少し細かいレベルで章(節)構成をレビューしてもらいます。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "133-3rd-レビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#133-3rd-レビュー",
+        children: "1.3.3. 3rd レビュー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "コンテンツの構成に問題なければ、ようやく文章の中身をレビューしてもらいます。\n例えば、次のようなものを見てくれました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "口調の統一 (です、ます）"
+      }), "\n", _jsx(_components.li, {
+        children: "言葉の統一 (本、書籍）"
+      }), "\n", _jsx(_components.li, {
+        children: "主語の明確化"
+      }), "\n", _jsx(_components.li, {
+        children: "文章を短くする"
+      }), "\n", _jsx(_components.li, {
+        children: "内容の誤り修正"
+      }), "\n", _jsx(_components.li, {
+        children: "誤字脱字"
+      }), "\n", _jsx(_components.li, {
+        children: "図や表の挿入"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、 ", _jsx(_components.strong, {
+        children: "GoogleDrive 上で PDF をレビュー"
+      }), " するのが便利です。\n直接文章にコメントできるので、オススメです。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1167314554205786112",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "15-本のタイトル",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#15-本のタイトル",
+        children: "1.5. 本のタイトル"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本を買ってもらうためには、本のタイトルは重要です。\n本の内容を推測しやすく、かつ、注目してもらえるタイトルにしようと考えました。\n私は、特定の技術の入門書を書いたので、「特定の技術 + 入門」という組み合わせにしようと思いました。\n結果、「はじめての WebComponents 入門」というタイトルにしました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "16-イラストの作成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#16-イラストの作成",
+        children: "1.6. イラストの作成"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本には、文章だけでなくイラストが必要になります。\n例えば、次のようなイラストが必要になります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "表表紙"
+      }), "\n", _jsx(_components.li, {
+        children: "裏表紙"
+      }), "\n", _jsx(_components.li, {
+        children: "背表紙"
+      }), "\n", _jsx(_components.li, {
+        children: "文章中に挿入するイラスト"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、少し内容が異なりますが、次のようなイラストも必要です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "サークル配置図 案内"
+      }), "\n", _jsx(_components.li, {
+        children: "サークルカット"
+      }), "\n", _jsx(_components.li, {
+        children: "サークルカット（グレートーン）"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "表紙用のテンプレートがありますので、それを使います。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "http://www.nikko-pc.com/offset/template/tonbo.html",
+        children: "nikko-pc.com"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "背表紙の幅はページ数によって変化します"
+      }), " 。\n私は、70 ページほど予定していたので 4mm 幅で背表紙を描きました。\n幅計算は、テンプレート内に詳細が記載されていますので、ご参考下さい。\n（日光企画のお姉さんに指摘頂きました）"]
+    }), "\n", _jsx(_components.h3, {
+      id: "161-初イラスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#161-初イラスト",
+        children: "1.6.1. 初イラスト"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私は Photoshop や Illustrator を使ったことがありません。\nまずは、環境準備からです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "iPad"
+      }), "\n", _jsx(_components.li, {
+        children: "Magic Pencil"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらを購入しました。\niPad と Magic Pencil を使うと、紙に書いている感覚で、イラストを書けるようになります。\n特に良かったのは「手の小指側の面が iPad に接しても無視される」ので、\n手の小指側の面を iPad にひっつけながらイラストがかけます。\niPad, Magic Pencil は買って正解でした。\nソフトウェアは、次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://apps.apple.com/jp/app/clip-studio-paint-%E6%BC%AB%E7%94%BB-%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E5%88%B6%E4%BD%9C/id1262985592",
+          children: "Clip Studio"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "メインのイラストツール"
+          }), "\n", _jsx(_components.li, {
+            children: "iPad"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://apps.apple.com/jp/app/goodnotes-5/id1444383602",
+          children: "Good Notes"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "説明用のイラストツール"
+          }), "\n", _jsx(_components.li, {
+            children: "iPad"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://apps.apple.com/jp/app/anyfont/id821560738",
+          children: "AnyFont"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "日本語用の Font"
+          }), "\n", _jsx(_components.li, {
+            children: "iPad"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://firealpaca.com/ja/",
+          children: "Fire Alpaca"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "イラストの調整"
+          }), "\n", _jsx(_components.li, {
+            children: "iMac"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "お絵かきが苦手だったので、知人に助けてもらい、なんとか作れました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430433/silver-birder.github.io/blog/front_cover_of_web_component_for_the_first_time.png",
+        alt: "表表紙"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "2-製本",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#2-製本",
+        children: "2. 製本"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "製本には、技術書典オススメの日光企画さんにお願いしました。\n製本する際には、用紙の種類であったり綴じ方であったりと決める必要があります。"
+    }), "\n", _jsx(_components.p, {
+      children: "私は、あまりこだわりがないので一般的なものを選択しました。\nそれは、次のようになります。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "種類"
+          }), _jsx(_components.th, {
+            children: "選択"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "ご予約のセットまたは仕様は？"
+          }), _jsx(_components.td, {
+            children: "早割りセット"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "用紙サイズ"
+          }), _jsx(_components.td, {
+            children: "A5"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "表紙込みページ数"
+          }), _jsx(_components.td, {
+            children: "72 ページ (表表紙+裏表紙+本文(70page))"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "冊数"
+          }), _jsx(_components.td, {
+            children: "300 冊"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "本の閉じ方向"
+          }), _jsx(_components.td, {
+            children: "左"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "本の閉じ種類"
+          }), _jsx(_components.td, {
+            children: "平綴じ"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "表紙用紙"
+          }), _jsx(_components.td, {
+            children: "NP ホワイト 200kg"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "表紙の印刷種類"
+          }), _jsx(_components.td, {
+            children: "通常 4 色クリア PP"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "本文用紙"
+          }), _jsx(_components.td, {
+            children: "上質 90kg"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "本文の印刷種類"
+          }), _jsx(_components.td, {
+            children: "データ 150 線印刷"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "本文はじまりのページ"
+          }), _jsx(_components.td, {
+            children: "1 ページ目"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "遊び紙"
+          }), _jsx(_components.td, {
+            children: "有り, 上質 90kg/イエロー/前"
+          })]
+        })]
+      })]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://jumpei-ikegami.hatenablog.com/entry/2018/10/21/084634",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "【保存版】 #技術書典 初出展マニュアル【表紙入稿データサンプル付き】 - #がみぶろ"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "gami(@jumpei_ikegami)と申します。 2018年10月8日に開催された「技術書典5」で、『完全SIer脱出マニュアル』という本を頒布しました。 jumpei-ikegami.hatenablog.com 技術書典とは、技術書オンリー同人誌即売会です。 技術書典 僕が所属するサークル「しがないラジオ」は、 技術書典へのサークル参加はおろか、同人誌を作ること自体が初めてでした。 なんとか無事に入稿も終え、当日を迎えることができました。 しかし、正直に言って、同人誌作りのノウハウはインターネット上にまだまだ足りないと思います。 特に入稿作業にまつわる細かい情報について、 印刷用語や…"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/c9a096a330e4583c4cd6ea8720c85dd09b4ff20915dcbd7b19cef60dc988794f.jpg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "jumpei-ikegami.hatenablog.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/1e48286ef3d42995b55cfc44faf0617c7f0631cc1d2bb584f27580b8816a2a4e.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "を参考にしました。"
+    }), "\n", _jsx(_components.p, {
+      children: "本文はじまりのページは、nombre をというものを設定する必要があります。\nRe:VIEW Starter は nombre 対応していて、次のコマンドを叩くだけです。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "shell",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "shell",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "docker"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --rm"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " -v"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " $PWD"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: ":/work"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " kauplan/review2.5"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " /bin/bash"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " -c"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " \"cd /work; rake pdf:nombre\""
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "用紙についてこだわりたい方は、次のリンクにあるようにサンプルを手に入れると良いでしょう。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://natuna.jp/marcket/10282/",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "\n【2024年版】印刷通販・ネット印刷の用紙見本サンプルを取り寄せしよう！ | 印刷通販徹底比較"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "いつも印刷通販徹底比較をご利用いただきありがとうございます。 通販印刷はWebを介して入稿や発注ができるとても"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/002483022dbdbac0a7d31b2379061c8864b0dce72d18f08806eb2650728b2894.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "natuna.jp"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "3-販売準備",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#3-販売準備",
+        children: "3. 販売準備"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "31-物品購入",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#31-物品購入",
+        children: "3.1. 物品購入"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "技術書典では、会場で本を販売することになります。\n販売するサークルブースを目立たせるために、いくつか物品を準備しました。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "名前"
+          }), _jsx(_components.th, {
+            children: "店舗"
+          }), _jsx(_components.th, {
+            children: "用途"
+          }), _jsx(_components.th, {
+            children: "サイズ"
+          }), _jsx(_components.th, {
+            children: "イラスト"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://iemonocatalog.com/wp-content/uploads/2019/05/daiso-100yen-card-stand01b.jpg",
+              children: "折りたたみカードスタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "値札"
+          }), _jsx(_components.td, {
+            children: "110mm×60mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://stripehome.net/wp-content/uploads/2018/05/daisobookcover11.jpg",
+              children: "軟質クリアブックカバー"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "見本誌カバー"
+          }), _jsx(_components.td, {
+            children: "A5"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg",
+              children: "T 型カードスタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "公式後払い QR コード"
+          }), _jsx(_components.td, {
+            children: "90mm×128mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg",
+              children: "T 型カードスタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "PixivPayQR コード"
+          }), _jsx(_components.td, {
+            children: "90mm×128mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg",
+              children: "T 型カードスタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "商品紹介"
+          }), _jsx(_components.td, {
+            children: "90mm×128mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "http://livedoor.blogimg.jp/n_lattice/imgs/0/7/07a9de37.jpg",
+              children: "T 型カードスタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "TwitterQR コード"
+          }), _jsx(_components.td, {
+            children: "90mm×128mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "http://anonuno.shop-pro.jp/",
+              children: "あの布"
+            })
+          }), _jsx(_components.td, {
+            children: "公式サイト"
+          }), _jsx(_components.td, {
+            children: "テーブル作業"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "テーブルクロス前用紙"
+          }), _jsx(_components.td, {
+            children: "印刷業社"
+          }), _jsx(_components.td, {
+            children: "宣伝"
+          }), _jsx(_components.td, {
+            children: "900mm×600mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://iemonocatalog.com/wp-content/uploads/2019/01/table-cloth-100yen-main03.jpg",
+              children: "テーブルクロス"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "あの布を隠す"
+          }), _jsx(_components.td, {
+            children: "900mm×1200mm"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7H8zYedCGI_RtVMpgjakWWv5Gt6PT76gu93WcAUqx5e5XOxtH",
+              children: "テーブルクロス滑り止めシート"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "あの布"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://www.instagram.com/p/BibVAdbFcAN/media/?size=l",
+              children: "本スタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "見本誌"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "タペストリー用紙"
+          }), _jsx(_components.td, {
+            children: "印刷業社"
+          }), _jsx(_components.td, {
+            children: "宣伝"
+          }), _jsx(_components.td, {
+            children: "728mm×1030mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://www.amazon.co.jp/gp/product/B0052QLJEI/",
+              children: "タペストリースタンド"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "宣伝"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://iemonocatalog.com/wp-content/uploads/2018/12/namecard-cliptyle-100yen-main.jpg",
+              children: "名札"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "著者、売り子"
+          }), _jsx(_components.td, {
+            children: "50mm×25mm"
+          }), _jsx(_components.td, {
+            children: "必"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://i2.wp.com/zatsuknowledge.com/wp-content/uploads/2019/04/IMG_4649.jpg",
+              children: "硬質カードケース"
+            })
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "お品書き"
+          }), _jsx(_components.td, {
+            children: "A5"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "複写式 領収書"
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "お客さん"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "メモ、ふせん"
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "作業"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "養生テープ"
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "作業"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "スケッチブック"
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "作業"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "ダンボールカッター"
+          }), _jsx(_components.td, {
+            children: "ダイソー"
+          }), _jsx(_components.td, {
+            children: "作業"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "不"
+          })]
+        })]
+      })]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://note.mu/mochikoastech/n/nf484f114855c",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "#技術書典 開催前に準備しておくといいもの｜mochikoAsTech"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "技術書典サークル参加勢に向けて「これ持ってくと便利！」とか「ここに注意して！」とか準備しておくといいもの・ことをまとめましたー。   持ち物編   ダイソーの折りたたみ式カードスタンド、こんな感じで値札を入れて置くのに便利。角度も変えられるし、使わないときは真っ平らにたためるので鞄の中で場所も取らないよー。2つで100円。白いカードも入ってるので手書きで値段書くだけですぐ使える。#技術書典 pic.twitter.com/urTTxqn7fT — mochiko＠4/14 技術書典6【あ02】で #技術をつたえるテクニック を頒布 (@mochikoAsTech) March 26, "
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/1496ed223cedc1d24fc9993b8984c95f2d77350dc7853ff0fb87b903d40c4d93.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "note.mu"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/9d7659c433f08aff18151ae807e0e73d909b27eb47104a4e02496b1b6d8d2b92.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#%E7%99%BB%E5%A3%87%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AA%E3%81%A9%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%A3%E4%BC%9D%E6%B4%BB%E5%8B%95",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "【技術書典5 入稿後〜イベント前夜編】入稿して気が抜けているときに読みたい宣伝活動と事前準備の話 - VTRyo Blog"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "「セイチョウ・ジャーニーができるまで」シリーズ第5弾です。 この記事のおしながき"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/3c8367c0d5b339f6fe2afac9669379eaf1368f02c8c1f4f804a432e10b25538a.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "blog.vtryo.me"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/bd777a8e27e42feda9670078510ae00672d258f58a9407fec2792083a0d45870.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://note.mu/yagitch/n/nc796a0c2c796",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "yagitch.comの用意周到な技術書典6（イベント直前編）｜yagitch"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "みなさん、技術書典6お疲れ様でした！ この記事では私が技術書典6で冊子400部完売するまでにやったすべてのことをまとめていこうと思います。はじめから読むならこちらからどうぞ。   入稿後のタスク  本の入稿が終わり、本が出ることだけは確定しましたが、その時点で追加でやることは山ほどありました。この時点ではまだ表紙は決まったばかりなので、それぞれの告知チャネルで表紙を反映したお知らせに差し替える必要があります。TLには既にサークルチェックを終えた人が出てきていたので、急がないと古い情報のまま読み飛ばされてしまいます。  しかしそれより急がないといけないのはダウンロードカードのデータ作成で"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/1496ed223cedc1d24fc9993b8984c95f2d77350dc7853ff0fb87b903d40c4d93.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "note.mu"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/59919b85df89eeeebc23a26e472b0ab5642e96e92e79d6a6da1116c97296fa2c.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "印刷する手段は 3 つあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["細かいもの\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["1 つのファイルにして", _jsx(_components.a, {
+              href: "https://blog.vtryo.me/entry/techbookfest5-preparation-of-journey#%E7%99%BB%E5%A3%87%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AA%E3%81%A9%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%A3%E4%BC%9D%E6%B4%BB%E5%8B%95",
+              children: "セブンイレブン印刷"
+            })]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["大きなもの\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.a, {
+              href: "https://www.ooban-senmon.com",
+              children: "ソクプリ"
+            }), "で印刷"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["大量印刷\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: [_jsx(_components.a, {
+              href: "https://www.printpac.co.jp/",
+              children: "プリントパック"
+            }), "で印刷"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "32-電子書籍の準備",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#32-電子書籍の準備",
+        children: "3.2. 電子書籍の準備"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ピクシブ社のサービスである Booth を利用しました。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://booth.pm/ja",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "BOOTH - 創作物の総合マーケット"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "BOOTH（ブース）とは、pixivと連携した、創作物の総合マーケットです。無料で簡単にショップを作成でき、商品の保管・発送代行サービスも提供しています！"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/d2b1bbaedec10957ad45451973015b7187b5741157e336f07433e664c01ddc32.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "booth.pm"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/91ec61e9707693cb9eb2a3690d1b2fdf86ef4e834ab5d674fe34c64e54e330a1.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["特に専門的な知識が必要なことがなく、本の PDF を登録するだけです。\nせっかく足を運んで会場に来て頂いた方のために、電子書籍と物理本の違いを出そうと考えました。\n（中身のデータは同じです）\nそこで、物理本を購入して頂いた方には、 ", _jsx(_components.strong, {
+        children: "無料で電子書籍をプレゼント"
+      }), " することにしました。\n技術書典ではよくある方法だそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、サンプルの本をアップロードし、無料でダウンロードできるようにすることで、\n事前に本の中身を確認できるようにしました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://silverbirder.booth.pm/items/1536228",
+        children: "[見本誌] はじめての Web Components 入門 -4 つの基本機能から関連ライブラリまで-"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、ダウンロード数を見る限り、あまり数は多くありませんでした。\nGoogle Analytics ( ", _jsx(_components.strong, {
+        children: "初登録"
+      }), " )と Booth が連携できるので、流入数を見れるのですが、\n離脱率が 86%という悲しい結果を知りました。ここは改善の余地がありそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430470/silver-birder.github.io/blog/booth_on_google_analytics.png",
+        alt: "Booth on Google Analytics"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "pixiv ID 登録しないとダウンロードできないので、ここが駄目ならサービスを使わない方が良いかもしれません。\n見本誌に限っては、GoogleDrive で渡すようにするとかですかね。"
+    }), "\n", _jsx(_components.h2, {
+      id: "33-支払い手段の準備",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#33-支払い手段の準備",
+        children: "3.3. 支払い手段の準備"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "技術書典では、次のような支払手段を用意しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "公式かんたん後払い"
+      }), "\n", _jsx(_components.li, {
+        children: "pixiv pay"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "前者は、技術書典で口座情報を登録すると利用できます。\n後者は、アプリをダウンロードして商品を登録するだけです。無料です。"
+    }), "\n", _jsx(_components.p, {
+      children: "他にも PayPay や Kyash といった手段も用意しようか迷ったのですが、やめました。\n理由は、支払い方法が若干複雑そうでしたからです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "4-その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#4-その他",
+        children: "4. その他"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "宣伝",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#宣伝",
+        children: "宣伝"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この本のことを広く知ってもらうためには、宣伝が必要です。\n私が取った宣伝手段は次の通りです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Twitter で \"#技術書典 7\" タグ"
+      }), "\n", _jsx(_components.li, {
+        children: "LINE の OpenChat や TL"
+      }), "\n", _jsx(_components.li, {
+        children: "FaceBook"
+      }), "\n", _jsx(_components.li, {
+        children: "本の内容と関係する勉強会ハッシュタグ"
+      }), "\n", _jsx(_components.li, {
+        children: "会社"
+      }), "\n", _jsx(_components.li, {
+        children: "友人"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "あとは、勉強会に参加して宣伝する手段もあります。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "「興味を持ってくれそうな人」が「多い」場"
+      }), " を探す必要があります。\n例えば、4 番は事前に ", _jsx(_components.a, {
+        href: "https://connpass.com",
+        children: "connpass"
+      }), "で関係がありそうな勉強会を調べて、\n該当ハッシュタグで宣伝したりしました。\nまた、積極的に 1 番を実施していると、他のサークル参加さんがリツイートしてくれるため、とても助かりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Twitter で宣伝するために、16:9 の画像を用意したりもしました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1172097536510676994",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "被チェック数と販売冊数",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#被チェック数と販売冊数",
+        children: "被チェック数と販売冊数"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "被チェック数は、お客さんが気になる本をチェックした数になります。\nこの数字から、印刷する冊数を決める大きな要因になります。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://note.mu/yagitch/n/n2b5576363f4e",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "印刷部数の決め方ガイド〜技術書典7に向けて｜yagitch"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "技術書典に初めてサークル出展する方に向けて、印刷部数をどうやって決めたら良いのか？ 需要をどうやって予測したらいいのか？ ということを順序立てて解説していこうと思います。  なお、ここに書いていることはすべて一サークル主がまとめただけの非公式のものです。  情報源は  ・技術書典5〜6の公式アンケート調査結果 ・運営主催の事前イベントでの公開情報 ・サークル主たちのブログ記事・ツイート等 ・自分の経験（技術書典5、6にサークル参加）  の4つです。  結論は最後にまとめています。  売れ行きを左右する要因  まず、売れ行きを左右する要因たちを挙げてみます（だいたい重要度順）。噂レベルの"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/1496ed223cedc1d24fc9993b8984c95f2d77350dc7853ff0fb87b903d40c4d93.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "note.mu"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/60fd3be08591ef56f336078b8942d7162808c62d74361727df217d35c06f1c52.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "恥ずかしい話になりますが、私は毎朝この数字を見ていました。（笑）"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://github.com/silverbirder/get-checked-number-for-techbook",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "GitHub - silverbirder/get-checked-number-for-techbook"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "Contribute to silverbirder/get-checked-number-for-techbook development by creating an account on GitHub."
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/5302fe52471d5c2e978bf55df7a8c60fcdef0d89c64e01d4951909a0b11f1e47.svg",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "github.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/908c64ab4ae970d73bf4cf35dbda7bc2774cd454e60201170122ad5ef490d4aa.png",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "被チェック数を定期的に取得する API をサクッと作って、CloudFunction で稼働させています。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1171178281380405248",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このようにどの時間やどの曜日にチェックされるのかがわかるようになります。"
+    }), "\n", _jsx(_components.p, {
+      children: "今回、300 冊を印刷することにしました。間違いなく残ってしまうと思うので、\nとらのあなさんへ委託しようと考えています。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://news.toranoana.jp/107460",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "技術同人誌の委託販売なら、とらのあなにお任せください！ - とらのあな総合インフォメーション"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description",
+              children: "技術書典にご出展されるみなさま、はじめまして。同人ショップとらのあなです。 とらのあなでは技術同人誌作品のご委託を承っております。 お預けいただいた作品は、店頭と通販にてイベント終了後すぐに販売いたします。 また、当社エンジニア部署「虎の穴ラボ」の全面協力により、「エンジニアによる手書きPOPの作成」 「特設ウェブページでの紹介」など、他にはないサービスもございます。"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/a9aeb1666ebf95d5cfb0d416dffcc153fd3c2d6020be6205912309bbe22bdba1.ico",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "news.toranoana.jp"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/7fe7684338c1b5554d4a4b2b7ac42ba5bba1e0493862069cc672450ca0737643.jpg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "残ってしまったいくつかの本は、お家に保存用として持ち帰ろうと考えています。（笑）"
+    }), "\n", _jsx(_components.h2, {
+      id: "公式ツイッター",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#公式ツイッター",
+        children: "公式ツイッター"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "公式ツイッターアカウントをフォローしておくと、なにかと便利です。"
+    }), "\n", _jsxs(_components.div, {
+      className: "remark-link-card-plus__container",
+      children: ["\n  ", _jsxs(_components.a, {
+        href: "https://twitter.com/techbookfest",
+        target: "_blank",
+        rel: "noreferrer noopener",
+        className: "remark-link-card-plus__card",
+        children: ["\n    ", _jsxs(_components.div, {
+          className: "remark-link-card-plus__main",
+          children: ["\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__content",
+            children: ["\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__title",
+              children: "twitter.com"
+            }), "\n    ", _jsx(_components.div, {
+              className: "remark-link-card-plus__description"
+            }), "\n  "]
+          }), "\n  ", _jsxs(_components.div, {
+            className: "remark-link-card-plus__meta",
+            children: ["\n    ", _jsx(_components.img, {
+              src: "/remark-link-card-plus/ec53435e893e250936a383b37dbd522fee8d2219c5e65fd84edd01614ac499f0.png",
+              className: "remark-link-card-plus__favicon",
+              width: "14",
+              height: "14",
+              alt: ""
+            }), "\n    ", _jsx(_components.span, {
+              className: "remark-link-card-plus__url",
+              children: "twitter.com"
+            }), "\n  "]
+          }), "\n"]
+        }), "\n", _jsxs(_components.div, {
+          className: "remark-link-card-plus__thumbnail",
+          children: ["\n  ", _jsx(_components.img, {
+            src: "/remark-link-card-plus/e5dcd83efc2847803e6a1ed891d5eb6d5339d5886a104daa4fbbe7ad388214d7.svg",
+            className: "remark-link-card-plus__image",
+            alt: ""
+          }), "\n"]
+        }), "\n  "]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "google-カレンダー-登録",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#google-カレンダー-登録",
+        children: "Google カレンダー 登録"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "技術書典のスケジュールが登録されている Google カレンダーを、ご自身のカレンダーにも登録することをオススメします。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/techbookfest/status/1083948257095503872",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "いつまでに何をしないといけないのか逆算できるので、知っておいたほうが良いです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "スケジュールと実績",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スケジュールと実績",
+        children: "スケジュールと実績"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "公式予定と私の実績は次のとおりです。"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", _jsxs(_components.table, {
+      children: [_jsx(_components.thead, {
+        children: _jsxs(_components.tr, {
+          children: [_jsx(_components.th, {
+            children: "日付"
+          }), _jsx(_components.th, {
+            children: "公式予定"
+          }), _jsx(_components.th, {
+            children: "筆者実績"
+          })]
+        })
+      }), _jsxs(_components.tbody, {
+        children: [_jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/10"
+          }), _jsx(_components.td, {
+            children: "当落通知日"
+          }), _jsx(_components.td, {
+            children: "当選"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/12"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1149650432039387137",
+              children: "入金済"
+            })
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/17"
+          }), _jsx(_components.td, {
+            children: "入金締切日"
+          }), _jsx(_components.td, {
+            children: "入金済"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/20"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "計画立てる＆テーマ確定"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/23"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "castaneai くんに / 印刷用サークルカット書いてもらう"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/27"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1155089319410843648",
+              children: "サンプルコード作成完了"
+            })
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "07/31"
+          }), _jsx(_components.td, {
+            children: "印刷用サークルカット締切日"
+          }), _jsx(_components.td, {
+            children: "登録済"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/02"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "原稿作成開始"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/15"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "レビュー対応中(2st)"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/21"
+          }), _jsx(_components.td, {
+            children: "サークル配置発表日"
+          }), _jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1164294933752119296",
+              children: "宣伝済"
+            })
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/26"
+          }), _jsx(_components.td, {
+            children: "一般参加者向け正式サイトオープン"
+          }), _jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1166171153875886080",
+              children: "宣伝済"
+            })
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/29"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1167051004308684800",
+              children: "レビュー対応中(3st)"
+            })
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/30"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsxs(_components.td, {
+            children: ["原稿作成完了, ", _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1167265421373788161",
+              children: "Booth 登録"
+            }), ", ", _jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1167379639724994560",
+              children: "製本依頼"
+            })]
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "08/31"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsxs(_components.td, {
+            children: [_jsx(_components.a, {
+              href: "https://twitter.com/silverbirder/status/1167775260139114496",
+              children: "物品購入"
+            }), "(あの布は事前購入)"]
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "09/06"
+          }), _jsx(_components.td, {
+            children: "-"
+          }), _jsx(_components.td, {
+            children: "現在"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "09/07"
+          }), _jsx(_components.td, {
+            children: "サークル通行証の割当日"
+          }), _jsx(_components.td, {
+            children: "-"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "09/19"
+          }), _jsx(_components.td, {
+            children: "見本誌の提出締切"
+          }), _jsx(_components.td, {
+            children: "-"
+          })]
+        }), _jsxs(_components.tr, {
+          children: [_jsx(_components.td, {
+            children: "09/22"
+          }), _jsx(_components.td, {
+            children: "イベント当日"
+          }), _jsx(_components.td, {
+            children: "-"
+          })]
+        })]
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "※ レビュー依頼中に、表紙等のイラスト作成を並行して進めていました。"
+    }), "\n", _jsx(_components.p, {
+      children: "サンプルコードを書いている時は、「こんな話も増やそうかな？」と楽しい気分になれました。\n原稿を書いている時は、「予定日の ◯◯ 日には終わらせないと…」という苦しい時期がありました。\nなんだかんだで、日光企画さんの早割チケットを手に入れれたので満足です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私が今回、初執筆した経験を包み隠さずすべて公開しました。\n執筆をやってみてよかったことは次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["本を作るのは、意外と簡単\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ツールやサービスが十分整っている"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["書いた本が好きになる\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "いろんな人にみてほしい"
+          }), "\n", _jsx(_components.li, {
+            children: "書いた知識は、とても定着する"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["コミュニティが楽しい\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "\"#技術書典\"のハッシュタグはオススメ"
+          }), "\n", _jsx(_components.li, {
+            children: "フォロワーが増えた"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "逆につらかったことは次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ずーっと本のことを考える"
+      }), "\n", _jsx(_components.li, {
+        children: "締め切りに追われる"
+      }), "\n", _jsx(_components.li, {
+        children: "文章力のなさを痛感する"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "初執筆しようと考えている人にとって、何かの助けになれば幸いです。"
+    }), "\n", _jsx(_components.p, {
+      children: "あとは、技術書典 7 当日を楽しむだけ！！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":32,"publishedAt":"2019-09-06","tags":["書籍レビュー"],"title":"技術書典7で初執筆した経験をすべて公開"},"navigation":{"next":{"href":"/blog/contents/Philippines_Travel_Notes","publishedAt":"2019-10-27","title":"フィリピンに行ってきたら、日本は良いなって思うようになった"},"prev":{"href":"/blog/contents/smart_home_for_enginner","publishedAt":"2019-09-06","title":"エンジニアのためのスマートホーム化"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-12","slug":"20260212","summary":"たまたま、Googleレコメンドに \"Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ\" の本へのリンクが流れてきました。 Webフォントの記事って、あまり見かけなかったのでAmazonでポチりまし","tags":["書籍レビュー"],"title":"『Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ』を読みました。"},{"publishedAt":"2026-02-11","slug":"20260211","summary":"今日、4ヶ月以上放置していた本を読み始めています。 読み始めて、本ってやっぱ良いものだなと思うことがありました。 そのことについて、簡単に書こうかなと思います。 今読んでいる本 \"Webフォント実践ガイド Google Fontsではじめる","tags":["書籍レビュー"],"title":"久々に本を読んでよかったこと"},{"publishedAt":"2025-07-02","slug":"review_of_the-dark-pattern","summary":"今回、以下の書籍を読みました。『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』せっかくなので、感じたことや気づきをまとめてみます。","tags":["書籍レビュー"],"title":"『ザ・ダークパターン ユーザーの心や行動をあざむくデザイン』書籍レビュー"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/open_the_techbook7_first_experience/","slug":"open_the_techbook7_first_experience"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

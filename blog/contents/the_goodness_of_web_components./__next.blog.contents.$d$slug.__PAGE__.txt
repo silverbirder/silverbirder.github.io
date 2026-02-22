@@ -1,0 +1,128 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T148b,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "web-components-is-何",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#web-components-is-何",
+        children: "Web Components is 何"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://www.webcomponents.org/specs",
+        children: "https://www.webcomponents.org/specs"
+      }), " より引用します。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.p, {
+        children: ["Web components is a meta-specification made possible by four other specifications:", _jsx(_components.br, {}), "\nThe Custom Elements specification", _jsx(_components.br, {}), "\nThe shadow DOM specification", _jsx(_components.br, {}), "\nThe HTML Template specification", _jsx(_components.br, {}), "\nThe ES Module specification"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "WebComponents は、ブラウザの 4 つの API で実現可能となるメタ仕様です。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "These four specifications can be used on their own but combined allow developers to define their own tags (custom element), whose styles are encapsulated and isolated (shadow dom), that can be restamped many times (template), and have a consistent way of being integrated into applications (es module)."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "div や span といった HTML タグがブラウザ標準にありますが、WebComponents は、独自のタグを定義することができます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "メリット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メリット",
+        children: "メリット"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["環境適合性\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "フレームワークに依存しないので、Rails など Web フレームワークへの適用が容易です。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["軽量\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブラウザ API のみ使用するので、ロードするアセットはありません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["シンプル\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "HTML タグを使う要領で、WebComponents を使います。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["サンドボックス\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Shadow DOM のおかげで、CSS のスタイルが独自のタグの外に漏れません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "デメリット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デメリット",
+        children: "デメリット"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["パフォーマンス\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "React のような描画最適化は、ありません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["機能性\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブラウザ API の影響を、受けます。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["SEO\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Web Components は Javascript 実行が必須です。そのため、SSR は実現できません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"postNumber":73,"publishedAt":"2022-03-01","tags":["フロントエンド"],"title":"Web Componentsの良さ"},"navigation":{"next":{"href":"/blog/contents/know_the_history_before_learning_React","publishedAt":"2022-03-11","title":"Reactを学ぶ前に歴史を知る"},"prev":{"href":"/blog/contents/covid-19-omicron-knowledge","publishedAt":"2022-01-28","title":"オミクロン株に感染したので、分かったことを書く"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/the_goodness_of_web_components./","slug":"the_goodness_of_web_components."}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

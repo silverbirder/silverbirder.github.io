@@ -1,0 +1,219 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2d79,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "React は、どうして生まれたのか歴史について簡単に紹介します。(ちょっと調べただけ)"
+    }), "\n", _jsx(_components.h2, {
+      id: "背景",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#背景",
+        children: "背景"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "最近、React を学び始めました。その過程で、どうして React って学ぶべきなのか、どういう特徴があるのか気になった次第です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "歴史",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#歴史",
+        children: "歴史"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "言語やフレームワーク問わず、何かしら学ぶ際には、学ぶ対象の歴史や背景を知ることは大切だと思います。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["対象ソフトウェアの公式ドキュメントに、", _jsx(_components.code, {
+        children: "Background"
+      }), "や", _jsx(_components.code, {
+        children: "Motivation"
+      }), "、", _jsx(_components.code, {
+        children: "History"
+      }), "、", _jsx(_components.code, {
+        children: "Under the roof"
+      }), " を読むと良いです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、React の公式ドキュメントは、そのような情報を発見できませんでした。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["React の作成者 Jordan Walke の", _jsx(_components.a, {
+        href: "https://hackernoon.com/the-evolution-of-react-48409fac2efd",
+        children: "React についての記事"
+      }), "を発見したので、それを読みました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ざっくり要約すると、"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Facebook の広告系のプロダクト(Ads)のコードベースが大きくなった"
+      }), "\n", _jsx(_components.li, {
+        children: "コードベースツリー(DOM ツリー?CSSOM ツリー?)の下位の変更で、全体の再描画(カスケード更新)が必要になり、メンテナンスが大変になった"
+      }), "\n", _jsx(_components.li, {
+        children: "Reactive 特性(状態変化に基づく自動更新) を活かした FaxJS (後の React)が誕生"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "カスケード更新",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#カスケード更新",
+        children: "カスケード更新"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["カスケードとは、", _jsx(_components.a, {
+        href: "https://e-words.jp/w/%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89.html",
+        children: "カスケード（カスケーディング）とは - IT 用語辞典 e-Words"
+      }), " より"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "カスケードとは、何段も連なった小さな滝のこと。転じて、同じものがいくつも数珠つなぎに連結された構造や、連鎖的あるいは段階的に物事が生じる様子を表す。\nWeb ページの見栄えを定義する CSS（Cascading Style Sheet）で、ある要素に適用されるスタイルを、大域的に定義されたものから局所的に定義されたものへと順番に引き継ぎながら適用していくことをカスケードあるいはカスケーディングという。"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ブラウザにおける CSS や DOM の更新が、まさにカスケードです。\n例えば、DOM の場合、親 Node から子 Node へ(API 等で取得した)データを伝搬します(prop)。\nデータ変更があった場合、親 Node から子 Node を順々に、再描画されます。(レンダリングエンジンの処理に従い)"
+    }), "\n", _jsx(_components.p, {
+      children: "CSS や DOM のツリーの縦横が大きくなるにつれて、カスケード更新が大変になるのは、想像しやすいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "react-の目的",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#react-の目的",
+        children: "React の目的"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["React は、この ", _jsx(_components.strong, {
+        children: "コードベース規模が肥大化"
+      }), " した際における ", _jsx(_components.strong, {
+        children: "カスケード更新を簡単にできること"
+      }), " を目的としたフレームワークだと、私は思いました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "逆を言えば、"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "Not コードベース規模が肥大化"
+      }), " OR ", _jsx(_components.strong, {
+        children: "Not カスケード更新"
+      }), " ならば React は不要なのかなと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "仮想-dom-と差分検出処理reconciliation",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#仮想-dom-と差分検出処理reconciliation",
+        children: "仮想 DOM と差分検出処理(reconciliation)"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "DOM 自体のレンダリングは、ブラウザのレンダリングエンジンに依存します。\nReact は、DOM ではなく、仮想 DOM と呼ばれる概念を生み出しました。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://ja.reactjs.org/docs/faq-internals.html",
+        children: "仮想 DOM と内部処理 - React"
+      }), " より"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.p, {
+        children: ["仮想 DOM とは？\n仮想 DOM (virtual DOM; VDOM) は、インメモリに保持された想像上のまたは「仮想の」UI 表現が、ReactDOM のようなライブラリによって「実際の」DOM と同期されるというプログラミング上の概念です。このプロセスは差分検出処理 (reconciliation)と呼ばれます。\nこのアプローチにより React の宣言型 API が可能になっています。あなたは UI をどのような状態にしたいのか React に伝え、React は必ず DOM をその状態と一致させます。これにより、React なしではアプリケーションを構築するために避けて通れない属性の操作やイベントハンドリング、および手動での ", _jsx(_components.strong, {
+          children: "DOM 更新が抽象化されます"
+        }), " 。"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "カスケード更新をブラウザに任せるというより、フレームワーク(React)で仮想 DOM を管理し、(全体の再描画する必要なく)必要箇所のみ DOM を更新(再描画)するのだと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "react-とカスケード更新",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#react-とカスケード更新",
+        children: "React とカスケード更新"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["React を学ぶ前には、この ", _jsx(_components.strong, {
+        children: "カスケード更新という単語を脳の片隅に置いておく"
+      }), " のが、良いと思います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、React.memo という関数が存在します。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://ja.reactjs.org/docs/react-api.html#reactmemo",
+        children: "React の最上位 API - React"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "もしあるコンポーネントが同じ props を与えられたときに同じ結果をレンダーするなら、結果を記憶してパフォーマンスを向上させるためにそれを React.memo でラップすることができます。つまり、React はコンポーネントのレンダーをスキップし、最後のレンダー結果を再利用します。"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "この関数も、React の目的であるカスケード更新を改善するための関数だと、思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "小話",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#小話",
+        children: "小話"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "何かを学ぶ際に、次の 3 つの軸を考えると良いです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["時間\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["過去、現在、未来\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "どういう経緯で現在に至るのか。未来は、どうありたいか。"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["周辺\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["類似するモノ、競合他社。\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "React でいうと、Vue.js のようなコンポーネントベースのフレームワークとか。"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["社会\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["チーム、グループ、会社、社会。\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "React は、チームでなぜ選ばれたか。組織的な理由(採用など)も、含まれる。"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":74,"publishedAt":"2022-03-11","tags":["フロントエンド"],"title":"Reactを学ぶ前に歴史を知る"},"navigation":{"next":{"href":"/blog/contents/started_using_ruby_on_rails_at_work.","publishedAt":"2022-03-24","title":"Ruby on Railsを業務で使って思ったこと"},"prev":{"href":"/blog/contents/the_goodness_of_web_components.","publishedAt":"2022-03-01","title":"Web Componentsの良さ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/know_the_history_before_learning_React/","slug":"know_the_history_before_learning_React"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

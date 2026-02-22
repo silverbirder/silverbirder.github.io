@@ -1,0 +1,173 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2469,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h3: "h3",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Thoughtworks の ", _jsx(_components.strong, {
+        children: "Technology Radar Vol. 33"
+      }), " が公開されました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar",
+          children: "Technology Radar | Guide to technology landscape | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "今回は、流し読みして気になったトピックについての感想をまとめます。"
+    }), "\n", _jsx(_components.h3, {
+      id: "ai-関連の話題が多い",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ai-関連の話題が多い",
+        children: "AI 関連の話題が多い"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回の Radar では、AI に関するテーマが多く取り上げられていました。\n「仕様駆動開発」や「AI によるブラウザ操作（playwright-mcp）」、「AGENT.md による AI コーディングエージェントへの指示フォーマット」などがありました。"
+    }), "\n", _jsx(_components.h3, {
+      id: "spec-driven-development",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#spec-driven-development",
+        children: "spec-driven development"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar/techniques/spec-driven-development",
+          children: "spec-driven development | Technology Radar | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["レガシーシステムのモダナイゼーションにおいて、仕様駆動開発は相性が良いのかもしれません。", _jsx(_components.br, {}), "\n既存システムの仕様を再整理し、その仕様をもとに再構築を行うというアプローチです。", _jsx(_components.br, {}), "\nリバースエンジニアリングのあとに、フォワードエンジニアリング（はじめて知りました）を行う流れですね。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["仕様駆動開発は、UI・UX の設計では難しいのかな？という所感です。", _jsx(_components.br, {}), "\n一方で、バックエンド寄りのシステマチックな領域では、比較的取り入れやすいのかもしれません。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以前、VS Code で GitHub Copilot の新機能として「Plan モード」が発表されていました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.publickey1.jp/blog/25/vs_codecopilotplan.html",
+          children: "VS Code、Copilot が仕様作成を支援する「Plan モード」が追加 － Publickey"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://github.com/github/spec-kit",
+        children: "spec-kit"
+      }), " を試してみたことがあるのですが、使いこなせませんでした。", _jsx(_components.br, {}), "\n今度こそ、もう少し丁寧に触ってみようかなと思います。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "complacency-with-ai-generated-code",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#complacency-with-ai-generated-code",
+        children: "Complacency with AI-generated code"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar/techniques/complacency-with-ai-generated-code",
+          children: "Complacency with AI-generated code | Technology Radar | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "「AI にコードを書かせて満足してしまう」という指摘。\nこれは非常によくわかります。\nAI コーディングエージェントを使っていると、たくさんのコードが生まれていきます。\n追加・削除・変更といったコードチャーンが多いと、レビューする側が大変になりますね。\nしかも重複コードが増えたり、リファクタリングが必要になったりと、苦労した経験があります。"
+    }), "\n", _jsx(_components.h3, {
+      id: "ai-accelerated-shadow-it",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ai-accelerated-shadow-it",
+        children: "AI-accelerated shadow IT"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar/techniques/ai-accelerated-shadow-it",
+          children: "AI-accelerated shadow IT | Technology Radar | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "「シャドー IT」という言葉を今回初めて知りました。\n企業が正式に許可していない IT ツールやアプリを、従業員が独自に利用することを指すようです。"
+    }), "\n", _jsx(_components.p, {
+      children: "ノーコードやバイブコーディングが普及したことで、エンジニアでなくてもアプリを作れる時代になりました。\nその結果、簡単な社内アプリが次々に生まれ、統制が効かないシステムが増えるリスクも高まっているようです。"
+    }), "\n", _jsx(_components.h3, {
+      id: "tcr-test--commit--revert",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#tcr-test--commit--revert",
+        children: "TCR (Test && Commit || Revert)"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar/techniques/tcr-test-commit-revert",
+          children: "TCR (Test && Commit || Revert) | Technology Radar | Thoughtworks"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864",
+          children: "test && commit || revert | Medium (Kent Beck)"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["テスト駆動開発の文脈で、テストが成功するたびにコミットし、失敗した場合はリバートするというアイデアです。", _jsx(_components.br, {}), "\n常にテストが成功している状態を維持しながら、小さく確実にコミットを積み重ねる開発スタイルのようです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "現代のモダンな開発現場であれば、CI/CD が整備されており、テストが失敗すればマージされない仕組みが一般的です。\nTCR のアプローチは、途中経過のコミットもきれいに保てる点が魅力的だと思いました。\n私自身も、基本的にこのスタイルに近い形で開発しています。"
+    }), "\n", _jsx(_components.h3, {
+      id: "orpc",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#orpc",
+        children: "oRPC"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar/tools/orpc",
+          children: "oRPC | Technology Radar | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["普段 tRPC をよく使っていますが、oRPC はその後発のようです。\nより洗練された記法を採用しており、 ", _jsx(_components.strong, {
+        children: "OpenAPI との統合を公式サポート"
+      }), " している点が特徴的です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["現時点では tRPC で十分と感じていますが、", _jsx(_components.br, {}), "\n将来的に OpenAPI との連携が必要になった際には、検討してみたいと思いました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":160,"publishedAt":"2025-11-08","tags":["仕事"],"title":"Technology Radar Vol. 33 所感"},"navigation":{"next":{"href":"/blog/contents/20251109","publishedAt":"2025-11-09","title":"Figma Make を使ってみた"},"prev":{"href":"/blog/contents/20251107","publishedAt":"2025-11-07","title":"仕事にちょっとプラスすると良い感じ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-16","slug":"20260216","summary":"先週日曜日に放送されたサザエさんで、仕事の癖についての話がありました。 私の場合はなんだろう？と思ったので、とりあえず思いつく限り書いてみます。 私の職業は、Webのソフトウェアエンジニアで、特にフロントエンド領域を専門としています。 フォ","tags":["仕事"],"title":"仕事の癖"},{"publishedAt":"2026-01-26","slug":"20260126","summary":"完全に私の早とちりです。 ただの備忘録として、残しておきます...。 確定申告間近で、音信不通？ 去年の11月に税理士さん（Aさん）と記帳代行などの税務業務について業務契約しました。 そして、今年の2月には令和7年度の確定申告が始まります。","tags":["仕事"],"title":"税理士に逃げられたと勘違いした話"},{"publishedAt":"2025-12-25","slug":"20251225","summary":"今年の年始から年末まで、業務委託という形で、週4日・在宅ワークの働き方を続けました。 業界はIT分野で、業務内容はPC作業が中心です。そのため、日中は自宅の仕事部屋にあるデスクで作業をしています。 この働き方を1年間継続してみて、私生活と仕","tags":["仕事"],"title":"2025年仕事の思い出：1年間、週4在宅ワークやってみた"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251108/","slug":"20251108"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

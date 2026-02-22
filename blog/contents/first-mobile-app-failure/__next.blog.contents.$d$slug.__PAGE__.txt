@@ -1,0 +1,361 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/5af7d63d3817c0ad.js","/_next/static/chunks/2135796b958376e0.js","/_next/static/chunks/f06f97cc5d67ef22.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/10f1e981bebff83b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T5dbb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    code: "code",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["3ヶ月ほど、モバイルアプリを開発していましたが、最終的には諦めることになりました。\n端的に言えば、 ", _jsx(_components.strong, {
+        children: "iOSのバックグラウンド実行に制約"
+      }), " が多く、思い描いていたものを実現できなかったのです。\nこの記事では、開発経緯と諦めた理由についてお話しします。くぅ〜疲れましたw"]
+    }), "\n", _jsx(_components.h2, {
+      id: "開発したかったアプリの概要",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発したかったアプリの概要",
+        children: "開発したかったアプリの概要"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が開発したのは、 ", _jsx(_components.strong, {
+        children: "アラームを共有するアプリ"
+      }), " です。\n家族やグループで同じ時間に起床することが多いため、皆が同じ時間に起きられるように、\n", _jsx(_components.strong, {
+        children: "グループ内でアラームの時間や曜日を共有できるアプリ"
+      }), " があれば便利だと考えました。\n似たようなアプリは少数ありましたが、どれも私のニーズに完全には合致しなかったため、\n自分で作ることにしました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際に作ったアラーム共有アプリの画面は、以下のとおりです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "http://res.cloudinary.com/silverbirder/image/upload/v1723344679/ypmvtlw47psksvdapsg2.png",
+        alt: "アラーム共有(iOS)"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このアラーム共有アプリでは、アラームのON/OFF、時間、曜日、サウンド、\n音量の設定が可能です。サウンドと音量は試聴することもできます。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "ログインなしに、アラームを共有する"
+      }), " ことが可能です。\nアラームを作成した人がオーナーとなり、共有コードを友達に伝えることで、\n友達もそのアラームに参加できます。\nオーナーがアラームの時間や曜日を変更すると、共有されているアラームはすべてリアルタイムで同期されます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術選定なぜreact-nativeなのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術選定なぜreact-nativeなのか",
+        children: "技術選定：なぜReact Nativeなのか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["まず、開発言語はReact Nativeを選びました。\n理由は簡単で、 ", _jsx(_components.strong, {
+        children: "私がReactに慣れているから"
+      }), " です。\nFlutterやKotlin、Swiftのような他の選択肢もありましたが、\n新しい言語を学ぶコストをかけたくありませんでした。\nいくらキャッチアップが簡単だとしても、\nその周辺知識を学ぶことを踏まえると時間がかかってしまうためです。\n私は、作りたい機能が作れれば良いのです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "開発環境の構築",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発環境の構築",
+        children: "開発環境の構築"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "React Nativeを使い、AndroidとiOS向けのフレームワークであるExpoを採用しました。\n目的は、効率よく開発を進めることでした。\n基本的にはExpo SDKを使用し、必要に応じてサードパーティライブラリを追加しました。"
+    }), "\n", _jsx(_components.p, {
+      children: "Expo SDKで追加したものは以下のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "expo-background-fetch"
+        }), " : バックグラウンド処理用"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "expo-clipboard"
+        }), " : 共有コードをコピーするために使用"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "expo-task-manager"
+        }), " : バックグラウンドタスク管理用"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "サードパーティライブラリで追加したものは以下のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "@react-native-async-storage/async-storage"
+        }), " : ローカルストレージにデータを保存"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "@react-native-firebase/*"
+        }), ": Realtime Database, Messaging, Function"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "@notifee/react-native"
+        }), " : 通知管理"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "@rneui/*"
+        }), ": UIツールキット"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-background-timer"
+        }), " : バックグラウンド用のタイマー"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-modal-datetime-picker"
+        }), " : 日付選択用"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-picker-select"
+        }), " : セレクトボックス"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-notification-sounds"
+        }), " : デバイスのサウンド取得"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-track-player"
+        }), " : オーディオ再生"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "react-native-volume-manager"
+        }), " : ボリューム管理"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "動作確認は、Android/iOSエミュレーターで行いました。\nしかし、一部の機能（例：ボリューム管理）はエミュレーターでは動作せず、本物のデバイスでの確認が必要でした。"
+    }), "\n", _jsx(_components.p, {
+      children: "デバイスでアプリを動かすには、Expo Goというアプリで実現可能ですが、一部のライブラリが動作しません。\nそこで、EAS（Expo Application Services）でビルドしたアプリを直接デバイスにインストールする必要がありました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["iOSでは、デバイスにインストールするために ", _jsx(_components.strong, {
+        children: "有料のApple Developer Programへの登録"
+      }), " が必要で、\nこの手続きが非常に面倒でした。\n申請後、1週間以上も反応がなく、問い合わせたところようやく2日後に返答が来るという状況でした。\n（問い合わせたらすぐに返事が来るのはなぜでしょうか…）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "データとアラームトリガー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データとアラームトリガー",
+        children: "データとアラームトリガー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アラームの時間や音量などのデータは、以下の2つに保存しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ローカルストレージ"
+      }), "\n", _jsx(_components.li, {
+        children: "Firebase Realtime Database"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Firebase Realtime Databaseを使用する理由は、アラームを共有した際に共有されたすべてのユーザーに同期させる仕組みを簡単に実現できるからです。"
+    }), "\n", _jsx(_components.p, {
+      children: "次に、アラームの時間になったときに鳴らすトリガーについて、\n以下のパターンに分けて説明します。"
+    }), "\n", _jsx(_components.h3, {
+      id: "アプリがバックグラウンドにある時",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アプリがバックグラウンドにある時",
+        children: "アプリがバックグラウンドにある時"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "バックグラウンドとは、以下のいずれかの状態を指します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "デバイスがロックされた状態"
+      }), "\n", _jsx(_components.li, {
+        children: "アプリが動作しているが画面に表示されていない状態"
+      }), "\n", _jsx(_components.li, {
+        children: "アプリが動作していない(シャットダウンされた)状態"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "この状態では、アプリは自力で動作することが困難なため(特にiOS...!!!)、\n外部からトリガーを発する必要があります。\nそのため、FCM（Firebase Cloud Messaging）を利用し、\nFirebase Functionのスケジュール実行（内部ではCloud Scheduler）を毎分起動して、\nアラームを鳴らす対象へメッセージを送信し、アラームを鳴らします。"
+    }), "\n", _jsx(_components.p, {
+      children: "※ 後述しますが、毎分メッセージ通知するとiOSの場合レートリミットがかかります。"
+    }), "\n", _jsx(_components.h3, {
+      id: "アプリがフォアグラウンドにある時",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アプリがフォアグラウンドにある時",
+        children: "アプリがフォアグラウンドにある時"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "フォアグラウンドとは、アプリが開いていて画面に表示されている状態です。\nこの状態では、React Nativeのコンポーネントがマウントされているため、\n5秒ごとにローカルストレージのデータを参照して、アラームを鳴らします。"
+    }), "\n", _jsx(_components.h2, {
+      id: "機能要件と課題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#機能要件と課題",
+        children: "機能要件と課題"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アラーム共有アプリの開発において、以下の要件を満たすことを目標としていました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "音量がミュート（サイレント）状態や音量ゼロの状態でも、アラーム時にのみ音量を調整できること"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "理由: アラームを使用する前に、手動でミュートを解除し、大音量に調整する手間を省きたい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "バックグラウンドでもアラームが鳴ること"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "理由: アラームをずっとフォアグラウンドにする体験にしたくない"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Android/iOSの両プラットフォームをサポートすること"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "理由: 私の家族が、AndroidとiOSの両方を使用しているため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h3, {
+      id: "アラームの音に関する問題",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アラームの音に関する問題",
+        children: "アラームの音に関する問題"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アラームの通知音は、", _jsx(_components.code, {
+        children: "react-native-notification-sounds"
+      }), " を利用してデバイス内蔵の音を使用しましたが、\nサイレントモードや音量が低い状態では通知音が鳴らないという問題が発生しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この問題に対処するため、", _jsx(_components.code, {
+        children: "react-native-volume-manager"
+      }), " を使用して音量を制御することにしました。\nフォアグラウンドでは音が鳴るようになりましたが、バックグラウンドでは依然として音が鳴らないという課題が残りました。\nそこで、", _jsx(_components.code, {
+        children: "react-native-track-player"
+      }), "を導入し、音声を再生することで、\nリピート再生やバックグラウンドでの音声再生が可能になりました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この方法で音の問題はある程度解決しましたが、\n通知(", _jsx(_components.code, {
+        children: "@notifee/react-native"
+      }), ")に音を付ける場合、サイレントモードや低音量の状態では聞こえない問題が依然として残り、\nこの方法は諦めることになりました。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "iosのバックグラウンド動作制限",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#iosのバックグラウンド動作制限",
+        children: "iOSのバックグラウンド動作制限"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ここが、 ", _jsx(_components.strong, {
+        children: "諦めた最大の理由"
+      }), " です。\niOSでは、バックグラウンドでアプリを動かすことが非常に困難です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://developer.apple.com/documentation/backgroundtasks",
+        children: "Background Tasks - Apple Developer Documentation"
+      }), " に記載されているとおり、\n", _jsx(_components.code, {
+        children: "BGAppRefreshTaskRequest"
+      }), " や ", _jsx(_components.code, {
+        children: "BGProcessingTaskRequest"
+      }), " を使用することで、\nバックグラウンドでも一定の処理を実行することが可能です。\nしかし、バックグラウンドでアラームを毎分、何時間も動かす方法は見つかりませんでした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、", _jsx(_components.a, {
+        href: "https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app",
+        children: "Choosing Background Strategies - Apple Developer Documentation"
+      }), " にある\n", _jsx(_components.code, {
+        children: "Wake Your App with a Background Push"
+      }), " の方法を参考にして、\nFirebase Functionのスケジュール実行を毎分動かし、FCMからデータプッシュしてアプリを起動させる方法を試みました。\nプッシュ通知のヘッダーは以下を参考に設定しました。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "When sending a background push, set content-available: to 1 without alert, sound, or badge.\nThe system decides when to launch the app to download the content.\nTo ensure your app launches, set apns-priority to 5, and apns-push-type to background."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、以下のような制限により、この方法も十分には機能しませんでした。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "If you send background pushes more frequently than three times per hour, the system imposes rate limitations.\nSee Pushing background updates to your App for more information."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "この制限のため、5分後などに確実にアラームを鳴らすことが難しく、\n安定したアラームの動作を実現できませんでした。"
+    }), "\n", _jsx(_components.p, {
+      children: "アプリを常にフォアグラウンドで使用してもらうことで回避は可能ですが、\n私自身がポケモンスリープを使用しているため、夜間に同時使用ができないのが現実です。\nポケモンスリープは寝る前にアプリをフォアグラウンドで放置して使用します。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://developer.apple.com/documentation/xcode/configuring-background-execution-modes",
+        children: "Configuring background execution modes | Apple Developer Documentation"
+      }), " を見ると、\n位置情報やBluetoothをアラームに活用する方法が考えられますが、\n具体的なアイデアがなく、いびきを録音したり、寝返りを計測するなどのバックグラウンド機能を追加する必要があるかもしれません。\n無音をずっと鳴らすという方法も考えられますが、バッテリーの消耗が激しくなるリスクがあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "その他、参考になるリンクを以下に示します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://forums.developer.apple.com/forums/thread/695910",
+          children: "How do you allow tasks that take longer than the 30 seconds allowed in the background thread to continue performing until done? - Apple Developer Forums"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://forums.developer.apple.com/forums/thread/685525",
+          children: "iOS Background Execution Limits | Apple Developer Forums"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらの理由から、バックグラウンドでアラームを安定して鳴らすことは非常に難しいと判断しました。"
+    }), "\n", _jsx(_components.p, {
+      children: "ちなみに、「おこしてME（Alarmy）」がiOSで上手く動作していて、どのようにこの問題を解決しているのか、とても気になるところです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://stackoverflow.com/questions/55546865/wake-up-application-in-background-using-audiosession-like-alarmy-ios-app",
+          children: "swift - Wake up application in background using AudioSession like Alarmy iOS app - Stack Overflow"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "次にモバイルアプリを作るとしたら",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#次にモバイルアプリを作るとしたら",
+        children: "次にモバイルアプリを作るとしたら"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回、React Nativeを選択しましたが、開発スピードは比較的早かったものの、\nトラブルシューティングに多くの時間がかかりました。\nアプリ自体の問題、ライブラリの問題、またはネイティブの仕様に起因する問題を切り分けるのに苦労しました。\nこれは、おそらく他のクロスプラットフォーム向けフレームワークでも同様の課題があると思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "一方で、KotlinやSwiftのようなネイティブ言語を使用した場合、\nこのような問題の一部は解決しやすくなるかもしれません。\nもちろん、ネイティブ開発でもライブラリを使用することが一般的だと思うのですが、\n今回の経験を通じて多くのことを学びました。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、要件を変更すれば、別のアプローチでの開発が可能でした。\n例えば、アラーム音を通知音にすることで、開発自体は進められました。\nミュートを解除し、音量を上げて通知に音を付ければ、音を鳴らすことができます。\nしかし、通知音は1回しか鳴らず、サイレントモードでの対応を考えると、\n私の理想とする体験には妥協できませんでした。\nそのため、今回の要件を変えることはできませんでした。\nあるいは、視点を変えて考えることで、別の解決策が見つかったかもしれません。\n（アラームのAPIがあればなぁ...）"
+    }), "\n", _jsx(_components.h2, {
+      id: "まとめ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#まとめ",
+        children: "まとめ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この3ヶ月間の経験を通じて、モバイルアプリ開発の難しさを痛感しました。\n特に、iOSのバックグラウンド動作に関する制限は、想像以上に厳しく、\n想定した機能を実現するための大きな壁となりました。\nまた作りたいアイデアが生まれたら、再チャレンジしたいと思います！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"FFhISK9OdISz_FCZdFfxR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","threads":"https://www.threads.com/@silverbirder","x":"https://x.com/silverbirder"},"meta":{"index":false,"postNumber":123,"publishedAt":"2024-08-13","tags":["フロントエンド"],"title":"はじめてモバイルアプリ開発して諦めた話"},"navigation":{"next":{"href":"/blog/contents/gpt-driven-development","publishedAt":"2024-09-15","title":"GPT駆動開発：GPTsと共に進める効率的なアプリ開発"},"prev":{"href":"/blog/contents/switching-from-iphone-to-google-pixel-8a","publishedAt":"2024-05-28","title":"長年愛用していたiPhoneからGoogle Pixelに機種変更した"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"},{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/first-mobile-app-failure/","slug":"first-mobile-app-failure"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/f06f97cc5d67ef22.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

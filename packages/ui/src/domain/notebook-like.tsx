@@ -1,7 +1,5 @@
 "use client";
 
-import type { IconButtonProps } from "@chakra-ui/react";
-
 import { Box, IconButton, Text, VStack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -10,20 +8,14 @@ import { LuThumbsUp } from "react-icons/lu";
 import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
 
 type Props = {
-  clickBalloonDurationMs?: number;
-  disableAutoLoad?: boolean;
-  initialCount?: number;
-  initialLiked?: boolean;
-  initialStatus?: Status;
   name: string;
   namespace: string;
-  size?: IconButtonProps["size"];
   title?: string;
 };
 
 type Status = "error" | "idle" | "loading";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_LIKES_API_URL ?? "";
+const API_BASE_URL = process.env.NEXT_PUBLIC_LIKES_API_URL!;
 const CLICK_BALLOON_DURATION_MS = 3000;
 const BALLOON_HIDE_DURATION_MS = 200;
 const HOVER_MEDIA_QUERY = "(hover: hover) and (pointer: fine)";
@@ -79,23 +71,11 @@ const canUseHoverBalloon = () => {
   return window.matchMedia(HOVER_MEDIA_QUERY).matches;
 };
 
-export const NotebookLike = ({
-  clickBalloonDurationMs = CLICK_BALLOON_DURATION_MS,
-  disableAutoLoad = false,
-  initialCount,
-  initialLiked = false,
-  initialStatus = "idle",
-  name,
-  namespace,
-  size = "sm",
-  title,
-}: Props) => {
+export const NotebookLike = ({ name, namespace, title }: Props) => {
   const t = useTranslations("ui.notebook");
-  const [count, setCount] = useState<null | number>(initialCount ?? null);
-  const [status, setStatus] = useState<Status>(() =>
-    disableAutoLoad ? initialStatus : "loading",
-  );
-  const [liked, setLiked] = useState(initialLiked);
+  const [count, setCount] = useState<null | number>(null);
+  const [status, setStatus] = useState<Status>("loading");
+  const [liked, setLiked] = useState(false);
   const [anonId, setAnonId] = useState<null | string>(null);
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -132,16 +112,18 @@ export const NotebookLike = ({
   }, []);
 
   useEffect(() => {
-    if (disableAutoLoad) return;
     let cancelled = false;
+
+    if (!anonId) {
+      return () => {
+        cancelled = true;
+      };
+    }
 
     const load = async () => {
       setStatus("loading");
       try {
-        if (!API_BASE_URL) {
-          throw new Error("NEXT_PUBLIC_LIKES_API_URL is not set");
-        }
-        const res = await fetch(buildApiUrl(name, anonId ?? undefined));
+        const res = await fetch(buildApiUrl(name, anonId));
         if (!res.ok) {
           throw new Error(`Likes API error: ${res.status}`);
         }
@@ -166,7 +148,7 @@ export const NotebookLike = ({
     return () => {
       cancelled = true;
     };
-  }, [anonId, disableAutoLoad, name, namespace]);
+  }, [anonId, name]);
 
   const handleLike = async () => {
     if (status === "loading") return;
@@ -179,17 +161,14 @@ export const NotebookLike = ({
     clickedTimerRef.current = setTimeout(() => {
       setClicked(false);
       clickedTimerRef.current = null;
-    }, clickBalloonDurationMs);
+    }, CLICK_BALLOON_DURATION_MS);
 
     setStatus("loading");
     try {
-      if (!API_BASE_URL) {
-        throw new Error("NEXT_PUBLIC_LIKES_API_URL is not set");
-      }
       if (!anonId) {
         throw new Error("anonId is not available");
       }
-      const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/api/likes`, {
+      const res = await fetch(`${API_BASE_URL}/api/likes`, {
         body: JSON.stringify({ anonId, slug: name, title }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
@@ -287,7 +266,7 @@ export const NotebookLike = ({
           onMouseLeave={() => setHovered(false)}
           p={0}
           rounded="full"
-          size={size}
+          size={"sm"}
           variant={liked ? "solid" : "outline"}
           width={NOTEBOOK_LINE_HEIGHT}
         >

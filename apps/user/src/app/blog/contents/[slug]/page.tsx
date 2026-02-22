@@ -152,6 +152,7 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
         }}
         relatedPosts={relatedPosts ?? []}
         shareUrl={shareUrl}
+        slug={slug}
       />
     );
   } catch {

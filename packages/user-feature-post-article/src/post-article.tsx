@@ -12,19 +12,6 @@ import { useTranslations } from "next-intl";
 
 const COUNTER_NAMESPACE = "silverbirder-github-io";
 
-const toCounterName = (url: string) => {
-  const fallback = url || "unknown";
-  try {
-    const { pathname } = new URL(url);
-    const segments = pathname.split("/").filter(Boolean);
-    const slug = segments.at(-1);
-    const base = slug || fallback;
-    return base.replace(/[^a-zA-Z0-9-_]/g, "_");
-  } catch {
-    return fallback.replace(/[^a-zA-Z0-9-_]/g, "_");
-  }
-};
-
 type Props = {
   compiledSource: string;
   followLinks: FollowLinks;
@@ -58,6 +45,7 @@ type Props = {
     tag: string;
   }[];
   shareUrl: string;
+  slug: string;
 };
 
 export const PostArticle = ({
@@ -67,6 +55,7 @@ export const PostArticle = ({
   navigation,
   relatedPosts,
   shareUrl,
+  slug,
 }: Props) => {
   const t = useTranslations("user.blog");
   const shareText = t("shareText", { title: meta.title });
@@ -99,10 +88,11 @@ export const PostArticle = ({
   });
   const indexStatus = meta.index === false ? "noindex" : "index";
   const like = {
-    name: toCounterName(shareUrl),
+    name: slug,
     namespace: COUNTER_NAMESPACE,
     title: meta.title,
   };
+
   return (
     <Box w="full">
       <ScrollProgressBar />

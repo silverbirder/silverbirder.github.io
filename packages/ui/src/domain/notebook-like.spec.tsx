@@ -33,6 +33,19 @@ const triggerLikeClick = (button: HTMLButtonElement) => {
     new MouseEvent("click", { bubbles: true, cancelable: true }),
   );
 };
+const waitForButtonToBeEnabled = async (button: HTMLButtonElement) => {
+  await vi.waitFor(() => {
+    expect(button.disabled).toBe(false);
+  });
+};
+const waitForButtonPressedState = async (
+  button: HTMLButtonElement,
+  pressed: boolean,
+) => {
+  await vi.waitFor(() => {
+    expect(button.getAttribute("aria-pressed")).toBe(String(pressed));
+  });
+};
 const waitForBalloonText = async (
   container: HTMLElement,
   expectedText: string,
@@ -44,6 +57,10 @@ const waitForBalloonText = async (
 
 describe("NotebookLike", () => {
   afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
     vi.useRealTimers();
     Object.defineProperty(window, "matchMedia", {
       configurable: true,
@@ -53,6 +70,9 @@ describe("NotebookLike", () => {
   });
 
   it.each(Object.entries(Stories))("should render %s", async (_, Story) => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ count: 3, liked: false }), { status: 200 }),
+    );
     const originalInnerHtml = document.body.innerHTML;
 
     await Story.run();
@@ -63,35 +83,32 @@ describe("NotebookLike", () => {
   });
 
   it("renders a button and count label", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ count: 3, liked: false }), { status: 200 }),
+    );
     const { container } = await renderWithProvider(
-      <NotebookLike
-        disableAutoLoad
-        initialCount={3}
-        name="sample-post"
-        namespace="silverbirder-github-io"
-      />,
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );
 
     const button = container.querySelector(
       'button[aria-label="この記事にいいねする"]',
     );
-    const bodyText = container.textContent ?? "";
-
     expect(button).not.toBeNull();
-    expect(bodyText).toContain("3");
+    await vi.waitFor(() => {
+      expect(container.textContent ?? "").toContain("3");
+    });
   });
 
   it("shows a hover balloon on like button hover", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ count: 3, liked: false }), { status: 200 }),
+    );
     const { container } = await renderWithProvider(
-      <NotebookLike
-        disableAutoLoad
-        initialCount={3}
-        name="sample-post"
-        namespace="silverbirder-github-io"
-      />,
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );
 
     const button = getLikeButton(container);
+    await waitForButtonToBeEnabled(button);
     button.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
     button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
     button.focus();
@@ -101,17 +118,24 @@ describe("NotebookLike", () => {
   });
 
   it("keeps click balloon after hover out and hides it after timeout", async () => {
+    vi.useFakeTimers();
+    vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 3, liked: false }), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 4, liked: true }), {
+          status: 200,
+        }),
+      );
     const { container } = await renderWithProvider(
-      <NotebookLike
-        clickBalloonDurationMs={60}
-        disableAutoLoad
-        initialCount={3}
-        name="sample-post"
-        namespace="silverbirder-github-io"
-      />,
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );
 
     const button = getLikeButton(container);
+    await waitForButtonToBeEnabled(button);
     button.dispatchEvent(new MouseEvent("mouseenter", { bubbles: false }));
     button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
     button.focus();
@@ -124,27 +148,33 @@ describe("NotebookLike", () => {
     button.dispatchEvent(new MouseEvent("mouseout", { bubbles: true }));
     button.blur();
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, 20);
-    });
+    await vi.advanceTimersByTimeAsync(20);
 
     expect(getBalloonText(container)).toBe("\\ ｻﾝｷｭｰ! /");
 
+    await vi.advanceTimersByTimeAsync(4000);
     await waitForBalloonText(container, "");
   });
 
   it("shows apology balloon when clicking an already liked button", async () => {
+    vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 3, liked: true }), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 2, liked: false }), {
+          status: 200,
+        }),
+      );
     const { container } = await renderWithProvider(
-      <NotebookLike
-        disableAutoLoad
-        initialCount={3}
-        initialLiked
-        name="sample-post"
-        namespace="silverbirder-github-io"
-      />,
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );
 
     const button = getLikeButton(container);
+    await waitForButtonToBeEnabled(button);
+    await waitForButtonPressedState(button, true);
     triggerLikeClick(button);
     await waitForBalloonText(container, "\\ ｽﾏﾝﾅ! /");
 
@@ -152,29 +182,37 @@ describe("NotebookLike", () => {
   });
 
   it("does not keep hover balloon on non-hover devices after click timeout", async () => {
+    vi.useFakeTimers();
     Object.defineProperty(window, "matchMedia", {
       configurable: true,
       value: createMatchMediaMock(false),
       writable: true,
     });
+    vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 3, liked: false }), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ count: 4, liked: true }), {
+          status: 200,
+        }),
+      );
 
     const { container } = await renderWithProvider(
-      <NotebookLike
-        clickBalloonDurationMs={60}
-        disableAutoLoad
-        initialCount={3}
-        name="sample-post"
-        namespace="silverbirder-github-io"
-      />,
+      <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );
 
     const button = getLikeButton(container);
+    await waitForButtonToBeEnabled(button);
     button.focus();
     triggerLikeClick(button);
     await waitForBalloonText(container, "\\ ｻﾝｷｭｰ! /");
 
     expect(getBalloonText(container)).toBe("\\ ｻﾝｷｭｰ! /");
 
+    await vi.advanceTimersByTimeAsync(4000);
     await waitForBalloonText(container, "");
   });
 });

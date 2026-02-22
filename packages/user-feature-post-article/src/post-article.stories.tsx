@@ -174,6 +174,7 @@ export const Ideal: Story = {
     navigation: {},
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };
 
@@ -190,6 +191,7 @@ export const Empty: Story = {
     navigation: {},
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };
 
@@ -206,6 +208,7 @@ export const Error: Story = {
     navigation: {},
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };
 
@@ -222,6 +225,7 @@ export const Partial: Story = {
     navigation: {},
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };
 
@@ -238,6 +242,7 @@ export const Loading: Story = {
     navigation: {},
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };
 
@@ -265,5 +270,6 @@ export const WithNavigation: Story = {
     },
     relatedPosts: [],
     shareUrl: "https://example.com/blog/contents/notebook-prose/",
+    slug: "notebook-prose",
   },
 };

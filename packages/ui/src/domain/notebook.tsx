@@ -281,9 +281,11 @@ export const Notebook = ({
             </Heading>
             <Stack
               align="center"
+              columnGap={2}
               direction="row"
               flexWrap="wrap"
               justify="center"
+              rowGap={0}
             >
               <ShareButtonX
                 height={actionButtonSize}

@@ -12,44 +12,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Ideal: Story = {
   args: {
-    disableAutoLoad: true,
-    initialCount: 12,
     name: "example-post",
     namespace: "silverbirder-github-io",
+    title: "Example Post",
   },
 };
 
 export const Empty: Story = {
   args: {
-    disableAutoLoad: true,
-    initialCount: 0,
     name: "empty-post",
     namespace: "silverbirder-github-io",
+    title: "Empty Post",
   },
 };
 
 export const Error: Story = {
   args: {
-    disableAutoLoad: true,
-    initialStatus: "error",
     name: "error-post",
     namespace: "silverbirder-github-io",
+    title: "Error Post",
   },
 };
 
 export const Partial: Story = {
   args: {
-    disableAutoLoad: true,
     name: "partial-post",
     namespace: "silverbirder-github-io",
+    title: "Partial Post",
   },
 };
 
 export const Loading: Story = {
   args: {
-    disableAutoLoad: true,
-    initialStatus: "loading",
     name: "loading-post",
     namespace: "silverbirder-github-io",
+    title: "Loading Post",
   },
 };

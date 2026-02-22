@@ -34,7 +34,6 @@ const followLinks = {
   threads: "https://www.threads.com/@example",
   x: "https://x.com/example",
 };
-
 describe("PostArticle", () => {
   it.each(Object.entries(Stories))("should %s snapshot", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
@@ -72,6 +71,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -105,6 +105,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -141,6 +142,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -189,11 +191,11 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
-    const paragraph = document.querySelector("p");
-    expect(paragraph?.textContent ?? "").toContain("Body copy.");
+    expect(document.body.textContent ?? "").toContain("Body copy.");
   });
 
   it("renders share buttons", async () => {
@@ -222,6 +224,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -293,6 +296,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -340,6 +344,7 @@ return {
         navigation={{}}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -388,6 +393,7 @@ return {
           },
         ]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 
@@ -434,6 +440,7 @@ return {
         }}
         relatedPosts={[]}
         shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
       />,
     );
 

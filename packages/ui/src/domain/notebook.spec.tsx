@@ -84,6 +84,8 @@ describe("Notebook", () => {
           url: "https://example.com",
         }}
         subscription={{
+          emailLabel: "メール通知を受け取る",
+          emailUrl: "https://follow.it/qxug4e?leanpub",
           heading: "購読する",
           label: "RSSをフォロー",
           url: "https://example.com/rss.xml",
@@ -102,10 +104,14 @@ describe("Notebook", () => {
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
     const followLink = container.querySelector('a[aria-label="Xをフォロー"]');
     const rssLink = container.querySelector('a[aria-label="RSSをフォロー"]');
+    const emailLink = container.querySelector(
+      'a[aria-label="メール通知を受け取る"]',
+    );
 
     expect(shareLink).not.toBeNull();
     expect(followLink).not.toBeNull();
     expect(rssLink).not.toBeNull();
+    expect(emailLink).not.toBeNull();
   });
 
   it("renders related posts grouped by heading", async () => {

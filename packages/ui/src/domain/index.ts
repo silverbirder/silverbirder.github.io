@@ -1,5 +1,6 @@
 export * from "./cellophane-tape";
 export * from "./follow";
+export * from "./follow-it-button";
 export * from "./link";
 export * from "./mdx-client-wrapper";
 export * from "./mdx-components";

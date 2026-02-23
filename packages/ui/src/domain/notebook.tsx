@@ -19,6 +19,7 @@ import { usePathname } from "next/navigation";
 
 import type { FollowSection } from "./follow";
 
+import { FollowItButton } from "./follow-it-button";
 import { NotebookDash } from "./notebook-dash";
 import { NotebookLike } from "./notebook-like";
 import { NotebookPostItem } from "./notebook-post-item";
@@ -102,6 +103,8 @@ type ShareSection = {
 };
 
 type SubscriptionSection = {
+  emailLabel: string;
+  emailUrl: string;
   heading: string;
   label: string;
   url: string;
@@ -402,6 +405,12 @@ export const Notebook = ({
                 height={actionButtonSize}
                 label={subscription.label}
                 url={subscription.url}
+                width={actionButtonSize}
+              />
+              <FollowItButton
+                height={actionButtonSize}
+                label={subscription.emailLabel}
+                url={subscription.emailUrl}
                 width={actionButtonSize}
               />
             </Stack>

@@ -270,7 +270,13 @@ return {
       document.querySelector('a[aria-label="RSSをフォロー"]'),
     ).not.toBeNull();
     expect(
+      document.querySelector('a[aria-label="メール通知を受け取る"]'),
+    ).not.toBeNull();
+    expect(
       document.querySelectorAll('a[aria-label="RSSをフォロー"]'),
+    ).toHaveLength(1);
+    expect(
+      document.querySelectorAll('a[aria-label="メール通知を受け取る"]'),
     ).toHaveLength(1);
   });
 

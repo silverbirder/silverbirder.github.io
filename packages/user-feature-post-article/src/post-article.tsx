@@ -11,6 +11,7 @@ import {
 import { useTranslations } from "next-intl";
 
 const COUNTER_NAMESPACE = "silverbirder-github-io";
+const FOLLOW_IT_URL = "https://follow.it/qxug4e?leanpub";
 
 type Props = {
   compiledSource: string;
@@ -92,6 +93,8 @@ export const PostArticle = ({
     title: meta.title,
   };
   const subscription = {
+    emailLabel: t("subscribeEmailLabel"),
+    emailUrl: FOLLOW_IT_URL,
     heading: t("subscribeHeading"),
     label: t("followRssLabel"),
     url: followLinks.rss,

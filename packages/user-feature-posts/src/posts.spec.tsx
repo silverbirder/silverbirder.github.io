@@ -200,5 +200,10 @@ describe("Posts", () => {
         .querySelector('a[aria-label="RSSをフォロー"]')
         ?.getAttribute("href"),
     ).toBe("https://example.com/rss.xml");
+    expect(
+      document
+        .querySelector('a[aria-label="メール通知を受け取る"]')
+        ?.getAttribute("href"),
+    ).toBe("https://follow.it/qxug4e?leanpub");
   });
 });

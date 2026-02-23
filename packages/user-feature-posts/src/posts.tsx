@@ -4,6 +4,7 @@ import type { Route } from "next";
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import {
+  FollowItButton,
   Notebook,
   NotebookPostItem,
   RssButton,
@@ -30,6 +31,7 @@ import {
 } from "./posts.presenter";
 
 const ELLIPSIS = "…";
+const FOLLOW_IT_URL = "https://follow.it/qxug4e?leanpub";
 
 type Props = {
   posts: PostSummary[];
@@ -380,6 +382,12 @@ export const Posts = ({ posts, rssUrl }: Props) => {
                       height={actionButtonSize}
                       label={t("followRssLabel")}
                       url={rssUrl}
+                      width={actionButtonSize}
+                    />
+                    <FollowItButton
+                      height={actionButtonSize}
+                      label={t("subscribeEmailLabel")}
+                      url={FOLLOW_IT_URL}
                       width={actionButtonSize}
                     />
                   </Stack>

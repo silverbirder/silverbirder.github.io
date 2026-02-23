@@ -23,6 +23,7 @@ export const siteBackgroundColor = "#f4f4f5";
 const siteReferrerPolicy = "origin-when-cross-origin" as const;
 const siteManifestDisplay = "standalone" as const;
 const siteTitleTemplate = `%s | ${siteName}`;
+const followItVerificationCode = "b8nQDCZ2Nsk3R6vbLCc0";
 
 export const createSiteMetadata = (): Metadata => {
   const iconEntries = iconSizes.map((size) => ({
@@ -91,6 +92,11 @@ export const createSiteMetadata = (): Metadata => {
       description: siteDescription,
       images: [ogImageUrl],
       title: siteName,
+    },
+    verification: {
+      other: {
+        "follow.it-verification-code": followItVerificationCode,
+      },
     },
   };
 };

@@ -52,6 +52,11 @@ describe("createSiteMetadata", () => {
       url: "path:icon/512",
     });
     expect(result.metadataBase?.toString()).toBe("https://example.com/base/");
+    expect(result.verification).toEqual({
+      other: {
+        "follow.it-verification-code": "b8nQDCZ2Nsk3R6vbLCc0",
+      },
+    });
     expect(result.openGraph?.images).toEqual([
       {
         alt: siteName,

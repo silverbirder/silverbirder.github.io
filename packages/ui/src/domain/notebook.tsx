@@ -20,6 +20,7 @@ import { usePathname } from "next/navigation";
 import type { FollowSection } from "./follow";
 
 import { FollowItButton } from "./follow-it-button";
+import { NotebookComments } from "./notebook-comments";
 import { NotebookDash } from "./notebook-dash";
 import { NotebookLike } from "./notebook-like";
 import { NotebookPostItem } from "./notebook-post-item";
@@ -40,6 +41,9 @@ import { ViewTransitionLink } from "./view-transition-link";
 
 type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   children: ReactNode;
+  comments?: {
+    slug: string;
+  };
   follow?: FollowSection;
   headerRight?: ReactNode;
   indexStatus?: "index" | "noindex";
@@ -112,6 +116,7 @@ type SubscriptionSection = {
 
 export const Notebook = ({
   children,
+  comments,
   follow,
   headerRight,
   indexStatus = "index",
@@ -286,6 +291,7 @@ export const Notebook = ({
             />
           </Box>
         )}
+        {comments && <NotebookComments slug={comments.slug} />}
         {share && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
             <Heading as="h2" textAlign="center">

@@ -104,6 +104,7 @@ export const PostArticle = ({
     <Box w="full">
       <ScrollProgressBar />
       <Notebook
+        comments={{ slug }}
         follow={follow}
         indexStatus={indexStatus}
         isBackToBlog={true}

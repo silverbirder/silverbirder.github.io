@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   formatDate,
+  formatJapaneseDateTime,
   formatNotebookDate,
   formatPublishedDate,
   parsePublishedAtDate,
@@ -83,5 +84,19 @@ describe("formatDate", () => {
 
     // Assert
     expect(result).toBe("2026-02-01");
+  });
+});
+
+describe("formatJapaneseDateTime", () => {
+  it("formats ISO datetime to Japanese year-month-day time in JST", () => {
+    const formatted = formatJapaneseDateTime("2026-02-01T12:34:56Z");
+
+    expect(formatted).toBe("2026年02月01日 21時34分56秒");
+  });
+
+  it("returns the input when it cannot parse the date", () => {
+    const formatted = formatJapaneseDateTime("not-a-date");
+
+    expect(formatted).toBe("not-a-date");
   });
 });

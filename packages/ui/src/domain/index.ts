@@ -5,6 +5,7 @@ export * from "./link";
 export * from "./mdx-client-wrapper";
 export * from "./mdx-components";
 export * from "./notebook";
+export * from "./notebook-comments";
 export * from "./notebook-image";
 export * from "./notebook-like";
 export * from "./notebook-post-item";

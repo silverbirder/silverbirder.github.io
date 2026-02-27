@@ -45,6 +45,30 @@ export const formatNotebookDate = (value: string) => {
 
 export const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 
+export const formatJapaneseDateTime = (value: string) => {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  const parts = new Intl.DateTimeFormat("ja-JP", {
+    day: "2-digit",
+    hour: "2-digit",
+    hour12: false,
+    minute: "2-digit",
+    month: "2-digit",
+    second: "2-digit",
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+  }).formatToParts(date);
+
+  const getPart = (type: Intl.DateTimeFormatPartTypes) => {
+    return parts.find((part) => part.type === type)?.value ?? "";
+  };
+
+  return `${getPart("year")}年${getPart("month")}月${getPart("day")}日 ${getPart("hour")}時${getPart("minute")}分${getPart("second")}秒`;
+};
+
 export const parsePublishedAtDate = (value: string) => {
   const normalized = value.trim();
   if (!normalized) {

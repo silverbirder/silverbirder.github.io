@@ -15,6 +15,46 @@ import {
 
 export const runtime = "nodejs";
 
+const buildPostUrl = (origin: null | string, slug: string) => {
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    origin?.replace(/\/$/, "") ??
+    "";
+  if (!base) return "";
+  return `${base}/blog/contents/${slug}/`;
+};
+
+const notifySlack = async (payload: {
+  action: "comment_add" | "comment_delete";
+  body?: string;
+  slug: string;
+  url?: string;
+}) => {
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.warn("SLACK_WEBHOOK_URL is not set.");
+    return;
+  }
+
+  const bodySuffix = payload.body ? `\n${payload.body}` : "";
+  const urlSuffix = payload.url ? `\n${payload.url}` : "";
+  const text = `:speech_balloon: ${payload.action} ${payload.slug}${bodySuffix}${urlSuffix}`;
+
+  try {
+    const response = await fetch(webhookUrl, {
+      body: JSON.stringify({ text }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+    if (!response.ok) {
+      const body = await response.text();
+      console.error("Slack webhook failed", response.status, body);
+    }
+  } catch (error) {
+    console.error("Slack webhook failed", error);
+  }
+};
+
 const mapComment = (
   comment: {
     authorAnonIdHash: string;
@@ -59,7 +99,9 @@ export async function DELETE(request: Request) {
   const existing = await db
     .select({
       authorAnonIdHash: comments.authorAnonIdHash,
+      body: comments.body,
       id: comments.id,
+      slug: comments.slug,
     })
     .from(comments)
     .where(eq(comments.id, parsed.data.commentId ?? -1))
@@ -87,6 +129,17 @@ export async function DELETE(request: Request) {
         eq(comments.authorAnonIdHash, anonIdHash),
       ),
     );
+
+  try {
+    await notifySlack({
+      action: "comment_delete",
+      body: existing[0]?.body,
+      slug: existing[0]?.slug ?? "",
+      url: existing[0]?.slug ? buildPostUrl(origin, existing[0].slug) : "",
+    });
+  } catch (error) {
+    console.error("Slack notification failed", error);
+  }
 
   return NextResponse.json({ ok: true }, { headers: buildCorsHeaders(origin) });
 }
@@ -181,6 +234,17 @@ export async function POST(request: Request) {
       { error: "failed to create comment" },
       { headers: buildCorsHeaders(origin), status: 500 },
     );
+  }
+
+  try {
+    await notifySlack({
+      action: "comment_add",
+      body: inserted.body,
+      slug: parsed.data.slug ?? "",
+      url: parsed.data.slug ? buildPostUrl(origin, parsed.data.slug) : "",
+    });
+  } catch (error) {
+    console.error("Slack notification failed", error);
   }
 
   return NextResponse.json(

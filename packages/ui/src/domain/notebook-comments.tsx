@@ -188,9 +188,9 @@ export const NotebookComments = ({ slug }: Props) => {
                 <Text
                   alignSelf="flex-end"
                   color="text.muted"
+                  fontSize="xs"
                   lineHeight="var(--notebook-line-height)"
                   my={0}
-                  textStyle="xs"
                 >
                   {formatJapaneseDateTime(comment.createdAt)}
                 </Text>

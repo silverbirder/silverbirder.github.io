@@ -120,6 +120,13 @@ export const NotebookComments = ({ slug }: Props) => {
       <Heading as="h2">{t("commentsHeading")}</Heading>
       <VStack alignItems="flex-start" gap={0}>
         <Textarea
+          _focus={{
+            boxShadow: "inset 0 0 0 1px var(--chakra-colors-green-focus-ring)",
+          }}
+          _focusVisible={{
+            boxShadow: "inset 0 0 0 1px var(--chakra-colors-green-focus-ring)",
+            outline: "none",
+          }}
           autoresize
           bg="bg.muted"
           borderRadius="none"

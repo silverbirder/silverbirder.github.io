@@ -1,7 +1,15 @@
 import type { ReactNode } from "react";
 
 import React, { isValidElement } from "react";
-import { describe, expect, it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
+
+const GoogleAnalytics = vi.fn(({ gaId }: { gaId: string }) =>
+  React.createElement("div", { "data-ga-id": gaId }),
+);
+
+const ClarityScript = vi.fn(({ projectId }: { projectId: string }) =>
+  React.createElement("div", { "data-clarity-project-id": projectId }),
+);
 
 vi.mock("@repo/ui", () => ({
   Provider: ({ children }: { children: ReactNode }) =>
@@ -21,6 +29,10 @@ vi.mock("next-intl/server", () => ({
   getMessages,
 }));
 
+vi.mock("@next/third-parties/google", () => ({
+  GoogleAnalytics,
+}));
+
 vi.mock("next/font/google", () => ({
   Klee_One: () => ({
     className: "klee-font",
@@ -28,7 +40,20 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
+vi.mock("./clarity", () => ({
+  ClarityScript,
+}));
+
+const originalGaId = process.env.GA_ID;
+const originalClarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+
 describe("RootLayout", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    delete process.env.GA_ID;
+    delete process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+  });
+
   it("wraps children with intl provider and applies html and body attributes", async () => {
     const mod = await import("./layout");
 
@@ -107,4 +132,71 @@ describe("RootLayout", () => {
     }
     expect(userLayoutChild.type).toBe("span");
   });
+
+  it("adds analytics scripts when GA and Clarity env vars are present", async () => {
+    // Arrange
+    process.env.GA_ID = "G-0000000000";
+    process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID = "clarity-project-id";
+    const mod = await import("./layout");
+
+    // Act
+    const element = await mod.default({
+      children: React.createElement("span", null, "child"),
+    });
+
+    // Assert
+    expect(isValidElement(element)).toBe(true);
+    if (!isValidElement(element)) {
+      throw new Error("Root html element is missing");
+    }
+
+    const htmlElement = element as React.ReactElement<{ children: ReactNode }>;
+    const bodyElement = htmlElement.props.children;
+    expect(isValidElement(bodyElement)).toBe(true);
+    if (!isValidElement(bodyElement)) {
+      throw new Error("Body element is missing");
+    }
+    const bodyReactElement = bodyElement as React.ReactElement<{
+      children: ReactNode;
+    }>;
+    const bodyChildren = React.Children.toArray(
+      bodyReactElement.props.children,
+    );
+    const googleAnalyticsElement = bodyChildren[1];
+    const clarityScriptElement = bodyChildren[2];
+
+    expect(isValidElement(googleAnalyticsElement)).toBe(true);
+    if (!isValidElement(googleAnalyticsElement)) {
+      throw new Error("GoogleAnalytics element is missing");
+    }
+    const googleAnalyticsReactElement =
+      googleAnalyticsElement as React.ReactElement<{ gaId: string }>;
+    expect(googleAnalyticsReactElement.type).toBe(GoogleAnalytics);
+    expect(googleAnalyticsReactElement.props.gaId).toBe("G-0000000000");
+
+    expect(isValidElement(clarityScriptElement)).toBe(true);
+    if (!isValidElement(clarityScriptElement)) {
+      throw new Error("ClarityScript element is missing");
+    }
+    const clarityScriptReactElement =
+      clarityScriptElement as React.ReactElement<{ projectId: string }>;
+    expect(clarityScriptReactElement.type).toBe(ClarityScript);
+    expect(clarityScriptReactElement.props.projectId).toBe(
+      "clarity-project-id",
+    );
+  });
+});
+
+afterAll(() => {
+  if (originalGaId === undefined) {
+    delete process.env.GA_ID;
+  } else {
+    process.env.GA_ID = originalGaId;
+  }
+
+  if (originalClarityProjectId === undefined) {
+    delete process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+  } else {
+    process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID = originalClarityProjectId;
+  }
 });

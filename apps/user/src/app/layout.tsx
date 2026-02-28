@@ -8,6 +8,8 @@ import { getMessages } from "next-intl/server";
 import { Klee_One } from "next/font/google";
 import { Suspense, ViewTransition } from "react";
 
+import { ClarityScript } from "./clarity";
+
 export const metadata: Metadata = createSiteMetadata();
 
 const kleeOne = Klee_One({
@@ -36,6 +38,11 @@ export default async function RootLayout({ children }: Props) {
           </NextIntlClientProvider>
         </Provider>
         {process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+        {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+          <ClarityScript
+            projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}
+          />
+        )}
       </body>
     </html>
   );

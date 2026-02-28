@@ -73,6 +73,7 @@ jobs:
       - name: Build user app (static export)
         env:
           GA_ID: ${{ secrets.GA_ID }}
+          NEXT_PUBLIC_CLARITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_PROJECT_ID }}
           NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH: ${{ env.NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH }}
           NEXT_PUBLIC_LIKES_API_URL: ${{ secrets.NEXT_PUBLIC_LIKES_API_URL }}
           NEXT_TELEMETRY_DISABLED: "1"
@@ -137,6 +138,7 @@ jobs:
       - name: Build user app (static export)
         env:
           GA_ID: ${{ secrets.GA_ID }}
+          NEXT_PUBLIC_CLARITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_PROJECT_ID }}
           NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH: ${{ env.NEXT_PUBLIC_GITHUB_PAGES_BASE_PATH }}/pr-${{ github.event.pull_request.number }}
           NEXT_PUBLIC_LIKES_API_URL: ${{ secrets.NEXT_PUBLIC_LIKES_API_URL }}
           NEXT_TELEMETRY_DISABLED: "1"

@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "check:messages": "pnpm --filter @repo/message lint",
     "check-types": "turbo run check-types",
     "ci:fix": "pnpm knip:fix && pnpm lint:fix && pnpm format && pnpm check-types && pnpm test:fix",
     "deps:up": "pnpm -r up",

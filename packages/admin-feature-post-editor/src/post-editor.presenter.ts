@@ -9,6 +9,8 @@ import { buildSummaryFromBody, generateZennSlug } from "./libs";
 import { useImageDropzone } from "./post-editor.image-dropzone";
 import { usePostEditorTags } from "./post-editor.tags";
 
+type AutoSaveStatus = "dirty" | "error" | "saved" | "saving";
+
 type CreatePullRequestAction =
   | { message: string; type: "alert" }
   | { type: "clearDraft" }
@@ -55,6 +57,7 @@ type Props = {
     hatenaEnabled: boolean;
     id?: string;
     publishedAt: string;
+    silent?: boolean;
     summary: string;
     tags: string[];
     title: string;
@@ -71,6 +74,7 @@ type Props = {
 };
 
 const POST_DRAFTS_STORAGE_KEY = "silverbirder-admin-post-drafts";
+const AUTO_SAVE_DELAY_MS = 3_000;
 
 type LocalDraft = {
   body: string;
@@ -226,6 +230,7 @@ export const usePostEditorPresenter = ({
   const [isCreatingPullRequest, setIsCreatingPullRequest] = useState(false);
   const [draftId, setDraftId] = useState(initialDraftId);
   const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const [autoSaveStatus, setAutoSaveStatus] = useState<AutoSaveStatus>("saved");
   const [isResumingPullRequestFlow, setIsResumingPullRequestFlow] = useState(
     initialAutoCreatePullRequest,
   );
@@ -242,6 +247,9 @@ export const usePostEditorPresenter = ({
   const autoCreateHandledRef = useRef(false);
 
   const bodyRef = useRef(body);
+  const isSavingDraftRef = useRef(false);
+  const lastSavedSnapshotRef = useRef<null | string>(null);
+  const hasInitializedAutoSaveRef = useRef(false);
   const initialAppliedRef = useRef(false);
   const bodyTextareaRef = useRef<HTMLTextAreaElement | null>(null);
   const lastPreviewedBodyRef = useRef<null | string>(null);
@@ -263,6 +271,37 @@ export const usePostEditorPresenter = ({
     tagInputValue,
     tags,
   } = usePostEditorTags({ initialTags, tagSuggestions });
+  const hasDraftContent = useMemo(() => {
+    return (
+      title.trim().length > 0 ||
+      body.trim().length > 0 ||
+      summary.trim().length > 0 ||
+      tags.length > 0
+    );
+  }, [body, summary, tags, title]);
+  const draftSnapshot = useMemo(() => {
+    return JSON.stringify({
+      body,
+      hatenaEnabled: enableHatenaSync && hatenaEnabled,
+      publishedAt,
+      summary,
+      tags,
+      title,
+      zennEnabled: enableZennSync && zennEnabled,
+      zennType,
+    });
+  }, [
+    body,
+    enableHatenaSync,
+    hatenaEnabled,
+    publishedAt,
+    summary,
+    tags,
+    title,
+    enableZennSync,
+    zennEnabled,
+    zennType,
+  ]);
 
   const updateSummaryFromBody = useCallback((value: string) => {
     const nextSummary = buildSummaryFromBody(value);
@@ -326,8 +365,7 @@ export const usePostEditorPresenter = ({
       zennEnabled &&
       (zennSlug.length === 0 || zennType.length === 0 || title.length === 0));
 
-  const isLoading =
-    isUploading || isResolvingLinks || isCreatingPullRequest || isSavingDraft;
+  const isLoading = isUploading || isResolvingLinks || isCreatingPullRequest;
 
   const handleCreatePullRequest = useCallback(async () => {
     if (!onCreatePullRequest || createPullRequestIsDisabled) {
@@ -423,45 +461,162 @@ export const usePostEditorPresenter = ({
     zennType,
   ]);
 
-  const handleSaveDraft = useCallback(async () => {
-    if (!onSaveDraft || isUploading || isResolvingLinks) {
+  const handleSaveDraft = useCallback(
+    async ({ silent = true }: { silent?: boolean } = {}) => {
+      if (
+        !onSaveDraft ||
+        !hasDraftContent ||
+        isUploading ||
+        isResolvingLinks ||
+        isSavingDraftRef.current
+      ) {
+        return;
+      }
+
+      setIsSavingDraft(true);
+      isSavingDraftRef.current = true;
+      setAutoSaveStatus("saving");
+
+      const snapshotAtSave = draftSnapshot;
+
+      try {
+        const result = await onSaveDraft({
+          body: bodyRef.current,
+          hatenaEnabled: enableHatenaSync && hatenaEnabled,
+          id: draftId,
+          publishedAt,
+          silent,
+          summary,
+          tags,
+          title,
+          zennEnabled: enableZennSync && zennEnabled,
+          zennType,
+        });
+
+        let nextDraftId = draftId;
+
+        if (
+          result &&
+          typeof result === "object" &&
+          "id" in result &&
+          typeof result.id === "string"
+        ) {
+          nextDraftId = result.id;
+        }
+
+        if (!nextDraftId) {
+          nextDraftId = createDraftId();
+        }
+
+        setDraftId(nextDraftId);
+        upsertLocalDraft({
+          body: bodyRef.current,
+          hatenaEnabled: enableHatenaSync && hatenaEnabled,
+          id: nextDraftId,
+          publishedAt,
+          summary,
+          tags,
+          title,
+          updatedAt: new Date().toISOString(),
+          zennEnabled: enableZennSync && zennEnabled,
+          zennType,
+        });
+        lastSavedSnapshotRef.current = snapshotAtSave;
+        setAutoSaveStatus("saved");
+
+        if (
+          !silent &&
+          result &&
+          typeof result === "object" &&
+          "actions" in result &&
+          Array.isArray(result.actions)
+        ) {
+          for (const action of result.actions) {
+            if (action?.type === "alert") {
+              window.alert(action.message);
+            }
+          }
+        }
+      } catch {
+        setAutoSaveStatus("error");
+      } finally {
+        setIsSavingDraft(false);
+        isSavingDraftRef.current = false;
+      }
+    },
+    [
+      onSaveDraft,
+      hasDraftContent,
+      isUploading,
+      isResolvingLinks,
+      draftSnapshot,
+      enableHatenaSync,
+      hatenaEnabled,
+      draftId,
+      publishedAt,
+      summary,
+      tags,
+      title,
+      enableZennSync,
+      zennEnabled,
+      zennType,
+    ],
+  );
+
+  useEffect(() => {
+    if (!onSaveDraft) {
       return;
     }
 
-    setIsSavingDraft(true);
+    if (!hasInitializedAutoSaveRef.current) {
+      lastSavedSnapshotRef.current = draftSnapshot;
+      hasInitializedAutoSaveRef.current = true;
+      return;
+    }
 
-    try {
-      const result = await onSaveDraft({
-        body: bodyRef.current,
-        hatenaEnabled: enableHatenaSync && hatenaEnabled,
-        id: draftId,
-        publishedAt,
-        summary,
-        tags,
-        title,
-        zennEnabled: enableZennSync && zennEnabled,
-        zennType,
-      });
+    if (!hasDraftContent) {
+      setAutoSaveStatus("saved");
+      return;
+    }
 
-      let nextDraftId = draftId;
+    if (lastSavedSnapshotRef.current === draftSnapshot) {
+      if (autoSaveStatus !== "saved" && !isSavingDraftRef.current) {
+        setAutoSaveStatus("saved");
+      }
+      return;
+    }
 
-      if (
-        result &&
-        typeof result === "object" &&
-        "id" in result &&
-        typeof result.id === "string"
-      ) {
-        nextDraftId = result.id;
+    if (!isSavingDraftRef.current && autoSaveStatus !== "dirty") {
+      setAutoSaveStatus("dirty");
+    }
+
+    const timerId = window.setTimeout(() => {
+      void handleSaveDraft({ silent: true });
+    }, AUTO_SAVE_DELAY_MS);
+
+    return () => {
+      window.clearTimeout(timerId);
+    };
+  }, [
+    onSaveDraft,
+    hasDraftContent,
+    draftSnapshot,
+    autoSaveStatus,
+    handleSaveDraft,
+  ]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const handlePageHide = () => {
+      if (!hasDraftContent || lastSavedSnapshotRef.current === draftSnapshot) {
+        return;
       }
 
-      if (!nextDraftId) {
-        nextDraftId = createDraftId();
-      }
-
-      setDraftId(nextDraftId);
-
-      const updatedAt = new Date().toISOString();
-      const nextDraft: LocalDraft = {
+      const nextDraftId = draftId ?? createDraftId();
+      upsertLocalDraft({
         body: bodyRef.current,
         hatenaEnabled: enableHatenaSync && hatenaEnabled,
         id: nextDraftId,
@@ -469,38 +624,22 @@ export const usePostEditorPresenter = ({
         summary,
         tags,
         title,
-        updatedAt,
+        updatedAt: new Date().toISOString(),
         zennEnabled: enableZennSync && zennEnabled,
         zennType,
-      };
-      const nextDrafts = readLocalDrafts().filter(
-        (entry) => entry.id !== nextDraftId,
-      );
-      nextDrafts.push(nextDraft);
-      writeLocalDrafts(nextDrafts);
+      });
+    };
 
-      if (
-        result &&
-        typeof result === "object" &&
-        "actions" in result &&
-        Array.isArray(result.actions)
-      ) {
-        for (const action of result.actions) {
-          if (action?.type === "alert") {
-            window.alert(action.message);
-          }
-        }
-      }
-    } finally {
-      setIsSavingDraft(false);
-    }
+    window.addEventListener("pagehide", handlePageHide);
+    return () => {
+      window.removeEventListener("pagehide", handlePageHide);
+    };
   }, [
-    onSaveDraft,
-    isUploading,
-    isResolvingLinks,
+    draftId,
+    hasDraftContent,
+    draftSnapshot,
     enableHatenaSync,
     hatenaEnabled,
-    draftId,
     publishedAt,
     summary,
     tags,
@@ -684,6 +823,7 @@ export const usePostEditorPresenter = ({
   ]);
 
   return {
+    autoSaveStatus,
     body,
     bodyTextareaRef,
     createPullRequestIsDisabled,
@@ -704,7 +844,6 @@ export const usePostEditorPresenter = ({
     onPreviewRequest: handlePreviewRequest,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,
-    onSaveDraft: onSaveDraft ? handleSaveDraft : undefined,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,

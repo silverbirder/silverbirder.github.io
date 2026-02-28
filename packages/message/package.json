@@ -2,6 +2,9 @@
   "name": "@repo/message",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "lint": "node ./scripts/check-unused-message-keys.mjs"
+  },
   "publishConfig": {
     "access": "public"
   }

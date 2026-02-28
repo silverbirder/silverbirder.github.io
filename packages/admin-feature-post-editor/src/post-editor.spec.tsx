@@ -249,47 +249,62 @@ describe("PostEditor", () => {
     expect(payload.index).toBe(false);
   });
 
-  it("saves a draft payload", async () => {
+  it("auto saves a draft payload after content changes", async () => {
+    vi.useFakeTimers();
     const onSaveDraft = vi.fn().mockResolvedValue({
-      actions: [{ message: "saved", type: "alert" }],
+      actions: [],
       id: "draft-1",
     });
     const alertSpy = vi.spyOn(window, "alert").mockImplementation(() => {});
 
-    await renderWithProvider(
-      <PostEditor
-        initialBody="Hello"
-        initialTitle="Title"
-        onSaveDraft={onSaveDraft}
-        resolveLinkTitles={resolveLinkTitles}
-        resolvePreview={resolvePreview}
-        uploadImage={uploadImage}
-      />,
-    );
+    try {
+      await renderWithProvider(
+        <PostEditor
+          initialBody="Hello"
+          initialTitle="Title"
+          onSaveDraft={onSaveDraft}
+          resolveLinkTitles={resolveLinkTitles}
+          resolvePreview={resolvePreview}
+          uploadImage={uploadImage}
+        />,
+      );
 
-    await openDrawer();
+      const bodyInput = document.querySelector(
+        "textarea[name='body']",
+      ) as HTMLTextAreaElement | null;
+      expect(bodyInput).not.toBeNull();
 
-    const saveButton = document.querySelector(
-      "[data-testid='post-editor-save-draft']",
-    ) as HTMLButtonElement | null;
-    await expect.poll(() => saveButton?.disabled).toBe(false);
-    saveButton?.click();
+      if (bodyInput) {
+        const valueSetter = Object.getOwnPropertyDescriptor(
+          HTMLTextAreaElement.prototype,
+          "value",
+        )?.set;
+        valueSetter?.call(bodyInput, "Hello, world");
+        bodyInput.dispatchEvent(new Event("input", { bubbles: true }));
+      }
 
-    await expect.poll(() => onSaveDraft.mock.calls.length).toBe(1);
-    const payload = onSaveDraft.mock.calls[0]?.[0];
-    expect(payload.title).toBe("Title");
-    expect(payload.body).toBe("Hello");
-    expect(payload.id).toBeUndefined();
-    expect(alertSpy).toHaveBeenCalledWith("saved");
-    const raw = window.localStorage.getItem(POST_DRAFTS_STORAGE_KEY);
-    expect(raw).not.toBeNull();
-    const parsed = JSON.parse(raw ?? "[]") as Array<{
-      id: string;
-      title: string;
-    }>;
-    expect(parsed).toHaveLength(1);
-    expect(parsed[0]?.id).toBe("draft-1");
-    expect(parsed[0]?.title).toBe("Title");
+      await vi.advanceTimersByTimeAsync(3_100);
+      await expect.poll(() => onSaveDraft.mock.calls.length).toBe(1);
+
+      const payload = onSaveDraft.mock.calls[0]?.[0];
+      expect(payload.title).toBe("Title");
+      expect(payload.body).toBe("Hello, world");
+      expect(payload.id).toBeUndefined();
+      expect(payload.silent).toBe(true);
+      expect(alertSpy).not.toHaveBeenCalled();
+
+      const raw = window.localStorage.getItem(POST_DRAFTS_STORAGE_KEY);
+      expect(raw).not.toBeNull();
+      const parsed = JSON.parse(raw ?? "[]") as Array<{
+        id: string;
+        title: string;
+      }>;
+      expect(parsed).toHaveLength(1);
+      expect(parsed[0]?.id).toBe("draft-1");
+      expect(parsed[0]?.title).toBe("Title");
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it("removes local draft after pull request creation succeeds", async () => {

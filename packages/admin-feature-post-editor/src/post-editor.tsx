@@ -8,6 +8,7 @@ import { usePostEditorPresenter } from "./post-editor.presenter";
 
 export const PostEditor = (props: Props) => {
   const {
+    autoSaveStatus,
     body,
     bodyTextareaRef,
     createPullRequestIsDisabled,
@@ -19,14 +20,12 @@ export const PostEditor = (props: Props) => {
     isDragActive,
     isLoading,
     isPreviewLoading,
-    isSavingDraft,
     onBodyChange,
     onCreatePullRequest,
     onHatenaEnabledChange,
     onPreviewRequest,
     onPublishedAtChange,
     onResolveLinkTitles,
-    onSaveDraft,
     onTagInputBlur,
     onTagInputChange,
     onTagInputKeyDown,
@@ -51,6 +50,7 @@ export const PostEditor = (props: Props) => {
 
   return (
     <PostEditorLayout
+      autoSaveStatus={autoSaveStatus}
       bodyDropzoneInputProps={getInputProps()}
       bodyDropzoneProps={getRootProps()}
       bodyTextareaRef={bodyTextareaRef}
@@ -66,7 +66,6 @@ export const PostEditor = (props: Props) => {
       onPreviewRequest={onPreviewRequest}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}
-      onSaveDraft={onSaveDraft}
       onTagInputBlur={onTagInputBlur}
       onTagInputChange={onTagInputChange}
       onTagInputKeyDown={onTagInputKeyDown}
@@ -88,7 +87,6 @@ export const PostEditor = (props: Props) => {
       publishedAtValue={publishedAt}
       resolveLinkTitlesDisabled={resolveLinkTitlesDisabled}
       resolveLinkTitlesIsLoading={resolveLinkTitlesIsLoading}
-      saveDraftIsLoading={isSavingDraft}
       showPullRequestFlowNotice={showPullRequestFlowNotice}
       summaryValue={summary}
       tagInputValue={tagInputValue}

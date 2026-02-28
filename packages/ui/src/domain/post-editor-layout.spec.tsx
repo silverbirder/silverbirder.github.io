@@ -139,13 +139,13 @@ describe("PostEditorLayout", () => {
     expect(hatenaCheckbox).not.toBeNull();
   });
 
-  it("renders save draft action in the drawer", async () => {
+  it("renders auto save status badge", async () => {
     await renderWithProvider(
       <PostEditorLayout
+        autoSaveStatus="saved"
         bodyValue="Body"
         onBodyChange={() => undefined}
         onPublishedAtChange={() => undefined}
-        onSaveDraft={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
         onTagInputKeyDown={() => undefined}
@@ -161,17 +161,10 @@ describe("PostEditorLayout", () => {
         titleValue="Release notes"
       />,
     );
-
-    const drawerTrigger = document.querySelector(
-      "[data-testid='post-editor-drawer-trigger']",
+    const badge = document.querySelector(
+      "[data-testid='post-editor-autosave-status']",
     );
-    drawerTrigger?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    const saveButton = document.querySelector(
-      "[data-testid='post-editor-save-draft']",
-    );
-    expect(saveButton).not.toBeNull();
+    expect(badge?.textContent ?? "").toContain("自動保存");
   });
 
   it("renders pull request flow notice in the drawer", async () => {

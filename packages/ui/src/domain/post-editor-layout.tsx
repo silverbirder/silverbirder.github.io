@@ -14,18 +14,21 @@ import {
   Combobox,
   createListCollection,
   Drawer,
+  Icon,
   Portal,
   RadioGroup,
   Tabs,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
+import { MdCheckCircle, MdError, MdSync } from "react-icons/md";
 
 import { Notebook } from "./notebook";
 import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
 import { Tag } from "./tag";
 
 type Props = {
+  autoSaveStatus?: "dirty" | "error" | "saved" | "saving";
   bodyDropzoneInputProps?: InputHTMLAttributes<HTMLInputElement> & {
     ref?: Ref<HTMLInputElement>;
   };
@@ -46,7 +49,6 @@ type Props = {
   onPreviewRequest?: () => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
-  onSaveDraft?: () => void;
   onTagInputBlur: () => void;
   onTagInputChange: (value: string) => void;
   onTagInputKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
@@ -62,7 +64,6 @@ type Props = {
   publishedAtValue: string;
   resolveLinkTitlesDisabled?: boolean;
   resolveLinkTitlesIsLoading?: boolean;
-  saveDraftIsLoading?: boolean;
   showPullRequestFlowNotice?: boolean;
   summaryValue: string;
   tagInputValue: string;
@@ -106,6 +107,22 @@ const HeaderActions = chakra("div", {
   base: {
     display: "flex",
     gap: "0.75rem",
+  },
+});
+
+const AutoSaveStatusBadge = chakra("div", {
+  base: {
+    alignItems: "center",
+    borderColor: "green.muted",
+    borderRadius: "999px",
+    borderWidth: "1px",
+    color: "green.fg",
+    display: "inline-flex",
+    fontSize: "0.8rem",
+    fontWeight: "600",
+    gap: "0.4rem",
+    paddingBlock: "0.35rem",
+    paddingInline: "0.8rem",
   },
 });
 
@@ -307,6 +324,7 @@ const CheckboxInput = chakra("input", {
 });
 
 export const PostEditorLayout = ({
+  autoSaveStatus = "saved",
   bodyDropzoneInputProps,
   bodyDropzoneProps,
   bodyTextareaRef,
@@ -323,7 +341,6 @@ export const PostEditorLayout = ({
   onPreviewRequest,
   onPublishedAtChange,
   onResolveLinkTitles,
-  onSaveDraft,
   onTagInputBlur,
   onTagInputChange,
   onTagInputKeyDown,
@@ -339,7 +356,6 @@ export const PostEditorLayout = ({
   publishedAtValue,
   resolveLinkTitlesDisabled = false,
   resolveLinkTitlesIsLoading = false,
-  saveDraftIsLoading = false,
   showPullRequestFlowNotice = false,
   tagInputValue,
   tagSuggestions,
@@ -357,11 +373,37 @@ export const PostEditorLayout = ({
     showPullRequestFlowNotice || createPullRequestIsLoading;
   const shouldShowPreviewEmpty = !isPreviewLoading && previewContent == null;
   const hasDrawerActions =
-    Boolean(onResolveLinkTitles) ||
-    Boolean(onCreatePullRequest) ||
-    Boolean(onSaveDraft);
+    Boolean(onResolveLinkTitles) || Boolean(onCreatePullRequest);
   const hasIntegrationSection =
     Boolean(onHatenaEnabledChange) || Boolean(onZennEnabledChange);
+  const autoSaveMeta = useMemo(() => {
+    if (autoSaveStatus === "saving") {
+      return {
+        icon: MdSync,
+        iconAnimation: "spin 1s linear infinite",
+        label: t("autoSaveSaving"),
+      };
+    }
+    if (autoSaveStatus === "error") {
+      return {
+        icon: MdError,
+        iconAnimation: undefined,
+        label: t("autoSaveError"),
+      };
+    }
+    if (autoSaveStatus === "dirty") {
+      return {
+        icon: MdSync,
+        iconAnimation: undefined,
+        label: t("autoSavePending"),
+      };
+    }
+    return {
+      icon: MdCheckCircle,
+      iconAnimation: undefined,
+      label: t("autoSaveSaved"),
+    };
+  }, [autoSaveStatus, t]);
   const filteredTagSuggestions = useMemo(() => {
     if (!tagInputValue) {
       return tagSuggestions;
@@ -384,6 +426,14 @@ export const PostEditorLayout = ({
     <Main>
       <Header>
         <HeaderRow>
+          <AutoSaveStatusBadge data-testid="post-editor-autosave-status">
+            <Icon
+              animation={autoSaveMeta.iconAnimation}
+              as={autoSaveMeta.icon}
+              fontSize="1rem"
+            />
+            {autoSaveMeta.label}
+          </AutoSaveStatusBadge>
           <HeaderActions>
             <Drawer.Root placement="end">
               <Drawer.Trigger asChild>
@@ -400,7 +450,7 @@ export const PostEditorLayout = ({
                   <Drawer.Content
                     background="bg"
                     borderColor="green.muted"
-                    borderRadius="1rem"
+                    borderRadius="none"
                     borderWidth="1px"
                     color="fg"
                     data-testid="post-editor-drawer"
@@ -592,18 +642,6 @@ export const PostEditorLayout = ({
                               {createPullRequestIsLoading
                                 ? t("createPullRequestLoading")
                                 : t("createPullRequestAction")}
-                            </ActionButton>
-                          ) : null}
-                          {onSaveDraft ? (
-                            <ActionButton
-                              data-testid="post-editor-save-draft"
-                              disabled={isLoading}
-                              onClick={onSaveDraft}
-                              type="button"
-                            >
-                              {saveDraftIsLoading
-                                ? t("saveDraftLoading")
-                                : t("saveDraftAction")}
                             </ActionButton>
                           ) : null}
                           {onResolveLinkTitles ? (

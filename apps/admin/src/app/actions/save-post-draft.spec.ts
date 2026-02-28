@@ -70,4 +70,23 @@ describe("savePostDraft", () => {
       { message: "saveDraftError", type: "alert" },
     ]);
   });
+
+  it("does not return alerts when silent mode is enabled", async () => {
+    const { save, savePostDraft } = await loadAction();
+    save.mockResolvedValue({ id: "draft-1" });
+
+    const result = await savePostDraft({
+      body: "body",
+      hatenaEnabled: false,
+      publishedAt: "2026-02-14",
+      silent: true,
+      summary: "summary",
+      tags: [],
+      title: "title",
+      zennEnabled: false,
+      zennType: "tech",
+    });
+
+    expect(result.actions).toEqual([]);
+  });
 });

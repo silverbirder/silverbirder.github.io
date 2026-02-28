@@ -7,6 +7,7 @@ type SavePostDraftInput = {
   hatenaEnabled: boolean;
   id?: string;
   publishedAt: string;
+  silent?: boolean;
   summary: string;
   tags: string[];
   title: string;
@@ -30,12 +31,16 @@ export const savePostDraft = async (
     const result = await api.draft.save(draft);
 
     return {
-      actions: [{ message: t("saveDraftSuccess"), type: "alert" }],
+      actions: draft.silent
+        ? []
+        : [{ message: t("saveDraftSuccess"), type: "alert" }],
       id: result.id,
     };
   } catch {
     return {
-      actions: [{ message: t("saveDraftError"), type: "alert" }],
+      actions: draft.silent
+        ? []
+        : [{ message: t("saveDraftError"), type: "alert" }],
     };
   }
 };

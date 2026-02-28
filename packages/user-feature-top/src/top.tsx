@@ -121,6 +121,29 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
               </VStack>
             </VStack>
           </Box>
+          <Box>
+            <Heading as="h2">{t("toc.work.title")}</Heading>
+            <Text lineHeight="var(--notebook-line-height)" my={0}>
+              {t.rich("toc.work.description", {
+                bluesky: (chunks) => (
+                  <Link
+                    href="https://bsky.app/profile/silverbirder.bsky.social"
+                    lineHeight="var(--notebook-line-height)"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+                x: (chunks) => (
+                  <Link
+                    href="https://x.com/silverbirder"
+                    lineHeight="var(--notebook-line-height)"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </Text>
+          </Box>
           <Box mt={NOTEBOOK_LINE_HEIGHT}>
             <Heading as="h2" mt={0}>
               {t("timeline.heading")}

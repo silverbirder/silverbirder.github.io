@@ -47,6 +47,10 @@ describe("Top", () => {
     expect(textContent).toContain("最新更新: 2026-01-27");
     expect(textContent).toContain("記事数: 123");
     expect(textContent).toContain("連続投稿日数: 3日");
+    expect(textContent).toContain("お仕事を依頼したい方へ");
+    expect(textContent).toContain(
+      "Web開発や技術支援のご相談は、X または Bluesky のDMからお気軽にご連絡ください！",
+    );
     expect(textContent).toContain("タイムライン");
     expect(textContent).toContain("2026-01-26");
     expect(textContent).toContain("その他");
@@ -62,6 +66,16 @@ describe("Top", () => {
       'a[href="https://forms.gle/rWL2YyVjpcRRjusT9"]',
     );
     expect(contactLink).not.toBeNull();
+
+    const workXLink = document.querySelector(
+      'a[href="https://x.com/silverbirder"]',
+    );
+    expect(workXLink).not.toBeNull();
+
+    const workBlueskyLink = document.querySelector(
+      'a[href="https://bsky.app/profile/silverbirder.bsky.social"]',
+    );
+    expect(workBlueskyLink).not.toBeNull();
   });
 
   it("splits paper stacks into groups of ten and remainder", async () => {

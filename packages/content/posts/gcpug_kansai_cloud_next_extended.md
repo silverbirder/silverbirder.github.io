@@ -125,28 +125,28 @@ https://www.publickey1.jp/blog/18/gvisorgoogle.html
 
 ## Cloud Next Recap 2
 
-### 発表者 (2)
+### 発表者
 
 佐藤 一憲(Google)
 
-### 内容 (2)
+### 内容
 
 機械学習について AutoML を紹介されていました。
 私は、そういったものが苦手だったので、よく覚えてないです...
 
 ## Cloud Next Recap 3
 
-### 発表者 (3)
+### 発表者
 
 Kirill Tropin(Google)
 
-### 内容 (3)
+### 内容
 
 スピーキングは英語だったので、よく覚えてないです...
 
 ## Cloud Run ネタ
 
-### 発表者 (4)
+### 発表者
 
 ちまめ@rito
 
@@ -154,7 +154,7 @@ Kirill Tropin(Google)
 
 https://speakerdeck.com/chimame/cloud-run-one-step-ahead
 
-### 内容 (4)
+### 内容
 
 2 コマンドで cloudrun できるぐらい、簡単！
 ただ、プロダクトとして扱うには、いくつか問題があるそう。
@@ -167,11 +167,11 @@ https://speakerdeck.com/chimame/cloud-run-one-step-ahead
 
 ## GCP 大阪リージョンとレイテンシ
 
-### 発表者 (5)
+### 発表者
 
 salamander さん
 
-### 内容 (5)
+### 内容
 
 大阪リージョンのレイテンシについて紹介されました。
 https://docs.google.com/presentation/d/1dbGgjr3Z9o-bOxmT5SQ5bRHMEI0Jzh0BQUQkXlEGyYE/edit?usp=sharing

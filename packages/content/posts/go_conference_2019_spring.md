@@ -56,17 +56,17 @@ https://www.slideshare.net/moriyoshi/hacking-go-compiler-internals-gocon-2014-au
 
 ## A4 (S): Design considerations for container-based Go applications
 
-### 概要 (2)
+### 概要
 
 Go 言語でのアプリケーション開発で、特にコンテナを前提とする場合の設計考慮点について話します。 例えば、Go 言語で API を開発する場合、コンテナとして動かすことを前提とするケースが多いと感じます。コンテナベースで動かすことを前提とした場合、コンテナイメージ作成・アプリケーション監視において、考慮すべき点が出てくるでしょう。このトークでは、Go 言語での実装にまで踏み込んだ上で、コンテナベースアプリケーションにおける設計の考慮点について話します。
 
-### 資料 (2)
+### 資料
 
 https://speakerdeck.com/hgsgtk/design-considerations-for-container-based-go-application
 
 https://www.redhat.com/ja/resources/cloud-native-container-design-whitepaper
 
-### 感想 (2)
+### 感想
 
 Golang の話というより、コンテナで開発する上での Tips の話でした。
 Tips は３つ紹介されていて、「Configuration」「Logging」「Monitering」です。
@@ -86,15 +86,15 @@ Tips は３つ紹介されていて、「Configuration」「Logging」「Moniter
 
 ## B8 (L): CPU, Memory and Go
 
-### 概要 (3)
+### 概要
 
 基本的な CPU やメモリを簡単に触れ、Go の最適化、コンパイラの最適化、Go で実装したときの CPU やメモリの振る舞いを紹介します。 またこれら最適化の様子やパフォーマンスを実際に Go の標準ツールを使いながら確認していきます。
 
-### 資料 (3)
+### 資料
 
 https://speakerdeck.com/sonatard/cpu-memory-and-go
 
-### 感想 (3)
+### 感想
 
 Golang におけるパフォーマンス・チューニングについて勉強になりました。
 Golang だけの話なのかわかりませんが、コーディングする際に気にしたほうが良いと思います。

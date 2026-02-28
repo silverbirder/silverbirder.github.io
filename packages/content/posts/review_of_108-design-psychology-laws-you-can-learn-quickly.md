@@ -6,8 +6,6 @@ tags: ["書籍レビュー"]
 index: false
 ---
 
-<!-- markdownlint-configure-file { "MD024": { "siblings_only": true } } -->
-
 [サクッと学べるデザイン心理法則108](https://www.shoeisha.co.jp/book/detail/9784798175775)を読みました。
 108つの心理法則を、Webサイトや広告のデザインに活用される例が紹介されています。
 

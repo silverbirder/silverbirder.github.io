@@ -1,4 +1,5 @@
 export * from "./cellophane-tape";
+export * from "./codepen-embed";
 export * from "./follow";
 export * from "./follow-it-button";
 export * from "./link";

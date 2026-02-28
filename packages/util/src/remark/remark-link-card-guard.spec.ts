@@ -56,4 +56,15 @@ describe("createRemarkLinkCardGuard", () => {
     const text = link?.children?.[0]?.value;
     expect(text).toBe("Tweet");
   });
+
+  it("changes CodePen links to host text to avoid link card conversion", async () => {
+    const tree = createTree("https://codepen.io/silverbirder/pen/JoPRKoY");
+
+    const transform = createRemarkLinkCardGuard();
+    await transform(tree);
+
+    const link = tree.children[0]?.children?.[0];
+    const text = link?.children?.[0]?.value;
+    expect(text).toBe("codepen.io");
+  });
 });

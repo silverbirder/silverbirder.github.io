@@ -11,6 +11,7 @@ import type {
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Children, isValidElement } from "react";
 
+import { CodepenEmbed } from "./codepen-embed";
 import { Link as DomainLink } from "./link";
 import { NotebookImage } from "./notebook-image";
 import { TweetEmbed } from "./tweet-embed";
@@ -28,6 +29,37 @@ const extractTweetId = (href?: string) => {
     }
     const match = url.pathname.match(/\/status\/(\d+)/);
     return match?.[1] ?? null;
+  } catch {
+    return null;
+  }
+};
+
+const extractCodepenEmbedUrl = (href?: string) => {
+  if (!href) {
+    return null;
+  }
+  try {
+    const url = new URL(href);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "codepen.io" && !hostname.endsWith(".codepen.io")) {
+      return null;
+    }
+    const pathSegments = url.pathname.split("/").filter(Boolean);
+    if (pathSegments.length < 3) {
+      return null;
+    }
+    const [user, type, id] = pathSegments;
+    if (!user || !id) {
+      return null;
+    }
+    if (type !== "pen" && type !== "embed") {
+      return null;
+    }
+    const embedUrl = new URL(`https://codepen.io/${user}/embed/${id}`);
+    if (url.search) {
+      embedUrl.search = url.search;
+    }
+    return embedUrl.toString();
   } catch {
     return null;
   }
@@ -97,11 +129,14 @@ const Paragraph = ({ children, ...props }: ComponentPropsWithoutRef<"p">) => {
   const onlyChild = getSingleElementChild(children);
 
   if (onlyChild && onlyChild.type === Anchor) {
-    const tweetId = extractTweetId(
-      (onlyChild.props as undefined | { href?: string })?.href,
-    );
+    const href = (onlyChild.props as undefined | { href?: string })?.href;
+    const tweetId = extractTweetId(href);
     if (tweetId) {
       return <TweetEmbed id={tweetId} />;
+    }
+    const codepenEmbedUrl = extractCodepenEmbedUrl(href);
+    if (codepenEmbedUrl) {
+      return <CodepenEmbed src={codepenEmbedUrl} />;
     }
   }
 

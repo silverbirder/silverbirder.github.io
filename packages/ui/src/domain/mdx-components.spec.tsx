@@ -10,6 +10,14 @@ vi.mock("./tweet-embed", () => {
   };
 });
 
+vi.mock("./codepen-embed", () => {
+  return {
+    CodepenEmbed: ({ src }: { src: string }) => (
+      <div data-codepen-src={src} data-embed="codepen" />
+    ),
+  };
+});
+
 import { renderWithProvider } from "../test-util";
 import { mdxComponents } from "./mdx-components";
 import { NotebookImage } from "./notebook-image";
@@ -75,6 +83,30 @@ describe("mdxComponents", () => {
     const embed = container.querySelector('[data-embed="tweet"]');
     expect(embed).not.toBeNull();
     expect(embed?.getAttribute("data-tweet-id")).toBe("1318861346327252993");
+  });
+
+  it("replaces a CodePen link with CodepenEmbed", async () => {
+    const P = mdxComponents.p as unknown as ComponentType<
+      ComponentPropsWithoutRef<"p">
+    >;
+    const A = mdxComponents.a as unknown as ComponentType<
+      ComponentPropsWithoutRef<"a">
+    >;
+
+    const { container } = await renderWithProvider(
+      <P>
+        <A href="https://codepen.io/silverbirder/pen/gbYwrOa">
+          https://codepen.io/silverbirder/pen/gbYwrOa
+        </A>
+      </P>,
+    );
+
+    expect(container.querySelector("p")).toBeNull();
+    const embed = container.querySelector('[data-embed="codepen"]');
+    expect(embed).not.toBeNull();
+    expect(embed?.getAttribute("data-codepen-src")).toBe(
+      "https://codepen.io/silverbirder/embed/gbYwrOa",
+    );
   });
 
   it("keeps heading anchor links unstyled and internal", async () => {

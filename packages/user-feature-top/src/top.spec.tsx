@@ -51,11 +51,17 @@ describe("Top", () => {
     expect(textContent).toContain("2026-01-26");
     expect(textContent).toContain("その他");
     expect(textContent).toContain("機能リクエストへ");
+    expect(textContent).toContain("お問い合わせへ");
 
     const featureRequestLink = document.querySelector(
       'a[href="https://fequest.vercel.app/9"]',
     );
     expect(featureRequestLink).not.toBeNull();
+
+    const contactLink = document.querySelector(
+      'a[href="https://forms.gle/rWL2YyVjpcRRjusT9"]',
+    );
+    expect(contactLink).not.toBeNull();
   });
 
   it("splits paper stacks into groups of ten and remainder", async () => {

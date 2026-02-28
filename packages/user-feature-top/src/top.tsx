@@ -183,6 +183,12 @@ export const Top = ({ blogSummary, timelineItems = [] }: Props) => {
               >
                 {t("toc.other.items.featureRequest")}
               </Link>
+              <Link
+                href="https://forms.gle/rWL2YyVjpcRRjusT9"
+                lineHeight="var(--notebook-line-height)"
+              >
+                {t("toc.other.items.contact")}
+              </Link>
             </VStack>
           </Box>
         </VStack>

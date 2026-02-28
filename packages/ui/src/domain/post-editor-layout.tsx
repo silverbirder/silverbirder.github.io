@@ -57,6 +57,7 @@ type Props = {
   onZennTypeChange?: (value: string) => void;
   previewContent: null | ReactNode;
   previewIsLoading?: boolean;
+  previewShowGlobalNavigation?: boolean;
   previewTags?: string[];
   publishedAtValue: string;
   resolveLinkTitlesDisabled?: boolean;
@@ -333,6 +334,7 @@ export const PostEditorLayout = ({
   onZennTypeChange,
   previewContent,
   previewIsLoading,
+  previewShowGlobalNavigation = true,
   previewTags,
   publishedAtValue,
   resolveLinkTitlesDisabled = false,
@@ -700,6 +702,7 @@ export const PostEditorLayout = ({
               navigation={{}}
               publishedAt={previewDate}
               relatedPosts={[]}
+              showGlobalNavigation={previewShowGlobalNavigation}
               tags={previewTags ?? []}
               title={previewTitle}
             >

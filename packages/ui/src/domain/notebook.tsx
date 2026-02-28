@@ -69,6 +69,7 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   publishedAt?: string;
   relatedPosts: RelatedPostGroup[];
   share?: ShareSection;
+  showGlobalNavigation?: boolean;
   subscription?: SubscriptionSection;
   tags: string[];
   title: string;
@@ -127,6 +128,7 @@ export const Notebook = ({
   publishedAt,
   relatedPosts,
   share,
+  showGlobalNavigation = true,
   subscription,
   tags,
   title,
@@ -165,52 +167,54 @@ export const Notebook = ({
       overflow="visible"
       position="relative"
     >
-      <Flex
-        aria-label={t("globalNavigationLabel")}
-        as="nav"
-        gap={2}
-        left={0}
-        position="absolute"
-        top={0}
-        zIndex={2}
-      >
-        {globalNavigationItems.map((item) => {
-          const isActive =
-            item.href === "/"
-              ? pathname === "/"
-              : pathname?.startsWith(item.href);
-          return (
-            <ViewTransitionLink
-              _hover={{
-                height: `calc(${NOTEBOOK_LINE_HEIGHT} + 4px)`,
-                textDecoration: "none",
-                transform: "translateY(-4px)",
-              }}
-              bg={item.bg}
-              borderRadius="none"
-              color="fg.muted"
-              fontSize="xs"
-              h={`calc(${NOTEBOOK_LINE_HEIGHT} * 1)`}
-              href={item.href}
-              key={item.href}
-              position="relative"
-              px={2}
-              textAlign="center"
-              top={isActive ? -4 : `calc(${NOTEBOOK_LINE_HEIGHT} * -1)`}
-              transition="transform 160ms ease, height 160ms ease"
-              w={`calc(${NOTEBOOK_LINE_HEIGHT} * 2)`}
-            >
-              {item.label}
-            </ViewTransitionLink>
-          );
-        })}
-      </Flex>
+      {showGlobalNavigation && (
+        <Flex
+          aria-label={t("globalNavigationLabel")}
+          as="nav"
+          gap={2}
+          left={0}
+          position="absolute"
+          top={0}
+          zIndex={2}
+        >
+          {globalNavigationItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname?.startsWith(item.href);
+            return (
+              <ViewTransitionLink
+                _hover={{
+                  height: `calc(${NOTEBOOK_LINE_HEIGHT} + 4px)`,
+                  textDecoration: "none",
+                  transform: "translateY(-4px)",
+                }}
+                bg={item.bg}
+                borderRadius="none"
+                color="fg.muted"
+                fontSize="xs"
+                h={`calc(${NOTEBOOK_LINE_HEIGHT} * 1)`}
+                href={item.href}
+                key={item.href}
+                position="relative"
+                px={2}
+                textAlign="center"
+                top={isActive ? -4 : `calc(${NOTEBOOK_LINE_HEIGHT} * -1)`}
+                transition="transform 160ms ease, height 160ms ease"
+                w={`calc(${NOTEBOOK_LINE_HEIGHT} * 2)`}
+              >
+                {item.label}
+              </ViewTransitionLink>
+            );
+          })}
+        </Flex>
+      )}
       <VStack
         align="flex-start"
         alignSelf="stretch"
         gap="0"
         position="relative"
-        pt={NOTEBOOK_LINE_HEIGHT}
+        pt={showGlobalNavigation ? NOTEBOOK_LINE_HEIGHT : 0}
         zIndex={1}
       >
         <VStack alignSelf="flex-end" gap="0" minW="12rem">

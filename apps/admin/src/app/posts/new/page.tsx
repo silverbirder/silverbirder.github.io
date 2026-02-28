@@ -27,6 +27,7 @@ export default async function Page({ searchParams }: Props = {}) {
     <PostEditor
       enableHatenaSync
       enableZennSync
+      hidePreviewGlobalNavigation
       initialAutoCreatePullRequest={shouldResumePullRequest}
       initialDraftId={draftId}
       onCreatePullRequest={createPostPullRequest}

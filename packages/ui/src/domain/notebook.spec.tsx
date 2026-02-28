@@ -204,4 +204,23 @@ describe("Notebook", () => {
     );
     expect(labels).toEqual(["ホーム", "自己紹介", "ブログ"]);
   });
+
+  it("does not render global navigation when disabled", async () => {
+    const { container } = await renderWithProvider(
+      <Notebook
+        navigation={{}}
+        relatedPosts={[]}
+        showGlobalNavigation={false}
+        tags={[]}
+        title="Notebook Preview"
+      >
+        <p>Body copy.</p>
+      </Notebook>,
+    );
+
+    const nav = container.querySelector(
+      'nav[aria-label="グローバルナビゲーション"]',
+    );
+    expect(nav).toBeNull();
+  });
 });

@@ -19,6 +19,7 @@ type Props = {
   createPullRequestDisabled?: boolean;
   enableHatenaSync?: boolean;
   enableZennSync?: boolean;
+  hidePreviewGlobalNavigation?: boolean;
   initialAutoCreatePullRequest?: boolean;
   initialBody?: string;
   initialDraftId?: string;
@@ -197,6 +198,7 @@ export const usePostEditorPresenter = ({
   createPullRequestDisabled,
   enableHatenaSync = false,
   enableZennSync = false,
+  hidePreviewGlobalNavigation = false,
   initialAutoCreatePullRequest = false,
   initialBody,
   initialDraftId,
@@ -688,6 +690,7 @@ export const usePostEditorPresenter = ({
     getInputProps,
     getRootProps,
     hatenaEnabled,
+    hidePreviewGlobalNavigation,
     isCreatingPullRequest,
     isDragActive,
     isLoading,

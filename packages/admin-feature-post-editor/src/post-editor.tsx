@@ -14,6 +14,7 @@ export const PostEditor = (props: Props) => {
     getInputProps,
     getRootProps,
     hatenaEnabled,
+    hidePreviewGlobalNavigation,
     isCreatingPullRequest,
     isDragActive,
     isLoading,
@@ -82,6 +83,7 @@ export const PostEditor = (props: Props) => {
         ) : null
       }
       previewIsLoading={isPreviewLoading}
+      previewShowGlobalNavigation={!hidePreviewGlobalNavigation}
       previewTags={tags}
       publishedAtValue={publishedAt}
       resolveLinkTitlesDisabled={resolveLinkTitlesDisabled}

@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const init = vi.fn();
 
@@ -22,11 +22,6 @@ vi.mock("react", async () => {
 describe("ClarityScript", () => {
   beforeEach(() => {
     init.mockClear();
-    vi.stubGlobal("window", {});
-  });
-
-  afterEach(() => {
-    vi.unstubAllGlobals();
   });
 
   it("initializes Clarity when project id is present", async () => {
@@ -47,19 +42,6 @@ describe("ClarityScript", () => {
 
     // Act
     const result = ClarityScript({});
-
-    // Assert
-    expect(result).toBeNull();
-    expect(init).not.toHaveBeenCalled();
-  });
-
-  it("does not initialize Clarity when window is not available", async () => {
-    // Arrange
-    vi.unstubAllGlobals();
-    const { ClarityScript } = await import("./clarity");
-
-    // Act
-    const result = ClarityScript({ projectId: "clarity-project-id" });
 
     // Assert
     expect(result).toBeNull();

@@ -30,6 +30,23 @@ const API_URL = `${process.env.NEXT_PUBLIC_LIKES_API_URL}/api/comments`;
 const ANON_ID_STORAGE_KEY = "comments:anon-id";
 const COMMENT_MAX_LENGTH = 255;
 
+const createAnonId = () =>
+  typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+const getSafeLocalStorage = () => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    return window.localStorage ?? null;
+  } catch {
+    return null;
+  }
+};
+
 export const NotebookComments = ({ slug }: Props) => {
   const t = useTranslations("ui.notebook");
   const [anonId, setAnonId] = useState("");
@@ -41,14 +58,21 @@ export const NotebookComments = ({ slug }: Props) => {
   const progress = Math.min((body.length / COMMENT_MAX_LENGTH) * 100, 100);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(ANON_ID_STORAGE_KEY);
-    if (stored) {
-      setAnonId(stored);
+    const storage = getSafeLocalStorage();
+    if (storage) {
+      const stored = storage.getItem(ANON_ID_STORAGE_KEY);
+      if (stored) {
+        setAnonId(stored);
+        return;
+      }
+
+      const newId = createAnonId();
+      storage.setItem(ANON_ID_STORAGE_KEY, newId);
+      setAnonId(newId);
       return;
     }
-    const newId = crypto.randomUUID();
-    window.localStorage.setItem(ANON_ID_STORAGE_KEY, newId);
-    setAnonId(newId);
+
+    setAnonId(createAnonId());
   }, []);
 
   useEffect(() => {

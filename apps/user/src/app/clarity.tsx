@@ -12,6 +12,9 @@ export const ClarityScript = ({ projectId }: Props) => {
     if (!projectId) {
       return;
     }
+    if (typeof window === "undefined") {
+      return;
+    }
 
     Clarity.init(projectId);
   }, [projectId]);

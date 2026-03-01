@@ -164,34 +164,59 @@ export const NotebookComments = ({ slug }: Props) => {
           py={0}
           value={body}
         />
-        <HStack alignSelf="flex-end" gap={1}>
-          <ProgressCircle.Root
-            aria-label={t("commentsCharacterCount", {
-              count: body.length,
-              max: COMMENT_MAX_LENGTH,
-            })}
-            size="sm"
-            value={progress}
-          >
-            <ProgressCircle.Circle>
-              <ProgressCircle.Track />
-              <ProgressCircle.Range />
-            </ProgressCircle.Circle>
-            <AbsoluteCenter>
-              <Text fontSize="10px" m={0}>
-                {body.length}
-              </Text>
-            </AbsoluteCenter>
-          </ProgressCircle.Root>
-          <Button
-            borderRadius="none"
-            disabled={submitting || loading || body.length === 0}
-            height="var(--notebook-line-height)"
-            onClick={handleSubmit}
-            variant="solid"
-          >
-            {submitting ? t("commentsSubmitting") : t("commentsSubmit")}
-          </Button>
+        <HStack
+          alignItems="flex-start"
+          alignSelf="stretch"
+          gap={2}
+          justifyContent="space-between"
+        >
+          <HStack flexWrap="wrap" gap={0}>
+            <Text
+              color="fg.muted"
+              fontSize="xx-small"
+              lineHeight="var(--notebook-line-height)"
+              my={0}
+            >
+              {t("commentsTextareaDescription1")}
+            </Text>
+            <Text
+              color="fg.muted"
+              fontSize="xx-small"
+              lineHeight="var(--notebook-line-height)"
+              my={0}
+            >
+              {t("commentsTextareaDescription2")}
+            </Text>
+          </HStack>
+          <HStack gap={1}>
+            <ProgressCircle.Root
+              aria-label={t("commentsCharacterCount", {
+                count: body.length,
+                max: COMMENT_MAX_LENGTH,
+              })}
+              size="sm"
+              value={progress}
+            >
+              <ProgressCircle.Circle>
+                <ProgressCircle.Track />
+                <ProgressCircle.Range />
+              </ProgressCircle.Circle>
+              <AbsoluteCenter>
+                <Text fontSize="10px" m={0}>
+                  {body.length}
+                </Text>
+              </AbsoluteCenter>
+            </ProgressCircle.Root>
+            <Button
+              borderRadius="none"
+              disabled={submitting || loading || body.length === 0}
+              height="var(--notebook-line-height)"
+              onClick={handleSubmit}
+              variant="solid"
+            >
+              {submitting ? t("commentsSubmitting") : t("commentsSubmit")}
+            </Button>
+          </HStack>
         </HStack>
       </VStack>
       {loading ? (

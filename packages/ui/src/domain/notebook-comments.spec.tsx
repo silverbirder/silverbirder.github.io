@@ -41,6 +41,9 @@ describe("NotebookComments", () => {
       });
 
       expect(document.body.textContent ?? "").toContain("コメント");
+      expect(document.body.textContent ?? "").toContain(
+        "※ ログイン不要で投稿できます。",
+      );
       expect(document.querySelector("textarea")).not.toBeNull();
     } finally {
       vi.unstubAllEnvs();
@@ -72,6 +75,9 @@ describe("NotebookComments", () => {
         expect(fetchMock).toHaveBeenCalled();
       });
       expect(document.body.textContent ?? "").toContain("コメント");
+      expect(document.body.textContent ?? "").toContain(
+        "※ ログイン不要で投稿できます。",
+      );
     } finally {
       localStorageGetter.mockRestore();
       vi.unstubAllEnvs();

@@ -149,7 +149,6 @@ const followLinks = {
   bluesky: "https://bsky.app/profile/example.bsky.social",
   github: "https://github.com/example",
   rss: "https://example.com/rss.xml",
-  threads: "https://www.threads.com/@example",
   x: "https://x.com/example",
 };
 

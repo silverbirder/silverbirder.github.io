@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
-import { SiBluesky, SiThreads } from "react-icons/si";
+import { SiBluesky } from "react-icons/si";
 
 export type FollowItem = {
   active: string;
@@ -16,7 +16,6 @@ export type FollowLinks = {
   bluesky: string;
   github: string;
   rss: string;
-  threads: string;
   x: string;
 };
 
@@ -34,7 +33,6 @@ type FollowLabels = {
   bluesky: string;
   github: string;
   heading: string;
-  threads: string;
   x: string;
 };
 
@@ -67,16 +65,7 @@ export const createFollowSection = ({
       icon: <FaGithub />,
       label: labels.github,
     },
-    {
-      active: "#2a2a2a",
-      bg: "#101010",
-      hover: "#1a1a1a",
-      href: links.threads,
-      icon: <SiThreads />,
-      label: labels.threads,
-    },
   ];
-
   return {
     heading: labels.heading,
     items,

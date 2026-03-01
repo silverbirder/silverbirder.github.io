@@ -7,6 +7,7 @@ import {
   Button,
   Flex,
   Heading,
+  HStack,
   Icon,
   SimpleGrid,
   Stack,
@@ -29,10 +30,7 @@ import { RobotBadge } from "./robot-badge";
 import { RssButton } from "./rss-button";
 import { ShareButtonBluesky } from "./share-button-bluesky";
 import { ShareButtonCopy } from "./share-button-copy";
-import { ShareButtonFacebook } from "./share-button-facebook";
 import { ShareButtonHatena } from "./share-button-hatena";
-import { ShareButtonLine } from "./share-button-line";
-import { ShareButtonThreads } from "./share-button-threads";
 import { ShareButtonWeb } from "./share-button-web";
 import { ShareButtonX } from "./share-button-x";
 import { Spiral } from "./spiral";
@@ -92,10 +90,7 @@ type ShareLabels = {
   bluesky: string;
   copy: string;
   copyCopied: string;
-  facebook: string;
   hatena: string;
-  line: string;
-  threads: string;
   web: string;
   x: string;
 };
@@ -301,71 +296,47 @@ export const Notebook = ({
             <Heading as="h2" textAlign="center">
               {share.heading}
             </Heading>
-            <Stack
-              align="center"
-              columnGap={2}
-              direction="row"
-              flexWrap="wrap"
-              justify="center"
-              rowGap={0}
-            >
-              <ShareButtonX
-                height={actionButtonSize}
-                label={share.labels.x}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonBluesky
-                height={actionButtonSize}
-                label={share.labels.bluesky}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonHatena
-                height={actionButtonSize}
-                label={share.labels.hatena}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonLine
-                height={actionButtonSize}
-                label={share.labels.line}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonFacebook
-                height={actionButtonSize}
-                label={share.labels.facebook}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonThreads
-                height={actionButtonSize}
-                label={share.labels.threads}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonWeb
-                height={actionButtonSize}
-                label={share.labels.web}
-                text={share.text}
-                url={share.url}
-                width={actionButtonSize}
-              />
-              <ShareButtonCopy
-                copiedLabel={share.labels.copyCopied}
-                height={actionButtonSize}
-                label={share.labels.copy}
-                url={share.url}
-                width={actionButtonSize}
-              />
-            </Stack>
+            <VStack align="center" gap={0}>
+              <HStack align="center" gap={2}>
+                <ShareButtonX
+                  height={actionButtonSize}
+                  label={share.labels.x}
+                  text={share.text}
+                  url={share.url}
+                  width={actionButtonSize}
+                />
+                <ShareButtonBluesky
+                  height={actionButtonSize}
+                  label={share.labels.bluesky}
+                  text={share.text}
+                  url={share.url}
+                  width={actionButtonSize}
+                />
+                <ShareButtonHatena
+                  height={actionButtonSize}
+                  label={share.labels.hatena}
+                  text={share.text}
+                  url={share.url}
+                  width={actionButtonSize}
+                />
+              </HStack>
+              <HStack align="center" gap={2}>
+                <ShareButtonWeb
+                  height={actionButtonSize}
+                  label={share.labels.web}
+                  text={share.text}
+                  url={share.url}
+                  width={actionButtonSize}
+                />
+                <ShareButtonCopy
+                  copiedLabel={share.labels.copyCopied}
+                  height={actionButtonSize}
+                  label={share.labels.copy}
+                  url={share.url}
+                  width={actionButtonSize}
+                />
+              </HStack>
+            </VStack>
           </Box>
         )}
         {follow && follow.items.length > 0 && (

@@ -31,7 +31,6 @@ const followLinks = {
   bluesky: "https://bsky.app/profile/example.bsky.social",
   github: "https://github.com/example",
   rss: "https://example.com/rss.xml",
-  threads: "https://www.threads.com/@example",
   x: "https://x.com/example",
 };
 describe("PostArticle", () => {
@@ -229,9 +228,9 @@ return {
     );
 
     const bodyText = document.body.textContent ?? "";
-    expect(bodyText).toContain("シェアする");
-    expect(bodyText).toContain("フォローする");
-    expect(bodyText).toContain("購読する");
+    expect(bodyText).toContain("記事をシェアする");
+    expect(bodyText).toContain("筆者をフォローする");
+    expect(bodyText).toContain("ブログの読者になる");
     expect(document.querySelector('a[aria-label="Xでシェア"]')).not.toBeNull();
     expect(
       document.querySelector('a[aria-label="Blueskyでシェア"]'),
@@ -239,15 +238,13 @@ return {
     expect(
       document.querySelector('a[aria-label="はてなでシェア"]'),
     ).not.toBeNull();
-    expect(
-      document.querySelector('a[aria-label="LINEでシェア"]'),
-    ).not.toBeNull();
+    expect(document.querySelector('a[aria-label="LINEでシェア"]')).toBeNull();
     expect(
       document.querySelector('a[aria-label="Facebookでシェア"]'),
-    ).not.toBeNull();
+    ).toBeNull();
     expect(
       document.querySelector('a[aria-label="Threadsでシェア"]'),
-    ).not.toBeNull();
+    ).toBeNull();
     expect(
       document.querySelector('button[aria-label="デバイスで共有"]'),
     ).not.toBeNull();
@@ -265,7 +262,7 @@ return {
     ).not.toBeNull();
     expect(
       document.querySelector('a[aria-label="Threadsをフォロー"]'),
-    ).not.toBeNull();
+    ).toBeNull();
     expect(
       document.querySelector('a[aria-label="RSSをフォロー"]'),
     ).not.toBeNull();

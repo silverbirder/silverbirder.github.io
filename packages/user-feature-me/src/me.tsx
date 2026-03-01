@@ -41,7 +41,6 @@ export const Me = ({ followLinks }: Props) => {
       bluesky: tBlog("followBlueskyLabel"),
       github: tBlog("followGithubLabel"),
       heading: t("followHeading"),
-      threads: tBlog("followThreadsLabel"),
       x: tBlog("followXLabel"),
     },
     links: followLinks,

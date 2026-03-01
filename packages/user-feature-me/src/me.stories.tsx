@@ -16,7 +16,6 @@ export const Default: Story = {
       bluesky: "https://bsky.app/profile/silverbirder.bsky.social",
       github: "https://github.com/silverbirder",
       rss: "https://example.com/rss.xml",
-      threads: "https://www.threads.com/@silverbirder",
       x: "https://x.com/silverbirder",
     },
   },

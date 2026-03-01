@@ -114,7 +114,6 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
       bluesky: "https://bsky.app/profile/silverbirder.bsky.social",
       github: "https://github.com/silverbirder",
       rss: rssUrl,
-      threads: "https://www.threads.com/@silverbirder",
       x: "https://x.com/silverbirder",
     };
     const currentIndex = normalizedPosts.findIndex(

@@ -51,7 +51,6 @@ export default function Page() {
     bluesky: "https://bsky.app/profile/silverbirder.bsky.social",
     github: "https://github.com/silverbirder",
     rss: rssUrl,
-    threads: "https://www.threads.com/@silverbirder",
     x: "https://x.com/silverbirder",
   };
 

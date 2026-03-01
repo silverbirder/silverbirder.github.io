@@ -26,7 +26,6 @@ const followLinks = {
   bluesky: "https://example.com/bluesky",
   github: "https://example.com/github",
   rss: "https://example.com/rss.xml",
-  threads: "https://example.com/threads",
   x: "https://example.com/x",
 };
 

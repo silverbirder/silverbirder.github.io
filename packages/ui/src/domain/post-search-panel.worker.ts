@@ -1,4 +1,8 @@
-import { buildSearchIndex, searchIndex, type SearchIndexItem } from "./search";
+import {
+  buildSearchIndex,
+  searchIndex,
+  type SearchIndexItem,
+} from "./post-search";
 
 type ErrorResponse = {
   payload: { message: string };

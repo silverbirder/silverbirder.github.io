@@ -67,7 +67,9 @@ export const PostSearchPanel = ({
   }, [searchResults, searchStatus, trimmedSearchQuery]);
 
   useEffect(() => {
-    const worker = new Worker(new URL("./search.worker.ts", import.meta.url));
+    const worker = new Worker(
+      new URL("./post-search-panel.worker.ts", import.meta.url),
+    );
     workerRef.current = worker;
     setSearchStatus("loading");
 

@@ -7,7 +7,10 @@ import {
   FollowItButton,
   Notebook,
   NotebookPostItem,
+  PostSearchPanel,
   RssButton,
+  type SearchResult,
+  type SearchStatus,
   Tag,
   ViewTransitionLink,
 } from "@repo/ui";
@@ -15,11 +18,6 @@ import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import {
-  PostSearchPanel,
-  type SearchResult,
-  type SearchStatus,
-} from "./post-search-panel";
 import {
   filterPosts,
   getAvailableTags,

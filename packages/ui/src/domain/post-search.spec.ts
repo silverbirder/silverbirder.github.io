@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildSearchIndex, searchIndex } from "./search";
+import { buildSearchIndex, searchIndex } from "./post-search";
 
 describe("searchIndex", () => {
   it("orders matches by latest published date", () => {

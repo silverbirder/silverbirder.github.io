@@ -3,7 +3,14 @@
 import { Flex, IconButton, Input } from "@chakra-ui/react";
 import { buildSitePath } from "@repo/util";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { LuSearch } from "react-icons/lu";
 
 export type SearchResult = {
@@ -31,6 +38,7 @@ export const PostSearchPanel = ({
   initialQuery = "",
   onResultsChange,
 }: Props) => {
+  const hasInitialQuery = initialQuery.trim().length > 0;
   const t = useTranslations("user.blog");
   const searchInputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -39,7 +47,10 @@ export const PostSearchPanel = ({
   const queryRef = useRef("");
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-  const [searchStatus, setSearchStatus] = useState<SearchStatus>("loading");
+  const [searchStatus, setSearchStatus] = useState<SearchStatus>(
+    hasInitialQuery ? "loading" : "ready",
+  );
+  const [isSearchActivated, setIsSearchActivated] = useState(hasInitialQuery);
   const searchIndexPath = useMemo(
     () => buildSitePath("blog-search-index.json"),
     [],
@@ -52,6 +63,9 @@ export const PostSearchPanel = ({
 
   useEffect(() => {
     setSearchQuery(initialQuery);
+    if (initialQuery.trim().length > 0) {
+      setIsSearchActivated(true);
+    }
   }, [initialQuery]);
 
   useEffect(() => {
@@ -66,7 +80,15 @@ export const PostSearchPanel = ({
     onResultsChangeRef.current(searchResults, trimmedSearchQuery, searchStatus);
   }, [searchResults, searchStatus, trimmedSearchQuery]);
 
+  const activateSearch = useCallback(() => {
+    setIsSearchActivated(true);
+  }, []);
+
   useEffect(() => {
+    if (!isSearchActivated) {
+      return undefined;
+    }
+
     const worker = new Worker(
       new URL("./post-search-panel.worker.ts", import.meta.url),
     );
@@ -165,7 +187,7 @@ export const PostSearchPanel = ({
       worker.terminate();
       workerRef.current = null;
     };
-  }, [searchIndexPath, searchIndexVersionPath]);
+  }, [isSearchActivated, searchIndexPath, searchIndexVersionPath]);
 
   useEffect(() => {
     if (!workerRef.current) {
@@ -195,7 +217,10 @@ export const PostSearchPanel = ({
     <Flex align="center" gap={1.5}>
       <IconButton
         aria-label={t("searchLabel")}
-        onClick={() => inputRef.current?.focus()}
+        onClick={() => {
+          activateSearch();
+          inputRef.current?.focus();
+        }}
         size="xs"
         variant="ghost"
       >
@@ -204,7 +229,11 @@ export const PostSearchPanel = ({
       <Input
         aria-label={t("searchLabel")}
         id={searchInputId}
-        onChange={(event) => setSearchQuery(event.target.value)}
+        onChange={(event) => {
+          activateSearch();
+          setSearchQuery(event.target.value);
+        }}
+        onFocus={activateSearch}
         placeholder={t("searchPlaceholder")}
         ref={inputRef}
         size="xs"

@@ -79,6 +79,9 @@ describe("PostSearchPanel", () => {
 
       const input = document.querySelector<HTMLInputElement>("input");
       expect(input?.value).toBe("TypeScript");
+      await vi.waitFor(() => {
+        expect(fetchMock).toHaveBeenCalled();
+      });
     } finally {
       vi.unstubAllGlobals();
       MockWorker.instances = [];
@@ -87,7 +90,7 @@ describe("PostSearchPanel", () => {
     }
   });
 
-  it("downloads search index version on mount", async () => {
+  it("does not download search index on mount without interaction", async () => {
     window.localStorage.removeItem("blog-search-index");
     window.localStorage.removeItem("blog-search-index-version");
 
@@ -113,6 +116,45 @@ describe("PostSearchPanel", () => {
       await renderWithProvider(
         <PostSearchPanel initialQuery="" onResultsChange={() => undefined} />,
       );
+
+      expect(fetchMock).not.toHaveBeenCalled();
+    } finally {
+      vi.unstubAllGlobals();
+      MockWorker.instances = [];
+      window.localStorage.removeItem("blog-search-index");
+      window.localStorage.removeItem("blog-search-index-version");
+    }
+  });
+
+  it("downloads search index on search button click", async () => {
+    window.localStorage.removeItem("blog-search-index");
+    window.localStorage.removeItem("blog-search-index-version");
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = typeof input === "string" ? input : input.toString();
+      if (url.includes("blog-search-index.version.json")) {
+        return new Response(JSON.stringify({ version: "v1" }), {
+          headers: { "Content-Type": "application/json" },
+          status: 200,
+        });
+      }
+
+      return new Response("[]", {
+        headers: { "Content-Type": "application/json" },
+        status: 200,
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+    vi.stubGlobal("Worker", MockWorker as unknown as typeof Worker);
+
+    try {
+      await renderWithProvider(
+        <PostSearchPanel initialQuery="" onResultsChange={() => undefined} />,
+      );
+
+      const button = document.querySelector<HTMLButtonElement>("button");
+      button?.click();
 
       await vi.waitFor(() => {
         expect(fetchMock).toHaveBeenCalled();

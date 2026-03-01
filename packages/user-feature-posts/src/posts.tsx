@@ -329,6 +329,25 @@ export const Posts = ({ posts, rssUrl }: Props) => {
               flexGrow={9999}
             >
               <Stack gap="var(--notebook-line-height)">
+                <Stack gap="var(--notebook-line-height)">
+                  <Heading as="h2" lineHeight="var(--notebook-line-height)">
+                    {t("subscribeHeading")}
+                  </Heading>
+                  <Stack direction="row">
+                    <RssButton
+                      height={actionButtonSize}
+                      label={t("followRssLabel")}
+                      url={rssUrl}
+                      width={actionButtonSize}
+                    />
+                    <FollowItButton
+                      height={actionButtonSize}
+                      label={t("subscribeEmailLabel")}
+                      url={FOLLOW_IT_URL}
+                      width={actionButtonSize}
+                    />
+                  </Stack>
+                </Stack>
                 {(availableYears.length > 0 || availableTags.length > 0) && (
                   <Stack gap="var(--notebook-line-height)">
                     <Heading as="h2" lineHeight="var(--notebook-line-height)">
@@ -373,25 +392,6 @@ export const Posts = ({ posts, rssUrl }: Props) => {
                     )}
                   </Stack>
                 )}
-                <Stack gap="var(--notebook-line-height)">
-                  <Heading as="h2" lineHeight="var(--notebook-line-height)">
-                    {t("subscribeHeading")}
-                  </Heading>
-                  <Stack direction="row">
-                    <RssButton
-                      height={actionButtonSize}
-                      label={t("followRssLabel")}
-                      url={rssUrl}
-                      width={actionButtonSize}
-                    />
-                    <FollowItButton
-                      height={actionButtonSize}
-                      label={t("subscribeEmailLabel")}
-                      url={FOLLOW_IT_URL}
-                      width={actionButtonSize}
-                    />
-                  </Stack>
-                </Stack>
               </Stack>
             </Box>
           )}

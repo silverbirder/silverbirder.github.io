@@ -203,6 +203,7 @@ export const PostSearchPanel = ({
         aria-label={t("searchLabel")}
         id={searchInputId}
         onChange={(event) => setSearchQuery(event.target.value)}
+        placeholder={t("searchPlaceholder")}
         ref={inputRef}
         size="xs"
         value={searchQuery}

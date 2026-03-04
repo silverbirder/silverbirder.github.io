@@ -49,7 +49,7 @@ describe("Notebook", () => {
     expect(container.textContent ?? "").toContain("Design");
   });
 
-  it("renders share and follow sections when provided", async () => {
+  it("renders share, follow, subscription, and support sections when provided", async () => {
     const { container } = await renderWithProvider(
       <Notebook
         follow={{
@@ -87,6 +87,15 @@ describe("Notebook", () => {
           label: "RSSでブログの更新を受け取る",
           url: "https://example.com/rss.xml",
         }}
+        support={{
+          heading: "応援する",
+          ofuse: {
+            id: "158382",
+            label: "OFUSEで応援を送る",
+            style: "rectangle",
+            url: "https://ofuse.me/o?uid=158382",
+          },
+        }}
         tags={[]}
         title="Notebook Preview"
       >
@@ -97,6 +106,7 @@ describe("Notebook", () => {
     expect(container.textContent ?? "").toContain("Share");
     expect(container.textContent ?? "").toContain("Follow");
     expect(container.textContent ?? "").toContain("購読する");
+    expect(container.textContent ?? "").toContain("応援する");
 
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
     const followLink = container.querySelector('a[aria-label="Xをフォロー"]');
@@ -106,11 +116,17 @@ describe("Notebook", () => {
     const emailLink = container.querySelector(
       'a[aria-label="メールでブログの更新を受け取る"]',
     );
+    const ofuseLink = container.querySelector(
+      'a[data-ofuse-widget-button][data-ofuse-id="158382"]',
+    );
 
     expect(shareLink).not.toBeNull();
     expect(followLink).not.toBeNull();
     expect(rssLink).not.toBeNull();
     expect(emailLink).not.toBeNull();
+    expect(ofuseLink?.getAttribute("href")).toBe(
+      "https://ofuse.me/o?uid=158382",
+    );
   });
 
   it("renders related posts grouped by heading", async () => {

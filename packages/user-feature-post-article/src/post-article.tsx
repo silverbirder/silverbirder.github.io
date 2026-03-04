@@ -12,6 +12,8 @@ import { useTranslations } from "next-intl";
 
 const COUNTER_NAMESPACE = "silverbirder-github-io";
 const FOLLOW_IT_URL = "https://follow.it/qxug4e?leanpub";
+const OFUSE_ID = "158382";
+const OFUSE_URL = `https://ofuse.me/o?uid=${OFUSE_ID}`;
 
 type Props = {
   compiledSource: string;
@@ -95,6 +97,15 @@ export const PostArticle = ({
     label: t("followRssLabel"),
     url: followLinks.rss,
   };
+  const support = {
+    heading: t("supportHeading"),
+    ofuse: {
+      id: OFUSE_ID,
+      label: t("supportOfuseLabel"),
+      style: "rectangle" as const,
+      url: OFUSE_URL,
+    },
+  };
 
   return (
     <Box w="full">
@@ -111,6 +122,7 @@ export const PostArticle = ({
         relatedPosts={relatedPosts}
         share={share}
         subscription={subscription}
+        support={support}
         tags={meta.tags}
         title={meta.title}
       >

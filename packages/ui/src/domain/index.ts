@@ -11,6 +11,7 @@ export * from "./notebook-image";
 export * from "./notebook-like";
 export * from "./notebook-post-item";
 export * from "./notebook-prose";
+export * from "./ofuse-button";
 export * from "./paper-stack";
 export * from "./post-editor-layout";
 export * from "./post-search-panel";

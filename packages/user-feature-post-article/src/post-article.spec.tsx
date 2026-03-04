@@ -231,6 +231,7 @@ return {
     expect(bodyText).toContain("記事をシェアする");
     expect(bodyText).toContain("筆者をフォローする");
     expect(bodyText).toContain("ブログの読者になる");
+    expect(bodyText).toContain("ブログを応援する");
     expect(
       document.querySelector('a[aria-label="Xで記事をシェアする"]'),
     ).not.toBeNull();
@@ -281,6 +282,11 @@ return {
         'a[aria-label="メールでブログの更新を受け取る"]',
       ),
     ).toHaveLength(1);
+    expect(
+      document.querySelector(
+        'a[data-ofuse-widget-button][data-ofuse-id="158382"]',
+      ),
+    ).not.toBeNull();
   });
 
   it("renders scroll progress bar", async () => {

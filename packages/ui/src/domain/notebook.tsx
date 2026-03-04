@@ -25,6 +25,7 @@ import { NotebookDash } from "./notebook-dash";
 import { NotebookLike } from "./notebook-like";
 import { NotebookPostItem } from "./notebook-post-item";
 import { NOTEBOOK_LINE_HEIGHT, NotebookProse } from "./notebook-prose";
+import { OfuseButton } from "./ofuse-button";
 import { RobotBadge } from "./robot-badge";
 import { RssButton } from "./rss-button";
 import { ShareButtonBluesky } from "./share-button-bluesky";
@@ -69,6 +70,7 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
   share?: ShareSection;
   showGlobalNavigation?: boolean;
   subscription?: SubscriptionSection;
+  support?: SupportSection;
   tags: string[];
   title: string;
 };
@@ -110,6 +112,16 @@ type SubscriptionSection = {
   url: string;
 };
 
+type SupportSection = {
+  heading: string;
+  ofuse: {
+    id: string;
+    label: string;
+    style?: "rectangle" | "round";
+    url: string;
+  };
+};
+
 export const Notebook = ({
   children,
   comments,
@@ -126,6 +138,7 @@ export const Notebook = ({
   share,
   showGlobalNavigation = true,
   subscription,
+  support,
   tags,
   title,
   ...notebookProps
@@ -142,6 +155,7 @@ export const Notebook = ({
     share,
     follow?.items.length ? follow : undefined,
     subscription,
+    support,
   ].filter(Boolean).length;
   const actionColumnsMd =
     actionSectionCount >= 3 ? 3 : actionSectionCount >= 2 ? 2 : 1;
@@ -299,7 +313,10 @@ export const Notebook = ({
           </Box>
         )}
         {comments && <NotebookComments slug={comments.slug} />}
-        {(share || (follow && follow.items.length > 0) || subscription) && (
+        {(share ||
+          (follow && follow.items.length > 0) ||
+          subscription ||
+          support) && (
           <SimpleGrid
             columns={{ base: 1, md: actionColumnsMd }}
             gap={0}
@@ -487,6 +504,29 @@ export const Notebook = ({
                       label={subscription.emailLabel}
                       url={subscription.emailUrl}
                       width="100%"
+                    />
+                  </Stack>
+                </VStack>
+              </Box>
+            )}
+            {support && (
+              <Box as="section">
+                <VStack align="stretch" gap={0} w="full">
+                  <Heading as="h2" textAlign="left">
+                    {support.heading}
+                  </Heading>
+                  <Stack
+                    align="stretch"
+                    direction="column"
+                    gap={0}
+                    justify="center"
+                    w="full"
+                  >
+                    <OfuseButton
+                      id={support.ofuse.id}
+                      label={support.ofuse.label}
+                      style={support.ofuse.style}
+                      url={support.ofuse.url}
                     />
                   </Stack>
                 </VStack>

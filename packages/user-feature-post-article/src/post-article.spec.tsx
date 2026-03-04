@@ -231,12 +231,16 @@ return {
     expect(bodyText).toContain("記事をシェアする");
     expect(bodyText).toContain("筆者をフォローする");
     expect(bodyText).toContain("ブログの読者になる");
-    expect(document.querySelector('a[aria-label="Xでシェア"]')).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="Blueskyでシェア"]'),
+      document.querySelector('a[aria-label="Xで記事をシェアする"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="はてなでシェア"]'),
+      document.querySelector('a[aria-label="Blueskyで記事をシェアする"]'),
+    ).not.toBeNull();
+    expect(
+      document.querySelector(
+        'a[aria-label="はてなブックマークで記事をシェアする"]',
+      ),
     ).not.toBeNull();
     expect(document.querySelector('a[aria-label="LINEでシェア"]')).toBeNull();
     expect(
@@ -246,34 +250,36 @@ return {
       document.querySelector('a[aria-label="Threadsでシェア"]'),
     ).toBeNull();
     expect(
-      document.querySelector('button[aria-label="デバイスで共有"]'),
+      document.querySelector('button[aria-label="デバイスで記事をシェアする"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('button[aria-label="リンクをコピー"]'),
+      document.querySelector('button[aria-label="記事のリンクをコピー"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="Xをフォロー"]'),
+      document.querySelector('a[aria-label="Xで筆者をフォローする"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="Blueskyをフォロー"]'),
+      document.querySelector('a[aria-label="Blueskyで筆者をフォローする"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="GitHubをフォロー"]'),
+      document.querySelector('a[aria-label="GitHubで筆者をフォローする"]'),
     ).not.toBeNull();
     expect(
       document.querySelector('a[aria-label="Threadsをフォロー"]'),
     ).toBeNull();
     expect(
-      document.querySelector('a[aria-label="RSSをフォロー"]'),
+      document.querySelector('a[aria-label="RSSでブログの更新を受け取る"]'),
     ).not.toBeNull();
     expect(
-      document.querySelector('a[aria-label="メール通知を受け取る"]'),
+      document.querySelector('a[aria-label="メールでブログの更新を受け取る"]'),
     ).not.toBeNull();
     expect(
-      document.querySelectorAll('a[aria-label="RSSをフォロー"]'),
+      document.querySelectorAll('a[aria-label="RSSでブログの更新を受け取る"]'),
     ).toHaveLength(1);
     expect(
-      document.querySelectorAll('a[aria-label="メール通知を受け取る"]'),
+      document.querySelectorAll(
+        'a[aria-label="メールでブログの更新を受け取る"]',
+      ),
     ).toHaveLength(1);
   });
 

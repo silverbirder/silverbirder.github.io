@@ -50,6 +50,7 @@ export const Me = ({ followLinks }: Props) => {
     <Box w="full">
       <Notebook
         follow={follow}
+        followSectionLayout="content"
         navigation={{}}
         relatedPosts={[]}
         tags={[]}

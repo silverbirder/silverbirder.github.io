@@ -4,11 +4,11 @@ import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { SiBluesky } from "react-icons/si";
 
 export type FollowItem = {
-  active: string;
-  bg: string;
-  hover: string;
+  borderColor: string;
+  hoverTextColor: string;
   href: string;
   icon: ReactNode;
+  iconColor: string;
   label: string;
 };
 
@@ -42,27 +42,27 @@ export const createFollowSection = ({
 }: CreateFollowSectionArgs): FollowSection => {
   const items: FollowItem[] = [
     {
-      active: "#1f1f1f",
-      bg: "#000000",
-      hover: "#111111",
+      borderColor: "fg",
+      hoverTextColor: "bg",
       href: links.x,
       icon: <FaXTwitter />,
+      iconColor: "fg",
       label: labels.x,
     },
     {
-      active: "#0059c7",
-      bg: "#007bff",
-      hover: "#0068e6",
+      borderColor: "#007bff",
+      hoverTextColor: "white",
       href: links.bluesky,
       icon: <SiBluesky />,
+      iconColor: "#007bff",
       label: labels.bluesky,
     },
     {
-      active: "#191c20",
-      bg: "#24292f",
-      hover: "#1f2328",
+      borderColor: "fg",
+      hoverTextColor: "bg",
       href: links.github,
       icon: <FaGithub />,
+      iconColor: "fg",
       label: labels.github,
     },
   ];

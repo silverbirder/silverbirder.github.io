@@ -24,7 +24,6 @@ export const ShareButtonWeb = ({
 }: Props) => {
   const ariaLabel = loading && loadingText ? loadingText : label;
   const buttonHeight = height ?? 9;
-  const buttonWidth = width ?? 9;
 
   const handleClick = async () => {
     if (!url || typeof navigator === "undefined") {
@@ -44,24 +43,47 @@ export const ShareButtonWeb = ({
 
   return (
     <Button
-      _active={{ bg: "#334155" }}
+      _active={{ bg: "fg", borderColor: "fg", color: "bg" }}
+      _before={{
+        bg: "fg",
+        bottom: "1px",
+        content: '""',
+        left: 0,
+        position: "absolute",
+        top: "1px",
+        width: "1px",
+      }}
       _disabled={{ opacity: 1 }}
-      _hover={{ bg: "#1e293b" }}
+      _hover={{
+        bg: "fg",
+        borderColor: "fg",
+        color: "bg",
+        textDecoration: "none",
+      }}
       alignItems="center"
       aria-label={ariaLabel}
-      bg="#0f172a"
-      borderRadius="full"
-      color="white"
+      bg="transparent"
+      borderRadius="none"
+      color="fg"
+      gap={2}
       h={buttonHeight}
+      justifyContent="space-between"
       loading={loading}
-      minW={buttonWidth}
+      maxH={buttonHeight}
+      minH={buttonHeight}
+      minW={width ?? "fit-content"}
       onClick={handleClick}
-      p={0}
+      position="relative"
+      px={3}
+      py={0}
       size="sm"
+      textAlign="left"
+      textDecoration="none"
       type="button"
-      variant="solid"
-      w={buttonWidth}
+      variant="ghost"
+      w={width}
     >
+      {label}
       <Icon size="sm">
         <MdShare />
       </Icon>

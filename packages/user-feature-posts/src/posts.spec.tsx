@@ -197,12 +197,12 @@ describe("Posts", () => {
     expect(document.body.textContent ?? "").toContain("ブログの読者になる");
     expect(
       document
-        .querySelector('a[aria-label="RSSをフォロー"]')
+        .querySelector('a[aria-label="RSSでブログの更新を受け取る"]')
         ?.getAttribute("href"),
     ).toBe("https://example.com/rss.xml");
     expect(
       document
-        .querySelector('a[aria-label="メール通知を受け取る"]')
+        .querySelector('a[aria-label="メールでブログの更新を受け取る"]')
         ?.getAttribute("href"),
     ).toBe("https://follow.it/qxug4e?leanpub");
   });

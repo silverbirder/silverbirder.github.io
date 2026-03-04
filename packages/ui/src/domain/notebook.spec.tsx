@@ -56,11 +56,11 @@ describe("Notebook", () => {
           heading: "Follow",
           items: [
             {
-              active: "#000000",
-              bg: "#111111",
-              hover: "#222222",
+              borderColor: "fg",
+              hoverTextColor: "bg",
               href: "https://example.com",
               icon: <FaXTwitter />,
+              iconColor: "fg",
               label: "Xをフォロー",
             },
           ],
@@ -71,20 +71,20 @@ describe("Notebook", () => {
           heading: "Share",
           labels: {
             bluesky: "Blueskyでシェア",
-            copy: "リンクをコピー",
+            copy: "記事のリンクをコピー",
             copyCopied: "コピーしました",
             hatena: "はてなでシェア",
-            web: "デバイスで共有",
+            web: "デバイスで記事をシェアする",
             x: "Xでシェア",
           },
           text: "Share text",
           url: "https://example.com",
         }}
         subscription={{
-          emailLabel: "メール通知を受け取る",
+          emailLabel: "メールでブログの更新を受け取る",
           emailUrl: "https://follow.it/qxug4e?leanpub",
           heading: "購読する",
-          label: "RSSをフォロー",
+          label: "RSSでブログの更新を受け取る",
           url: "https://example.com/rss.xml",
         }}
         tags={[]}
@@ -100,9 +100,11 @@ describe("Notebook", () => {
 
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
     const followLink = container.querySelector('a[aria-label="Xをフォロー"]');
-    const rssLink = container.querySelector('a[aria-label="RSSをフォロー"]');
+    const rssLink = container.querySelector(
+      'a[aria-label="RSSでブログの更新を受け取る"]',
+    );
     const emailLink = container.querySelector(
-      'a[aria-label="メール通知を受け取る"]',
+      'a[aria-label="メールでブログの更新を受け取る"]',
     );
 
     expect(shareLink).not.toBeNull();

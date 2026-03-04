@@ -331,18 +331,24 @@ export const Posts = ({ posts, rssUrl }: Props) => {
                   <Heading as="h2" lineHeight="var(--notebook-line-height)">
                     {t("subscribeHeading")}
                   </Heading>
-                  <Stack direction="row">
+                  <Stack
+                    align="stretch"
+                    direction="column"
+                    gap={0}
+                    mx={0}
+                    w="fit-content"
+                  >
                     <RssButton
                       height={actionButtonSize}
                       label={t("followRssLabel")}
                       url={rssUrl}
-                      width={actionButtonSize}
+                      width="100%"
                     />
                     <FollowItButton
                       height={actionButtonSize}
                       label={t("subscribeEmailLabel")}
                       url={FOLLOW_IT_URL}
-                      width={actionButtonSize}
+                      width="100%"
                     />
                   </Stack>
                 </Stack>

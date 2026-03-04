@@ -7,7 +7,6 @@ import {
   Button,
   Flex,
   Heading,
-  HStack,
   Icon,
   SimpleGrid,
   Stack,
@@ -43,6 +42,7 @@ type Props = Omit<ComponentProps<typeof NotebookProse>, "children"> & {
     slug: string;
   };
   follow?: FollowSection;
+  followSectionLayout?: "content" | "default";
   headerRight?: ReactNode;
   indexStatus?: "index" | "noindex";
   isBackToBlog?: boolean;
@@ -114,6 +114,7 @@ export const Notebook = ({
   children,
   comments,
   follow,
+  followSectionLayout = "default",
   headerRight,
   indexStatus = "index",
   isBackToBlog,
@@ -137,6 +138,13 @@ export const Notebook = ({
   const postNumberText =
     postNumber !== undefined ? String(postNumber) : undefined;
   const actionButtonSize = "var(--notebook-line-height)";
+  const actionSectionCount = [
+    share,
+    follow?.items.length ? follow : undefined,
+    subscription,
+  ].filter(Boolean).length;
+  const actionColumnsMd =
+    actionSectionCount >= 3 ? 3 : actionSectionCount >= 2 ? 2 : 1;
   const globalNavigationItems = [
     {
       bg: "green.subtle",
@@ -291,111 +299,200 @@ export const Notebook = ({
           </Box>
         )}
         {comments && <NotebookComments slug={comments.slug} />}
-        {share && (
-          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <Heading as="h2" textAlign="center">
-              {share.heading}
-            </Heading>
-            <VStack align="center" gap={0}>
-              <HStack align="center" gap={2}>
-                <ShareButtonX
-                  height={actionButtonSize}
-                  label={share.labels.x}
-                  text={share.text}
-                  url={share.url}
-                  width={actionButtonSize}
-                />
-                <ShareButtonBluesky
-                  height={actionButtonSize}
-                  label={share.labels.bluesky}
-                  text={share.text}
-                  url={share.url}
-                  width={actionButtonSize}
-                />
-                <ShareButtonHatena
-                  height={actionButtonSize}
-                  label={share.labels.hatena}
-                  text={share.text}
-                  url={share.url}
-                  width={actionButtonSize}
-                />
-              </HStack>
-              <HStack align="center" gap={2}>
-                <ShareButtonWeb
-                  height={actionButtonSize}
-                  label={share.labels.web}
-                  text={share.text}
-                  url={share.url}
-                  width={actionButtonSize}
-                />
-                <ShareButtonCopy
-                  copiedLabel={share.labels.copyCopied}
-                  height={actionButtonSize}
-                  label={share.labels.copy}
-                  url={share.url}
-                  width={actionButtonSize}
-                />
-              </HStack>
-            </VStack>
-          </Box>
-        )}
-        {follow && follow.items.length > 0 && (
-          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <Heading as="h2" textAlign="center">
-              {follow.heading}
-            </Heading>
-            <Stack
-              align="center"
-              direction="row"
-              flexWrap="wrap"
-              justify="center"
-            >
-              {follow.items.map((item) => (
-                <Button
-                  _active={{ bg: item.active }}
-                  _hover={{ bg: item.hover }}
-                  alignItems="center"
-                  aria-label={item.label}
-                  asChild
-                  bg={item.bg}
-                  borderRadius="full"
-                  color="white"
-                  h={actionButtonSize}
-                  key={item.label}
-                  minW={actionButtonSize}
-                  p={0}
-                  size="sm"
-                  variant="solid"
-                  w={actionButtonSize}
+        {(share || (follow && follow.items.length > 0) || subscription) && (
+          <SimpleGrid
+            columns={{ base: 1, md: actionColumnsMd }}
+            gap={0}
+            mb={NOTEBOOK_LINE_HEIGHT}
+            w="full"
+          >
+            {share && (
+              <Box as="section">
+                <VStack
+                  align="stretch"
+                  gap={0}
+                  mx={{ base: 0, md: "auto" }}
+                  w="fit-content"
                 >
-                  <a href={item.href} rel="noopener noreferrer" target="_blank">
-                    <Icon size="sm">{item.icon}</Icon>
-                  </a>
-                </Button>
-              ))}
-            </Stack>
-          </Box>
-        )}
-        {subscription && (
-          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <Heading as="h2" textAlign="center">
-              {subscription.heading}
-            </Heading>
-            <Stack align="center" direction="row" justify="center">
-              <RssButton
-                height={actionButtonSize}
-                label={subscription.label}
-                url={subscription.url}
-                width={actionButtonSize}
-              />
-              <FollowItButton
-                height={actionButtonSize}
-                label={subscription.emailLabel}
-                url={subscription.emailUrl}
-                width={actionButtonSize}
-              />
-            </Stack>
-          </Box>
+                  <Heading as="h2" textAlign="left">
+                    {share.heading}
+                  </Heading>
+                  <Stack
+                    align="stretch"
+                    direction="column"
+                    gap={0}
+                    justify="center"
+                    w="full"
+                  >
+                    <ShareButtonX
+                      height={actionButtonSize}
+                      label={share.labels.x}
+                      text={share.text}
+                      url={share.url}
+                      width="100%"
+                    />
+                    <ShareButtonBluesky
+                      height={actionButtonSize}
+                      label={share.labels.bluesky}
+                      text={share.text}
+                      url={share.url}
+                      width="100%"
+                    />
+                    <ShareButtonHatena
+                      height={actionButtonSize}
+                      label={share.labels.hatena}
+                      text={share.text}
+                      url={share.url}
+                      width="100%"
+                    />
+                    <ShareButtonWeb
+                      height={actionButtonSize}
+                      label={share.labels.web}
+                      text={share.text}
+                      url={share.url}
+                      width="100%"
+                    />
+                    <ShareButtonCopy
+                      copiedLabel={share.labels.copyCopied}
+                      height={actionButtonSize}
+                      label={share.labels.copy}
+                      url={share.url}
+                      width="100%"
+                    />
+                  </Stack>
+                </VStack>
+              </Box>
+            )}
+            {follow && follow.items.length > 0 && (
+              <Box
+                as="section"
+                maxW={followSectionLayout === "content" ? "34rem" : undefined}
+                mx={followSectionLayout === "content" ? "auto" : undefined}
+                w={followSectionLayout === "content" ? "full" : undefined}
+              >
+                <VStack
+                  align="stretch"
+                  gap={0}
+                  mx={
+                    followSectionLayout === "content"
+                      ? 0
+                      : { base: 0, md: "auto" }
+                  }
+                  w="fit-content"
+                >
+                  <Heading as="h2" textAlign="left">
+                    {follow.heading}
+                  </Heading>
+                  <Stack
+                    align="stretch"
+                    direction="column"
+                    gap={0}
+                    justify="center"
+                  >
+                    {follow.items.map((item) => (
+                      <Button
+                        _active={{
+                          bg: item.borderColor,
+                          borderColor: item.borderColor,
+                          color: item.hoverTextColor,
+                        }}
+                        _before={{
+                          bg: item.borderColor,
+                          bottom: "1px",
+                          content: '""',
+                          left: 0,
+                          position: "absolute",
+                          top: "1px",
+                          width: "1px",
+                        }}
+                        _hover={{
+                          bg: item.borderColor,
+                          borderColor: item.borderColor,
+                          color: item.hoverTextColor,
+                          textDecoration: "none",
+                        }}
+                        alignItems="center"
+                        aria-label={item.label}
+                        asChild
+                        bg="transparent"
+                        borderRadius="none"
+                        color="fg"
+                        gap={2}
+                        h={actionButtonSize}
+                        justifyContent="space-between"
+                        key={item.label}
+                        maxH={actionButtonSize}
+                        minH={actionButtonSize}
+                        minW={
+                          followSectionLayout === "content"
+                            ? "fit-content"
+                            : "100%"
+                        }
+                        position="relative"
+                        px={3}
+                        py={0}
+                        size="sm"
+                        textAlign="left"
+                        textDecoration="none"
+                        variant="ghost"
+                        w={
+                          followSectionLayout === "content"
+                            ? "fit-content"
+                            : "100%"
+                        }
+                      >
+                        <a
+                          href={item.href}
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                          target="_blank"
+                        >
+                          {item.label}
+                          <Icon color={item.iconColor} size="sm">
+                            {item.icon}
+                          </Icon>
+                        </a>
+                      </Button>
+                    ))}
+                  </Stack>
+                </VStack>
+              </Box>
+            )}
+            {subscription && (
+              <Box as="section">
+                <VStack
+                  align="stretch"
+                  gap={0}
+                  mx={{ base: 0, md: "auto" }}
+                  w="fit-content"
+                >
+                  <Heading as="h2" textAlign="left">
+                    {subscription.heading}
+                  </Heading>
+                  <Stack
+                    align="stretch"
+                    direction="column"
+                    gap={0}
+                    justify="center"
+                    w="full"
+                  >
+                    <RssButton
+                      height={actionButtonSize}
+                      label={subscription.label}
+                      url={subscription.url}
+                      width="100%"
+                    />
+                    <FollowItButton
+                      height={actionButtonSize}
+                      label={subscription.emailLabel}
+                      url={subscription.emailUrl}
+                      width="100%"
+                    />
+                  </Stack>
+                </VStack>
+              </Box>
+            )}
+          </SimpleGrid>
         )}
         {(navigation?.prev || navigation?.next) && (
           <SimpleGrid

@@ -26,9 +26,9 @@ type Props = ThemeProviderProps;
 export const Provider = ({
   attribute,
   children,
-  defaultTheme = "system",
+  defaultTheme = "light",
   disableTransitionOnChange = true,
-  enableSystem = true,
+  enableSystem = false,
   ...props
 }: Props) => {
   return (

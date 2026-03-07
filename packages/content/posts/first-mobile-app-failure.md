@@ -20,7 +20,7 @@ index: false
 
 実際に作ったアラーム共有アプリの画面は、以下のとおりです。
 
-![アラーム共有(iOS)](http://res.cloudinary.com/silverbirder/image/upload/v1723344679/ypmvtlw47psksvdapsg2.png?ar=1179%3A2556)
+![アラーム共有(iOS)](https://res.cloudinary.com/silverbirder/image/upload/v1723344679/ypmvtlw47psksvdapsg2.png?ar=1179%3A2556)
 
 このアラーム共有アプリでは、アラームのON/OFF、時間、曜日、サウンド、
 音量の設定が可能です。サウンドと音量は試聴することもできます。

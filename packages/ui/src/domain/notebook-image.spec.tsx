@@ -14,6 +14,18 @@ import * as stories from "./notebook-image.stories";
 
 const Stories = composeStories(stories);
 
+const findDialog = async () => {
+  for (let count = 0; count < 10; count += 1) {
+    const dialog = document.body.querySelector('[role="dialog"]');
+    if (dialog) {
+      return dialog;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 0));
+  }
+
+  return null;
+};
+
 describe("NotebookImage", () => {
   it.each(Object.entries(Stories))("should render %s", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
@@ -35,6 +47,41 @@ describe("NotebookImage", () => {
 
     const captionText = container.querySelector("figcaption span");
     expect(captionText?.textContent).toBe("Notebook sample");
+  });
+
+  it("opens enlarged image dialog when image is clicked", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookImage alt="Notebook sample" src="/test.png" />,
+    );
+
+    const trigger = container.querySelector<HTMLButtonElement>("button");
+    trigger?.click();
+
+    const dialog = await findDialog();
+    expect(dialog).not.toBeNull();
+
+    const enlargedImage = dialog?.querySelector("img");
+    expect(enlargedImage?.getAttribute("src")).toBe("/test.png");
+    expect(enlargedImage?.getAttribute("alt")).toBe("Notebook sample");
+  });
+
+  it("closes enlarged image dialog when close button is clicked", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookImage alt="Notebook sample" src="/test.png" />,
+    );
+
+    const trigger = container.querySelector<HTMLButtonElement>("button");
+    trigger?.click();
+
+    const dialog = await findDialog();
+    const closeButton = dialog?.querySelector<HTMLButtonElement>(
+      'button[aria-label="拡大画像を閉じる"]',
+    );
+    closeButton?.click();
+    await Promise.resolve();
+
+    const closedDialog = document.body.querySelector('[role="dialog"]');
+    expect(closedDialog?.getAttribute("data-state")).toBe("closed");
   });
 
   it("sets max height as a multiple of the notebook line height", async () => {

@@ -2,7 +2,13 @@
 
 import type { ComponentPropsWithoutRef } from "react";
 
-import { chakra } from "@chakra-ui/react";
+import {
+  chakra,
+  CloseButton,
+  Dialog,
+  Portal,
+  VisuallyHidden,
+} from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useMemo } from "react";
@@ -163,6 +169,85 @@ const buildResponsivePadding = (frame: ResponsiveValue<FrameBreakpoint>) => {
   } satisfies ResponsiveValue<string>;
 };
 
+type ImageFrameProps = {
+  alt: string;
+  cloudinaryAspectRatio: null | {
+    originalHeight: number;
+    originalWidth: number;
+  };
+  decoding: "async" | "auto" | "sync";
+  frameHeight: "auto" | ResponsiveValue<string>;
+  frameWidth: ResponsiveValue<string>;
+  loading: "eager" | "lazy";
+  shouldShowTape: boolean;
+  src: string;
+};
+
+const NotebookImageFrame = ({
+  alt,
+  cloudinaryAspectRatio,
+  decoding,
+  frameHeight,
+  frameWidth,
+  loading,
+  shouldShowTape,
+  src,
+}: ImageFrameProps) => {
+  return (
+    <chakra.div
+      borderColor="border.muted"
+      borderWidth="1px"
+      boxSizing="border-box"
+      height={frameHeight}
+      marginX="auto"
+      marginY="0"
+      position="relative"
+      width={frameWidth}
+    >
+      {shouldShowTape && (
+        <>
+          <CellophaneTape
+            height="calc(var(--notebook-line-height) * 0.75)"
+            left="calc(var(--notebook-line-height) * -0.55)"
+            pointerEvents="none"
+            position="absolute"
+            top="calc(var(--notebook-line-height) * -0.45)"
+            transform="rotate(-14deg)"
+            width="calc(var(--notebook-line-height) * 2.2)"
+            zIndex={1}
+          />
+          <CellophaneTape
+            height="calc(var(--notebook-line-height) * 0.75)"
+            pointerEvents="none"
+            position="absolute"
+            right="calc(var(--notebook-line-height) * -0.55)"
+            top="calc(var(--notebook-line-height) * -0.45)"
+            transform="rotate(14deg) scaleX(-1)"
+            width="calc(var(--notebook-line-height) * 2.2)"
+            zIndex={1}
+          />
+        </>
+      )}
+      <Image
+        alt={alt}
+        decoding={decoding}
+        fill
+        loading={loading}
+        sizes={cloudinaryAspectRatio ? NOTEBOOK_IMAGE_SIZES : "100vw"}
+        src={src}
+        style={{
+          borderRadius: 0,
+          display: "block",
+          height: "100%",
+          maxHeight: NOTEBOOK_IMAGE_MAX_HEIGHT,
+          objectFit: "contain",
+          width: "100%",
+        }}
+      />
+    </chakra.div>
+  );
+};
+
 export const NotebookImage = ({ alt, linkHref, src, ...props }: Props) => {
   const t = useTranslations("ui.notebookImage");
   const srcString = typeof src === "string" ? src : undefined;
@@ -202,6 +287,9 @@ export const NotebookImage = ({ alt, linkHref, src, ...props }: Props) => {
         sm: frame.sm.height,
       }
     : "auto";
+  const imageDecoding = props.decoding ?? "async";
+  const imageAlt = alt ?? "";
+  const imageLoading = props.loading ?? "lazy";
 
   return (
     <chakra.figure
@@ -214,57 +302,85 @@ export const NotebookImage = ({ alt, linkHref, src, ...props }: Props) => {
       paddingBottom={paddingBottom}
       width={frameWidth}
     >
-      <chakra.div
-        borderColor="border.muted"
-        borderWidth="1px"
-        boxSizing="border-box"
-        height={frameHeight}
-        marginX="auto"
-        marginY="0"
-        position="relative"
-        width={frameWidth}
-      >
-        {shouldShowTape && (
-          <>
-            <CellophaneTape
-              height="calc(var(--notebook-line-height) * 0.75)"
-              left="calc(var(--notebook-line-height) * -0.55)"
-              pointerEvents="none"
-              position="absolute"
-              top="calc(var(--notebook-line-height) * -0.45)"
-              transform="rotate(-14deg)"
-              width="calc(var(--notebook-line-height) * 2.2)"
-              zIndex={1}
-            />
-            <CellophaneTape
-              height="calc(var(--notebook-line-height) * 0.75)"
-              pointerEvents="none"
-              position="absolute"
-              right="calc(var(--notebook-line-height) * -0.55)"
-              top="calc(var(--notebook-line-height) * -0.45)"
-              transform="rotate(14deg) scaleX(-1)"
-              width="calc(var(--notebook-line-height) * 2.2)"
-              zIndex={1}
-            />
-          </>
-        )}
-        <Image
-          alt={alt ?? ""}
-          decoding={props.decoding ?? "async"}
-          fill
-          loading={props.loading ?? "lazy"}
-          sizes={cloudinaryAspectRatio ? NOTEBOOK_IMAGE_SIZES : "100vw"}
-          src={srcString ?? ""}
-          style={{
-            borderRadius: 0,
-            display: "block",
-            height: "100%",
-            maxHeight: NOTEBOOK_IMAGE_MAX_HEIGHT,
-            objectFit: "contain",
-            width: "100%",
-          }}
+      {srcString ? (
+        <Dialog.Root
+          lazyMount
+          motionPreset="slide-in-bottom"
+          placement="center"
+        >
+          <Dialog.Trigger asChild>
+            <chakra.button
+              _focusVisible={{
+                outline: "2px solid",
+                outlineColor: "green.focusRing",
+                outlineOffset: "4px",
+              }}
+              aria-label={t("expandImageAriaLabel")}
+              background="transparent"
+              cursor="zoom-in"
+              display="block"
+              margin={0}
+              padding={0}
+              width={frameWidth}
+            >
+              <NotebookImageFrame
+                alt={imageAlt}
+                cloudinaryAspectRatio={cloudinaryAspectRatio}
+                decoding={imageDecoding}
+                frameHeight={frameHeight}
+                frameWidth={frameWidth}
+                loading={imageLoading}
+                shouldShowTape={shouldShowTape}
+                src={srcString}
+              />
+            </chakra.button>
+          </Dialog.Trigger>
+
+          <Portal>
+            <Dialog.Backdrop />
+            <Dialog.Positioner padding="0">
+              <Dialog.Content
+                margin="0"
+                maxHeight="100dvh"
+                maxWidth="1200px"
+                width="fit-content"
+              >
+                <Dialog.Header padding="0">
+                  <VisuallyHidden>
+                    <Dialog.Title>{t("expandedImageDialogTitle")}</Dialog.Title>
+                  </VisuallyHidden>
+                </Dialog.Header>
+                <Dialog.Body padding="0">
+                  <chakra.img
+                    alt={imageAlt}
+                    display="block"
+                    marginX="auto"
+                    maxHeight="100dvh"
+                    maxWidth="100%"
+                    objectFit="contain"
+                    src={srcString}
+                    width="auto"
+                  />
+                </Dialog.Body>
+                <Dialog.CloseTrigger asChild>
+                  <CloseButton aria-label={t("closeExpandedImageAriaLabel")} />
+                </Dialog.CloseTrigger>
+              </Dialog.Content>
+            </Dialog.Positioner>
+          </Portal>
+        </Dialog.Root>
+      ) : (
+        <NotebookImageFrame
+          alt={imageAlt}
+          cloudinaryAspectRatio={cloudinaryAspectRatio}
+          decoding={imageDecoding}
+          frameHeight={frameHeight}
+          frameWidth={frameWidth}
+          loading={imageLoading}
+          shouldShowTape={shouldShowTape}
+          src=""
         />
-      </chakra.div>
+      )}
 
       {hasCaption && (
         <chakra.figcaption

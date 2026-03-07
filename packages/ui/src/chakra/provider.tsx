@@ -29,6 +29,7 @@ export const Provider = ({
   defaultTheme = "light",
   disableTransitionOnChange = true,
   enableSystem = false,
+  forcedTheme = "light",
   ...props
 }: Props) => {
   return (
@@ -37,6 +38,7 @@ export const Provider = ({
       defaultTheme={defaultTheme}
       disableTransitionOnChange={disableTransitionOnChange}
       enableSystem={enableSystem}
+      forcedTheme={forcedTheme}
       {...props}
     >
       <ChakraProvider value={system}>

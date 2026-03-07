@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, chakra } from "@chakra-ui/react";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 const OFUSE_WIDGET_SCRIPT_SRC = "https://ofuse.me/assets/platform/widget.js";
@@ -13,21 +14,25 @@ type Props = {
 };
 
 export const OfuseButton = ({ id, label, style = "rectangle", url }: Props) => {
-  useEffect(() => {
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      `script[src="${OFUSE_WIDGET_SCRIPT_SRC}"]`,
-    );
+  const pathname = usePathname();
 
-    if (existingScript) {
-      return;
-    }
+  useEffect(() => {
+    document
+      .querySelectorAll<HTMLScriptElement>(
+        `script[src="${OFUSE_WIDGET_SCRIPT_SRC}"]`,
+      )
+      .forEach((script) => script.remove());
 
     const script = document.createElement("script");
     script.async = true;
     script.src = OFUSE_WIDGET_SCRIPT_SRC;
 
     document.body.appendChild(script);
-  }, []);
+
+    return () => {
+      script.remove();
+    };
+  }, [pathname]);
 
   return (
     <Box

@@ -25,13 +25,13 @@ describe("Tag", () => {
     const link = container.querySelector("a");
     expect(link?.textContent ?? "").toContain(tag);
     expect(link?.getAttribute("href") ?? "").toContain(
-      `/blog/?tag=${encodeURIComponent(tag)}`,
+      `/blog?tag=${encodeURIComponent(tag)}`,
     );
   });
 
   it("uses provided href when passed", async () => {
     const tag = "Design System";
-    const href = "/blog/?tag=Design%20System&year=2025";
+    const href = "/blog?tag=Design%20System&year=2025";
     const { container } = await renderWithProvider(
       <Tag href={href} tag={tag} />,
     );

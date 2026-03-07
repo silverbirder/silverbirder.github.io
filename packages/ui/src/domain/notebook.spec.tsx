@@ -190,8 +190,8 @@ describe("Notebook", () => {
       container.querySelectorAll('a[href^="/blog/contents/"]'),
     );
     expect(links.map((link) => link.getAttribute("href"))).toEqual([
-      "/blog/contents/next/",
-      "/blog/contents/prev/",
+      "/blog/contents/next",
+      "/blog/contents/prev",
     ]);
   });
 

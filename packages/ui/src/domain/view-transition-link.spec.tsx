@@ -25,6 +25,6 @@ describe("ViewTransitionLink", () => {
 
     const link = container.querySelector("a");
     expect(link?.textContent).toBe("Go");
-    expect(link?.getAttribute("href")).toBe("/blog/");
+    expect(link?.getAttribute("href")).toBe("/blog");
   });
 });

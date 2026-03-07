@@ -28,6 +28,13 @@ const getLikeButton = (container: HTMLElement) => {
   expect(button).not.toBeNull();
   return button as HTMLButtonElement;
 };
+const getCountLabel = (container: HTMLElement) => {
+  const button = getLikeButton(container);
+  const label = button.parentElement?.nextElementSibling;
+
+  expect(label).not.toBeNull();
+  return label as HTMLElement;
+};
 const triggerLikeClick = (button: HTMLButtonElement) => {
   button.dispatchEvent(
     new MouseEvent("click", { bubbles: true, cancelable: true }),
@@ -95,7 +102,7 @@ describe("NotebookLike", () => {
     );
     expect(button).not.toBeNull();
     await vi.waitFor(() => {
-      expect(container.textContent ?? "").toContain("3");
+      expect(getCountLabel(container).textContent).toBe("3");
     });
   });
 
@@ -157,17 +164,17 @@ describe("NotebookLike", () => {
   });
 
   it("shows apology balloon when clicking an already liked button", async () => {
-    vi.spyOn(globalThis, "fetch")
-      .mockResolvedValueOnce(
-        new Response(JSON.stringify({ count: 3, liked: true }), {
+    vi.spyOn(globalThis, "fetch").mockImplementation(async (_, init) => {
+      if (init?.method === "POST") {
+        return new Response(JSON.stringify({ count: 2, liked: false }), {
           status: 200,
-        }),
-      )
-      .mockResolvedValueOnce(
-        new Response(JSON.stringify({ count: 2, liked: false }), {
-          status: 200,
-        }),
-      );
+        });
+      }
+
+      return new Response(JSON.stringify({ count: 3, liked: true }), {
+        status: 200,
+      });
+    });
     const { container } = await renderWithProvider(
       <NotebookLike name="sample-post" namespace="silverbirder-github-io" />,
     );

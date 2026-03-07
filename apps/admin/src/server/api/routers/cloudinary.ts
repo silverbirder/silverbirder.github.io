@@ -9,6 +9,20 @@ cloudinary.config({
   secure: true,
 });
 
+const buildNotebookImageUrl = ({
+  originalHeight,
+  originalWidth,
+  secureUrl,
+}: {
+  originalHeight: number;
+  originalWidth: number;
+  secureUrl: string;
+}) => {
+  const url = new URL(secureUrl);
+  url.searchParams.set("ar", `${originalWidth}:${originalHeight}`);
+  return url.href;
+};
+
 export const cloudinaryRouter = createTRPCRouter({
   upload: publicProcedure
     .input(
@@ -34,6 +48,16 @@ export const cloudinaryRouter = createTRPCRouter({
         throw new Error("Upload failed.");
       }
 
-      return { url: result.secure_url };
+      if (!result.width || !result.height) {
+        return { url: result.secure_url };
+      }
+
+      return {
+        url: buildNotebookImageUrl({
+          originalHeight: result.height,
+          originalWidth: result.width,
+          secureUrl: result.secure_url,
+        }),
+      };
     }),
 });

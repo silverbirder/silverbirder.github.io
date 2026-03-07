@@ -167,7 +167,7 @@ Screenplay パターンは、ビジネスの用語をテストシナリオに取
 
 Screenplay には、以下の 5 つの要素が存在します。
 
-[![Five elements of the Screenplay Pattern - https://serenity-js.org](https://res.cloudinary.com/silverbirder/image/upload/v1699704842/silver-birder.github.io/blog/serenity-js-screenplay-pattern.5eead28.1200.png)](https://serenity-js.org/handbook/design/screenplay-pattern/)
+[![Five elements of the Screenplay Pattern - https://serenity-js.org](https://res.cloudinary.com/silverbirder/image/upload/v1699704842/silver-birder.github.io/blog/serenity-js-screenplay-pattern.5eead28.1200.png?ar=1200%3A578)](https://serenity-js.org/handbook/design/screenplay-pattern/)
 
 5 つの要素について紹介します。
 

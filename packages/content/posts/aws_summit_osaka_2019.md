@@ -10,7 +10,7 @@ tags: ["クラウドインフラ", "レポート"]
 
 https://aws.amazon.com/jp/summits/osaka-2019/
 
-![もらったもの](https://res.cloudinary.com/silverbirder/image/upload/v1614430752/silver-birder.github.io/blog/AWS_Summit_Osaka_2019_Novelty.png)
+![もらったもの](https://res.cloudinary.com/silverbirder/image/upload/v1614430752/silver-birder.github.io/blog/AWS_Summit_Osaka_2019_Novelty.png?ar=488%3A658)
 
 hastag はこちら [#AWSSummit](https://twitter.com/hashtag/AWSSummit)
 

@@ -122,7 +122,7 @@ ISAは、次の意味になります。
 
 また、非言語依存な中間言語(以下、IR)を中心として設計されています。
 
-![Retargetablity - The Architecture of Open Source Applications: LLVM](https://res.cloudinary.com/silverbirder/image/upload/v1693376952/silver-birder.github.io/blog/RetargetableCompiler.png)
+![Retargetablity - The Architecture of Open Source Applications: LLVM](https://res.cloudinary.com/silverbirder/image/upload/v1693376952/silver-birder.github.io/blog/RetargetableCompiler.png?ar=557%3A206)
 
 ---
 
@@ -204,7 +204,7 @@ declare noundef i32 @printf(i8* nocapture noundef readonly, ...) local_unnamed_a
 
 IRをModule,Function,Block,Instructionで区切って見ると、次の画像のとおりです。
 
-![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png)
+![sample_llvm_code](https://res.cloudinary.com/silverbirder/image/upload/v1633770792/silver-birder.github.io/blog/sample_llvm_code.png?ar=2068%3A1138)
 
 それぞれ、どういうものか簡単に説明します。
 

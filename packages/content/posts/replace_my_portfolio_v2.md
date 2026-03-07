@@ -40,7 +40,7 @@ Hugo で記事を管理する対象は、Markdown であるため、エンジニ
 
 AMP を存分に使ったポートフォリオサイトを作成しました。全体像は、下記のとおりです。
 
-![overview](https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png)
+![overview](https://res.cloudinary.com/silverbirder/image/upload/v1640068525/silver-birder.github.io/blog/silverbirder_portfolio_amp_overview.png?ar=532%3A361)
 
 [AMP Optimizer](https://www.npmjs.com/package/@ampproject/toolbox-optimizer)を中心とした構成です。
 ソースコードは、下記のリポジトリにあります。

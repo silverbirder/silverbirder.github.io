@@ -13,7 +13,9 @@ const config = {
     viewTransition: true,
   },
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/image-loader.js",
+    unoptimized: false,
   },
   output: "export",
   reactCompiler: true,

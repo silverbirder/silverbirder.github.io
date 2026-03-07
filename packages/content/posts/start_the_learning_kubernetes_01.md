@@ -45,15 +45,15 @@ iMac (21.5-inch, 2017)
 
 ## GKE SetUp
 
-![GKE 標準クラスタ テンプレート 1](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_1.png)
+![GKE 標準クラスタ テンプレート 1](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_1.png?ar=465%3A779)
 
 ノードってのは、ポッド（コンテナ）を入れるマシンなんだっけな。 ([Pod と Node](https://nownabe.github.io/kubernetes-doc/tutorials/kubernetes_basics/3_explore_your_app.html))
 
-![GKE 標準クラスタ テンプレート 2](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_2.png)
+![GKE 標準クラスタ テンプレート 2](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_2.png?ar=454%3A731)
 
 まあ、デフォルトで良いよね 🤔
 
-![GKE 標準クラスタ テンプレート 3](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_3.png)
+![GKE 標準クラスタ テンプレート 3](https://res.cloudinary.com/silverbirder/image/upload/v1639816542/silver-birder.github.io/blog/GKE_template_3.png?ar=457%3A720)
 
 単語がどれも分からなさすぎる...(Istio?自動プロビジョニング?垂直ポッド自動スケーリング？) 🤔🤔🤔
 

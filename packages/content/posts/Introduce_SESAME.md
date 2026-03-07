@@ -53,40 +53,40 @@ https://jp.candyhouse.co/
 
 まず、私の家の扉はつぎの画像の感じです。ここの下の鍵に SESAME を取り付けたいなと考えていました。
 
-![私の家の扉](https://res.cloudinary.com/silverbirder/image/upload/v1639791386/silver-birder.github.io/blog/my_house_door.png)
+![私の家の扉](https://res.cloudinary.com/silverbirder/image/upload/v1639791386/silver-birder.github.io/blog/my_house_door.png?ar=1400%3A1866)
 
 ただ、試してみると、私の家の扉では SESAME が設置できませんでした…
 
-![ミスマッチ！](https://res.cloudinary.com/silverbirder/image/upload/v1614345846/silver-birder.github.io/blog/miss_match_sesame_size.png)
+![ミスマッチ！](https://res.cloudinary.com/silverbirder/image/upload/v1614345846/silver-birder.github.io/blog/miss_match_sesame_size.png?ar=1400%3A1866)
 
 何がダメかというと、SESAME は両面テープでくっつけるため、壁と設置する必要があります。ただ、私の家の扉には、段差があるため、SESAME をくっつけることができませんでした…。
 
-![鍵と扉に奥行きがある](https://res.cloudinary.com/silverbirder/image/upload/v1614345933/silver-birder.github.io/blog/lock_and_door_have_depth_sesame.png)
+![鍵と扉に奥行きがある](https://res.cloudinary.com/silverbirder/image/upload/v1614345933/silver-birder.github.io/blog/lock_and_door_have_depth_sesame.png?ar=1400%3A1866)
 
 そこで、カスタマーサポートに連絡したところ、超親切にフォローして頂き、アダプター作成をしてもらえました。（送料無料、ただしアマゾンレビューをする）
 
-![SESAMEと私のやりとり。ほぼ１日程度に返事がくる](https://res.cloudinary.com/silverbirder/image/upload/v1614346016/silver-birder.github.io/blog/SESAME_and_my_correspondence_get_a_response_almost_every_day_or_so.png)
+![SESAMEと私のやりとり。ほぼ１日程度に返事がくる](https://res.cloudinary.com/silverbirder/image/upload/v1614346016/silver-birder.github.io/blog/SESAME_and_my_correspondence_get_a_response_almost_every_day_or_so.png?ar=1190%3A1019)
 
 返事がとてつもなく早く、本当に素晴らしいと感動しました。
 こちらが提供した情報は、扉の各必要な長さを提供したぐらいです。
 
-![それぞれの長さを提供 1](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_1.png)
+![それぞれの長さを提供 1](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_1.png?ar=228%3A271)
 
-![それぞれの長さを提供 2](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_2.png)
+![それぞれの長さを提供 2](https://res.cloudinary.com/silverbirder/image/upload/v1614381654/silver-birder.github.io/blog/provide_the_length_of_each_door_2.png?ar=249%3A305)
 
-![それぞれの長さを提供 3](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_3.png)
+![それぞれの長さを提供 3](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_3.png?ar=1000%3A1333)
 
-![それぞれの長さを提供 4](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_4.png)
+![それぞれの長さを提供 4](https://res.cloudinary.com/silverbirder/image/upload/v1614381657/silver-birder.github.io/blog/provide_the_length_of_each_door_4.png?ar=1000%3A1333)
 
 それぞれの長さを提供すると、つぎのようなアダプターが完成したとのことで連絡をもらいました。（おそらく 3D プリンターで作成されたのかな)
 
-![アダプター完成図](https://res.cloudinary.com/silverbirder/image/upload/v1614382012/silver-birder.github.io/blog/SESAME_adapter_complete_diagram.png)
+![アダプター完成図](https://res.cloudinary.com/silverbirder/image/upload/v1614382012/silver-birder.github.io/blog/SESAME_adapter_complete_diagram.png?ar=1400%3A1741)
 
 こちらを私の家の扉に設定してみると、ぴったしハマり、無事両面テープが貼れました！ぱちぱち！
 
-![アダプターを噛ませて設置 1](https://res.cloudinary.com/silverbirder/image/upload/v1614382084/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_1.png)
+![アダプターを噛ませて設置 1](https://res.cloudinary.com/silverbirder/image/upload/v1614382084/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_1.png?ar=1000%3A1333)
 
-![アダプターを噛ませて設置 2](https://res.cloudinary.com/silverbirder/image/upload/v1614382086/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_2.png)
+![アダプターを噛ませて設置 2](https://res.cloudinary.com/silverbirder/image/upload/v1614382086/silver-birder.github.io/blog/Installation_by_engaging_the_SESAME_adapter_2.png?ar=1000%3A1333)
 
 当初、白色のアダプターが来るのかと思ったのですが、黒色がきました。良いね！
 

@@ -20,7 +20,7 @@ tags: ["成果物", "Google"]
 『いつ商品が届くのかな？メールを確認しよう』が、 **面倒と感じませんか** ？私は面倒と思います。
 Google は気を利かせて、次のような予定を勝手に登録してくれることがあります。（良い悪いがありますが...）
 
-![unknownorganizer@calendar.google.com](https://res.cloudinary.com/silverbirder/image/upload/v1614431051/silver-birder.github.io/blog/unknownorganizer_google_calendar.png)
+![unknownorganizer@calendar.google.com](https://res.cloudinary.com/silverbirder/image/upload/v1614431051/silver-birder.github.io/blog/unknownorganizer_google_calendar.png?ar=680%3A820)
 
 この気を利かせるかどうかは、Google の判断によるため未知数です。
 先程あげた例のメールも、同様のことが勝手にしてくれたら良いな〜と思っていました。
@@ -49,7 +49,7 @@ https://www.npmjs.com/package/@silverbirder/rminc
 
 概要はこんな感じです。
 
-![overview](https://res.cloudinary.com/silverbirder/image/upload/v1581769421/rMinc/rMinc_overview.png)
+![overview](https://res.cloudinary.com/silverbirder/image/upload/v1581769421/rMinc/rMinc_overview.png?ar=1852%3A1036)
 
 1. 特定キーワードでメールを抽出
    1. アマゾンなら、[from:(shipment-tracking@amazon.co.jp) 発送](https://github.com/silverbirder/rMinc/blob/master/src/user/mailRule/amazonMailRule.ts#L61)
@@ -63,7 +63,7 @@ https://www.npmjs.com/package/@silverbirder/rminc
 
 実際に使ってみるとこんな感じになります。
 
-![example](https://res.cloudinary.com/silverbirder/image/upload/v1581760683/rMinc/rMinc_sample.png)
+![example](https://res.cloudinary.com/silverbirder/image/upload/v1581760683/rMinc/rMinc_sample.png?ar=1854%3A1032)
 
 小さくて見えないと思いますが、お届け予定日、タイトル、配達先、メールリンクが登録されています。
 

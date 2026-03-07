@@ -26,7 +26,7 @@ https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6
 次の図では、CNCF プロジェクトの 180 日間における Commit 数をグラフ化したものです。
 生みの親である Google が 1 位で independent(個人)が 2 番目、日本企業 Fujitsu が 6 位です。熱意が伝わってきますね。
 
-[![https://www.stackalytics.com/cncf?date=180](https://res.cloudinary.com/silverbirder/image/upload/v1614429648/silver-birder.github.io/blog/stackalytics_cncf.png)](https://www.stackalytics.com/cncf?date=180)
+[![https://www.stackalytics.com/cncf?date=180](https://res.cloudinary.com/silverbirder/image/upload/v1614429648/silver-birder.github.io/blog/stackalytics_cncf.png?ar=1058%3A525)](https://www.stackalytics.com/cncf?date=180)
 ※ 2019/07/24 時点
 
 ただ、CNCF のメンバーとして日本企業は **17 社** しかないそうで、まだまだこれからといったところでしょうか。
@@ -210,7 +210,7 @@ https://twitter.com/ca_adtechstudio/status/1152080444445167616
 
 さっそく、キーボードにとりつけてみました。最高です！
 
-![ergodox with k8s keycap (cyberAgent)](https://res.cloudinary.com/silverbirder/image/upload/v1614429692/silver-birder.github.io/blog/ergodox_with_k8s_keycap.jpg)
+![ergodox with k8s keycap (cyberAgent)](https://res.cloudinary.com/silverbirder/image/upload/v1614429692/silver-birder.github.io/blog/ergodox_with_k8s_keycap.jpg?ar=1200%3A900)
 
 こちらのサービスから作られたそうで、私も自前で何か作ってみようかなと思いました。
 

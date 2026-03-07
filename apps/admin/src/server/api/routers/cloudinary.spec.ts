@@ -49,7 +49,10 @@ const createCaller = createCallerFactory(cloudinaryRouter);
 describe("cloudinaryRouter.upload", () => {
   it("uploads the image and returns the secure url", async () => {
     uploadMock.mockResolvedValue({
-      secure_url: "https://res.cloudinary.com/demo/image/upload/sample.png",
+      height: 1017,
+      secure_url:
+        "https://res.cloudinary.com/demo/image/upload/v123/sample.png",
+      width: 1280,
     });
 
     const caller = createCaller({
@@ -69,7 +72,7 @@ describe("cloudinaryRouter.upload", () => {
       }),
     );
     expect(result).toEqual({
-      url: "https://res.cloudinary.com/demo/image/upload/sample.png",
+      url: "https://res.cloudinary.com/demo/image/upload/v123/sample.png?ar=1280%3A1017",
     });
   });
 });

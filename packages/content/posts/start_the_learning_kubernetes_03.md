@@ -63,7 +63,7 @@ iMac (21.5-inch, 2017)
 [Raspberry Pi でおうち Kubernetes 構築【物理編】](https://qiita.com/go_vargo/items/d1271ab60f2bba375dcc)で十分な情報があります。こちらを参考にして組み立てします。
 できたものがこちらです。
 
-![kubernetes_raspberrypi.png](https://res.cloudinary.com/silverbirder/image/upload/v1639816691/silver-birder.github.io/blog/kubernetes_raspberrypi.png)
+![kubernetes_raspberrypi.png](https://res.cloudinary.com/silverbirder/image/upload/v1639816691/silver-birder.github.io/blog/kubernetes_raspberrypi.png?ar=500%3A514)
 
 WiFi を使うために、LAN ケーブルや WiFi 親機などがなくなり、スッキリしました。
 電源を確保できるところであれば、家の中なら、どこでも持ち運びできます。 ✨
@@ -254,7 +254,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 `http://192.168.3.32:30783`にアクセス
 
-![nginx](https://res.cloudinary.com/silverbirder/image/upload/v1639816718/silver-birder.github.io/blog/kubernetes_nginx.png)
+![nginx](https://res.cloudinary.com/silverbirder/image/upload/v1639816718/silver-birder.github.io/blog/kubernetes_nginx.png?ar=554%3A210)
 
 OK!
 

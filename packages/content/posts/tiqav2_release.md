@@ -17,7 +17,7 @@ tags: ["成果物", "サービス"]
 
 そこで、次のような画像でコミュニケーションを取ると、柔らかい印象を与えることができます。
 
-![golia LGTM](https://res.cloudinary.com/silverbirder/image/upload/v1580997144/LGTM/golia.png)
+![golia LGTM](https://res.cloudinary.com/silverbirder/image/upload/v1580997144/LGTM/golia.png?ar=600%3A600)
 
 ## Tiqav2
 
@@ -41,7 +41,7 @@ Tiqav2 は、大きく分けて 2 つの機能があります。
 
 ### 画像とテキストを保存
 
-![Saving flow by Tiqav2](https://res.cloudinary.com/silverbirder/image/upload/v1614429484/silver-birder.github.io/blog/saving_flow_by_tiqav2.png)
+![Saving flow by Tiqav2](https://res.cloudinary.com/silverbirder/image/upload/v1614429484/silver-birder.github.io/blog/saving_flow_by_tiqav2.png?ar=1200%3A652)
 
 検索する為には、全文検索サービスの Algolia を使います。
 
@@ -59,7 +59,7 @@ https://cloud.google.com/vision/
 
 ### 画像を検索&表示
 
-![Searching Flow  By Tiqav2](https://res.cloudinary.com/silverbirder/image/upload/v1614429523/silver-birder.github.io/blog/searching_flow_by_tiqav2.png)
+![Searching Flow  By Tiqav2](https://res.cloudinary.com/silverbirder/image/upload/v1614429523/silver-birder.github.io/blog/searching_flow_by_tiqav2.png?ar=679%3A680)
 
 テキストで全文検索を行います。その結果の ID と Extension を組み合わせることで、
 画像を表示することができます。Extension の種類は、Cloudinary のサポートするもの全てになります。
@@ -72,7 +72,7 @@ https://cloudinary.com/documentation/image_transformations#supported_image_forma
 
 この画像を表示する機能を使うと、次のように Slack 上で画像を送信することができます。
 
-![Send Tiqav2 URL on Slack](https://res.cloudinary.com/silverbirder/image/upload/v1614429563/silver-birder.github.io/blog/send_tiqav2_URL_on_slack.png)
+![Send Tiqav2 URL on Slack](https://res.cloudinary.com/silverbirder/image/upload/v1614429563/silver-birder.github.io/blog/send_tiqav2_URL_on_slack.png?ar=716%3A569)
 
 詳しい機能は、次のリポジトリをご確認下さい。
 

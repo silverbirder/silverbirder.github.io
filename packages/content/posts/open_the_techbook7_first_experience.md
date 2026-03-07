@@ -58,7 +58,7 @@ https://kauplan.org/reviewstarter/
 docker run --rm -v $PWD:/work kauplan/review2.5 /bin/bash -c "cd /work; rake pdf"
 ```
 
-![ReViewStarter sample page](https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png)
+![ReViewStarter sample page](https://res.cloudinary.com/silverbirder/image/upload/v1614430347/silver-birder.github.io/blog/ReViewStarter_sample_page.png?ar=757%3A1200)
 
 **良い感じの本** の PDF が作成されました、最高です。
 
@@ -179,7 +179,7 @@ iPad, Magic Pencil は買って正解でした。
 
 お絵かきが苦手だったので、知人に助けてもらい、なんとか作れました。
 
-![表表紙](https://res.cloudinary.com/silverbirder/image/upload/v1614430433/silver-birder.github.io/blog/front_cover_of_web_component_for_the_first_time.png)
+![表表紙](https://res.cloudinary.com/silverbirder/image/upload/v1614430433/silver-birder.github.io/blog/front_cover_of_web_component_for_the_first_time.png?ar=911%3A1200)
 
 ## 2. 製本
 
@@ -285,7 +285,7 @@ https://booth.pm/ja
 Google Analytics ( **初登録** )と Booth が連携できるので、流入数を見れるのですが、
 離脱率が 86%という悲しい結果を知りました。ここは改善の余地がありそうです。
 
-![Booth on Google Analytics](https://res.cloudinary.com/silverbirder/image/upload/v1614430470/silver-birder.github.io/blog/booth_on_google_analytics.png)
+![Booth on Google Analytics](https://res.cloudinary.com/silverbirder/image/upload/v1614430470/silver-birder.github.io/blog/booth_on_google_analytics.png?ar=1200%3A731)
 
 pixiv ID 登録しないとダウンロードできないので、ここが駄目ならサービスを使わない方が良いかもしれません。
 見本誌に限っては、GoogleDrive で渡すようにするとかですかね。

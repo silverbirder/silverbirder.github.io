@@ -21,7 +21,7 @@ tags: ["仕事"]
 
 次に私の学習時間について、以下の図で示します。これらのデータは、私が学習の管理に使用しているサービス、[Study Plus](https://www.studyplus.jp/)から取得しました。学習期間は、2023 年 1 月から 2023 年 6 月までです。
 
-![study_plus_1](https://res.cloudinary.com/silverbirder/image/upload/v1688543381/silver-birder.github.io/blog/study_plus_1.png)
+![study_plus_1](https://res.cloudinary.com/silverbirder/image/upload/v1688543381/silver-birder.github.io/blog/study_plus_1.png?ar=1060%3A622)
 
 図からわかるように、私は毎月 30 時間以上を学習に費やしています。日で分割すると、一日 1 時間以上は勉強していたことになります。
 6 月は特別な事情があり、学習時間を確保することができませんでした。

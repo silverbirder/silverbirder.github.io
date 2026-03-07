@@ -141,4 +141,29 @@ describe("NotebookImage", () => {
     expect(links[0]?.getAttribute("href")).toBe("https://example.com");
     expect(links[0]?.getAttribute("target")).toBe("_blank");
   });
+
+  it("keeps cloudinary image metadata in the src", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookImage
+        alt="Notebook sample"
+        src="https://res.cloudinary.com/silverbirder/image/upload/v1770553428/silver-birder.github.io/blog/s0ezzpq8qcuoqah51nqs.jpg?ar=1280:1017"
+      />,
+    );
+
+    const image = container.querySelector("img");
+
+    expect(image?.getAttribute("src")).toBe(
+      "https://res.cloudinary.com/silverbirder/image/upload/v1770553428/silver-birder.github.io/blog/s0ezzpq8qcuoqah51nqs.jpg?ar=1280:1017",
+    );
+  });
+
+  it("does not add srcSet for non-cloudinary image in the test mock", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookImage alt="Notebook sample" src="/test.png" />,
+    );
+
+    const image = container.querySelector("img");
+
+    expect(image?.getAttribute("srcset")).toBeNull();
+  });
 });

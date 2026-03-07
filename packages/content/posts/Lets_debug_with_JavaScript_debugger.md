@@ -28,7 +28,7 @@ JavaScript の標準機能 `debugger` を使って、デバッグをしましょ
 
 そうすると、次の画像のようになります。
 
-![browser_debugger](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/browser_debugger.png)
+![browser_debugger](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/browser_debugger.png?ar=3104%3A1974)
 
 `debugger`と書いた箇所で、処理が停止されます。
 そのブレークポイントから、ステップイン、ステップアウト、ステップオーバーといった操作ができます。
@@ -55,16 +55,16 @@ node --inspect-brk main.js
 
 実行すると、次の画像のような出力になります。
 
-![node_debugger_1](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_1.png)
+![node_debugger_1](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_1.png?ar=1364%3A990)
 
 その後、Chrome から `chrome://inspect` にアクセスしてください。
 アクセスすると、次の画像の画面になります。
 
-![node_debugger_2](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_2.png)
+![node_debugger_2](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_2.png?ar=1662%3A974)
 
 `Open dedicated DevTools for Node` を Click したら、次の画像のようになります。
 
-![node_debugger_3](https://res.cloudinary.com/silverbirder/image/upload/v1657342289/silver-birder.github.io/blog/node_debugger_3.png)
+![node_debugger_3](https://res.cloudinary.com/silverbirder/image/upload/v1657342289/silver-birder.github.io/blog/node_debugger_3.png?ar=1664%3A1534)
 
 そうです、さきほどと同じように、`debugger` の箇所で、処理が停止されます。
 簡単ですね。
@@ -93,13 +93,13 @@ node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand main.test.js
 
 実行すると、次の画像のような出力になります。
 
-![jest_debugger_1](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_1.png)
+![jest_debugger_1](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_1.png?ar=1364%3A990)
 
 また、同じく Chrome から`chrome://inspect` にアクセスすると、同様にデバッグできます。
 
-![jest_debugger_2](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_2.png)
+![jest_debugger_2](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_2.png?ar=1664%3A1228)
 
-![jest_debugger_3](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_3.png)
+![jest_debugger_3](https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_3.png?ar=1706%3A1252)
 
 Browser,Node.js と同じ使い方になります。
 わかりやすいですね。

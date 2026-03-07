@@ -32,7 +32,7 @@ tags: ["クラウドインフラ"]
 
 Kubernetes では、下記のような構成になっています。
 
-![kubernetes_master.png](https://res.cloudinary.com/silverbirder/image/upload/v1639816831/silver-birder.github.io/blog/kubernetes_master.png)
+![kubernetes_master.png](https://res.cloudinary.com/silverbirder/image/upload/v1639816831/silver-birder.github.io/blog/kubernetes_master.png?ar=878%3A404)
 
 ※ [https://kubernetes.io/docs/concepts/architecture/cloud-controller/](https://kubernetes.io/docs/concepts/architecture/cloud-controller/)
 

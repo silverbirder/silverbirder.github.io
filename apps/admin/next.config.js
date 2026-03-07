@@ -13,6 +13,14 @@ const config = {
       bodySizeLimit: "10mb",
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "res.cloudinary.com",
+        protocol: "https",
+      },
+    ],
+  },
   output: "standalone",
   reactCompiler: true,
   typedRoutes: true,

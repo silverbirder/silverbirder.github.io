@@ -78,7 +78,7 @@ export default async function Image() {
 
 以下の画像が、`lineClamp` を使用した OGP 画像の例です。
 
-![lineClamp](https://res.cloudinary.com/silverbirder/image/upload/v1738842539/silver-birder.github.io/blog/WAGAHAI_IS_CAT_simple.png)
+![lineClamp](https://res.cloudinary.com/silverbirder/image/upload/v1738842539/silver-birder.github.io/blog/WAGAHAI_IS_CAT_simple.png?ar=1200%3A630)
 
 ## 2. budouxを使う方法
 
@@ -191,7 +191,7 @@ function splitTextIntoLines(
 
 以下の画像が、`budoux` を使用した OGP 画像の例です。
 
-![budoux](https://res.cloudinary.com/silverbirder/image/upload/v1738842539/silver-birder.github.io/blog/WAGAHAI_IS_CAT_budoux.png)
+![budoux](https://res.cloudinary.com/silverbirder/image/upload/v1738842539/silver-birder.github.io/blog/WAGAHAI_IS_CAT_budoux.png?ar=1200%3A630)
 
 ## 終わりに
 

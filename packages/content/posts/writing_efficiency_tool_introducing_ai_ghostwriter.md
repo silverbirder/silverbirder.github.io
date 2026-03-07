@@ -25,7 +25,7 @@ AI Ghostwriter は、ChatGPT を活用して執筆者のライティング作業
 
 百聞は一見にしかず、デモ動画を紹介します。以下の画像をクリックするとデモ動画が再生されます。
 
-![AI Ghostwriter DEMO](https://res.cloudinary.com/silverbirder/image/upload/v1693381103/silver-birder.github.io/blog/ai_ghost_writer_demo.gif)
+![AI Ghostwriter DEMO](https://res.cloudinary.com/silverbirder/image/upload/v1693381103/silver-birder.github.io/blog/ai_ghost_writer_demo.gif?ar=640%3A389)
 
 以下は、デモ動画で紹介している AI Ghostwriter の操作手順です。
 
@@ -38,7 +38,7 @@ AI Ghostwriter は、ChatGPT を活用して執筆者のライティング作業
 
 コンテキストメニューのアクションは、ユーザーのニーズに合わせて自由にカスタマイズ可能です。具体的には、アクションの追加・削除・編集が可能です。以下の画像の通りです。アクションは、オプションページで登録できます。
 
-![Chrome拡張機能のオプションページ](https://res.cloudinary.com/silverbirder/image/upload/v1693364104/silver-birder.github.io/blog/088188b02d18-20230716.png)
+![Chrome拡張機能のオプションページ](https://res.cloudinary.com/silverbirder/image/upload/v1693364104/silver-birder.github.io/blog/088188b02d18-20230716.png?ar=1300%3A1030)
 
 ※ オプションページは、右上の AI Ghostwriter アイコンを右クリックするとオプションという選択肢があり、それをクリックするとオプションページに遷移できます。
 

@@ -8,11 +8,11 @@ tags: ["レポート", "フロントエンド"]
 今回は DeNA さん主催の Frontend のイベントに参加してきましたので、
 報告しようと思います。hashtag はこちら [#frokan](https://twitter.com/hashtag/frokan)
 
-![frontend de kanpai tech board](https://res.cloudinary.com/silverbirder/image/upload/v1614429379/silver-birder.github.io/blog/frontend_de_kanpai_tech_board.jpg)
+![frontend de kanpai tech board](https://res.cloudinary.com/silverbirder/image/upload/v1614429379/silver-birder.github.io/blog/frontend_de_kanpai_tech_board.jpg?ar=1200%3A900)
 
 firebase の勢いがすごい。あと now も多少人気で、now 信者の私とっては嬉しい 。
 
-![frontend de kanpai novelty](https://res.cloudinary.com/silverbirder/image/upload/v1614429431/silver-birder.github.io/blog/frontend_de_kanpai_novelty.jpg)
+![frontend de kanpai novelty](https://res.cloudinary.com/silverbirder/image/upload/v1614429431/silver-birder.github.io/blog/frontend_de_kanpai_novelty.jpg?ar=1200%3A801)
 
 ※ [https://twitter.com/DeNACreators/status/1152199891860389888](https://twitter.com/DeNACreators/status/1152199891860389888)  
 ※ [https://twitter.com/antidotech/status/1152154690617872384](https://twitter.com/antidotech/status/1152154690617872384)  
@@ -93,7 +93,7 @@ Google 翻訳を通すと
 
 次の画像は顔検出した箇所にモザイクを入れるデモです。これは笑いました。
 
-![Shape Detection API Demo](https://res.cloudinary.com/silverbirder/image/upload/v1614429340/silver-birder.github.io/blog/Shape_Detection_API_Demo.jpg)
+![Shape Detection API Demo](https://res.cloudinary.com/silverbirder/image/upload/v1614429340/silver-birder.github.io/blog/Shape_Detection_API_Demo.jpg?ar=1164%3A1200)
 
 ※ [https://twitter.com/antidotech/status/1152180161413931008](https://twitter.com/antidotech/status/1152180161413931008)
 

@@ -24,7 +24,7 @@ https://silverbirder-react-todo-mvc.vercel.app
 
 コンポーネントの構造は以下の通りです。
 
-![component_structure](https://res.cloudinary.com/silverbirder/image/upload/v1693364069/silver-birder.github.io/blog/8fcf377eaa36-20230423.png)
+![component_structure](https://res.cloudinary.com/silverbirder/image/upload/v1693364069/silver-birder.github.io/blog/8fcf377eaa36-20230423.png?ar=1024%3A1215)
 
 - App.tsx
   - TodoInput.tsx
@@ -36,7 +36,7 @@ https://silverbirder-react-todo-mvc.vercel.app
 
 まず、これから紹介するテストパターンの全体図を紹介します。
 
-![overview](https://res.cloudinary.com/silverbirder/image/upload/v1693364073/silver-birder.github.io/blog/5182e7bd04a5-20230425.png)
+![overview](https://res.cloudinary.com/silverbirder/image/upload/v1693364073/silver-birder.github.io/blog/5182e7bd04a5-20230425.png?ar=1202%3A362)
 
 テストパターンは、大きく以下の 3 つに分類されます。
 
@@ -270,7 +270,7 @@ export const AddTwoTodosAndCheckOneScenario: Story = {
 
 このように、Storybook では、Story に play を記述することでインタラクションを表現できます。Storybook 上でインタラクションを確認することができます。
 
-[![storybook_interaction](https://res.cloudinary.com/silverbirder/image/upload/v1694336346/silver-birder.github.io/blog/97cc9410915a-20230423-png.png)](https://res.cloudinary.com/silverbirder/image/upload/v1693364075/silver-birder.github.io/blog/97cc9410915a-20230423.gif)
+[![storybook_interaction](https://res.cloudinary.com/silverbirder/image/upload/v1694336346/silver-birder.github.io/blog/97cc9410915a-20230423-png.png?ar=1432%3A1732)](https://res.cloudinary.com/silverbirder/image/upload/v1693364075/silver-birder.github.io/blog/97cc9410915a-20230423.gif?ar=1432%3A1732)
 
 それでは、これをテストに活用しましょう。
 
@@ -679,11 +679,11 @@ All tests
 
 TodoItem の中で、プロダクトコードを破壊したミュータント（👽）を検出し、対応するテストが失敗した（Killed）ものは、次の画像の通りです。
 
-![mutant_todo_item_1](https://res.cloudinary.com/silverbirder/image/upload/v1693364079/silver-birder.github.io/blog/ec63905e2231-20230423.png)
+![mutant_todo_item_1](https://res.cloudinary.com/silverbirder/image/upload/v1693364079/silver-birder.github.io/blog/ec63905e2231-20230423.png?ar=1296%3A1400)
 
 一方、ミュータントが生き残って（Survived）しまった例として、例えば、className の箇所が挙げられます。
 
-![mutant_todo_item_2](https://res.cloudinary.com/silverbirder/image/upload/v1693364100/silver-birder.github.io/blog/81915c789ace-20230423.png)
+![mutant_todo_item_2](https://res.cloudinary.com/silverbirder/image/upload/v1693364100/silver-birder.github.io/blog/81915c789ace-20230423.png?ar=1296%3A1400)
 
 className は見た目に関わるため、後述するビジュアルリグレッションテストで検出したいところですね。
 

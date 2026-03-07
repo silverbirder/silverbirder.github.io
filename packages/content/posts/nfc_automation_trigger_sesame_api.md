@@ -19,7 +19,7 @@ tags: ["趣味"]
 
 有名なものとしては、[モバイル Suica](https://www.jreast.co.jp/mobilesuica/index.html/)でしょうか。AppleWatch がリーダ機として扱われます。
 
-![apple_watch_suica](https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg)
+![apple_watch_suica](https://res.cloudinary.com/silverbirder/image/upload/v1614345501/silver-birder.github.io/blog/apple_watch_suica.jpg?ar=850%3A1015)
 
 今回のリリースである NFC Automation Trigger は、この NFC を読み込むと自動的に特定のアクションを Trigger することができます。
 例えば、特定の NFC タグを iPhone が読み取ると、3 分のタイマーが起動する！とか。ま、表題の件を用意したんですけどね！（笑）
@@ -28,11 +28,11 @@ tags: ["趣味"]
 
 登録している NFC タグを iPhone が読み取ると、扉に設置しているスマートロックアイテム SESAME の[SESAME API](https://docs.candyhouse.co/#sesame-api)を Request して扉の鍵が解錠されます。
 
-![sesame_nfc_before](https://res.cloudinary.com/silverbirder/image/upload/v1614345607/silver-birder.github.io/blog/sesame_nfc_before.png)
+![sesame_nfc_before](https://res.cloudinary.com/silverbirder/image/upload/v1614345607/silver-birder.github.io/blog/sesame_nfc_before.png?ar=816%3A936)
 
 ↓ 白色の NFC タグにスマホを近づけると...?
 
-![sesame_nfc_after](https://res.cloudinary.com/silverbirder/image/upload/v1614345642/silver-birder.github.io/blog/sesame_nfc_after.png)
+![sesame_nfc_after](https://res.cloudinary.com/silverbirder/image/upload/v1614345642/silver-birder.github.io/blog/sesame_nfc_after.png?ar=824%3A862)
 
 NFC Automation Trigger が作動！解錠！
 

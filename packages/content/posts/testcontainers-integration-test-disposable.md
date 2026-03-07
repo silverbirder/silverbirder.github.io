@@ -10,7 +10,7 @@ tags: ["テスト"]
 Testcontainersは、Dockerコンテナを利用して実際のサービスを統合テストで手軽に使用できるオープンソースのライブラリです。
 今回、Testcontainersを使って、GitHub Actions上でRails API、MySQL、Next.jsをDockerコンテナとして起動させ、複数のテストシナリオを独立してテストすることができました。以下はその概要図です。本記事では、このテストについての解説と学びを紹介したいと思います。
 
-![概要図](https://res.cloudinary.com/silverbirder/image/upload/v1735639067/silver-birder.github.io/blog/testcontainers-overview.png)
+![概要図](https://res.cloudinary.com/silverbirder/image/upload/v1735639067/silver-birder.github.io/blog/testcontainers-overview.png?ar=1322%3A1241)
 
 動くコードは、[こちらのリポジトリ](https://github.com/silverbirder/testcontainers-rails-nextjs)にありますので、ご参考にしてください。
 GitHub Actionsのテストログは、[こちら](https://github.com/silverbirder/testcontainers-rails-nextjs/actions/workflows/e2e.yml)にあります。
@@ -64,7 +64,7 @@ Testcontainersのモジュールライブラリには、MySQL、Apache Kafka、V
 
 テスト対象のアプリケーションは、TodoMVC風のアプリケーションとしました。ブラウザからAPI経由でTodoデータを取得・表示し、データをDBに保存する機能を備えています。以下が、画面のイメージです。
 
-![Todo App](https://res.cloudinary.com/silverbirder/image/upload/v1735639029/silver-birder.github.io/blog/testcontainers-todo-app.png)
+![Todo App](https://res.cloudinary.com/silverbirder/image/upload/v1735639029/silver-birder.github.io/blog/testcontainers-todo-app.png?ar=686%3A547)
 
 `Save All`ボタンをクリックすると、データがDBに保存されます。
 
@@ -83,7 +83,7 @@ Testcontainersのモジュールライブラリには、MySQL、Apache Kafka、V
 
 各テストは、Testcontainersを使ってAPIやWebのDockerコンテナを独立して起動させます。テストが終了すると、Dockerコンテナは削除されます。Dockerコンテナは、テストで使い終わったら削除する、つまり **コンテナは使い捨て** です。再掲になりますが、以下の図が今回のテストの概要図です。
 
-![概要図](https://res.cloudinary.com/silverbirder/image/upload/v1735639067/silver-birder.github.io/blog/testcontainers-overview.png)
+![概要図](https://res.cloudinary.com/silverbirder/image/upload/v1735639067/silver-birder.github.io/blog/testcontainers-overview.png?ar=1322%3A1241)
 
 それでは、概要図にあるSetup・Teardown、Testについて紹介していきます。
 

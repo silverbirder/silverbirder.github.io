@@ -41,6 +41,8 @@ module.exports = {
     "apps/admin/src/trpc/server.ts": ["exports"],
     "apps/admin/src/server/better-auth/config.ts": ["types"],
     "apps/user/src/libs/posts/posts.ts": ["types"],
+    "apps/user/src/image-loader.js": ["exports"],
+    "packages/ui/src/test-util/mock-next-image.tsx": ["exports"],
   },
   workspaces: {
     "apps/admin": {
@@ -48,12 +50,21 @@ module.exports = {
       project: appProject,
     },
     "apps/user": {
-      entry: [...appEntry, "src/mdx-components.tsx", "src/**/*.d.ts"],
+      entry: [
+        ...appEntry,
+        "src/image-loader.js",
+        "src/mdx-components.tsx",
+        "src/**/*.d.ts",
+      ],
       project: [...appProject, "src/**/*.d.ts"],
       ignoreDependencies: ["^@repo/content$"],
     },
     "packages/*": {
       entry: packageEntry,
+      project: packageProject,
+    },
+    "packages/ui": {
+      entry: [...packageEntry, "src/test-util/mock-next-image.tsx"],
       project: packageProject,
     },
     "packages/content": {

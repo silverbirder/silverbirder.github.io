@@ -89,11 +89,11 @@ text_prompts や style は、中国語で書く必要があります。
 ERNIE-ViLG を動かすと、出力ファイルが Google Colaboratory のフォルダに入ります。
 画像を見るためには、画像をダウンロードして、開くという手間があります。
 
-![download_image_on_browser](https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/download_image_on_browser.png)
+![download_image_on_browser](https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/download_image_on_browser.png?ar=1854%3A1152)
 
 そこで、フォルダを Google Drive と同期するという機能があります。
 これを使えば、保存先を Google Drive にしておけば、Google Drive の UI 上から画像を見ることができます。
 
-![mount_google_drive](https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/mount_google_drive.png)
+![mount_google_drive](https://res.cloudinary.com/silverbirder/image/upload/v1662183656/silver-birder.github.io/blog/mount_google_drive.png?ar=2030%3A1254)
 
 めちゃくちゃ便利なので、ぜひ使ってみてください。

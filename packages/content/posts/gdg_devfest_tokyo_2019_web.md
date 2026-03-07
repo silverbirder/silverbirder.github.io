@@ -11,9 +11,9 @@ GDG DevFest Tokyo 2019 というイベントに参加してきました。
 `大阪→東京` でわざわざ新幹線を使ってまで参加しましたが、それに見合う発見が多くありました。
 今回、私が学んだ内容について、報告しようかなと思います。
 
-![GDG DevFest Tokyo 2019 スポンサー](https://res.cloudinary.com/silverbirder/image/upload/v1614429063/silver-birder.github.io/blog/GDG_DevFest_Tokyo_2019_Sponsor.jpg)
+![GDG DevFest Tokyo 2019 スポンサー](https://res.cloudinary.com/silverbirder/image/upload/v1614429063/silver-birder.github.io/blog/GDG_DevFest_Tokyo_2019_Sponsor.jpg?ar=900%3A1200)
 
-![GDG DevFest Tokyo 2019 提灯](https://res.cloudinary.com/silverbirder/image/upload/v1614429118/silver-birder.github.io/blog/GDG_DevFest_Tokyo_2019_Lantern.jpg)
+![GDG DevFest Tokyo 2019 提灯](https://res.cloudinary.com/silverbirder/image/upload/v1614429118/silver-birder.github.io/blog/GDG_DevFest_Tokyo_2019_Lantern.jpg?ar=1200%3A900)
 
 https://gdg-tokyo.connpass.com/event/137666/
 
@@ -40,7 +40,7 @@ https://devfest.withgoogle.com/
 DevFests 自体は、グローバルで活動されている GDG がホストのイベントです。
 下の図は、 **2019 年** の活動実績&予定です。全国各地で広く活発的に行われていることが分かると思います。
 
-![Find an upcoming community-led DevFest near yo](https://res.cloudinary.com/silverbirder/image/upload/v1614428965/silver-birder.github.io/blog/find_an_upcoming_community-led_dev_fest_near_yo.png)
+![Find an upcoming community-led DevFest near yo](https://res.cloudinary.com/silverbirder/image/upload/v1614428965/silver-birder.github.io/blog/find_an_upcoming_community-led_dev_fest_near_yo.png?ar=1200%3A621)
 
 また、コミュニティの Youtube のチャンネルもあります。
 

@@ -161,7 +161,7 @@ https://developer.mozilla.org/ja/docs/Web/API/History_API
 
 ## Web サイト ⇔Web アプリ
 
-[![Microfrontends: An approach to building Scalable Web Apps](https://res.cloudinary.com/silverbirder/image/upload/v1614412210/silver-birder.github.io/blog/microfrontends-document-application.png)](https://www.linkedin.com/pulse/microfrontends-approach-building-scalable-web-apps-vinci-rufus)
+[![Microfrontends: An approach to building Scalable Web Apps](https://res.cloudinary.com/silverbirder/image/upload/v1614412210/silver-birder.github.io/blog/microfrontends-document-application.png?ar=612%3A261)](https://www.linkedin.com/pulse/microfrontends-approach-building-scalable-web-apps-vinci-rufus)
 
 マイクロフロントエンドは、かなりのオーバーラップがあるバンドの中央部分の大部分に最も適しています。バンドの両極端に該当するプロジェクトにマイクロフロントエンドアーキテクチャを実装しようとすると、生産性に反するそうです。
 

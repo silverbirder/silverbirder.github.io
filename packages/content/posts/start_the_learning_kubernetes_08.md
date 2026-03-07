@@ -98,7 +98,7 @@ sample-deployment-9dc487867-n8x5w   10.244.2.66   raspi003
 sample-deployment-9dc487867-nxbxc   10.244.2.67   raspi003
 ```
 
-![pod ip adress](https://res.cloudinary.com/silverbirder/image/upload/v1639816788/silver-birder.github.io/blog/pod_ip_adress_kubernetes.png)
+![pod ip adress](https://res.cloudinary.com/silverbirder/image/upload/v1639816788/silver-birder.github.io/blog/pod_ip_adress_kubernetes.png?ar=790%3A311)
 
 このような状況下で、`sample-deployment-9dc487867-n8x5w:redis`を中心に見ていきます。
 

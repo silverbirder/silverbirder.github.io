@@ -37,7 +37,7 @@ ESI は、SSI と似たようなもので、サーバーサイド側でコンテ
 
 次のような構成を考えてみました。
 
-![Cloudflare worker + Micro Frontends](https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png)
+![Cloudflare worker + Micro Frontends](https://res.cloudinary.com/silverbirder/image/upload/v1614430655/silver-birder.github.io/blog/cloudflare_worker_micro_frontends.png?ar=1200%3A711)
 
 ※ [Podium](https://podium-lib.io/)と[Ara-Framework](https://ara-framework.github.io/website/) に影響されています。  
 ※ [draw.io](https://draw.io/)の sketch style で書きました。

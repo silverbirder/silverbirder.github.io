@@ -14,7 +14,7 @@ tags: ["クラウドインフラ", "Golang", "DevOps", "クローリング"]
 詳しくは割愛するが、Cloud Functions や App Engine と同じようなサーバーレスで動作するもの。
 コンテナを deploy するため、GKE から制御することもできる。
 
-[![Cloud Run Deploy](https://res.cloudinary.com/silverbirder/image/upload/v1693376921/silver-birder.github.io/blog/190410-abrigednews-02-google-devops-with-serverless.png)](https://japan.zdnet.com/article/35135525/)
+[![Cloud Run Deploy](https://res.cloudinary.com/silverbirder/image/upload/v1693376921/silver-birder.github.io/blog/190410-abrigednews-02-google-devops-with-serverless.png?ar=1000%3A576)](https://japan.zdnet.com/article/35135525/)
 
 ## デプロイしてみた
 
@@ -109,7 +109,7 @@ gcloud builds submit --tag gcr.io/[PROJECT-ID]/helloworld
 gcloud beta run deploy --image gcr.io/[PROJECT-ID]/helloworld
 ```
 
-![result](https://res.cloudinary.com/silverbirder/image/upload/v1613818551/silver-birder.github.io/blog/D34Fl0ZU4AA-dhU.png)
+![result](https://res.cloudinary.com/silverbirder/image/upload/v1613818551/silver-birder.github.io/blog/D34Fl0ZU4AA-dhU.png?ar=482%3A195)
 
 ## 感想
 

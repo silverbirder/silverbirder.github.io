@@ -14,11 +14,11 @@ https://github.com/silverbirder/vlog
 
 アプリの雰囲気が伝わるように、スクリーンショットを 2 枚載せておきます。
 
-![VLog アプリのホーム画面](https://res.cloudinary.com/silverbirder/image/upload/v1759582696/silver-birder.github.io/blog/vlog-intro-1.png)
+![VLog アプリのホーム画面](https://res.cloudinary.com/silverbirder/image/upload/v1759582696/silver-birder.github.io/blog/vlog-intro-1.png?ar=1826%3A1668)
 
 起動直後のホーム画面です。保存先や自動停止時間などをここで設定できます。
 
-![録画中の VLog アプリと PiP 表示](https://res.cloudinary.com/silverbirder/image/upload/v1759582703/silver-birder.github.io/blog/vlog-intro-2.png)
+![録画中の VLog アプリと PiP 表示](https://res.cloudinary.com/silverbirder/image/upload/v1759582703/silver-birder.github.io/blog/vlog-intro-2.png?ar=3052%3A2062)
 
 録画中はこのように ピクチャ・イン・ピクチャ (PiP) でカメラ映像を前面に固定しながら、画面全体をキャプチャします。
 

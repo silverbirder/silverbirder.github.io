@@ -121,9 +121,9 @@ pi@raspi001:~/tmp $ for PODNAME in `k get pods -l app=sample-app -o jsonpath='{.
 どこの pod かどうかわかりやすいくするため、index.html を書き換えます。
 では、ブラウザからアクセスしてみます。
 
-![sample_deployment_1](https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_1.png)
+![sample_deployment_1](https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_1.png?ar=593%3A441)
 
-![sample_deployment_2](https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_2.png)
+![sample_deployment_2](https://res.cloudinary.com/silverbirder/image/upload/v1639816612/silver-birder.github.io/blog/sample_deployment_2.png?ar=594%3A442)
 
 raspi002 を公開したので、その Node に存在する Pod がランダムに出力されている、つまりロードバランサが動作していることがわかります。
 

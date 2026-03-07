@@ -33,7 +33,7 @@ Ara-Framework は、Airbnb が開発した Hypernova というフレームワー
 
 Ara-Framework のアーキテクチャ図は、次のようなものです。
 
-![ara framework overview](https://res.cloudinary.com/silverbirder/image/upload/v1693362600/silver-birder.github.io/blog/1%2A43CBDwIZ8P2q_ZfGg_ktUQ.png)
+![ara framework overview](https://res.cloudinary.com/silverbirder/image/upload/v1693362600/silver-birder.github.io/blog/1%2A43CBDwIZ8P2q_ZfGg_ktUQ.png?ar=1181%3A835)
 
 ※ [https://ara-framework.github.io/website/docs/nova-architecture](https://ara-framework.github.io/website/docs/nova-architecture)
 
@@ -255,7 +255,7 @@ concurrently -n cluster,layout,proxy,search,product "npm run cluster" "npm run l
 
 動作として、次のような画像になります。
 
-![nova results](https://res.cloudinary.com/silverbirder/image/upload/v1614430832/silver-birder.github.io/blog/nova_results.png)
+![nova results](https://res.cloudinary.com/silverbirder/image/upload/v1614430832/silver-birder.github.io/blog/nova_results.png?ar=970%3A850)
 
 ## 最後に
 

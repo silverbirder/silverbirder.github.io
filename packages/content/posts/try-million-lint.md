@@ -34,7 +34,7 @@ npx @million/lint@latest
 例えば、「Callback関数を使用してください」や「Debounceを行ってください」といったアドバイスがありました。
 しかし、無料で利用できるのは3回程度と限られているようでした。
 
-![Million Lint in VSCode](http://res.cloudinary.com/silverbirder/image/upload/v1711022284/jtukcrtmxeo4fxgl9pd8.png)
+![Million Lint in VSCode](http://res.cloudinary.com/silverbirder/image/upload/v1711022284/jtukcrtmxeo4fxgl9pd8.png?ar=1024%3A976)
 
 ## 所感
 

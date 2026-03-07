@@ -8,7 +8,7 @@ index: false
 
 フィーチャーフラグ（Feature Flag）をご存知でしょうか？これは新機能のリリース制御や AB テストを容易にする強力なツールです。しかし、適切な管理ツールなければ、フィーチャーフラグの管理は容易なことではありません。今回は、そんなフィーチャーフラグの管理を効率化するツール、 **Unleash** について解説します。
 
-![Unleash](https://res.cloudinary.com/silverbirder/image/upload/v1693364020/silver-birder.github.io/blog/353d890469ef-20230628.png)
+![Unleash](https://res.cloudinary.com/silverbirder/image/upload/v1693364020/silver-birder.github.io/blog/353d890469ef-20230628.png?ar=1322%3A981)
 
 Unleash のリポジトリはこちら 👉[GitHub - Unleash](https://github.com/Unleash/unleash)
 
@@ -40,19 +40,19 @@ Unleash のセットアップについては、公式ドキュメンテーショ
 
 構築が完了すると、Unleash の画面が表示されます。
 
-![Unleash](https://res.cloudinary.com/silverbirder/image/upload/v1693364020/silver-birder.github.io/blog/353d890469ef-20230628.png)
+![Unleash](https://res.cloudinary.com/silverbirder/image/upload/v1693364020/silver-birder.github.io/blog/353d890469ef-20230628.png?ar=1322%3A981)
 
 フィーチャーフラグを作成してみましょう。`New feature toggle`をクリックし、名前には`new_feature`を入力します。
 
-![New feature toggle](https://res.cloudinary.com/silverbirder/image/upload/v1693364040/silver-birder.github.io/blog/b06e11b8f38a-20230628.png)
+![New feature toggle](https://res.cloudinary.com/silverbirder/image/upload/v1693364040/silver-birder.github.io/blog/b06e11b8f38a-20230628.png?ar=1400%3A1094)
 
 続いて、React から Unleash への接続に必要な API token を生成します。Unleash の画面上部から `Configure > API access` を選択します。
 
-![API access](https://res.cloudinary.com/silverbirder/image/upload/v1693364043/silver-birder.github.io/blog/4fea3cd45d9c-20230628.png)
+![API access](https://res.cloudinary.com/silverbirder/image/upload/v1693364043/silver-birder.github.io/blog/4fea3cd45d9c-20230628.png?ar=1400%3A700)
 
 `New API token` をクリックし、API token を作成します。
 
-![New API token](https://res.cloudinary.com/silverbirder/image/upload/v1693364046/silver-birder.github.io/blog/1ac3a5595c02-20230628.png)
+![New API token](https://res.cloudinary.com/silverbirder/image/upload/v1693364046/silver-birder.github.io/blog/1ac3a5595c02-20230628.png?ar=1400%3A1175)
 
 今回、クライアントサイド(React)で Unleash を利用するため、`Client-side SDK` を選択して API token を生成します。もちろん、サーバーサイドから Unleash を利用することも可能です。
 ここで、environment を`development`に設定します。これにより環境ごとに API token を設定できます。production 向けの API token が必要な場合は、別途生成します。
@@ -102,7 +102,7 @@ export default App;
 
 以下にフィーチャーフラグのデモを示します。都合上、`production`の environment を使用しています。以下の画像をクリックすると動画を閲覧できます。
 
-[![Feature flag demo](https://res.cloudinary.com/silverbirder/image/upload/v1693364382/silver-birder.github.io/blog/feature-flag-demo.gif)](https://res.cloudinary.com/silverbirder/image/upload/v1693364382/silver-birder.github.io/blog/feature-flag-demo.gif)
+[![Feature flag demo](https://res.cloudinary.com/silverbirder/image/upload/v1693364382/silver-birder.github.io/blog/feature-flag-demo.gif?ar=640%3A509)](https://res.cloudinary.com/silverbirder/image/upload/v1693364382/silver-birder.github.io/blog/feature-flag-demo.gif?ar=640%3A509)
 
 以上が Unleash の基本的な使用方法です。
 
@@ -126,7 +126,7 @@ Activation Strategies は以下の 4 つがあります。
 
 以下の画像は、Gradual rollout の設定画面です。
 
-![Gradual rollout](https://res.cloudinary.com/silverbirder/image/upload/v1693364049/silver-birder.github.io/blog/aa326c9fcba8-20230628.png)
+![Gradual rollout](https://res.cloudinary.com/silverbirder/image/upload/v1693364049/silver-birder.github.io/blog/aa326c9fcba8-20230628.png?ar=1400%3A1024)
 
 ## Gradual rollout
 
@@ -140,7 +140,7 @@ Unleash では、全てのフィーチャーフラグに Variant という機能
 
 例として、先ほど作成した new_feature のフィーチャーフラグに対して、以下の画像の通り、4 つの Variant を設定しました。それぞれの Variant は設定した `Weight` に基づいて選択されます。
 
-![Feature toggle variants](https://res.cloudinary.com/silverbirder/image/upload/v1693364052/silver-birder.github.io/blog/d0869460f07b-20230628.png)
+![Feature toggle variants](https://res.cloudinary.com/silverbirder/image/upload/v1693364052/silver-birder.github.io/blog/d0869460f07b-20230628.png?ar=1400%3A1149)
 
 以下に、new_feature の Variant を使用する例を示します。`variant.name` には、先ほど設定した Variant の name が入力されます。そのため、この`variant.name`を基に処理を分岐させることが可能です。
 
@@ -188,7 +188,7 @@ Unleash では、フィーチャーフラグに様々なタイプが設定でき
 
 Unleash では、Health と呼ばれる指標が表示されます。この値が低いと、技術的負債が蓄積されているということを示します。フィーチャーフラグを適切にアーカイブする運用を心掛けましょう。
 
-![Unleash health](https://res.cloudinary.com/silverbirder/image/upload/v1693364066/silver-birder.github.io/blog/1a4ba5569cf8-20230628.png)
+![Unleash health](https://res.cloudinary.com/silverbirder/image/upload/v1693364066/silver-birder.github.io/blog/1a4ba5569cf8-20230628.png?ar=1400%3A831)
 
 ## Unleash 機能: その他
 

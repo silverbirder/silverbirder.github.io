@@ -24,7 +24,7 @@ tags: ["振り返り"]
 
 UseCotlin は、主に技術のインプットばかりで、アウトプットができていません。インプットのし過ぎで、頭でっかちにならないよう、毎日アウトプットを心がけていました。
 
-![Github Contribution](https://res.cloudinary.com/silverbirder/image/upload/v1614431446/silver-birder.github.io/blog/Github_Contribution.png)
+![Github Contribution](https://res.cloudinary.com/silverbirder/image/upload/v1614431446/silver-birder.github.io/blog/Github_Contribution.png?ar=1200%3A216)
 
 ほぼ毎日、contribute するようにしました。Input と Output のバランスは難しいですが、取り組んで良かったです。
 

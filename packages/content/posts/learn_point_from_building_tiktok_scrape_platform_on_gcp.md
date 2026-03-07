@@ -37,9 +37,9 @@ https://www.npmjs.com/package/tiktok-scraper
 - トレンド
 - 音楽
 
-![動画をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224934/silver-birder.github.io/blog/tiktok_scraper_doc1.png)
+![動画をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224934/silver-birder.github.io/blog/tiktok_scraper_doc1.png?ar=1596%3A886)
 
-![様々な切り口で、動画をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224935/silver-birder.github.io/blog/tiktok_scraper_doc2.png)
+![様々な切り口で、動画をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224935/silver-birder.github.io/blog/tiktok_scraper_doc2.png?ar=1584%3A896)
 
 加えて、メタ情報(フォロワー数やいいね数など)も手に入ります。
 
@@ -47,7 +47,7 @@ https://www.npmjs.com/package/tiktok-scraper
 
 リンクには、有効期限を示す文字が含まれており、一定の時間が経過すると `Access Denied` となります。
 
-![様々な切り口で、メタ情報をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224935/silver-birder.github.io/blog/tiktok_scraper_doc3.png)
+![様々な切り口で、メタ情報をダウンロード](https://res.cloudinary.com/silverbirder/image/upload/v1630224935/silver-birder.github.io/blog/tiktok_scraper_doc3.png?ar=1594%3A900)
 
 手に入れられない情報は、 **ログインが必要なもの** です。
 例えば、私がフォローしているユーザーとかです。
@@ -61,7 +61,7 @@ https://www.npmjs.com/package/tiktok-scraper
 バッチを動かす環境ですが、プライベートでよく使っている GCP 上で構築しようと思いました。
 バッチで収集したデータを閲覧する Web アプリケーションも作ろうと考え、Netlify と React で動かすことにしました。
 
-![Webアプリケーション UI](https://res.cloudinary.com/silverbirder/image/upload/v1630404283/silver-birder.github.io/blog/tiktok_scraper_web_app_sample.png)
+![Webアプリケーション UI](https://res.cloudinary.com/silverbirder/image/upload/v1630404283/silver-birder.github.io/blog/tiktok_scraper_web_app_sample.png?ar=816%3A1730)
 
 ## 目的
 
@@ -88,7 +88,7 @@ https://www.npmjs.com/package/tiktok-scraper
 
 実際に構築した GCP のシステム設計図が、次の画像のとおりです。
 
-![tiktok scrape platform overviews](https://res.cloudinary.com/silverbirder/image/upload/v1630160345/silver-birder.github.io/blog/tiktok_scrape_platform_overviews.png)
+![tiktok scrape platform overviews](https://res.cloudinary.com/silverbirder/image/upload/v1630160345/silver-birder.github.io/blog/tiktok_scrape_platform_overviews.png?ar=722%3A566)
 
 GCP リソースの用途は、次のとおりです。
 

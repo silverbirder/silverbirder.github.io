@@ -27,7 +27,7 @@ https://github.com/http-tests/cache-tests
 
 https://github.com/ai/size-limit
 
-[![https://github.com/ai/size-limit](https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png)](https://github.com/ai/size-limit)
+[![https://github.com/ai/size-limit](https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png?ar=1200%3A506)](https://github.com/ai/size-limit)
 
 ## Complexity Test
 
@@ -42,7 +42,7 @@ Copy&Paste は、DRY の原則に反するため、特別な理由がない限�
 
 https://github.com/kucherenko/jscpd
 
-[![jscpd](https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png)](https://github.com/kucherenko/jscpd)
+[![jscpd](https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png?ar=1200%3A794)](https://github.com/kucherenko/jscpd)
 
 ## Cross Browser/Platform Test
 
@@ -99,7 +99,7 @@ INFO, WARN, ERROR などがルールに基づいて使い分けされている�
 
 https://github.com/marmelab/gremlins.js/
 
-[![gremlins.js](https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif)](https://github.com/marmelab/gremlins.js)
+[![gremlins.js](https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif?ar=689%3A626)](https://github.com/marmelab/gremlins.js)
 
 ## Multi Tenanct Test
 
@@ -114,7 +114,7 @@ https://github.com/marmelab/gremlins.js/
 
 https://github.com/stryker-mutator/stryker
 
-[![https://stryker-mutator.io/stryker/quickstart](https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif)](https://stryker-mutator.io/stryker/quickstart)
+[![https://stryker-mutator.io/stryker/quickstart](https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif?ar=1144%3A298)](https://stryker-mutator.io/stryker/quickstart)
 
 ## Chaos Test
 
@@ -165,7 +165,7 @@ lighthouse というツールで SEO スコアを見ることができるみた�
 
 https://github.com/GoogleChrome/lighthouse-ci
 
-[![https://github.com/GoogleChrome/lighthouse-ci](https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png)](https://github.com/GoogleChrome/lighthouse-ci)
+[![https://github.com/GoogleChrome/lighthouse-ci](https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png?ar=1200%3A863)](https://github.com/GoogleChrome/lighthouse-ci)
 
 ## Smoke Test
 
@@ -241,7 +241,7 @@ https://gist.github.com/silverbirder/71135913192fbca51a7e26924bd36b8b
 
 https://github.com/garris/BackstopJS
 
-[![https://github.com/garris/BackstopJS](https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png)](https://github.com/garris/BackstopJS)
+[![https://github.com/garris/BackstopJS](https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png?ar=794%3A404)](https://github.com/garris/BackstopJS)
 
 ## 最後に
 

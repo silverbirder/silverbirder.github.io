@@ -56,7 +56,7 @@ tags: ["雑談"]
 
 購入履歴を見ると、週に 1 回は、ミスタードーナツに 500 円程度消費しているようです。
 
-![2021年6月から2022年6月までのミスタードーナツ購入履歴](https://res.cloudinary.com/silverbirder/image/upload/v1656509793/silver-birder.github.io/blog/202106_202206_md.png)
+![2021年6月から2022年6月までのミスタードーナツ購入履歴](https://res.cloudinary.com/silverbirder/image/upload/v1656509793/silver-birder.github.io/blog/202106_202206_md.png?ar=1860%3A1384)
 
 ## その他(食べ放題)
 

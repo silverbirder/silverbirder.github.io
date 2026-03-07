@@ -25,7 +25,7 @@ https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#adva
 複数リクエストが同時にできる featchAll を使うことで、並列処理ができ、パフォーマンスが良いです。
 要するに次のようなコードで解決しようと考えていました。
 
-![FetchAllとRedirectURL](https://res.cloudinary.com/silverbirder/image/upload/v1614429255/silver-birder.github.io/blog/FetchAll_and_RedirectURL.png)
+![FetchAllとRedirectURL](https://res.cloudinary.com/silverbirder/image/upload/v1614429255/silver-birder.github.io/blog/FetchAll_and_RedirectURL.png?ar=1200%3A671)
 
 ```typescript
 let urlList: Array<string> = ["https://t.co/XXXX", "https://t.co/YYYY"];
@@ -88,7 +88,7 @@ https://www.monotalk.xyz/blog/google-app-script-%E3%81%AE-urlfetchapp-%E3%81%AE-
 fetch や fetchAll は、`muteHttpExceptions: true` としたとしても、ExceptionError が発生してしまいます。
 そうすると、例えば 1000 件の URL を fetchAll した場合、 **どれが成功で、どれが失敗で、どれが未実施か** がわからないというところです。
 
-![FetchAllとRedirectURL (Error)](https://res.cloudinary.com/silverbirder/image/upload/v1614429297/silver-birder.github.io/blog/FetchAll_and_RedirectURL_error.png)
+![FetchAllとRedirectURL (Error)](https://res.cloudinary.com/silverbirder/image/upload/v1614429297/silver-birder.github.io/blog/FetchAll_and_RedirectURL_error.png?ar=1200%3A669)
 
 Promise.allSettled が使えれば、解決できるのかなと思いますが、現状 Promise は使えません。
 

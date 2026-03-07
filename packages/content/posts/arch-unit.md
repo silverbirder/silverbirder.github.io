@@ -16,7 +16,7 @@ https://www.archunit.org/
 Java のアーキテクチャをテストできるライブラリで、パッケージやクラス、レイヤー、スライス（？）の依存関係をテストできるそうです。
 そこで、親の顔よりも見たこの図をテストしたいと思います。
 
-[![Clean Coder Blog > The Clean Architecture](https://res.cloudinary.com/silverbirder/image/upload/v1693376915/silver-birder.github.io/blog/CleanArchitecture.jpg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+[![Clean Coder Blog > The Clean Architecture](https://res.cloudinary.com/silverbirder/image/upload/v1693376915/silver-birder.github.io/blog/CleanArchitecture.jpg?ar=772%3A567)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 ## Typescript でも ArchUnit したい
 
@@ -99,7 +99,7 @@ import "../../1_enterprise_business_rules/entities/Entity";
 
 UML を可視化すると、下記の図のとおりです。
 
-![clean_architecture.puml](https://res.cloudinary.com/silverbirder/image/upload/v1614430164/silver-birder.github.io/blog/clean_architecture.puml.png)
+![clean_architecture.puml](https://res.cloudinary.com/silverbirder/image/upload/v1614430164/silver-birder.github.io/blog/clean_architecture.puml.png?ar=470%3A684)
 
 テストコードは、下記のとおりです。
 
@@ -120,7 +120,7 @@ describe("architecture", () => {
 
 このテストケースは PASS します。
 
-![src/clean_architecture.test.ts > architecture > Check dependency #Succeed](https://res.cloudinary.com/silverbirder/image/upload/v1614430233/silver-birder.github.io/blog/src_clean_architecture_test_ts_architecture_check_dependency_succeed.png)
+![src/clean_architecture.test.ts > architecture > Check dependency #Succeed](https://res.cloudinary.com/silverbirder/image/upload/v1614430233/silver-birder.github.io/blog/src_clean_architecture_test_ts_architecture_check_dependency_succeed.png?ar=962%3A422)
 
 では、違反コードを書いてみます。
 
@@ -132,7 +132,7 @@ import "../../4_frameworks_and_drivers/web/Web";
 
 3 レイヤーが上位の 4 レイヤーを使用しています。この状態でテストを実行すると、
 
-![src/clean_architecture.test.ts > architecture > Check dependency #Failed](https://res.cloudinary.com/silverbirder/image/upload/v1614430292/silver-birder.github.io/blog/src_clean_architecture_test_ts_architecture_check_dependency_failed.png)
+![src/clean_architecture.test.ts > architecture > Check dependency #Failed](https://res.cloudinary.com/silverbirder/image/upload/v1614430292/silver-birder.github.io/blog/src_clean_architecture_test_ts_architecture_check_dependency_failed.png?ar=1200%3A564)
 
 見事 Failed となりました。つまり、依存関係の誤りを自動的に検出することができます。
 

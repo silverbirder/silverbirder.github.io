@@ -1,10 +1,29 @@
 const CLOUDINARY_UPLOAD_SEGMENT = "/image/upload/";
+const CLOUDINARY_HOSTNAME = "res.cloudinary.com";
+
+const parseUrl = (src) => {
+  try {
+    return new URL(src);
+  } catch {
+    return null;
+  }
+};
 
 const isCloudinaryUploadUrl = (src) => {
-  return (
-    src.startsWith("http://res.cloudinary.com/") ||
-    src.startsWith("https://res.cloudinary.com/")
-  ) && src.includes(CLOUDINARY_UPLOAD_SEGMENT);
+  const url = parseUrl(src);
+  return url?.hostname === CLOUDINARY_HOSTNAME &&
+    url.pathname.includes(CLOUDINARY_UPLOAD_SEGMENT);
+};
+
+const normalizeCloudinaryProtocol = (src) => {
+  const url = parseUrl(src);
+
+  if (!url || url.hostname !== CLOUDINARY_HOSTNAME) {
+    return src;
+  }
+
+  url.protocol = "https:";
+  return url.toString();
 };
 
 const stripNotebookImageMetadata = (url) => {
@@ -36,9 +55,11 @@ const withCloudinaryWidth = (src, width, quality) => {
 };
 
 export default function imageLoader({ quality, src, width }) {
-  if (isCloudinaryUploadUrl(src)) {
-    return withCloudinaryWidth(src, width, quality);
+  const normalizedSrc = normalizeCloudinaryProtocol(src);
+
+  if (isCloudinaryUploadUrl(normalizedSrc)) {
+    return withCloudinaryWidth(normalizedSrc, width, quality);
   }
 
-  return src;
+  return normalizedSrc;
 }

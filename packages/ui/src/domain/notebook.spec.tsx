@@ -1,5 +1,6 @@
 import { composeStories } from "@storybook/nextjs-vite";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { SiBluesky } from "react-icons/si";
 import { describe, expect, it, vi } from "vitest";
 
 import { renderWithProvider } from "../test-util";
@@ -71,8 +72,6 @@ describe("Notebook", () => {
           heading: "Share",
           labels: {
             bluesky: "Blueskyでシェア",
-            copy: "記事のリンクをコピー",
-            copyCopied: "コピーしました",
             hatena: "はてなでシェア",
             web: "デバイスで記事をシェアする",
             x: "Xでシェア",
@@ -103,12 +102,19 @@ describe("Notebook", () => {
       </Notebook>,
     );
 
-    expect(container.textContent ?? "").toContain("Share");
     expect(container.textContent ?? "").toContain("Follow");
-    expect(container.textContent ?? "").toContain("購読する");
-    expect(container.textContent ?? "").toContain("応援する");
+    expect(container.textContent ?? "").toContain("読者になる");
 
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
+    const blueskyLink = container.querySelector(
+      'a[aria-label="Blueskyでシェア"]',
+    );
+    const hatenaLink = container.querySelector(
+      'a[aria-label="はてなでシェア"]',
+    );
+    const shareButton = container.querySelector(
+      'button[aria-label="デバイスで記事をシェアする"]',
+    );
     const followLink = container.querySelector('a[aria-label="Xをフォロー"]');
     const rssLink = container.querySelector(
       'a[aria-label="RSSでブログの更新を受け取る"]',
@@ -121,12 +127,79 @@ describe("Notebook", () => {
     );
 
     expect(shareLink).not.toBeNull();
+    expect(blueskyLink).not.toBeNull();
+    expect(hatenaLink).not.toBeNull();
+    expect(shareButton).not.toBeNull();
+    expect(
+      container.querySelector('button[aria-label="記事のリンクをコピー"]'),
+    ).toBeNull();
     expect(followLink).not.toBeNull();
     expect(rssLink).not.toBeNull();
     expect(emailLink).not.toBeNull();
     expect(ofuseLink?.getAttribute("href")).toBe(
       "https://ofuse.me/o?uid=158382",
     );
+  });
+
+  it("renders a follow profile card when profile data is provided", async () => {
+    const { container } = await renderWithProvider(
+      <Notebook
+        follow={{
+          heading: "フォローしてね！",
+          items: [
+            {
+              borderColor: "fg",
+              hoverTextColor: "bg",
+              href: "https://example.com/x",
+              icon: <FaXTwitter />,
+              iconColor: "fg",
+              label: "Xをフォロー",
+            },
+            {
+              borderColor: "#007bff",
+              hoverTextColor: "white",
+              href: "https://example.com/bluesky",
+              icon: <SiBluesky />,
+              iconColor: "#007bff",
+              label: "Blueskyをフォロー",
+            },
+            {
+              borderColor: "fg",
+              hoverTextColor: "bg",
+              href: "https://example.com/github",
+              icon: <FaGithub />,
+              iconColor: "fg",
+              label: "GitHubをフォロー",
+            },
+          ],
+          profile: {
+            avatarSrc: "/assets/logo.png",
+            description: "Webソフトウェアエンジニア",
+            name: "silverbirder",
+          },
+        }}
+        navigation={{}}
+        relatedPosts={[]}
+        tags={[]}
+        title="Notebook Preview"
+      >
+        <p>Body copy.</p>
+      </Notebook>,
+    );
+
+    expect(container.textContent ?? "").toContain("silverbirder");
+    expect(container.textContent ?? "").toContain("Webソフトウェアエンジニア");
+    expect(container.textContent ?? "").not.toContain("フォローしてね！");
+    expect(container.querySelector('img[alt="silverbirder"]')).not.toBeNull();
+    expect(
+      container.querySelector('a[aria-label="Xをフォロー"]'),
+    ).not.toBeNull();
+    expect(
+      container.querySelector('a[aria-label="Blueskyをフォロー"]'),
+    ).not.toBeNull();
+    expect(
+      container.querySelector('a[aria-label="GitHubをフォロー"]'),
+    ).not.toBeNull();
   });
 
   it("renders related posts grouped by heading", async () => {
@@ -193,6 +266,81 @@ describe("Notebook", () => {
       "/blog/contents/next",
       "/blog/contents/prev",
     ]);
+  });
+
+  it("renders comments after action sections and before navigation", async () => {
+    vi.stubEnv("NEXT_PUBLIC_LIKES_API_URL", "https://api.example.com");
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ comments: [] }), {
+        headers: { "Content-Type": "application/json" },
+        status: 200,
+      }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    window.localStorage.setItem("comments:anon-id", "anon-1");
+
+    try {
+      const { container } = await renderWithProvider(
+        <Notebook
+          comments={{ slug: "test-post" }}
+          follow={{
+            heading: "筆者をフォローする",
+            items: [
+              {
+                borderColor: "fg",
+                hoverTextColor: "bg",
+                href: "https://example.com",
+                icon: <FaXTwitter />,
+                iconColor: "fg",
+                label: "Xをフォロー",
+              },
+            ],
+          }}
+          navigation={{
+            next: {
+              href: "/blog/contents/next",
+              publishedAt: "2025-01-03",
+              title: "Next",
+            },
+          }}
+          relatedPosts={[]}
+          tags={[]}
+          title="Notebook Preview"
+        >
+          <p>Body copy.</p>
+        </Notebook>,
+      );
+
+      await vi.waitFor(() => {
+        expect(fetchMock).toHaveBeenCalled();
+      });
+
+      const followHeading = container.querySelector("h2");
+      const textarea = container.querySelector("textarea");
+      const nav = container.querySelector(
+        'nav[aria-label="記事ナビゲーション"]',
+      );
+
+      expect(followHeading?.textContent).toBe("筆者をフォローする");
+      expect(textarea).not.toBeNull();
+      expect(container.textContent ?? "").not.toContain("コメント");
+      expect(nav).not.toBeNull();
+      const followHeadingNode = followHeading as HTMLElement;
+      const textareaNode = textarea as HTMLTextAreaElement;
+      const navNode = nav as HTMLElement;
+      expect(
+        followHeadingNode.compareDocumentPosition(textareaNode) &
+          Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+      expect(
+        textareaNode.compareDocumentPosition(navNode) &
+          Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+    } finally {
+      vi.unstubAllEnvs();
+      vi.unstubAllGlobals();
+      window.localStorage.removeItem("comments:anon-id");
+    }
   });
 
   it("renders global navigation sticky tabs", async () => {

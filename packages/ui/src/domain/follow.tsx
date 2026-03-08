@@ -19,14 +19,22 @@ export type FollowLinks = {
   x: string;
 };
 
+export type FollowProfile = {
+  avatarSrc: string;
+  description: string;
+  name: string;
+};
+
 export type FollowSection = {
   heading: string;
   items: FollowItem[];
+  profile?: FollowProfile;
 };
 
 type CreateFollowSectionArgs = {
   labels: FollowLabels;
   links: FollowLinks;
+  profile?: FollowProfile;
 };
 
 type FollowLabels = {
@@ -39,13 +47,14 @@ type FollowLabels = {
 export const createFollowSection = ({
   labels,
   links,
+  profile,
 }: CreateFollowSectionArgs): FollowSection => {
   const items: FollowItem[] = [
     {
       borderColor: "fg",
       hoverTextColor: "bg",
       href: links.x,
-      icon: <FaXTwitter />,
+      icon: <FaXTwitter aria-hidden focusable="false" role="presentation" />,
       iconColor: "fg",
       label: labels.x,
     },
@@ -53,7 +62,7 @@ export const createFollowSection = ({
       borderColor: "#007bff",
       hoverTextColor: "white",
       href: links.bluesky,
-      icon: <SiBluesky />,
+      icon: <SiBluesky aria-hidden focusable="false" role="presentation" />,
       iconColor: "#007bff",
       label: labels.bluesky,
     },
@@ -61,7 +70,7 @@ export const createFollowSection = ({
       borderColor: "fg",
       hoverTextColor: "bg",
       href: links.github,
-      icon: <FaGithub />,
+      icon: <FaGithub aria-hidden focusable="false" role="presentation" />,
       iconColor: "fg",
       label: labels.github,
     },
@@ -69,5 +78,6 @@ export const createFollowSection = ({
   return {
     heading: labels.heading,
     items,
+    profile,
   };
 };

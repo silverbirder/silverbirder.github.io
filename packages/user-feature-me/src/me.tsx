@@ -4,21 +4,21 @@ import {
   Avatar,
   Box,
   Heading,
+  HStack,
+  IconButton,
   Image,
+  Portal,
   Stack,
   Text,
+  Tooltip,
   VStack,
 } from "@chakra-ui/react";
-import {
-  CellophaneTape,
-  createFollowSection,
-  type FollowLinks,
-  Link,
-  Notebook,
-} from "@repo/ui";
+import { CellophaneTape, type FollowLinks, Link, Notebook } from "@repo/ui";
 import { buildSitePath } from "@repo/util";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { SiBluesky } from "react-icons/si";
 
 import { ArtifactsSection } from "./artifacts";
 import { SkillsSection } from "./skills-section";
@@ -35,27 +35,11 @@ const featuredPhotoLineCountMobile = 7;
 
 export const Me = ({ followLinks }: Props) => {
   const t = useTranslations("user.me");
-  const tBlog = useTranslations("user.blog");
-  const follow = createFollowSection({
-    labels: {
-      bluesky: tBlog("followBlueskyLabel"),
-      github: tBlog("followGithubLabel"),
-      heading: t("followHeading"),
-      x: tBlog("followXLabel"),
-    },
-    links: followLinks,
-  });
+  const followIconSize = "var(--notebook-line-height)";
 
   return (
     <Box w="full">
-      <Notebook
-        follow={follow}
-        followSectionLayout="content"
-        navigation={{}}
-        relatedPosts={[]}
-        tags={[]}
-        title={t("title")}
-      >
+      <Notebook navigation={{}} relatedPosts={[]} tags={[]} title={t("title")}>
         <Box mt={`var(--notebook-line-height)`} mx="auto">
           <Stack gap={0}>
             <VStack gap={0} maxW="34rem" mx="auto" textAlign="center" w="full">
@@ -89,9 +73,141 @@ export const Me = ({ followLinks }: Props) => {
               </Box>
               <VStack gap={0} textAlign="center">
                 <Heading as="h2" my={0}>
-                  {t("handle")}
+                  {t("name")}
                 </Heading>
                 <Text my={0}>{t("role")}</Text>
+                <HStack gap={1}>
+                  <Tooltip.Root
+                    closeDelay={0}
+                    lazyMount
+                    openDelay={0}
+                    positioning={{ placement: "top" }}
+                  >
+                    <Tooltip.Trigger asChild>
+                      <IconButton
+                        aria-label={t("followXLabel")}
+                        asChild
+                        h={followIconSize}
+                        minH={followIconSize}
+                        minW={followIconSize}
+                        rounded="full"
+                        size="sm"
+                        variant="ghost"
+                        w={followIconSize}
+                      >
+                        <a
+                          href={followLinks.x}
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                          target="_blank"
+                        >
+                          <FaXTwitter
+                            aria-hidden
+                            focusable="false"
+                            role="presentation"
+                          />
+                        </a>
+                      </IconButton>
+                    </Tooltip.Trigger>
+                    <Portal>
+                      <Tooltip.Positioner>
+                        <Tooltip.Content>
+                          <Tooltip.Arrow>
+                            <Tooltip.ArrowTip />
+                          </Tooltip.Arrow>
+                          {t("followXLabel")}
+                        </Tooltip.Content>
+                      </Tooltip.Positioner>
+                    </Portal>
+                  </Tooltip.Root>
+                  <Tooltip.Root
+                    closeDelay={0}
+                    lazyMount
+                    openDelay={0}
+                    positioning={{ placement: "top" }}
+                  >
+                    <Tooltip.Trigger asChild>
+                      <IconButton
+                        aria-label={t("followBlueskyLabel")}
+                        asChild
+                        color="#007bff"
+                        h={followIconSize}
+                        minH={followIconSize}
+                        minW={followIconSize}
+                        rounded="full"
+                        size="sm"
+                        variant="ghost"
+                        w={followIconSize}
+                      >
+                        <a
+                          href={followLinks.bluesky}
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                          target="_blank"
+                        >
+                          <SiBluesky
+                            aria-hidden
+                            focusable="false"
+                            role="presentation"
+                          />
+                        </a>
+                      </IconButton>
+                    </Tooltip.Trigger>
+                    <Portal>
+                      <Tooltip.Positioner>
+                        <Tooltip.Content>
+                          <Tooltip.Arrow>
+                            <Tooltip.ArrowTip />
+                          </Tooltip.Arrow>
+                          {t("followBlueskyLabel")}
+                        </Tooltip.Content>
+                      </Tooltip.Positioner>
+                    </Portal>
+                  </Tooltip.Root>
+                  <Tooltip.Root
+                    closeDelay={0}
+                    lazyMount
+                    openDelay={0}
+                    positioning={{ placement: "top" }}
+                  >
+                    <Tooltip.Trigger asChild>
+                      <IconButton
+                        aria-label={t("followGithubLabel")}
+                        asChild
+                        h={followIconSize}
+                        minH={followIconSize}
+                        minW={followIconSize}
+                        rounded="full"
+                        size="sm"
+                        variant="ghost"
+                        w={followIconSize}
+                      >
+                        <a
+                          href={followLinks.github}
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                          target="_blank"
+                        >
+                          <FaGithub
+                            aria-hidden
+                            focusable="false"
+                            role="presentation"
+                          />
+                        </a>
+                      </IconButton>
+                    </Tooltip.Trigger>
+                    <Portal>
+                      <Tooltip.Positioner>
+                        <Tooltip.Content>
+                          <Tooltip.Arrow>
+                            <Tooltip.ArrowTip />
+                          </Tooltip.Arrow>
+                          {t("followGithubLabel")}
+                        </Tooltip.Content>
+                      </Tooltip.Positioner>
+                    </Portal>
+                  </Tooltip.Root>
+                </HStack>
               </VStack>
             </VStack>
             <Stack gap={0} maxW="34rem" mx="auto" textAlign="left" w="full">

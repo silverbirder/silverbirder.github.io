@@ -2,13 +2,19 @@
 
 import type { Route } from "next";
 
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import {
-  FollowItButton,
+  Box,
+  Heading,
+  IconButton,
+  Portal,
+  Stack,
+  Text,
+  Tooltip,
+} from "@chakra-ui/react";
+import {
   Notebook,
   NotebookPostItem,
   PostSearchPanel,
-  RssButton,
   type SearchResult,
   type SearchStatus,
   Tag,
@@ -17,6 +23,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { MdEmail, MdRssFeed } from "react-icons/md";
 
 import {
   filterPosts,
@@ -54,6 +61,7 @@ export const Posts = ({ posts, rssUrl }: Props) => {
   const currentPage = urlCurrentPage;
 
   const t = useTranslations("user.blog");
+  const tNotebook = useTranslations("ui.notebook");
   const metaSeparator = t("metaSeparator");
   const actionButtonSize = "var(--notebook-line-height)";
   const normalizedPosts = normalizePosts(posts);
@@ -329,27 +337,103 @@ export const Posts = ({ posts, rssUrl }: Props) => {
               <Stack gap="var(--notebook-line-height)">
                 <Stack gap="var(--notebook-line-height)">
                   <Heading as="h2" lineHeight="var(--notebook-line-height)">
-                    {t("subscribeHeading")}
+                    {tNotebook("readerLabel")}
                   </Heading>
-                  <Stack
-                    align="stretch"
-                    direction="column"
-                    gap={0}
-                    mx={0}
-                    w="fit-content"
-                  >
-                    <RssButton
-                      height={actionButtonSize}
-                      label={t("followRssLabel")}
-                      url={rssUrl}
-                      width="100%"
-                    />
-                    <FollowItButton
-                      height={actionButtonSize}
-                      label={t("subscribeEmailLabel")}
-                      url={FOLLOW_IT_URL}
-                      width="100%"
-                    />
+                  <Stack align="center" direction="row" gap={0.5} mx={0}>
+                    <Tooltip.Root
+                      closeDelay={0}
+                      lazyMount
+                      openDelay={0}
+                      positioning={{ placement: "top" }}
+                    >
+                      <Tooltip.Trigger asChild>
+                        <IconButton
+                          _active={{ bg: "orange.100" }}
+                          _hover={{ bg: "orange.50" }}
+                          aria-label={t("followRssLabel")}
+                          asChild
+                          bg="transparent"
+                          color="#f97316"
+                          h={actionButtonSize}
+                          minH={actionButtonSize}
+                          minW={actionButtonSize}
+                          rounded="full"
+                          size="sm"
+                          variant="ghost"
+                          w={actionButtonSize}
+                        >
+                          <a
+                            href={rssUrl}
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none" }}
+                            target="_blank"
+                          >
+                            <MdRssFeed
+                              aria-hidden
+                              focusable="false"
+                              role="presentation"
+                            />
+                          </a>
+                        </IconButton>
+                      </Tooltip.Trigger>
+                      <Portal>
+                        <Tooltip.Positioner>
+                          <Tooltip.Content>
+                            <Tooltip.Arrow>
+                              <Tooltip.ArrowTip />
+                            </Tooltip.Arrow>
+                            {t("followRssLabel")}
+                          </Tooltip.Content>
+                        </Tooltip.Positioner>
+                      </Portal>
+                    </Tooltip.Root>
+                    <Tooltip.Root
+                      closeDelay={0}
+                      lazyMount
+                      openDelay={0}
+                      positioning={{ placement: "top" }}
+                    >
+                      <Tooltip.Trigger asChild>
+                        <IconButton
+                          _active={{ bg: "green.100" }}
+                          _hover={{ bg: "green.50" }}
+                          aria-label={t("subscribeEmailLabel")}
+                          asChild
+                          bg="transparent"
+                          color="#00cf8d"
+                          h={actionButtonSize}
+                          minH={actionButtonSize}
+                          minW={actionButtonSize}
+                          rounded="full"
+                          size="sm"
+                          variant="ghost"
+                          w={actionButtonSize}
+                        >
+                          <a
+                            href={FOLLOW_IT_URL}
+                            rel="noopener noreferrer"
+                            style={{ color: "#00cf8d", textDecoration: "none" }}
+                            target="_blank"
+                          >
+                            <MdEmail
+                              aria-hidden
+                              focusable="false"
+                              role="presentation"
+                            />
+                          </a>
+                        </IconButton>
+                      </Tooltip.Trigger>
+                      <Portal>
+                        <Tooltip.Positioner>
+                          <Tooltip.Content>
+                            <Tooltip.Arrow>
+                              <Tooltip.ArrowTip />
+                            </Tooltip.Arrow>
+                            {t("subscribeEmailLabel")}
+                          </Tooltip.Content>
+                        </Tooltip.Positioner>
+                      </Portal>
+                    </Tooltip.Root>
                   </Stack>
                 </Stack>
                 {(availableYears.length > 0 || availableTags.length > 0) && (

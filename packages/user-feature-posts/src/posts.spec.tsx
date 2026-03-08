@@ -194,7 +194,7 @@ describe("Posts", () => {
     );
 
     expect(document.body.textContent ?? "").toContain("絞り込み");
-    expect(document.body.textContent ?? "").toContain("ブログの読者になる");
+    expect(document.body.textContent ?? "").toContain("読者になる");
     expect(
       document
         .querySelector('a[aria-label="RSSでブログの更新を受け取る"]')

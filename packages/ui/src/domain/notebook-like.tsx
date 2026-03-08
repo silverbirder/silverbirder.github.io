@@ -232,12 +232,8 @@ export const NotebookLike = ({ name, namespace, title }: Props) => {
   }, [balloonLabel, visibleBalloonLabel]);
 
   return (
-    <VStack alignItems="center" gap={0}>
-      <Box
-        h={NOTEBOOK_LINE_HEIGHT}
-        position="relative"
-        w={NOTEBOOK_LINE_HEIGHT}
-      >
+    <VStack alignItems="flex-start" gap={0}>
+      <Box h={NOTEBOOK_LINE_HEIGHT} position="relative" w="fit-content">
         <Text
           aria-hidden="true"
           data-testid="notebook-like-balloon"
@@ -260,7 +256,7 @@ export const NotebookLike = ({ name, namespace, title }: Props) => {
           aria-label={t("likeButtonAriaLabel")}
           aria-pressed={liked}
           disabled={status === "loading"}
-          display="inline-flex"
+          display="flex"
           height={NOTEBOOK_LINE_HEIGHT}
           lineHeight="1"
           loading={status === "loading"}
@@ -279,7 +275,14 @@ export const NotebookLike = ({ name, namespace, title }: Props) => {
           <LuThumbsUp />
         </IconButton>
       </Box>
-      <Text m={0}>{countLabel}</Text>
+      <Text
+        lineHeight={NOTEBOOK_LINE_HEIGHT}
+        m={0}
+        ml={`calc(${NOTEBOOK_LINE_HEIGHT} + 0.25rem)`}
+        mt={`calc(${NOTEBOOK_LINE_HEIGHT} * -1)`}
+      >
+        {countLabel}
+      </Text>
     </VStack>
   );
 };

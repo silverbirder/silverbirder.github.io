@@ -18,6 +18,7 @@ const OFUSE_URL = `https://ofuse.me/o?uid=${OFUSE_ID}`;
 type Props = {
   compiledSource: string;
   followLinks: FollowLinks;
+  followProfileAvatarSrc: string;
   meta: {
     index?: boolean;
     postNumber?: number;
@@ -54,6 +55,7 @@ type Props = {
 export const PostArticle = ({
   compiledSource,
   followLinks,
+  followProfileAvatarSrc,
   meta,
   navigation,
   relatedPosts,
@@ -61,13 +63,12 @@ export const PostArticle = ({
   slug,
 }: Props) => {
   const t = useTranslations("user.blog");
+  const tMe = useTranslations("user.me");
   const shareText = t("shareText", { title: meta.title });
   const share = {
     heading: t("shareHeading"),
     labels: {
       bluesky: t("shareBlueskyLabel"),
-      copy: t("shareCopyLabel"),
-      copyCopied: t("shareCopyCopied"),
       hatena: t("shareHatenaLabel"),
       web: t("shareWebLabel"),
       x: t("shareXLabel"),
@@ -83,6 +84,11 @@ export const PostArticle = ({
       x: t("followXLabel"),
     },
     links: followLinks,
+    profile: {
+      avatarSrc: followProfileAvatarSrc,
+      description: tMe("role"),
+      name: tMe("name"),
+    },
   });
   const indexStatus = meta.index === false ? "noindex" : "index";
   const like = {

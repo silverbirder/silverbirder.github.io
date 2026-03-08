@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Icon } from "@chakra-ui/react";
+import { IconButton, Portal, Tooltip } from "@chakra-ui/react";
 import { FaXTwitter } from "react-icons/fa6";
 
 type Props = {
@@ -33,57 +33,50 @@ export const ShareButtonX = ({
   const buttonHeight = height ?? 9;
 
   return (
-    <Button
-      _active={{ bg: "fg", borderColor: "fg", color: "bg" }}
-      _before={{
-        bg: "fg",
-        bottom: "1px",
-        content: '""',
-        left: 0,
-        position: "absolute",
-        top: "1px",
-        width: "1px",
-      }}
-      _disabled={{ opacity: 1 }}
-      _hover={{
-        bg: "fg",
-        borderColor: "fg",
-        color: "bg",
-        textDecoration: "none",
-      }}
-      alignItems="center"
-      aria-label={ariaLabel}
-      asChild
-      bg="transparent"
-      borderRadius="none"
-      color="fg"
-      gap={2}
-      h={buttonHeight}
-      justifyContent="space-between"
-      loading={loading}
-      maxH={buttonHeight}
-      minH={buttonHeight}
-      minW={width ?? "fit-content"}
-      position="relative"
-      px={3}
-      py={0}
-      size="sm"
-      textAlign="left"
-      textDecoration="none"
-      variant="ghost"
-      w={width}
+    <Tooltip.Root
+      closeDelay={0}
+      lazyMount
+      openDelay={0}
+      positioning={{ placement: "top" }}
     >
-      <a
-        href={href}
-        rel="noopener noreferrer"
-        style={{ textDecoration: "none" }}
-        target="_blank"
-      >
-        {label}
-        <Icon size="sm">
-          <FaXTwitter />
-        </Icon>
-      </a>
-    </Button>
+      <Tooltip.Trigger asChild>
+        <IconButton
+          _active={{ bg: "blackAlpha.200" }}
+          _disabled={{ opacity: 1 }}
+          _hover={{ bg: "blackAlpha.100", textDecoration: "none" }}
+          aria-label={ariaLabel}
+          asChild
+          bg="transparent"
+          color="fg"
+          h={buttonHeight}
+          loading={loading}
+          minH={buttonHeight}
+          minW={width ?? buttonHeight}
+          rounded="full"
+          size="sm"
+          variant="ghost"
+          w={width ?? buttonHeight}
+        >
+          <a
+            href={href}
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+            target="_blank"
+          >
+            <FaXTwitter aria-hidden focusable="false" role="presentation" />
+          </a>
+        </IconButton>
+      </Tooltip.Trigger>
+      <Portal>
+        <Tooltip.Positioner>
+          <Tooltip.Content>
+            <Tooltip.Arrow>
+              <Tooltip.ArrowTip />
+            </Tooltip.Arrow>
+            {label}
+          </Tooltip.Content>
+        </Tooltip.Positioner>
+      </Portal>
+    </Tooltip.Root>
   );
 };

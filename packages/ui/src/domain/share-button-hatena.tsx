@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Icon } from "@chakra-ui/react";
+import { IconButton, Portal, Tooltip } from "@chakra-ui/react";
 import { SiHatenabookmark } from "react-icons/si";
 
 type Props = {
@@ -33,57 +33,54 @@ export const ShareButtonHatena = ({
   const buttonHeight = height ?? 9;
 
   return (
-    <Button
-      _active={{ bg: "#00a4de", borderColor: "#00a4de", color: "white" }}
-      _before={{
-        bg: "#00a4de",
-        bottom: "1px",
-        content: '""',
-        left: 0,
-        position: "absolute",
-        top: "1px",
-        width: "1px",
-      }}
-      _disabled={{ opacity: 1 }}
-      _hover={{
-        bg: "#00a4de",
-        borderColor: "#00a4de",
-        color: "white",
-        textDecoration: "none",
-      }}
-      alignItems="center"
-      aria-label={ariaLabel}
-      asChild
-      bg="transparent"
-      borderRadius="none"
-      color="fg"
-      gap={2}
-      h={buttonHeight}
-      justifyContent="space-between"
-      loading={loading}
-      maxH={buttonHeight}
-      minH={buttonHeight}
-      minW={width ?? "fit-content"}
-      position="relative"
-      px={3}
-      py={0}
-      size="sm"
-      textAlign="left"
-      textDecoration="none"
-      variant="ghost"
-      w={width}
+    <Tooltip.Root
+      closeDelay={0}
+      lazyMount
+      openDelay={0}
+      positioning={{ placement: "top" }}
     >
-      <a
-        href={href}
-        rel="noopener noreferrer"
-        style={{ textDecoration: "none" }}
-        target="_blank"
-      >
-        {label}
-        <Icon color="#00a4de" size="sm">
-          <SiHatenabookmark />
-        </Icon>
-      </a>
-    </Button>
+      <Tooltip.Trigger asChild>
+        <IconButton
+          _active={{ bg: "blue.100" }}
+          _disabled={{ opacity: 1 }}
+          _hover={{ bg: "blue.50", textDecoration: "none" }}
+          aria-label={ariaLabel}
+          asChild
+          bg="transparent"
+          color="#00a4de"
+          h={buttonHeight}
+          loading={loading}
+          minH={buttonHeight}
+          minW={width ?? buttonHeight}
+          rounded="full"
+          size="sm"
+          variant="ghost"
+          w={width ?? buttonHeight}
+        >
+          <a
+            href={href}
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+            target="_blank"
+          >
+            <SiHatenabookmark
+              aria-hidden
+              focusable="false"
+              role="presentation"
+            />
+          </a>
+        </IconButton>
+      </Tooltip.Trigger>
+      <Portal>
+        <Tooltip.Positioner>
+          <Tooltip.Content>
+            <Tooltip.Arrow>
+              <Tooltip.ArrowTip />
+            </Tooltip.Arrow>
+            {label}
+          </Tooltip.Content>
+        </Tooltip.Positioner>
+      </Portal>
+    </Tooltip.Root>
   );
 };

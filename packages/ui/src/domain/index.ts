@@ -19,7 +19,6 @@ export * from "./robot-badge";
 export * from "./rss-button";
 export * from "./scroll-progress-bar";
 export * from "./share-button-bluesky";
-export * from "./share-button-copy";
 export * from "./share-button-hatena";
 export * from "./share-button-web";
 export * from "./share-button-x";

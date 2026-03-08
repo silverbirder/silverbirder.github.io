@@ -17,10 +17,20 @@ describe("createFollowSection", () => {
         rss: "https://example.com/rss",
         x: "https://example.com/x",
       },
+      profile: {
+        avatarSrc: "/assets/logo.png",
+        description: "Webソフトウェアエンジニア",
+        name: "silverbirder",
+      },
     });
 
     expect(follow.heading).toBe("フォローする");
     expect(follow.items).toHaveLength(3);
+    expect(follow.profile).toMatchObject({
+      avatarSrc: "/assets/logo.png",
+      description: "Webソフトウェアエンジニア",
+      name: "silverbirder",
+    });
     expect(follow.items[0]).toMatchObject({
       href: "https://example.com/x",
       label: "Xをフォロー",

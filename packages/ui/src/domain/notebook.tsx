@@ -3,23 +3,28 @@
 import type { ComponentProps, ReactNode } from "react";
 
 import {
+  Avatar,
   Box,
   Button,
   Flex,
   Heading,
+  HStack,
   Icon,
+  IconButton,
+  Portal,
   SimpleGrid,
   Stack,
   Text,
+  Tooltip,
   VStack,
 } from "@chakra-ui/react";
 import { formatNotebookDate } from "@repo/util";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { MdEmail, MdRssFeed } from "react-icons/md";
 
 import type { FollowSection } from "./follow";
 
-import { FollowItButton } from "./follow-it-button";
 import { NotebookComments } from "./notebook-comments";
 import { NotebookDash } from "./notebook-dash";
 import { NotebookLike } from "./notebook-like";
@@ -27,9 +32,7 @@ import { NotebookPostItem } from "./notebook-post-item";
 import { NOTEBOOK_LINE_HEIGHT, NotebookProse } from "./notebook-prose";
 import { OfuseButton } from "./ofuse-button";
 import { RobotBadge } from "./robot-badge";
-import { RssButton } from "./rss-button";
 import { ShareButtonBluesky } from "./share-button-bluesky";
-import { ShareButtonCopy } from "./share-button-copy";
 import { ShareButtonHatena } from "./share-button-hatena";
 import { ShareButtonWeb } from "./share-button-web";
 import { ShareButtonX } from "./share-button-x";
@@ -90,8 +93,6 @@ type RelatedPostGroup = {
 
 type ShareLabels = {
   bluesky: string;
-  copy: string;
-  copyCopied: string;
   hatena: string;
   web: string;
   x: string;
@@ -151,12 +152,9 @@ export const Notebook = ({
   const postNumberText =
     postNumber !== undefined ? String(postNumber) : undefined;
   const actionButtonSize = "var(--notebook-line-height)";
-  const actionSectionCount = [
-    share,
-    follow?.items.length ? follow : undefined,
-    subscription,
-    support,
-  ].filter(Boolean).length;
+  const actionSectionCount = [follow?.items.length ? follow : undefined].filter(
+    Boolean,
+  ).length;
   const actionColumnsMd =
     actionSectionCount >= 3 ? 3 : actionSectionCount >= 2 ? 2 : 1;
   const globalNavigationItems = [
@@ -303,83 +301,177 @@ export const Notebook = ({
             ))}
           </Stack>
         )}
-        {like && (
-          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <NotebookLike
-              name={like.name}
-              namespace={like.namespace}
-              title={like.title}
-            />
-          </Box>
+        {(like || share || subscription) && (
+          <HStack
+            align="flex-start"
+            as="section"
+            columnGap={4}
+            flexWrap="wrap"
+            mb={NOTEBOOK_LINE_HEIGHT}
+            rowGap={0}
+            w="full"
+          >
+            {like && (
+              <Box>
+                <NotebookLike
+                  name={like.name}
+                  namespace={like.namespace}
+                  title={like.title}
+                />
+              </Box>
+            )}
+            {subscription && (
+              <Flex align="center" gap={0.5}>
+                <Text color="fg.muted" fontSize="sm" my={0}>
+                  {t("readerLabel")}
+                </Text>
+                <Text color="fg.subtle" fontSize="sm" my={0}>
+                  {t("separator")}
+                </Text>
+                <Tooltip.Root
+                  closeDelay={0}
+                  lazyMount
+                  openDelay={0}
+                  positioning={{ placement: "top" }}
+                >
+                  <Tooltip.Trigger asChild>
+                    <IconButton
+                      _active={{ bg: "orange.100" }}
+                      _hover={{ bg: "orange.50" }}
+                      aria-label={subscription.label}
+                      asChild
+                      bg="transparent"
+                      color="#f97316"
+                      h={actionButtonSize}
+                      minH={actionButtonSize}
+                      minW={actionButtonSize}
+                      rounded="full"
+                      size="sm"
+                      variant="ghost"
+                      w={actionButtonSize}
+                    >
+                      <a
+                        href={subscription.url}
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                        target="_blank"
+                      >
+                        <MdRssFeed
+                          aria-hidden
+                          focusable="false"
+                          role="presentation"
+                        />
+                      </a>
+                    </IconButton>
+                  </Tooltip.Trigger>
+                  <Portal>
+                    <Tooltip.Positioner>
+                      <Tooltip.Content>
+                        <Tooltip.Arrow>
+                          <Tooltip.ArrowTip />
+                        </Tooltip.Arrow>
+                        {subscription.label}
+                      </Tooltip.Content>
+                    </Tooltip.Positioner>
+                  </Portal>
+                </Tooltip.Root>
+                <Tooltip.Root
+                  closeDelay={0}
+                  lazyMount
+                  openDelay={0}
+                  positioning={{ placement: "top" }}
+                >
+                  <Tooltip.Trigger asChild>
+                    <IconButton
+                      _active={{ bg: "green.100" }}
+                      _hover={{ bg: "green.50" }}
+                      aria-label={subscription.emailLabel}
+                      asChild
+                      bg="transparent"
+                      color="#00cf8d"
+                      h={actionButtonSize}
+                      minH={actionButtonSize}
+                      minW={actionButtonSize}
+                      rounded="full"
+                      size="sm"
+                      variant="ghost"
+                      w={actionButtonSize}
+                    >
+                      <a
+                        href={subscription.emailUrl}
+                        rel="noopener noreferrer"
+                        style={{ color: "#00cf8d", textDecoration: "none" }}
+                        target="_blank"
+                      >
+                        <MdEmail
+                          aria-hidden
+                          focusable="false"
+                          role="presentation"
+                        />
+                      </a>
+                    </IconButton>
+                  </Tooltip.Trigger>
+                  <Portal>
+                    <Tooltip.Positioner>
+                      <Tooltip.Content>
+                        <Tooltip.Arrow>
+                          <Tooltip.ArrowTip />
+                        </Tooltip.Arrow>
+                        {subscription.emailLabel}
+                      </Tooltip.Content>
+                    </Tooltip.Positioner>
+                  </Portal>
+                </Tooltip.Root>
+              </Flex>
+            )}
+            {share && (
+              <Stack
+                align="center"
+                direction="row"
+                gap={0.5}
+                justify="flex-start"
+              >
+                <Text color="fg.muted" fontSize="sm" my={0}>
+                  {t("shareLabel")}
+                </Text>
+                <Text color="fg.subtle" fontSize="sm" my={0}>
+                  {t("separator")}
+                </Text>
+                <ShareButtonX
+                  height={actionButtonSize}
+                  label={share.labels.x}
+                  text={share.text}
+                  url={share.url}
+                />
+                <ShareButtonBluesky
+                  height={actionButtonSize}
+                  label={share.labels.bluesky}
+                  text={share.text}
+                  url={share.url}
+                />
+                <ShareButtonHatena
+                  height={actionButtonSize}
+                  label={share.labels.hatena}
+                  text={share.text}
+                  url={share.url}
+                />
+                <ShareButtonWeb
+                  height={actionButtonSize}
+                  label={share.labels.web}
+                  text={share.text}
+                  url={share.url}
+                />
+              </Stack>
+            )}
+          </HStack>
         )}
-        {comments && <NotebookComments slug={comments.slug} />}
-        {(share ||
-          (follow && follow.items.length > 0) ||
-          subscription ||
-          support) && (
+        {follow && follow.items.length > 0 && (
           <SimpleGrid
             columns={{ base: 1, md: actionColumnsMd }}
             gap={0}
             mb={NOTEBOOK_LINE_HEIGHT}
             w="full"
           >
-            {share && (
-              <Box as="section">
-                <VStack
-                  align="stretch"
-                  gap={0}
-                  mx={{ base: 0, md: "auto" }}
-                  w="fit-content"
-                >
-                  <Heading as="h2" textAlign="left">
-                    {share.heading}
-                  </Heading>
-                  <Stack
-                    align="stretch"
-                    direction="column"
-                    gap={0}
-                    justify="center"
-                    w="full"
-                  >
-                    <ShareButtonX
-                      height={actionButtonSize}
-                      label={share.labels.x}
-                      text={share.text}
-                      url={share.url}
-                      width="100%"
-                    />
-                    <ShareButtonBluesky
-                      height={actionButtonSize}
-                      label={share.labels.bluesky}
-                      text={share.text}
-                      url={share.url}
-                      width="100%"
-                    />
-                    <ShareButtonHatena
-                      height={actionButtonSize}
-                      label={share.labels.hatena}
-                      text={share.text}
-                      url={share.url}
-                      width="100%"
-                    />
-                    <ShareButtonWeb
-                      height={actionButtonSize}
-                      label={share.labels.web}
-                      text={share.text}
-                      url={share.url}
-                      width="100%"
-                    />
-                    <ShareButtonCopy
-                      copiedLabel={share.labels.copyCopied}
-                      height={actionButtonSize}
-                      label={share.labels.copy}
-                      url={share.url}
-                      width="100%"
-                    />
-                  </Stack>
-                </VStack>
-              </Box>
-            )}
             {follow && follow.items.length > 0 && (
               <Box
                 as="section"
@@ -387,152 +479,203 @@ export const Notebook = ({
                 mx={followSectionLayout === "content" ? "auto" : undefined}
                 w={followSectionLayout === "content" ? "full" : undefined}
               >
-                <VStack
-                  align="stretch"
-                  gap={0}
-                  mx={
-                    followSectionLayout === "content"
-                      ? 0
-                      : { base: 0, md: "auto" }
-                  }
-                  w="fit-content"
-                >
-                  <Heading as="h2" textAlign="left">
-                    {follow.heading}
-                  </Heading>
-                  <Stack
-                    align="stretch"
-                    direction="column"
-                    gap={0}
-                    justify="center"
-                  >
-                    {follow.items.map((item) => (
-                      <Button
-                        _active={{
-                          bg: item.borderColor,
-                          borderColor: item.borderColor,
-                          color: item.hoverTextColor,
-                        }}
-                        _before={{
-                          bg: item.borderColor,
-                          bottom: "1px",
-                          content: '""',
-                          left: 0,
-                          position: "absolute",
-                          top: "1px",
-                          width: "1px",
-                        }}
-                        _hover={{
-                          bg: item.borderColor,
-                          borderColor: item.borderColor,
-                          color: item.hoverTextColor,
-                          textDecoration: "none",
-                        }}
-                        alignItems="center"
-                        aria-label={item.label}
-                        asChild
-                        bg="transparent"
-                        borderRadius="none"
-                        color="fg"
-                        gap={2}
-                        h={actionButtonSize}
-                        justifyContent="space-between"
-                        key={item.label}
-                        maxH={actionButtonSize}
-                        minH={actionButtonSize}
-                        minW={
-                          followSectionLayout === "content"
-                            ? "fit-content"
-                            : "100%"
-                        }
-                        position="relative"
-                        px={3}
-                        py={0}
-                        size="sm"
-                        textAlign="left"
-                        textDecoration="none"
-                        variant="ghost"
-                        w={
-                          followSectionLayout === "content"
-                            ? "fit-content"
-                            : "100%"
-                        }
+                {follow.profile ? (
+                  <Flex align="center" direction="row" gap={4}>
+                    <Avatar.Root
+                      border="1px solid"
+                      borderColor="border"
+                      className="not-prose"
+                      flexShrink={0}
+                      h="5rem"
+                      shape="full"
+                      size="2xl"
+                      w="5rem"
+                    >
+                      <Avatar.Image
+                        alt={follow.profile.name}
+                        bg="white"
+                        src={follow.profile.avatarSrc}
+                      />
+                      <Avatar.Fallback name={follow.profile.name} />
+                    </Avatar.Root>
+                    <VStack align="stretch" flex="1" gap={0} minW={0}>
+                      <Heading
+                        as="h2"
+                        lineHeight={NOTEBOOK_LINE_HEIGHT}
+                        mb={0}
+                        mt={0}
                       >
-                        <a
-                          href={item.href}
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none" }}
-                          target="_blank"
+                        {follow.profile.name}
+                      </Heading>
+                      <Text color="fg.muted" my={0}>
+                        {follow.profile.description}
+                      </Text>
+                      <Flex align="center" gap={1} mt={0} wrap="wrap">
+                        {follow.items.map((item) => (
+                          <Tooltip.Root
+                            closeDelay={0}
+                            key={item.label}
+                            lazyMount
+                            openDelay={0}
+                            positioning={{ placement: "top" }}
+                          >
+                            <Tooltip.Trigger asChild>
+                              <IconButton
+                                _active={{ bg: "blackAlpha.200" }}
+                                _hover={{ bg: "blackAlpha.100" }}
+                                aria-label={item.label}
+                                asChild
+                                bg="transparent"
+                                color={item.iconColor}
+                                h={actionButtonSize}
+                                minH={actionButtonSize}
+                                minW={actionButtonSize}
+                                rounded="full"
+                                size="sm"
+                                variant="ghost"
+                                w={actionButtonSize}
+                              >
+                                <a
+                                  href={item.href}
+                                  rel="noopener noreferrer"
+                                  style={{ textDecoration: "none" }}
+                                  target="_blank"
+                                >
+                                  {item.icon}
+                                </a>
+                              </IconButton>
+                            </Tooltip.Trigger>
+                            <Portal>
+                              <Tooltip.Positioner>
+                                <Tooltip.Content>
+                                  <Tooltip.Arrow>
+                                    <Tooltip.ArrowTip />
+                                  </Tooltip.Arrow>
+                                  {item.label}
+                                </Tooltip.Content>
+                              </Tooltip.Positioner>
+                            </Portal>
+                          </Tooltip.Root>
+                        ))}
+                      </Flex>
+                    </VStack>
+                  </Flex>
+                ) : (
+                  <VStack
+                    align="stretch"
+                    gap={0}
+                    mx={
+                      followSectionLayout === "content"
+                        ? 0
+                        : { base: 0, md: "auto" }
+                    }
+                    w="fit-content"
+                  >
+                    <Heading as="h2" textAlign="left">
+                      {follow.heading}
+                    </Heading>
+                    <Stack
+                      align="stretch"
+                      direction="column"
+                      gap={0}
+                      justify="center"
+                    >
+                      {follow.items.map((item) => (
+                        <Button
+                          _active={{
+                            bg: item.borderColor,
+                            borderColor: item.borderColor,
+                            color: item.hoverTextColor,
+                          }}
+                          _before={{
+                            bg: item.borderColor,
+                            bottom: "1px",
+                            content: '""',
+                            left: 0,
+                            position: "absolute",
+                            top: "1px",
+                            width: "1px",
+                          }}
+                          _hover={{
+                            bg: item.borderColor,
+                            borderColor: item.borderColor,
+                            color: item.hoverTextColor,
+                            textDecoration: "none",
+                          }}
+                          alignItems="center"
+                          aria-label={item.label}
+                          asChild
+                          bg="transparent"
+                          borderRadius="none"
+                          color="fg"
+                          gap={2}
+                          h={actionButtonSize}
+                          justifyContent="space-between"
+                          key={item.label}
+                          maxH={actionButtonSize}
+                          minH={actionButtonSize}
+                          minW={
+                            followSectionLayout === "content"
+                              ? "fit-content"
+                              : "100%"
+                          }
+                          position="relative"
+                          px={3}
+                          py={0}
+                          size="sm"
+                          textAlign="left"
+                          textDecoration="none"
+                          variant="ghost"
+                          w={
+                            followSectionLayout === "content"
+                              ? "fit-content"
+                              : "100%"
+                          }
                         >
-                          {item.label}
-                          <Icon color={item.iconColor} size="sm">
-                            {item.icon}
-                          </Icon>
-                        </a>
-                      </Button>
-                    ))}
-                  </Stack>
-                </VStack>
-              </Box>
-            )}
-            {subscription && (
-              <Box as="section">
-                <VStack
-                  align="stretch"
-                  gap={0}
-                  mx={{ base: 0, md: "auto" }}
-                  w="fit-content"
-                >
-                  <Heading as="h2" textAlign="left">
-                    {subscription.heading}
-                  </Heading>
-                  <Stack
-                    align="stretch"
-                    direction="column"
-                    gap={0}
-                    justify="center"
-                    w="full"
-                  >
-                    <RssButton
-                      height={actionButtonSize}
-                      label={subscription.label}
-                      url={subscription.url}
-                      width="100%"
-                    />
-                    <FollowItButton
-                      height={actionButtonSize}
-                      label={subscription.emailLabel}
-                      url={subscription.emailUrl}
-                      width="100%"
-                    />
-                  </Stack>
-                </VStack>
-              </Box>
-            )}
-            {support && (
-              <Box as="section">
-                <VStack align="stretch" gap={0} w="full">
-                  <Heading as="h2" textAlign="left">
-                    {support.heading}
-                  </Heading>
-                  <Stack
-                    align="stretch"
-                    direction="column"
-                    gap={0}
-                    justify="center"
-                    w="full"
-                  >
-                    <OfuseButton
-                      id={support.ofuse.id}
-                      label={support.ofuse.label}
-                      style={support.ofuse.style}
-                      url={support.ofuse.url}
-                    />
-                  </Stack>
-                </VStack>
+                          <a
+                            href={item.href}
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none" }}
+                            target="_blank"
+                          >
+                            {item.label}
+                            <Icon color={item.iconColor} size="sm">
+                              {item.icon}
+                            </Icon>
+                          </a>
+                        </Button>
+                      ))}
+                    </Stack>
+                  </VStack>
+                )}
               </Box>
             )}
           </SimpleGrid>
+        )}
+        {support && (
+          <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
+            <VStack align="stretch" gap={0} w="full">
+              <Stack
+                align="stretch"
+                direction="column"
+                gap={0}
+                justify="center"
+                w="full"
+              >
+                <OfuseButton
+                  id={support.ofuse.id}
+                  label={support.ofuse.label}
+                  style={support.ofuse.style}
+                  url={support.ofuse.url}
+                />
+              </Stack>
+            </VStack>
+          </Box>
+        )}
+        {comments && (
+          <Box mb={NOTEBOOK_LINE_HEIGHT}>
+            <NotebookComments showHeading={false} slug={comments.slug} />
+          </Box>
         )}
         {(navigation?.prev || navigation?.next) && (
           <SimpleGrid

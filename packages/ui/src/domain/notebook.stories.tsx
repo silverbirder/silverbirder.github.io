@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { SiBluesky } from "react-icons/si";
+
 import { Notebook } from "./notebook";
 import { NotebookImage } from "./notebook-image";
 
@@ -191,6 +194,66 @@ export const WithNavigation: Story = {
     postNumber: 12,
     publishedAt: "2025-01-12",
     relatedPosts: [],
+    tags: ["Notebook", "UI"],
+    title: "Notebook Preview",
+  },
+};
+
+export const WithActions: Story = {
+  args: {
+    children: bodyContent,
+    follow: {
+      heading: "フォローしてね！",
+      items: [
+        {
+          borderColor: "fg",
+          hoverTextColor: "bg",
+          href: "https://x.com/silverbirder",
+          icon: (
+            <FaXTwitter aria-hidden focusable="false" role="presentation" />
+          ),
+          iconColor: "fg",
+          label: "Xをフォロー",
+        },
+        {
+          borderColor: "#007bff",
+          hoverTextColor: "white",
+          href: "https://bsky.app/profile/silverbirder.bsky.social",
+          icon: <SiBluesky aria-hidden focusable="false" role="presentation" />,
+          iconColor: "#007bff",
+          label: "Blueskyをフォロー",
+        },
+        {
+          borderColor: "fg",
+          hoverTextColor: "bg",
+          href: "https://github.com/silverbirder",
+          icon: <FaGithub aria-hidden focusable="false" role="presentation" />,
+          iconColor: "fg",
+          label: "GitHubをフォロー",
+        },
+      ],
+      profile: {
+        avatarSrc:
+          "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='100%25' height='100%25' rx='64' ry='64' fill='%23f3f6d8'/%3E%3Ctext x='50%25' y='55%25' font-size='44' text-anchor='middle' fill='%23333'%3Es%3C/text%3E%3C/svg%3E",
+        description: "Webソフトウェアエンジニア",
+        name: "silverbirder",
+      },
+    },
+    navigation: {},
+    postNumber: 12,
+    publishedAt: "2025-01-12",
+    relatedPosts: [],
+    share: {
+      heading: "Share",
+      labels: {
+        bluesky: "Blueskyでシェア",
+        hatena: "はてなでシェア",
+        web: "デバイスで共有",
+        x: "Xでシェア",
+      },
+      text: "Notebook Prose",
+      url: "https://example.com/blog/contents/notebook-prose/",
+    },
     tags: ["Notebook", "UI"],
     title: "Notebook Preview",
   },

@@ -126,6 +126,7 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
       <PostArticle
         compiledSource={compiled.compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc={buildSiteUrl("assets/logo.png")}
         meta={{
           index: frontmatter.index,
           postNumber,

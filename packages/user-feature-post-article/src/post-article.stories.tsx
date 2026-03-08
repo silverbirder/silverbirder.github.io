@@ -164,6 +164,7 @@ export const Ideal: Story = {
   args: {
     compiledSource: compiledSources.ideal,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",
@@ -181,6 +182,7 @@ export const Empty: Story = {
   args: {
     compiledSource: compiledSources.empty,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",
@@ -198,6 +200,7 @@ export const Error: Story = {
   args: {
     compiledSource: compiledSources.error,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",
@@ -215,6 +218,7 @@ export const Partial: Story = {
   args: {
     compiledSource: compiledSources.partial,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",
@@ -232,6 +236,7 @@ export const Loading: Story = {
   args: {
     compiledSource: compiledSources.loading,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",
@@ -249,6 +254,7 @@ export const WithNavigation: Story = {
   args: {
     compiledSource: compiledSources.ideal,
     followLinks,
+    followProfileAvatarSrc: "/assets/logo.png",
     meta: {
       postNumber: 12,
       publishedAt: "2025-01-12",

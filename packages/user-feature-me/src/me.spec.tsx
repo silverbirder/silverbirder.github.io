@@ -50,6 +50,7 @@ describe("Me", () => {
     expect(textContent).toContain(
       "穏やかな風景や音を体験したり、美味しいたべものを共有するのが好きです。",
     );
-    expect(textContent).toContain("フォローしてね！");
+    expect(textContent).toContain("silverbirder");
+    expect(textContent).toContain("Webソフトウェアエンジニア");
   });
 });

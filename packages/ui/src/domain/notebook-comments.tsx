@@ -23,6 +23,7 @@ type CommentItem = {
 };
 
 type Props = {
+  showHeading?: boolean;
   slug: string;
 };
 
@@ -47,7 +48,7 @@ const getSafeLocalStorage = () => {
   }
 };
 
-export const NotebookComments = ({ slug }: Props) => {
+export const NotebookComments = ({ showHeading = true, slug }: Props) => {
   const t = useTranslations("ui.notebook");
   const [anonId, setAnonId] = useState("");
   const [comments, setComments] = useState<CommentItem[]>([]);
@@ -141,7 +142,7 @@ export const NotebookComments = ({ slug }: Props) => {
 
   return (
     <Box as="section">
-      <Heading as="h2">{t("commentsHeading")}</Heading>
+      {showHeading && <Heading as="h2">{t("commentsHeading")}</Heading>}
       <VStack alignItems="flex-start" gap={0}>
         <Textarea
           _focus={{

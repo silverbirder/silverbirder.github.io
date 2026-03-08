@@ -61,6 +61,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -95,6 +96,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -131,6 +133,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           index: false,
           postNumber: 1,
@@ -181,6 +184,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -214,6 +218,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -228,10 +233,10 @@ return {
     );
 
     const bodyText = document.body.textContent ?? "";
-    expect(bodyText).toContain("記事をシェアする");
-    expect(bodyText).toContain("筆者をフォローする");
-    expect(bodyText).toContain("ブログの読者になる");
-    expect(bodyText).toContain("ブログを応援する");
+    expect(bodyText).toContain("シェアする");
+    expect(bodyText).toContain("silverbirder");
+    expect(bodyText).toContain("Webソフトウェアエンジニア");
+    expect(bodyText).toContain("読者になる");
     expect(
       document.querySelector('a[aria-label="Xで記事をシェアする"]'),
     ).not.toBeNull();
@@ -255,7 +260,7 @@ return {
     ).not.toBeNull();
     expect(
       document.querySelector('button[aria-label="記事のリンクをコピー"]'),
-    ).not.toBeNull();
+    ).toBeNull();
     expect(
       document.querySelector('a[aria-label="Xで筆者をフォローする"]'),
     ).not.toBeNull();
@@ -306,6 +311,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -354,6 +360,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "2025-01-02",
@@ -390,6 +397,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "",
@@ -439,6 +447,7 @@ return {
       <PostArticle
         compiledSource={compiledSource}
         followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
         meta={{
           postNumber: 1,
           publishedAt: "",

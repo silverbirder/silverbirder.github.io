@@ -6,6 +6,7 @@
     "check:messages": "pnpm --filter @repo/message lint",
     "check-types": "turbo run check-types",
     "ci:fix": "pnpm knip:fix && pnpm lint:fix && pnpm format && pnpm check-types && pnpm test:fix",
+    "clean": "find . -name 'node_modules' -prune -o -type d \\( -name '.next' -o -name '.turbo' -o -name 'out' -o -name 'build' -o -name 'dist' -o -name 'coverage' -o -name 'storybook-static' \\) -prune -exec rm -rf '{}' + && find apps packages -name 'node_modules' -prune -o -type f \\( -name '*.tsbuildinfo' -o -name 'next-env.d.ts' \\) -delete && rm -f apps/user/public/blog-search-index.json apps/user/public/blog-search-index.version.json",
     "deps:up": "pnpm -r up",
     "dev": "turbo run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",

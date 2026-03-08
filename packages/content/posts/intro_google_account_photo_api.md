@@ -59,7 +59,7 @@ Cloudinary についての説明は、割愛します。
 
 私の場合は、次のような画像が表示されます。
 
-![my_google_account_image_circle](https://res.cloudinary.com/demo/image/fetch/r_max/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3D101722346324226588907)
+![my_google_account_image_circle](https://res.cloudinary.com/silverbirder/image/upload/r_max/v1772931949/silver-birder.github.io/blog/u9pv2js6cclbepoizrer.jpg?ar=100%3A100)
 
 Cloudinary について、詳しくは次の URL を確認ください。
 

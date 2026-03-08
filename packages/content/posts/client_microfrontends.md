@@ -15,7 +15,7 @@ https://github.com/silverbirder/micro-frontends-sample-code-6
 
 全体設計イメージ図は、次のとおりです。
 
-![overview](https://res.cloudinary.com/silverbirder/image/fetch/f_auto/https://raw.githubusercontent.com/silverbirder/micro-frontends-sample-code-6/main/overview.svg)
+![overview](https://res.cloudinary.com/silverbirder/image/upload/v1693376972/silver-birder.github.io/blog/overview.svg?ar=909%3A531)
 
 サーバーサイドは静的コンテンツを返すだけとし、クライアントサイドでアプリケーションを構築します。
 

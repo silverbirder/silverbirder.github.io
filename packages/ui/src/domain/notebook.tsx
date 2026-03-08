@@ -114,6 +114,7 @@ type SubscriptionSection = {
 };
 
 type SupportSection = {
+  description: string;
   heading: string;
   ofuse: {
     id: string;
@@ -654,21 +655,24 @@ export const Notebook = ({
         )}
         {support && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>
-            <VStack align="stretch" gap={0} w="full">
-              <Stack
-                align="stretch"
-                direction="column"
-                gap={0}
-                justify="center"
-                w="full"
-              >
-                <OfuseButton
-                  id={support.ofuse.id}
-                  label={support.ofuse.label}
-                  style={support.ofuse.style}
-                  url={support.ofuse.url}
-                />
-              </Stack>
+            <VStack
+              align="stretch"
+              bg="green.contrast"
+              gap={0}
+              outline="1px solid"
+              outlineColor="green.border"
+              p={`calc(${NOTEBOOK_LINE_HEIGHT} / 2)`}
+            >
+              <Heading as="h2" my={0}>
+                {support.heading}
+              </Heading>
+              <Text my={0}>{support.description}</Text>
+              <OfuseButton
+                id={support.ofuse.id}
+                label={support.ofuse.label}
+                style={support.ofuse.style}
+                url={support.ofuse.url}
+              />
             </VStack>
           </Box>
         )}

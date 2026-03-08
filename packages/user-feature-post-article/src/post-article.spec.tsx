@@ -237,6 +237,10 @@ return {
     expect(bodyText).toContain("silverbirder");
     expect(bodyText).toContain("Webソフトウェアエンジニア");
     expect(bodyText).toContain("読者になる");
+    expect(bodyText).toContain("ブログを応援する");
+    expect(bodyText).toContain(
+      "この記事がよかったら、お布施という形で応援してもらえるとうれしいです。",
+    );
     expect(
       document.querySelector('a[aria-label="Xで記事をシェアする"]'),
     ).not.toBeNull();

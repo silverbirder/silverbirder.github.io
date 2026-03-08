@@ -87,10 +87,12 @@ describe("Notebook", () => {
           url: "https://example.com/rss.xml",
         }}
         support={{
-          heading: "応援する",
+          description:
+            "この記事がよかったら、お布施という形で応援してもらえるとうれしいです。",
+          heading: "ブログを応援する",
           ofuse: {
             id: "158382",
-            label: "OFUSEで応援を送る",
+            label: "おふせぼたん",
             style: "rectangle",
             url: "https://ofuse.me/o?uid=158382",
           },
@@ -104,6 +106,10 @@ describe("Notebook", () => {
 
     expect(container.textContent ?? "").toContain("Follow");
     expect(container.textContent ?? "").toContain("読者になる");
+    expect(container.textContent ?? "").toContain("ブログを応援する");
+    expect(container.textContent ?? "").toContain(
+      "この記事がよかったら、お布施という形で応援してもらえるとうれしいです。",
+    );
 
     const shareLink = container.querySelector('a[aria-label="Xでシェア"]');
     const blueskyLink = container.querySelector(

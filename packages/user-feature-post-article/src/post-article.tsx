@@ -104,6 +104,7 @@ export const PostArticle = ({
     url: followLinks.rss,
   };
   const support = {
+    description: t("supportDescription"),
     heading: t("supportHeading"),
     ofuse: {
       id: OFUSE_ID,

@@ -254,6 +254,17 @@ export const WithActions: Story = {
       text: "Notebook Prose",
       url: "https://example.com/blog/contents/notebook-prose/",
     },
+    support: {
+      description:
+        "この記事がよかったら、お布施という形で応援してもらえるとうれしいです。",
+      heading: "ブログを応援する",
+      ofuse: {
+        id: "158382",
+        label: "おふせぼたん",
+        style: "rectangle",
+        url: "https://ofuse.me/o?uid=158382",
+      },
+    },
     tags: ["Notebook", "UI"],
     title: "Notebook Preview",
   },

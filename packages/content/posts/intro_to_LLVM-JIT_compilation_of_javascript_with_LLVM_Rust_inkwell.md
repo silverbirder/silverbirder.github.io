@@ -47,7 +47,7 @@ HTMLとCSSとくれば、次はJSだと思い、JSを実行するエンジンを
 
 プログラムをコンパイルするというのは、主に次の順番で処理されます。
 
-![plantuml](https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIfAJIv9p4lFILLutBJtSVEUnqqx7pTj1Z6QEv4adwwT_hH_wOlbYv_Dcu0a_6nvzxDfxJY4dyrPWIJsPCVQbzCclrZHy6BLF1HRePOzdpB_MSS4BYvCPoZesg7QZym1IQAu0fc3a0Iv1Su22QCu1va3aaHtb4DgNWemi000)
+![plantuml](https://res.cloudinary.com/silverbirder/image/upload/v1772931951/silver-birder.github.io/blog/wfng26r2gz1o2lnclquw.svg?ar=679%3A57)
 
 ---
 

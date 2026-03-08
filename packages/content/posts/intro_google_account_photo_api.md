@@ -17,7 +17,7 @@ API のソースコードは、[こちら(Github)](https://github.com/silverbird
 
 Google のアカウント画像は、[www.google.com](https://www.google.com/) で表示されている右上の画像です。(ログインしている方のみ)
 
-![Google Chrome Home Page](https://github.com/silverbirder/Google-Account-Photo-API/blob/main/assets/i_want_to_that_image.png?raw=true)
+![Google Chrome Home Page](https://res.cloudinary.com/silverbirder/image/upload/v1772931944/silver-birder.github.io/blog/tchcmvs04sbk8ytdpclk.png?ar=976%3A816)
 
 ## API の使い方
 
@@ -39,7 +39,7 @@ https://google-account-photo.vercel.app/api/?account_id=YOUR_ACCOUNT_ID
 
 呼び出すと、画像を返却されます。私の場合は、次の画像が返却されます。
 
-![my google account image](https://google-account-photo.vercel.app/api/?account_id=101722346324226588907)
+![my google account image](https://res.cloudinary.com/silverbirder/image/upload/v1772931949/silver-birder.github.io/blog/u9pv2js6cclbepoizrer.jpg?ar=100%3A100)
 
 ## Markdown で活用する
 

@@ -7,7 +7,7 @@ tags: ["振り返り"]
 
 今年は、秋が短く感じましたね。かわいい猫とともに、毎年恒例の一年の振り返りをします。
 
-![giphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXVpanowbnU1eDExNGxwOTU2OWNrMjBjajQzeTZrZWVjbWt6dGE1MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wollgOXZPyUYvxht3V/giphy.gif)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931777/silver-birder.github.io/blog/giphy_nc9jtb.gif?ar=400%3A300)
 
 ## 週4勤務のスタート
 
@@ -21,7 +21,7 @@ tags: ["振り返り"]
 また、ただ寝ているだけの休みや、予定を詰め込む日もあります。
 個人開発では、やりたくなったときに集中して作り込むこともあり、自分のペースで生活できていることに穏やかな満足感を覚えています。
 
-![giphy](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?cid=790b7611q3h279x6dc4xh3xjxc7q6l8f1kghok9aq402sk2h&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931779/silver-birder.github.io/blog/giphy.gif_ajvdyl.gif?ar=480%3A480)
 
 ## 車との生活
 
@@ -33,7 +33,7 @@ tags: ["振り返り"]
 
 おいしい食べものや、きれいな景色を体験するために、いろいろな場所に訪れたいと思います！
 
-![giphy](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW1lNDZsbnBjbjZxNTE5NDNzbGM2ZzI3aTloMjFsdXZxMzZsbDUyNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xy4ULIiri9j32/giphy.gif)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931782/silver-birder.github.io/blog/giphy_tqsuy7.gif?ar=250%3A141)
 
 ## 仕事の振り返り
 
@@ -52,7 +52,7 @@ tags: ["振り返り"]
 
 デザイナーになれるかは分かりませんが、Webフロントエンドエンジニアとして、よりデザイン寄りの分野に進んでみたいと思っています。
 
-![giphy](https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=ecf05e47uujm192fcj42kmrsjabkxv2hl085b0awkkjx2poa&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931784/silver-birder.github.io/blog/giphy.gif_tfyzqy.gif?ar=200%3A200)
 
 ## 来年の抱負
 
@@ -64,10 +64,10 @@ tags: ["振り返り"]
 プライベートでは、いろいろな場所に出掛けて、新しい景色や体験を楽しみたいです。
 もしかしたら引っ越しも視野に入れていますが、何より妻とたくさんの思い出を作ることを大切にしたいと思います。
 
-![giphy](https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif?cid=ecf05e47grheso4wgh4q0mc73yms1wfp59732nk64akjnf61&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931785/silver-birder.github.io/blog/giphy.gif_a6cjoi.gif?ar=243%3A293)
 
 ## 終わりに
 
 以上、2024年の振り返りでした。最後までお読みいただき、ありがとうございました。
 
-![giphy](https://media.giphy.com/media/iPiUxztIL4Sl2/giphy.gif?cid=ecf05e47cuy8c30q4mzo2erwz99c3zvkm2xgmrhbpaelqu0t&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+![giphy](https://res.cloudinary.com/silverbirder/image/upload/v1772931787/silver-birder.github.io/blog/giphy.gif_bwivcq.gif?ar=379%3A286)

@@ -682,69 +682,29 @@ export const Notebook = ({
           </Box>
         )}
         {(navigation?.prev || navigation?.next) && (
-          <SimpleGrid
+          <Flex
             aria-label={t("navigationLabel")}
             as="nav"
-            columnGap="0"
-            columns={{ base: 1, md: 2 }}
+            justify="space-between"
             mb={NOTEBOOK_LINE_HEIGHT}
-            rowGap="0"
+            w="full"
+            wrap="wrap"
           >
             {navigation.next && (
-              <Flex
-                direction="column"
-                gridColumn={{ base: "1 / -1", md: "1" }}
-                minW={0}
-                w="full"
-              >
-                <Heading as="h2">{t("navigationNext")}</Heading>
-                <Box
-                  lineHeight="var(--notebook-line-height)"
-                  minH={{
-                    base: 0,
-                    md: "calc(var(--notebook-line-height) * 2)",
-                  }}
-                  mt={0}
-                >
-                  <ViewTransitionLink
-                    color="green.fg"
-                    href={navigation.next.href}
-                    lineClamp={2}
-                    lineHeight="var(--notebook-line-height)"
-                  >
-                    {navigation.next.title}
-                  </ViewTransitionLink>
-                </Box>
-              </Flex>
+              <ViewTransitionLink color="green.fg" href={navigation.next.href}>
+                {t("navigationNext")}
+              </ViewTransitionLink>
             )}
             {navigation.prev && (
-              <Flex
-                direction="column"
-                gridColumn={{ base: "1 / -1", md: "2" }}
-                minW={0}
-                w="full"
+              <ViewTransitionLink
+                color="green.fg"
+                href={navigation.prev.href}
+                ml="auto"
               >
-                <Heading as="h2">{t("navigationPrev")}</Heading>
-                <Box
-                  lineHeight="var(--notebook-line-height)"
-                  minH={{
-                    base: 0,
-                    md: "calc(var(--notebook-line-height) * 2)",
-                  }}
-                  mt={0}
-                >
-                  <ViewTransitionLink
-                    color="green.fg"
-                    href={navigation.prev.href}
-                    lineClamp={2}
-                    lineHeight="var(--notebook-line-height)"
-                  >
-                    {navigation.prev.title}
-                  </ViewTransitionLink>
-                </Box>
-              </Flex>
+                {t("navigationPrev")}
+              </ViewTransitionLink>
             )}
-          </SimpleGrid>
+          </Flex>
         )}
         {relatedPosts.length > 0 && (
           <Box as="section" mb={NOTEBOOK_LINE_HEIGHT}>

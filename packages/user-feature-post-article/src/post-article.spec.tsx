@@ -478,7 +478,9 @@ return {
 
     const nav = document.querySelector('nav[aria-label="記事ナビゲーション"]');
     expect(nav).not.toBeNull();
-    expect(document.body.textContent ?? "").toContain("前のページ");
-    expect(document.body.textContent ?? "").toContain("次のページ");
+    expect(document.body.textContent ?? "").toContain("前の記事へ");
+    expect(document.body.textContent ?? "").toContain("次の記事へ");
+    expect(document.body.textContent ?? "").not.toContain("Next");
+    expect(document.body.textContent ?? "").not.toContain("Prev");
   });
 });

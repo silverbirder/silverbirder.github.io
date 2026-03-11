@@ -264,6 +264,10 @@ describe("Notebook", () => {
 
     const nav = container.querySelector('nav[aria-label="記事ナビゲーション"]');
     expect(nav).not.toBeNull();
+    expect(nav).toHaveTextContent("次の記事へ");
+    expect(nav).toHaveTextContent("前の記事へ");
+    expect(nav).not.toHaveTextContent("Next");
+    expect(nav).not.toHaveTextContent("Prev");
 
     const links = Array.from(
       container.querySelectorAll('a[href^="/blog/contents/"]'),

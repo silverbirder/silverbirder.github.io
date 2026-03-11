@@ -310,7 +310,7 @@ export const createAdminLinkCardResolver = async () => {
 export const buildLinkCardPullRequestFiles = async (source: string) => {
   const manifest = await loadManifest();
   const tree = parseMarkdownTree(source);
-  const urls = Array.from(new Set(extractStandaloneLinkUrls(tree)));
+  const urls = Array.from(new Set(extractStandaloneLinkUrls(tree, source)));
   const nextManifest: LinkCardManifest = { ...manifest };
   const filesByPath = new Map<string, PullRequestFile>();
 

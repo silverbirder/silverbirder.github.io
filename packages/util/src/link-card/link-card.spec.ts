@@ -37,6 +37,35 @@ describe("extractStandaloneLinkUrls", () => {
 
     expect(extractStandaloneLinkUrls(tree)).toEqual(["https://example.com/"]);
   });
+
+  it("does not collect markdown links when raw markdown is provided", () => {
+    const tree = {
+      children: [
+        {
+          children: [
+            {
+              children: [{ type: "text", value: "https://example.com" }],
+              type: "link",
+              url: "https://example.com",
+            },
+          ],
+          position: {
+            end: { offset: 38 },
+            start: { offset: 0 },
+          },
+          type: "paragraph",
+        },
+      ],
+      type: "root",
+    };
+
+    expect(
+      extractStandaloneLinkUrls(
+        tree,
+        "[https://example.com](https://example.com)",
+      ),
+    ).toEqual([]);
+  });
 });
 
 describe("createRemarkLinkCard", () => {
@@ -107,6 +136,41 @@ describe("createRemarkLinkCard", () => {
       ],
       type: "root",
     });
+  });
+
+  it("does not replace markdown links even when text equals the URL", async () => {
+    const tree = {
+      children: [
+        {
+          children: [
+            {
+              children: [{ type: "text", value: "https://example.com" }],
+              type: "link",
+              url: "https://example.com",
+            },
+          ],
+          position: {
+            end: { offset: 38 },
+            start: { offset: 0 },
+          },
+          type: "paragraph",
+        },
+      ],
+      type: "root",
+    };
+
+    const transform = createRemarkLinkCard({
+      resolveCard: async (url) => ({
+        title: "Example title",
+        url,
+      }),
+    });
+
+    await transform(tree, {
+      value: "[https://example.com](https://example.com)",
+    });
+
+    expect(tree.children?.[0]?.type).toBe("paragraph");
   });
 });
 

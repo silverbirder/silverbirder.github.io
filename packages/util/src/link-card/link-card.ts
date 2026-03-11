@@ -34,11 +34,16 @@ type MdxAttributeValue = null | string;
 type ParagraphNode = {
   children?: UnistNode[];
   data?: Record<string, unknown>;
+  position?: {
+    end?: { offset?: number };
+    start?: { offset?: number };
+  };
   type: "paragraph";
 };
 
 type ParentNode = {
   children?: UnistNode[];
+  type?: string;
 };
 
 type UnistNode = {
@@ -170,6 +175,23 @@ const isSingleLinkParagraph = (node: ParagraphNode) => {
   return node.children[0]?.type === "link";
 };
 
+const resolveRawParagraph = (
+  node: ParagraphNode,
+  source: string | undefined,
+): null | string => {
+  if (!source) {
+    return null;
+  }
+
+  const start = node.position?.start?.offset;
+  const end = node.position?.end?.offset;
+  if (typeof start !== "number" || typeof end !== "number") {
+    return null;
+  }
+
+  return source.slice(start, end).trim();
+};
+
 const createAttribute = (
   name: string,
   value: MdxAttributeValue,
@@ -196,7 +218,7 @@ const createLinkCardNode = (card: LinkCardMetadata): UnistNode => ({
   type: "mdxJsxFlowElement",
 });
 
-const resolveLinkCardCandidate = (node: ParagraphNode) => {
+const resolveLinkCardCandidate = (node: ParagraphNode, source?: string) => {
   if (!isSingleLinkParagraph(node)) {
     return null;
   }
@@ -212,6 +234,11 @@ const resolveLinkCardCandidate = (node: ParagraphNode) => {
     return null;
   }
 
+  const rawParagraph = resolveRawParagraph(node, source);
+  if (rawParagraph !== null && rawParagraph !== url) {
+    return null;
+  }
+
   if (isTweetUrl(url) || shouldIgnoreLinkCard(url)) {
     return null;
   }
@@ -219,13 +246,17 @@ const resolveLinkCardCandidate = (node: ParagraphNode) => {
   return normalizeLinkCardUrl(url);
 };
 
-export const extractStandaloneLinkUrls = (tree: unknown) => {
+export const extractStandaloneLinkUrls = (tree: unknown, source?: string) => {
   const urls: string[] = [];
   visit(
     tree as Parameters<typeof visit>[0],
     "paragraph",
-    (node: ParagraphNode) => {
-      const url = resolveLinkCardCandidate(node);
+    (node: ParagraphNode, _index, parent) => {
+      const parentNode = parent as ParentNode | undefined;
+      if (parentNode?.type !== "root") {
+        return;
+      }
+      const url = resolveLinkCardCandidate(node, source);
       if (url) {
         urls.push(url);
       }
@@ -237,7 +268,8 @@ export const extractStandaloneLinkUrls = (tree: unknown) => {
 export const createRemarkLinkCard = ({
   resolveCard,
 }: CreateRemarkLinkCardOptions = {}) => {
-  return async (tree: unknown) => {
+  return async (tree: unknown, file?: { value?: unknown }) => {
+    const source = typeof file?.value === "string" ? file.value : undefined;
     const replacements: Array<{
       card: LinkCardMetadata;
       index: number;
@@ -256,8 +288,11 @@ export const createRemarkLinkCard = ({
         if (!parentNode || !Array.isArray(parentNode.children)) {
           return;
         }
+        if (parentNode.type !== "root") {
+          return;
+        }
 
-        const url = resolveLinkCardCandidate(node);
+        const url = resolveLinkCardCandidate(node, source);
         if (!url) {
           return;
         }

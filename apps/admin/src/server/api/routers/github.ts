@@ -208,6 +208,43 @@ const resolveLocalPostsPath = async (postsPath: string) => {
   return null;
 };
 
+const getExistingContentSha = async ({
+  branch,
+  octokit,
+  owner,
+  path,
+  repo,
+}: {
+  branch: string;
+  octokit: Octokit;
+  owner: string;
+  path: string;
+  repo: string;
+}) => {
+  try {
+    const response = await octokit.request(
+      "GET /repos/{owner}/{repo}/contents/{path}",
+      {
+        owner,
+        path,
+        ref: branch,
+        repo,
+      },
+    );
+    const data = response.data as { sha?: string } | { sha?: string }[];
+    if (Array.isArray(data)) {
+      return null;
+    }
+    return typeof data.sha === "string" ? data.sha : null;
+  } catch (error) {
+    const withStatus = error as { status?: number };
+    if (withStatus.status === 404) {
+      return null;
+    }
+    throw error;
+  }
+};
+
 const getLocalPostList = async (postsPath: string) => {
   const resolvedPath = await resolveLocalPostsPath(postsPath);
   if (!resolvedPath) {
@@ -466,6 +503,13 @@ export const githubRouter = createTRPCRouter({
       ];
 
       for (const file of files) {
+        const sha = await getExistingContentSha({
+          branch: branchName,
+          octokit,
+          owner,
+          path: file.path,
+          repo,
+        });
         await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
           branch: branchName,
           content:
@@ -476,6 +520,7 @@ export const githubRouter = createTRPCRouter({
           owner,
           path: file.path,
           repo,
+          sha: sha ?? undefined,
         });
       }
 

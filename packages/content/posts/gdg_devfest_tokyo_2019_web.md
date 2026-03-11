@@ -193,7 +193,7 @@ Project Fugu とは、ネイティブとのギャップを縮めるために、(
 
 提案中の機能一覧は、下記のシートになります。
 
-http://goo.gle/fugu-api-tracker
+[http://goo.gle/fugu-api-tracker](http://goo.gle/fugu-api-tracker)
 
 この中には、例えば『Contact Picker API』というものがあります。
 名前の通り、ネイティブアプリに登録されている電話帳にアクセスできるようになります。

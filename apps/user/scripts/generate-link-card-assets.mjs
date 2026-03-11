@@ -215,12 +215,29 @@ const shouldIgnoreLinkCard = (rawUrl) => {
   }
 };
 
+const resolveBareUrlLine = (value) => {
+  const trimmed = value.trim();
+  if (trimmed.length === 0) {
+    return null;
+  }
+  if (!/^https?:\/\/\S+$/u.test(trimmed)) {
+    return null;
+  }
+  if (/[[\]()<>]/u.test(trimmed)) {
+    return null;
+  }
+  return trimmed;
+};
+
 const extractStandaloneUrls = (source) => {
   const lines = source.split(/\r?\n/);
   const urls = [];
 
   for (let index = 0; index < lines.length; index += 1) {
-    const current = lines[index]?.trim() ?? "";
+    const current = resolveBareUrlLine(lines[index] ?? "");
+    if (!current) {
+      continue;
+    }
     if (!isHttpUrl(current) || isTweetUrl(current) || shouldIgnoreLinkCard(current)) {
       continue;
     }

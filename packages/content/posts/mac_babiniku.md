@@ -87,7 +87,7 @@ https://3tene.com/
 肝心のキャラクターですが、3tene は VRM 形式でなければならないそうです。(よくわかっていません)  
 私は、次のサイトでダウンロードしました。
 
-https://hub.vroid.com/
+[https://hub.vroid.com/](https://hub.vroid.com/)
 
 https://3d.nicovideo.jp/
 

@@ -356,7 +356,7 @@ https://news.toranoana.jp/107460
 
 公式ツイッターアカウントをフォローしておくと、なにかと便利です。
 
-https://twitter.com/techbookfest
+[https://twitter.com/techbookfest](https://twitter.com/techbookfest)
 
 ## Google カレンダー 登録
 

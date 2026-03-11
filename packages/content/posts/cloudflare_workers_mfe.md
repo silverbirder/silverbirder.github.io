@@ -75,7 +75,7 @@ https://community.cloudflare.com/t/issue-with-worker-to-worker-https-request/944
 先程の例なら、ドメイン A に属する Cloudflare Workers X からドメイン B に属する Cloudflare Workers Y へ通信することができます。
 私は、freenom の tk ドメイン(無料)を複数購入しました。
 
-https://freenom.com/
+[https://freenom.com/](https://freenom.com/)
 
 ## 直接 IP アドレスへリクエストできない
 

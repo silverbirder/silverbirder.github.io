@@ -67,13 +67,59 @@ const pickMetaContent = (
   return match?.[1] ?? match?.[2] ?? null;
 };
 
-const pickLinkHref = (html: string, relPattern: string) => {
-  const pattern = new RegExp(
-    `<link[^>]+rel=["'][^"']*${relPattern}[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>|<link[^>]+href=["']([^"']+)["'][^>]+rel=["'][^"']*${relPattern}[^"']*["'][^>]*>`,
-    "i",
+const pickBaseHref = (html: string) =>
+  html.match(/<base[^>]+href=["']([^"']+)["'][^>]*>/i)?.[1] ?? null;
+
+const pickTagAttribute = (tag: string, attributeName: string) =>
+  tag
+    .match(
+      new RegExp(`${attributeName}=(?:"([^"]+)"|'([^']+)'|([^\\s>]+))`, "i"),
+    )
+    ?.slice(1)
+    .find((value) => value != null) ?? null;
+
+const collectLinkHrefs = (
+  html: string,
+  predicate: (relValue: string) => boolean,
+) => {
+  const tags = html.match(/<link\b[^>]*>/gi) ?? [];
+  return tags.flatMap((tag) => {
+    const href = pickTagAttribute(tag, "href");
+    const rel = pickTagAttribute(tag, "rel")?.toLowerCase();
+    if (!href || !rel || !predicate(rel)) {
+      return [];
+    }
+    return [href];
+  });
+};
+
+const collectFaviconCandidates = (html: string) => {
+  const iconHrefs = collectLinkHrefs(html, (relValue) =>
+    relValue.split(/\s+/).includes("icon"),
   );
-  const match = html.match(pattern);
-  return match?.[1] ?? match?.[2] ?? null;
+  const appleTouchIconHrefs = collectLinkHrefs(html, (relValue) =>
+    relValue.split(/\s+/).some((token) => token.startsWith("apple-touch-icon")),
+  );
+
+  const resolvePriority = (href: string) => {
+    const normalized = href.toLowerCase();
+    if (normalized.endsWith(".svg")) return 0;
+    if (normalized.endsWith(".png")) return 1;
+    if (normalized.endsWith(".webp")) return 2;
+    if (normalized.endsWith(".avif")) return 3;
+    if (normalized.endsWith(".jpg") || normalized.endsWith(".jpeg")) return 4;
+    if (normalized.endsWith(".gif")) return 5;
+    if (normalized.endsWith(".ico")) return 6;
+    return 7;
+  };
+
+  return [
+    ...Array.from(new Set(iconHrefs)).sort(
+      (left, right) => resolvePriority(left) - resolvePriority(right),
+    ),
+    ...Array.from(new Set(appleTouchIconHrefs)),
+    "/favicon.ico",
+  ];
 };
 
 const pickTitle = (html: string) => {
@@ -151,6 +197,34 @@ const resolveAbsoluteUrl = (value: null | string, baseUrl: string) => {
   }
 };
 
+const resolveAvailableAssetUrl = async (values: string[], baseUrl: string) => {
+  for (const value of values) {
+    const assetUrl = resolveAbsoluteUrl(value, baseUrl);
+    if (!assetUrl) {
+      continue;
+    }
+
+    try {
+      const response = await fetch(assetUrl, {
+        headers: {
+          Accept:
+            "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+          "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+          Referer: baseUrl,
+          "User-Agent": "silverbirder-link-card/1.0",
+        },
+      });
+      if (response.ok) {
+        return assetUrl;
+      }
+    } catch {
+      continue;
+    }
+  }
+
+  return undefined;
+};
+
 const normalizeDescription = (value: null | string) => {
   if (!value) {
     return undefined;
@@ -199,7 +273,15 @@ const fetchAsset = async (
   }
 
   try {
-    const response = await fetch(assetUrl);
+    const response = await fetch(assetUrl, {
+      headers: {
+        Accept:
+          "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+        Referer: sourceUrl,
+        "User-Agent": "silverbirder-link-card/1.0",
+      },
+    });
     if (!response.ok) {
       return null;
     }
@@ -257,19 +339,20 @@ const fetchLinkCardMetadata = async (
     const siteName =
       normalizeDescription(pickMetaContent(html, "property", "og:site_name")) ??
       new URL(url).hostname.replace(/^www\./, "");
-    const faviconUrl =
-      resolveAbsoluteUrl(pickLinkHref(html, "apple-touch-icon"), url) ??
-      resolveAbsoluteUrl(pickLinkHref(html, "icon"), url) ??
-      resolveAbsoluteUrl("/favicon.ico", url);
+    const documentBaseUrl = resolveAbsoluteUrl(pickBaseHref(html), url) ?? url;
+    const faviconUrl = await resolveAvailableAssetUrl(
+      collectFaviconCandidates(html),
+      documentBaseUrl,
+    );
     const thumbnailUrl =
       resolveAbsoluteUrl(pickMetaContent(html, "property", "og:image"), url) ??
       resolveAbsoluteUrl(pickMetaContent(html, "name", "twitter:image"), url);
 
     return {
       description,
-      faviconSrc: faviconUrl,
+      ...(faviconUrl ? { faviconSrc: faviconUrl } : {}),
       siteName,
-      thumbnailSrc: thumbnailUrl,
+      ...(thumbnailUrl ? { thumbnailSrc: thumbnailUrl } : {}),
       title,
       url,
     };
@@ -353,8 +436,12 @@ export const buildLinkCardPullRequestFiles = async (source: string) => {
 
     nextManifest[normalizedUrl] = {
       ...metadata,
-      faviconSrc: faviconAsset?.publicSrc ?? metadata.faviconSrc,
-      thumbnailSrc: thumbnailAsset?.publicSrc ?? metadata.thumbnailSrc,
+      ...(faviconAsset ? { faviconSrc: faviconAsset.publicSrc } : {}),
+      ...(thumbnailAsset
+        ? { thumbnailSrc: thumbnailAsset.publicSrc }
+        : metadata.thumbnailSrc
+          ? { thumbnailSrc: metadata.thumbnailSrc }
+          : {}),
       url: normalizedUrl,
     };
   }

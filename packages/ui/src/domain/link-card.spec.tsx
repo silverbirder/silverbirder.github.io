@@ -28,4 +28,21 @@ describe("LinkCard", () => {
       "/thumbnail.png",
     ]);
   });
+
+  it("does not render a favicon image when faviconSrc is absent", async () => {
+    const { container } = await renderWithProvider(
+      <LinkCard
+        description="Description"
+        siteName="Example"
+        thumbnailSrc="/thumbnail.png"
+        title="Example title"
+        url="https://example.com"
+      />,
+    );
+
+    const images = Array.from(container.querySelectorAll("img"));
+    expect(images.map((image) => image.getAttribute("src"))).toEqual([
+      "/thumbnail.png",
+    ]);
+  });
 });

@@ -50,13 +50,61 @@ const pickMetaContent = (html, attribute, name) => {
   return match?.[1] ?? match?.[2] ?? null;
 };
 
-const pickLinkHref = (html, relPattern) => {
-  const pattern = new RegExp(
-    `<link[^>]+rel=["'][^"']*${relPattern}[^"']*["'][^>]+href=["']([^"']+)["'][^>]*>|<link[^>]+href=["']([^"']+)["'][^>]+rel=["'][^"']*${relPattern}[^"']*["'][^>]*>`,
-    "i",
+const pickBaseHref = (html) =>
+  html.match(/<base[^>]+href=["']([^"']+)["'][^>]*>/i)?.[1] ?? null;
+
+const pickTagAttribute = (tag, attributeName) =>
+  tag
+    .match(
+      new RegExp(
+        `${attributeName}=(?:"([^"]+)"|'([^']+)'|([^\\s>]+))`,
+        "i",
+      ),
+    )
+    ?.slice(1)
+    .find((value) => value != null) ?? null;
+
+const collectLinkHrefs = (html, predicate) => {
+  const tags = html.match(/<link\b[^>]*>/gi) ?? [];
+  return tags.flatMap((tag) => {
+    const href = pickTagAttribute(tag, "href");
+    const rel = pickTagAttribute(tag, "rel")?.toLowerCase();
+    if (!href || !rel || !predicate(rel)) {
+      return [];
+    }
+    return [href];
+  });
+};
+
+const collectFaviconCandidates = (html) => {
+  const iconHrefs = collectLinkHrefs(html, (relValue) =>
+    relValue.split(/\s+/).includes("icon"),
   );
-  const match = html.match(pattern);
-  return match?.[1] ?? match?.[2] ?? null;
+  const appleTouchIconHrefs = collectLinkHrefs(html, (relValue) =>
+    relValue
+      .split(/\s+/)
+      .some((token) => token.startsWith("apple-touch-icon")),
+  );
+
+  const resolvePriority = (href) => {
+    const normalized = href.toLowerCase();
+    if (normalized.endsWith(".svg")) return 0;
+    if (normalized.endsWith(".png")) return 1;
+    if (normalized.endsWith(".webp")) return 2;
+    if (normalized.endsWith(".avif")) return 3;
+    if (normalized.endsWith(".jpg") || normalized.endsWith(".jpeg")) return 4;
+    if (normalized.endsWith(".gif")) return 5;
+    if (normalized.endsWith(".ico")) return 6;
+    return 7;
+  };
+
+  return [
+    ...Array.from(new Set(iconHrefs)).sort(
+      (left, right) => resolvePriority(left) - resolvePriority(right),
+    ),
+    ...Array.from(new Set(appleTouchIconHrefs)),
+    "/favicon.ico",
+  ];
 };
 
 const pickTitle = (html) => {
@@ -228,7 +276,14 @@ const fetchAsset = async (kind, assetUrl, sourceUrl) => {
   if (!assetUrl) return null;
 
   try {
-    const response = await fetch(assetUrl);
+    const response = await fetch(assetUrl, {
+      headers: {
+        Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+        Referer: sourceUrl,
+        "User-Agent": "silverbirder-link-card/1.0",
+      },
+    });
     if (!response.ok) return null;
 
     const buffer = Buffer.from(await response.arrayBuffer());
@@ -270,22 +325,31 @@ const fetchLinkCardMetadata = async (url) => {
     const siteName =
       normalizeDescription(pickMetaContent(html, "property", "og:site_name")) ??
       new URL(url).hostname.replace(/^www\./, "");
-    const faviconUrl =
-      resolveAbsoluteUrl(pickLinkHref(html, "apple-touch-icon"), url) ??
-      resolveAbsoluteUrl(pickLinkHref(html, "icon"), url) ??
-      resolveAbsoluteUrl("/favicon.ico", url);
+    const documentBaseUrl = resolveAbsoluteUrl(pickBaseHref(html), url) ?? url;
+    const faviconCandidates = collectFaviconCandidates(html);
     const thumbnailUrl =
       resolveAbsoluteUrl(pickMetaContent(html, "property", "og:image"), url) ??
       resolveAbsoluteUrl(pickMetaContent(html, "name", "twitter:image"), url);
 
-    const faviconSrc = await fetchAsset("favicon", faviconUrl, url);
+    let faviconSrc = null;
+    for (const faviconCandidate of faviconCandidates) {
+      const faviconUrl = resolveAbsoluteUrl(faviconCandidate, documentBaseUrl);
+      faviconSrc = await fetchAsset("favicon", faviconUrl, url);
+      if (faviconSrc) {
+        break;
+      }
+    }
     const thumbnailSrc = await fetchAsset("thumbnail", thumbnailUrl, url);
 
     return {
       description,
-      faviconSrc: faviconSrc ?? faviconUrl,
+      ...(faviconSrc ? { faviconSrc } : {}),
       siteName,
-      thumbnailSrc: thumbnailSrc ?? thumbnailUrl,
+      ...(thumbnailSrc
+        ? { thumbnailSrc }
+        : thumbnailUrl
+          ? { thumbnailSrc: thumbnailUrl }
+          : {}),
       title,
       url,
     };

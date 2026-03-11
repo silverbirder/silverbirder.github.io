@@ -8,11 +8,11 @@ import type {
   ReactNode,
 } from "react";
 
-import { Link as ChakraLink } from "@chakra-ui/react";
 import { Children, isValidElement } from "react";
 
 import { CodepenEmbed } from "./codepen-embed";
 import { Link as DomainLink } from "./link";
+import { LinkCard } from "./link-card";
 import { NotebookImage } from "./notebook-image";
 import { TweetEmbed } from "./tweet-embed";
 import { ViewTransitionLink } from "./view-transition-link";
@@ -92,17 +92,6 @@ const Anchor = ({ children, href, ...props }: LinkProps) => {
   }
 
   const className = (props as { className?: string }).className ?? "";
-  const isRemarkCard =
-    /remark-link-card/.test(className) ||
-    /remark-link-card-plus/.test(className);
-
-  if (isRemarkCard) {
-    return (
-      <ChakraLink href={href} {...props}>
-        {children}
-      </ChakraLink>
-    );
-  }
 
   if (className.includes("mdx-heading-anchor")) {
     return (
@@ -153,5 +142,6 @@ const Paragraph = ({ children, ...props }: ComponentPropsWithoutRef<"p">) => {
 export const mdxComponents = {
   a: Anchor,
   img: NotebookImage,
+  LinkCard,
   p: Paragraph,
 };

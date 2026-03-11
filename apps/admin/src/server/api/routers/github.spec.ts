@@ -129,6 +129,7 @@ describe("githubRouter.createPullRequest", () => {
       .mockResolvedValueOnce({ data: { object: { sha: "base-sha" } } })
       .mockResolvedValueOnce({ data: {} })
       .mockResolvedValueOnce({ data: {} })
+      .mockResolvedValueOnce({ data: {} })
       .mockResolvedValueOnce({
         data: { html_url: "https://example/pr/1", number: 1 },
       });
@@ -141,6 +142,13 @@ describe("githubRouter.createPullRequest", () => {
     const result = await caller.createPullRequest({
       content: "# hello",
       fileName: "20260114.md",
+      files: [
+        {
+          content: "{}",
+          encoding: "utf8",
+          path: "packages/content/link-cards.json",
+        },
+      ],
       pullRequestBody: "body",
       pullRequestTitle: "title",
     });
@@ -155,6 +163,19 @@ describe("githubRouter.createPullRequest", () => {
     expect(calls).toContain("POST /repos/{owner}/{repo}/git/refs");
     expect(calls).toContain("PUT /repos/{owner}/{repo}/contents/{path}");
     expect(calls).toContain("POST /repos/{owner}/{repo}/pulls");
+    expect(
+      requestMock.mock.calls.filter(
+        (call) => call[0] === "PUT /repos/{owner}/{repo}/contents/{path}",
+      ),
+    ).toHaveLength(2);
+    expect(requestMock.mock.calls[2]?.[1]).toMatchObject({
+      content: Buffer.from("# hello", "utf8").toString("base64"),
+      path: "packages/content/posts/20260114.md",
+    });
+    expect(requestMock.mock.calls[3]?.[1]).toMatchObject({
+      content: Buffer.from("{}", "utf8").toString("base64"),
+      path: "packages/content/link-cards.json",
+    });
   });
 });
 

@@ -1,15 +1,21 @@
+import type { LinkCardMetadata } from "@repo/util";
 import type { Pluggable } from "unified";
 
-import { createRemarkLinkCardGuard } from "@repo/util";
+import { createRemarkLinkCard } from "@repo/util";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
-import remarkLinkCardPlus from "remark-link-card-plus";
 import remarkMdx from "remark-mdx";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+
+type CreateOptionsArgs = {
+  resolveLinkCard?: (
+    url: string,
+  ) => LinkCardMetadata | null | Promise<LinkCardMetadata | null>;
+};
 
 type MdxOptions = {
   rehypePlugins: Pluggable[];
@@ -45,16 +51,14 @@ const rehypePlugins: Pluggable[] = [
   ],
 ];
 
-const baseRemarkPlugins: Pluggable[] = [
+const createBaseRemarkPlugins = ({
+  resolveLinkCard,
+}: CreateOptionsArgs): Pluggable[] => [
   remarkGfm,
-  createRemarkLinkCardGuard,
   [
-    remarkLinkCardPlus,
+    createRemarkLinkCard,
     {
-      cache: true,
-      ignoreExtensions: [".pdf"],
-      noThumbnail: false,
-      shortenUrl: true,
+      resolveCard: resolveLinkCard,
     },
   ],
 ];
@@ -64,13 +68,19 @@ const createOptions = (remarkPlugins: Pluggable[]): MdxOptions => ({
   remarkPlugins,
 });
 
-export const createMdxOptions = (): MdxOptions =>
+export const createMdxOptions = (args: CreateOptionsArgs = {}): MdxOptions =>
   createOptions([
     remarkFrontmatter,
     remarkMdx,
     remarkMdxFrontmatter,
-    ...baseRemarkPlugins,
+    ...createBaseRemarkPlugins(args),
   ]);
 
-export const createMarkdownOptions = (): MdxOptions =>
-  createOptions([remarkFrontmatter, ...baseRemarkPlugins]);
+export const createMarkdownOptions = (
+  args: CreateOptionsArgs = {},
+): MdxOptions =>
+  createOptions([
+    remarkFrontmatter,
+    remarkMdx,
+    ...createBaseRemarkPlugins(args),
+  ]);

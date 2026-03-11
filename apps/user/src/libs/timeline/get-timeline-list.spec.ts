@@ -1,15 +1,24 @@
 import { describe, expect, it, vi } from "vitest";
 
+vi.mock("../link-card", () => ({
+  createUserLinkCardResolver: vi.fn().mockResolvedValue(vi.fn()),
+}));
+
 vi.mock("./timeline", () => ({
   getTimelineEntry: vi.fn(),
   getTimelineSlugs: vi.fn(),
 }));
 
+import { createUserLinkCardResolver } from "../link-card";
 import { getTimelineList } from "./get-timeline-list";
 import { getTimelineEntry, getTimelineSlugs } from "./timeline";
 
-vi.mock("next-mdx-remote-client/serialize", () => ({
+const { serialize } = vi.hoisted(() => ({
   serialize: vi.fn().mockResolvedValue({ compiledSource: "<p>ok</p>" }),
+}));
+
+vi.mock("next-mdx-remote-client/serialize", () => ({
+  serialize,
 }));
 
 describe("getTimelineList", () => {
@@ -54,5 +63,17 @@ describe("getTimelineList", () => {
     expect(mockedGetTimelineSlugs).toHaveBeenCalledTimes(1);
     expect(mockedGetTimelineEntry).toHaveBeenNthCalledWith(1, "first");
     expect(mockedGetTimelineEntry).toHaveBeenNthCalledWith(2, "second");
+    expect(createUserLinkCardResolver).toHaveBeenCalledTimes(1);
+    expect(serialize).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({
+        options: expect.objectContaining({
+          mdxOptions: expect.objectContaining({
+            remarkPlugins: expect.any(Array),
+          }),
+        }),
+        source: "1つ目の出来事。",
+      }),
+    );
   });
 });

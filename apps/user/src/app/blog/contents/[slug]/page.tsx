@@ -15,6 +15,7 @@ import {
   getPostList,
   getRelatedPostsByTags,
 } from "@/libs";
+import { createUserLinkCardResolver } from "@/libs/link-card";
 import { createMdxOptions } from "@/libs/mdx/mdx-options";
 
 export { generateStaticParams } from "./static-params";
@@ -91,11 +92,12 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
     const postList = await getPostList();
     const normalizedPosts = normalizePosts(postList);
     const source = await loadPostSource(slug);
+    const resolveLinkCard = await createUserLinkCardResolver();
     const compiled = await serialize({
       options: {
         disableExports: true,
         disableImports: true,
-        mdxOptions: createMdxOptions(),
+        mdxOptions: createMdxOptions({ resolveLinkCard }),
       },
       source,
     });

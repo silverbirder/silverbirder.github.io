@@ -6,6 +6,7 @@ import {
 } from "@repo/admin-feature-post-editor/libs";
 import { getTranslations } from "next-intl/server";
 
+import { buildLinkCardPullRequestFiles } from "@/libs/link-card";
 import { auth } from "@/server/better-auth";
 import { api } from "@/trpc/server";
 
@@ -73,12 +74,14 @@ export const createPostPullRequest = async (
     const existingPosts = await api.github.list();
     const fileName = getUniqueDailyFileName(existingPosts ?? [], date);
     const content = buildMarkdown(draft, date);
+    const files = await buildLinkCardPullRequestFiles(content);
     const pullRequestTitle = draft.title.length > 0 ? draft.title : undefined;
     const shouldSyncZenn = draft.zenn?.enabled === true;
     const shouldSyncHatena = draft.hatena?.enabled === true;
     const result = await api.github.createPullRequest({
       content,
       fileName,
+      files,
       pullRequestTitle,
     });
 

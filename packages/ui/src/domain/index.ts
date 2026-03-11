@@ -3,6 +3,7 @@ export * from "./codepen-embed";
 export * from "./follow";
 export * from "./follow-it-button";
 export * from "./link";
+export * from "./link-card";
 export * from "./mdx-client-wrapper";
 export * from "./mdx-components";
 export * from "./notebook";

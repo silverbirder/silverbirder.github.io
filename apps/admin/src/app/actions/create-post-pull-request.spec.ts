@@ -60,16 +60,28 @@ const loadAction = async ({
     getTranslations: async () => (key: string) => `message:${key}`,
   }));
 
+  const buildLinkCardPullRequestFiles = vi.fn().mockResolvedValue([
+    {
+      content: '{"https://example.com":{}}',
+      encoding: "utf8",
+      path: "packages/content/link-cards.json",
+    },
+  ]);
+
   vi.doMock("@repo/admin-feature-post-editor/libs", () => ({
     buildMarkdown: () => "markdown",
     buildZennMarkdown: () => "zenn-markdown",
     getUniqueDailyFileName: () => "20260201.md",
     parsePublishedAtDate: () => new Date("2026-02-01T00:00:00Z"),
   }));
+  vi.doMock("@/libs/link-card", () => ({
+    buildLinkCardPullRequestFiles,
+  }));
 
   const mod = await import("./create-post-pull-request");
 
   return {
+    buildLinkCardPullRequestFiles,
     createDraft,
     createPostPullRequest: mod.createPostPullRequest,
     createPullRequest,
@@ -82,6 +94,7 @@ const loadAction = async ({
 describe("createPostPullRequest", () => {
   it("returns open actions for Zenn, Hatena, and GitHub", async () => {
     const {
+      buildLinkCardPullRequestFiles,
       createDraft,
       createPostPullRequest,
       createPullRequest,
@@ -107,9 +120,17 @@ describe("createPostPullRequest", () => {
     });
 
     expect(list).toHaveBeenCalledOnce();
+    expect(buildLinkCardPullRequestFiles).toHaveBeenCalledWith("markdown");
     expect(createPullRequest).toHaveBeenCalledWith({
       content: "markdown",
       fileName: "20260201.md",
+      files: [
+        {
+          content: '{"https://example.com":{}}',
+          encoding: "utf8",
+          path: "packages/content/link-cards.json",
+        },
+      ],
       pullRequestTitle: "Title",
     });
     expect(createZennPullRequest).toHaveBeenCalledWith({

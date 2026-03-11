@@ -62,14 +62,6 @@ jobs:
           restore-keys: |
             nextjs-build-${{ runner.os }}-
 
-      - name: Restore link card cache
-        uses: actions/cache@v5
-        with:
-          path: apps/user/public/remark-link-card-plus
-          key: remark-link-card-plus-${{ runner.os }}-${{ hashFiles('apps/user/src/libs/mdx/mdx-options.ts', 'packages/content/posts/**', 'pnpm-lock.yaml') }}
-          restore-keys: |
-            remark-link-card-plus-${{ runner.os }}-
-
       - name: Build user app (static export)
         env:
           GA_ID: ${{ secrets.GA_ID }}
@@ -126,14 +118,6 @@ jobs:
           key: nextjs-build-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'apps/user/**', 'packages/**') }}
           restore-keys: |
             nextjs-build-${{ runner.os }}-
-
-      - name: Restore link card cache
-        uses: actions/cache@v5
-        with:
-          path: apps/user/public/remark-link-card-plus
-          key: remark-link-card-plus-${{ runner.os }}-${{ hashFiles('apps/user/src/libs/mdx/mdx-options.ts', 'packages/content/posts/**', 'pnpm-lock.yaml') }}
-          restore-keys: |
-            remark-link-card-plus-${{ runner.os }}-
 
       - name: Build user app (static export)
         env:

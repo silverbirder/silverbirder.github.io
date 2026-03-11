@@ -2,6 +2,7 @@ import type { TimelineItem } from "@repo/user-feature-top";
 
 import { serialize } from "next-mdx-remote-client/serialize";
 
+import { createUserLinkCardResolver } from "../link-card";
 import { createMarkdownOptions } from "../mdx/mdx-options";
 import { getTimelineEntry, getTimelineSlugs } from "./timeline";
 
@@ -14,6 +15,7 @@ export const getTimelineList = async (
   }> = getTimelineEntry,
 ): Promise<TimelineItem[]> => {
   const slugs = await getTimelineSlugs();
+  const resolveLinkCard = await createUserLinkCardResolver();
   const entries = await Promise.all(
     slugs.map(async ({ publishedAt, slug }) => {
       const entry = await loader(slug);
@@ -21,7 +23,7 @@ export const getTimelineList = async (
         options: {
           disableExports: true,
           disableImports: true,
-          mdxOptions: createMarkdownOptions(),
+          mdxOptions: createMarkdownOptions({ resolveLinkCard }),
         },
         source: entry.description,
       });

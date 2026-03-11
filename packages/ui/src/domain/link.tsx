@@ -10,6 +10,7 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 type Props = LinkProps & {
   children: ReactNode;
+  showExternalIcon?: boolean;
 };
 
 const isExternalHref = (href: string, origin: string) => {
@@ -28,7 +29,12 @@ const isExternalHref = (href: string, origin: string) => {
   }
 };
 
-export const Link = ({ children, href, ...linkProps }: Props) => {
+export const Link = ({
+  children,
+  href,
+  showExternalIcon = true,
+  ...linkProps
+}: Props) => {
   const siteOrigin = getSiteMetadataBase().origin;
   const isExternal =
     href && typeof href === "string" ? isExternalHref(href, siteOrigin) : false;
@@ -51,7 +57,7 @@ export const Link = ({ children, href, ...linkProps }: Props) => {
       as={resolvedAs}
     >
       {children}
-      {isExternal ? (
+      {isExternal && showExternalIcon ? (
         <Icon aria-hidden as={FaArrowUpRightFromSquare} mx={0.5} pb={0.5} />
       ) : null}
     </ChakraLink>

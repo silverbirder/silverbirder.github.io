@@ -1,14 +1,14 @@
-import { createRemarkLinkCardGuard } from "@repo/util";
+import { createRemarkLinkCard } from "@repo/util";
 import { serialize } from "next-mdx-remote-client/serialize";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import remarkLinkCardPlus from "remark-link-card-plus";
 import remarkMdx from "remark-mdx";
 import { z } from "zod";
 
+import { createAdminLinkCardResolver } from "@/libs/link-card";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const mdxRouter = createTRPCRouter({
@@ -19,6 +19,7 @@ export const mdxRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ input }) => {
+      const resolveLinkCard = await createAdminLinkCardResolver();
       return serialize({
         options: {
           disableExports: true,
@@ -57,11 +58,7 @@ export const mdxRouter = createTRPCRouter({
             remarkPlugins: [
               remarkGfm,
               remarkMdx,
-              createRemarkLinkCardGuard,
-              [
-                remarkLinkCardPlus,
-                { cache: false, noThumbnail: false, shortenUrl: true },
-              ],
+              [createRemarkLinkCard, { resolveCard: resolveLinkCard }],
             ],
           },
         },

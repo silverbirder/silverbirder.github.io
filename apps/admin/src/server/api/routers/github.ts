@@ -403,6 +403,15 @@ export const githubRouter = createTRPCRouter({
       z.object({
         content: z.string().min(1),
         fileName: z.string().min(1),
+        files: z
+          .array(
+            z.object({
+              content: z.string(),
+              encoding: z.enum(["base64", "utf8"]).optional(),
+              path: z.string().min(1),
+            }),
+          )
+          .optional(),
         pullRequestBody: z.string().optional(),
         pullRequestTitle: z.string().optional(),
       }),
@@ -451,15 +460,24 @@ export const githubRouter = createTRPCRouter({
 
       const filePath = `${postsPath}/${normalizedFileName}`;
       const commitMessage = `docs: add ${normalizedFileName}`;
+      const files = [
+        { content: input.content, encoding: "utf8" as const, path: filePath },
+        ...(input.files ?? []),
+      ];
 
-      await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-        branch: branchName,
-        content: Buffer.from(input.content, "utf8").toString("base64"),
-        message: commitMessage,
-        owner,
-        path: filePath,
-        repo,
-      });
+      for (const file of files) {
+        await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+          branch: branchName,
+          content:
+            file.encoding === "base64"
+              ? file.content
+              : Buffer.from(file.content, "utf8").toString("base64"),
+          message: commitMessage,
+          owner,
+          path: file.path,
+          repo,
+        });
+      }
 
       const prTitle = input.pullRequestTitle
         ? input.pullRequestTitle

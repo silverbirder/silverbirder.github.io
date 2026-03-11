@@ -39,94 +39,6 @@ export const NotebookProse = chakra("div", {
       marginBottom: "var(--notebook-line-height)",
       marginTop: "var(--notebook-line-height)",
     },
-    "& .remark-link-card-plus__card": {
-      backgroundColor: "bg",
-      borderColor: "border.muted",
-      borderRadius: "none",
-      borderStyle: "solid",
-      borderWidth: "1px",
-      color: "inherit",
-      display: "flex",
-      flexDirection: "row",
-      flexWrap: "nowrap",
-      height: "calc(var(--notebook-line-height) * 4)",
-      overflow: "hidden",
-      textDecoration: "none",
-    },
-    "& .remark-link-card-plus__card:hover": {
-      color: "inherit",
-      textDecoration: "none",
-    },
-    "& .remark-link-card-plus__container": {
-      marginBottom: "var(--notebook-line-height)",
-      marginTop: "var(--notebook-line-height)",
-    },
-    "& .remark-link-card-plus__content": {
-      display: "flex",
-      flexDirection: "column",
-      gap: "0.15rem",
-    },
-    "& .remark-link-card-plus__description": {
-      color: "fg.muted",
-      fontSize: "sm",
-      lineClamp: 1,
-    },
-    "& .remark-link-card-plus__favicon": {
-      display: "block",
-      height: "1rem !important",
-      width: "1rem !important",
-    },
-    "& .remark-link-card-plus__image": {
-      display: "block",
-      height: "100% !important",
-      objectFit: "cover",
-      width: "100% !important",
-    },
-    "& .remark-link-card-plus__main": {
-      display: "flex",
-      flex: "1",
-      flexDirection: "column",
-      minWidth: "0",
-      padding: "calc(var(--notebook-line-height) / 2)",
-    },
-    "& .remark-link-card-plus__meta": {
-      alignItems: "center",
-      color: "fg.muted",
-      display: "flex",
-      fontSize: "xs",
-      gap: "0.35rem",
-      marginTop: "auto",
-    },
-    "& .remark-link-card-plus__meta figure": {
-      lineHeight: "normal",
-      margin: "0 !important",
-      padding: "0 !important",
-      paddingBottom: "0 !important",
-    },
-    "& .remark-link-card-plus__thumbnail": {
-      display: "block",
-      flexShrink: 0,
-      height: "100%",
-      maxWidth: "30dvw",
-    },
-    "& .remark-link-card-plus__thumbnail figcaption": {
-      display: "none",
-    },
-    "& .remark-link-card-plus__thumbnail figure": {
-      height: "100%",
-      lineHeight: "normal",
-      margin: "0 !important",
-      padding: "0 !important",
-      paddingBottom: "0 !important",
-    },
-    "& .remark-link-card-plus__title": {
-      color: "fg",
-      fontWeight: "600",
-      lineClamp: 1,
-    },
-    "& .remark-link-card-plus__url": {
-      color: "inherit",
-    },
     "--notebook-line-height": NOTEBOOK_LINE_HEIGHT,
     _dark: {
       [inWhere("& pre code span")]: {
@@ -171,10 +83,7 @@ export const NotebookProse = chakra("div", {
       marginBottom: "0",
       marginTop: "0",
     },
-    [inWhere("& a", [
-      ".remark-link-card-plus__container",
-      ".remark-link-card-plus__card",
-    ])]: {
+    [inWhere("& a")]: {
       color: "fg",
       fontWeight: "500",
       overflowWrap: "anywhere",

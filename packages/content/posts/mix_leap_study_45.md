@@ -9,7 +9,7 @@ tags: ["レポート", "Google"]
 Google/Apple どちらも大好きで、けど海外カンファレンスにいけなかった私にとって、今回の報告会は **新鮮な内容** ばかりでした。
 その内容を記事に書こうと思います。
 
-https://yahoo-osaka.connpass.com/event/132601/
+[https://yahoo-osaka.connpass.com/event/132601/](https://yahoo-osaka.connpass.com/event/132601/)
 
 ![Google I/O WWDC まとめて報告会 看板](https://res.cloudinary.com/silverbirder/image/upload/v1614430881/silver-birder.github.io/blog/Google_I_O_WWDC_1.png?ar=307%3A436)
 

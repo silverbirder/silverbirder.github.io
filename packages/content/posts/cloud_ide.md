@@ -100,12 +100,12 @@ https://www.gitpod.io/pricing/
 
 Gitpod は、.gitpod.yml というファイルで環境構築されます。
 
-https://www.gitpod.io/docs/configuration/
+[https://www.gitpod.io/docs/configuration/](https://www.gitpod.io/docs/configuration/)
 
 ベースとなる Docker イメージを指定して、必要なライブラリを事前にインストールできたりします。
 公式ブログに、Gitpod の完全ガイドがあります。
 
-https://www.gitpod.io/blog/gitpodify/
+[https://www.gitpod.io/blog/gitpodify/](https://www.gitpod.io/blog/gitpodify/)
 
 また、様々な OSS を Gitpod で簡単に動作確認できます。
 

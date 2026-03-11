@@ -25,7 +25,7 @@ https://github.com/trending/python
 
 ## PublicKey
 
-https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python
+[https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python](https://www.publickey1.jp/mt6/mt-search.cgi?IncludeBlogs=2&tag=Python)
 
 ## Dev.to
 
@@ -49,7 +49,7 @@ https://b.hatena.ne.jp/search/tag?q=Python
 
 ## Medium
 
-https://medium.com/tag/python
+[https://medium.com/tag/python](https://medium.com/tag/python)
 
 ## Ubersuggest
 

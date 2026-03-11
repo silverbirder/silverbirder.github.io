@@ -100,7 +100,7 @@ https://cloud.google.com/knative/?hl=ja
 
 んー、なんとなくわからなくないですが、他のサイトを見てみます。
 
-https://www.apps-gcp.com/knative-overview/
+[https://www.apps-gcp.com/knative-overview/](https://www.apps-gcp.com/knative-overview/)
 
 > Knative を使用するためには、Kubernetes がインストールされたクラスタを用意する必要がありますが、Knative は Kubernetes と同様にコンテナをオーケストレーションするためのものである、という点は変わりません。
 > Knative は、クラウドにおける PaaS や FaaS のようなアーキテクチャを、Knative がインストールされていれば(つまり、Kubernetes クラスタであれば)どこでも実現できるものです。

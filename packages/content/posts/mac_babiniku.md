@@ -154,8 +154,8 @@ http://kuroyam.hatenablog.com/entry/2020/02/27/204246
 
 https://mzyy94.com/blog/2020/02/25/virtual-bishoujo-meeting/
 
-https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/
+[https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/](https://www.excite.co.jp/news/article/MoguraVR_voice-changer-pickup5/)
 
-https://www.cg-method.com/entry/gachikoe/#Gachikoe
+[https://www.cg-method.com/entry/gachikoe/#Gachikoe](https://www.cg-method.com/entry/gachikoe/#Gachikoe)
 
 https://vtuberkaibougaku.site/2019/01/31/post-3176/

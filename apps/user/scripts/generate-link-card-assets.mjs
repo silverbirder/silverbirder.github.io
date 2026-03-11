@@ -16,51 +16,6 @@ const manifestPath = path.resolve(
 );
 const assetDir = path.resolve(repoRoot, "apps", "user", "public", "link-card");
 
-const ignoredHosts = [
-  "codepen.io",
-  "cucumber.io",
-  "3tene.com",
-  "apps.apple.com",
-  "cloudnativedays.jp",
-  "community.cloudflare.com",
-  "developer.apple.com",
-  "developer.mozilla.org",
-  "dev.tiqav.com",
-  "firebase.google.com",
-  "it.srad.jp",
-  "jestjs.io",
-  "jp.techcrunch.com",
-  "lh7-us.googleusercontent.com",
-  "material-ui.com",
-  "medium.com",
-  "my-buy-items.vercel.app",
-  "speakerdeck.com",
-  "stackblitz.com",
-  "support.cloudflare.com",
-  "trends.google.co.jp",
-  "www.apps-gcp.com",
-  "www.arlo.com",
-  "www.brita.co.jp",
-  "www.bynorth.com",
-  "www.cg-method.com",
-  "www.excite.co.jp",
-  "www.gitpod.io",
-  "www.kickstarter.com",
-  "www.meta.com",
-  "www.muji.com",
-  "www.nikko-pc.com",
-  "www.nitori-net.jp",
-  "www.npmjs.com",
-  "www.publickey1.jp",
-  "www.reddit.com",
-  "www.redhat.com",
-  "www.satofull.jp",
-  "www.st-hakky-blog.com",
-  "www.switchbot.jp",
-  "www.wasdkeyboards.com",
-  "yahoo-osaka.connpass.com",
-].map((host) => host.trim().toLowerCase().replace(/^www\./, ""));
-
 const normalizeHost = (value) =>
   value.trim().toLowerCase().replace(/^www\./, "");
 
@@ -203,18 +158,6 @@ const isTweetUrl = (rawUrl) => {
   }
 };
 
-const shouldIgnoreLinkCard = (rawUrl) => {
-  try {
-    const url = new URL(normalizeLinkCardUrl(rawUrl));
-    const host = url.hostname.trim().toLowerCase().replace(/^www\./, "");
-    return ignoredHosts.some(
-      (ignoredHost) => host === ignoredHost || host.endsWith(`.${ignoredHost}`),
-    );
-  } catch {
-    return false;
-  }
-};
-
 const resolveBareUrlLine = (value) => {
   const trimmed = value.trim();
   if (trimmed.length === 0) {
@@ -238,7 +181,7 @@ const extractStandaloneUrls = (source) => {
     if (!current) {
       continue;
     }
-    if (!isHttpUrl(current) || isTweetUrl(current) || shouldIgnoreLinkCard(current)) {
+    if (!isHttpUrl(current) || isTweetUrl(current)) {
       continue;
     }
 

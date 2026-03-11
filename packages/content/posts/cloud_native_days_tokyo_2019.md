@@ -8,7 +8,7 @@ tags: ["レポート", "クラウドインフラ"]
 今回、東京で開催されました Cloud Native Days Tokyo 2019 に 2 日間とも参加してきましたので、報告しようと思います。
 セッション毎の報告というより、全体を通した感想を話そうかなと思います。
 
-https://cloudnativedays.jp/cndt2019/
+[https://cloudnativedays.jp/cndt2019/](https://cloudnativedays.jp/cndt2019/)
 
 リンクをまとめています。
 
@@ -222,7 +222,7 @@ CloudNative にどっぷり浸かった 2 日間でした。
 どの企業でも CloudNative を導入したことによる「つらみ」や「価値」を共有して頂いたおかげで、これから導入する人たち（私を含む）にとっては、有意義な時間でした。  
 全てのセッションを吸収できたわけではないですが、ここで記載したスライドだけでも理解を深めたいなと思います。
 
-https://cloudnativedays.jp/cndk2019/
+[https://cloudnativedays.jp/cndk2019/](https://cloudnativedays.jp/cndk2019/)
 
 今度は大阪で開催されるそうです。これも絶対参加したいなと思います！
 

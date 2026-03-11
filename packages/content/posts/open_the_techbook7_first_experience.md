@@ -142,7 +142,7 @@ https://twitter.com/silverbirder/status/1167314554205786112
 
 表紙用のテンプレートがありますので、それを使います。
 
-http://www.nikko-pc.com/offset/template/tonbo.html
+[http://www.nikko-pc.com/offset/template/tonbo.html](http://www.nikko-pc.com/offset/template/tonbo.html)
 
 **背表紙の幅はページ数によって変化します** 。
 私は、70 ページほど予定していたので 4mm 幅で背表紙を描きました。

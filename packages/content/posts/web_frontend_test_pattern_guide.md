@@ -607,7 +607,7 @@ MemLab found 0 leak(s)
 
 フロントエンドでもカオスエンジニアリングテストが実施可能です。
 
-https://www.npmjs.com/package/chaos-frontend-toolkit
+[https://www.npmjs.com/package/chaos-frontend-toolkit](https://www.npmjs.com/package/chaos-frontend-toolkit)
 
 ブラウザの操作はユーザーによって多様です。例えば、以下のようなブラウザ操作が存在します。
 

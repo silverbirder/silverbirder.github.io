@@ -58,6 +58,6 @@ test("invalid", (t) => {
 
 stackblitz にも残しておきました。
 
-https://stackblitz.com/edit/nodemon-fkzaw5?file=index.js
+[https://stackblitz.com/edit/nodemon-fkzaw5?file=index.js](https://stackblitz.com/edit/nodemon-fkzaw5?file=index.js)
 
 zod の github にある path の説明は、`appended to error path` と書いています。

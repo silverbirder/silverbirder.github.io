@@ -56,63 +56,12 @@ type UnistNode = {
   value?: string;
 };
 
-const normalizeHost = (rawHost: string) =>
-  rawHost
-    .trim()
-    .toLowerCase()
-    .replace(/^www\./, "");
-
 export const normalizeLinkCardUrl = (rawUrl: string) => {
   const url = new URL(rawUrl);
   url.hash = "";
   url.search = "";
   return url.toString();
 };
-
-const ignoredHosts = [
-  "codepen.io",
-  "cucumber.io",
-  "3tene.com",
-  "apps.apple.com",
-  "cloudnativedays.jp",
-  "community.cloudflare.com",
-  "developer.apple.com",
-  "developer.mozilla.org",
-  "dev.tiqav.com",
-  "firebase.google.com",
-  "it.srad.jp",
-  "jestjs.io",
-  "jp.techcrunch.com",
-  "lh7-us.googleusercontent.com",
-  "material-ui.com",
-  "medium.com",
-  "my-buy-items.vercel.app",
-  "speakerdeck.com",
-  "stackblitz.com",
-  "support.cloudflare.com",
-  "trends.google.co.jp",
-  "www.apps-gcp.com",
-  "www.arlo.com",
-  "www.brita.co.jp",
-  "www.bynorth.com",
-  "www.cg-method.com",
-  "www.excite.co.jp",
-  "www.gitpod.io",
-  "www.kickstarter.com",
-  "www.meta.com",
-  "www.muji.com",
-  "www.nikko-pc.com",
-  "www.nitori-net.jp",
-  "www.npmjs.com",
-  "www.publickey1.jp",
-  "www.reddit.com",
-  "www.redhat.com",
-  "www.satofull.jp",
-  "www.st-hakky-blog.com",
-  "www.switchbot.jp",
-  "www.wasdkeyboards.com",
-  "yahoo-osaka.connpass.com",
-].map(normalizeHost);
 
 const isHttpUrl = (rawUrl: string) => {
   try {
@@ -136,18 +85,6 @@ const isTweetUrl = (rawUrl: string) => {
       return false;
     }
     return /\/status\/(\d+)/.test(url.pathname);
-  } catch {
-    return false;
-  }
-};
-
-const shouldIgnoreLinkCard = (rawUrl: string) => {
-  try {
-    const url = new URL(normalizeLinkCardUrl(rawUrl));
-    const host = normalizeHost(url.hostname);
-    return ignoredHosts.some(
-      (ignoredHost) => host === ignoredHost || host.endsWith(`.${ignoredHost}`),
-    );
   } catch {
     return false;
   }
@@ -239,7 +176,7 @@ const resolveLinkCardCandidate = (node: ParagraphNode, source?: string) => {
     return null;
   }
 
-  if (isTweetUrl(url) || shouldIgnoreLinkCard(url)) {
+  if (isTweetUrl(url)) {
     return null;
   }
 

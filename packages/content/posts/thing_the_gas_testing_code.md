@@ -28,7 +28,7 @@ https://github.com/google/clasp
 
 また、Clasp は Typescript をサポートしているため、型を中心としたコーディングが可能となりました。
 
-https://www.npmjs.com/package/@types/google-apps-script
+[https://www.npmjs.com/package/@types/google-apps-script](https://www.npmjs.com/package/@types/google-apps-script)
 
 Typescript を選択すると、Interface 設計が容易になります。もちろん、`.gs` ファイルでも同様の事は実現できると思います。
 
@@ -106,7 +106,7 @@ https://github.com/inversify/InversifyJS
 こうすることで、Jest によるテストが動作するようになります。  
 実際に、開発・公開したライブラリでも十分にテストをすることができました。
 
-https://www.npmjs.com/package/@silverbirder/caat
+[https://www.npmjs.com/package/@silverbirder/caat](https://www.npmjs.com/package/@silverbirder/caat)
 
 ```shell
 CaAT $ npm run test -- --coverage

@@ -23,7 +23,7 @@ https://gigazine.net/news/20210811-tiktok-overtakes-facebook/
 
 ## tiktok-scraper
 
-https://www.npmjs.com/package/tiktok-scraper
+[https://www.npmjs.com/package/tiktok-scraper](https://www.npmjs.com/package/tiktok-scraper)
 
 > Scrape and download useful information from TikTok.
 > No login or password are required.

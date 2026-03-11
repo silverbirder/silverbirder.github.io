@@ -53,7 +53,7 @@ https://www.switchbot.jp/
 
 ### Toasteroid
 
-https://www.kickstarter.com/projects/258723592/toasteroid-first-app-controlled-smart-image-toaste
+[https://www.kickstarter.com/projects/258723592/toasteroid-first-app-controlled-smart-image-toaste](https://www.kickstarter.com/projects/258723592/toasteroid-first-app-controlled-smart-image-toaste)
 
 ## スマートボタン
 
@@ -95,7 +95,7 @@ https://www.withings.com/jp/ja/sleep
 
 ### Arlo Ultra
 
-https://www.arlo.com/jp/products/arlo-ultra/default.aspx
+[https://www.arlo.com/jp/products/arlo-ultra/default.aspx](https://www.arlo.com/jp/products/arlo-ultra/default.aspx)
 
 ## スマート歯ブラシ
 

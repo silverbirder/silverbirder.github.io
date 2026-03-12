@@ -1,7 +1,7 @@
 import type { LinkCardMetadata } from "@repo/util";
 import type { Pluggable } from "unified";
 
-import { createRemarkLinkCard } from "@repo/util";
+import { createRemarkLinkCard, createRemarkLinkCardGuard } from "@repo/util";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeRaw from "rehype-raw";
@@ -55,6 +55,7 @@ const createBaseRemarkPlugins = ({
   resolveLinkCard,
 }: CreateOptionsArgs): Pluggable[] => [
   remarkGfm,
+  createRemarkLinkCardGuard,
   [
     createRemarkLinkCard,
     {

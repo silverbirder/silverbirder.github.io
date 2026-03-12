@@ -10,6 +10,7 @@ import type {
 
 import { Children, isValidElement } from "react";
 
+import { BlueskyEmbed } from "./bluesky-embed";
 import { CodepenEmbed } from "./codepen-embed";
 import { InstagramEmbed } from "./instagram-embed";
 import { Link as DomainLink } from "./link";
@@ -142,6 +143,30 @@ const extractInstagramPermalink = (href?: string) => {
   }
 };
 
+const extractBlueskyPermalink = (href?: string) => {
+  if (!href) {
+    return null;
+  }
+
+  try {
+    const url = new URL(href);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "bsky.app") {
+      return null;
+    }
+
+    const match = url.pathname.match(/^\/profile\/([^/]+)\/post\/([^/]+)/);
+    if (!match) {
+      return null;
+    }
+
+    const [, actor, postId] = match;
+    return `https://bsky.app/profile/${actor}/post/${postId}`;
+  } catch {
+    return null;
+  }
+};
+
 const normalizeChildren = (children: ReactNode) => {
   return Children.toArray(children).filter((child) => {
     if (typeof child === "string") return child.length > 0;
@@ -211,6 +236,10 @@ const Paragraph = ({ children, ...props }: ComponentPropsWithoutRef<"p">) => {
     const instagramPermalink = extractInstagramPermalink(href);
     if (instagramPermalink) {
       return <InstagramEmbed permalink={instagramPermalink} />;
+    }
+    const blueskyPermalink = extractBlueskyPermalink(href);
+    if (blueskyPermalink) {
+      return <BlueskyEmbed permalink={blueskyPermalink} />;
     }
   }
 

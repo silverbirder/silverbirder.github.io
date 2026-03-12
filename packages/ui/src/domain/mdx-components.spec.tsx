@@ -34,6 +34,14 @@ vi.mock("./instagram-embed", () => {
   };
 });
 
+vi.mock("./bluesky-embed", () => {
+  return {
+    BlueskyEmbed: ({ permalink }: { permalink: string }) => (
+      <div data-bluesky-permalink={permalink} data-embed="bluesky" />
+    ),
+  };
+});
+
 import { renderWithProvider } from "../test-util";
 import { mdxComponents } from "./mdx-components";
 import { NotebookImage } from "./notebook-image";
@@ -170,6 +178,30 @@ describe("mdxComponents", () => {
     expect(embed).not.toBeNull();
     expect(embed?.getAttribute("data-instagram-permalink")).toBe(
       "https://www.instagram.com/p/ABC123/",
+    );
+  });
+
+  it("replaces a Bluesky post link with BlueskyEmbed", async () => {
+    const P = mdxComponents.p as unknown as ComponentType<
+      ComponentPropsWithoutRef<"p">
+    >;
+    const A = mdxComponents.a as unknown as ComponentType<
+      ComponentPropsWithoutRef<"a">
+    >;
+
+    const { container } = await renderWithProvider(
+      <P>
+        <A href="https://bsky.app/profile/bsky.app/post/3l6ovsdood32z?ref=feed">
+          https://bsky.app/profile/bsky.app/post/3l6ovsdood32z?ref=feed
+        </A>
+      </P>,
+    );
+
+    expect(container.querySelector("p")).toBeNull();
+    const embed = container.querySelector('[data-embed="bluesky"]');
+    expect(embed).not.toBeNull();
+    expect(embed?.getAttribute("data-bluesky-permalink")).toBe(
+      "https://bsky.app/profile/bsky.app/post/3l6ovsdood32z",
     );
   });
 

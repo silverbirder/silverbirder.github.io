@@ -126,6 +126,20 @@ const isYouTubeUrl = (rawUrl: string) => {
   }
 };
 
+const isBlueskyPostUrl = (rawUrl: string) => {
+  try {
+    const url = new URL(rawUrl);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "bsky.app") {
+      return false;
+    }
+
+    return /^\/profile\/[^/]+\/post\/[^/]+/.test(url.pathname);
+  } catch {
+    return false;
+  }
+};
+
 const resolveTextValue = (node: LinkNode) => {
   if (!Array.isArray(node.children)) {
     return null;
@@ -216,7 +230,12 @@ const resolveLinkCardCandidate = (node: ParagraphNode, source?: string) => {
     return null;
   }
 
-  if (isTweetUrl(url) || isInstagramUrl(url) || isYouTubeUrl(url)) {
+  if (
+    isTweetUrl(url) ||
+    isInstagramUrl(url) ||
+    isYouTubeUrl(url) ||
+    isBlueskyPostUrl(url)
+  ) {
     return null;
   }
 

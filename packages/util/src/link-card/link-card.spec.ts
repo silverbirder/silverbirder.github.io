@@ -67,7 +67,7 @@ describe("extractStandaloneLinkUrls", () => {
     ).toEqual([]);
   });
 
-  it("does not collect standalone YouTube or Instagram URLs", () => {
+  it("does not collect standalone YouTube, Instagram, or Bluesky post URLs", () => {
     const tree = {
       children: [
         {
@@ -96,6 +96,22 @@ describe("extractStandaloneLinkUrls", () => {
               ],
               type: "link",
               url: "https://www.instagram.com/p/ABC123/",
+            },
+          ],
+          type: "paragraph",
+        },
+        {
+          children: [
+            {
+              children: [
+                {
+                  type: "text",
+                  value:
+                    "https://bsky.app/profile/silverbirder.bsky.social/post/3mgugc6ec222b",
+                },
+              ],
+              type: "link",
+              url: "https://bsky.app/profile/silverbirder.bsky.social/post/3mgugc6ec222b",
             },
           ],
           type: "paragraph",

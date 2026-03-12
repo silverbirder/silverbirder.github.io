@@ -11,11 +11,13 @@ import type {
 import { Children, isValidElement } from "react";
 
 import { CodepenEmbed } from "./codepen-embed";
+import { InstagramEmbed } from "./instagram-embed";
 import { Link as DomainLink } from "./link";
 import { LinkCard } from "./link-card";
 import { NotebookImage } from "./notebook-image";
 import { TweetEmbed } from "./tweet-embed";
 import { ViewTransitionLink } from "./view-transition-link";
+import { YouTubeEmbed } from "./youtube-embed";
 
 const extractTweetId = (href?: string) => {
   if (!href) {
@@ -60,6 +62,81 @@ const extractCodepenEmbedUrl = (href?: string) => {
       embedUrl.search = url.search;
     }
     return embedUrl.toString();
+  } catch {
+    return null;
+  }
+};
+
+const extractYouTubeEmbedUrl = (href?: string) => {
+  if (!href) {
+    return null;
+  }
+  try {
+    const url = new URL(href);
+    const hostname = url.hostname.replace(/^www\./, "");
+
+    let videoId: null | string = null;
+    if (hostname === "youtu.be") {
+      videoId = url.pathname.split("/").filter(Boolean)[0] ?? null;
+    } else if (
+      hostname === "youtube.com" ||
+      hostname === "m.youtube.com" ||
+      hostname === "music.youtube.com"
+    ) {
+      if (url.pathname === "/watch") {
+        videoId = url.searchParams.get("v");
+      } else {
+        const match = url.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/);
+        videoId = match?.[1] ?? null;
+      }
+    }
+
+    if (!videoId) {
+      return null;
+    }
+
+    const embedUrl = new URL(
+      `https://www.youtube-nocookie.com/embed/${videoId}`,
+    );
+    const start = url.searchParams.get("start") ?? url.searchParams.get("t");
+    if (start) {
+      embedUrl.searchParams.set("start", start.replace(/s$/u, ""));
+    }
+    return embedUrl.toString();
+  } catch {
+    return null;
+  }
+};
+
+const extractInstagramPermalink = (href?: string) => {
+  if (!href) {
+    return null;
+  }
+  try {
+    const url = new URL(href);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "instagram.com" && !hostname.endsWith(".instagram.com")) {
+      return null;
+    }
+
+    const pathSegments = url.pathname.split("/").filter(Boolean);
+    const type = pathSegments[0];
+    const id = pathSegments[1];
+    if (!type || !id) {
+      return null;
+    }
+
+    const normalizedType =
+      type === "reels"
+        ? "reel"
+        : type === "p" || type === "reel" || type === "tv"
+          ? type
+          : null;
+    if (!normalizedType) {
+      return null;
+    }
+
+    return `https://www.instagram.com/${normalizedType}/${id}/`;
   } catch {
     return null;
   }
@@ -126,6 +203,14 @@ const Paragraph = ({ children, ...props }: ComponentPropsWithoutRef<"p">) => {
     const codepenEmbedUrl = extractCodepenEmbedUrl(href);
     if (codepenEmbedUrl) {
       return <CodepenEmbed src={codepenEmbedUrl} />;
+    }
+    const youtubeEmbedUrl = extractYouTubeEmbedUrl(href);
+    if (youtubeEmbedUrl) {
+      return <YouTubeEmbed src={youtubeEmbedUrl} />;
+    }
+    const instagramPermalink = extractInstagramPermalink(href);
+    if (instagramPermalink) {
+      return <InstagramEmbed permalink={instagramPermalink} />;
     }
   }
 

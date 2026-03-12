@@ -66,6 +66,46 @@ describe("extractStandaloneLinkUrls", () => {
       ),
     ).toEqual([]);
   });
+
+  it("does not collect standalone YouTube or Instagram URLs", () => {
+    const tree = {
+      children: [
+        {
+          children: [
+            {
+              children: [
+                {
+                  type: "text",
+                  value: "https://www.youtube.com/watch?v=gFRtAAmiFbE",
+                },
+              ],
+              type: "link",
+              url: "https://www.youtube.com/watch?v=gFRtAAmiFbE",
+            },
+          ],
+          type: "paragraph",
+        },
+        {
+          children: [
+            {
+              children: [
+                {
+                  type: "text",
+                  value: "https://www.instagram.com/p/ABC123/",
+                },
+              ],
+              type: "link",
+              url: "https://www.instagram.com/p/ABC123/",
+            },
+          ],
+          type: "paragraph",
+        },
+      ],
+      type: "root",
+    };
+
+    expect(extractStandaloneLinkUrls(tree)).toEqual([]);
+  });
 });
 
 describe("createRemarkLinkCard", () => {
@@ -175,9 +215,9 @@ describe("createRemarkLinkCard", () => {
 });
 
 describe("normalizeLinkCardUrl", () => {
-  it("removes query parameters and fragments", () => {
+  it("keeps query parameters and removes fragments", () => {
     expect(
       normalizeLinkCardUrl("https://example.com/path?ref=abc#section"),
-    ).toBe("https://example.com/path");
+    ).toBe("https://example.com/path?ref=abc");
   });
 });

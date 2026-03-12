@@ -59,7 +59,6 @@ type UnistNode = {
 export const normalizeLinkCardUrl = (rawUrl: string) => {
   const url = new URL(rawUrl);
   url.hash = "";
-  url.search = "";
   return url.toString();
 };
 
@@ -85,6 +84,43 @@ const isTweetUrl = (rawUrl: string) => {
       return false;
     }
     return /\/status\/(\d+)/.test(url.pathname);
+  } catch {
+    return false;
+  }
+};
+
+const isInstagramUrl = (rawUrl: string) => {
+  try {
+    const url = new URL(rawUrl);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "instagram.com" && !hostname.endsWith(".instagram.com")) {
+      return false;
+    }
+
+    return /^\/(p|reel|reels|tv)\//.test(url.pathname);
+  } catch {
+    return false;
+  }
+};
+
+const isYouTubeUrl = (rawUrl: string) => {
+  try {
+    const url = new URL(rawUrl);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (
+      hostname !== "youtube.com" &&
+      hostname !== "m.youtube.com" &&
+      hostname !== "music.youtube.com" &&
+      hostname !== "youtu.be"
+    ) {
+      return false;
+    }
+
+    return (
+      hostname === "youtu.be" ||
+      url.pathname === "/watch" ||
+      /^\/(channel|embed|shorts)\//.test(url.pathname)
+    );
   } catch {
     return false;
   }
@@ -176,7 +212,7 @@ const resolveLinkCardCandidate = (node: ParagraphNode, source?: string) => {
     return null;
   }
 
-  if (isTweetUrl(url)) {
+  if (isTweetUrl(url) || isInstagramUrl(url) || isYouTubeUrl(url)) {
     return null;
   }
 

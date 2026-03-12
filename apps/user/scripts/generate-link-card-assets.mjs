@@ -22,7 +22,6 @@ const normalizeHost = (value) =>
 const normalizeLinkCardUrl = (rawUrl) => {
   const url = new URL(rawUrl);
   url.hash = "";
-  url.search = "";
   return url.toString();
 };
 
@@ -206,6 +205,43 @@ const isTweetUrl = (rawUrl) => {
   }
 };
 
+const isInstagramUrl = (rawUrl) => {
+  try {
+    const url = new URL(rawUrl);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (hostname !== "instagram.com" && !hostname.endsWith(".instagram.com")) {
+      return false;
+    }
+
+    return /^\/(p|reel|reels|tv)\//.test(url.pathname);
+  } catch {
+    return false;
+  }
+};
+
+const isYouTubeUrl = (rawUrl) => {
+  try {
+    const url = new URL(rawUrl);
+    const hostname = url.hostname.replace(/^www\./, "");
+    if (
+      hostname !== "youtube.com" &&
+      hostname !== "m.youtube.com" &&
+      hostname !== "music.youtube.com" &&
+      hostname !== "youtu.be"
+    ) {
+      return false;
+    }
+
+    return (
+      hostname === "youtu.be" ||
+      url.pathname === "/watch" ||
+      /^\/(channel|embed|shorts)\//.test(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+};
+
 const resolveBareUrlLine = (value) => {
   const trimmed = value.trim();
   if (trimmed.length === 0) {
@@ -229,7 +265,12 @@ const extractStandaloneUrls = (source) => {
     if (!current) {
       continue;
     }
-    if (!isHttpUrl(current) || isTweetUrl(current)) {
+    if (
+      !isHttpUrl(current) ||
+      isTweetUrl(current) ||
+      isInstagramUrl(current) ||
+      isYouTubeUrl(current)
+    ) {
       continue;
     }
 

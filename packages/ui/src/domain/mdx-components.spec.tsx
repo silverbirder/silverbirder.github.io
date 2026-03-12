@@ -18,6 +18,22 @@ vi.mock("./codepen-embed", () => {
   };
 });
 
+vi.mock("./youtube-embed", () => {
+  return {
+    YouTubeEmbed: ({ src }: { src: string }) => (
+      <div data-embed="youtube" data-youtube-src={src} />
+    ),
+  };
+});
+
+vi.mock("./instagram-embed", () => {
+  return {
+    InstagramEmbed: ({ permalink }: { permalink: string }) => (
+      <div data-embed="instagram" data-instagram-permalink={permalink} />
+    ),
+  };
+});
+
 import { renderWithProvider } from "../test-util";
 import { mdxComponents } from "./mdx-components";
 import { NotebookImage } from "./notebook-image";
@@ -106,6 +122,54 @@ describe("mdxComponents", () => {
     expect(embed).not.toBeNull();
     expect(embed?.getAttribute("data-codepen-src")).toBe(
       "https://codepen.io/silverbirder/embed/gbYwrOa",
+    );
+  });
+
+  it("replaces a YouTube link with YouTubeEmbed", async () => {
+    const P = mdxComponents.p as unknown as ComponentType<
+      ComponentPropsWithoutRef<"p">
+    >;
+    const A = mdxComponents.a as unknown as ComponentType<
+      ComponentPropsWithoutRef<"a">
+    >;
+
+    const { container } = await renderWithProvider(
+      <P>
+        <A href="https://www.youtube.com/watch?v=gFRtAAmiFbE">
+          https://www.youtube.com/watch?v=gFRtAAmiFbE
+        </A>
+      </P>,
+    );
+
+    expect(container.querySelector("p")).toBeNull();
+    const embed = container.querySelector('[data-embed="youtube"]');
+    expect(embed).not.toBeNull();
+    expect(embed?.getAttribute("data-youtube-src")).toBe(
+      "https://www.youtube-nocookie.com/embed/gFRtAAmiFbE",
+    );
+  });
+
+  it("replaces an Instagram link with InstagramEmbed", async () => {
+    const P = mdxComponents.p as unknown as ComponentType<
+      ComponentPropsWithoutRef<"p">
+    >;
+    const A = mdxComponents.a as unknown as ComponentType<
+      ComponentPropsWithoutRef<"a">
+    >;
+
+    const { container } = await renderWithProvider(
+      <P>
+        <A href="https://www.instagram.com/p/ABC123/?img_index=1">
+          https://www.instagram.com/p/ABC123/?img_index=1
+        </A>
+      </P>,
+    );
+
+    expect(container.querySelector("p")).toBeNull();
+    const embed = container.querySelector('[data-embed="instagram"]');
+    expect(embed).not.toBeNull();
+    expect(embed?.getAttribute("data-instagram-permalink")).toBe(
+      "https://www.instagram.com/p/ABC123/",
     );
   });
 

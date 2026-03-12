@@ -212,6 +212,55 @@ describe("createRemarkLinkCard", () => {
 
     expect(tree.children?.[0]?.type).toBe("paragraph");
   });
+
+  it("omits optional attrs when metadata does not include image fields", async () => {
+    const tree = {
+      children: [
+        {
+          children: [
+            {
+              children: [{ type: "text", value: "https://example.com" }],
+              type: "link",
+              url: "https://example.com",
+            },
+          ],
+          type: "paragraph",
+        },
+      ],
+      type: "root",
+    };
+
+    const transform = createRemarkLinkCard({
+      resolveCard: async (url) => ({
+        title: "Example title",
+        url,
+      }),
+    });
+
+    await transform(tree);
+
+    expect(tree).toEqual({
+      children: [
+        {
+          attributes: [
+            {
+              name: "url",
+              type: "mdxJsxAttribute",
+              value: "https://example.com/",
+            },
+            { name: "title", type: "mdxJsxAttribute", value: "Example title" },
+          ],
+          children: [],
+          data: {
+            _mdxExplicitJsx: true,
+          },
+          name: "LinkCard",
+          type: "mdxJsxFlowElement",
+        },
+      ],
+      type: "root",
+    });
+  });
 });
 
 describe("normalizeLinkCardUrl", () => {

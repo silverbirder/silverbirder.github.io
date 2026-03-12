@@ -1,2 +1,0 @@
-- https://silverbirder.github.io/blog/contents/web_frontend_test_pattern_guide/
-  - 画像ないカーど、画像枠線ある

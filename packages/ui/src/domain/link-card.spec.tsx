@@ -45,4 +45,19 @@ describe("LinkCard", () => {
       "/thumbnail.png",
     ]);
   });
+
+  it("does not render image elements when image props are non-string values", async () => {
+    const { container } = await renderWithProvider(
+      <LinkCard
+        description="Description"
+        faviconSrc={true as never}
+        siteName="Example"
+        thumbnailSrc={true as never}
+        title="Example title"
+        url="https://example.com"
+      />,
+    );
+
+    expect(container.querySelectorAll("img")).toHaveLength(0);
+  });
 });

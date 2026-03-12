@@ -174,14 +174,18 @@ const createAttribute = (
   value,
 });
 
+const createOptionalAttribute = (name: string, value: string | undefined) => {
+  return typeof value === "string" ? [createAttribute(name, value)] : [];
+};
+
 const createLinkCardNode = (card: LinkCardMetadata): UnistNode => ({
   attributes: [
     createAttribute("url", card.url),
     createAttribute("title", card.title),
-    createAttribute("description", card.description ?? null),
-    createAttribute("siteName", card.siteName ?? null),
-    createAttribute("faviconSrc", card.faviconSrc ?? null),
-    createAttribute("thumbnailSrc", card.thumbnailSrc ?? null),
+    ...createOptionalAttribute("description", card.description),
+    ...createOptionalAttribute("siteName", card.siteName),
+    ...createOptionalAttribute("faviconSrc", card.faviconSrc),
+    ...createOptionalAttribute("thumbnailSrc", card.thumbnailSrc),
   ],
   children: [],
   data: {

@@ -37,6 +37,14 @@ export const LinkCard = ({
   ...props
 }: Props) => {
   const siteLabel = resolveSiteLabel(siteName, url);
+  const normalizedFaviconSrc =
+    typeof faviconSrc === "string" && faviconSrc.length > 0
+      ? faviconSrc
+      : undefined;
+  const normalizedThumbnailSrc =
+    typeof thumbnailSrc === "string" && thumbnailSrc.length > 0
+      ? thumbnailSrc
+      : undefined;
 
   return (
     <Box className="not-prose" my="var(--notebook-line-height)" {...props}>
@@ -84,20 +92,20 @@ export const LinkCard = ({
               </Text>
             ) : null}
             <HStack color="fg.muted" fontSize="xs" gap="0.35rem" mt="auto">
-              {faviconSrc ? (
+              {normalizedFaviconSrc ? (
                 <Image
                   alt=""
                   aria-hidden="true"
                   h="1rem"
                   loading="lazy"
-                  src={faviconSrc}
+                  src={normalizedFaviconSrc}
                   w="1rem"
                 />
               ) : null}
               <Text lineClamp={1}>{siteLabel}</Text>
             </HStack>
           </Card.Body>
-          {thumbnailSrc ? (
+          {normalizedThumbnailSrc ? (
             <Box
               alignItems="center"
               bg="white"
@@ -114,7 +122,7 @@ export const LinkCard = ({
                 h="full"
                 loading="lazy"
                 objectFit="contain"
-                src={thumbnailSrc}
+                src={normalizedThumbnailSrc}
                 w="full"
               />
             </Box>

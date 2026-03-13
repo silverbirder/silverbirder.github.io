@@ -11,6 +11,18 @@ import { ThemeProvider, type ThemeProviderProps } from "next-themes";
 
 const config = defineConfig({
   theme: {
+    semanticTokens: {
+      colors: {
+        fg: {
+          muted: {
+            value: {
+              _dark: "{colors.gray.300}",
+              _light: "{colors.gray.700}",
+            },
+          },
+        },
+      },
+    },
     tokens: {
       fonts: {
         body: { value: "var(--font-klee-one), sans-serif" },

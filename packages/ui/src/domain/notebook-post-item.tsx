@@ -42,6 +42,7 @@ export const NotebookPostItem = ({
 
   return (
     <Stack
+      alignItems="flex-start"
       borderLeftColor="green.border"
       borderLeftWidth="2px"
       gap={0}
@@ -49,6 +50,7 @@ export const NotebookPostItem = ({
       pl="calc(var(--notebook-line-height) / 2)"
     >
       <ViewTransitionLink
+        fontWeight="bold"
         href={`/blog/contents/${post.slug}`}
         lineClamp={2}
         lineHeight="var(--notebook-line-height)"

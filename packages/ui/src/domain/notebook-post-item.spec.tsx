@@ -66,4 +66,26 @@ describe("NotebookPostItem", () => {
     expect(selectedLink?.getAttribute("href")).toContain("year=2024");
     expect(selectedLink?.getAttribute("href")).toContain("tag=UI");
   });
+
+  it("renders the title link with emphasized font weight", async () => {
+    const { container } = await renderWithProvider(
+      <NotebookPostItem
+        post={{
+          publishedAt: "2025-01-03",
+          slug: "emphasized-post",
+          summary: "Summary",
+          tags: [],
+          title: "Emphasized Post",
+        }}
+      />,
+    );
+
+    const titleLink = container.querySelector(
+      'a[href="/blog/contents/emphasized-post"]',
+    );
+
+    expect(window.getComputedStyle(titleLink as Element).fontWeight).toBe(
+      "700",
+    );
+  });
 });

@@ -1,6 +1,12 @@
 "use client";
 
 import { Flex, IconButton, Input } from "@chakra-ui/react";
+import {
+  getLocalStorageItem,
+  removeLocalStorageItem,
+  setLocalStorageItem,
+  userLocalStorageKeys,
+} from "@repo/user-local-storage";
 import { buildSitePath } from "@repo/util";
 import { useTranslations } from "next-intl";
 import {
@@ -31,9 +37,6 @@ type Props = {
 };
 
 const SEARCH_RESULT_LIMIT = 20;
-const SEARCH_INDEX_CACHE_KEY = "blog-search-index";
-const SEARCH_INDEX_VERSION_KEY = "blog-search-index-version";
-
 export const PostSearchPanel = ({
   initialQuery = "",
   onResultsChange,
@@ -132,14 +135,12 @@ export const PostSearchPanel = ({
 
     const loadIndex = async () => {
       const cache = (() => {
-        try {
-          return {
-            json: localStorage.getItem(SEARCH_INDEX_CACHE_KEY),
-            version: localStorage.getItem(SEARCH_INDEX_VERSION_KEY),
-          };
-        } catch {
-          return { json: null, version: null };
-        }
+        return {
+          json: getLocalStorageItem(userLocalStorageKeys.blogSearchIndexCache),
+          version: getLocalStorageItem(
+            userLocalStorageKeys.blogSearchIndexVersion,
+          ),
+        };
       })();
 
       const versionResponse = await fetch(searchIndexVersionPath).catch(
@@ -164,14 +165,18 @@ export const PostSearchPanel = ({
       }
       const json = await indexResponse.text();
 
-      try {
-        localStorage.setItem(SEARCH_INDEX_CACHE_KEY, json);
+      if (
+        setLocalStorageItem(userLocalStorageKeys.blogSearchIndexCache, json)
+      ) {
         if (latestVersion) {
-          localStorage.setItem(SEARCH_INDEX_VERSION_KEY, latestVersion);
+          setLocalStorageItem(
+            userLocalStorageKeys.blogSearchIndexVersion,
+            latestVersion,
+          );
         } else {
-          localStorage.removeItem(SEARCH_INDEX_VERSION_KEY);
+          removeLocalStorageItem(userLocalStorageKeys.blogSearchIndexVersion);
         }
-      } catch {
+      } else {
         // localStorage may be unavailable; skip cache
       }
 

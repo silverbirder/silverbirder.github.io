@@ -1,6 +1,10 @@
 "use client";
 
 import { Box, IconButton, Text, VStack } from "@chakra-ui/react";
+import {
+  getOrCreateLocalStorageItem,
+  userLocalStorageKeys,
+} from "@repo/user-local-storage";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { LuThumbsUp } from "react-icons/lu";
@@ -38,11 +42,6 @@ const getCountFromPayload = (payload: unknown) => {
   return null;
 };
 
-const toSafeKey = (value: string) => value.replace(/[^a-zA-Z0-9-_]/g, "_");
-
-const buildStorageKey = (namespace: string, name: string) =>
-  `likes:${toSafeKey(namespace)}:${toSafeKey(name)}`;
-
 const buildApiUrl = (slug: string, anonId?: string) => {
   const base = API_BASE_URL.replace(/\/$/, "");
   const url = new URL(`${base}/api/likes`);
@@ -51,24 +50,6 @@ const buildApiUrl = (slug: string, anonId?: string) => {
     url.searchParams.set("anonId", anonId);
   }
   return url.toString();
-};
-
-const resolveAnonId = (storageKey: string) => {
-  if (typeof window === "undefined") return null;
-  try {
-    const existing = window.localStorage.getItem(storageKey);
-    if (existing) return existing;
-    const id =
-      typeof crypto.randomUUID === "function"
-        ? crypto.randomUUID()
-        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-    window.localStorage.setItem(storageKey, id);
-    return id;
-  } catch {
-    return typeof crypto.randomUUID === "function"
-      ? crypto.randomUUID()
-      : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  }
 };
 
 const canUseHoverBalloon = () => {
@@ -95,15 +76,18 @@ export const NotebookLike = ({ name, namespace, title }: Props) => {
   );
 
   const storageKey = useMemo(
-    () => buildStorageKey(namespace, name),
+    () => userLocalStorageKeys.likeAnonId(namespace, name),
     [namespace, name],
   );
 
   useEffect(() => {
-    const resolved = resolveAnonId(storageKey);
-    if (resolved) {
-      setAnonId(resolved);
-    }
+    setAnonId(
+      getOrCreateLocalStorageItem(storageKey, () =>
+        typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      ),
+    );
   }, [storageKey]);
 
   useEffect(() => {

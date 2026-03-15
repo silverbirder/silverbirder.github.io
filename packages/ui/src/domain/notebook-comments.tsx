@@ -11,6 +11,10 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
+import {
+  getOrCreateLocalStorageItem,
+  userLocalStorageKeys,
+} from "@repo/user-local-storage";
 import { formatJapaneseDateTime } from "@repo/util";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -28,25 +32,12 @@ type Props = {
 };
 
 const API_URL = `${process.env.NEXT_PUBLIC_LIKES_API_URL}/api/comments`;
-const ANON_ID_STORAGE_KEY = "comments:anon-id";
 const COMMENT_MAX_LENGTH = 255;
 
 const createAnonId = () =>
   typeof crypto.randomUUID === "function"
     ? crypto.randomUUID()
     : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-
-const getSafeLocalStorage = () => {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  try {
-    return window.localStorage ?? null;
-  } catch {
-    return null;
-  }
-};
 
 export const NotebookComments = ({ showHeading = true, slug }: Props) => {
   const t = useTranslations("ui.notebook");
@@ -59,21 +50,11 @@ export const NotebookComments = ({ showHeading = true, slug }: Props) => {
   const progress = Math.min((body.length / COMMENT_MAX_LENGTH) * 100, 100);
 
   useEffect(() => {
-    const storage = getSafeLocalStorage();
-    if (storage) {
-      const stored = storage.getItem(ANON_ID_STORAGE_KEY);
-      if (stored) {
-        setAnonId(stored);
-        return;
-      }
-
-      const newId = createAnonId();
-      storage.setItem(ANON_ID_STORAGE_KEY, newId);
-      setAnonId(newId);
-      return;
-    }
-
-    setAnonId(createAnonId());
+    setAnonId(
+      getOrCreateLocalStorageItem(userLocalStorageKeys.commentsAnonId, () =>
+        createAnonId(),
+      ),
+    );
   }, []);
 
   useEffect(() => {

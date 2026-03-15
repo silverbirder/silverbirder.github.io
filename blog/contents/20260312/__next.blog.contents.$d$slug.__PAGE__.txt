@@ -1,0 +1,164 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T21e1,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Webフロントエンドのコードレビューをしているときに考えていることについて書きます。", _jsx(_components.br, {}), "\n毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳)", _jsx(_components.br, {}), "\nまた希望的な考えもあるので、実践していないものもあります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テキスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テキスト",
+        children: "テキスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["テキストとは、ユーザーへ見せるテキストすべてが対象です。", _jsx(_components.br, {}), "\n例えば、ボタンラベル名、ダイアログメッセージ、説明文などすべてが対象です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "他のテキストとトーンオブボイスが揃っているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "使用する言葉の表記揺れはないか？"
+      }), "\n", _jsx(_components.li, {
+        children: "コンテキストを踏まえた言葉を使用できているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "説明文は、説明を尽くせているか？"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "スタイル",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スタイル",
+        children: "スタイル"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "更新されたスタイルに対して1行1行丁寧に確認しましょう。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "CSSのプロパティに無駄な定義はないか？"
+      }), "\n", _jsx(_components.li, {
+        children: "テキストデータや配列データなどが増減してもデザイン崩れしないか？"
+      }), "\n", _jsx(_components.li, {
+        children: "サポートブラウザ・端末で期待通りの見た目になっているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "レスポンシブに対応できているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "Figma等のデザインデータと比較して、余白設計などが揃っているか？"
+      }), "\n", _jsxs(_components.li, {
+        children: ["デザイントークン外のパラメータは使っていないか？\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "使っている場合は特別な意図があることが明記されているか？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/learn-layout/",
+          children: "苦手なCSSを克服しよう | ジブンノート - silverbirder.github.io"
+        }), " のレイアウトの考えを考慮しているか？"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "インタラクション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#インタラクション",
+        children: "インタラクション"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ボタンクリックした時やホバーした時など、マイクロなインタラクションすべてに確認しましょう。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ボタンなどをクリックした場合、必ずわかりやすいフィードバックを返せているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "ボタンなどが押せないことを示す場合、なぜ押せないかユーザーに伝えれているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "クリック可能な要素をホバーした場合、押せることが伝わるフィードバックを返せているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "フォームでバリデーションエラーを表示する場合は、適切な位置とタイミングでユーザーへ伝えれているか？"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト",
+        children: "テスト"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "プロダクションコードを変更したら、それと対となるテストコードの変更をチェックしましょう。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["変更したプロダクションコードに対して、それを保証するテストコードがあるか？\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["単体テストであれば、", _jsx(_components.a, {
+              href: "https://silverbirder.github.io/blog/contents/unit-test-writing-guidelines/",
+              children: "単体テストコードのお作法 | ジブンノート - silverbirder.github.io"
+            }), " のテスト作法を考慮しているか？"]
+          }), "\n", _jsx(_components.li, {
+            children: "複数画面間で影響したりAPIデータ依存な変更をする場合は、結合テスト・E2Eテストで保証できているか？"
+          }), "\n", _jsx(_components.li, {
+            children: "パフォーマンスチューニングなどを行なった場合は、パフォーマンステストコードで保証できているか？"
+          }), "\n", _jsx(_components.li, {
+            children: "見た目の変更を行なった場合は、その見た目を保証するテストコードが書けているか？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "テストケースの文章が、テスト内容を表しているか？"
+      }), "\n", _jsx(_components.li, {
+        children: "複数のパラメータによる複雑な条件の場合、網羅的なテストが書けているか？"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["他にもいろいろあるのですが、メモとして残しておきました。", _jsx(_components.br, {}), "\nまた後日、清書するかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ps",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ps",
+        children: "P.S."
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["昔、観点表として ", _jsx(_components.a, {
+        href: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpbSeaOPVSKyi36bwbBXQ56DbXNzLEp-anI4PHfXps4pa7gWUMDGHjNmVy1gl945o4aNGCszPWxcKm/pubhtml",
+        children: "POV - Google Drive - docs.google.com"
+      }), " というのを書いているのを思い出しました。", _jsx(_components.br, {}), "\nこちらはフロントエンドというより、より広いシステム設計をする際に観点として使用していました。", _jsx(_components.br, {}), "\n例えば、observabilityやrobustness、fault toleranceなどの観点としてどうなのか議論するために使用します。", _jsx(_components.br, {}), "\n意外にも、観点表から気づけることが多くて重宝していました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":284,"publishedAt":"2026-03-12","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"},"navigation":{"next":{"href":"/blog/contents/20260313","publishedAt":"2026-03-13","title":"新幹線通勤の思い出"},"prev":{"href":"/blog/contents/20260311","publishedAt":"2026-03-11","title":"考え事で眠れない時はそれを書き出す"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-25","slug":"20260225","summary":"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"},{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2026-02-17","slug":"20260217","summary":"紙を積んだイラストをSVGで書こうとしていました。 （当たり前ですが）図形を表現するためには数学の知識が必要で、学生の頃の記憶を思い出したので疲れました。 所感について、諸々書こうと思います。 成果物 実際に完成したのは、以下の画像ができま","tags":["フロントエンド"],"title":"SVGを書くと数学の知識が必要だった"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260312/","slug":"20260312"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

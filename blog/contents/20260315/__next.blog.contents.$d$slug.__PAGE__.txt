@@ -1,0 +1,866 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T8e8b,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下の書籍を読みました。", _jsx(_components.br, {}), "\n感想について書こうと思います。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://books.mdn.co.jp/books/3225303033/",
+      title: "CSS　優良デザイン×アイデア事典　プロがシェアする現場の即戦力テクニック",
+      description: "定番の表現から最新の流行まで、CSSでデザインできる！",
+      siteName: "株式会社エムディエヌコーポレーション",
+      faviconSrc: "/link-card/724e61adfe86ad050b8df7328859fe9165ba7b9c5af7c5ddce538458b5db53ce.png",
+      thumbnailSrc: "/link-card/379277fd8a5b1509bf88c10cb3d1a2efc5d8565836178d54af25cb4161020055.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "概要",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#概要",
+        children: "概要"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書では、数年以内に流行った比較的新しいCSSテクニックについて紹介されていました。", _jsx(_components.br, {}), "\n例えば、流体タイポグラフィやサブグリッド、パララックススクロールなどです。", _jsx(_components.br, {}), "\n構成としては、レイアウト・グラフィック・UIパーツ・アニメーションの4つの章があります。", _jsx(_components.br, {}), "\nそれぞれの章では、具体的なデモコードと表示される画像を見ながら解説されています。", _jsx(_components.br, {}), "\nデモコードは、無料で配布されています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "gridの重ねがけ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#gridの重ねがけ",
+        children: "Gridの重ねがけ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の場合、重ねがけするなら ", _jsx(_components.code, {
+        children: "position"
+      }), " を使うのが初手でした。", _jsx(_components.br, {}), "\n本書にて、Gridを使った重ねがけの方法が紹介されていて、良さそうに思いました。", _jsx(_components.br, {}), "\nGrid では2次元上のマス目として表現するのですが、どのマス目に表示するかが簡単にできます。", _jsx(_components.br, {}), "\nそのため、1行1列目に表示しているコンテンツの上に重ねたい場合は1行1列目に表示する様にCSSを書けば済みます。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "html",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "html",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " style"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"display: grid;\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  <"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " style"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"grid-area: 1 / 1;\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">A</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  <"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " style"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"grid-area: 1 / 1;\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">B</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "後に書いたものが上に来るので、重ねたい順に追加すれば良さそうです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ブロークンレイアウト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ブロークンレイアウト",
+        children: "ブロークンレイアウト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["基本的に、HTMLとCSSでコンテンツを表示すると縦積みか横並びになります。", _jsx(_components.br, {}), "\nこれは、CSSのボックスモデルの仕様のためだったかと思います。", _jsx(_components.br, {}), "\nこの規則正しい並び順を意図的に崩したデザイン、ブロークンレイアウトというのが紹介されていました。", _jsx(_components.br, {}), "\n見た目は知っていましたが、そういう名前というのを初めて知りました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["方法としては、Gridのマス目表示テクニックを使います。", _jsx(_components.br, {}), "\nGridでマス目を定義した後、どこからどこへコンテンツを表示するかをGridなら自由に決めることができます。", _jsx(_components.br, {}), "\nそのため、ちょっとズレた位置にコンテンツを表示することが可能です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["このブロークンレイアウトは、意図的に規則性を崩しているため可読性をより意識しないといけないなと思います。", _jsx(_components.br, {}), "\n崩すところは崩して新鮮さを出しつつ、視線方向（Z）などの心理やトンマナは抑えておかないと、通常よりも読みにくいページになりそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "グラデーションのハードストップ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#グラデーションのハードストップ",
+        children: "グラデーションのハードストップ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "linear-gradient"
+      }), " などを使って、グラデーションを表示することがあります。", _jsx(_components.br, {}), "\nこのグラデーションには、色が滑らかに変化する美しさがあります。", _jsx(_components.br, {}), "\nこの滑らかに変化ではなく、0・100と極端な緩急をつけた見せ方、ハードストップという方法を知りました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://css-tricks.com/books/greatest-css-tricks/hard-stop-gradients/",
+      title: "Hard Stop Gradients - CSS-Tricks",
+      description: "The word &quot;gradient&quot; implies a transition from one color to another color. That&#039;s super useful in web design and can create lovely effects. We&#039;re going to skip that whole &quot;transition&quot; part though and see what kind of CSS trickery that unlocks.",
+      siteName: "CSS-Tricks",
+      faviconSrc: "/link-card/6dc6f95dddd92684d7fe9ed1be1c34da0728bfd650ce4dd51464896879b67970.svg",
+      thumbnailSrc: "/link-card/c2170c6715a06b40685aef13624faf94103723768dc8d5a29613a9c59b99f0d1.webp"
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下のように、 ", _jsx(_components.code, {
+        children: "50%"
+      }), " の位置で一気に色を、赤から青に変えるのです。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "html",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "html",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " style"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"height: 50px; background: linear-gradient(to right, red 50%, blue 50%);\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FDAEB7",
+                "--shiki-dark-font-style": "italic",
+                "--shiki-light": "#B31D28",
+                "--shiki-light-font-style": "italic"
+              },
+              children: " /"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "こういう極端な方法を使うことで、円グラフやドット絵模様などの幾何学的な表現をしやすくなりそうです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "色の動的表現",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#色の動的表現",
+        children: "色の動的表現"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "color-mix"
+      }), " という2色の色を混ぜるプロパティについて紹介されていました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developer.chrome.com/docs/css-ui/css-color-mix?hl=ja",
+        children: "CSS color-mix() | Chrome for Developers - developer.chrome.com"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["存在は知っていたのですが、上手い使い所が知りませんでした。", _jsx(_components.br, {}), "\n例えば、ボタンのホバー時の背景色を、プライマリーカラーに背景色を少し足すというのができます。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "css",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "css",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: ".btn:hover"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  background-color"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "color-mix"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "in"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " srgb"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ",  "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "var"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "--color-primary"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "70"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "%"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "var"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "--color-bg"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "));"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "};"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "また、色の指定方法として 相対色構文というのがあります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developer.chrome.com/blog/css-relative-color-syntax?hl=ja",
+        children: "CSS 相対色構文 | Blog | Chrome for Developers - developer.chrome.com"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これは名前の通りで、任意の色を相対的に変える方法です。", _jsx(_components.br, {}), "\nこれを使えば、ブランドカラーの色相を維持しつつ、彩度や明度を変えることができます。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "css",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "css",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: ".darker"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "  /* ブランドカラーを少し暗くする */"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  color"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "oklch"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(from "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "var"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "--color-primary"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "calc"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(l "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "-"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 0.05"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") c h);"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: ".desaturated"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "  /* 彩度を少し下げる */"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  color"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "oklch"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(from "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "var"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "--color-primary"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") l "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "calc"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(c "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "-"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 0.03"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") h);"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "oklchについて 以下の記事でトークン設計を考えたことがあるのですが、もっとスマートに書けそうなことに気づきました...。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251130/",
+      title: "oklchとトークン設計",
+      description: "Tailwind CSS v4.0 から、色指定に OKLCH が標準採用されました。 oklch() 関数記法は、指定された色を Oklch 色空間で表現するものです。これは oklab() と同じ L 軸を持っていますが、極座標系の C",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/f7fb0095b912eda3c0768c30e5c0794b2374bd96a6654fb928f812ff85493b84.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "カード全体のリンク化",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#カード全体のリンク化",
+        children: "カード全体のリンク化"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["カードUI全体にリンク化したいことがあります。", _jsx(_components.br, {}), "\nHTMLとしてanchor要素で囲う方法が直感的ですが、色々な意味で困ることがあります。", _jsx(_components.br, {}), "\n本書では、カード内にある ", _jsx(_components.code, {
+        children: "詳細を見る"
+      }), " などのリンクテキストの ", _jsx(_components.code, {
+        children: "::before"
+      }), " を使ってカード全体へ広げる方法が紹介されていました。", _jsx(_components.br, {}), "\nこの方法であればanchor要素で囲む必要がありませんし、同カード内の別リンクがあっても問題ありません。", _jsx(_components.br, {}), "\n親要素でanchor要素で囲むと、子要素にanchor要素は置けませんので。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "any-hoverとfocus-visible",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#any-hoverとfocus-visible",
+        children: "any-hoverとfocus-visible"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ホバーできない端末への配慮として、", _jsx(_components.code, {
+        children: ":hover"
+      }), " ではなく ", _jsx(_components.code, {
+        children: "any-hover"
+      }), " を使いましょうというお話です。", _jsx(_components.br, {}), "\n世の中的には、", _jsx(_components.code, {
+        children: ":hover"
+      }), " でコーディングすることが大半な気がする（個人的な意見）ので、たぶんなくならないだろうなと思います。", _jsx(_components.br, {}), "\nちゃんとしているところなら、", _jsx(_components.code, {
+        children: "any-hover"
+      }), " と ", _jsx(_components.code, {
+        children: "focus-visible"
+      }), " を使って要素のホバー・フォーカスを管理してそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "フォーム部品のカスタマイズ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フォーム部品のカスタマイズ",
+        children: "フォーム部品のカスタマイズ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["チェックボックスやラジオボタンなどの見た目をカスタマイズしたいときがあります。", _jsx(_components.br, {}), "\n簡単なカスタマイズとしては、色を変更できるみたいです。", _jsx(_components.br, {}), "\nそれでも物足りない場合は、input要素を視覚的に非表示 (", _jsx(_components.code, {
+        children: "visually-hidden"
+      }), ") して独自にスタイリングします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: ":checked"
+      }), " などのフォーム部品の状態を表す擬似クラスセレクターを使えば、見た目だけカスタマイズして挙動はブラウザに任せる良い所取りができます。", _jsx(_components.br, {}), "\n懺悔として、醜いカスタマイズフォーム部品を作ってしまった経験があるので、次からはちゃんとしたいと決心しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "backdrop擬似要素",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#backdrop擬似要素",
+        children: "backdrop擬似要素"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "dialog"
+      }), " など全面表示する要素の直下は、", _jsx(_components.code, {
+        children: "::backdrop"
+      }), " 擬似要素を使えば良いみたいです。", _jsx(_components.br, {}), "\nよく前面表示する際の背景色を設定するときに、わざわざ overlay 要素を作って対処していましたが ", _jsx(_components.code, {
+        children: "::backdrop"
+      }), " を使えば良かったかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["知らなかったことが知れて、本書を読んでよかったなと思います。", _jsx(_components.br, {}), "\n比較的新しい技術のキャッチアップも大事ですが、枯れた技術の保守設計というのも大事にしたいなと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ps",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ps",
+        children: "P.S."
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本を読みながら分からないことがあったら、スマホで写真を撮ってChatGPTアプリに渡して解説させました。", _jsx(_components.br, {}), "\n読書体験として近くに先生がいる感じがしてよかったです。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":287,"publishedAt":"2026-03-15","tags":["書籍レビュー"],"title":"『CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック』を読みました。"},"navigation":{"prev":{"href":"/blog/contents/20260314","publishedAt":"2026-03-14","title":"ホワイトデー"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-10","slug":"20260310","summary":"Googleレコメンドで、以下のCSSに関する書籍が流れてきました。 CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック｜株式会社エムディエヌコーポレーション - books.mdn.co.jp なんとなくレコメンド","tags":["書籍レビュー"],"title":"『CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック』を買いました。"},{"publishedAt":"2026-03-07","slug":"20260307","summary":"以下の書籍を読みました。 書籍の感想を書こうと思います。 https://note.com/ingectared/n/n7883798f12ce トンマナ TONEは雰囲気や印象の調子。 MANNERはそれを形づくり形式やルール。 この2つ","tags":["書籍レビュー"],"title":"『トンマナ の基本 一貫性と時短のデザインルール』を読みました。"},{"publishedAt":"2026-03-02","slug":"20260302","summary":"『トンマナ の基本 一貫性と時短のデザインルール』という書籍を買いました。 まだ読めていません。 https://note.com/ingectared/n/n7883798f12ce きっかけ coliss さんで紹介されていて認識してい","tags":["書籍レビュー"],"title":"『トンマナ の基本 一貫性と時短のデザインルール』を買いました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260315/","slug":"20260315"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

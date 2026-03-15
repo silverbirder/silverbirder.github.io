@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+4:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:T563,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["これまで、ブログへのコメントサービスに", _jsx(_components.a, {
+        href: "https://giscus.app/ja",
+        children: "Giscus"
+      }), "をブログサイトに設置していました。\n本日、同コメントサービスの", _jsx(_components.a, {
+        href: "https://disqus.com/",
+        children: "Disqus"
+      }), "に切り替えました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Giscusの場合、GitHubアカウントが必須だったのですが、DisqusならGoogleやXなどのアカウントでも可能となるからです。\nこれで、非エンジニアでもコメントできるようになります！はろー！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":114,"publishedAt":"2024-03-13","tags":["趣味"],"title":"Disqusを設置したよ!"},"navigation":{"next":{"href":"/blog/contents/try-document-testing","publishedAt":"2024-03-14","title":"Typescript で Document Testing したい"},"prev":{"href":"/blog/contents/mindfulness-meditation-beginner","publishedAt":"2024-03-12","title":"毎朝のマインドフルネス瞑想を1ヶ月間やってみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-09","slug":"20260309","summary":"ドラゴンクエストVII Reimagined（以下、ドラクエ7）をプレイ中です。 メルビンが仲間になるところまで辿り着きました。 ドラクエ7では、様々な島の過去に遡って事件を解決して現代に島を蘇られせるストーリーがあります。 1つ1つの島に","tags":["趣味"],"title":"ドラクエ7 グリーンフレークのシナリオが昼ドラしていて、よい"},{"publishedAt":"2026-03-03","slug":"20260303","summary":"毎日記事を書いていくと、効率よく書く自分なりのコツが見つかりました。 私の思う、記事を書くコツを3つ紹介します。 書く時間に制限をかける 書く時間帯を風呂上がりの30分と決めています。 時間を短く制限をかけておくと、書ける量が物理的に減りま","tags":["趣味"],"title":"毎日記事を書くコツ"},{"publishedAt":"2026-02-22","slug":"20260222","summary":"ドラゴンクエストVII Reimagined の体験版を遊んでみました。 https://www.dragonquest.jp/dq7r/ テレビゲームをやるのはかなり久々です。 これまでのドラクエ履歴は、以下のとおりで最近のものを全然して","tags":["趣味"],"title":"ドラゴンクエストVII Reimagined 体験版をやってみたら、夢中になった"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/install-disqus-on-my-site/","slug":"install-disqus-on-my-site"}],[["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

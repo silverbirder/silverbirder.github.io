@@ -1,0 +1,160 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1b3c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "はじめに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#はじめに",
+        children: "はじめに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["久しぶりにWebアプリを開発します。", _jsx(_components.br, {}), "\nこれまでの成果物は、以下にまとめています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://sites.google.com/view/silverbirders-services",
+          children: "silverbirder's services"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "今回のテーマは、「機能リクエストを投稿・閲覧できるWebアプリ」です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ作るのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ作るのか",
+        children: "なぜ作るのか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人開発では、MVPとして小さく作り、少しずつ機能を追加していくことが多いです。", _jsx(_components.br, {}), "\nしかし、開発後に「やり残した機能」がそのまま放置されることもあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ユーザーからすると、「この機能は今後追加されるのか？」「それとも実装予定がないのか？」がわかりません。", _jsx(_components.br, {}), "\nそこで、ユーザーが直接リクエストを投稿でき、開発者やユーザーが一覧で確認できる仕組みを作ろうと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術構成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術構成",
+        children: "技術構成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回は、 ", _jsx(_components.strong, {
+        children: "管理画面とユーザー画面の2面構成"
+      }), " に挑戦します。", _jsx(_components.br, {}), "\n仕事ではよく使う構成ですが、個人開発ではまだ試したことがなかったので挑戦してみます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "技術スタックは、使ってみたいものを優先して選びました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.strong, {
+          children: "Next.js 16"
+        })
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Turborepo"
+        }), " によるモノレポ構成"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Vitest Browser Mode"
+        }), " のテスト構成"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Testcontainers"
+        }), " と ", _jsx(_components.strong, {
+          children: "Cucumber"
+        }), " によるE2Eテスト"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "tRPC"
+        }), " と ", _jsx(_components.strong, {
+          children: "Drizzle ORM"
+        }), " のAPI通信\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "いつも使っているお気に入り"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["新しい環境でセットアップしていくと、「知らなかった機能や設定」に出会えるのが楽しいですね。", _jsx(_components.br, {}), "\nこのプロセス自体が勉強になります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "プロジェクト概要",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#プロジェクト概要",
+        children: "プロジェクト概要"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "リポジトリは以下に公開しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/silverbirder/fequest",
+          children: "https://github.com/silverbirder/fequest"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["サービス名は ", _jsx(_components.strong, {
+        children: "Fequest（フィークエスト）"
+      }), " 。", _jsx(_components.br, {}), "\nこれは「Feature Request」をもとにした造語です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "個人開発への思い",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#個人開発への思い",
+        children: "個人開発への思い"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["最近はSNSなどで「個人開発×マネタイズ」や「どう広めるか」が注目されがちです。", _jsx(_components.br, {}), "\nでも、私の場合は少し違います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の個人開発は、 ", _jsx(_components.strong, {
+        children: "「作りたいから作る」"
+      }), " が100%。", _jsx(_components.br, {}), "\n「新しい技術に挑戦したい」「不便を解決したい」、それが動機です。", _jsx(_components.br, {}), "\n利益よりも、作ること自体が目的であり楽しみです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "おわりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おわりに",
+        children: "おわりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["もしこのプロジェクトに興味を持ってくださった方は、", _jsx(_components.br, {}), "\nGitHubリポジトリを ", _jsx(_components.strong, {
+        children: "Watch"
+      }), " してもらえると嬉しいです。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":153,"publishedAt":"2025-11-01","tags":["成果物"],"title":"Fequestを作る — 機能リクエストを見える化するサービス"},"navigation":{"next":{"href":"/blog/contents/20251102","publishedAt":"2025-11-02","title":"毎日ブログを投稿する"},"prev":{"href":"/blog/contents/20251031","publishedAt":"2025-10-31","title":"能動的に健康診断に行こう"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251101/","slug":"20251101"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,214 @@
+1:"$Sreact.fragment"
+2:I[31678,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/0bcb91594a8e42e2.js"],"Top"]
+a:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+3:T6b7,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Webページのアーカイブ新手法 Gwtar がすごいらしい。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://gwern.net/gwtar",
+      title: "Gwtar: a static efficient single-file HTML format · Gwern.net",
+      description: "Gwtar is a new polyglot HTML archival format which provides a single, self-contained, HTML file which still can be efficiently lazy-loaded by a web browser. This is done by a header’s JavaScript making HTTP range requests. It is used on Gwern.net to serve large HTML archives.",
+      siteName: "gwern.net",
+      faviconSrc: "/link-card/5b7fb07f79645300c65d8441480820f627fb70a4f888f32c0c6cdca71531b4e6.png",
+      thumbnailSrc: "/link-card/c27f369de0f4760b0c10f410b3bb7a6a9d645b4f074017e853a441927120202d.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+4:T688,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Liquid Glass を CSSとSVGで実現するらしい。", _jsx(_components.br, {}), "\n読んだけど、全然分からなった...。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kube.io/blog/liquid-glass-css-svg/",
+      title: "Liquid Glass in the Browser: Refraction with CSS and SVG — kube.io",
+      description: "Explore how to recreate Apple&#x27;s stunning Liquid Glass effect using CSS, SVG Displacement Maps, and refraction calculations.",
+      siteName: "kube.io",
+      faviconSrc: "/link-card/8481c3de2bb77abb507542b8ed821bfe82e2282fa93db15cca35573e31df0f79.png",
+      thumbnailSrc: "/link-card/1d69f0a8cd54314a90bc1838bb7bd9c7e88609551531c3d586e1d58c1ecdf197.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+5:T74c,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "GitHub Actionsでzip以外のアーティファクトもアップロードできるようになった！"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.blog/changelog/2026-02-26-github-actions-now-supports-uploading-and-downloading-non-zipped-artifacts/",
+      title: "GitHub Actions now supports uploading and downloading non-zipped artifacts - GitHub Changelog",
+      description: "GitHub Actions now supports uploading and downloading non-zipped artifacts within workflows. Previously, when you uploaded an artifact using the actions/upload-artifact action it was automatically zipped. Downloading it using the actions/download-artifact&hellip;",
+      siteName: "The GitHub Blog",
+      faviconSrc: "/link-card/fffee2e93040666657098a504d4b8e5d7a553606d9e2f865979052488156cf4a.png",
+      thumbnailSrc: "/link-card/3018ed6d922ae46439a01b76664b6d2a3c4fb22e6f31c9a1e3e5e4bd3a534b89.jpg"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+6:T9a9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "3月17日発売予定の本。読みたい...！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+7:T5e5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "State of JavaScript 2025 が公開されたので、後で読む。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://2025.stateofjs.com/en-US/",
+      title: "State of JavaScript 2025",
+      description: "The 2025 edition of the annual survey about the latest trends in the JavaScript ecosystem.",
+      siteName: "2025.stateofjs.com",
+      faviconSrc: "/link-card/aaf0cace6f07d43f242593bec9ecc2d45e03e5b47945f7e0e3cd069ddd0754c5.png",
+      thumbnailSrc: "/link-card/600ac77f227b85903892ae324dd1c18af1aa4728bcc7b8e22d86b1cb29bb14be.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"blogSummary":{"latestPublishedAt":"2026年03月15日","streakDays":140,"totalCount":287},"timelineItems":[{"compiledSource":"$3","date":"2026年02月28日","key":"timeline-20260228-2","type":"bookmark"},{"compiledSource":"$4","date":"2026年02月28日","key":"timeline-20260228-3","type":"bookmark"},{"compiledSource":"$5","date":"2026年02月28日","key":"timeline-20260228","type":"bookmark"},{"compiledSource":"$6","date":"2026年02月22日","key":"timeline-20260222","type":"bookmark"},{"compiledSource":"$7","date":"2026年02月05日","key":"timeline-20260205","type":"bookmark"}]}],["$L8"],"$L9"]}],"loading":null,"isPartial":false}
+8:["$","script","script-0",{"src":"/_next/static/chunks/0bcb91594a8e42e2.js","async":true}]
+9:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

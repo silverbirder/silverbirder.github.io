@@ -1,0 +1,102 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1087,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "次の 2 つの Web Components を作成しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.webcomponents.org/element/Silver-birder/o-embed",
+          children: "https://www.webcomponents.org/element/Silver-birder/o-embed"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.webcomponents.org/element/Silver-birder/ogp-me",
+          children: "https://www.webcomponents.org/element/Silver-birder/ogp-me"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "背景",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#背景",
+        children: "背景"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "自分のブログで、埋め込みコンテンツを表示したいな〜って思ってました。\niframely というサービスを使っていましたが、自前で作りたいなというモチベーションが生まれました。\nそこで、OEmbed と OGP の表示ができるように、Web Components を独自に作成しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "o-embed",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#o-embed",
+        children: "o-embed"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1475262255818473473",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "ogp-me",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ogp-me",
+        children: "ogp-me"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/intro_rocket/",
+      title: "Markdownで執筆するなら、WebComponentsが使えるSSG、Rocketがオススメ！",
+      description: "Markdownでブログやドキュメントを書いていますか？執筆活動に集中したいのに、Markdownだけだとかゆいところに手が届かないもどかしさ、感じたことありませんか？そんな方に、MarkdownとWebComponentsがシームレスに統合できる静的サイトジェネレータ(以降、SSGと呼ぶ)、Rocketをおすすめします。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/8ebe47b908be754fe9a590cb4c39fe75dd702d65f5dbe7342c9ed769a3f57531.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "自分のブログは、Rocket という Markdown と Web Components をシームレスに使える SSG を使っています。\nそのため、めっちゃ楽に、自分で公開した Web Components を組み込むことができました。\nいや〜、満足です。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":77,"publishedAt":"2022-04-11","tags":["フロントエンド","ブラウザ","成果物"],"title":"OEmbedとOGPのWebComponentsを作ったので、自分のブログサイトに使う"},"navigation":{"next":{"href":"/blog/contents/how_to_display_embedded_twitter_content_after_rendering_on_iframe","publishedAt":"2022-05-22","title":"iframeでTwitterの埋め込みコンテンツの描画後に、画面表示する方法"},"prev":{"href":"/blog/contents/what_i_learned_from_developing_o_embed_web_components","publishedAt":"2022-03-25","title":"WebComponentsでoEmbedのコンポーネントを開発して、学んだこと"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"},{"publishedAt":"2026-02-25","slug":"20260225","summary":"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"},{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"}],"tag":"ブラウザ"},{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/publish_my_web_components/","slug":"publish_my_web_components"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

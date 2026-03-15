@@ -1,0 +1,235 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T475a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["たまたま、Googleレコメンドに \"Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ\"  の本へのリンクが流れてきました。", _jsx(_components.br, {}), "\nWebフォントの記事って、あまり見かけなかったのでAmazonでポチりました。", _jsx(_components.br, {}), "\n読んだ感想について簡単にまとめたいと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "リンク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#リンク",
+        children: "リンク"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "出版社である技術評論社のリンクを以下に載せておきます。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://gihyo.jp/book/2025/978-4-297-15056-3",
+      title: "Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ | 技術評論社",
+      description: "フォントの可能性を最大限に引き出すための実践的なガイドブック。\r\n\r\n「フォント選びに自信がない」「ウェブサイトやアプリの表示が遅い」あるいは「最新のタイポグラフィ技術に追いつけていない」と感じていませんか？\r\n\r\nウェブサイトやアプリにおいてフォントの選択と最適化は、ユーザー体験の向上や表示速度の改善に直結するため、ウェブデザイナー、フロントエンドエンジニア、ビジュアルデザイナー、マーケター、アプリ制作者など、デジタルコンテンツ制作に携わるすべての人にとって避けて通れない重要な課題です。\r\n\r\n本書は文字とフォントの基礎から、書体選び、そして美しく読みやすい文字組みとテキストレイアウトの具体的な手法までを解説します。さらに、Google Fontsを例に最先端のフォントテクノロジー、そしてコミュニケーションを深める絵文字の奥深い世界と、その最適化に至るまで、単なる知識に留まらず、現場で即座に活かせる実践的なノウハウと、一歩先を行く応用テクニックを網羅しています。\r\n\r\n日本語のタイポグラフィとウェブフォントの知識を体系的に整理し、プロジェクトで正しく、そして最大限に効果を発揮できるようになることを目指します。\r\n\r\n「文字の深い知識を習得したい」「クリエイティブに対し論理的な根拠に基づいた的確なフィードバックをしたい」「最新のウェブタイポグラフィ技術を効率的に学びたい」といった方に最適！",
+      siteName: "技術評論社",
+      faviconSrc: "/link-card/e09d208c5d3696da32dc163403f85ae5aa888a0ff33ccd12f5ce7797378d8583.png",
+      thumbnailSrc: "/link-card/c242e0f006cf4d5c5d82f6e0a7e1be836d1916cc8a5b52cea7abb203159187f0.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "セリフとサンセリフ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#セリフとサンセリフ",
+        children: "セリフとサンセリフ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["セリフは、文字の線にあるひげっぽい装飾のことです。", _jsx(_components.br, {}), "\nサンセリフのサンは、フランス語で「〜のない」のという意味なので、サンセリフはセリフのない文字となります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["よく CSSのfont-familyで ", _jsx(_components.code, {
+        children: "serif"
+      }), " や ", _jsx(_components.code, {
+        children: "sans-serif"
+      }), " と書いていたのですが、これはセリフ体のフォントやサンセリフ体のフォントを指していたのですね。", _jsx(_components.br, {}), "\nブラウザに内蔵されているセリフ体やサンセリフ体を出すという指示だと理解しました。", _jsx(_components.br, {}), "\n以下の記事によれば、"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://ics.media/entry/200317",
+      title: "2026年に最適なfont-familyの書き方 - ICS MEDIA",
+      description: "ウェブサイトのフォントは何を指定すればよいのでしょうか。CSSのfont-familyプロパティーに指定可能なフォントは選択肢が多く、HTMLコーダーなら誰もが一度は迷ったことがあるはずです。font-familyの組み合わせを紹介している記事は多々あります。",
+      siteName: "ICS MEDIA",
+      faviconSrc: "/link-card/4afa56e09aad1ba50a0a9c1d83d37ade9bc086dbb025c7946ae6354ae8689aec.png",
+      thumbnailSrc: "/link-card/507292561e4bfc9e19aca433eea35f7d2da9bcfbc5b0fda87cc333e5284277da.jpg"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "2025年4月、Windows Updateにより「Noto Sans JP」がWindows 11に標準搭載されました。いまではChrome・Edgeのsans-serifには「Noto Sans JP」が割り当てられています。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Windows 11 の ", _jsx(_components.code, {
+        children: "sans-serif"
+      }), " に Noto Sans JP が割り当てられたようです。", _jsx(_components.br, {}), "\nどこかで話題になっていたのは知っていたのですが、よくわかっていませんでした...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "font-family"
+      }), " で関連すると ", _jsx(_components.code, {
+        children: "system-ui"
+      }), " というOSのUIフォントを使うとのことです。", _jsx(_components.br, {}), "\nMac だと San Francisco というそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developer.apple.com/fonts/",
+        children: "Fonts - Apple Developer - developer.apple.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "フォントの字体や字間",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フォントの字体や字間",
+        children: "フォントの字体や字間"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下のレタースペーシングの本でも似た話が多かったです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/letter-spacing-the-concept-of-letter-spacing-in-typography/",
+      title: "『レタースペーシング タイポグラフィにおける文字間調整の考え方』を読みました。",
+      description: "書店の本棚を眺めていると、「レタースペーシング タイポグラフィにおける文字間調整の考え方」というタイトルが目に留まりました。興味を引かれ、手に取って購入しました。読み終えたので、その感想をまとめます。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/0567a1afc2d3d007b070bc6b4c341543c446d3e198b5d21fae44bbc29f5ef409.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["フォントの文字の形を表す絵のことを字体（グリフ）と呼ぶそうです。", _jsx(_components.br, {}), "\nフォントの種類によって字体は違っていて、それぞれコンセプトに沿ったデザインがされています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["欧文の場合、ベースラインと呼ばれる小文字のxの下線を基準として文字が並べられます。", _jsx(_components.br, {}), "\n和文の場合、四角形の仮想的な領域を確保して、文字が並べられます。", _jsx(_components.br, {}), "\nそのため、欧文と和文を混ぜた文章を表示すると、上下がガタガタしてしまったり、左右のスペース差が揃わなかったりします。", _jsx(_components.br, {}), "\n和文フォントに欧文フォントが入っている（従属欧文）であれば、その辺りの最適化はなされています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["よく、ブログ記事を書いていると英語の単語を書くときは、間に半角スペースを入れるような校正を受けたことがあるのですが、", _jsx(_components.br, {}), "\nこれは ", _jsx(_components.strong, {
+        children: "英語の日本語の字間のスペースを調整していた意図"
+      }), " があったようです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、日本語には 「ふところ」と呼ばれる正方形の内側の空間を指す言葉あり、これが狭いと引き締まった印象、逆に広いと おおらかな印象になります。", _jsx(_components.br, {}), "\nほかに、「重心」と呼ばれる文字のバランスの中心線があり、それが高いと品格を生み、低いと安定感があるそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "no-tofu",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#no-tofu",
+        children: "No Tofu"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["文字を表示する際に、その文字に対応するフォントがない場合、四角形の豆腐が表示されます。", _jsx(_components.br, {}), "\nこの豆腐をなくす（No Tofu）、全ての言語で文字化けを防ぐために、Googleが開発したオープンソースのフォントファミリーのプロジェクトを Noto と呼ぶそうです。", _jsx(_components.br, {}), "\nそのうち、中国語（Chinese）、日本語（Japanese）、韓国語（Korean）を集めた、Noto Sans CJK が Adobe と共同開発して生まれたようです。", _jsx(_components.br, {}), "\nNoto Sans Japanese なのか Noto Sans JP なのか経緯は知りませんが、 Notoプロジェクトの日本語フォントファミリーの Noto Sans JP と理解しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["CJKってどこかで見た覚えがあるなと思ったら、CSSの ", _jsx(_components.code, {
+        children: "word-break"
+      }), " プロパティでした。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.ul, {
+        children: ["\n", _jsxs(_components.li, {
+          children: ["normal\n", _jsxs(_components.ul, {
+            children: ["\n", _jsx(_components.li, {
+              children: "既定の改行規則を使用します。"
+            }), "\n"]
+          }), "\n"]
+        }), "\n", _jsxs(_components.li, {
+          children: ["break-all\n", _jsxs(_components.ul, {
+            children: ["\n", _jsx(_components.li, {
+              children: "CJK (中国語、台湾語、日本語、韓国語) 以外のテキストにおいて、単語中などでの文字の改行に関する禁則処理を解除し、どの文字の間でも改行するようにします。"
+            }), "\n"]
+          }), "\n"]
+        }), "\n", _jsxs(_components.li, {
+          children: ["keep-all\n", _jsxs(_components.ul, {
+            children: ["\n", _jsx(_components.li, {
+              children: "CJK テキストの改行を許可しません。 CJK 以外のテキストについては normal と同じ挙動となります。"
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/word-break",
+        children: "word-break - CSS | MDN - developer.mozilla.org"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "禁則処理について、Wikiによると"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://ja.wikipedia.org/wiki/%E7%A6%81%E5%89%87%E5%87%A6%E7%90%86",
+      title: "禁則処理 - Wikipedia",
+      siteName: "ja.wikipedia.org",
+      faviconSrc: "/link-card/0197d6d60e75a82f3f60bcd28852f3a9783b11cafc39479551544cf791ea925b.png"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "禁則処理（きんそくしょり）とは、漢字文化圏の文書作成・組版における禁止事項、または、それらを回避するために字詰めや文の長さを調整したりすること。\n例えば、句読点（。、）や閉じ括弧（」』)】など）と言った約物は、当該文章の行頭に位置させてはならない。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["小学校の国語の授業で学んだような？気がします。（多分）", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "break-all"
+      }), " はCJK以外の単語中の禁則処理がなくなる、ということだったのですね。", _jsx(_components.br, {}), "\n日本語のWebサイトで、指定箇所へ改行したいという小技で、", _jsx(_components.code, {
+        children: "<wbr>"
+      }), "と", _jsx(_components.code, {
+        children: "word-break: keep-all;"
+      }), " を使っていましたが、日本語テキストの改行を許可しないという意味だったのですね。そこで、wbrで改行位置を示すという感じなのですね。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "異体字",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#異体字",
+        children: "異体字"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["異体字 とは、文字の意味や読みは同じだけど字体が違う字のことを言います。\nよく、斎藤さんの\"斎\"という字がそれです。", _jsx(_components.br, {}), "\nフォントの仕組みの観点から言うと、異体字といってもパターンがいくつかあるようです。", _jsx(_components.br, {}), "\nもう一度、本を読まないと説明できないぐらいです...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これ、多言語対応をする際のフォントというのがなんだか大変そうな印象です。", _jsx(_components.br, {}), "\n表示したい字体を表示するための創意工夫というのが、まだハッキリよくわかりません。", _jsx(_components.br, {}), "\nちなみに、PCの言語設定が英語でHTMLの言語未指定の場合、日本語は中国語のフォントがフォールバックされるようです。（？）", _jsx(_components.br, {}), "\nHTMLの言語設定は大事ですね...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "バーティカルリズム",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#バーティカルリズム",
+        children: "バーティカルリズム"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["この単語は、以前より知っていました。", _jsx(_components.br, {}), "\nテキストの行や、行間の高さなど 高さの大きさを一定の倍数で整えることで、", _jsx(_components.br, {}), "\n縦のリズムが生まれて、視覚的に統一感がとれよみやすくなる、というデザインです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私のブログページ ", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/blog/",
+        children: "https://silverbirder.github.io/blog/"
+      }), " の罫線付きノートデザインは まさにこれです。", _jsx(_components.br, {}), "\n1行の高さを罫線として表現し、この罫線の上に文字が乗るように調整しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web フォントについて体系的にまとまっているので、知らないことや知っていることが整理されました。", _jsx(_components.br, {}), "\n凸凹とした山が綺麗に整った感じです。", _jsx(_components.br, {}), "\n良い本でした！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ps",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ps",
+        children: "P.S."
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["付録に budoux の紹介がありました。", _jsx(_components.br, {}), "\nOG画像のタイトルに、budouxを使わせてもらっています。", _jsx(_components.br, {}), "\nそのbudouxを作った人が、この本の著者の方だったんですね、すごい...!"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":256,"publishedAt":"2026-02-12","tags":["書籍レビュー"],"title":"『Webフォント実践ガイド Google Fontsではじめる 美しく機能的なタイポグラフィ』を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260213","publishedAt":"2026-02-13","title":"2月14日は、私の誕生日"},"prev":{"href":"/blog/contents/20260211","publishedAt":"2026-02-11","title":"久々に本を読んでよかったこと"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-15","slug":"20260315","summary":"以下の書籍を読みました。 感想について書こうと思います。 https://books.mdn.co.jp/books/3225303033/ 概要 本書では、数年以内に流行った比較的新しいCSSテクニックについて紹介されていました。 例えば","tags":["書籍レビュー"],"title":"『CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック』を読みました。"},{"publishedAt":"2026-03-10","slug":"20260310","summary":"Googleレコメンドで、以下のCSSに関する書籍が流れてきました。 CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック｜株式会社エムディエヌコーポレーション - books.mdn.co.jp なんとなくレコメンド","tags":["書籍レビュー"],"title":"『CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック』を買いました。"},{"publishedAt":"2026-03-07","slug":"20260307","summary":"以下の書籍を読みました。 書籍の感想を書こうと思います。 https://note.com/ingectared/n/n7883798f12ce トンマナ TONEは雰囲気や印象の調子。 MANNERはそれを形づくり形式やルール。 この2つ","tags":["書籍レビュー"],"title":"『トンマナ の基本 一貫性と時短のデザインルール』を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260212/","slug":"20260212"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tc13,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人開発アプリのWebデザインを考える際に、Figma Makeを使って壁打ちしてみました。", _jsx(_components.br, {}), "\nこれまではVercelのv0を利用していましたが、無料プランの利用制限に引っかかってしまったため、代わりとなるAIデザインツールを探していました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["最初に思い出したのはGoogle LabsのStitchでしたが、レスポンス速度やデザイン精度、調整の自由度が今ひとつだったため見送りました。", _jsx(_components.br, {}), "\nそこで、以前少し触ったことのあるFigma Makeを再び試してみることにしました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Figma Makeは、Figmaプラットフォーム上のツールだけあって、Figmaとの相性がとても良いです。", _jsx(_components.br, {}), "\nテキスト指示によるデザイン生成に加え、shadcnベースのコード生成や、Figmaデータのエクスポートにも対応しています。", _jsx(_components.br, {}), "\nさらに、既存のFigmaデータをインポートして活用できる点も魅力的です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["特に良かったのは、Figma Makeで生成したデザインをFigmaにエクスポートし、気になる箇所だけをコピーして再度Figma Makeに貼り付けることで、部分的な改善提案を得られることです。", _jsx(_components.br, {}), "\nデザイン全体を作り直すことなく、ピンポイントで修正できるのは便利でした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["v0とFigma Makeはいずれも、デザイン修正依頼やコンテキストの注入といった点で似ていますが、 ", _jsx(_components.strong, {
+        children: "「Figmaとの連携」という明確な差別化ポイント"
+      }), " がFigma Makeの魅力だと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただし注意点として、FigmaのStarterプランでは利用できる機能がかなり限られます。", _jsx(_components.br, {}), "\n途中で行き詰まることもあるため、継続的に使う場合はProfessionalプランなどの課金を検討したほうが良いでしょう。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":161,"publishedAt":"2025-11-09","tags":["フロントエンド"],"title":"Figma Make を使ってみた"},"navigation":{"next":{"href":"/blog/contents/20251110","publishedAt":"2025-11-10","title":"モダンな(?)フロントエンド技術セット"},"prev":{"href":"/blog/contents/20251108","publishedAt":"2025-11-08","title":"Technology Radar Vol. 33 所感"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"},{"publishedAt":"2026-02-25","slug":"20260225","summary":"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"},{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251109/","slug":"20251109"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

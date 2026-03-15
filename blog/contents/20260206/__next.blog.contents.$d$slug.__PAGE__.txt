@@ -1,0 +1,106 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1215,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ブログ記事のページ下部に、Disqusを設置しています。", _jsx(_components.br, {}), "\n急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "disqusのメール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#disqusのメール",
+        children: "Disqusのメール"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "メールボックスを漁ってみると、以下のメールがありました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1770378661/silver-birder.github.io/blog/vaqffcebgj7gf0mk9fio.png?ar=1006%3A1208",
+        alt: "Disqusからのメール"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "Ads will begin appearing on your comment section shortly."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "え！ 広告が表示されるようになるの！？ なんで！？"
+    }), "\n", _jsx(_components.h2, {
+      id: "snsを見てみると",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#snsを見てみると",
+        children: "SNSを見てみると"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アクセス数が増えると、広告が発生するようになる説みたい？", _jsx(_components.br, {}), "\n以前は、そんな広告なかったのに。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そういえば、つい最近 Disqus APIを1時間に1回、100回ぐらいAPIコールするようにしました。", _jsx(_components.br, {}), "\nそれも原因なのでしょうか？"]
+    }), "\n", _jsx(_components.p, {
+      children: "原因はなんにせよ、広告が酷いので削除しちゃいたいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "代わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#代わりに",
+        children: "代わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Disqusのいいねボタンだけ欲しいのです。", _jsx(_components.br, {}), "\nCounterAPI で良いねボタンだけ作ろうかしら？"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://counterapi.dev/",
+      title: "CounterAPI - Simple REST API for Tracking Metrics",
+      description: "Free unlimited counter API for tracking website traffic and user engagement. Multiple language support with JavaScript and Go libraries.",
+      siteName: "CounterAPI",
+      faviconSrc: "/link-card/8450269981cd5d3fe1bbfd26dac3f6c2f8bc70d91ff4b69e69028e51e75c34d0.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["これぐらいだったら、自作でも良さそう。", _jsx(_components.br, {}), "\nというわけで、即席でいいねボタンを作成しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "忘れずに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#忘れずに",
+        children: "忘れずに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["消しちゃうと、いいねのデータが全部消えてしまうのはもったいないです。", _jsx(_components.br, {}), "\nAPI等で、いいねのデータを集めておこうかなと思います。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":250,"publishedAt":"2026-02-06","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},"navigation":{"next":{"href":"/blog/contents/20260207","publishedAt":"2026-02-07","title":"チュッパチャプス自販機"},"prev":{"href":"/blog/contents/20260205","publishedAt":"2026-02-05","title":"世の食べ放題の種類"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-28","slug":"20260228","summary":"以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。 https://silverbirder.github.io/blog/contents/20251123/ こういう経験をすると、データを所有したい","tags":["開発ツール"],"title":"Google Map タイムラインデータをなんとかしたい"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2024-03-21","slug":"try-million-lint","summary":"Million.devを知り、少し試してみました。Million.jsについて このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。 パフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。","tags":["テスト","開発ツール"],"title":"Million Lintを試してみた"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260206/","slug":"20260206"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

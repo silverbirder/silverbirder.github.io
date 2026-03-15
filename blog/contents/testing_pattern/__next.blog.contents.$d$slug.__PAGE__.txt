@@ -1,0 +1,581 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T8245,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "最近、Property Based Test という言葉を知りました。\n他にどういうテストの種類があるのか気になったので、調べてみました。\n本記事は、テストの種類を列挙します。\n※ 使用する技術は、私の都合上、node.js で選んでいます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト観点一覧",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト観点一覧",
+        children: "テスト観点一覧"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "cache-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cache-test",
+        children: "Cache Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリでは、様々な Cache が使われます。\n例えば、ブラウザ Cache、CDN Cache、プロキシ Cache、バックエンド Cache などなどです。\nCache は、便利な反面、使いすぎると、どこがどう Cache しているのか迷子になってしまいます。\nWeb アプリでも、Cache をテストする必要がありそうです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/http-tests/cache-tests",
+      title: "GitHub - http-tests/cache-tests: Tests for HTTP Caches",
+      description: "Tests for HTTP Caches. Contribute to http-tests/cache-tests development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/c27fb4bf295cc977786863cb400ebace7ebc00dd35c7cc6c6dae98b5cc8aa373.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "code-size-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#code-size-test",
+        children: "Code Size Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "大きなサイズの JS ライブラリを読み込むと、レスポンスタイムが悪化してしまいます。そこで、常にコードサイズを計測する必要があります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/ai/size-limit",
+      title: "GitHub - ai/size-limit: Calculate the real cost to run your JS app or lib to keep good performance. Show error in pull request if the cost exceeds the limit.",
+      description: "Calculate the real cost to run your JS app or lib to keep good performance. Show error in pull request if the cost exceeds the limit. - ai/size-limit",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/8e20dd269f3a4173743f0b81d31cdc318d0a26aef83bebf3dae00110b1fb6363.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/ai/size-limit",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429908/silver-birder.github.io/blog/size-limit.png?ar=1200%3A506",
+          alt: "https://github.com/ai/size-limit"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "complexity-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#complexity-test",
+        children: "Complexity Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "循環的複雑度(Cyclomatic complexity)は、制御文(if や for)の複雑さを計測します。\n複雑なコードは、バグの温床になりがちなので、極力シンプルなコードを心がけたいところです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://eslint.org/docs/rules/complexity",
+      title: "complexity - ESLint - Pluggable JavaScript Linter",
+      description: "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.",
+      siteName: "eslint.org",
+      faviconSrc: "/link-card/d32daacdc3b292749cbc870a3840d9d938acebfe8d9b026bb13e9e63e1f0136b.png",
+      thumbnailSrc: "/link-card/baa2f18cbd1f8ea5cdf46d943e7444b08606b7a5f2b7c446ad8a425c0d62f3c0.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "copypaste-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#copypaste-test",
+        children: "Copy&Paste Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Copy&Paste は、DRY の原則に反するため、特別な理由がない限りは、してはいけません。Copy&Paste を検出するツールがあるみたいです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/kucherenko/jscpd",
+      title: "GitHub - kucherenko/jscpd: Copy/paste detector for programming source code.",
+      description: "Copy/paste detector for programming source code. Contribute to kucherenko/jscpd development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/97dec3bbf31f2474e532ac30f7e02a41f6dea24f0019543b0c00de89e1991d3a.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/kucherenko/jscpd",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429933/silver-birder.github.io/blog/jscpd.png?ar=1200%3A794",
+          alt: "jscpd"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "cross-browserplatform-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cross-browserplatform-test",
+        children: "Cross Browser/Platform Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サポートするブラウザや、プラットフォーム(iOS,Android,Desktop など)の動作検証が必要です。\nそのため、サポートするブラウザやプラットフォームの環境を準備しなければなりません。\nそういう環境を手軽に使えるサービスがあったりします。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/browserstack",
+      title: "BrowserStack",
+      description: "BrowserStack has 239 repositories available. Follow their code on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/bc1ed40fc7801356fe5a9297b6c3b14ba7292d486a13b2880fa6cb230f22eb0c.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "e2e-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#e2e-test",
+        children: "E2E Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリを、端から端まで (End To End: E2E)を検証します。\n例えば、ユーザーが Web アプリを訪れて、クリックや入力するなど、使ってみることです。\nこのテストは、不安定なテスト(よく失敗する)になりがちなので、安定稼働できるような取り組みが必要です。\n例えば、操作する処理の抽象化や、データ固定などです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/cypress-io/cypress",
+      title: "GitHub - cypress-io/cypress: Fast, easy and reliable testing for anything that runs in a browser.",
+      description: "Fast, easy and reliable testing for anything that runs in a browser. - cypress-io/cypress",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/26b0df7e3813cb8822adb7b03a6ba9870a8dae62a6aeda3a61c1e7912a247add.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "exception-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#exception-test",
+        children: "Exception Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "正常系、準正常系、異常系などのテストが必要です。\n準正常系は、システムが意図的にエラーとしているものです。例えば、フォーム入力値エラーとかです。\n異常系は、システムが意図せずエラーとなるものです。例えば、Timeout エラーとかです。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、Java が得意な人なら知っているであろう、検査例外や非検査例外という例外の扱い方があります。\n基本的には検査例外はエラーハンドリングし、非検査例外はエラーハンドリングしない方針が良いです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "flaky-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#flaky-test",
+        children: "Flaky Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "不安定なテストのことを指します。これに対するアプローチ方法の１つに、Google 社の資料があります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf",
+        children: "https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45880.pdf"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["日本人がまとめて頂いたものが、次の資料です。\n", _jsx(_components.a, {
+        href: "https://speakerdeck.com/nihonbuson/flakytests",
+        children: "speakerdeck.com"
+      })]
+    }), "\n", _jsx(_components.h2, {
+      id: "integration-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#integration-test",
+        children: "Integration Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Integration Test は、Unit Test のような単一機能を統合した検証になります。\n定義によりますが、私は『Unit Test では発見できないようなもの』かなと思います。\nUnit Test でカバーできていなくても、他のテストで検証できていれば、Integration Test は不要になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "logging-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#logging-test",
+        children: "Logging Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ログ出力が適切なレベルで出力されているか検証する必要があります。\nINFO, WARN, ERROR などがルールに基づいて使い分けされているか気になります。\nログを出すことができるかどうかは、ログライブラリの検証になりますので、必要ないかもしれませんが、\n意図したタイミングで、意図したログレベルで、意図したメッセージが出力されるかは、テストしても良いと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "monkey-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#monkey-test",
+        children: "Monkey Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "お猿さんがランダムにテストするような、モンキーテストです。\nテストのパターン網羅が難しい場合や、パターン網羅できているけどダメ押しで、このテストをします。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/marmelab/gremlins.js/",
+      title: "GitHub - marmelab/gremlins.js: Monkey testing library for web apps and Node.js",
+      description: "Monkey testing library for web apps and Node.js. Contribute to marmelab/gremlins.js development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/3bb67af6e3abc03e0f4b71f2e54b297749deb9922d06ac0949cdbd98db6b9be8.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/marmelab/gremlins.js",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429752/silver-birder.github.io/blog/gremlins.gif?ar=689%3A626",
+          alt: "gremlins.js"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "multi-tenanct-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#multi-tenanct-test",
+        children: "Multi Tenanct Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "マルチテナントは、企業者（利用者）毎に区別した、同一のシステムを提供する方式です。\nこれは、企業毎にサブドメインを分けたりするため、その環境毎のテストが必要になります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "mutation-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#mutation-test",
+        children: "Mutation Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "テストを検証するため、突然変異テストというものがあります。\nプロダクトコードを破壊することで、テストも壊れるかどうかを検証します。\nもし、プロダクトコードを壊しても、テストが成功してしまうと、それは正しくテストできていません。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/stryker-mutator/stryker",
+      title: "GitHub - stryker-mutator/stryker-js: Mutation testing for JavaScript and friends",
+      description: "Mutation testing for JavaScript and friends. Contribute to stryker-mutator/stryker-js development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/84489cc6623e33bbe9f85a69bc936fd8a762d555b88c990e24ea53d0166a5f5c.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://stryker-mutator.io/stryker/quickstart",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429792/silver-birder.github.io/blog/stryker-mutator.gif?ar=1144%3A298",
+          alt: "https://stryker-mutator.io/stryker/quickstart"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "chaos-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#chaos-test",
+        children: "Chaos Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "障害を注入した際に、どういった動きになるのかを検証するテストです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/goldbergyoni/node-chaos-monkey",
+      title: "GitHub - goldbergyoni/node-chaos-monkey: Extremly naughty chaos monkey for Node.js",
+      description: "Extremly naughty chaos monkey for Node.js. Contribute to goldbergyoni/node-chaos-monkey development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/44d27cddcec08a8fb1efb19b70dddcb40e026bb7e533213f53813b5af235fea1.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "performance-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#performance-test",
+        children: "Performance Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "パフォーマンスと言っても、\nCPU 使用率、メモリ使用率、レスポンスタイム、RPS など様々な指標があります。\nこれらを計測し、SLO などの基準値を満たせているかを検証しておく必要があります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/bestiejs/benchmark.js/",
+      title: "GitHub - bestiejs/benchmark.js: A benchmarking library. As used on jsPerf.com.",
+      description: "A benchmarking library. As used on jsPerf.com. Contribute to bestiejs/benchmark.js development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "https://opengraph.githubassets.com/3ccfae0057322b2f49618dfc38579404daff17d6d2bc0967e0fbb04a2b0b86fe/bestiejs/benchmark.js"
+    }), "\n", _jsx(_components.h2, {
+      id: "property-based-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#property-based-test",
+        children: "Property Based Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "データを半自動生成し、テストをする手法です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/dubzzz/fast-check",
+      title: "GitHub - dubzzz/fast-check: Property based testing framework for JavaScript (like QuickCheck) written in TypeScript",
+      description: "Property based testing framework for JavaScript (like QuickCheck) written in TypeScript - dubzzz/fast-check",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/15b695b60ba4eb433415690f44b07514f954f3b32fb3729b6bad09ba21f9afb5.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "regression-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#regression-test",
+        children: "Regression Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Regression Test は、修正した内容が意図せず他の箇所に影響を及ぼしていないか(デグレーション)を確認するテストです。\nこのテストは幅広い意味を持つので、ここに内容されるテスト種類は多いと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "robustness-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#robustness-test",
+        children: "Robustness Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリは、ロバストであるべきです。\n何かしら Web アプリ内で障害が発生したとしても、最低限のサービスだけでも提供するのが好まれます。\nもちろん、その際の HTTP ステータスを 200 にせず、障害にあったステータスを返しましょう。"
+    }), "\n", _jsx(_components.h2, {
+      id: "security-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#security-test",
+        children: "Security Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "セキュリティのテストは、どんな Web アプリでも必須になります。\nセキュリティの専門家ではないので、どういうテストが必要なのかは、ここでは割愛します。"
+    }), "\n", _jsx(_components.p, {
+      children: "依存するパッケージ脆弱性検査には、下記のコマンドが有効です。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "npm audit fix"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "seo-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#seo-test",
+        children: "SEO Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリへ流入数を改善するためには、SEO は不可欠です。\nlighthouse というツールで SEO スコアを見ることができるみたいです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/GoogleChrome/lighthouse-ci",
+      title: "GitHub - GoogleChrome/lighthouse-ci: Automate running Lighthouse for every commit, viewing the changes, and preventing regressions",
+      description: "Automate running Lighthouse for every commit, viewing the changes, and preventing regressions - GoogleChrome/lighthouse-ci",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/b80b5c8d1858477735163f04b89c24136b0d65e030d497025afca111947f119b.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/GoogleChrome/lighthouse-ci",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429818/silver-birder.github.io/blog/lighthouse-ci.png?ar=1200%3A863",
+          alt: "https://github.com/GoogleChrome/lighthouse-ci"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "smoke-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#smoke-test",
+        children: "Smoke Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Smoke Test は、Web アプリが最低限動作するために必要なケースを確保する検証です。\n例えば、トップページへリクエストしたら、レスポンスが HTTP 200 で返却されるとかです。"
+    }), "\n", _jsx(_components.p, {
+      children: "この最低限の動作保証がなければ、これ以上の詳細なテストができません。\n個人的には、Smoke Test → E2E Test の順で進むのかなと思っています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "snapshot-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#snapshot-test",
+        children: "Snapshot Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリへリクエストし、そのレスポンスである HTML(スナップショット)を保存します。\nこの HTML が、変更前と比較して変化がないかの検証をするのが、Snapshot test です。\nリファクタリングなど、変化がない修正に対して有効です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://jestjs.io/docs/ja/snapshot-testing",
+        children: "jestjs.io"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "static-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#static-test",
+        children: "Static Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Static Test は、Web アプリを動かさなくても検証できるテストです。\nよくあるのが、Linter です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsxs(_components.p, {
+          children: ["HTML\n", _jsx(_components.a, {
+            href: "https://github.com/htmlhint/HTMLHint",
+            children: "https://github.com/htmlhint/HTMLHint"
+          })]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "CSS"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/CSSLint/csslint",
+      title: "GitHub - CSSLint/csslint: Automated linting of Cascading Stylesheets",
+      description: "Automated linting of Cascading Stylesheets. Contribute to CSSLint/csslint development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/8f5e7ab2ed56febadd7eee46846127b48da153dce6b8c8f7144965cc7b36b8f0.png"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "JS"
+      }), "\n"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/eslint/eslint",
+      title: "GitHub - eslint/eslint: Find and fix problems in your JavaScript code.",
+      description: "Find and fix problems in your JavaScript code. Contribute to eslint/eslint development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/87a4bca7d01df3806a53161ca4dd4c6b58a3fb4a791a59702827fd0c8dd8e609.png"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "SVG"
+      }), "\n"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/birjolaxew/svglint",
+      title: "GitHub - simple-icons/svglint: Linter for SVG files",
+      description: "Linter for SVG files. Contribute to simple-icons/svglint development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/1810b599bdcc86570e0f1c3d27fe32190624f9f2ea47011ccb1bfaaadbf72cd9.png"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Commit"
+      }), "\n"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/conventional-changelog/commitlint",
+      title: "GitHub - conventional-changelog/commitlint: 📓 Lint commit messages",
+      description: "📓 Lint commit messages. Contribute to conventional-changelog/commitlint development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/d55b1d45cc53422fd83a06d87a9bd96b4a9e10afc8d890429a75f22aa0efc3b8.png"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Docker"
+      }), "\n"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/RedCoolBeans/dockerlint/",
+      title: "GitHub - RedCoolBeans/dockerlint: Linting tool for Dockerfiles",
+      description: "Linting tool for Dockerfiles. Contribute to RedCoolBeans/dockerlint development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/4fcb67ef76bb7371d4f41d8d2f57228a9c94594e82b13b9b22e8bdbd5d2b7c61.png"
+    }), "\n", _jsx(_components.p, {
+      children: "これらは、プルリクエストで機械的に指摘する Danger との相性が良いです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/danger/danger",
+      title: "GitHub - danger/danger: 🚫 Stop saying &quot;you forgot to …&quot; in code review (in Ruby)",
+      description: "🚫 Stop saying &quot;you forgot to …&quot; in code review (in Ruby) - danger/danger",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/4f022e60f74f40d7f0ba5bdf686602dc864d035c84e2b3047d525e14adef9961.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "unit-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#unit-test",
+        children: "Unit Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "単一機能をテストする Unit Test があります。この Unit Test が全て PASS したら、\n他のテストを進めるのが一般的かなと思います。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/facebook/jest",
+      title: "GitHub - jestjs/jest: Delightful JavaScript Testing.",
+      description: "Delightful JavaScript Testing. Contribute to jestjs/jest development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/b7d8bb5d669cd7f5bd317647a8000371f26cb53e65abee159e8c9b3f698efc1e.png"
+    }), "\n", _jsx(_components.h3, {
+      id: "code-coverage",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#code-coverage",
+        children: "Code Coverage"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Unit テストで、どこをテストできたかのカバレッジを見ることができます。\n感覚としては、全体の 8 割を満たしていれば良いかなと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://jestjs.io/docs/en/cli.html#--coverageboolean",
+        children: "jestjs.io"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実際に動作している JS や CSS のカバレッジを収集することもできます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/pirosikick/puppeteerdeiranaicsswoxiao-su",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://gist.github.com/silverbirder/71135913192fbca51a7e26924bd36b8b",
+      title: "puppeteer_coverage.js",
+      description: "GitHub Gist: instantly share code, notes, and snippets.",
+      siteName: "Gist",
+      faviconSrc: "/link-card/0165810e7a990c5ccf5a3193a676a73ed125e30e21613d349f62d6802cefec47.png",
+      thumbnailSrc: "/link-card/ba2db6cd116f3ee68a3618cbf4ba823cb21a53b102dd1607da65e588be7c9654.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "visual-regression-test",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#visual-regression-test",
+        children: "Visual Regression Test"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "見た目の変化を監視する必要があります。例えば、リンク切れとかがあれば、検出するべきです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/garris/BackstopJS",
+      title: "GitHub - garris/BackstopJS: Catch CSS curve balls.",
+      description: "Catch CSS curve balls. Contribute to garris/BackstopJS development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/cd4fa6670dcdf24e2c01f90c76c15b0600ea9b29b06820937e3c4a5c05d2ae54.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://github.com/garris/BackstopJS",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429842/silver-birder.github.io/blog/BackstopJS.png?ar=794%3A404",
+          alt: "https://github.com/garris/BackstopJS"
+        })
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "どういうテストの観点があるのか、調べたり、経験則よりざっと書いてみました。\n全てをテストする必要はなく、『どういう動作の品質を担保したいか』を意識して、\n取捨選択するのが良いと思います。\n最後まで読んでいただき、ありがとございます。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":48,"publishedAt":"2020-06-18","tags":["ブラウザ","テスト"],"title":"Webアプリのテスト観点を調べてまとめてみた (25選)"},"navigation":{"next":{"href":"/blog/contents/apache-beam-kotlin","publishedAt":"2020-07-10","title":"Apache Beam + Kotlin 開発 実践入門"},"prev":{"href":"/blog/contents/zoom-meeting-creator","publishedAt":"2020-06-06","title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"}],"tag":"ブラウザ"},{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-10","slug":"20260110","summary":"Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。 flex-shrink の指定を忘れて、要素が押しつぶされてしまった z-index の指定を間違えて、要素が意図せず前面（また","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},{"publishedAt":"2026-01-09","slug":"20260109","summary":"AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。 単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。 興味があれば、参考として読んでもらえると嬉しい","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/testing_pattern/","slug":"testing_pattern"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

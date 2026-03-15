@@ -1,0 +1,518 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T84ce,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "今回、東京で開催されました Cloud Native Days Tokyo 2019 に 2 日間とも参加してきましたので、報告しようと思います。\nセッション毎の報告というより、全体を通した感想を話そうかなと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://cloudnativedays.jp/cndt2019/",
+        children: "cloudnativedays.jp"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "リンクをまとめています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://qiita.com/zaki-lknr/items/1c26bb713aef9645f5e6",
+      title: "CNDT2019/OSDT2019行ってきたのでスライドリンクとメモ(見つけ次第更新) - Qiita",
+      description: "CloudNative Days Tokyo 2019 / OpenStack Days Tokyo 2019、行ってきました。 スライドと、簡易版レポートというよりメモ https://cloudnativedays.jp/cndt2019/ タイムテーブル(簡易版) ...",
+      siteName: "Qiita",
+      faviconSrc: "/link-card/96bc808eb78ec8a4ad30a5a911f5b9fe8e3ee251d2871055ace08ef7c8cfd8ac.png",
+      thumbnailSrc: "/link-card/3d3c0cb40972516e5bd05b5b590c346c4e21c39c1db508130effba84eb6bf6cc.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "cncf-の利用率",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cncf-の利用率",
+        children: "CNCF の利用率"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "一日目の Keynote で印象的だった内容です。\n発表者は、OSDT 実行委員長である長谷川さんです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["来場者アンケート 1354 人から聞いた「クラウドネイティブ技術を活用フェーズについて」の紹介がありました。\n既に本番環境に適用している人は、なんと ", _jsx(_components.strong, {
+        children: "46%"
+      }), " という驚きの結果でした。また、開発環境に至っては、 ", _jsx(_components.strong, {
+        children: "63%"
+      }), " ということでした。", _jsx(_components.br, {}), "\nこのイベントに参加している時点である程度フィルターはかかっていると思いますが、それでも大きな割合だと感じました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "次の図では、CNCF プロジェクトの 180 日間における Commit 数をグラフ化したものです。\n生みの親である Google が 1 位で independent(個人)が 2 番目、日本企業 Fujitsu が 6 位です。熱意が伝わってきますね。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://www.stackalytics.com/cncf?date=180",
+        children: _jsx(_components.img, {
+          src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429648/silver-birder.github.io/blog/stackalytics_cncf.png?ar=1058%3A525",
+          alt: "https://www.stackalytics.com/cncf?date=180"
+        })
+      }), "\n※ 2019/07/24 時点"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、CNCF のメンバーとして日本企業は ", _jsx(_components.strong, {
+        children: "17 社"
+      }), " しかないそうで、まだまだこれからといったところでしょうか。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://landscape.cncf.io/members",
+      title: "CNCF Landscape",
+      description: "The CNCF Cloud Native Landscape is intended as a map through the previously uncharted terrain of Cloud Native technologies. It attempts to categorize projects and products in the Cloud Native space.",
+      siteName: "CNCF Landscape",
+      faviconSrc: "/link-card/012a630fe13e62fa11d05ccfab4efd73bd9dfff8136d6e6b4f420e29e66f4c4d.png",
+      thumbnailSrc: "/link-card/ff47f2f27568471ec8dd285a2189830761b54315e209b189d651956a7efbc060.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "さらには、Kubernetes から認定された日本企業ではまだないみたいです。残念です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kubernetes.io/partners/",
+      title: "Partners",
+      description: "Kubernetes works with partners to create a strong, vibrant codebase that supports a spectrum of complementary platforms. Kubernetes Certified Service Providers Vetted service providers with deep experience helping enterprises successfully adopt Kubernetes. See KCSP Partners Interested in becoming a KCSP? Certified Kubernetes Distributions, Hosted Platforms, and Installers Software conformance ensures that every vendor’s version of Kubernetes supports the required APIs. See Conformance Partners Interested in becoming Kubernetes Certified? Kubernetes Training Partners Vetted training providers who have deep experience in cloud native technology training.",
+      siteName: "Kubernetes",
+      faviconSrc: "/link-card/f4b1c689ce576a003de047f0cea1bcb07df378f1591be4278489d5181005640b.png",
+      thumbnailSrc: "/link-card/06fca01963ccaf66d41ed71ffa8c87581fcc2c54109ba2c18d06eb08fe25c50f.png"
+    }), "\n", _jsx(_components.p, {
+      children: "今後は、次のようなカンファレンスが海外でもあるみたいです。ぜひ参加してみたいと思います。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/",
+      title: "KubeCon + CloudNativeCon Europe 2019 - Linux Foundation Events",
+      siteName: "Linux Foundation Events",
+      faviconSrc: "/link-card/8c788cc279f81da755ac6b79cc49f1498eb510a63322d2be78f19c26f9f094eb.png",
+      thumbnailSrc: "/link-card/e97aa77fcb6674953ed744e911270813eda10cb017bb3b6f2362ee919bb4bb7f.jpg"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/",
+      title: "KubeCon + CloudNativeCon North America 2019 - Linux Foundation Events",
+      siteName: "Linux Foundation Events",
+      faviconSrc: "/link-card/8c788cc279f81da755ac6b79cc49f1498eb510a63322d2be78f19c26f9f094eb.png",
+      thumbnailSrc: "/link-card/686b74391cc6897a07985746bc8aec51277f9d690a47bd79f4beff13296389c5.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "cloudnative-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cloudnative-とは",
+        children: "CloudNative とは"
+      })
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "クラウドネイティブ技術は、パブリッククラウド、プライベートクラウド、ハイブリッドクラウドなどの近代的でダイナミックな環境において、スケーラブルなアプリケーションを構築および実行するための能力を組織にもたらします。 このアプローチの代表例に、コンテナ、サービスメッシュ、マイクロサービス、イミューダブルインフラストラクチャ、および宣言型 API があります。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["※ ", _jsx(_components.a, {
+        href: "https://github.com/cncf/toc/blob/master/DEFINITION.md#%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88",
+        children: "https://github.com/cncf/toc/blob/master/DEFINITION.md#日本語版"
+      })]
+    }), "\n", _jsx(_components.p, {
+      children: "「スケーラブルなアプリケーションを構築および実行」が重要です。これを実現する手段の１つに Kubernetes があります。\n「CloudNative = Kubernetes」ではなく、「CloudNative ∋ Kubernetes」という感じです。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、最近では Kubernetes を違う観点で考える人が増えてきたそうです。\nそれが、二日目の Keynote で発表された北山さんのスライドにあります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/shkitayama/change-the-game-change-the-world",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Kubernetes は「platform のための platform」と言われるようになりました。\nこれは、slide.No.9(Kubernetes is a platform)で見て分かる通りで、次のようなことがわかります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["運用管理者\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Self-Healing によってスケールが簡単になる"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["アプリケーション開発者\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "簡単にデプロイすることができる"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらは、たしかに「プラットフォームから得られる価値」になりますが、\n逆に次のような考慮が必要なってきます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["運用管理者\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Self-Healing はどこまで信頼性を担保できるか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["アプリケーション開発者\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ユーザー影響を最小限にするためには、どうればよいか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これらのような「プラットフォームを利用するコスト」が「プラットフォームから得られる価値」よりも大きくなってしまいがちになります。\nそこで、Operator (CRD)という概念が最近ホットになっています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ-crd-がホットなのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ-crd-がホットなのか",
+        children: "なぜ CRD がホットなのか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "CRD という言葉は様々なセッションで取り上げらていました。\nCRD と Operator については、下記をご参考下さい。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/kubernetes_meetup_tokyo_19_osaka_satellite",
+      title: "【大阪・梅田】Kubernetes Meetup Tokyo 19 大阪サテライト- 2019年5月31日参加レポート",
+      description: "大阪からKubernetes Meetup Tokyoに参加できるとのことで、こちらに参加してきました。Kubernetesの生みの親である3人の内の1人のJoe Bedaから、Kubernetesの歴史の経緯について教えて頂きました。その話がとてもわかりやすく、なるほどなと思ったので、ぜひとも共有したいと思います。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/e552ec95bb3520d9d274bcf32564477057941f76dec9fa97f9c9a9403b428836.png"
+    }), "\n", _jsx(_components.p, {
+      children: "Kubernetes を運用すると、既存のリソースだけでは物足りない所がでてくるそうです。\nそういう部分が「プラットフォームを利用するコスト」を大きくしてしまいます。\nそこで、オリジナルのカスタマイズしたリソースを独自に開発し、運用を自動化することを目的とした\nCRD、Operator が生まれました。\nただ、独自に 1 から作るよりも、下記のサイトから使った方が効率的なときもあります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://operatorhub.io/",
+      title: "OperatorHub.io | The registry for Kubernetes Operators",
+      description: "The registry for Kubernetes Operators",
+      siteName: "operatorhub.io",
+      faviconSrc: "/link-card/df4e8723df13b66d8191af492a6d39c8f471f6aa32b4af7b35d77303b250b651.png"
+    }), "\n", _jsx(_components.p, {
+      children: "けど、結局は困ったとき、ソースコードを読むことになるので、それぐらいの能力がないと、\n運用を回せない気がします。"
+    }), "\n", _jsx(_components.p, {
+      children: "zlab の ladicle さんの次のスライドがとてもわかりやすく、まとまっていました。\nこれは貴重な資料ですね。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/ladicle/kuberneteswokuo-zhang-siteri-falseoperesiyonwozi-dong-hua-suru",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ちなみに、独自に 1 から作ったケースがサイバーエージェントの山本さんの発表で、次のスライドです。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/mayuyamamoto/kuberneteskuo-zhang-woli-yong-sitazi-zuo-autoscalerdeshi-xian-surusutoresuhurinayun-yong-falseshi-jie",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "同じくサイバーエージェントの青山さんがライブコーディングされていたリポジトリが次のものになります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/cloudnativejp/webserver-operator",
+      title: "GitHub - cloudnativejp/webserver-operator: webserver operator",
+      description: "webserver operator. Contribute to cloudnativejp/webserver-operator development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "https://opengraph.githubassets.com/8c91ae288a9f72092abb979b473e79ae536a7d930a544ee79838f88f5580c46b/cloudnativejp/webserver-operator"
+    }), "\n", _jsx(_components.h2, {
+      id: "kubernetes-は必要ですか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#kubernetes-は必要ですか",
+        children: "Kubernetes は必要ですか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Kubernetes を使うべきかの話が 2 日間でちらほらありました。\n次のような議論もあります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.atmarkit.co.jp/ait/articles/1907/23/news120.html",
+      title: "「あなたにKubernetesは必要ですか？」を、Kubernetes Meetup Tokyoのコアメンバーが議論",
+      description: "「OpenStack Days Tokyo／CloudNative Days Tokyo 2019」で2019年7月23日、Kubernetes Meetup Tokyoのコアメンバーが、「あなたにKubernetesは必要ですか？ Kubernetesのこれからについて話し合おう」というタイトルのパネルディスカッションを行った。",
+      siteName: "＠IT",
+      faviconSrc: "/link-card/fca43e621af29bb73b378eab86bcfe53992d3d251370af9e5c83c372e54c0e24.ico",
+      thumbnailSrc: "/link-card/bb3472c12fbb0bd2ba8211c0dcfcade63770af311def5bc1f0dfd364ebe76b0c.jpg"
+    }), "\n", _jsxs(_components.p, {
+      children: ["CloudNative なアプリケーション構築を目指す場合、どうしても Kubernetes を使う方向になりがちですよね。", _jsx(_components.br, {}), "\n今回参加したセッションの多くの企業では、Kubernetes を採用するための検討が下記のような感じでした。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["プレインな Kubernetes か、マネージドな Kubernetes か\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "大体はマネージドな Kubernetes を使う。"
+          }), "\n", _jsx(_components.li, {
+            children: "かゆい所に手を伸ばすときになって、プレインな Kubernetes を使う。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Kubernetes のエンジニアは何人か。それは専属か\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "どこも Kubernetes の知識を保有するエンジニアは少ない。"
+          }), "\n", _jsx(_components.li, {
+            children: "数人程度で専任で進めることが多い。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "ノウハウを蓄積するために、スモールスタート"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "様々なセッションがあった中で、とても王道なステップを踏まれている企業がありました。それは、SoftbankPaymentService の鈴木さんの次のスライドです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.slideshare.net/JunyaSuzuki1/springpcf-cndt2019-osdt2019-keynote",
+      title: "決済システムの内製化への旅 - SpringとPCFで作るクラウドネイティブなシステム開発 #cndt2019 #osdt2019 #keynote",
+      description: "CloudNative Days 2019 キーノート登壇資料\r\n\r\n&quot;SBペイメントサービス株式会社ではSpringとPivotal Application Serviceを使用して、次期決済システムを内製しております。 本セッションでは導入の背景や、Spring Boot/Cloudを使用したアーキテクチャの説明、CI/CDやロギング・モニタリング、高レジリエンスへの取り組み内容のご紹介とあわせて、プラットフォームの導入が開発や運用にどのような効果をもたらすのかをお伝えします。&quot; - Download as a PDF, PPTX or view online for free",
+      siteName: "Slideshare",
+      faviconSrc: "/link-card/79f24cecd01e4f0fcbeccbbcd710663a1cb54693f604942cb6f0ecfd43de0309.png",
+      thumbnailSrc: "/link-card/ce9a52280838cabb83242a78d0c1fe57eabcffba08389c6635bb099b18e217cf.jpg"
+    }), "\n", _jsxs(_components.p, {
+      children: ["企業に適した CloudNative 化だなと勉強になりました。", _jsx(_components.br, {}), "\n特に「運用を回すコストを考慮すると、Kubernetes ではなく PaaS を使う」 というポイントが好きです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "circuit-breaker",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#circuit-breaker",
+        children: "Circuit Breaker"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "耳にタコができるぐらい、この単語を聞きました。\n下記のサイトが参考になります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://qiita.com/yasuabe2613/items/3bff44e662c922083264",
+      title: "『Microservice Patterns』 まとめ - Qiita",
+      description: "今年10月に出版された『Microservices Patterns With examples in Java』という本を読んだ。面白かったので紹介したい。 はじめに 著者は、マイクロサービスパターンのサイト microservice.io を運営している Chris ...",
+      siteName: "Qiita",
+      faviconSrc: "/link-card/96bc808eb78ec8a4ad30a5a911f5b9fe8e3ee251d2871055ace08ef7c8cfd8ac.png",
+      thumbnailSrc: "/link-card/8b85ddaf857bc81ca76c52622bfcd5ebce0f037f5e17f3d47b9ac0cc99196815.jpg"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "同期リクエストの先で一部のマイクロサービスに障害があると、クライアントやその先の「クライアントのクライアント」までブロッキングが波及することになりかねない。\nこの問題を、クライアントと実サービスの間に Circuit Breaker と呼ばれるプロキシを介在させて、実サービスの呼び出し失敗が一定基準を超えると、クライアントからのリクエストを即座にリジェクトさせて、ブロッキング連鎖を解消するパターン。"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Kubernetes でアプリケーションを構築すると、分散システムの恩恵を受けるために、\nアプリケーションをマイクロサービス化する流れになります。そのマイクロサービス化でよく踏む地雷が、\n「後ろの API が死んだら、連鎖的に他サーバも死ぬ」という現象です。", _jsx(_components.br, {}), "\nこれを回避するために、上記の Circuit Breaker パターンを使う企業が多数いらっしゃいました。\n本当にいろんなセッションで聞きました...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "twelve-factor-app",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#twelve-factor-app",
+        children: "twelve factor app"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次の Wantedly さんのスライドが、私の中では話題になりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/potsbo/k8s-kubernetes-8-factors",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "要は、「アプリケーションとしての設計の考え方(twelve factor app)を、インフラ部分でも適用してみた」という感じです。\nどれも具体的なところまで説明されており、実際に Kubernetes を構築する際に役に立つものだと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "技術にフォーカスした発表",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術にフォーカスした発表",
+        children: "技術にフォーカスした発表"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回のイベントでは、何か 1 つの技術にフォーカスした発表が多くありました。\nそれぞれ私なりにまとめてみました。ご参考下さい。"
+    }), "\n", _jsx(_components.h2, {
+      id: "chaos-engineering",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#chaos-engineering",
+        children: "Chaos Engineering"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/mahito/cndt-osdt-2019-2g1",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "docker",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#docker",
+        children: "Docker"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.slideshare.net/AkihiroSuda/cndt-docker",
+      title: "[CNDT] 最近のDockerの新機能",
+      description: "最近1年でDockerに追加された新機能を，わかりやすく紹介します．\r\n・より高速でセキュアな `docker build` (BuildKitモード)\r\n・非rootユーザでのDocker daemonの実行\r\n・Docker Application Packages\r\n・Docker Compose-on-Kubernetes\r\n・CLIプラグイン\r\n... - Download as a PDF, PPTX or view online for free",
+      siteName: "Slideshare",
+      faviconSrc: "/link-card/79f24cecd01e4f0fcbeccbbcd710663a1cb54693f604942cb6f0ecfd43de0309.png",
+      thumbnailSrc: "/link-card/6227051a7a466e21969b5414713f0f51c3cd0ae95efcb73655b7c885825fbfb2.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "envoy",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#envoy",
+        children: "Envoy"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/taiki45/cloudnative-days-tokyo-2019-understanding-envoy",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "logging",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#logging",
+        children: "Logging"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/yosshi_/kubernetes-loggingru-men",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "linuxkernel",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#linuxkernel",
+        children: "LinuxKernel"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/tenforward/cndt2019",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "prometheus",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#prometheus",
+        children: "Prometheus"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/tokibi/prometheus-setup-with-long-term-storage",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "sandbox",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#sandbox",
+        children: "Sandbox"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.google.com/presentation/d/1O9Q9E1hH6mBA5w8oDENnCYObZvij1-Dr_obvsY3X29k/edit",
+      title: "CNDT2019コミュニティセッション",
+      description: "CNCF サンドボックスプロダクト 1517本ノック！ Cloud Native Developers JP 1 1 CloudNative Days Tokyo 2019",
+      siteName: "Google Docs",
+      faviconSrc: "/link-card/9588e0329b37f47002114e7e2ae4cdd7c965c0947359dd948309007499665acb.ico",
+      thumbnailSrc: "/link-card/1f2f2fd90f2c9dc906913a5a7471531beb29384698d47a6d6997a39a764f7519.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "scheduler",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#scheduler",
+        children: "Scheduler"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/ytaka23/cloudnative-days-tokyo-2019",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "spinnaker",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#spinnaker",
+        children: "Spinnaker"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/sansanbuildersbox/introduction-to-deployment-patterns-with-spinnaker",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "istio",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#istio",
+        children: "Istio"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://speakerdeck.com/dangossk/a-deep-dive-into-service-mesh-and-istio-cndt-2019",
+        children: "speakerdeck.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他",
+        children: "その他"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サイバーエージェントさんより、エンジニアにとってとても嬉しいアイテムを頂きました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/ca_adtechstudio/status/1152080444445167616",
+        children: "tweet"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "さっそく、キーボードにとりつけてみました。最高です！"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614429692/silver-birder.github.io/blog/ergodox_with_k8s_keycap.jpg?ar=1200%3A900",
+        alt: "ergodox with k8s keycap (cyberAgent)"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "こちらのサービスから作られたそうで、私も自前で何か作ってみようかなと思いました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.wasdkeyboards.com/",
+        children: "wasdkeyboards.com"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["CloudNative にどっぷり浸かった 2 日間でした。", _jsx(_components.br, {}), "\nどの企業でも CloudNative を導入したことによる「つらみ」や「価値」を共有して頂いたおかげで、これから導入する人たち（私を含む）にとっては、有意義な時間でした。", _jsx(_components.br, {}), "\n全てのセッションを吸収できたわけではないですが、ここで記載したスライドだけでも理解を深めたいなと思います。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://cloudnativedays.jp/cndk2019/",
+        children: "cloudnativedays.jp"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今度は大阪で開催されるそうです。これも絶対参加したいなと思います！"
+    }), "\n", _jsx(_components.h2, {
+      id: "蛇足参加するまでの経緯",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#蛇足参加するまでの経緯",
+        children: "蛇足（参加するまでの経緯）"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["筆者は Web が大好きなエンジニアで、Kubernetes については理解が浅い人間です。主にフロントエンドに注力しています。", _jsx(_components.br, {}), "\nただ、昨年の DeveloperBoost2018 で、サイバーエージェントの青山さんのセッションをうけて Kubernetes に興味を持ち始めました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://codezine.jp/article/detail/11291",
+      title: "Developers Boost～U30エンジニアの登竜門～開催（講演資料まとめ付き）",
+      description: "12月15日、翔泳社主催の若手エンジニア向けカンファレンス「Developers Boost～U30エンジニアの登竜門～」（以下、デブスト）がコングレスクエア日本橋で行われた。今年が初の開催となる。開催にあたり18社の企業スポンサーによる協力を得た。「アプリケーション開発」「開発プロセス」「イノベーション」「エンジニアの生き方」といったトピックスで、計33セッションに渡って講演された。",
+      siteName: "CodeZine",
+      faviconSrc: "/link-card/1a24304a03e82b1c84ab8abce732bfe335e203bb72aee65909702877e87d0fc3.png",
+      thumbnailSrc: "/link-card/b7dffa8134af1b4cdc42527775f9038a3424f3523194ef11065c13b2f98f0408.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["青山さんは Kubernetes にとても詳しい方で、世代が近いせいか、私もこれぐらい夢中になれるものを見つけたいと感じるようになりました。", _jsx(_components.br, {}), "\n私は Web に関わるものなら何でも好きで、Kubernetes も含まれます。そこで、青山さん著作の", _jsx(_components.a, {
+        href: "http://www.wasdkeyboards.com/index.php/products/printed-keycap-singles/custom-art-cherry-mx-keycaps.html",
+        children: "Kubernetes 完全ガイド"
+      }), "を全て実践することにしてみました。もちろん ", _jsx(_components.strong, {
+        children: "お家 Kubernetes"
+      }), " でです。\n実際に触ってみると、スケールする簡単さに驚きました。ほぼコマンド一発で Pod が複製されて、「え！？」とびっくりです。", _jsx(_components.br, {}), "\nそこから、段々とハマっていき今回のイベントに参加することになりました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":29,"publishedAt":"2019-07-27","tags":["レポート","クラウドインフラ"],"title":"Cloud Native Days Tokyo 2019 -2019年7月22-23日参加レポート"},"navigation":{"next":{"href":"/blog/contents/first_release_techbook7","publishedAt":"2019-08-30","title":"技術書典7 で「はじめてのWeb Components入門」を初出版します！"},"prev":{"href":"/blog/contents/frontend_de_kanpai_7","publishedAt":"2019-07-20","title":"【増枠】Frontend de KANPAI! 7 - Going on 令和 - 2019年7月19日参加レポート"}},"relatedPosts":[{"posts":[{"publishedAt":"2019-12-16","slug":"gdg_devfest_tokyo_2019_web","summary":"GDG DevFest Tokyo 2019というイベントに参加してきました。最近はプライベートの都合上、中々時間が取れていませんでした。しかし今回、会社の都合上、良い感じに時間を確保できたため、こちらのイベントに参加してきました。`大阪→東京` でわざわざ新幹線を使ってまで参加しましたが、それに見合う発見が多くありました。今回、私が学んだ内容について、報告しようかなと思います。","tags":["レポート","Google","ブラウザ"],"title":"GDG DevFest Tokyo 2019に参加したら、Webの未来にワクワクした"},{"publishedAt":"2019-07-20","slug":"frontend_de_kanpai_7","summary":"今回はDeNAさん主催のFrontendのイベントに参加してきましたので、報告しようと思います。hashtagはこちら frokan イベント概要 「Frontend de KANPAI!」（以下、FROKAN）は、フロントエンドエンジニアやフロントエンドに興味がある人が集い、ドリンク片手にゆるく交流・技術交換ができるコミュニティを目指しています。","tags":["レポート","フロントエンド"],"title":"【増枠】Frontend de KANPAI! 7 - Going on 令和 - 2019年7月19日参加レポート"},{"publishedAt":"2019-07-03","slug":"Roundup_IT_Antenna_Sites","summary":"背景 今年の9月にPyConJP 2019が開催されます。 https://pycon.jp/2019/ LTの募集があったので、LT応募するためのネタ探しをはじめました","tags":["Python","レポート"],"title":"Roundup IT Antenna Sites"}],"tag":"レポート"},{"posts":[{"publishedAt":"2024-03-29","slug":"try-container-structure-test","summary":"Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。","tags":["テスト","クラウドインフラ"],"title":"Docker Image に 構造化テスト container-structure-test を試してみた"},{"publishedAt":"2021-11-26","slug":"a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","summary":"BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。","tags":["フロントエンド","クラウドインフラ","テスト"],"title":"BigQueryだけで完結するモック可能なユニットテスト手法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"クラウドインフラ"}],"shareUrl":"https://silverbirder.github.io/blog/contents/cloud_native_days_tokyo_2019/","slug":"cloud_native_days_tokyo_2019"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

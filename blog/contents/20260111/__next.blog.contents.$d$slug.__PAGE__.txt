@@ -1,0 +1,119 @@
+1:"$Sreact.fragment"
+2:I[36926,["/_next/static/chunks/d041db7f98ce3ff6.js","/_next/static/chunks/e2668be59f4672bc.js","/_next/static/chunks/c41bb334ac43e4ba.js"],"PostArticle"]
+6:I[85089,["/_next/static/chunks/ac58007543a7ba41.js","/_next/static/chunks/239cbf492a1fece7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1b14,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "みなさんご存知の TikTok。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は普段、気に入った動画をブックマークして、後から見返すことがあります。", _jsx(_components.br, {}), "\nただ、都合により、動画ファイルそのものが必要になる場面があります。", _jsx(_components.br, {}), "\nそのため、右クリックのコンテキストメニューから動画を保存する、公式で提供されている方法を利用しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "手作業の負担",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#手作業の負担",
+        children: "手作業の負担"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["保存したい動画の数が増えてくると、この作業を手動で繰り返すことが、次第に負担になってきました。", _jsx(_components.br, {}), "\n抜け漏れ重複があったり、つまらない作業で違う操作をしてしまったりします。", _jsx(_components.br, {}), "\nそこで、もう少し楽にできないかと考えたことが、今回の取り組みの発端です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "api-は提供されていない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#api-は提供されていない",
+        children: "API は提供されていない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["TikTok では、ログインユーザーがブックマークした動画の一覧取得や、動画ダウンロードを行う公式 API は提供されていません。", _jsx(_components.br, {}), "\n非公式 API はいくつか存在するようですが、公式側の仕様変更とのいたちごっこになりやすく、安定した運用は難しそうでした。", _jsx(_components.br, {}), "\nまた、そもそも非公式 API を利用すること自体、適切とは言えません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "chrome-拡張機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#chrome-拡張機能",
+        children: "Chrome 拡張機能"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで私は、Chrome 拡張機能を使って、自分が普段行っている操作そのものを自動化する方法を選びました。", _jsx(_components.br, {}), "\nこの拡張機能は個人利用のために作成したもので、公開はしていません。", _jsx(_components.br, {}), "\nコードはかなりぐちゃぐちゃしていますが、動けばﾖｼｯとしています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["近年は AI の支援もあり、このようなニッチな自動化も比較的簡単に実現できるようになったと感じています。", _jsx(_components.br, {}), "\n以前であれば、環境構築や Chrome 拡張特有の API の使い方を思い出すだけでも、かなりの時間を要していました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "実際の自動化フロー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際の自動化フロー",
+        children: "実際の自動化フロー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Chrome 拡張機能を利用すると、TikTok に事前にログインした状態を保ったまま、Chrome 上の操作をそのまま再現できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "具体的には、次のような流れです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "自分のプロフィールページを開く"
+      }), "\n", _jsx(_components.li, {
+        children: "ブックマークアイコンをクリックし、保存済みの動画一覧を表示する"
+      }), "\n", _jsx(_components.li, {
+        children: "動画を右クリックして保存する"
+      }), "\n", _jsx(_components.li, {
+        children: "次の動画へ移動するボタンをクリックする"
+      }), "\n", _jsx(_components.li, {
+        children: "3 に戻る"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この一連の流れは、実際に私が手動で行っていた操作です。", _jsx(_components.br, {}), "\nそのため、Chrome 拡張機能でも、同じ手順をそのまま機能として実装できました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "運用上の工夫",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#運用上の工夫",
+        children: "運用上の工夫"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブックマーク自体は解除せず、コレクション機能を使って、最後に保存した動画をチェックポイントとして記録しています。", _jsx(_components.br, {}), "\n次回の収集では、その動画より前までを対象にすることで、重複を避けた運用ができています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "tiktok-の仕様を前提に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#tiktok-の仕様を前提に",
+        children: "TikTok の仕様を前提に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["TikTok は、スクレイパー対策が非常に徹底されている印象があります。", _jsx(_components.br, {}), "\n動画ファイルのリンクを直接取得し、別タブで保存するといった方法は、可能ではあるものの手間がかかり、構造変更の影響も受けやすいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その点、公式が提供している機能を前提に自動化することで、安定した運用ができています。", _jsx(_components.br, {}), "\n現時点では、この方法で半年ほど継続して利用できています。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"aydQO_pqFTPXAVDFONKSr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":224,"publishedAt":"2026-01-11","tags":["趣味"],"title":"TikTokの動画を集める自動化"},"navigation":{"next":{"href":"/blog/contents/20260112","publishedAt":"2026-01-12","title":"また雪がきた！"},"prev":{"href":"/blog/contents/20260110","publishedAt":"2026-01-10","title":"CSS Layout Testing  というテスト手法の提案"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-09","slug":"20260309","summary":"ドラゴンクエストVII Reimagined（以下、ドラクエ7）をプレイ中です。 メルビンが仲間になるところまで辿り着きました。 ドラクエ7では、様々な島の過去に遡って事件を解決して現代に島を蘇られせるストーリーがあります。 1つ1つの島に","tags":["趣味"],"title":"ドラクエ7 グリーンフレークのシナリオが昼ドラしていて、よい"},{"publishedAt":"2026-03-03","slug":"20260303","summary":"毎日記事を書いていくと、効率よく書く自分なりのコツが見つかりました。 私の思う、記事を書くコツを3つ紹介します。 書く時間に制限をかける 書く時間帯を風呂上がりの30分と決めています。 時間を短く制限をかけておくと、書ける量が物理的に減りま","tags":["趣味"],"title":"毎日記事を書くコツ"},{"publishedAt":"2026-02-22","slug":"20260222","summary":"ドラゴンクエストVII Reimagined の体験版を遊んでみました。 https://www.dragonquest.jp/dq7r/ テレビゲームをやるのはかなり久々です。 これまでのドラクエ履歴は、以下のとおりで最近のものを全然して","tags":["趣味"],"title":"ドラゴンクエストVII Reimagined 体験版をやってみたら、夢中になった"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260111/","slug":"20260111"}],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/c41bb334ac43e4ba.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

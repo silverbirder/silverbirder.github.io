@@ -122,15 +122,17 @@ describe("githubRouter.list", () => {
 });
 
 describe("githubRouter.createPullRequest", () => {
-  it("creates a branch, commits a file, and opens a pull request", async () => {
+  it("creates a branch, commits files once, and opens a pull request", async () => {
     getAccessToken.mockResolvedValue({ accessToken: "test-token" });
     requestMock = vi
       .fn()
       .mockResolvedValueOnce({ data: { object: { sha: "base-sha" } } })
       .mockResolvedValueOnce({ data: {} })
-      .mockResolvedValueOnce({ data: { sha: "post-sha" } })
-      .mockResolvedValueOnce({ data: {} })
-      .mockResolvedValueOnce({ data: { sha: "link-card-sha" } })
+      .mockResolvedValueOnce({ data: { tree: { sha: "base-tree-sha" } } })
+      .mockResolvedValueOnce({ data: { sha: "post-blob-sha" } })
+      .mockResolvedValueOnce({ data: { sha: "link-card-blob-sha" } })
+      .mockResolvedValueOnce({ data: { sha: "tree-sha" } })
+      .mockResolvedValueOnce({ data: { sha: "commit-sha" } })
       .mockResolvedValueOnce({ data: {} })
       .mockResolvedValueOnce({
         data: { html_url: "https://example/pr/1", number: 1 },
@@ -163,31 +165,55 @@ describe("githubRouter.createPullRequest", () => {
     const calls = requestMock.mock.calls.map((call) => call[0]);
     expect(calls).toContain("GET /repos/{owner}/{repo}/git/ref/{ref}");
     expect(calls).toContain("POST /repos/{owner}/{repo}/git/refs");
-    expect(calls).toContain("GET /repos/{owner}/{repo}/contents/{path}");
-    expect(calls).toContain("PUT /repos/{owner}/{repo}/contents/{path}");
+    expect(calls).toContain(
+      "GET /repos/{owner}/{repo}/git/commits/{commit_sha}",
+    );
+    expect(calls).toContain("POST /repos/{owner}/{repo}/git/blobs");
+    expect(calls).toContain("POST /repos/{owner}/{repo}/git/trees");
+    expect(calls).toContain("POST /repos/{owner}/{repo}/git/commits");
+    expect(calls).toContain("PATCH /repos/{owner}/{repo}/git/refs/{ref}");
     expect(calls).toContain("POST /repos/{owner}/{repo}/pulls");
     expect(
       requestMock.mock.calls.filter(
-        (call) => call[0] === "PUT /repos/{owner}/{repo}/contents/{path}",
+        (call) => call[0] === "POST /repos/{owner}/{repo}/git/commits",
       ),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
     expect(requestMock.mock.calls[2]?.[1]).toMatchObject({
-      path: "packages/content/posts/20260114.md",
-      ref: expect.stringMatching(/^content\/20260114-/),
+      commit_sha: "base-sha",
     });
     expect(requestMock.mock.calls[3]?.[1]).toMatchObject({
-      content: Buffer.from("# hello", "utf8").toString("base64"),
-      path: "packages/content/posts/20260114.md",
-      sha: "post-sha",
+      content: "# hello",
+      encoding: "utf-8",
     });
     expect(requestMock.mock.calls[4]?.[1]).toMatchObject({
-      path: "packages/content/link-cards.json",
-      ref: expect.stringMatching(/^content\/20260114-/),
+      content: "{}",
+      encoding: "utf-8",
     });
     expect(requestMock.mock.calls[5]?.[1]).toMatchObject({
-      content: Buffer.from("{}", "utf8").toString("base64"),
-      path: "packages/content/link-cards.json",
-      sha: "link-card-sha",
+      base_tree: "base-tree-sha",
+      tree: [
+        {
+          mode: "100644",
+          path: "packages/content/posts/20260114.md",
+          sha: "post-blob-sha",
+          type: "blob",
+        },
+        {
+          mode: "100644",
+          path: "packages/content/link-cards.json",
+          sha: "link-card-blob-sha",
+          type: "blob",
+        },
+      ],
+    });
+    expect(requestMock.mock.calls[6]?.[1]).toMatchObject({
+      message: "docs: add 20260114.md",
+      parents: ["base-sha"],
+      tree: "tree-sha",
+    });
+    expect(requestMock.mock.calls[7]?.[1]).toMatchObject({
+      ref: expect.stringMatching(/^heads\/content\/20260114-/),
+      sha: "commit-sha",
     });
   });
 });

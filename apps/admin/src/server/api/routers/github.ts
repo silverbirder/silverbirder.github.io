@@ -208,43 +208,6 @@ const resolveLocalPostsPath = async (postsPath: string) => {
   return null;
 };
 
-const getExistingContentSha = async ({
-  branch,
-  octokit,
-  owner,
-  path,
-  repo,
-}: {
-  branch: string;
-  octokit: Octokit;
-  owner: string;
-  path: string;
-  repo: string;
-}) => {
-  try {
-    const response = await octokit.request(
-      "GET /repos/{owner}/{repo}/contents/{path}",
-      {
-        owner,
-        path,
-        ref: branch,
-        repo,
-      },
-    );
-    const data = response.data as { sha?: string } | { sha?: string }[];
-    if (Array.isArray(data)) {
-      return null;
-    }
-    return typeof data.sha === "string" ? data.sha : null;
-  } catch (error) {
-    const withStatus = error as { status?: number };
-    if (withStatus.status === 404) {
-      return null;
-    }
-    throw error;
-  }
-};
-
 const getLocalPostList = async (postsPath: string) => {
   const resolvedPath = await resolveLocalPostsPath(postsPath);
   if (!resolvedPath) {
@@ -501,28 +464,93 @@ export const githubRouter = createTRPCRouter({
         { content: input.content, encoding: "utf8" as const, path: filePath },
         ...(input.files ?? []),
       ];
-
-      for (const file of files) {
-        const sha = await getExistingContentSha({
-          branch: branchName,
-          octokit,
+      const baseCommitResponse = await octokit.request(
+        "GET /repos/{owner}/{repo}/git/commits/{commit_sha}",
+        {
+          commit_sha: baseSha,
           owner,
-          path: file.path,
           repo,
-        });
-        await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-          branch: branchName,
-          content:
-            file.encoding === "base64"
-              ? file.content
-              : Buffer.from(file.content, "utf8").toString("base64"),
-          message: commitMessage,
-          owner,
-          path: file.path,
-          repo,
-          sha: sha ?? undefined,
+        },
+      );
+      const baseTreeSha = (
+        baseCommitResponse.data as { tree?: { sha?: string } }
+      ).tree?.sha;
+      if (!baseTreeSha) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to resolve base tree SHA.",
         });
       }
+
+      const blobs = await Promise.all(
+        files.map(async (file) => {
+          const blobResponse = await octokit.request(
+            "POST /repos/{owner}/{repo}/git/blobs",
+            {
+              content: file.content,
+              encoding: file.encoding === "base64" ? "base64" : "utf-8",
+              owner,
+              repo,
+            },
+          );
+          const sha = (blobResponse.data as { sha?: string }).sha;
+          if (!sha) {
+            throw new TRPCError({
+              code: "INTERNAL_SERVER_ERROR",
+              message: `Failed to create blob for ${file.path}.`,
+            });
+          }
+          return { path: file.path, sha };
+        }),
+      );
+
+      const treeResponse = await octokit.request(
+        "POST /repos/{owner}/{repo}/git/trees",
+        {
+          base_tree: baseTreeSha,
+          owner,
+          repo,
+          tree: blobs.map((blob) => ({
+            mode: "100644",
+            path: blob.path,
+            sha: blob.sha,
+            type: "blob",
+          })),
+        },
+      );
+      const treeSha = (treeResponse.data as { sha?: string }).sha;
+      if (!treeSha) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to create tree.",
+        });
+      }
+
+      const commitResponse = await octokit.request(
+        "POST /repos/{owner}/{repo}/git/commits",
+        {
+          message: commitMessage,
+          owner,
+          parents: [baseSha],
+          repo,
+          tree: treeSha,
+        },
+      );
+      const commitSha = (commitResponse.data as { sha?: string }).sha;
+      if (!commitSha) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to create commit.",
+        });
+      }
+
+      await octokit.request("PATCH /repos/{owner}/{repo}/git/refs/{ref}", {
+        force: false,
+        owner,
+        ref: `heads/${branchName}`,
+        repo,
+        sha: commitSha,
+      });
 
       const prTitle = input.pullRequestTitle
         ? input.pullRequestTitle

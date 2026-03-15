@@ -1,12 +1,9 @@
 "use client";
 
 import { Box, IconButton, Text, VStack } from "@chakra-ui/react";
-import {
-  getOrCreateLocalStorageItem,
-  userLocalStorageKeys,
-} from "@repo/user-local-storage";
+import { getOrCreateLikeAnonId } from "@repo/user-local-storage";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LuThumbsUp } from "react-icons/lu";
 
 import { NOTEBOOK_LINE_HEIGHT } from "./notebook-prose";
@@ -75,20 +72,15 @@ export const NotebookLike = ({ name, namespace, title }: Props) => {
     null,
   );
 
-  const storageKey = useMemo(
-    () => userLocalStorageKeys.likeAnonId(namespace, name),
-    [namespace, name],
-  );
-
   useEffect(() => {
     setAnonId(
-      getOrCreateLocalStorageItem(storageKey, () =>
+      getOrCreateLikeAnonId(namespace, name, () =>
         typeof crypto.randomUUID === "function"
           ? crypto.randomUUID()
           : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       ),
     );
-  }, [storageKey]);
+  }, [name, namespace]);
 
   useEffect(() => {
     return () => {

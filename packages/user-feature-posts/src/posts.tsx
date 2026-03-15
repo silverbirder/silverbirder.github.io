@@ -194,7 +194,7 @@ export const Posts = ({ posts, rssUrl }: Props) => {
           <Box
             flexBasis="calc(var(--notebook-line-height) * 20)"
             flexGrow={1}
-            minW="min(100%, calc(var(--notebook-line-height) * 20))"
+            minW={0}
           >
             <Stack gap="var(--notebook-line-height)">
               {(selectedYear || selectedTag) && (

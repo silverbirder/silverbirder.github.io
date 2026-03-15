@@ -47,7 +47,10 @@ export const NotebookPostItem = ({
       borderLeftWidth="2px"
       gap={0}
       lineHeight="var(--notebook-line-height)"
+      maxW="full"
+      minW={0}
       pl="calc(var(--notebook-line-height) / 2)"
+      w="full"
     >
       <ViewTransitionLink
         fontWeight="bold"
@@ -62,6 +65,9 @@ export const NotebookPostItem = ({
           fontSize="sm"
           lineClamp={1}
           lineHeight="var(--notebook-line-height)"
+          maxW="full"
+          minW={0}
+          w="full"
         >
           {summary}
         </Text>
@@ -71,7 +77,10 @@ export const NotebookPostItem = ({
           align="center"
           columnGap={2}
           lineHeight="var(--notebook-line-height)"
+          maxW="full"
+          minW={0}
           rowGap={0}
+          w="full"
           wrap="wrap"
         >
           {formattedPublishedAt ? (

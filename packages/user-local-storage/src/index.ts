@@ -1,11 +1,12 @@
 const toSafeKeyPart = (value: string) => value.replace(/[^a-zA-Z0-9-_]/g, "_");
 const LIKES_STORAGE_KEY = "likes";
+const READ_POSTS_STORAGE_KEY = "read-posts";
 const LEGACY_LIKES_KEY_PREFIX = "likes:";
 
-const createLikeEntryKey = (namespace: string, name: string) =>
+const createScopedEntryKey = (namespace: string, name: string) =>
   `${toSafeKeyPart(namespace)}:${toSafeKeyPart(name)}`;
 
-const parseLikesRecord = (value: null | string) => {
+const parseStringRecord = (value: null | string) => {
   if (!value) {
     return {};
   }
@@ -45,6 +46,10 @@ export const userLocalStorageKeyCatalog = {
     key: LIKES_STORAGE_KEY,
     legacyKeyPattern: "likes:{namespace}:{name}",
   },
+  readPostAt: {
+    description: "記事ごとの閲覧日時",
+    key: READ_POSTS_STORAGE_KEY,
+  },
 } as const;
 
 export const userLocalStorageKeys = {
@@ -52,8 +57,9 @@ export const userLocalStorageKeys = {
   blogSearchIndexVersion: userLocalStorageKeyCatalog.blogSearchIndexVersion.key,
   commentsAnonId: userLocalStorageKeyCatalog.commentsAnonId.key,
   legacyLikeAnonId: (namespace: string, name: string) =>
-    `${LEGACY_LIKES_KEY_PREFIX}${createLikeEntryKey(namespace, name)}`,
+    `${LEGACY_LIKES_KEY_PREFIX}${createScopedEntryKey(namespace, name)}`,
   likeAnonId: userLocalStorageKeyCatalog.likeAnonId.key,
+  readPostAt: userLocalStorageKeyCatalog.readPostAt.key,
 } as const;
 
 const getSafeLocalStorage = () => {
@@ -69,10 +75,17 @@ const getSafeLocalStorage = () => {
 };
 
 const getLikeAnonIdMap = (storage: Storage) =>
-  parseLikesRecord(storage.getItem(LIKES_STORAGE_KEY));
+  parseStringRecord(storage.getItem(LIKES_STORAGE_KEY));
 
 const setLikeAnonIdMap = (storage: Storage, value: Record<string, string>) => {
   storage.setItem(LIKES_STORAGE_KEY, JSON.stringify(value));
+};
+
+const getReadPostMap = (storage: Storage) =>
+  parseStringRecord(storage.getItem(READ_POSTS_STORAGE_KEY));
+
+const setReadPostMap = (storage: Storage, value: Record<string, string>) => {
+  storage.setItem(READ_POSTS_STORAGE_KEY, JSON.stringify(value));
 };
 
 const migrateLegacyLikeAnonIds = (storage: Storage) => {
@@ -164,7 +177,7 @@ export const getOrCreateLikeAnonId = (
   }
 
   try {
-    const entryKey = createLikeEntryKey(namespace, name);
+    const entryKey = createScopedEntryKey(namespace, name);
     const likes = migrateLegacyLikeAnonIds(storage);
     const stored = likes[entryKey];
     if (stored) {
@@ -176,5 +189,25 @@ export const getOrCreateLikeAnonId = (
     return value;
   } catch {
     return createValue();
+  }
+};
+
+export const markPostAsRead = (
+  namespace: string,
+  name: string,
+  readAt = new Date().toISOString(),
+) => {
+  const storage = getSafeLocalStorage();
+  if (!storage) {
+    return false;
+  }
+
+  try {
+    const entryKey = createScopedEntryKey(namespace, name);
+    const readPosts = getReadPostMap(storage);
+    setReadPostMap(storage, { ...readPosts, [entryKey]: readAt });
+    return true;
+  } catch {
+    return false;
   }
 };

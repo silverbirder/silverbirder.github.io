@@ -4,6 +4,7 @@ import {
   getLocalStorageItem,
   getOrCreateLikeAnonId,
   getOrCreateLocalStorageItem,
+  markPostAsRead,
   removeLocalStorageItem,
   setLocalStorageItem,
   userLocalStorageKeyCatalog,
@@ -29,6 +30,10 @@ describe("@repo/user-local-storage", () => {
       key: "likes",
       legacyKeyPattern: "likes:{namespace}:{name}",
     });
+    expect(userLocalStorageKeyCatalog.readPostAt).toEqual({
+      description: "記事ごとの閲覧日時",
+      key: "read-posts",
+    });
   });
 
   it("manages predefined keys and like storage keys", () => {
@@ -42,6 +47,7 @@ describe("@repo/user-local-storage", () => {
       userLocalStorageKeyCatalog.commentsAnonId.key,
     );
     expect(userLocalStorageKeys.likeAnonId).toBe("likes");
+    expect(userLocalStorageKeys.readPostAt).toBe("read-posts");
     expect(
       userLocalStorageKeys.legacyLikeAnonId("name space", "page/slug"),
     ).toBe("likes:name_space:page_slug");
@@ -224,6 +230,39 @@ describe("@repo/user-local-storage", () => {
         "likes",
         JSON.stringify({ "name_space:page_slug": "generated-id" }),
       );
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("stores a read post timestamp in the aggregated read-posts storage", () => {
+    const getItemMock = vi.fn().mockReturnValue(
+      JSON.stringify({
+        "other_namespace:other_slug": "2026-01-01T00:00:00.000Z",
+      }),
+    );
+    const setItemMock = vi.fn();
+    vi.stubGlobal("window", {
+      localStorage: {
+        getItem: getItemMock,
+        removeItem: vi.fn(),
+        setItem: setItemMock,
+      },
+    });
+
+    try {
+      expect(
+        markPostAsRead("name space", "page/slug", "2026-03-15T00:00:00.000Z"),
+      ).toBe(true);
+      expect(setItemMock).toHaveBeenCalledTimes(1);
+      expect(setItemMock).toHaveBeenCalledWith(
+        "read-posts",
+        expect.any(String),
+      );
+      expect(JSON.parse(String(setItemMock.mock.calls[0]?.[1]))).toEqual({
+        "name_space:page_slug": "2026-03-15T00:00:00.000Z",
+        "other_namespace:other_slug": "2026-01-01T00:00:00.000Z",
+      });
     } finally {
       vi.unstubAllGlobals();
     }

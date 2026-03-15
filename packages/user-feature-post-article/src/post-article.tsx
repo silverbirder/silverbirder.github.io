@@ -8,7 +8,9 @@ import {
   Notebook,
   ScrollProgressBar,
 } from "@repo/ui";
+import { markPostAsRead } from "@repo/user-local-storage";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
 const COUNTER_NAMESPACE = "silverbirder-github-io";
 const FOLLOW_IT_URL = "https://follow.it/qxug4e?leanpub";
@@ -64,6 +66,11 @@ export const PostArticle = ({
 }: Props) => {
   const t = useTranslations("user.blog");
   const tMe = useTranslations("user.me");
+
+  useEffect(() => {
+    markPostAsRead(COUNTER_NAMESPACE, slug);
+  }, [slug]);
+
   const shareText = t("shareText", { title: meta.title });
   const share = {
     heading: t("shareHeading"),

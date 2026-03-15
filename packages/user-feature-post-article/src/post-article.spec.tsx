@@ -1,6 +1,7 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 import { composeStories } from "@storybook/nextjs-vite";
+import { beforeEach } from "vitest";
 import { describe, expect, it, vi } from "vitest";
 
 import { PostArticle } from "./post-article";
@@ -34,6 +35,10 @@ const followLinks = {
   x: "https://x.com/example",
 };
 describe("PostArticle", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
   it.each(Object.entries(Stories))("should %s snapshot", async (_, Story) => {
     const originalInnerHtml = document.body.innerHTML;
 
@@ -77,6 +82,47 @@ return {
 
     expect(document.body.textContent ?? "").not.toContain("絞り込み");
     expect(document.body.textContent ?? "").toContain("Test title");
+  });
+
+  it("stores the read post in aggregated local storage on mount", async () => {
+    const compiledSource = `"use strict";
+const {jsx: _jsx} = arguments[0];
+function MDXContent() {
+  return _jsx("p", {
+    children: "hello"
+  });
+}
+return {
+  default: MDXContent
+};
+`;
+
+    await renderWithProvider(
+      <PostArticle
+        compiledSource={compiledSource}
+        followLinks={followLinks}
+        followProfileAvatarSrc="/assets/logo.png"
+        meta={{
+          postNumber: 1,
+          publishedAt: "2025-01-02",
+          tags: ["Testing"],
+          title: "Test title",
+        }}
+        navigation={{}}
+        relatedPosts={[]}
+        shareUrl="https://example.com/blog/contents/test/"
+        slug="test"
+      />,
+    );
+
+    const raw = window.localStorage.getItem("read-posts");
+    expect(raw).not.toBeNull();
+
+    const readPosts = JSON.parse(raw ?? "{}") as Record<string, string>;
+    expect(readPosts["silverbirder-github-io:test"]).toBeDefined();
+    expect(
+      Number.isNaN(Date.parse(readPosts["silverbirder-github-io:test"] ?? "")),
+    ).toBe(false);
   });
 
   it("renders the robot badge as indexed by default", async () => {

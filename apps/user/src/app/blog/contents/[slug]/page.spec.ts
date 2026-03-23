@@ -28,7 +28,7 @@ vi.mock("@/libs", async () => {
 
 import { getPostFrontmatter, getPostSlugs } from "@/libs";
 
-import { generateMetadata } from "./page";
+import { buildBlogPostingJsonLd, generateMetadata } from "./page";
 import { generateStaticParams } from "./static-params";
 
 describe("generateStaticParams", () => {
@@ -85,6 +85,46 @@ describe("generateMetadata", () => {
         "max-video-preview": -1,
       },
       index: false,
+    });
+  });
+});
+
+describe("buildBlogPostingJsonLd", () => {
+  it("builds BlogPosting structured data for the article page", () => {
+    const result = buildBlogPostingJsonLd({
+      canonical: "url:blog/contents/20251027/",
+      description: "要約テキスト",
+      imageUrl: "url:blog/contents/20251027/opengraph-image.png",
+      publishedAt: "2025-10-27",
+      tags: ["TagA", "TagB"],
+      title: "記事タイトル",
+    });
+
+    expect(result).toEqual({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      author: {
+        "@type": "Person",
+        name: "silverbirder",
+      },
+      datePublished: "2025-10-27",
+      description: "要約テキスト",
+      headline: "記事タイトル",
+      image: ["url:blog/contents/20251027/opengraph-image.png"],
+      keywords: ["TagA", "TagB"],
+      mainEntityOfPage: {
+        "@id": "url:blog/contents/20251027/",
+        "@type": "WebPage",
+      },
+      publisher: {
+        "@type": "Organization",
+        logo: {
+          "@type": "ImageObject",
+          url: "url:assets/logo.png",
+        },
+        name: "ジブンノート",
+      },
+      url: "url:blog/contents/20251027/",
     });
   });
 });

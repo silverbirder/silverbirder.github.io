@@ -20,6 +20,42 @@ import { createMdxOptions } from "@/libs/mdx/mdx-options";
 
 export { generateStaticParams } from "./static-params";
 
+export const buildBlogPostingJsonLd = (input: {
+  canonical: string;
+  description: string;
+  imageUrl: string;
+  publishedAt?: string;
+  tags?: string[];
+  title: string;
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    author: {
+      "@type": "Person",
+      name: "silverbirder",
+    },
+    headline: input.title,
+    image: [input.imageUrl],
+    keywords: input.tags,
+    mainEntityOfPage: {
+      "@id": input.canonical,
+      "@type": "WebPage",
+    },
+    publisher: {
+      "@type": "Organization",
+      logo: {
+        "@type": "ImageObject",
+        url: buildSiteUrl("assets/logo.png"),
+      },
+      name: siteName,
+    },
+    url: input.canonical,
+    ...(input.description ? { description: input.description } : {}),
+    ...(input.publishedAt ? { datePublished: input.publishedAt } : {}),
+  };
+};
+
 export async function generateMetadata(
   props: PageProps<"/blog/contents/[slug]">,
 ): Promise<Metadata> {
@@ -118,6 +154,14 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
       tags: frontmatter.tags,
     });
     const shareUrl = buildSiteUrl(`blog/contents/${slug}/`);
+    const jsonLd = buildBlogPostingJsonLd({
+      canonical: shareUrl,
+      description: frontmatter.summary ?? siteDescription,
+      imageUrl: buildSiteUrl(`blog/contents/${slug}/opengraph-image.png`),
+      publishedAt: frontmatter.publishedAt,
+      tags: frontmatter.tags,
+      title: frontmatter.title ?? "",
+    });
     const rssUrl = buildSiteUrl("rss.xml");
     const followLinks = {
       bluesky: "https://bsky.app/profile/silverbirder.bsky.social",
@@ -132,37 +176,43 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
       currentIndex >= 0 ? normalizedPosts.length - currentIndex : undefined;
 
     return (
-      <PostArticle
-        compiledSource={compiled.compiledSource}
-        followLinks={followLinks}
-        followProfileAvatarSrc={buildSiteUrl("assets/logo.png")}
-        meta={{
-          index: frontmatter.index,
-          postNumber,
-          publishedAt: frontmatter.publishedAt ?? "",
-          tags: frontmatter.tags ?? [],
-          title: frontmatter.title ?? "",
-        }}
-        navigation={{
-          next: nextPost
-            ? {
-                href: `/blog/contents/${nextPost.slug}`,
-                publishedAt: nextPost.publishedAt ?? "",
-                title: nextPost.title,
-              }
-            : undefined,
-          prev: prevPost
-            ? {
-                href: `/blog/contents/${prevPost.slug}`,
-                publishedAt: prevPost.publishedAt ?? "",
-                title: prevPost.title,
-              }
-            : undefined,
-        }}
-        relatedPosts={relatedPosts ?? []}
-        shareUrl={shareUrl}
-        slug={slug}
-      />
+      <>
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          type="application/ld+json"
+        />
+        <PostArticle
+          compiledSource={compiled.compiledSource}
+          followLinks={followLinks}
+          followProfileAvatarSrc={buildSiteUrl("assets/logo.png")}
+          meta={{
+            index: frontmatter.index,
+            postNumber,
+            publishedAt: frontmatter.publishedAt ?? "",
+            tags: frontmatter.tags ?? [],
+            title: frontmatter.title ?? "",
+          }}
+          navigation={{
+            next: nextPost
+              ? {
+                  href: `/blog/contents/${nextPost.slug}`,
+                  publishedAt: nextPost.publishedAt ?? "",
+                  title: nextPost.title,
+                }
+              : undefined,
+            prev: prevPost
+              ? {
+                  href: `/blog/contents/${prevPost.slug}`,
+                  publishedAt: prevPost.publishedAt ?? "",
+                  title: prevPost.title,
+                }
+              : undefined,
+          }}
+          relatedPosts={relatedPosts ?? []}
+          shareUrl={shareUrl}
+          slug={slug}
+        />
+      </>
     );
   } catch {
     notFound();

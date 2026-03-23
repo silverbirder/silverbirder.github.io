@@ -76,6 +76,15 @@ describe("generateMetadata", () => {
     expect(metadata.twitter).toMatchObject({
       title: "記事タイトル",
     });
-    expect(metadata.robots).toEqual({ index: false });
+    expect(metadata.robots).toEqual({
+      googleBot: {
+        follow: true,
+        index: false,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+      index: false,
+    });
   });
 });

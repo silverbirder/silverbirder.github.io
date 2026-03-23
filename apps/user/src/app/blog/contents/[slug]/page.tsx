@@ -57,6 +57,13 @@ export async function generateMetadata(
         url: canonical,
       },
       robots: {
+        googleBot: {
+          follow: true,
+          index: frontmatter.index === false ? false : true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
         index: frontmatter.index === false ? false : true,
       },
       title,

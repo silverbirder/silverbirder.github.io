@@ -15,7 +15,7 @@ const NOTEBOOK_LINE_COLOR = "#f4f4f5"; // var(--chakra-colors-border-muted)
 const FONT_SIZE = 52;
 const MAX_LINES = 3;
 const CONTENT_WIDTH = size.width - NOTEBOOK_LINE_HEIGHT * 2;
-const AVERAGE_CHAR_WIDTH = FONT_SIZE;
+const AVERAGE_CHAR_WIDTH = FONT_SIZE * 0.5;
 const MAX_CHARS_PER_LINE = Math.floor(CONTENT_WIDTH / AVERAGE_CHAR_WIDTH);
 
 const budouxParser = new Parser(jaModel);

@@ -195,6 +195,7 @@ const NotebookImageFrame = ({
 }: ImageFrameProps) => {
   return (
     <chakra.div
+      backgroundColor="border.muted"
       borderColor="border.muted"
       borderWidth="1px"
       boxSizing="border-box"

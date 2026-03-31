@@ -3,6 +3,7 @@ title: 'ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creat
 publishedAt: '2020-06-06'
 summary: 'みなさん、Zoom使っていますか？ ZoomのMeetingを自動生成するGASライブラリを公開しましたので、そのきっかけと使い方について紹介しようと思います。'
 tags: ["成果物", "Google", "サービス"]
+keywords: ['Zoom', 'meeting-creator']
 ---
 
 みなさん、Zoom 使っていますか？

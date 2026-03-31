@@ -3,6 +3,7 @@ title: '長年愛用していたiPhoneからGoogle Pixelに機種変更した'
 publishedAt: '2024-05-28'
 summary: 'はじめに 学生の頃からiPodやiPhone（iPhone 4から）を愛用してきた私ですが、ついにGoogle Pixel 8aに機種変更しました。この記事では、その理由と感想についてお話しします。'
 tags: ["趣味"]
+keywords: ['iPhone', 'Google Pixel']
 ---
 
 ## はじめに

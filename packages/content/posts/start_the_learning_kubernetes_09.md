@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 09. discovery&LB その2
 publishedAt: '2019-05-15'
 summary: '前回 一足遅れて Kubernetes を学び始める - 08. discovery&LB その1 -でServiceについての概要を学びました。今回は下記を一気に学びます。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'Load Balancer']
 ---
 
 ## ストーリー

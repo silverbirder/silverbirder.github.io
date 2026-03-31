@@ -3,6 +3,7 @@ title: 'Mac で バ美肉 りたい！  (Zoom + Gachikoe + 3Tene or Reality)'
 publishedAt: '2020-03-08'
 summary: 'きっかけ みなさん、リモートワーク（テレワーク）してますか？Hangouts MeetやZoomといったビデオ会議ツールを使う機会が増えたと思います。そんな中、次の記事が流行りました。 バ美肉（バびにく）とは、バーチャル美少女受肉またはバーチャル美少女セルフ受肉の略語'
 tags: ["サービス"]
+keywords: ['Mac', 'バ美肉']
 ---
 
 ## きっかけ

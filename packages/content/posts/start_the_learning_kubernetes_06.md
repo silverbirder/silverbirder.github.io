@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 06. workloads その2 -'
 publishedAt: '2019-05-05'
 summary: '前回 一足遅れて Kubernetes を学び始める - 05. workloads その1 -では、Pod,ReplicaSet,Deploymentの３つを学習しました。今回はDaemonSet,StatefulSet(一部)を学びます。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'StatefulSet']
 ---
 
 ## ストーリー

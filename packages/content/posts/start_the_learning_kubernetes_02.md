@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 02. Docker For Mac -'
 publishedAt: '2019-04-27'
 summary: '前回 一足遅れて Kubernetes を学び始める - 01. 環境選択編 -にて、Kubernetesを学ぶ環境を考えてみました。いきなりGKEを使うんじゃなくて、お手軽に試せるDockerForMacを使おうとなりました。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'Docker for Mac']
 ---
 
 ## ストーリー

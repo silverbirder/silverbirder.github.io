@@ -3,6 +3,7 @@ title: 'Cloud Runをたった3ステップでデプロイしてみた (golang)'
 publishedAt: '2019-04-11'
 summary: 'Cloud Run とは？ Cloud Run is a managed compute platform that enables you to run stateless containers that are invocable via HTTP requests. Cloud Run is serverless ※ https://cloud.google.com/run/ 詳しくは割愛するが、Cloud FunctionsやApp Engineと同じようなサーバーレスで動作するもの。コンテナをdeployするため、GKEから制御することもできる。'
 tags: ["クラウドインフラ", "Golang", "DevOps", "クローリング"]
+keywords: ['Cloud Run', 'Golang']
 ---
 
 ## Cloud Run とは

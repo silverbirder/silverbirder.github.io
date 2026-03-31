@@ -3,6 +3,7 @@ title: '【大阪】BMXUG勉強会 -Kubernates体験＆Watson Discovery入門- 2
 publishedAt: '2019-05-22'
 summary: '今回、k8sの体験を目的として参加したのですが、意外な収穫があったので、共有したく、記事を書くことにしました。'
 tags: ["レポート", "クラウドインフラ", "AI"]
+keywords: ['Watson Discovery']
 ---
 
 今回、k8s の体験を目的として参加したのですが、意外な収穫があったので、

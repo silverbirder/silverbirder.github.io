@@ -3,6 +3,7 @@ title: 'Apache Beam + Kotlin 開発 実践入門'
 publishedAt: '2020-07-10'
 summary: 'どうも、こんにちは。Re:ゼロ2期 始まりましたね、 @silverbirderです。最近、仕事の関係上、Apache Beam + Kotlin を使うことになりました。それらの技術が一切知らなかったので、この記事に学んだことを書いていきます。'
 tags: ["Kotlin"]
+keywords: ['Apache Beam']
 ---
 
 どうも、こんにちは。Re:ゼロ 2 期 始まりましたね 👏、 [@silverbirder](https://twitter.com/silverbirder) です。

@@ -3,6 +3,7 @@ title: 'AWS Summit Osaka 2019 2019年6月27日参加レポート'
 publishedAt: '2019-06-29'
 summary: '大阪のグランフロント大阪で開かれました「AWS Summit Osaka 2019」に参加してきましたので、私の中で良かった３つのセッションを紹介したいなと思います。'
 tags: ["クラウドインフラ", "レポート"]
+keywords: ['AWS Summit Osaka']
 ---
 
 大阪のグランフロント大阪で開かれました「AWS Summit Osaka 2019」に参加してきましたので、

@@ -3,6 +3,7 @@ title: 'Chrome拡張機能(Manifest V3)の開発で知ったこと'
 publishedAt: '2022-01-16'
 summary: '皆さん、Chrome拡張機能をご存知ですか？Chrome拡張機能は、Chromeブラウザをカスタマイズするための機能です。Chrome拡張機能の概要について詳しく知りたい方は、What are extensions? - Chrome Developersをご覧ください。'
 tags: ["ブラウザ", "成果物"]
+keywords: ['Chrome拡張機能', 'Manifest V3']
 ---
 
 皆さん、Chrome 拡張機能をご存知ですか？

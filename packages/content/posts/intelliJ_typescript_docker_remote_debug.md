@@ -3,6 +3,7 @@ title: 'IntelliJ + TypeScript + Docker で Remote Debug (Break Point)'
 publishedAt: '2019-12-28'
 summary: 'Dockerコンテナ上で、 `ts-node-dev --inspect=0.0.0.0:9229 ./dist/index.js` を実行'
 tags: ["開発ツール", "フロントエンド", "クラウドインフラ", "クローリング"]
+keywords: ['IntelliJ', 'Remote Debug']
 ---
 
 ## TL;DR

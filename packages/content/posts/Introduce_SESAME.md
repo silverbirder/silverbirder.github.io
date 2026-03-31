@@ -3,6 +3,7 @@ title: 'SESAME(セサミ) が届いたよ！'
 publishedAt: '2019-04-08'
 summary: '「鍵どこいったっけ？」という悩みから、おさらば！'
 tags: ["趣味"]
+keywords: ['SESAME']
 ---
 
 「鍵どこいったっけ？」という悩みから、おさらば！

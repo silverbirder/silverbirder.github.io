@@ -3,6 +3,7 @@ title: '【大阪】GCPUG Kansai 〜 Cloud Next Extended ～ - 2019年5月14日 
 publishedAt: '2019-05-22'
 summary: 'こちらの参加しましたので、ご報告します。hashtagはこちらです。next19extended 目的 2019/04/09 ～ 04/11 にサンフランシスコで開催された Google Cloud Next 19 San Francisco で発表された Google Cloud の 新サービスに関する解説や振り返りの内容がメインのイベントとなります！'
 tags: ["レポート", "クラウドインフラ"]
+keywords: ['Cloud Next Extended']
 ---
 
 https://gcpug-osaka.connpass.com/event/128130/

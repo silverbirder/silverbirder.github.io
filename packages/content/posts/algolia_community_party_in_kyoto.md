@@ -3,6 +3,7 @@ title: 'Algolia Community Party in 京都 - 2019年5月10日 参加レポート'
 publishedAt: '2019-05-11'
 summary: 'Algolia Community Party in 京都 - 2019年5月10日。こちらに参加しましたので、ご報告までに記事を書こうと思います。'
 tags: ["レポート", "サービス"]
+keywords: ['Algolia']
 ---
 
 https://algolia.connpass.com/event/128524/

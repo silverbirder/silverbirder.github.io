@@ -3,6 +3,7 @@ title: '【大阪・梅田】Kubernetes Meetup Tokyo 19 大阪サテライト- 2
 publishedAt: '2019-06-01'
 summary: '大阪からKubernetes Meetup Tokyoに参加できるとのことで、こちらに参加してきました。Kubernetesの生みの親である3人の内の1人のJoe Bedaから、Kubernetesの歴史の経緯について教えて頂きました。その話がとてもわかりやすく、なるほどなと思ったので、ぜひとも共有したいと思います。'
 tags: ["レポート", "クラウドインフラ"]
+keywords: ['Kubernetes Meetup Tokyo']
 ---
 
 大阪から Kubernetes Meetup Tokyo に参加できるとのことで、こちらに参加してきました。

@@ -3,6 +3,7 @@ title: 'Micro Frontends を調べたすべて'
 publishedAt: '2020-10-07'
 summary: 'Micro Frontendsに関わる記事を100件以上読みました(参考記事に記載しています)。そこから得たMicro Frontendsについてこの投稿に記録します。また、調査メモについて、次のリポジトリに残しています。'
 tags: ["フロントエンド"]
+keywords: ['Micro Frontends']
 ---
 
 Micro Frontends に関わる記事を 100 件以上読みました(参考記事に記載しています)。そこから得た Micro Frontends についてこの投稿に記録します。

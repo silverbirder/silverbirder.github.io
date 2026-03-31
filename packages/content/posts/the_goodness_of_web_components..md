@@ -3,6 +3,7 @@ title: 'Web Componentsの良さ'
 publishedAt: '2022-03-01'
 summary: 'Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。Web Components is 何https://www.webcomponents.org/specs より引用します。'
 tags: ["フロントエンド"]
+keywords: ['Web Components']
 ---
 
 Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。

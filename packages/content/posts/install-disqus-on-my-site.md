@@ -3,6 +3,7 @@ title: 'Disqusを設置したよ!'
 publishedAt: '2024-03-13'
 summary: 'これまで、ブログへのコメントサービスにGiscusをブログサイトに設置していました。本日、同コメントサービスのDisqusに切り替えました。'
 tags: ["趣味"]
+keywords: ['Disqus', '設置']
 ---
 
 これまで、ブログへのコメントサービスに[Giscus](https://giscus.app/ja)をブログサイトに設置していました。

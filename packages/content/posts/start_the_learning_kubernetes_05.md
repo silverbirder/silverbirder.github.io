@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 05. workloads その1 -'
 publishedAt: '2019-05-03'
 summary: '前回 一足遅れて Kubernetes を学び始める - 04. kubectl -では、kubenetesのCLIツールkubectlを学習しました。今回は、目玉機能であるworkloadsについて学習します。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'workloads']
 ---
 
 ## ストーリー

@@ -3,6 +3,7 @@ title: 'Zalando tailor で Micro Frontends with ( LitElement  & etcetera)'
 publishedAt: '2020-10-04'
 summary: 'Zalando社が開発したTailorを使って、サンプルWebアプリをMicro Frontendsで構築してみました。Tailorはサーバーサイドで統合するアーキテクチャです。クライアントサイドは、Web Componentsで作られているLit Elementを使って統合しました。どういった内容か、ここに投稿しようと思います。'
 tags: ["フロントエンド", "成果物"]
+keywords: ['tailor', 'Micro Frontends']
 ---
 
 Zalando 社が開発した Tailor を使って、サンプル Web アプリを Micro Frontends で構築してみました。Tailor はサーバーサイドで統合するアーキテクチャです。クライアントサイドは、Web Components で作られている Lit Element を使って統合しました。どういった内容か、ここに投稿しようと思います。

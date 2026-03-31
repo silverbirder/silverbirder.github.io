@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 08. discovery&LB その1
 publishedAt: '2019-05-07'
 summary: '前回 一足遅れて Kubernetes を学び始める - 07. workloads その3 -でようやくworkloadsが終了しました。今回は、discovery&LBを進めようと思います。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'discovery']
 ---
 
 ## ストーリー

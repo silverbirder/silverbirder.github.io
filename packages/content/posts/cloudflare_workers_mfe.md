@@ -3,6 +3,7 @@ title: 'Cloudflare Workers (Edge Worker) で Micro Frontends'
 publishedAt: '2020-11-15'
 summary: '今回、またMicro Frontendsの構築を試みようと思います。構築パターンの内、サーバーサイド統合パターン、特にエッジサイド統合を試しました。その内容を紹介します。サンプルコードは、下記に残しています。'
 tags: ["クラウドインフラ", "フロントエンド"]
+keywords: ['Cloudflare Workers', 'Micro Frontends']
 ---
 
 今回、また Micro Frontends の構築を試みようと思います。構築パターンの内、サーバーサイド統合パターン、特にエッジサイド統合を試しました。

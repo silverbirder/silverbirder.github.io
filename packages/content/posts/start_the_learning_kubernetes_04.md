@@ -3,6 +3,7 @@ title: '一足遅れて Kubernetes を学び始める - 04. kubectl -'
 publishedAt: '2019-05-02'
 summary: '前回 一足遅れて Kubernetes を学び始める - 03. Raspberry Pi -では、RaspberryPiの環境にKubernetesを導入しました。無事、動作確認ができたので、さっそく学習していきたいです。'
 tags: ["クラウドインフラ"]
+keywords: ['Kubernetes', 'kubectl']
 ---
 
 ## ストーリー

@@ -3,6 +3,7 @@ title: 'Million Lintを試してみた'
 publishedAt: '2024-03-21'
 summary: 'Million.devを知り、少し試してみました。Million.jsについて このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。 パフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。'
 tags: ["テスト", "開発ツール"]
+keywords: ['Million Lint']
 ---
 
 [Million.dev](https://million.dev/) を知り、少し試してみました。

@@ -3,6 +3,7 @@ title: 'Roundup IT Antenna Sites'
 publishedAt: '2019-07-03'
 summary: '背景 今年の9月にPyConJP 2019が開催されます。 https://pycon.jp/2019/ LTの募集があったので、LT応募するためのネタ探しをはじめました'
 tags: ["Python", "レポート"]
+keywords: ['IT Antenna Sites']
 ---
 
 ## 背景

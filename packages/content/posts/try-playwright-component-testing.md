@@ -3,6 +3,7 @@ title: 'Playwright Component Test を試してみた'
 publishedAt: '2024-03-20'
 summary: 'Playwright上で直接ブラウザ上のコンポーネントテストを実行できる「Playwright Component Test」（以下、playwright-ct）について知り、実際に試してみました。この記事では、その体験を共有します。実際に使用したリポジトリは下記の通りです。'
 tags: ["テスト"]
+keywords: ['Playwright', 'Component Test']
 ---
 
 Playwright上で直接ブラウザ上のコンポーネントテストを実行できる「[Playwright Component Test](https://playwright.dev/docs/test-components)」（以下、playwright-ct）について知り、実際に試してみました。

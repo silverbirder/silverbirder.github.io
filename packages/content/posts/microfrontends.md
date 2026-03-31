@@ -3,6 +3,7 @@ title: 'Micro Frontends を学んだすべて'
 publishedAt: '2020-05-04'
 summary: 'Micro FrontendsというWebフロントエンドアーキテクチャがあります。このアーキテクチャを知るために、書籍を読み、簡単なサンプルWebアプリを開発しました。そこから学んだことをすべて議事録として残したいと思います。'
 tags: ["フロントエンド"]
+keywords: ['Micro Frontends']
 ---
 
 Micro Frontends という Web フロントエンドアーキテクチャがあります。

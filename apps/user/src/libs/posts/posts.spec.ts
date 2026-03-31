@@ -244,6 +244,8 @@ tags: [nextjs, mdx]
     const frontmatter = await getPostFrontmatter("example");
 
     expect(frontmatter).toEqual({
+      index: undefined,
+      keywords: undefined,
       publishedAt: "2025-01-01",
       summary: "Summary",
       tags: ["nextjs", "mdx"],
@@ -273,6 +275,18 @@ publishedAt: "2025-01-02"
     const frontmatter = await getPostFrontmatter("example");
 
     expect(frontmatter.tags).toBeUndefined();
+  });
+
+  it("returns parsed keywords when frontmatter defines keywords", async () => {
+    readFile.mockResolvedValue(`---
+title: "Keyworded post"
+publishedAt: "2025-01-04"
+keywords: ["KeywordA", "KeywordB"]
+---`);
+
+    const frontmatter = await getPostFrontmatter("example");
+
+    expect(frontmatter.keywords).toEqual(["KeywordA", "KeywordB"]);
   });
 
   it("parses index: false as false", async () => {

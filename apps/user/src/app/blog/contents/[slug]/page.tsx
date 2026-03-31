@@ -20,12 +20,28 @@ import { createMdxOptions } from "@/libs/mdx/mdx-options";
 
 export { generateStaticParams } from "./static-params";
 
+const mergeUniqueKeywords = (values: Array<string[] | undefined>) => {
+  const seen = new Set<string>();
+
+  return values
+    .flatMap((value) => value ?? [])
+    .map((value) => value.trim())
+    .filter((value) => value.length > 0)
+    .filter((value) => {
+      if (seen.has(value)) {
+        return false;
+      }
+      seen.add(value);
+      return true;
+    });
+};
+
 export const buildBlogPostingJsonLd = (input: {
   canonical: string;
   description: string;
   imageUrl: string;
+  keywords?: string[];
   publishedAt?: string;
-  tags?: string[];
   title: string;
 }) => {
   return {
@@ -37,7 +53,7 @@ export const buildBlogPostingJsonLd = (input: {
     },
     headline: input.title,
     image: [input.imageUrl],
-    keywords: input.tags,
+    keywords: input.keywords,
     mainEntityOfPage: {
       "@id": input.canonical,
       "@type": "WebPage",
@@ -68,13 +84,17 @@ export async function generateMetadata(
     const description = frontmatter.summary ?? siteDescription;
     const canonical = buildSiteUrl(`blog/contents/${slug}/`);
     const tags = frontmatter.tags?.length ? frontmatter.tags : undefined;
+    const keywords = mergeUniqueKeywords([
+      frontmatter.tags,
+      frontmatter.keywords,
+    ]);
 
     return {
       alternates: {
         canonical,
       },
       description,
-      keywords: tags ?? [siteName, "ブログ", "記事"],
+      keywords,
       openGraph: {
         description,
         images: [
@@ -158,8 +178,8 @@ export default async function Page(props: PageProps<"/blog/contents/[slug]">) {
       canonical: shareUrl,
       description: frontmatter.summary ?? siteDescription,
       imageUrl: buildSiteUrl(`blog/contents/${slug}/opengraph-image.png`),
+      keywords: mergeUniqueKeywords([frontmatter.tags, frontmatter.keywords]),
       publishedAt: frontmatter.publishedAt,
-      tags: frontmatter.tags,
       title: frontmatter.title ?? "",
     });
     const rssUrl = buildSiteUrl("rss.xml");

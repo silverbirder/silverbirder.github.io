@@ -14,6 +14,7 @@ const contentDir = path.resolve(
 
 export type PostFrontmatter = {
   index?: boolean;
+  keywords?: string[];
   publishedAt?: string;
   summary?: string;
   tags?: string[];
@@ -86,6 +87,7 @@ export const getPostFrontmatter = async (
   const content = await readFile(path.join(contentDir, `${slug}.md`), "utf8");
   return {
     index: parseIndex(extractFrontmatterValue(content, "index")),
+    keywords: parseTags(extractFrontmatterValue(content, "keywords")),
     publishedAt: extractFrontmatterValue(content, "publishedAt") ?? undefined,
     summary: extractFrontmatterValue(content, "summary") ?? undefined,
     tags: parseTags(extractFrontmatterValue(content, "tags")),

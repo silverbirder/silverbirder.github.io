@@ -53,6 +53,7 @@ describe("generateMetadata", () => {
 
     mockedGetPostFrontmatter.mockResolvedValue({
       index: false,
+      keywords: ["KeywordB", "TagA"],
       publishedAt: "2025-10-27",
       summary: "要約テキスト",
       tags: ["TagA", "TagB"],
@@ -67,7 +68,7 @@ describe("generateMetadata", () => {
     expect(metadata.title).toBe("記事タイトル");
     expect(metadata.description).toBe("要約テキスト");
     expect(metadata.alternates?.canonical).toBe("url:blog/contents/20251027/");
-    expect(metadata.keywords).toEqual(["TagA", "TagB"]);
+    expect(metadata.keywords).toEqual(["TagA", "TagB", "KeywordB"]);
     expect(metadata.openGraph).toMatchObject({
       title: "記事タイトル",
       type: "article",
@@ -95,8 +96,8 @@ describe("buildBlogPostingJsonLd", () => {
       canonical: "url:blog/contents/20251027/",
       description: "要約テキスト",
       imageUrl: "url:blog/contents/20251027/opengraph-image.png",
+      keywords: ["TagA", "TagB", "KeywordB"],
       publishedAt: "2025-10-27",
-      tags: ["TagA", "TagB"],
       title: "記事タイトル",
     });
 
@@ -111,7 +112,7 @@ describe("buildBlogPostingJsonLd", () => {
       description: "要約テキスト",
       headline: "記事タイトル",
       image: ["url:blog/contents/20251027/opengraph-image.png"],
-      keywords: ["TagA", "TagB"],
+      keywords: ["TagA", "TagB", "KeywordB"],
       mainEntityOfPage: {
         "@id": "url:blog/contents/20251027/",
         "@type": "WebPage",

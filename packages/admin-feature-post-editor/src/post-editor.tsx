@@ -20,9 +20,15 @@ export const PostEditor = (props: Props) => {
     isDragActive,
     isLoading,
     isPreviewLoading,
+    keywordInputValue,
+    keywords,
     onBodyChange,
     onCreatePullRequest,
     onHatenaEnabledChange,
+    onKeywordInputBlur,
+    onKeywordInputChange,
+    onKeywordInputKeyDown,
+    onKeywordRemove,
     onPreviewRequest,
     onPublishedAtChange,
     onResolveLinkTitles,
@@ -60,9 +66,15 @@ export const PostEditor = (props: Props) => {
       hatenaEnabledValue={hatenaEnabled}
       isBodyDragActive={isDragActive}
       isLoading={isLoading}
+      keywordInputValue={keywordInputValue}
+      keywordsValue={keywords}
       onBodyChange={onBodyChange}
       onCreatePullRequest={onCreatePullRequest}
       onHatenaEnabledChange={onHatenaEnabledChange}
+      onKeywordInputBlur={onKeywordInputBlur}
+      onKeywordInputChange={onKeywordInputChange}
+      onKeywordInputKeyDown={onKeywordInputKeyDown}
+      onKeywordRemove={onKeywordRemove}
       onPreviewRequest={onPreviewRequest}
       onPublishedAtChange={onPublishedAtChange}
       onResolveLinkTitles={onResolveLinkTitles}

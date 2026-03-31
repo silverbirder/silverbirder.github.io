@@ -43,9 +43,15 @@ type Props = {
   initialTab?: "input" | "preview";
   isBodyDragActive?: boolean;
   isLoading?: boolean;
+  keywordInputValue: string;
+  keywordsValue: string[];
   onBodyChange: (value: string) => void;
   onCreatePullRequest?: () => void;
   onHatenaEnabledChange?: (value: boolean) => void;
+  onKeywordInputBlur: () => void;
+  onKeywordInputChange: (value: string) => void;
+  onKeywordInputKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onKeywordRemove: (tag: string) => void;
   onPreviewRequest?: () => void;
   onPublishedAtChange: (value: string) => void;
   onResolveLinkTitles?: () => void;
@@ -335,9 +341,15 @@ export const PostEditorLayout = ({
   initialTab = "input",
   isBodyDragActive = false,
   isLoading = false,
+  keywordInputValue,
+  keywordsValue,
   onBodyChange,
   onCreatePullRequest,
   onHatenaEnabledChange,
+  onKeywordInputBlur,
+  onKeywordInputChange,
+  onKeywordInputKeyDown,
+  onKeywordRemove,
   onPreviewRequest,
   onPublishedAtChange,
   onResolveLinkTitles,
@@ -550,6 +562,44 @@ export const PostEditorLayout = ({
                                       onTagRemove(tag);
                                     }}
                                     tag={tag}
+                                  />
+                                ))}
+                              </TagList>
+                            ) : null}
+                          </TagInputRow>
+                        </FieldGroup>
+                        <FieldGroup>
+                          {t("keywordsLabel")}
+                          <TagInputRow>
+                            <Input
+                              aria-label={t("keywordsLabel")}
+                              disabled={isLoading}
+                              name="keywords"
+                              onBlur={onKeywordInputBlur}
+                              onChange={(event) =>
+                                onKeywordInputChange(event.target.value)
+                              }
+                              onKeyDown={onKeywordInputKeyDown}
+                              placeholder={t("keywordsPlaceholder")}
+                              value={keywordInputValue}
+                            />
+                            {keywordsValue.length > 0 ? (
+                              <TagList data-testid="post-editor-keywords">
+                                {keywordsValue.map((keyword) => (
+                                  <Tag
+                                    aria-label={t("keywordsRemoveAriaLabel", {
+                                      keyword,
+                                    })}
+                                    data-testid="post-editor-keyword"
+                                    href="#"
+                                    iconType="tag"
+                                    isSelected
+                                    key={keyword}
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      onKeywordRemove(keyword);
+                                    }}
+                                    tag={keyword}
                                   />
                                 ))}
                               </TagList>

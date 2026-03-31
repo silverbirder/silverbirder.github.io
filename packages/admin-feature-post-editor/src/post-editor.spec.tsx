@@ -59,15 +59,18 @@ describe("PostEditor", () => {
     const publishedAtInput = document.querySelector(
       "input[name='publishedAt']",
     );
+    const keywordsInput = document.querySelector("input[name='keywords']");
     const tagsInput = document.querySelector("input[name='tags']");
     const bodyInput = document.querySelector("textarea[name='body']");
 
     expect(labels.some((label) => label.includes("タイトル"))).toBe(false);
     expect(labels.some((label) => label.includes("公開日"))).toBe(true);
     expect(labels.some((label) => label.includes("タグ"))).toBe(true);
+    expect(labels.some((label) => label.includes("キーワード"))).toBe(true);
     expect(labels.some((label) => label.includes("本文"))).toBe(false);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(publishedAtInput).not.toBeNull();
+    expect(keywordsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");
   });
@@ -100,6 +103,38 @@ describe("PostEditor", () => {
     await expect
       .poll(() => document.querySelectorAll("[data-testid='post-editor-tag']"))
       .toHaveLength(1);
+  });
+
+  it("adds keywords from the drawer input", async () => {
+    await renderWithProvider(
+      <PostEditor
+        resolveLinkTitles={resolveLinkTitles}
+        resolvePreview={resolvePreview}
+        uploadImage={uploadImage}
+      />,
+    );
+
+    await openDrawer();
+
+    const keywordInput = document.querySelector(
+      "input[name='keywords']",
+    ) as HTMLInputElement | null;
+
+    expect(keywordInput).not.toBeNull();
+
+    if (keywordInput) {
+      keywordInput.value = "検索, SEO";
+      keywordInput.dispatchEvent(new Event("input", { bubbles: true }));
+      keywordInput.dispatchEvent(
+        new KeyboardEvent("keydown", { bubbles: true, key: "Enter" }),
+      );
+    }
+
+    await expect
+      .poll(() =>
+        document.querySelectorAll("[data-testid='post-editor-keyword']"),
+      )
+      .toHaveLength(2);
   });
 
   it("requests preview when switching to the preview tab", async () => {
@@ -290,6 +325,7 @@ describe("PostEditor", () => {
       expect(payload.title).toBe("Title");
       expect(payload.body).toBe("Hello, world");
       expect(payload.id).toBeUndefined();
+      expect(payload.keywords).toEqual([]);
       expect(payload.silent).toBe(true);
       expect(alertSpy).not.toHaveBeenCalled();
 
@@ -324,6 +360,7 @@ describe("PostEditor", () => {
           body: "Hello",
           hatenaEnabled: false,
           id: "draft-1",
+          keywords: [],
           publishedAt: "2026-02-14",
           summary: "summary",
           tags: [],
@@ -374,6 +411,7 @@ describe("PostEditor", () => {
           body: "restored body",
           hatenaEnabled: false,
           id: "local-draft-1",
+          keywords: ["検索"],
           publishedAt: "2026-02-14",
           summary: "restored summary",
           tags: ["TypeScript"],
@@ -414,5 +452,13 @@ describe("PostEditor", () => {
         return bodyInput?.value ?? "";
       })
       .toBe("restored body");
+
+    await expect
+      .poll(
+        () =>
+          document.querySelectorAll("[data-testid='post-editor-keyword']")
+            .length,
+      )
+      .toBe(1);
   });
 });

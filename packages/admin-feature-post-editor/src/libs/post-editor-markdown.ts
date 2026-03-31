@@ -35,6 +35,7 @@ export const getUniqueDailyFileName = (
 };
 
 const formatTags = (tags: string[]) => formatYamlStringList(tags);
+const formatKeywords = (keywords: string[]) => formatYamlStringList(keywords);
 
 const normalizePublishedAt = (value: string, date: Date) => {
   const trimmed = value.trim();
@@ -48,6 +49,7 @@ export const buildMarkdown = (
   draft: {
     body: string;
     index: boolean;
+    keywords: string[];
     publishedAt: string;
     summary: string;
     tags: string[];
@@ -67,8 +69,9 @@ export const buildMarkdown = (
   const publishedAt = normalizePublishedAt(draft.publishedAt, date);
   const body = draft.body;
   const tags = formatTags(draft.tags);
+  const keywords = formatKeywords(draft.keywords);
 
   const index = draft.index ? "true" : "false";
 
-  return `---\ntitle: '${title}'\npublishedAt: '${publishedAt}'\nsummary: '${summary}'\ntags: ${tags}\nindex: ${index}\n---\n\n${body}\n`;
+  return `---\ntitle: '${title}'\npublishedAt: '${publishedAt}'\nsummary: '${summary}'\ntags: ${tags}\nkeywords: ${keywords}\nindex: ${index}\n---\n\n${body}\n`;
 };

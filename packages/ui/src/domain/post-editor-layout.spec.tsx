@@ -23,7 +23,13 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         bodyValue=""
         initialTab="preview"
+        keywordInputValue=""
+        keywordsValue={[]}
         onBodyChange={() => undefined}
+        onKeywordInputBlur={() => undefined}
+        onKeywordInputChange={() => undefined}
+        onKeywordInputKeyDown={() => undefined}
+        onKeywordRemove={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -61,7 +67,13 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue="Body"
+        keywordInputValue=""
+        keywordsValue={[]}
         onBodyChange={() => undefined}
+        onKeywordInputBlur={() => undefined}
+        onKeywordInputChange={() => undefined}
+        onKeywordInputKeyDown={() => undefined}
+        onKeywordRemove={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -106,8 +118,14 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         bodyValue="Body"
         hatenaEnabledValue
+        keywordInputValue=""
+        keywordsValue={[]}
         onBodyChange={() => undefined}
         onHatenaEnabledChange={() => undefined}
+        onKeywordInputBlur={() => undefined}
+        onKeywordInputChange={() => undefined}
+        onKeywordInputKeyDown={() => undefined}
+        onKeywordRemove={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -144,7 +162,13 @@ describe("PostEditorLayout", () => {
       <PostEditorLayout
         autoSaveStatus="saved"
         bodyValue="Body"
+        keywordInputValue=""
+        keywordsValue={[]}
         onBodyChange={() => undefined}
+        onKeywordInputBlur={() => undefined}
+        onKeywordInputChange={() => undefined}
+        onKeywordInputKeyDown={() => undefined}
+        onKeywordRemove={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}
@@ -171,8 +195,14 @@ describe("PostEditorLayout", () => {
     await renderWithProvider(
       <PostEditorLayout
         bodyValue="Body"
+        keywordInputValue=""
+        keywordsValue={[]}
         onBodyChange={() => undefined}
         onCreatePullRequest={() => undefined}
+        onKeywordInputBlur={() => undefined}
+        onKeywordInputChange={() => undefined}
+        onKeywordInputKeyDown={() => undefined}
+        onKeywordRemove={() => undefined}
         onPublishedAtChange={() => undefined}
         onTagInputBlur={() => undefined}
         onTagInputChange={() => undefined}

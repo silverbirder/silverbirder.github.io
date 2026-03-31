@@ -60,6 +60,7 @@ describe("draftRouter", () => {
 
     const saved = await caller.save({
       body: "# body",
+      keywords: [],
       publishedAt: "2026-02-14",
       summary: "summary",
       tags: ["tag"],

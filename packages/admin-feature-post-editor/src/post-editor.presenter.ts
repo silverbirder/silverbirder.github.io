@@ -26,6 +26,7 @@ type Props = {
   initialBody?: string;
   initialDraftId?: string;
   initialHatenaEnabled?: boolean;
+  initialKeywords?: string[];
   initialPublishedAt?: string;
   initialSummary?: string;
   initialTags?: string[];
@@ -39,6 +40,7 @@ type Props = {
       enabled: boolean;
     };
     index: boolean;
+    keywords: string[];
     publishedAt: string;
     summary: string;
     tags: string[];
@@ -56,6 +58,7 @@ type Props = {
     body: string;
     hatenaEnabled: boolean;
     id?: string;
+    keywords: string[];
     publishedAt: string;
     silent?: boolean;
     summary: string;
@@ -80,6 +83,7 @@ type LocalDraft = {
   body: string;
   hatenaEnabled: boolean;
   id: string;
+  keywords: string[];
   publishedAt: string;
   summary: string;
   tags: string[];
@@ -115,6 +119,8 @@ const isLocalDraft = (value: unknown): value is LocalDraft => {
     typeof candidate.hatenaEnabled === "boolean" &&
     typeof candidate.id === "string" &&
     candidate.id.length > 0 &&
+    Array.isArray(candidate.keywords) &&
+    candidate.keywords.every((keyword) => typeof keyword === "string") &&
     typeof candidate.publishedAt === "string" &&
     typeof candidate.summary === "string" &&
     Array.isArray(candidate.tags) &&
@@ -207,6 +213,7 @@ export const usePostEditorPresenter = ({
   initialBody,
   initialDraftId,
   initialHatenaEnabled,
+  initialKeywords,
   initialPublishedAt,
   initialSummary,
   initialTags,
@@ -271,18 +278,29 @@ export const usePostEditorPresenter = ({
     tagInputValue,
     tags,
   } = usePostEditorTags({ initialTags, tagSuggestions });
+  const {
+    onTagInputBlur: onKeywordInputBlur,
+    onTagInputChange: onKeywordInputChange,
+    onTagInputKeyDown: onKeywordInputKeyDown,
+    onTagRemove: onKeywordRemove,
+    setTags: setKeywords,
+    tagInputValue: keywordInputValue,
+    tags: keywords,
+  } = usePostEditorTags({ initialTags: initialKeywords });
   const hasDraftContent = useMemo(() => {
     return (
       title.trim().length > 0 ||
       body.trim().length > 0 ||
       summary.trim().length > 0 ||
-      tags.length > 0
+      tags.length > 0 ||
+      keywords.length > 0
     );
-  }, [body, summary, tags, title]);
+  }, [body, keywords, summary, tags, title]);
   const draftSnapshot = useMemo(() => {
     return JSON.stringify({
       body,
       hatenaEnabled: enableHatenaSync && hatenaEnabled,
+      keywords,
       publishedAt,
       summary,
       tags,
@@ -294,6 +312,7 @@ export const usePostEditorPresenter = ({
     body,
     enableHatenaSync,
     hatenaEnabled,
+    keywords,
     publishedAt,
     summary,
     tags,
@@ -381,6 +400,7 @@ export const usePostEditorPresenter = ({
       body: bodyRef.current,
       hatenaEnabled: enableHatenaSync && hatenaEnabled,
       id: currentDraftId,
+      keywords,
       publishedAt,
       summary,
       tags,
@@ -401,6 +421,7 @@ export const usePostEditorPresenter = ({
           enabled: enableHatenaSync && hatenaEnabled,
         },
         index: !shouldNoindex,
+        keywords,
         publishedAt,
         summary,
         tags,
@@ -448,6 +469,7 @@ export const usePostEditorPresenter = ({
     createPullRequestIsDisabled,
     draftId,
     onCreatePullRequest,
+    keywords,
     publishedAt,
     summary,
     tags,
@@ -484,6 +506,7 @@ export const usePostEditorPresenter = ({
           body: bodyRef.current,
           hatenaEnabled: enableHatenaSync && hatenaEnabled,
           id: draftId,
+          keywords,
           publishedAt,
           silent,
           summary,
@@ -513,6 +536,7 @@ export const usePostEditorPresenter = ({
           body: bodyRef.current,
           hatenaEnabled: enableHatenaSync && hatenaEnabled,
           id: nextDraftId,
+          keywords,
           publishedAt,
           summary,
           tags,
@@ -553,6 +577,7 @@ export const usePostEditorPresenter = ({
       enableHatenaSync,
       hatenaEnabled,
       draftId,
+      keywords,
       publishedAt,
       summary,
       tags,
@@ -620,6 +645,7 @@ export const usePostEditorPresenter = ({
         body: bodyRef.current,
         hatenaEnabled: enableHatenaSync && hatenaEnabled,
         id: nextDraftId,
+        keywords,
         publishedAt,
         summary,
         tags,
@@ -640,6 +666,7 @@ export const usePostEditorPresenter = ({
     draftSnapshot,
     enableHatenaSync,
     hatenaEnabled,
+    keywords,
     publishedAt,
     summary,
     tags,
@@ -700,6 +727,7 @@ export const usePostEditorPresenter = ({
       initialTitle !== undefined ||
       initialPublishedAt !== undefined ||
       initialSummary !== undefined ||
+      (initialKeywords && initialKeywords.length > 0) ||
       (initialTags && initialTags.length > 0) ||
       initialHatenaEnabled !== undefined ||
       initialZennEnabled !== undefined ||
@@ -717,6 +745,7 @@ export const usePostEditorPresenter = ({
     if (localDraft && !hasInitialValues) {
       setTitle(localDraft.title);
       setSummary(localDraft.summary);
+      setKeywords(localDraft.keywords);
       setTags(localDraft.tags);
       setHatenaEnabled(localDraft.hatenaEnabled);
       setZennEnabled(localDraft.zennEnabled);
@@ -735,6 +764,10 @@ export const usePostEditorPresenter = ({
 
     if (initialSummary !== undefined) {
       setSummary(initialSummary);
+    }
+
+    if (initialKeywords) {
+      setKeywords(initialKeywords);
     }
 
     if (initialTags) {
@@ -767,6 +800,7 @@ export const usePostEditorPresenter = ({
   }, [
     initialBody,
     initialDraftId,
+    initialKeywords,
     initialPublishedAt,
     initialSummary,
     initialTags,
@@ -775,6 +809,7 @@ export const usePostEditorPresenter = ({
     initialZennEnabled,
     initialZennType,
     updateSummaryFromBody,
+    setKeywords,
     setTitle,
     setTags,
   ]);
@@ -836,11 +871,17 @@ export const usePostEditorPresenter = ({
     isLoading,
     isPreviewLoading,
     isSavingDraft,
+    keywordInputValue,
+    keywords,
     onBodyChange: handleBodyChange,
     onCreatePullRequest: onCreatePullRequest
       ? handleCreatePullRequest
       : undefined,
     onHatenaEnabledChange: enableHatenaSync ? setHatenaEnabled : undefined,
+    onKeywordInputBlur,
+    onKeywordInputChange,
+    onKeywordInputKeyDown,
+    onKeywordRemove,
     onPreviewRequest: handlePreviewRequest,
     onPublishedAtChange: setPublishedAt,
     onResolveLinkTitles: handleResolveLinkTitles,

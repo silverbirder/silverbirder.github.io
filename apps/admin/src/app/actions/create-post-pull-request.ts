@@ -27,6 +27,7 @@ type DraftInput = {
     enabled: boolean;
   };
   index: boolean;
+  keywords: string[];
   publishedAt: string;
   summary: string;
   tags: string[];

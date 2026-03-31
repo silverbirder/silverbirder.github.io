@@ -7,6 +7,7 @@ const saveDraftInputSchema = z.object({
   body: z.string(),
   hatenaEnabled: z.boolean().optional(),
   id: z.string().min(1).optional(),
+  keywords: z.array(z.string()),
   publishedAt: z.string(),
   summary: z.string(),
   tags: z.array(z.string()),

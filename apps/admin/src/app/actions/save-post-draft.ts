@@ -6,6 +6,7 @@ type SavePostDraftInput = {
   body: string;
   hatenaEnabled: boolean;
   id?: string;
+  keywords: string[];
   publishedAt: string;
   silent?: boolean;
   summary: string;

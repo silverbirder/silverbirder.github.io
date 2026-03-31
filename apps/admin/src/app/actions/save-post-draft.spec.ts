@@ -35,6 +35,7 @@ describe("savePostDraft", () => {
     const result = await savePostDraft({
       body: "body",
       hatenaEnabled: false,
+      keywords: [],
       publishedAt: "2026-02-14",
       summary: "summary",
       tags: [],
@@ -45,6 +46,17 @@ describe("savePostDraft", () => {
 
     expect(getTranslations).toHaveBeenCalledWith("admin.postEditor");
     expect(save).toHaveBeenCalledOnce();
+    expect(save).toHaveBeenCalledWith({
+      body: "body",
+      hatenaEnabled: false,
+      keywords: [],
+      publishedAt: "2026-02-14",
+      summary: "summary",
+      tags: [],
+      title: "title",
+      zennEnabled: false,
+      zennType: "tech",
+    });
     expect(result.id).toBe("draft-1");
     expect(result.actions).toEqual([
       { message: "saveDraftSuccess", type: "alert" },
@@ -58,6 +70,7 @@ describe("savePostDraft", () => {
     const result = await savePostDraft({
       body: "body",
       hatenaEnabled: false,
+      keywords: [],
       publishedAt: "2026-02-14",
       summary: "summary",
       tags: [],
@@ -78,6 +91,7 @@ describe("savePostDraft", () => {
     const result = await savePostDraft({
       body: "body",
       hatenaEnabled: false,
+      keywords: [],
       publishedAt: "2026-02-14",
       silent: true,
       summary: "summary",

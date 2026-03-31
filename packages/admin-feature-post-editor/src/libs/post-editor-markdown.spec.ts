@@ -47,6 +47,7 @@ describe("buildMarkdown", () => {
     const draft = {
       body,
       index: true,
+      keywords: [],
       publishedAt: "2026-02-01",
       summary: "Summary",
       tags: ["tag"],
@@ -66,6 +67,7 @@ describe("buildMarkdown", () => {
     const draft = {
       body: "Body text",
       index: false,
+      keywords: ["keyword", "keyword", "Other keyword"],
       publishedAt: "2026-02-01",
       summary: "  ",
       tags: ["tag", "tag", "Other"],
@@ -81,6 +83,7 @@ describe("buildMarkdown", () => {
     expect(result).toContain("publishedAt: '2026-02-01'");
     expect(result).toContain("summary:");
     expect(result).toContain("tags: ['tag', 'Other']");
+    expect(result).toContain("keywords: ['keyword', 'Other keyword']");
     expect(result).toContain("index: false");
     expect(result.endsWith("Body text\n")).toBe(true);
   });
@@ -90,6 +93,7 @@ describe("buildMarkdown", () => {
     const draft = {
       body: "Body",
       index: true,
+      keywords: [],
       publishedAt: "2026/02/01",
       summary: "Summary",
       tags: [],

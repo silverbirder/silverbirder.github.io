@@ -49,7 +49,7 @@ export const NotebookProse = chakra("div", {
     backgroundImage: `repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--notebook-line-height) - 1px), ${NOTEBOOK_LINE_COLOR} calc(var(--notebook-line-height) - 1px), ${NOTEBOOK_LINE_COLOR} var(--notebook-line-height))`,
     backgroundPosition: "0 0",
     backgroundSize: "100% var(--notebook-line-height)",
-    color: "fg.muted",
+    color: "gray.fg",
     fontSize: "sm",
     [inWhere("& .mdx-heading-anchor::after")]: {
       content: '"#"',

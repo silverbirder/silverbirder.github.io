@@ -1,0 +1,168 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1fbd,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    h3: "h3",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["買ったものリストを投稿・共有できるサービス『 ", _jsx(_components.strong, {
+        children: "かったものリスト"
+      }), " 』を開発しました。\n今回は、そのサービスの紹介と技術的な話をしようと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ作ったのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ作ったのか",
+        children: "なぜ作ったのか"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "背景",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#背景",
+        children: "背景"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "もともと、私のサイトには、かったものリストを表示するページがありました。\n書籍やガジェットなどの購入履歴を JSON ファイルで管理し、そのデータをもとに簡単な一覧ページを作成していました。\nこの一覧ページは、誰かにお気に入りのアイテムを紹介する場面で役立っていました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、サイトをリニューアルした際に、かったものリストのページがなくなってしまいました。\nそこで、 ", _jsx(_components.strong, {
+        children: "『かったものリストをサービスとして独立させよう』"
+      }), " と考えました。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "決断",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#決断",
+        children: "決断"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "私が求めていたのは、自由にかったものリストを作成し、それを誰でも閲覧できる仕組みです。\nこの仕組みがあれば、自分のかったものリストを気軽に他の人に紹介できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "どう作ろうか悩んでいたとき、年末に「2024年に買ってよかったもの」というフレーズを目にしました。\n実際に、個人ブログでは購入した商品とその良かった点を自由に記述し、公開するケースが多くあります。\nそこで、『これだ！』とひらめき、ベストバイを共有するサービス『かったものリスト』を作ることを決断しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どのようなサービスか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どのようなサービスか",
+        children: "どのようなサービスか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "URLは以下です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://my-buy-items.vercel.app",
+        children: "my-buy-items.vercel.app"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このサービスは、投稿型で、Notionのように自由な書き方ができます。\n画像や埋め込みも可能です。"
+    }), "\n", _jsx(_components.p, {
+      children: "書いたかったものリストを公開すると、新着リストに掲載されたり、ユーザーごとにまとめて表示されます。\nこのかったものリストを活用すれば、自分のかったものリストを他の人に簡単に共有できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、以下の機能も備えています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "いいね機能"
+      }), "\n", _jsx(_components.li, {
+        children: "投稿の閲覧数表示"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "こうして、私が求めていたサービスが完成しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "開発について",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発について",
+        children: "開発について"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "『かったものリスト』は、約1ヶ月の開発期間で完成しました。\n初回のGitコミットは2025年1月1日23時31分で、最終的に2025年1月29日18時にリリースしました。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["開発には、 ", _jsx(_components.strong, {
+        children: "私オリジナルの個人開発向けのスターターキット"
+      }), " を活用しました。\nこのスターターキットは、T3Stackのコンセプトをベースにし、ホスティングにはVercelを使用しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "主な構成は以下のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "フレームワーク: Next.js"
+      }), "\n", _jsx(_components.li, {
+        children: "API: tRPC"
+      }), "\n", _jsx(_components.li, {
+        children: "認証: Auth.js"
+      }), "\n", _jsx(_components.li, {
+        children: "データベース: Vercel PostgreSQL（ORM: Drizzle / クライアント: Drizzle Studio）"
+      }), "\n", _jsx(_components.li, {
+        children: "ストレージ: Vercel Blob"
+      }), "\n", _jsx(_components.li, {
+        children: "スタイル: TailwindCSS、shadcn/ui"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、以下のセットアップもマニュアル化しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "よく使うUI要素（ヘッダー、フッター）"
+      }), "\n", _jsx(_components.li, {
+        children: "OGP、アイコン、マニフェスト、メタデータ"
+      }), "\n", _jsx(_components.li, {
+        children: "GA設定、問い合わせリンク"
+      }), "\n", _jsx(_components.li, {
+        children: "タスク管理用の TODO.md"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["開発においては、v0とChatGPTを活用しました。", _jsx(_components.br, {}), "\nさらに、今回の開発では以下の技術を導入しました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "エディタ: Tiptap (Novel)"
+      }), "\n", _jsx(_components.li, {
+        children: "ドラッグ&ドロップ: dndkit"
+      }), "\n", _jsx(_components.li, {
+        children: "アバター編集: react-avatar-editor"
+      }), "\n", _jsx(_components.li, {
+        children: "OGPテキストの改行処理: budoux"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本記事では、『かったものリスト』の開発経緯と技術構成について紹介しました。\nこのサービスが、多くの人にとって便利なものになれば嬉しいです。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"かったものリストサービス開発の振り返り\",\"image\":[\"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/opengraph-image.png\"],\"keywords\":[\"振り返り\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/\",\"description\":\"買ったものリストを投稿・共有できるサービス『かったものリスト』を開発しました。今回は、そのサービスの紹介と技術的な話をしようと思います。\",\"datePublished\":\"2025-02-01\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":136,"publishedAt":"2025-02-01","tags":["振り返り"],"title":"かったものリストサービス開発の振り返り"},"navigation":{"next":{"href":"/blog/contents/opengraph-image-lineclamp-budoux","publishedAt":"2025-02-06","title":"OGPのテキストを任意の行で省略する、lineClampとbudoux"},"prev":{"href":"/blog/contents/testcontainers-integration-test-disposable","publishedAt":"2025-01-03","title":"Testcontainersで実現する、使い捨て結合テスト環境構築とテスト実施"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-24","slug":"20260224","summary":"本日、税理士さんより令和7年 確定申告の決算書に関する説明をして貰いました。 内訳については書きませんが、初めて税理士さんに確定申告の手続きを進めて貰った感想などを書きます。 発端 以下の記事で触れていますように、青色申告の65万円控除を受けたいため","tags":["仕事","振り返り"],"title":"令和7年 確定申告 振り返り"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2025-11-22","slug":"20251122","summary":"メタセコイア並木 今日は 11 月 22 日、いい夫婦の日。 そして、私たちの 5 年目の結婚記念日です。 今年は滋賀県に引っ越したこともあり、高島市マキノ町にある メタセコイア並木へ行ってきました。 滋賀県ではとても有名な景勝地で、メタセ","tags":["振り返り"],"title":"5年目の結婚記念日"}],"tag":"振り返り"}],"shareUrl":"https://silverbirder.github.io/blog/contents/my-buy-items-retrospective/","slug":"my-buy-items-retrospective"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

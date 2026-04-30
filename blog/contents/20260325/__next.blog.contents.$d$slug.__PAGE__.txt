@@ -1,0 +1,264 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3dc5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の書籍を7章から8章まで読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から6章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "linkを表示したい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#linkを表示したい",
+        children: "Linkを表示したい"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "※ 理解が間違っていそうですが、言語化します。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["前のセクションにてWebページを表示できるようになったのですが、Webの最重要である別文書へのリンクが欲しくなります。", _jsx(_components.br, {}), "\nリンクがあると、ネットサーフィンができるようになります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["現状の実装ではレイアウトをブロックかインラインかによって、テキストや要素の表示位置を調整できます。", _jsx(_components.br, {}), "\nまだ要素自身の表示位置が不明です。", _jsx(_components.br, {}), "\nそこで、LineLayoutとTextLayoutというクラスを用意しました。", _jsx(_components.br, {}), "\nLineLayoutの中にTextLayoutが複数保持する形となりました。", _jsx(_components.br, {}), "\nTextLayoutには、フォント、x位置、高さなどの情報を残して、y位置はLineLayoutが計算します。", _jsx(_components.br, {}), "\nTextLayoutには、(a要素などの)Elementのノードを参照できます。", _jsx(_components.br, {}), "\nこれで、a要素がどこにあるのか把握できるようになります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ 文章だけですみません。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["ウィンドウからリンクをクリックした際、ウィンドウ内のx,y座標が分かります。", _jsx(_components.br, {}), "\nその座標から、TextLayoutの位置を逆算してどこの要素がクリックされたか判断できます。", _jsx(_components.br, {}), "\n厳密にいうと、スタッキングコンテキストによる計算が必要ですが省略されます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "クリックした座標から、a要素のhrefが取得できたら 従来のURLを読み込む処理に戻して画面を再描画します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "クロームの実装",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#クロームの実装",
+        children: "クロームの実装"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "ブラウザのWebページ以外のUI部品（アドレスバーとか）の総称をクロームと呼ぶ"
+      }), " そうです。", _jsx(_components.br, {}), "\nリンクによるページ遷移ができたら、別タブで開く操作が欲しくなります。", _jsx(_components.br, {}), "\nそうです、クロームUIを実装します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実装としては、まずは構造設計です。", _jsx(_components.br, {}), "\nブラウザクラスとクロームクラス、タブクラスの3つを作成します。", _jsx(_components.br, {}), "\n従来のWebページの実装はタブクラスになり、ブラウザクラスがタブクラスやクロームクラスを保持する形になります。", _jsx(_components.br, {}), "\nブラウザクラスは、クリックなどのイベントを受け取り、クロームやタブクラスへ処理を委譲します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["クロームUIについては、Tkinterのキャンバス機能を使って長方形などを描画するのを細かく書きます。", _jsx(_components.br, {}), "\nクロームUIには、タブやアドレスバー、戻るの実装を行います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果として、以下の画面出力となりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774360804/silver-birder.github.io/blog/eczqkkhu7ruyoqqedb6i.png?ar=1660%3A1304",
+        alt: "Section 7.7"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "かなりブラウザっぽくなってきました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "htmlフォーム",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#htmlフォーム",
+        children: "HTMLフォーム"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次はWebページを見るだけでなく、コメントを書き込むなどフォーム送信できるようにしたいです。"
+    }), "\n", _jsx(_components.h3, {
+      id: "アトミックインラインレベルボックス",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アトミックインラインレベルボックス",
+        children: "アトミックインラインレベルボックス"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["HTMLでフォームを実装すると、inputやbuttonのような要素を使うことが多いです。", _jsx(_components.br, {}), "\nこれらの要素は、アトミックインラインレベルボックスに該当するようです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.w3.org/TR/CSS2/visuren.html#inline-boxes",
+          children: "Visual formatting model - www.w3.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["従来のインライン要素（例：", _jsx(_components.code, {
+        children: "span"
+      }), " や ", _jsx(_components.code, {
+        children: "a"
+      }), "）は、中のテキストが分解されて行内に配置されます。", _jsx(_components.br, {}), "\nそのまま複数行に跨ることができます。", _jsx(_components.br, {}), "\nCSSでいうと、", _jsx(_components.code, {
+        children: "display: inline"
+      }), " が該当します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["一方でアトミックインラインレベルボックスは、", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "input"
+      }), " や ", _jsx(_components.code, {
+        children: "button"
+      }), " のような要素は、見た目はインラインとして並びますが、", _jsx(_components.br, {}), "\n中身は分解されず、1つのまとまりとして扱われます。", _jsx(_components.br, {}), "\nそのため改行が発生する場合でも、要素の途中で分割されることはなく、", _jsx(_components.br, {}), "\nボックス全体が次の行へ移動します。", _jsx(_components.br, {}), "\nCSSでいうと、", _jsx(_components.code, {
+        children: "display: inline-block"
+      }), " が該当します。", _jsx(_components.br, {}), "\nこれが、アトミックインラインレベルボックス の特徴だそうです。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "フォーム作成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フォーム作成",
+        children: "フォーム作成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["フォーム作成のセクションは、これまでの実装を踏襲する形が多かったです。", _jsx(_components.br, {}), "\nInputLayout を作成して、これがinput要素のレイアウトになります。", _jsx(_components.br, {}), "\nフォームの入力と描画、フォーカスとブラー、フォームの送信ボタンのクリックアクションなどを実装します。", _jsx(_components.br, {}), "\n送信時は、送信データをパーセントエンコードでエンコードしたものをサーバへ送信します。", _jsx(_components.br, {}), "\nWebサーバは簡易的なものを用意します。", _jsx(_components.br, {}), "\nこれで、簡単なフォーム機能が実現するようになりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "サーバ起動は以下のコマンドを実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "make"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " docker_run_server"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "http://localhost:8000"
+      }), " でサーバ起動されます。", _jsx(_components.br, {}), "\nブラウザの起動は以下で開きます。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "make"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " docker_run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " URL=https://browser.engineering"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["+ボタンをクリックして別タブを開き、アドレスバーに ", _jsx(_components.code, {
+        children: "http://localhost:8000"
+      }), " を入力してエンターキーを入力します。", _jsx(_components.br, {}), "\ninput部分に ", _jsx(_components.code, {
+        children: "Hello, World"
+      }), " を入力してボタンをクリックするとデータがメモリ上に保存されます。", _jsx(_components.br, {}), "\nそうすると、以下のような画面出力となります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774363552/silver-birder.github.io/blog/djkhxlggjpvmxsg7dykm.png?ar=1660%3A1304",
+        alt: "Section 8.7"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["サーバに保存した ", _jsx(_components.code, {
+        children: "Hello, World"
+      }), " が表示されるようになりました！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["リンクとフォームができるようになりました。", _jsx(_components.br, {}), "\nどちらも、現代のWebでは必須の機能なので、仕組みを作れて勉強になりました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第7~8章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260325/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"フォーム\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260325/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260325/\",\"description\":\"以下の書籍を7章から8章まで読みました。 https://www.oreilly.co.jp/books/9784814401574/ 1章から6章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第1~3章を読みま\",\"datePublished\":\"2026-03-25\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":297,"publishedAt":"2026-03-25","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第7~8章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260326","publishedAt":"2026-03-26","title":"史上最強の弟子ケンイチの続編が始まった！"},"prev":{"href":"/blog/contents/20260324","publishedAt":"2026-03-24","title":"浄水カートリッジを買うなら、給水の方が安いのでは？"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260325/","slug":"20260325"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,199 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2bd2,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "個人サイトをリニューアルしました！🎉"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/",
+      title: "ジブンノート",
+      description: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/cd2dc71f4c4e24dee2702b315c6b785349ddfe75d917407c09f48629407015a4.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["リニューアルは、今回で6回目です。", _jsx(_components.br, {}), "\n制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。", _jsx(_components.br, {}), "\n個人的には最速の開発期間でした。AIの力は偉大ですね。"]
+    }), "\n", _jsx(_components.p, {
+      children: "本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ノート風という世界観",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ノート風という世界観",
+        children: "ノート風という世界観"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人サイトを見て頂くとわかるかと思いますが、ノート風のデザインにしています。", _jsx(_components.br, {}), "\nデザイン元は、現実世界にあるノートのデザインをそのまま再現しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769602372/silver-birder.github.io/blog/hvci8nburx07eytjrgx8.png?ar=1590%3A2056",
+        alt: "ノート風デザイン"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "たとえば、以下の場所を拘っています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "右上の NOやDATEの表示"
+      }), "\n", _jsx(_components.li, {
+        children: "タイトル部分の広い空間"
+      }), "\n", _jsx(_components.li, {
+        children: "タイトル下にある文字のメモリ線"
+      }), "\n", _jsx(_components.li, {
+        children: "罫線付きの本文"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "メモリ線",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メモリ線",
+        children: "メモリ線"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["特にメモリ線は苦労しました。", _jsx(_components.br, {}), "\n長いメモリ線と短いメモリ線が一定のリズムで表示されています。", _jsx(_components.br, {}), "\nまた、線の先端を丸くしたりと細部まで拘っています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769602773/silver-birder.github.io/blog/wwrsts3bmgpjboc3cmpx.png?ar=822%3A114",
+        alt: "メモリ線"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "最初は 先端を丸くさせなくても良いじゃんと思ったのですが、どうしても諦めきれずに1時間ぐらい格闘していました。笑"
+    }), "\n", _jsx(_components.h2, {
+      id: "aiデザインレビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#aiデザインレビュー",
+        children: "AIデザインレビュー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["デザイン案を練る際には v0やfigma make などの AI と壁打ちすることがあります。", _jsx(_components.br, {}), "\n要素が増える際に、どういう配置にしたら良いか アイデアを貰うために チャットでやりとりしています。", _jsx(_components.br, {}), "\nAIに対してノート風のデザインを指示すると、ほぼ毎回 左側に縦の線を1本引いたデザインを作ってきます。", _jsx(_components.br, {}), "\nこれは外国のノートなら有名なのかしれませんが、私はあまり見たことがないため、却下しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769603447/silver-birder.github.io/blog/ig11p8k3wu6kiaef5c1x.png?ar=1716%3A668",
+        alt: "AIからのノート風デザイン案"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "落書き",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#落書き",
+        children: "落書き"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["現実世界のノートを使う際、落書きすることはよくありました。", _jsx(_components.br, {}), "\nなので、右下の隅に アニメーション付きの落書きをひっそりと忍ばしています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769603056/silver-birder.github.io/blog/f2yitoadw7ovc1iwmi5n.png?ar=280%3A160",
+        alt: "落書き"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "テーマカラーは緑",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テーマカラーは緑",
+        children: "テーマカラーは緑"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["せっかくなので、好きな色をテーマカラーにしたいです。", _jsx(_components.br, {}), "\n私は緑が好きなので、全体的に緑色で統一しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["青も好きなので、アクセントに青を少しだけ入れようかと悩んでいました。", _jsx(_components.br, {}), "\n作っている途中に青を入れていくよりも、最後に完成した後に 少しだけ青を付け加えた方が 整うかなと思ったので入れていません。", _jsx(_components.br, {}), "\n完成したのに、まだ入れていません。笑", _jsx(_components.br, {}), "\nまた簡単にですが、ダークモードにも対応しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769603622/silver-birder.github.io/blog/otq9jgnakpdzhrfgibur.png?ar=1692%3A1648",
+        alt: "ダークモード"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "背景が黒、テキストが緑だと、ハッカーっぽくなっちゃいました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "付箋",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#付箋",
+        children: "付箋"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ノートには付箋を貼ることがあります。", _jsx(_components.br, {}), "\n他のページへの移動は、付箋を使って表現しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769603800/silver-birder.github.io/blog/idgrk4bwjrdrwmtj0j2r.png?ar=1294%3A400",
+        alt: "付箋"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["開いているページの付箋は前に引っ付いていて、それ以外の付箋は後ろに引っ付いているイメージです。", _jsx(_components.br, {}), "\n付箋をホバーすると、ほんの少し上に持ち上がります。笑"]
+    }), "\n", _jsx(_components.h2, {
+      id: "角丸はしていない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#角丸はしていない",
+        children: "角丸はしていない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ノートに貼っている画像などに、角を丸くさせることができます。", _jsx(_components.br, {}), "\nうまく言語化できていないのですが、記事本文中は 角丸をせずに、直角にしています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1769604187/silver-birder.github.io/blog/%E7%9B%B4%E8%A7%92%E3%81%AB.png?ar=1598%3A1800",
+        alt: "直感に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["写真に関しては、マスキングテープやセロハンテープで貼っている感じにしたいなと思っています。（できていません）", _jsx(_components.br, {}), "\n※ 追記: 簡易ですが入れました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["拘っているところと、そうでないところがハッキリしています。", _jsx(_components.br, {}), "\n記事本文は時間をかけていますが、ホームや自己紹介ページはかなり手抜きです。笑"]
+    }), "\n", _jsx(_components.p, {
+      children: "機能リクエストは以下のリンクより受け付けています！"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://fequest.vercel.app/9",
+      title: "ジブンノート | Fequest",
+      description: "@silverbirderのジブンノート",
+      siteName: "fequest.vercel.app",
+      faviconSrc: "/link-card/ae774c03c1ab60b103ac0b35bc3002668f93e3dd2dee99a355140ebc95c630d7.png",
+      thumbnailSrc: "/link-card/b766ca1e5af544cb5855f72f45775c14876d6307cbf7a1cc422e5467d075994a.png"
+    }), "\n", _jsx(_components.p, {
+      children: "短期間で拘り抜いて、大満足の1ヶ月間でした！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"個人サイトをリニューアルしました！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260128/opengraph-image.png\"],\"keywords\":[\"成果物\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260128/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260128/\",\"description\":\"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。\",\"datePublished\":\"2026-01-28\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":241,"publishedAt":"2026-01-28","tags":["成果物"],"title":"個人サイトをリニューアルしました！"},"navigation":{"next":{"href":"/blog/contents/20260129","publishedAt":"2026-01-29","title":"個人サイトリニューアルの振り返り"},"prev":{"href":"/blog/contents/20260127","publishedAt":"2026-01-27","title":"甘納豆 はじめて食べてみた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2025-12-28","slug":"20251228","summary":"個人開発として、機能リクエスト投稿サービスを作成しました。 サービス名は Fequest で、Feature Request の略です。 Fequest は、プロダクトに対して「この機能を追加してほしい」「ここを改善してほしい」といった要望","tags":["成果物"],"title":"機能リクエスト投稿サービスを作った"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260128/","slug":"20260128"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

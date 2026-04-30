@@ -1,0 +1,119 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1b14,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "みなさんご存知の TikTok。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は普段、気に入った動画をブックマークして、後から見返すことがあります。", _jsx(_components.br, {}), "\nただ、都合により、動画ファイルそのものが必要になる場面があります。", _jsx(_components.br, {}), "\nそのため、右クリックのコンテキストメニューから動画を保存する、公式で提供されている方法を利用しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "手作業の負担",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#手作業の負担",
+        children: "手作業の負担"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["保存したい動画の数が増えてくると、この作業を手動で繰り返すことが、次第に負担になってきました。", _jsx(_components.br, {}), "\n抜け漏れ重複があったり、つまらない作業で違う操作をしてしまったりします。", _jsx(_components.br, {}), "\nそこで、もう少し楽にできないかと考えたことが、今回の取り組みの発端です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "api-は提供されていない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#api-は提供されていない",
+        children: "API は提供されていない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["TikTok では、ログインユーザーがブックマークした動画の一覧取得や、動画ダウンロードを行う公式 API は提供されていません。", _jsx(_components.br, {}), "\n非公式 API はいくつか存在するようですが、公式側の仕様変更とのいたちごっこになりやすく、安定した運用は難しそうでした。", _jsx(_components.br, {}), "\nまた、そもそも非公式 API を利用すること自体、適切とは言えません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "chrome-拡張機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#chrome-拡張機能",
+        children: "Chrome 拡張機能"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで私は、Chrome 拡張機能を使って、自分が普段行っている操作そのものを自動化する方法を選びました。", _jsx(_components.br, {}), "\nこの拡張機能は個人利用のために作成したもので、公開はしていません。", _jsx(_components.br, {}), "\nコードはかなりぐちゃぐちゃしていますが、動けばﾖｼｯとしています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["近年は AI の支援もあり、このようなニッチな自動化も比較的簡単に実現できるようになったと感じています。", _jsx(_components.br, {}), "\n以前であれば、環境構築や Chrome 拡張特有の API の使い方を思い出すだけでも、かなりの時間を要していました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "実際の自動化フロー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際の自動化フロー",
+        children: "実際の自動化フロー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Chrome 拡張機能を利用すると、TikTok に事前にログインした状態を保ったまま、Chrome 上の操作をそのまま再現できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "具体的には、次のような流れです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "自分のプロフィールページを開く"
+      }), "\n", _jsx(_components.li, {
+        children: "ブックマークアイコンをクリックし、保存済みの動画一覧を表示する"
+      }), "\n", _jsx(_components.li, {
+        children: "動画を右クリックして保存する"
+      }), "\n", _jsx(_components.li, {
+        children: "次の動画へ移動するボタンをクリックする"
+      }), "\n", _jsx(_components.li, {
+        children: "3 に戻る"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この一連の流れは、実際に私が手動で行っていた操作です。", _jsx(_components.br, {}), "\nそのため、Chrome 拡張機能でも、同じ手順をそのまま機能として実装できました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "運用上の工夫",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#運用上の工夫",
+        children: "運用上の工夫"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブックマーク自体は解除せず、コレクション機能を使って、最後に保存した動画をチェックポイントとして記録しています。", _jsx(_components.br, {}), "\n次回の収集では、その動画より前までを対象にすることで、重複を避けた運用ができています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "tiktok-の仕様を前提に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#tiktok-の仕様を前提に",
+        children: "TikTok の仕様を前提に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["TikTok は、スクレイパー対策が非常に徹底されている印象があります。", _jsx(_components.br, {}), "\n動画ファイルのリンクを直接取得し、別タブで保存するといった方法は、可能ではあるものの手間がかかり、構造変更の影響も受けやすいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その点、公式が提供している機能を前提に自動化することで、安定した運用ができています。", _jsx(_components.br, {}), "\n現時点では、この方法で半年ほど継続して利用できています。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"TikTokの動画を集める自動化\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260111/opengraph-image.png\"],\"keywords\":[\"趣味\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260111/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260111/\",\"description\":\"みなさんご存知の TikTok。 私は普段、気に入った動画をブックマークして、後から見返すことがあります。 ただ、都合により、動画ファイルそのものが必要になる場面があります。 そのため、右クリックのコンテキストメニューから動画を保存する、公\",\"datePublished\":\"2026-01-11\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":224,"publishedAt":"2026-01-11","tags":["趣味"],"title":"TikTokの動画を集める自動化"},"navigation":{"next":{"href":"/blog/contents/20260112","publishedAt":"2026-01-12","title":"また雪がきた！"},"prev":{"href":"/blog/contents/20260110","publishedAt":"2026-01-10","title":"CSS Layout Testing  というテスト手法の提案"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-30","slug":"20260430","summary":"ひさびさにiPadでお絵描きしたいなと思い、iPad はあるのですが Apple Pencil が見つかりません。 かなり昔なので、Apple Pencil の充電はなくなっているため、bluetooth などで見つけることができません。","tags":["趣味"],"title":"Apple Pencil を紛失して、JAMJAKEを買った話"},{"publishedAt":"2026-04-26","slug":"20260426","summary":"以下の記事で触れたスライムが取れましたー！🥳 モコモコスライム https://silverbirder.github.io/blog/contents/20260422/ クレーンゲームに 合計2,000円 使いました。 取れた台は、3","tags":["趣味"],"title":"クレーンゲームのスライムがとれたー！"},{"publishedAt":"2026-04-22","slug":"20260422","summary":"以下の『ドラゴンクエスト AM おおきなもこもこぬいぐるみ スライム＆メタルスライム』がクレーンゲームに置いてありました。 https://www.taito.co.jp/taito-prize/0452015700 1,500円ぐらいかけ","tags":["趣味"],"title":"クレーンゲームのスライムがとれなーい！"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260111/","slug":"20260111"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

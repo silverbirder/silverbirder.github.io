@@ -1,0 +1,186 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3a8a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下の書籍を12章を読みました。", _jsx(_components.br, {}), "\n12章は難解でした。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から11章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260325/",
+          children: "『Webブラウザエンジニアリング』第7~8章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260327/",
+          children: "『Webブラウザエンジニアリング』第9~10章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260329/",
+          children: "『Webブラウザエンジニアリング』第11章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "タスクとスケジュール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#タスクとスケジュール",
+        children: "タスクとスケジュール"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["難解というのは、マルチスレッド関連の話が多く出ているためです。", _jsx(_components.br, {}), "\n本章の冒頭で、ブラウザで行う処理が増えてた結果、描画が遅くなってきました。", _jsx(_components.br, {}), "\nそこで、行うべき処理（実行可能な関数）をタスクと定義し、優先度を決めて処理する(", _jsx(_components.code, {
+        children: "task_runner"
+      }), ")という考えになりました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["タスクは先入れ先出しを採用し、メインループ内で常にタスクを実行します。", _jsx(_components.br, {}), "\nタスクの追加には、", _jsx(_components.code, {
+        children: "schedule_task"
+      }), " という関数実行により追加されます。", _jsx(_components.br, {}), "\nタスクのスケジュールとして良い例である ", _jsx(_components.code, {
+        children: "settimeout"
+      }), " を実装します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "settimeout"
+      }), " を実行すると、Python の ", _jsx(_components.code, {
+        children: "threading.Timer"
+      }), " で指定時間後に ", _jsx(_components.code, {
+        children: "schedule_task"
+      }), " でタスクを積むという感じです。", _jsx(_components.br, {}), "\nその後、メインループ内で積まれたタスクが実行されるという流れです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["threading による処理を行うため、排他制御が必要になってきます。", _jsx(_components.br, {}), "\nタスク実行するときには、タスクをロックし、終わったらリリースする、そういうよくある排他制御を行います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "settimeout"
+      }), " ができると、次は ", _jsx(_components.code, {
+        children: "XMLHttpRequest"
+      }), " の非同期処理も実装します。", _jsx(_components.br, {}), "\nこちらの処理は、関数処理を待たないように新しくスレッドを立ててメインプロセスを止めないようにします。", _jsx(_components.br, {}), "\nスレッドの処理が終わったら、", _jsx(_components.code, {
+        children: "schedule_task"
+      }), " で完了内容を伝える、という具合です。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ここまでは、まだ理解できる範囲でした。"
+    }), "\n", _jsx(_components.h2, {
+      id: "プロファイリングとダーティビット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#プロファイリングとダーティビット",
+        children: "プロファイリングとダーティビット"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブラウザは、描画速度に 60fps を目指して処理を終わらせる必要があります。", _jsx(_components.br, {}), "\nおもちゃの私たちのブラウザでは、30fps (33ミリ秒）を目指します。", _jsx(_components.br, {}), "\nで、実際に ", _jsx(_components.code, {
+        children: "chrome://tracing"
+      }), " でプロファイリングすると、タブ（ページ）のラスタライズと描画に60msを超えて予算オーバーとなりました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ここからが頭が痛くなってくるのです...。", _jsx(_components.br, {}), "\n描画速度を早めるための、", _jsx(_components.strong, {
+        children: "パフォーマンスチューニング"
+      }), " です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["2つほどトピックがあり1つ目がダーティビットです。", _jsx(_components.br, {}), "\nダーティビットとは、何かデータが書き換わったら更新が必要と示すフラグのことです。", _jsx(_components.br, {}), "\nこのフラグのON/OFFを最適化することで、不要な処理をスキップして早くするのです。", _jsx(_components.br, {}), "\nただ、この ", _jsx(_components.strong, {
+        children: "ダーティビットのフラグ制御"
+      }), " が混乱します...。", _jsx(_components.br, {}), "\nピタゴラスイッチみたいに、どれを押したらどれが動くのかを把握しなければいけません。", _jsx(_components.br, {}), "\nこれでうまくできていないと、なぜか描画されないことになったり、過剰に描画したりします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "マルチスレッド",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マルチスレッド",
+        children: "マルチスレッド"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["2つ目のトピックは、マルチスレッド化です。", _jsx(_components.br, {}), "\nスレッドを2つに分離することで、並列処理による高速化を図ります。", _jsx(_components.br, {}), "\nスレッドは、ブラウザスレッドとメインスレッドの2つに分けられました。", _jsx(_components.br, {}), "\nブラウザスレッドは、ラスタライズや描画、クロームUIのインタラクション制御などを受け持ちます。", _jsx(_components.br, {}), "\nメインスレッドは、タブごとに増えていくページ用のスレッドです。", _jsx(_components.br, {}), "\nスクリプトの実行やレンダリング、イベントハンドラ処理など、ページの行うべき処理を担います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["複数のスレッドを並列で処理する際、ブラウザスレッドからメインスレッドへ通信したい場合は、", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "task_runner"
+      }), " を通してタスクベースでやりとりします。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "schedule_task"
+      }), " でタスクを積むのです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらを踏まえて、ブラウザスレッドからタブへの参照を撤廃し、逆もまた然りです。", _jsx(_components.br, {}), "\nそのかわり、タスクベースでやりとりを切り替えます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["メインスレッドでは、HTMLの更新やスタイルの更新などでディスプレイリストが更新されます。", _jsx(_components.br, {}), "\nディスプレイリストが変わると、ラスタライズと描画をブラウザスレッドに処理してもらう必要があります。", _jsx(_components.br, {}), "\nそこで、Commit と呼ばれる ラスタライズと描画に必要な情報（スクロール量、高さ、ディスプレイリストなど）を ブラウザスレッドに手渡ししています。", _jsx(_components.br, {}), "\nただし、相互のデータアクセスをするのはNGなので、ディスプレイリストなどはコピーしたデータを送るようにして、元データも消すみたいなことをします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["他には、JavaScriptの処理が非常に遅い場合にスクロールができない問題を対処するため、", _jsx(_components.br, {}), "\nメインスレッドでやっていたスクロール処理をブラウザスレッドでも行うようにしています。（？）", _jsx(_components.br, {}), "\nスクロールオフセットを、メインスレッドもブラウザスレッドもディスプレイリストを参照して処理するようです。（？）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また簡単に書いていますが、このマルチスレッドにおいても、ダーティビットがたくさん出ます。", _jsx(_components.br, {}), "\nどういうときに、ラスタライズすべきか、アニメーションすべきか、描画すべきか、など結構出ます。", _jsx(_components.br, {}), "\nこの章を３回ぐらい読み直したのですが、完璧に理解するのが難しく（トレースするのがしんどい）ので、なんとなく読んで終わりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "強制スタイル強制レイアウト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#強制スタイル強制レイアウト",
+        children: "強制スタイル、強制レイアウト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["マルチスレッドを採用することで、高速化できました。", _jsx(_components.br, {}), "\nメインスレッドをさらに、用途別にスレッドを分けることで高速化できるのでは？という話題（？）がありました。", _jsx(_components.br, {}), "\nただ、実態としてはやっていないようです。", _jsx(_components.br, {}), "\nというのも、メインスレッドでは JavaScript API のスタイル参照機能があるためです。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "getComputedStyle"
+      }), " のような機能は、スタイル情報を計算する必要があり、\n", _jsx(_components.code, {
+        children: "getBoundingClientRect"
+      }), " のような機能は、レイアウト情報を計算する必要があります。", _jsx(_components.br, {}), "\nこれらの機能は、メインスレッドの処理に強く依存してしまうため（？）、別スレッドとして高速化するのは難しい（？？）みたいです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "12章は、何度も読んだのですが難しかったです...。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第12章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260403/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"ダーティビット\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260403/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260403/\",\"description\":\"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第\",\"datePublished\":\"2026-04-03\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":306,"publishedAt":"2026-04-03","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260404","publishedAt":"2026-04-04","title":"えんとつ町のプペルの映画を観てきた"},"prev":{"href":"/blog/contents/20260402","publishedAt":"2026-04-02","title":"アクセス数を眺めるのが好き"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-03-29","slug":"20260329","summary":"以下の書籍を11章を読みました。 11章はかなり奥が深いので、1つの章のみの感想になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から10章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第11章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260403/","slug":"20260403"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,165 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1f67,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下で個人ブログキュレーションのアプリを開発しています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260419/",
+      title: "個人ブログキュレーション",
+      description: "個人ブログは、書き手の人生が現れていて読むのが好きです。 仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。 風邪引いたとか、美味しいもの食べたとか、非生産的な内容 が良いんです。 勝手に書き手を応援したくなるし、勝手",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/28d078a371db6d46547ab75fa87033ea2969c97f1d50501e235d9b2b4c0fbb7f.png"
+    }), "\n", _jsx(_components.p, {
+      children: "ブログは、RSSやAtomのフィードを元にデータを整えています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "仕様",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#仕様",
+        children: "仕様"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "RSSやAtomの仕様は、以下のサイトで確認できます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["RSS 2.0\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: _jsx(_components.a, {
+              href: "https://www.rssboard.org/rss-specification",
+              children: "RSS 2.0 Specification (Current) - www.rssboard.org"
+            })
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Atom\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: _jsx(_components.a, {
+              href: "https://datatracker.ietf.org/doc/html/rfc4287",
+              children: " RFC 4287 - The Atom Syndication Format  - datatracker.ietf.org"
+            })
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Feed 自体の必須項目は、以下の通りです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["RSS 2.0\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "title"
+          }), "\n", _jsx(_components.li, {
+            children: "link"
+          }), "\n", _jsx(_components.li, {
+            children: "description"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Atom\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "title"
+          }), "\n", _jsx(_components.li, {
+            children: "id"
+          }), "\n", _jsx(_components.li, {
+            children: "updated"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["title は、フィードのタイトルです。", _jsx(_components.br, {}), "\nlink は、フィードをWeb URLです。", _jsx(_components.br, {}), "\nAtom の場合、", _jsx(_components.code, {
+        children: "link:rel=\"alternate\""
+      }), " が使われています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "linkが壊れてる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#linkが壊れてる",
+        children: "linkが壊れてる"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブログキュレーションに最低でも link が必須なんですが、", _jsx(_components.br, {}), "\nlink が壊れてるフィードがあったりします。", _jsx(_components.br, {}), "\n例えば、以下がありました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "undefined, null などの文字"
+      }), "\n", _jsx(_components.li, {
+        children: "localhost"
+      }), "\n", _jsx(_components.li, {
+        children: "URLっぽいもの（文字の間に半角スペース）"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["link が相対パスのものは、絶対パスに置換できるので問題ないです。", _jsx(_components.br, {}), "\n他には、link に末尾スラッシュへリダイレクトされるものもありました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "壊れても大事にしたい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#壊れても大事にしたい",
+        children: "壊れても大事にしたい"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["とはいえ、できれば大事なフィードなので、", _jsx(_components.br, {}), "\n個別にフィードデータを抽出できる様に調整するようにしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今日1日、いろいろなフィードを眺めていました。", _jsx(_components.br, {}), "\n少し疲れた1日でした。", _jsx(_components.br, {}), "\n以下は、クレーンゲームで手に入れたガボとキーファのスライムです。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1777465184/silver-birder.github.io/blog/gk96u4yhy6cbmi28izxk.jpg?ar=2560%3A1920",
+        alt: "ガボ キーファ スライム"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今日の午前中、ユニクロでドラクエコラボが始まったのでTシャツを買った帰りに、", _jsx(_components.br, {}), "\nキーファスライムを手に入れました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.uniqlo.com/jp/ja/spl/ut-graphic-tees/dragon-quest/men",
+      title: "UTコレクション｜ドラゴンクエスト｜MEN（メンズ）",
+      description: "【ユニクロオンラインストア｜MEN UT】日本を代表するロールプレイングゲームとして、世界中の人々を魅了する「ドラゴンクエスト」は今年誕生から40周年を迎えます。今回UTとの初のコラボレーションが実現した本コレクションでは、壮大な世界観と緻密なストーリー、個性豊かなキャラクターやモンスターたちなど、同タイトルの魅力の数々をTシャツで表現しました。",
+      siteName: "UNIQLO",
+      faviconSrc: "/link-card/fc5134e7ae9b78166a661ff6f770459c54837c5519e87ee616d341ffe580f278.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"RSSやAtomのフィードが意外と壊れてる\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260429/opengraph-image.png\"],\"keywords\":[\"個人事業\",\"RSS\",\"Atom\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260429/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260429/\",\"description\":\"以下で個人ブログキュレーションのアプリを開発しています。 https://silverbirder.github.io/blog/contents/20260419/ ブログは、RSSやAtomのフィードを元にデータを整えています。 仕様\",\"datePublished\":\"2026-04-29\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":332,"publishedAt":"2026-04-29","tags":["個人事業"],"title":"RSSやAtomのフィードが意外と壊れてる"},"navigation":{"next":{"href":"/blog/contents/20260430","publishedAt":"2026-04-30","title":"Apple Pencil を紛失して、JAMJAKEを買った話"},"prev":{"href":"/blog/contents/20260428","publishedAt":"2026-04-28","title":"陶器をよく割ってしまう..."}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20260429/","slug":"20260429"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

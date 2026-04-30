@@ -1,0 +1,937 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T9c0a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下の書籍を11章を読みました。", _jsx(_components.br, {}), "\n11章はかなり奥が深いので、1つの章のみの感想になります。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から10章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260325/",
+          children: "『Webブラウザエンジニアリング』第7~8章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260327/",
+          children: "『Webブラウザエンジニアリング』第9~10章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "サーフェス",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#サーフェス",
+        children: "サーフェス"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これまで、Tkinter とそれに付随する Canvas を使っと画面と描画を行ってきました。", _jsx(_components.br, {}), "\n図形やテキストを描画するだけであれば、これで十分です。", _jsx(_components.br, {}), "\nそれ以上の視覚効果（opacityなど）を実装するには、より高度な機能を持つグラフィックライブラリが必要です。", _jsx(_components.br, {}), "\n本書では、Chromium で使用されている Skia というグラフィックライブラリを導入されます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.chromium.org/developers/design-documents/graphics-and-skia/",
+          children: "Graphics and Skia - www.chromium.org"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Tkinter の画面管理する機能が必要になるので、Simple DirectMedia Layer (SDL) の使用します。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.libsdl.org/",
+          children: "Simple DirectMedia Layer - Homepage - www.libsdl.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Tkinter → SDL + Skia に置き換えるリファクタリングを行います。", _jsx(_components.br, {}), "\nSDL で画面を作成し、Skia で画面上のサーフェスへの割り当てを指示して描画します。", _jsx(_components.br, {}), "\nサーフェスは、画面上のピクセルを描画できるグラフィックバッファの表現を指します。", _jsx(_components.br, {}), "\nこのサーフェスはメモリを多く消費するため、サーフェスの最適化がパフォーマンスに多く影響します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Skia でサーフェスを構築したバイトデータを、SDLの画面サーフェスへコピーして描画します。", _jsx(_components.br, {}), "\nこの描画には、Blitting と呼ばれる方式を採用し、必要箇所のみピクセルのコピーを行うことで、負荷軽減します。", _jsx(_components.br, {}), "\nSkia サーフェスを更新 → SD 画面サーフェスへコピー (画面反映) の順ですかね？"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Skia への置き換えでは、各Drawクラスの ", _jsx(_components.code, {
+        children: "execute"
+      }), " 関数処理を Skia の canvas API を使って描画します。", _jsx(_components.br, {}), "\nサーフェスのピクセルを色付けする作業を ラスタライズ と呼ぶそうです。", _jsx(_components.br, {}), "\nWiki によれば、ラスター形式（格子状のピクセル）に変換する意味でしょうか。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.p, {
+        children: ["ラスタライズは、コンピュータグラフィックスにおいてラスター形式の画像（ビットマップ画像）以外のデータをラスター形式に変換して画像化すること。 ", _jsx(_components.a, {
+          href: "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%A9%E3%82%A4%E3%82%BA",
+          children: "ラスタライズ - Wikipedia - ja.wikipedia.org"
+        })]
+      }), "\n"]
+    }), "\n", _jsx(_components.h3, {
+      id: "docker-が壊れた",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#docker-が壊れた",
+        children: "Docker が壊れた"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下のエラーになってしまったため、Docker ではなく ", _jsx(_components.code, {
+        children: "uv run"
+      }), " で動かすようにしました。", _jsx(_components.br, {}), "\n脱Tkinterしているので、ローカル環境で動いてくれました。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "$"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " make"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " docker_run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "                                "
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "UserWarning:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Using"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " SDL2"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " binaries"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " from"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " pysdl2-dll"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 2.32.0"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Fontconfig"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " warning:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " \"/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf\","
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " line"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " 6:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " unknown"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " element"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " \"reset-dirs\""
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "No"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " matching"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " fbConfigs"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " or"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " visuals"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " found"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "glx:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " to"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " create"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " drisw"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " screen"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "X"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Error"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " of"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " request:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  BadValue"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " (integer "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "parameter"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " out"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " of"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " range"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " for"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " operation"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  Major"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " opcode"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " of"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " request:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  149"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " (GLX)"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  Minor"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " opcode"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " of"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " request:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  3"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " (X_GLXCreateContext)"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  Value"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " in"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " request:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  0x0"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  Serial"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " number"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " of"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " failed"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " request:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  162"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  Current"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " serial"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " number"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " in"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " output"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " stream:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  163"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "make:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " ***"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " [docker_run] Error 1"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "divの角丸が見えない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#divの角丸が見えない",
+        children: "divの角丸が見えない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "DrawRRect"
+      }), " class のスクロール考慮が抜けいていた関係か、本書で紹介されていた角丸の確認ができませんでした。", _jsx(_components.br, {}), "\n以下のpatchファイルを生成して、動作確認できるようになりました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ もしかしたら、この先のコミットで直っているのかも？"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "git",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "git",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "diff --git a/browser/main.py b/browser/main.py"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "index e481dcc..fa29d8b 100644"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "--- a/browser/main.py"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+++ b/browser/main.py"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "@@ -160,12 +160,17 @@ class DrawRect:"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: " class DrawRRect:"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "     def __init__(self, rect, radius, color):"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "         self.rect = rect"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "-        self.rrect = skia.RRect.MakeRectXY(rect, radius, radius)"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        self.radius = radius"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "         self.color = color"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: " "
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "     def execute(self, scroll, canvas):"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "-        sk_color = parse_color(self.color)"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "-        canvas.drawRRect(self.rrect, paint=skia.Paint(Color=sk_color))"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        rect = self.rect.makeOffset(0, -scroll)"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        rrect = skia.RRect.MakeRectXY(rect, self.radius, self.radius)"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        paint = skia.Paint("
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+            AntiAlias=True,"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+            Color=parse_color(self.color),"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        )"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "+        canvas.drawRRect(rrect, paint=paint)"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: " "
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: " "
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: " def getMetric(font, what):"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "browser"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " $ "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "uv"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " main.py"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " https://browser.engineering/examples/example11-rounded-background.html"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774752889/silver-birder.github.io/blog/yprrkgw3fbw9pbxxckib.png?ar=1824%3A1480",
+        alt: "Section 11.4"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "コンポジット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コンポジット",
+        children: "コンポジット"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブラウザをスクロールするたびに再描画するのはパフォーマンスが悪いです。", _jsx(_components.br, {}), "\nそこで、ブラウザコンポジットと呼ばれるサーフェスの合成手法を実装します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "過去にブラウザのレイアウトを調べた際に、コンポジットというのがあったのでこれか！となりました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/know_your_browser_layout_and_paint/",
+      title: "ブラウザのレイアウトとペイントを知る",
+      description: "ブラウザのレンダリングエンジンにおけるレイアウトやペイントについて気になったので、調べました。その内容をまとめます。レンダリングエンジンは、Chrome の Blink を題材とします。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/b5278365f034cb67ece9233a1a4f30474bbdac2b104616aac07822dd2a6ef66f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["合成なので、複数のサーフェスを用意し重ねて表示します。", _jsx(_components.br, {}), "\n例えば、クローム部分とタブ（ページ）でサーフェスを分けておいて、それぞれを非表示のサーフェスにします。", _jsx(_components.br, {}), "\n更新などでそれぞれ必要箇所のみ描画を行ったあと、画面サーフェスにそれぞれのサーフェスを適切な位置のみクリップしたりしてコピーします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これはクローム部分とタブのサーフェスの話でしたが、タブの中でもサーフェスは分かれます。", _jsx(_components.br, {}), "\n", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/blog/contents/know_your_browser_layout_and_paint/",
+        children: "ブラウザのレイアウトとペイントを知る | ジブンノート - silverbirder.github.io"
+      }), " でも触れていますが、", _jsx(_components.code, {
+        children: "transform"
+      }), " や ", _jsx(_components.code, {
+        children: "opacity"
+      }), " を使用すると、コンポジットが発生します。", _jsx(_components.br, {}), "\nそれらのCSSプロパティを使用するとサーフェスが生成され合成処理が生まれます。", _jsx(_components.br, {}), "\n上記記事でも書かれている通り、paint 処理は負荷が高い（これまで話していた通り）ので ", _jsx(_components.code, {
+        children: "left"
+      }), " プロパティによるアニメーションはパフォーマンスに悪いです。", _jsx(_components.br, {}), "\nそれを合成処理（", _jsx(_components.code, {
+        children: "tranform"
+      }), ") に切り替えることで、逐次 paint ではなくサーフェス合成による最適化で滑らかなアニメーションを実現できます。", _jsx(_components.br, {}), "\nあの時学んでいた内容が、", _jsx(_components.strong, {
+        children: "今具体的なイメージを持ててめちゃくちゃ嬉しいです。"
+      })]
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書の続きとしては、", _jsx(_components.code, {
+        children: "opacity"
+      }), " を実装しますが省略します。", _jsx(_components.br, {}), "\nブレンドとサーフェスのスタッキングについて解説されています。", _jsx(_components.br, {}), "\n上にあるサーフェスと下にあるサーフェスを、どのようにブレンドするのか書かれていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://ciechanow.ski/alpha-compositing/",
+        children: "Alpha Compositing – Bartosz Ciechanowski - ciechanow.ski"
+      }), " のページでは、サーフェスと合成について解説されていて、全部読めませんでしたが Skia の挙動について学びたい人は読んでも良いかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Blink のグラフィカルな処理はライブラリを使われていたんですね。", _jsx(_components.br, {}), "\nなんとなく、自前で全部実装しているイメージでした。", _jsx(_components.br, {}), "\n今回はサーフェスの重ね合わせ時の色合いについてのコードを読みましたが、他にも色々ありそうです。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "opacity"
+      }), " や ", _jsx(_components.code, {
+        children: "mix-blend-mode"
+      }), " は奥が深そうです。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第11章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260329/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"サーフェス\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260329/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260329/\",\"description\":\"以下の書籍を11章を読みました。 11章はかなり奥が深いので、1つの章のみの感想になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から10章の感想については、以下で書いています。\",\"datePublished\":\"2026-03-29\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":301,"publishedAt":"2026-03-29","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第11章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260330","publishedAt":"2026-03-30","title":"ドラゴンクエストVII Reimagined クリア報告"},"prev":{"href":"/blog/contents/20260328","publishedAt":"2026-03-28","title":"メダパニスライムを探す"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260329/","slug":"20260329"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

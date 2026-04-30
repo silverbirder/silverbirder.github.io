@@ -1,0 +1,125 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1eeb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人ブログは、書き手の人生が現れていて読むのが好きです。", _jsx(_components.br, {}), "\n仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。", _jsx(_components.br, {}), "\n風邪引いたとか、美味しいもの食べたとか、", _jsx(_components.strong, {
+        children: "非生産的な内容"
+      }), " が良いんです。", _jsx(_components.br, {}), "\n勝手に書き手を応援したくなるし、勝手に書き手へ一方的に繋がっている感じがします。", _jsx(_components.br, {}), "\nあと、会社のブログ記事じゃなくて個人のブログ記事 を選びたいです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "モバイルアプリ開発なう",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#モバイルアプリ開発なう",
+        children: "モバイルアプリ開発なう"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "集められた個人ブログを、ただただ読むだけのRSSリーダーっぽいもの"
+      }), " を現在開発中です！", _jsx(_components.br, {}), "\nなんとなく、以下の機能を作ろうかなと思ってます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "さまざまある個人ブログから新着記事を並べて読めたり"
+      }), "\n", _jsx(_components.li, {
+        children: "気に入った個人ブログを購読して、通知を受け取れたり"
+      }), "\n", _jsx(_components.li, {
+        children: "よかったと思う記事を、共有したりリアクションしたり"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["一応、当該アプリの機能リクエストページを以下に発行しました。", _jsx(_components.br, {}), "\n『こんな機能があったら欲しい！』という意見ありましたら、ぜひコメントください！！！"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://fequest.vercel.app/10",
+      title: "個人ブログキュレーション（仮） | Fequest",
+      description: "たくさん集めた個人ブログを、RSSリーダーのように読むことができるモバイルアプリを開発中です。\r\n気に入った個人ブログを購読して、記事を読むことができます。",
+      siteName: "fequest.vercel.app",
+      faviconSrc: "/link-card/ae774c03c1ab60b103ac0b35bc3002668f93e3dd2dee99a355140ebc95c630d7.png",
+      thumbnailSrc: "/link-card/43b146b614e655e8a46adf01d6409ce57214bcca0836c790f3a34faa9d908972.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "expo-いいね",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#expo-いいね",
+        children: "Expo いいね"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["モバイルアプリは、React Native で作っているのですが、", _jsx(_components.br, {}), "\nフレームワークに Expo を全面的に採用しています。", _jsx(_components.br, {}), "\nExpo には AI向けのスキルが提供されていて、それを入れるとかなり開発効率がよくなりました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/skills/",
+      title: "Expo Skills for AI agents",
+      description: "A list of official AI agent skills provided by Expo for building, deploying, and debugging Expo and React Native apps.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/ae77500140df7218dcde1f261e19892f3b302972b33fd7d08d473161b8ad240e.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["2,3日程度で、Expo 55 のアップグレードと、ローカルでプレビュービルドやOTAなどが 簡単にできました。", _jsx(_components.br, {}), "\n（EAS は無料だとビルドが遅いんですよね...）", _jsx(_components.br, {}), "\nおかげでもう手元のスマホにプレビューアプリが入っているため、", _jsx(_components.br, {}), "\n日常的にアプリを触って使い心地を確認しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["加えて、E2EのMaestroもサクッと入れれました。", _jsx(_components.br, {}), "\n今回のプロジェクトでは、あえて単体テストは一切書かず E2Eテストだけに任せようとしています。（笑）"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/eas/workflows/examples/e2e-tests/",
+      title: "Run E2E tests on EAS Workflows with Maestro",
+      description: "Learn how to set up and run E2E tests on EAS Workflows with Maestro.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/1e8c065f46e219abda8e9527fbe2ff50f054303da7586d92345fc8e0a68f76fc.png"
+    }), "\n", _jsx(_components.p, {
+      children: "Database は Supabase のものを使って、API は構築不要です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/guides/using-supabase/",
+      title: "Using Supabase",
+      description: "Add a Postgres Database and user authentication to your React Native app with Supabase.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/88d08111ba2acc05b4f5082e99daefdf467a691eebd21b3d736c9e24ec275f7b.png"
+    }), "\n", _jsx(_components.p, {
+      children: "通知は、 OneSignal で任せようかなとしています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/guides/using-push-notifications-services/",
+      title: "Using push notifications",
+      description: "Learn about push notification services that are compatible with Expo and React Native apps.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/4fb30101dba018b8375b11e1d8bfd1cbf24a7eb426e3d20e61d9f4717a94400b.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["必要な機能群を整えたら、UXとUIを丁寧に作り込もうかなと思います。", _jsx(_components.br, {}), "\nそこまではたぶん大丈夫なのですが、リリース周りがとても心配です。", _jsx(_components.br, {}), "\n審査に必要な情報を整えるのにかなり不安がありますが、", _jsx(_components.br, {}), "\nAI の力を借りればなんとかなりそうな予感です。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"個人ブログキュレーション\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260419/opengraph-image.png\"],\"keywords\":[\"趣味\",\"個人ブログ\",\"Expo\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260419/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260419/\",\"description\":\"個人ブログは、書き手の人生が現れていて読むのが好きです。 仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。 風邪引いたとか、美味しいもの食べたとか、非生産的な内容 が良いんです。 勝手に書き手を応援したくなるし、勝手\",\"datePublished\":\"2026-04-19\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":322,"publishedAt":"2026-04-19","tags":["趣味"],"title":"個人ブログキュレーション"},"navigation":{"next":{"href":"/blog/contents/20260420","publishedAt":"2026-04-20","title":"スタバの『THE STAR フラペチーノ』の全5種類を探そう！"},"prev":{"href":"/blog/contents/20260418","publishedAt":"2026-04-18","title":"いいチョッキだね。ちょっときせてよ。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-30","slug":"20260430","summary":"ひさびさにiPadでお絵描きしたいなと思い、iPad はあるのですが Apple Pencil が見つかりません。 かなり昔なので、Apple Pencil の充電はなくなっているため、bluetooth などで見つけることができません。","tags":["趣味"],"title":"Apple Pencil を紛失して、JAMJAKEを買った話"},{"publishedAt":"2026-04-26","slug":"20260426","summary":"以下の記事で触れたスライムが取れましたー！🥳 モコモコスライム https://silverbirder.github.io/blog/contents/20260422/ クレーンゲームに 合計2,000円 使いました。 取れた台は、3","tags":["趣味"],"title":"クレーンゲームのスライムがとれたー！"},{"publishedAt":"2026-04-22","slug":"20260422","summary":"以下の『ドラゴンクエスト AM おおきなもこもこぬいぐるみ スライム＆メタルスライム』がクレーンゲームに置いてありました。 https://www.taito.co.jp/taito-prize/0452015700 1,500円ぐらいかけ","tags":["趣味"],"title":"クレーンゲームのスライムがとれなーい！"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260419/","slug":"20260419"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

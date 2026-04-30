@@ -1,0 +1,114 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T18d3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "過去にモバイルアプリを作ろうとして断念したことがありました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/first-mobile-app-failure/",
+      title: "はじめてモバイルアプリ開発して諦めた話",
+      description: "3ヶ月ほど、モバイルアプリを開発していましたが、最終的には諦めることになりました。端的に言えば、iOSのバックグラウンド実行に制約が多く、思い描いていたものを実現できなかったのです。この記事では、開発経緯と諦めた理由についてお話しします。くぅ〜疲れましたw",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/3812fe851ac6d8e644913f19dbdb334621b12a998f0b55b86697a0fe98f50f95.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["最近、作りたいモバイルアプリのネタが思い浮かびまして、", _jsx(_components.br, {}), "\nもう一度頑張ってみようかなと思っています！"]
+    }), "\n", _jsx(_components.p, {
+      children: "何を作るかは明言できませんが、RSSリーダーっぽいものを考えています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "対象はandroidだけ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#対象はandroidだけ",
+        children: "対象はAndroidだけ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["iOS だと、何かと実装制約がきつかった印象があります。", _jsx(_components.br, {}), "\n私は Google Pixel ユーザーなので、まずは Android だけで良いかなと思ってます。", _jsx(_components.br, {}), "\nAndroid の場合、デベロッパーアカウントの登録料を1回支払えば済むはずです（多分）。", _jsx(_components.br, {}), "\n前回は、iOS をどうしてもサポートしたかったのですが、", _jsx(_components.br, {}), "\n今回のネタだと 私だけ満足できれば十分なのです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術セットは変わらず",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術セットは変わらず",
+        children: "技術セットは変わらず"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["React Native を使おうと思います。", _jsx(_components.br, {}), "\nどっぷりと、Expo に乗っかろうと思います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "Database と API が欲しいので、Supabase でも使おうかなと思ってます。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/guides/using-supabase/",
+      title: "Using Supabase",
+      description: "Add a Postgres Database and user authentication to your React Native app with Supabase.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/88d08111ba2acc05b4f5082e99daefdf467a691eebd21b3d736c9e24ec275f7b.png"
+    }), "\n", _jsx(_components.p, {
+      children: "UI は、Expo UI を使えるなら使おうかなと思います。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/versions/latest/sdk/ui/",
+      title: "Expo UI",
+      description: "A set of components that allow you to build UIs directly with Jetpack Compose and SwiftUI from React.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/9cb01d3b155ed6fd4af062b9bf707872f3921595e03bf2db8dea608601873ab3.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["厳しそうなら、スタイル書くの好きなので自前で書くか、", _jsx(_components.br, {}), "\n薄いUIライブラリでも検討しようかなと思います。", _jsx(_components.br, {}), "\nネイティブっぽくいくか、オリジナリティで進めるかは楽しく考えたいですね。"]
+    }), "\n", _jsx(_components.p, {
+      children: "デザインの壁打ちには、Google Stitch や Figma Make の無料枠内でお世話になろうかと。"
+    }), "\n", _jsx(_components.p, {
+      children: "Expo Docsは、AI フレンドリーな LLM テキストが用意されています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://docs.expo.dev/llms/",
+      title: "Documentation for AI agents and LLMs",
+      description: "Efficient ways for AI agents and LLMs to access and consume Expo documentation.",
+      siteName: "Expo Documentation",
+      faviconSrc: "/link-card/9eccedccf26d35c6d716d4a77ddf207147b9c966b5bcdd96bd0419e31993bfaa.ico",
+      thumbnailSrc: "/link-card/bdeee20a1aa437e344ae3db59a144d562d0c5bfe4912e343b603a9a5fe668be4.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "今度こそ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#今度こそ",
+        children: "今度こそ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今度こそ、リリースできるまでやり遂げたい...！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"モバイルアプリを作る機運が高まった\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260414/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"React Native\",\"Android\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260414/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260414/\",\"description\":\"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが\",\"datePublished\":\"2026-04-14\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":317,"publishedAt":"2026-04-14","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},"navigation":{"next":{"href":"/blog/contents/20260415","publishedAt":"2026-04-15","title":"『挨拶は10円の投資』の実践"},"prev":{"href":"/blog/contents/20260413","publishedAt":"2026-04-13","title":"『Webブラウザエンジニアリング』第15-16章を読みました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"},{"publishedAt":"2026-02-25","slug":"20260225","summary":"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260414/","slug":"20260414"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

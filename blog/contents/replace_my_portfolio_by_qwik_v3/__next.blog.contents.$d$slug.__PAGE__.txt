@@ -1,0 +1,378 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T5254,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h2: "h2",
+    h3: "h3",
+    h4: "h4",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["こんにちは。", _jsx(_components.a, {
+        href: "https://x.com/silverbirder",
+        children: "@silverbirder"
+      }), "です。\n最近、私のブログページを Qwik フレームワークで刷新しました。以下のリンクが、刷新したページになります。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/",
+      title: "ブログ",
+      description: "ジブンノートのブログ記事一覧。技術や日々の学びをまとめています。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/9f79a75952f8a161b4571bce0d49641bda27bb6cb8cb2c0aeffda5d8a03b19e2.png"
+    }), "\n", _jsx(_components.p, {
+      children: "これで、私のブログページの刷新は 4 回目になります。この記事では、その過程で得た学びや経験を共有します。"
+    }), "\n", _jsx(_components.p, {
+      children: "GitHub のリリースタグも利用していますので、以下のリンクから過去のソースコードを参照できます。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/silverbirder/silverbirder.github.io/tags",
+      title: "Tags · silverbirder/silverbirder.github.io",
+      description: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。. Contribute to silverbirder/silverbirder.github.io development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/b4fb6ca545492bb8bbe5086258b0c5d8d0302671fc5da27d909fc719f7c58525.png"
+    }), "\n", _jsx(_components.p, {
+      children: "ソースコードも公開しているので、こちらもよければ参考にしてみてください。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/silverbirder/silverbirder.github.io",
+      title: "GitHub - silverbirder/silverbirder.github.io: silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。",
+      description: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。. Contribute to silverbirder/silverbirder.github.io development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/b4fb6ca545492bb8bbe5086258b0c5d8d0302671fc5da27d909fc719f7c58525.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ刷新したのか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ刷新したのか",
+        children: "なぜ刷新したのか"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "刷新の動機は主に好奇心です。\nそれに続いて、自分の技術的知見を広げるためでもあります。\n過去には静的サイトジェネレータの Hugo や Google が推奨する AMP、WebComponents を活用できる Rocket などを試してきました。\nそれぞれの技術には当時の流行や興味を反映していました。今回も、現在のトレンドや興味を持っている技術を中心に選択しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "qwik-フレームワークの選択",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#qwik-フレームワークの選択",
+        children: "Qwik フレームワークの選択"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Qwik はパフォーマンスを重視した Web フレームワークですが、そこはあまり重要視していませんでした。\n私が Qwik を選んだ主な理由は 以下の点です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Markdown のサポート\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブログ記事を書くのに Markdown が使うため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "State of JS"
+        }), "での高い評価\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "評価が高いからこそ、学ぶ価値があると思った"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["React に近い構文\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "自身の学習コストを下げたかった"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブログ記事の Markdown の Frontmatter にタグ情報を記入していたので、それを活用したいと考えました。調べていくと、 ", _jsx(_components.code, {
+        children: "import.meta.glob"
+      }), " という構文を知り(Vite の機能)、Frontmatter を抽出する方法を発見しました。これを参考にブログページの構築を開始しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "機能実装したこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#機能実装したこと",
+        children: "機能実装したこと"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["実際にブログで実装した機能は、", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/silverbirder.github.io",
+        children: "silverbirder/silverbirder.github.io - GitHub"
+      }), " の README に詳しく記載しています。\n主な機能や導入技術を以下に列挙します。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "@unpic/qwik"
+        }), " 🚀📸"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Partytown"
+        }), " 🥳🌐"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "PandaCSS"
+        }), " 🐼💃"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Playwright & Vitest"
+        }), " 🎭🔬"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Qwik"
+        }), " ⚡🕸️"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "qwik-speack"
+        }), " 🌏🔊"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Storybook"
+        }), " 📓🌟"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Buy me a coffee"
+        }), " ☕💖"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Chromatic"
+        }), " 🌈📊"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Cloudinary"
+        }), " 🌌🖼️"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "giscus"
+        }), " 🐦🗨️"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "Google Analytics"
+        }), " 🕵️‍♂️📈"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "icones.js"
+        }), " 📌🌈"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "lottiefiles"
+        }), " 🎬📁"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "OpenAI"
+        }), " 🧠🌐"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "OpenReplay"
+        }), " 🎥🔄"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "OneSignal"
+        }), " 📡💌"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "また、Markdown の Frontmatter を抽出し JSON 化し、それを使ってブログページを構築しています。(RSS フィードも同様)"
+    }), "\n", _jsx(_components.h2, {
+      id: "学んだこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#学んだこと",
+        children: "学んだこと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "元々は、Qwik というフレームワークのコンセプトを知り学びを深めようと考えていました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://qwik.builder.io/docs/concepts/think-qwik/",
+      title: "Think Qwik | Concepts 📚 Qwik Documentation",
+      description: "No hydration, auto lazy-loading, edge-optimized, and fun 🎉!",
+      siteName: "Qwik",
+      faviconSrc: "/link-card/cd5540465033fd6b344f804926377cbb878a8ec043b00a926be0742cb566a4f6.png",
+      thumbnailSrc: "/link-card/835602b216275595e31dbeea4ebb061ddebe8095051f722405ccac22167509da.png"
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、Qwik でブログ構築する過程で、フレームワーク自体ではなく、関連する技術やツールに興味関心が移りました。私の知る範囲でキャッチアップするよりも、こういった伸び代ある技術を学ぼうすることで、知らない技術を知る良い機会となりました。\n以下は、その中で学んだことです。"
+    }), "\n", _jsx(_components.h3, {
+      id: "pandacss",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#pandacss",
+        children: "PandaCSS"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "PandaCSS というスタイルエンジンを知りました。\n私は、これまで Bootstrap や materialUI のような CSS フレームワークを使うことが多かったのです。\nしかし、最近業務でランディングページの開発をする経験から、CSS を書いてみたくなりました。\nそこで、PandaCSS を使って、自分で CSS を書いてみました。"
+    }), "\n", _jsx(_components.p, {
+      children: "global.css を初めて 0 から書いてみましたし、タイポグラフィ定義やセマンティックトークン定義を使ってみたりしました。こういった再利用性の高い CSS を書けるのは良いなと思いました。CSS-in-JS の記法が使えつつ、CSS ファイルを生成できていて、便利だなと思いました。(詳しくない)"
+    }), "\n", _jsx(_components.h3, {
+      id: "多言語対応",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#多言語対応",
+        children: "多言語対応"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "多言語対応、初めてチャレンジしました。といってもなんちゃってです。\n多言語対応の対象は、Markdown の日本語記事やコンポーネントに含まれる日本語です。日本語を英語に翻訳します。\n本来は、日本語から英語に翻訳したものをチェックする人が必要だと思います。しかし個人レベルなら、そこまでやる必要はないかなと思いました(というより能力がない)。そこで、qwik-speack、chatgpt-md-translator の 2 つを使って翻訳しました。内部では、OpenAI の使っているようです。"
+    }), "\n", _jsx(_components.p, {
+      children: "多言語対応をすると、WebPush する通知コンテンツやリンクコンテンツにも気を使うようになりました。\n実際に業務として使うならば、最初の段階からあると良いかもなぁと思います。(仕組みだけでもあると良い)"
+    }), "\n", _jsx(_components.h3, {
+      id: "saas-の利用",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#saas-の利用",
+        children: "SaaS の利用"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "今回は、SaaS を色々使ってみました。"
+    }), "\n", _jsx(_components.h4, {
+      id: "openreplay",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#openreplay",
+        children: "OpenReplay"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "OpenReplay というものを導入しました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://openreplay.com/",
+      title: "Self-Hosted Session Replay and Product Analytics | OpenReplay",
+      description: "Open-source session replay and product analytics you can self-host for full control over data security and privacy.",
+      siteName: "openreplay.com",
+      faviconSrc: "/link-card/deddd68221854a0e86c52c7250e0693e86a14d9ac03da0420c13a3d4cd5d536d.png"
+    }), "\n", _jsx(_components.p, {
+      children: "これは、ユーザーの行動を監視するものです。\n実際の運用としては、トラブルシュートや UX 改善などに使えそうなものに思いました。"
+    }), "\n", _jsx(_components.p, {
+      children: "これをブログページに入れたので、どのページのどのあたりにマウスカーソルが動かすのか見れるので、リンク配置や動線を考えさせられるきっかけとなりました。"
+    }), "\n", _jsx(_components.h4, {
+      id: "onesignal",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#onesignal",
+        children: "OneSignal"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "WebPush 通知もやってみたいと思いました。\nしかし、WebPush 通知するサーバー側の用意が必要と思うのですが、それを掛けるコストはなくしたいと思い、\nよく知られている OneSignal というものを入れてみました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://onesignal.com/",
+      title: "Customer Engagement Platform for Email, Push Notifications, &amp; SMS",
+      description: "The world&#039;s leader for mobile push notifications, web push, SMS, email and in-app messaging. Trusted by 2 million+ businesses to send 12 billion+ messages per…",
+      siteName: "OneSignal",
+      faviconSrc: "/link-card/dd16b35150bc49b479bc34898300f11e409b08bf094b6b1c6253616ad25067a2.png",
+      thumbnailSrc: "/link-card/555de017d1040537417a041be9813b5080d6cc7b4b7ea7646fadf2101c033a33.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "通知をするときに、言語の選択や、通知を受け取るためのベストプラクティスが OneSignal に書いてあり、勉強になりました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://documentation.onesignal.com/docs/permission-requests",
+      title: "Web permission prompts - OneSignal",
+      description: "Learn how to use OneSignal’s web push permission prompts to increase push notification opt-ins. Covers soft prompts, native browser prompts, slidedown prompts, category setup, email and phone number collection, and subscription bell customization.",
+      siteName: "documentation.onesignal.com",
+      faviconSrc: "/link-card/9b5027b0262f4f2aad783db2434cd10d81028d623e76f646e68844d25c33a922.png",
+      thumbnailSrc: "/link-card/06cc4044f02e71f0632e1bd547a1ee8fcf504056330aef0e2c9395808fa94522.png"
+    }), "\n", _jsx(_components.h4, {
+      id: "giscus",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#giscus",
+        children: "Giscus"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Qwik を選ぶ前、技術調査をしていたときに Material for MkDocs というのを発見し、\nその中で、giscus というを見つけました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://giscus.app/ja",
+      title: "giscus",
+      description: "A comments widget built on GitHub Discussions.",
+      siteName: "giscus.app",
+      faviconSrc: "/link-card/4c64cf7daf1891f51ee70ccfdc45be53dc2340d645733ede9dd2e46d6fda6358.png",
+      thumbnailSrc: "/link-card/f2820c613f30d81f9de40ccad4547955b0d56fd69396600ae0611b89c975bad3.png"
+    }), "\n", _jsx(_components.p, {
+      children: "これは、GitHub の Discussions をブログに埋め込むことができます。これにより、ブログにコメントを残せるようになりました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "途中で諦めたもの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#途中で諦めたもの",
+        children: "途中で諦めたもの"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "changesets",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#changesets",
+        children: "Changesets"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "changesets"
+      }), "を利用してバージョン管理を試みましたが、途中で運用が面倒になり挫折しました。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "turborepo",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#turborepo",
+        children: "Turborepo"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "turborepo"
+      }), "での monorepo 構成も夢見ていましたが、挫折しました。考えていた構成は以下の通りです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "apps/docs"
+      }), "\n", _jsx(_components.li, {
+        children: "packages/ui"
+      }), "\n", _jsx(_components.li, {
+        children: "packages/blog-contents"
+      }), "\n", _jsx(_components.li, {
+        children: "packages/translate"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "しかし、PandaCSS や Qwik の UI ライブラリをうまく組み合わせるのが難しく、実現できませんでした。"
+    }), "\n", _jsx(_components.h2, {
+      id: "今後の展望",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#今後の展望",
+        children: "今後の展望"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、dark モード対応、もしくはテーマカラーの変更ができる機能を作ってみたいなと思いました。\n他には、Playwright を使って、cucumber を試してみたいなと思っています。\nデザインは、初めて CSS でフルスクラッチでやったので、デザインにもっと強くなりたいと思いました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "最後に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最後に",
+        children: "最後に"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この刷新を通じて、多くの新しい技術やツールに触れることができました。\nそれぞれの技術には独自の魅力や学びがあり、非常に充実した経験となりました。\nこれからも、新しい技術やアイディアを追求していきたいと思います。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Qwikでブログページを刷新して学んだこと\",\"image\":[\"https://silverbirder.github.io/blog/contents/replace_my_portfolio_by_qwik_v3/opengraph-image.png\"],\"keywords\":[\"成果物\",\"フロントエンド\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/replace_my_portfolio_by_qwik_v3/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/replace_my_portfolio_by_qwik_v3/\",\"description\":\"こんにちは。@silverbirderです。最近、私のブログページを Qwik フレームワークで刷新しました。以下のリンクが、刷新したページになります。\",\"datePublished\":\"2023-10-23\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":105,"publishedAt":"2023-10-23","tags":["成果物","フロントエンド"],"title":"Qwikでブログページを刷新して学んだこと"},"navigation":{"next":{"href":"/blog/contents/e2e-testing-with-cucumber-and-screenplay-design","publishedAt":"2023-11-13","title":"CucumberとScreenplay設計によるE2Eテスト"},"prev":{"href":"/blog/contents/left_my_full-time_job","publishedAt":"2023-07-17","title":"正社員を辞めました"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"},{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/replace_my_portfolio_by_qwik_v3/","slug":"replace_my_portfolio_by_qwik_v3"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tf8d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "AI に 10 分ほどで雑に作らせたのですが、金曜ロードショーで「どの月にどんな映画が多く放送されているか」を可視化してみました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://friday-road-show.vercel.app/",
+      title: "金曜ロードショー映画ランキング可視化ダッシュボード",
+      description: "金曜ロードショーの映画放送データを月別・ランキングで可視化。人気作品や傾向を時系列で直感的にチェックできるNext.jsアプリです。",
+      siteName: "Friday Road Show Visualizer",
+      faviconSrc: "/link-card/bd1c78f0f68b703bddd66bfc1e49a3573e22e5e4f936a8ddf443f7598ed4ad62.ico"
+    }), "\n", _jsx(_components.h2, {
+      id: "月ごとに見える傾向",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#月ごとに見える傾向",
+        children: "月ごとに見える“傾向”"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "いくつか面白い偏りがありました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["7月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『となりのトトロ』『魔女の宅急便』が各 8 回"
+          }), "\n", _jsx(_components.li, {
+            children: "夏休みだから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["8月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『火垂るの墓』が 11 回"
+          }), "\n", _jsx(_components.li, {
+            children: "終戦の日だから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["11月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『アナと雪の女王』が 3 回"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["12月\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "『ホーム・アローン』が 5 回"
+          }), "\n", _jsx(_components.li, {
+            children: "『ホーム・アローン2』が 2 回"
+          }), "\n", _jsx(_components.li, {
+            children: "クリスマス映画の代表作だから？"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "この感じだと、今年も近いうちに『アナと雪の女王』や『ホーム・アローン』が放送されるかも？\n個人的には「千と千尋の神隠し」や「天空の城ラピュタ」が圧倒的に多いのかと思っていたのですが、実際に可視化してみると意外とそうでもなかったのが面白かったです。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"金曜ロードショー月別「よく放送される作品」ランキング\",\"image\":[\"https://silverbirder.github.io/blog/contents/20251114/opengraph-image.png\"],\"keywords\":[\"生活\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20251114/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20251114/\",\"description\":\"AI に 10 分ほどで雑に作らせたのですが、金曜ロードショーで「どの月にどんな映画が多く放送されているか」を可視化してみました。\",\"datePublished\":\"2025-11-14\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":166,"publishedAt":"2025-11-14","tags":["生活"],"title":"金曜ロードショー月別「よく放送される作品」ランキング"},"navigation":{"next":{"href":"/blog/contents/20251115","publishedAt":"2025-11-15","title":"帰りの駐車場で、車が見つからない"},"prev":{"href":"/blog/contents/20251113","publishedAt":"2025-11-13","title":"冷蔵庫に貼っているホワイトボードをやめたい"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-31","slug":"20260331","summary":"賃貸か戸建か、どちらが良いんですかね？ 私はこれまで、4件の賃貸物件と1件の戸建物件（親族の持ち家）に住んでいました。 今は賃貸物件で暮らしているのですが、戸建の方が良いのかな？と思うことがあります。 個人的感想を書こうと思います。 発端","tags":["生活"],"title":"賃貸か戸建か"},{"publishedAt":"2026-03-24","slug":"20260324","summary":"今日、ドラッグストア （滋賀、京都、岐阜に多い）ユタカにある給水機を見ていました。 専用のペットボトルを使えば、無料で給水できるのです。 専用のペットボトルは、4l (約600円) か2l (約300円) のどちらかです。 1回の給水でペッ","tags":["生活"],"title":"浄水カートリッジを買うなら、給水の方が安いのでは？"},{"publishedAt":"2026-03-11","slug":"20260311","summary":"寝ようとしているときに考え事をし過ぎて眠れない、ということはありませんか？ そういうときは、考え事をとにかく書き出すと眠れるようになるかもしれません。 例えば 例えば、私だと以下のような考え事がしちゃうときがあります。 『困り事だけど、アレ","tags":["生活","仕事"],"title":"考え事で眠れない時はそれを書き出す"}],"tag":"生活"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251114/","slug":"20251114"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

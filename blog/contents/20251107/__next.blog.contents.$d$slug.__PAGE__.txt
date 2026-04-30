@@ -1,0 +1,50 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T8ec,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["仕事で依頼されたことを期日どおりに対応するのは、プロとして当然のことです。", _jsx(_components.br, {}), "\nただ、そこに少しだけプラスの工夫を加えると、相手にぐっと喜んでもらえることがあります。", _jsx(_components.br, {}), "\n私は、依頼された内容に「+α」を添えることを意識しています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "たとえばプログラムの実装なら、仕様どおりに仕上げたあとで、軽くリファクタリングしたり、小さなUX改善を加えたりすると、期待以上の反応をもらえることがあります。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["資料を集める仕事でも同じです。", _jsx(_components.br, {}), "\n単に資料をそろえるだけでなく、CSVならファイル名を規則的に整えたり、補足情報をメモにまとめたりするだけでも、相手の手間を減らせます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["こうした「ちょっとしたプラス」は、すぐに成果として見えにくいものの、一緒に働く仲間との ", _jsx(_components.strong, {
+        children: "信頼貯金"
+      }), " を少しずつ増やしてくれるものです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["依頼された内容に、もうひとつプラスを。", _jsx(_components.br, {}), "\nその小さな工夫が、仕事をもっと気持ちのいいものにしてくれます。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"仕事にちょっとプラスすると良い感じ\",\"image\":[\"https://silverbirder.github.io/blog/contents/20251107/opengraph-image.png\"],\"keywords\":[\"仕事\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20251107/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20251107/\",\"description\":\"依頼された仕事に、ほんの少しのプラスを加えるだけで、信頼を積み上げることができる。\",\"datePublished\":\"2025-11-07\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":159,"publishedAt":"2025-11-07","tags":["仕事"],"title":"仕事にちょっとプラスすると良い感じ"},"navigation":{"next":{"href":"/blog/contents/20251108","publishedAt":"2025-11-08","title":"Technology Radar Vol. 33 所感"},"prev":{"href":"/blog/contents/20251106","publishedAt":"2025-11-06","title":"AIが生成したCSSをレビューしよう"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-03-19","slug":"20260319","summary":"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},{"publishedAt":"2026-03-11","slug":"20260311","summary":"寝ようとしているときに考え事をし過ぎて眠れない、ということはありませんか？ そういうときは、考え事をとにかく書き出すと眠れるようになるかもしれません。 例えば 例えば、私だと以下のような考え事がしちゃうときがあります。 『困り事だけど、アレ","tags":["生活","仕事"],"title":"考え事で眠れない時はそれを書き出す"},{"publishedAt":"2026-03-06","slug":"20260306","summary":"Claude Code や Codex 等の AI にプルリク（以下、PR）を書かせて効率化することができます。 けれど、その書かれたプルリク説明文、ちゃんと全部読んでいますか？ レビュワーの負担になっていませんか？ ノイズが多い プルリク","tags":["AI","仕事"],"title":"AIが書いた重厚なプルリク説明文、読んでますか？"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251107/","slug":"20251107"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,701 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T7bfd,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の書籍を9章から10章まで読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から8章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260325/",
+          children: "『Webブラウザエンジニアリング』第7~8章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "javascript",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#javascript",
+        children: "JavaScript"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回は、JavaScript をブラウザで動かせるようにします。", _jsx(_components.br, {}), "\nJavaScript の実行エンジンを作るのは書籍の範囲外となるため、Python の DukPy という JavaScript インタプリタを使います。", _jsx(_components.br, {}), "\n以下のように書けば、JavaScript のコードを実行できます。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "python",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "python",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "import"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " dukpy"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "interp "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " dukpy.JSInterpreter()"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "interp.evaljs("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"2 + 2\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、DukPy には JavaScript の中から Python のコードを実行できる仕組み、エクスポートがあります。", _jsx(_components.br, {}), "\n以下のように、ブラウザ側（Python）で \"log\" という名前で Python の ", _jsx(_components.code, {
+        children: "print"
+      }), " 関数を JavaScript 側へエクスポートします。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "python",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "python",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "interp.export_function("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"log\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "print"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そして、以下の JavaScript ファイル(", _jsx(_components.code, {
+        children: "runtime.js"
+      }), ")で、", _jsx(_components.code, {
+        children: "console.log"
+      }), " 関数を定義します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "js",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "js",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "console "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " { "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "log"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " ="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " function"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "x"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") { "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "call_python"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"log\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", x) } };"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "call_python"
+      }), " は、エクスポートされた \"log\" 関数を呼び出すことができるようになります！"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、これだとターミナルに出力するだけでつまらないです。", _jsx(_components.br, {}), "\nやりたいのは、JavaScript から DOM の参照や操作を行いたいです。", _jsx(_components.br, {}), "\n参照だと、", _jsx(_components.code, {
+        children: "document.querySelectorAll"
+      }), " です。", _jsx(_components.br, {}), "\nJavaScript ファイル (", _jsx(_components.code, {
+        children: "runtime.js"
+      }), ") では、以下のような API を定義します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "js",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "js",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "document "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  querySelectorAll"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "function"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " ("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "s"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    var"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " handles "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " call_python"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"querySelectorAll\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", s);"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    return"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " handles."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "map"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "function"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " ("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "h"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") { "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "return"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Node"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(h) });"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "function"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Node"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "handle"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") { "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "this"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ".handle "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " handle; }"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["JavaScript から \"querySelectorAll\" という関数を実行し、ハンドルと呼ばれる数値識別子を返します。", _jsx(_components.br, {}), "\nこれは、Python側の Element クラスや Text クラスを JavaScript 側に返却しても解釈されません。", _jsx(_components.br, {}), "\nPython 側のオブジェクトに単純な数値識別子を用意しました。それをハンドルと呼びます。", _jsx(_components.br, {}), "\nそのクラスに対応するハンドルを \"querySelectorAll\" が返すことで、JavaScript と Python で1つのオブジェクトを参照できるようになります。", _jsx(_components.br, {}), "\nあとは、このハンドラをキーとして、Element クラスから属性を取得して返す ", _jsx(_components.code, {
+        children: "getAttribute"
+      }), " が実装できます。", _jsx(_components.br, {}), "\n他にも、HTMLを更新する ", _jsx(_components.code, {
+        children: "innerHTML"
+      }), " や イベント検知する ", _jsx(_components.code, {
+        children: "addEventListener"
+      }), " なども本書で仮実装されていました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "その結果、入力文字数が指定文字以上だったらエラーメッセージの表示と、送信できないような実装ができました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774597008/silver-birder.github.io/blog/oxqw7i2o0utr4qs3vtu7.png?ar=1660%3A1304",
+        alt: "Section 9.8"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "どこにいるのか分からなくなる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どこにいるのか分からなくなる",
+        children: "どこにいるのか分からなくなる"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回の例で言うと、ブラウザのレンダラエンジンは Python で書かれていて、JavaScript インタプリタに DukPy、Web API として runtime.js、そしてクライアント側の JavaScriptファイル などが登場します。", _jsx(_components.br, {}), "\nBlink の場合だと C++ だと思うのですが、コードを読んでて『あれ、いまどこの世界の話だ？』と思う時があります。", _jsx(_components.br, {}), "\n本書のブラウザは最小限の実装なので、そこまで悩むことはないですが、それでも脳のスイッチが必要です。", _jsx(_components.br, {}), "\nこれが、Blink という巨大プロジェクトだと、それぞれの世界が密に繋がっていると、読解力や考慮事項がすごそうだなと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "cookie",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cookie",
+        children: "Cookie"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["次は、Web アプリでよくあるログイン機能を実装したいです。", _jsx(_components.br, {}), "\n誰がログインしたかと言う情報を識別するために、Cookie を実装します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブラウザがサーバへリクエストし、そのレスポンスヘッダーに ", _jsx(_components.code, {
+        children: "Set-Cookie: token={token}"
+      }), " をつけるようにします。", _jsx(_components.br, {}), "\nこの ", _jsx(_components.code, {
+        children: "{token}"
+      }), " は、リクエストヘッダーの cookie に token があればそれをそのまま使い、なければ乱数を設定します。", _jsx(_components.br, {}), "\nブラウザは ", _jsx(_components.code, {
+        children: "Set-Cookie: token={token}"
+      }), " を受け取るため、ブラウザ側のグローバル変数 ", _jsx(_components.code, {
+        children: "COOKIE_JAR"
+      }), " に host をキーとして token を登録します。", _jsx(_components.br, {}), "\nあとは、今後ブラウザがリクエストを行う際に、", _jsx(_components.code, {
+        children: "COOKIE_JAR"
+      }), " から host を key とした cookie を リクエストヘッダーにつけて送信します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これで、基本的なCookieのやりとりを実装できました。", _jsx(_components.br, {}), "\n以下は、ログインページの画面です。", _jsx(_components.br, {}), "\nサーバ側で定義しているユーザーで、ログインできるようになります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774602991/silver-birder.github.io/blog/roamtd6kbrxt2hlhbtrl.png?ar=1660%3A1304",
+        alt: "Section 10.3 1"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ログインできると、メッセージを投稿できるようになります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774602993/silver-birder.github.io/blog/gdtvu9pa9xen6t1cmrku.png?ar=1660%3A1304",
+        alt: "Section 10.3 2"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただし、さまざまなセキュリティ脆弱性が存在します。", _jsx(_components.br, {}), "\nセキュリティ関連の話は別路線なので、深堀はしません。", _jsx(_components.br, {}), "\nしかしブラウザとして考慮しないといけない事項があるため、解説がありました。", _jsx(_components.br, {}), "\n現状ではWebページへリクエストを送るとCookieが返ってくるため、同一オリジンポリシーの実装例があります。", _jsx(_components.br, {}), "\nクロスサイトでフォーム操作させないために、SameSite Cookie の実装例もあります。", _jsx(_components.br, {}), "\nユーザー投稿されるテキストでスクリプト実行されないために、 エンコード処理や CSP の実装例もあります。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "小話",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#小話",
+        children: "小話"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書では、", _jsx(_components.strong, {
+        children: "補足や脚注がモリモリ書かれていて、そっちを読むのが面白いです。"
+      }), _jsx(_components.br, {}), "\nむしろ、そっちがメインなのでは？と思うほどに。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["例えば、Webページへのリクエストでは XMLHttpRequest が紹介されていて、その名前の由来について脚注がありました。", _jsx(_components.br, {}), "\nそういえば『なんでXML？』と思い、脚注には簡単な説明が書かれているのです。", _jsx(_components.br, {}), "\n\"Outlook Web Access 機能まで遡ります\" とあり、気になる状態で止まるのです。笑", _jsx(_components.br, {}), "\nそうするとネットで調べてみるじゃないですか。", _jsx(_components.br, {}), "\n調べてみると、リリースに差し迫ったエンジニアあるあるなネーミングで面白いのです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["あとは、クロスオリジン関連で canvas について補足説明がありました。", _jsx(_components.br, {}), "\nどうやら、クロスオリジンでも canvas で画像表示できるとのことで、気になって以下のMDNの記事を読みました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/HTML/How_to/CORS_enabled_image",
+          children: "別オリジンの画像を持つ <img> と <canvas> の使用 - HTML | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["クロスオリジンでも、 canvas で画像を描画する(", _jsx(_components.code, {
+        children: "drawImage"
+      }), ")ことは可能なのです。", _jsx(_components.br, {}), "\nただしそれは汚染と判断され、", _jsx(_components.code, {
+        children: "getImageData"
+      }), " や ", _jsx(_components.code, {
+        children: "toBlob"
+      }), " のような取得や変換はセキュリティエラーになるようです。", _jsx(_components.br, {}), "\nそれは知りませんでした...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["HTML、CSS、JavaScript、Form、Cookie。\nこれらがあれば、小さなWebアプリケーションは組めるほどに最小限のブラウザができました。", _jsx(_components.br, {}), "\nブラウザってどう作っているのか、具体的なイメージが湧いてきて良いですね。", _jsx(_components.br, {}), "\n演習を全部すっ飛ばしてるので、やってみるのも良いかもですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第9~10章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260327/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"JavaScript\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260327/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260327/\",\"description\":\"以下の書籍を9章から10章まで読みました。 https://www.oreilly.co.jp/books/9784814401574/ 1章から8章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第1~3章を読み\",\"datePublished\":\"2026-03-27\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":299,"publishedAt":"2026-03-27","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第9~10章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260328","publishedAt":"2026-03-28","title":"メダパニスライムを探す"},"prev":{"href":"/blog/contents/20260326","publishedAt":"2026-03-26","title":"史上最強の弟子ケンイチの続編が始まった！"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260327/","slug":"20260327"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

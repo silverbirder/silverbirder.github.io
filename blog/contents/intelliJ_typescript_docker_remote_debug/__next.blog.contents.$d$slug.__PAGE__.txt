@@ -1,0 +1,91 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tbf5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h2, {
+      id: "tldr",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#tldr",
+        children: "TL;DR"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["Docker コンテナ上で、 ", _jsx(_components.code, {
+          children: "ts-node-dev --inspect=0.0.0.0:9229 ./dist/index.js"
+        }), " を実行"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345272/silver-birder.github.io/blog/ts-node-dev.png?ar=2790%3A682",
+        alt: "ts-node-dev"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["IntelliJ 上で、", _jsx(_components.code, {
+          children: "Attach to Node.js/Chrome"
+        }), " を実行"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.code, {
+        children: "Run > Edit Configuration ... > +ボタン > Attach to Node.js/Chrome"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345318/silver-birder.github.io/blog/Attach_to_Node_js_Chrome.png?ar=2136%3A1342",
+        alt: "Attach to Node.js/Chrome"
+      })
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "IntelliJ 上で BreakPoint を貼り、ブラウザにアクセス"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345359/silver-birder.github.io/blog/IntelliJ_Breakpoint.png?ar=2876%3A1758",
+        alt: "IntelliJ Breakpoint"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "※ Docker コンテナでは、アプリ用ポート(8080)と、inspect 用ポート(9229)を開放する必要あり"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614345390/silver-birder.github.io/blog/8080%E3%81%A89229port%E3%81%AE%E9%96%8B%E6%94%BE.png?ar=2792%3A702",
+        alt: "8080と9229portの開放"
+      })
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"IntelliJ + TypeScript + Docker で Remote Debug (Break Point)\",\"image\":[\"https://silverbirder.github.io/blog/contents/intelliJ_typescript_docker_remote_debug/opengraph-image.png\"],\"keywords\":[\"開発ツール\",\"フロントエンド\",\"クラウドインフラ\",\"クローリング\",\"IntelliJ\",\"Remote Debug\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/intelliJ_typescript_docker_remote_debug/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/intelliJ_typescript_docker_remote_debug/\",\"description\":\"Dockerコンテナ上で、 `ts-node-dev --inspect=0.0.0.0:9229 ./dist/index.js` を実行\",\"datePublished\":\"2019-12-28\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":37,"publishedAt":"2019-12-28","tags":["開発ツール","フロントエンド","クラウドインフラ","クローリング"],"title":"IntelliJ + TypeScript + Docker で Remote Debug (Break Point)"},"navigation":{"next":{"href":"/blog/contents/things_to_keep_in_writing_unit_tests","publishedAt":"2020-01-12","title":"ユニットテストを書く上で守りたいこと"},"prev":{"href":"/blog/contents/nfc_automation_trigger_sesame_api","publishedAt":"2019-12-28","title":"NFC Automation Trigger + SESAME API による自動解錠と考察"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-28","slug":"20260228","summary":"以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。 https://silverbirder.github.io/blog/contents/20251123/ こういう経験をすると、データを所有したい","tags":["開発ツール"],"title":"Google Map タイムラインデータをなんとかしたい"},{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"}],"tag":"開発ツール"},{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2024-03-29","slug":"try-container-structure-test","summary":"Dockerイメージ内の構造や設定が期待通りかどうかを検証する `container-structure-test` を知りました。container-structure-test GitHub リポジトリ。せっかくなので、試してみました。","tags":["テスト","クラウドインフラ"],"title":"Docker Image に 構造化テスト container-structure-test を試してみた"},{"publishedAt":"2021-11-26","slug":"a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","summary":"BigQuery、皆さん使っていますか？ 私は、業務でBigQueryを使ったデータ構築をしています。品質担保のため、BigQueryのSQLに対してテストをしたいと考えています。本記事では、BigQueryだけで完結し、かつ、Mockデータを差し替え可能なユニットテスト手法について、紹介します。","tags":["フロントエンド","クラウドインフラ","テスト"],"title":"BigQueryだけで完結するモック可能なユニットテスト手法"},{"publishedAt":"2021-08-28","slug":"learn_point_from_building_tiktok_scrape_platform_on_gcp","summary":"TikTokへスクレイプするバッチをGCP上で構築しました。GCP構築のシステム設計話と、その構築時に、ハマったことを共有します。","tags":["サービス","クラウドインフラ","成果物","クローリング"],"title":"TikTokスクレイプ基盤をGCP上で構築してハマったこと"}],"tag":"クラウドインフラ"},{"posts":[{"publishedAt":"2023-01-07","slug":"zod_refine_path","summary":"zodのrefineを使っていたのですが、pathの使い方を全く理解できておらず、小一時間ほどハマってしまったことがあったので、備忘録として残しておきます。","tags":["フロントエンド","クローリング","JavaScript"],"title":"zodのrefineにあるpathにハマった"},{"publishedAt":"2022-10-18","slug":"obsidian-git-muti-device","summary":"WikiWikiWeb というコンセプトが好きで、そのコンセプトが含まれている Obsidian や Scrapbox が好きです。Obsidian には、obsidian-gitという Git 連携のプラグインがあります。こちらには、デスクトップだけでなく、モバイルからでも Git Commit できるようになりました。","tags":["開発ツール","クローリング"],"title":"ObsidianでiPhoneからGit Commitする"},{"publishedAt":"2022-09-14","slug":"crawlee-was-useful-for-crawling","summary":"スクレイピングしたいときって、あると思います。Crawlee という OSS が便利だったので、共有します。","tags":["クローリング"],"title":"クローリングをシュッとやるのに、Crawleeが便利だった"}],"tag":"クローリング"}],"shareUrl":"https://silverbirder.github.io/blog/contents/intelliJ_typescript_docker_remote_debug/","slug":"intelliJ_typescript_docker_remote_debug"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

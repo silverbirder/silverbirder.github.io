@@ -1,0 +1,112 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1414,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ネガティブな発言をする人がいるとします。", _jsx(_components.br, {}), "\nその言葉に対して、こちらもマイナスな感情を抱いてしまうことがあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "たとえば、こんな発言です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「なんでこんなところにゴミ置いてるんだ（怒り）」"
+      }), "\n", _jsx(_components.li, {
+        children: "「私って、ほんと何もできないや（悲しみ）」"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ネガティブで返してしまうと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ネガティブで返してしまうと",
+        children: "ネガティブで返してしまうと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "けれど、その発言に対して、こちらもネガティブな言葉で返してしまうと、気づかないうちに悪循環に陥ってしまいます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「知らないよ、私に言わないでよ！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「 私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「わかったよ。だから何もしないで！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "無理にポジティブにならなくていい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#無理にポジティブにならなくていい",
+        children: "無理にポジティブにならなくていい"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そうならないように、ネガティブな発言があったとしても、ぐっとこらえて、ネガティブではない言葉を返してみましょう。", _jsx(_components.br, {}), "\n無理にポジティブになる必要はありません。", _jsx(_components.br, {}), "\n淡々とした、ノーマルな言葉で十分です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「何か急ぎの用事があったのかな？ ゴミは運んでおくよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「そんなことないよ。大丈夫だよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "空気は少しずつ変わっていく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#空気は少しずつ変わっていく",
+        children: "空気は少しずつ変わっていく"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "それだけで、下へ向かっていた空気が、ほんの少しずつ、上へと向きを変えていくはずです。"
+    }), "\n", _jsx(_components.p, {
+      children: "相手は自由に感情を出していて、こちらがこらえる立場になると、もやもやしてしまうこともあるかもしれません。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、ネガティブなやり取りをさらに膨らませて、結果的に自分まで嫌な気分になるくらいなら、少しでもポジティブに、あるいは笑って終われる着地のほうが、後味はずっと良いのではないかと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "by みつを"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ネガティブにネガティブを返さない\",\"image\":[\"https://silverbirder.github.io/blog/contents/20251217/opengraph-image.png\"],\"keywords\":[\"雑談\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20251217/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20251217/\",\"description\":\"ネガティブな発言をする人がいるとします。 その言葉に対して、こちらもマイナスな感情を抱いてしまうことがあります。 たとえば、こんな発言です。 「なんでこんなところにゴミ置いてるんだ（怒り）」 「私って、ほんと何もできないや（悲しみ）」 ネガ\",\"datePublished\":\"2025-12-17\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":199,"publishedAt":"2025-12-17","tags":["雑談"],"title":"ネガティブにネガティブを返さない"},"navigation":{"next":{"href":"/blog/contents/20251218","publishedAt":"2025-12-18","title":"もし今と違う職業を選ぶとしたら？"},"prev":{"href":"/blog/contents/20251216","publishedAt":"2025-12-16","title":"ジェフグルメカードと株主優待"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-28","slug":"20260428","summary":"今年に入って、3つぐらい陶器を割っています。 割ったのは、コップ2つの取手とお皿1枚の縁です。 割った陶器は、瞬間接着剤を付けて直しました。 割れた理由 コップ1つは、普通に落として割りました。 たしか、食器を乾燥機から取り出して食器棚に移","tags":["雑談"],"title":"陶器をよく割ってしまう..."},{"publishedAt":"2026-04-27","slug":"20260427","summary":"昨日26日（日）のお昼頃、見知らぬ人がインターフォンを鳴らしました。 結論を言うと、国民生活基礎調査の調査員の方でした。 https://www.mhlw.go.jp/stf/toukei/kokuminseikatsu.html 対象の方","tags":["雑談"],"title":"怪しい訪問者と思ったら、国民生活基礎調査（2026年）だった！"},{"publishedAt":"2026-04-25","slug":"20260425","summary":"株式会社はてなが、詐欺被害で11億円流出した様です。 https://news.yahoo.co.jp/articles/6dc2b89180353da79f5c4bca416d0c8d5a692b19 資金流出事案の発生に関するお知らせ","tags":["雑談"],"title":"ソーシャルエンジニアリングって恐ろしい"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251217/","slug":"20251217"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

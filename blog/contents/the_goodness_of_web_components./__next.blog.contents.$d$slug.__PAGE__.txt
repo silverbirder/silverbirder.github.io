@@ -1,0 +1,128 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T148b,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "web-components-is-何",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#web-components-is-何",
+        children: "Web Components is 何"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://www.webcomponents.org/specs",
+        children: "https://www.webcomponents.org/specs"
+      }), " より引用します。"]
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsxs(_components.p, {
+        children: ["Web components is a meta-specification made possible by four other specifications:", _jsx(_components.br, {}), "\nThe Custom Elements specification", _jsx(_components.br, {}), "\nThe shadow DOM specification", _jsx(_components.br, {}), "\nThe HTML Template specification", _jsx(_components.br, {}), "\nThe ES Module specification"]
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "WebComponents は、ブラウザの 4 つの API で実現可能となるメタ仕様です。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "These four specifications can be used on their own but combined allow developers to define their own tags (custom element), whose styles are encapsulated and isolated (shadow dom), that can be restamped many times (template), and have a consistent way of being integrated into applications (es module)."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "div や span といった HTML タグがブラウザ標準にありますが、WebComponents は、独自のタグを定義することができます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "メリット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#メリット",
+        children: "メリット"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["環境適合性\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "フレームワークに依存しないので、Rails など Web フレームワークへの適用が容易です。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["軽量\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブラウザ API のみ使用するので、ロードするアセットはありません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["シンプル\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "HTML タグを使う要領で、WebComponents を使います。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["サンドボックス\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Shadow DOM のおかげで、CSS のスタイルが独自のタグの外に漏れません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "デメリット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デメリット",
+        children: "デメリット"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["パフォーマンス\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "React のような描画最適化は、ありません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["機能性\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "ブラウザ API の影響を、受けます。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["SEO\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Web Components は Javascript 実行が必須です。そのため、SSR は実現できません。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Web Componentsの良さ\",\"image\":[\"https://silverbirder.github.io/blog/contents/the_goodness_of_web_components./opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"Web Components\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/the_goodness_of_web_components./\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/the_goodness_of_web_components./\",\"description\":\"Web Components を人にお勧めしたいんです。メリット・デメリットをかんたんにまとめたいと思います。Web Components is 何https://www.webcomponents.org/specs より引用します。\",\"datePublished\":\"2022-03-01\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":73,"publishedAt":"2022-03-01","tags":["フロントエンド"],"title":"Web Componentsの良さ"},"navigation":{"next":{"href":"/blog/contents/know_the_history_before_learning_React","publishedAt":"2022-03-11","title":"Reactを学ぶ前に歴史を知る"},"prev":{"href":"/blog/contents/covid-19-omicron-knowledge","publishedAt":"2022-01-28","title":"オミクロン株に感染したので、分かったことを書く"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/the_goodness_of_web_components./","slug":"the_goodness_of_web_components."}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

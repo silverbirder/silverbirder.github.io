@@ -1,0 +1,739 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T65b4,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["JavaScript の標準機能 ", _jsx(_components.code, {
+        children: "debugger"
+      }), " を使って、デバッグをしましょう。\n標準機能なので、React などのライブラリでも使えます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "browser",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#browser",
+        children: "Browser"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次の HTML ファイルを Chrome で開きます。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "html",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "html",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "button"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">Button</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "button"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "script"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  document."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "querySelector"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"button\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "addEventListener"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"click\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", () "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "=>"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    debugger"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "    alert"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"Hello World\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ");"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  });"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "script"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "開いたページで、DevTools も開いておきます。\nその状態で、Button をクリックしましょう。"
+    }), "\n", _jsx(_components.p, {
+      children: "そうすると、次の画像のようになります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/browser_debugger.png?ar=3104%3A1974",
+        alt: "browser_debugger"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "debugger"
+      }), "と書いた箇所で、処理が停止されます。\nそのブレークポイントから、ステップイン、ステップアウト、ステップオーバーといった操作ができます。\nConsole タブで、変数や関数などの実行結果を確認できます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "このように、簡単にデバッグができるようになります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "nodejs",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#nodejs",
+        children: "Node.js"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Node.js でも、同様に ", _jsx(_components.code, {
+        children: "debugger"
+      }), " が使えます。\n次の JavaScript コードを用意します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "javascript",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "javascript",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "// main.js"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "debugger"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "console."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "log"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"Hello World\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ");"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このファイルを次のコマンドで実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "node"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --inspect-brk"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " main.js"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実行すると、次の画像のような出力になります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_1.png?ar=1364%3A990",
+        alt: "node_debugger_1"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["その後、Chrome から ", _jsx(_components.code, {
+        children: "chrome://inspect"
+      }), " にアクセスしてください。\nアクセスすると、次の画像の画面になります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/node_debugger_2.png?ar=1662%3A974",
+        alt: "node_debugger_2"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "Open dedicated DevTools for Node"
+      }), " を Click したら、次の画像のようになります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342289/silver-birder.github.io/blog/node_debugger_3.png?ar=1664%3A1534",
+        alt: "node_debugger_3"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そうです、さきほどと同じように、", _jsx(_components.code, {
+        children: "debugger"
+      }), " の箇所で、処理が停止されます。\n簡単ですね。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "jest",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#jest",
+        children: "Jest"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["テストフレームワークの Jest も、同じように ", _jsx(_components.code, {
+        children: "debugger"
+      }), " が使えます。\n次のテストコードを用意します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "javascript",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "javascript",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "// main.test.js"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "test"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"1 equal 1\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", () "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "=>"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "  debugger"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  expect"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "1"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "toBe"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "1"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ");"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "});"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このファイルに対して、次のコマンドを実行します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "## mac"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "node"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --inspect-brk"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " node_modules/.bin/jest"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --runInBand"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " main.test.js"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "## windows"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "node"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --inspect-brk"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " ./node_modules/jest/bin/jest.js"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --runInBand"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " main.test.js"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "実行すると、次の画像のような出力になります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_1.png?ar=1364%3A990",
+        alt: "jest_debugger_1"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、同じく Chrome から", _jsx(_components.code, {
+        children: "chrome://inspect"
+      }), " にアクセスすると、同様にデバッグできます。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_2.png?ar=1664%3A1228",
+        alt: "jest_debugger_2"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1657342288/silver-birder.github.io/blog/jest_debugger_3.png?ar=1706%3A1252",
+        alt: "jest_debugger_3"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Browser,Node.js と同じ使い方になります。\nわかりやすいですね。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "IDE やエディタでデバッグ設定することもできますが、こちらの方が断然楽ですね。"
+    }), "\n", _jsx(_components.h2, {
+      id: "参考",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#参考",
+        children: "参考"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/debugger",
+          children: "developer.mozilla.org"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://nodejs.org/ja/docs/guides/debugging-getting-started/",
+          children: "https://nodejs.org/ja/docs/guides/debugging-getting-started/"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://jestjs.io/ja/docs/troubleshooting",
+          children: "jestjs.io"
+        })
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"JavaScriptのdebuggerを使ってデバッグしよう (Browser/Node.js/Jest)\",\"image\":[\"https://silverbirder.github.io/blog/contents/Lets_debug_with_JavaScript_debugger/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"開発ツール\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/Lets_debug_with_JavaScript_debugger/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/Lets_debug_with_JavaScript_debugger/\",\"description\":\"JavaScript の標準機能 `debugger` を使って、デバッグをしましょう。標準機能なので、React などのライブラリでも使えます。\",\"datePublished\":\"2022-07-09\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":84,"publishedAt":"2022-07-09","tags":["フロントエンド","開発ツール"],"title":"JavaScriptのdebuggerを使ってデバッグしよう (Browser/Node.js/Jest)"},"navigation":{"next":{"href":"/blog/contents/a_brief_history_of_graphql","publishedAt":"2022-07-30","title":"GraphQLの歴史"},"prev":{"href":"/blog/contents/know_your_browser_layout_and_paint","publishedAt":"2022-07-03","title":"ブラウザのレイアウトとペイントを知る"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-02-28","slug":"20260228","summary":"以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。 https://silverbirder.github.io/blog/contents/20251123/ こういう経験をすると、データを所有したい","tags":["開発ツール"],"title":"Google Map タイムラインデータをなんとかしたい"},{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/Lets_debug_with_JavaScript_debugger/","slug":"Lets_debug_with_JavaScript_debugger"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

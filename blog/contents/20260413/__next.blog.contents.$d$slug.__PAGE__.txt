@@ -1,0 +1,273 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T4fb5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下の書籍を15章と16章を読みました。", _jsx(_components.br, {}), "\nこれで最後になります。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から14章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260325/",
+          children: "『Webブラウザエンジニアリング』第7~8章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260327/",
+          children: "『Webブラウザエンジニアリング』第9~10章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260329/",
+          children: "『Webブラウザエンジニアリング』第11章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260403/",
+          children: "『Webブラウザエンジニアリング』第12章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260407/",
+          children: "『Webブラウザエンジニアリング』第13-14章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "画像",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#画像",
+        children: "画像"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["img要素を使って、画像表示したいです。", _jsx(_components.br, {}), "\n今までは、HTTP通信ではプレーンなテキストでのやりとりでしたが、バイナリデータを扱うようにします。", _jsx(_components.br, {}), "\nこれまでのURLクラスの ", _jsx(_components.code, {
+        children: "request"
+      }), " 関数では バイナリデータをレスポンスに返すようにします。", _jsx(_components.br, {}), "\nレスポンス参照していた箇所は、decodeして元の動作にしつつ、画像はdecodeしません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["画像バイナリデータを手に入れたら、Skia で画像描画します。", _jsx(_components.br, {}), "\n画像はデータサイズが大きい場合を考慮して、バイナリデータの複製はせずに参照（ポインタ）を使います。", _jsx(_components.br, {}), "\n画像が欠損していた場合は、以下の欠損画像を表示します。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://commons.wikimedia.org/wiki/File:Broken%5C_Image.png",
+        children: "https://commons.wikimedia.org/wiki/File:Broken\\_Image.png"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["画像のサイズを計算して、Input 要素を追加したのと同じ流れで画像の描画実装をします。", _jsx(_components.br, {}), "\n画像自体のサイズだと困る場合があるので、img要素にはheight属性とwidth属性も実装します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下は、ブラウザで画像を表示している例です。", _jsx(_components.br, {}), "\n", _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775571638/silver-birder.github.io/blog/i4rzgpq1oy1hssb6ue7y.png?ar=1824%3A1480",
+        alt: "Section 15.3"
+      })]
+    }), "\n", _jsx(_components.h3, {
+      id: "mime",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#mime",
+        children: "MIME"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Multipurpose Internet Mail Extensions（略して、MIME）は、メールの添付ファイルで許容できるデータ種類を指します。", _jsx(_components.br, {}), "\nMIME には、 text/html や image/png などがあります。", _jsx(_components.br, {}), "\nこの MIME は HTTP の Content Type で使用されています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["メール用に開発された MIME が Web で使用されるようになりましたし、", _jsx(_components.br, {}), "\nWebからメールできるようになりましたし、", _jsx(_components.br, {}), "\nクルクルしている感じがして、興味深いですね。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "マジックバイト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マジックバイト",
+        children: "マジックバイト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["バイナリデータの先頭に記述されている文字列によって、どの種類のファイルであるか判断できるようです。", _jsx(_components.br, {}), "\nその文字列を、マジックバイトと呼ぶそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下の Wiki に一覧があります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://en.wikipedia.org/wiki/List_of_file_signatures",
+      title: "List of file signatures - Wikipedia",
+      siteName: "en.wikipedia.org",
+      faviconSrc: "/link-card/10bef2ef1b8a935ab2b736bde7065df3ef7a54eace13b5bdca5715718f57fa7d.ico"
+    }), "\n", _jsx(_components.p, {
+      children: "png だと、バイナリに PNG の文字が入っているようです。"
+    }), "\n", _jsx(_components.h3, {
+      id: "画像の高さ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#画像の高さ",
+        children: "画像の高さ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["画像の高さは、フォントサイズに依存するようです。", _jsx(_components.br, {}), "\n画像とテキストをインラインで並べる際に、テキストのフォントサイズと画像の高さを比較し、", _jsx(_components.br, {}), "\n大きい方を画像の高さとして採用するみたいです。", _jsx(_components.br, {}), "\nフォントサイズよりも小さい画像の高さは、フォントサイズと同じになるみたいです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "iframe",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#iframe",
+        children: "iframe"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["次は、iframeの実装です。", _jsx(_components.br, {}), "\niframe は inline frame の略で、body の代わりに frameset を使うのと異なり、", _jsx(_components.br, {}), "\nbody 内のどこでも行内にフレームを置くことができます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["iframeの実装の考え方としては、ブラウザのタブ内のタブです。", _jsx(_components.br, {}), "\nそこで、これまで実装してきたTabクラスをTabとFrameに分割します。", _jsx(_components.br, {}), "\nFrame には、HTMLドキュメントや、DOMやレイアウトのツリーを持ち、読み込みとイベント処理（フォーカスなど）も持ちます。", _jsx(_components.br, {}), "\nTab には、ブラウザとFrameとの間のインターフェースとなり、Frame間や、ブラウザとFrameの間のやりとりを橋渡しします。", _jsx(_components.br, {}), "\nまた、Tab は Frameすべてのディスプレイリストを描画し、ブラウザスレッドへコミットし画面へ反映します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["いざ実装を進めていくと、iframe には画像と違い、高さや横幅の固有サイズがありません。", _jsx(_components.br, {}), "\niframe のheightやwidth属性、CSSのheight,widthプロパティを元に計算します。", _jsx(_components.br, {}), "\nまた 子の iframe へクリックイベントが発生したら、現在のframeから 子の iframe へイベントxy座標の位置を調整したイベントを送ります。", _jsx(_components.br, {}), "\n送ったら、元の親frameの処理に戻ります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下は、iframeを埋め込んで表示した例です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775612805/silver-birder.github.io/blog/vd1po9bhsqrk8xsnzzwv.png?ar=1824%3A1480",
+        alt: "Section 15.6"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["他には、同一オリジンであれば、JavaScriptのコンテキストを参照できたり、", _jsx(_components.br, {}), "\nフレームの親要素へアクセスできたりなど、実際のブラウザと近い実装もあります。", _jsx(_components.br, {}), "\n異なるオリジンの場合は、postMessage を使って相互通信できるようにします。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "ドメインの書き換え",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ドメインの書き換え",
+        children: "ドメインの書き換え"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "もう非推奨になっていますが、domain を書き換える Web API があるのですね。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/API/Document/domain",
+          children: "Document: domain プロパティ - Web API | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これを使えば、クロスオリジンを突破できるのかもしれませんが、やっちゃダメなやつですね。"
+    }), "\n", _jsx(_components.h3, {
+      id: "その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他",
+        children: "その他"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["iframe を導入することで、悪意ある人が自身のサイトを埋め込まれてしまうことがあります。", _jsx(_components.br, {}), "\n攻撃を受けないためにも、ブラウザからのさまざまな対策が練られています。", _jsx(_components.br, {}), "\nただ、ブラウザにもバグが生まれないことはあり得ないため、サンドボックス化という技術が使われているみたいです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://chromium.googlesource.com/chromium/src/+/main/sandbox/linux/README.md",
+          children: "The Linux Sandbox - chromium.googlesource.com"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["システムコールできるものを制限することで、個人データの外部流出を防ぐことができるようです。", _jsx(_components.br, {}), "\nこれで完全に防いでいるわけではなく、他にはCPUの実行タイミングからデータを予測する メルトダウンという攻撃があるそうです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://meltdownattack.com",
+          children: "Meltdown and Spectre - meltdownattack.com"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "SharedArrayBuffer のような API を使って攻撃できるみたいです...。"
+    }), "\n", _jsx(_components.h2, {
+      id: "キャッシュと無効化",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キャッシュと無効化",
+        children: "キャッシュと無効化"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次は、テキスト入力による描画時間についてです。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["画面のコンテンツが多いと、テキスト入力のレスポンスが遅くなります。", _jsx(_components.br, {}), "\nこれは、テキスト入力による画面描画が発生するためです。", _jsx(_components.br, {}), "\n画面コンテンツに量に比例して、描画時間が増えるのではなく、", _jsx(_components.br, {}), "\n変更のサイズに比例して、描画時間を増えるようにしたいです。", _jsx(_components.br, {}), "\nこれを、インクリメンタルパフォーマンスの原則と呼んでるそうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["考え方としては、最初のレンダリングと2回目以降のレンダリングを分けて考えます。", _jsx(_components.br, {}), "\n1回目のレンダリングは、ページ全体をゼロから行います。", _jsx(_components.br, {}), "\nこのページをキャッシュし、2回目以降のレンダリングは、変更箇所のみキャッシュを無効化してレンダリングする、という具合です。", _jsx(_components.br, {}), "\nどれが変更されたか？を影響範囲を追跡できるように、依存関係グラフの構築が重要になります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その依存関係グラフを構築するために、現在実装してきたレイアウトを大幅に変更しています。", _jsx(_components.br, {}), "\nその中で、関数を冪等性であることを担保する必要があります。", _jsx(_components.br, {}), "\n処理の中で、append のような処理をせずに、何度実行しても、入力が同じなら結果が同じになるように関数を修正します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "依存関係を把握するために、ProtectedField というクラスを用意し、\nダーティビットのON/OFF、依存管理を制御するようにします。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、レイアウトに関わるCSSのプロパティを列挙します。", _jsx(_components.br, {}), "\nそれらの変更があれば、レイアウト変更とみなすように最適化します。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以上で、キャッシュと無効化による描画時間の高速化を実現します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ようやく、読み終えることができました。", _jsx(_components.br, {}), "\n3月17日にこちらの本が自宅に届いたので、読書期間は1ヶ月以内です。", _jsx(_components.br, {}), "\n最初はかなり小さなブラウザだったので、丁寧に1つずつ読み込んでいましたが、", _jsx(_components.br, {}), "\n終盤になるにつれて、ざっくりと読み進めてしまいました。笑"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブラウザの仕組みについて、知っていたことは奥深く理解できるようになりましたし、", _jsx(_components.br, {}), "\n知らなかった部分へ触れることもできました。", _jsx(_components.br, {}), "\n特に、opacityやtransformに関連するCompositeの作られた背景には、具体のイメージを持てて何よりの収穫でした。", _jsx(_components.br, {}), "\n終盤のダーティビットによる最適化は、混乱が半端ないので、", _jsx(_components.br, {}), "\n多分自分の手で動かしてやらないと、理解できないかもなと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実務で活かせるように、もう一度自身の読書レビューを振り返っておこうと思いました。", _jsx(_components.br, {}), "\n読み応え抜群の良い本でした！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ps",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ps",
+        children: "P.S."
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["513ページの ", _jsx(_components.code, {
+        children: "reead"
+      }), " ではなく ", _jsx(_components.code, {
+        children: "read"
+      }), " が正しそう！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第15-16章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260413/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"画像\",\"iframe\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260413/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260413/\",\"description\":\"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア\",\"datePublished\":\"2026-04-13\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":316,"publishedAt":"2026-04-13","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260414","publishedAt":"2026-04-14","title":"モバイルアプリを作る機運が高まった"},"prev":{"href":"/blog/contents/20260412","publishedAt":"2026-04-12","title":"2日目の祖母のお葬式"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"},{"publishedAt":"2026-03-29","slug":"20260329","summary":"以下の書籍を11章を読みました。 11章はかなり奥が深いので、1つの章のみの感想になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から10章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第11章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260413/","slug":"20260413"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

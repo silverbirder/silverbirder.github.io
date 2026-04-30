@@ -1,0 +1,249 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T472d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下の書籍を13章と14章を読みました。", _jsx(_components.br, {}), "\nもうコードを詳しくトレースするのを諦めました。笑"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から12章の感想については、以下で書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260320/",
+          children: "『Webブラウザエンジニアリング』第1~3章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260322/",
+          children: "『Webブラウザエンジニアリング』第4~6章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260325/",
+          children: "『Webブラウザエンジニアリング』第7~8章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260327/",
+          children: "『Webブラウザエンジニアリング』第9~10章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260329/",
+          children: "『Webブラウザエンジニアリング』第11章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.github.io/blog/contents/20260403/",
+          children: "『Webブラウザエンジニアリング』第12章を読みました。 | ジブンノート - silverbirder.github.io"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "cssアニメーション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#cssアニメーション",
+        children: "CSSアニメーション"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["opacityを使ってフェードイン・アウトするアニメーション実装することがあります。", _jsx(_components.br, {}), "\n本章だと、そのアニメーションを実装してみます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["現時点での実装で、JavaScriptでopacityを0.1から0.999へ増やすフェードインのアニメーションを実装してみました。", _jsx(_components.br, {}), "\nすると、カクカクしたアニメーションになります。", _jsx(_components.br, {}), "\nラスタリングとサーフェス合成、描画がそれぞれ遅いのです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、CPUからGPUに乗り換えます。", _jsx(_components.br, {}), "\nGPUは、単純計算を並列処理するのが得意です。", _jsx(_components.br, {}), "\nCPUの得意領域もありますが、実装を簡単にするため全てGPUで処理するように置き換えました。", _jsx(_components.br, {}), "\nこれまで同様、キャッシュとダーティビットを駆使して、最適化を行なっていきます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書で、以下のページのリンクがありました。", _jsx(_components.br, {}), "\nChromiumのレンダリングエンジンについての解説です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.chrome.com/docs/chromium/renderingng?hl=ja",
+          children: "RenderingNG | Chromium | Chrome for Developers - developer.chrome.com"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "イラスト付きで紹介されているので、一読してみると良いかもしれません。"
+    }), "\n", _jsx(_components.h2, {
+      id: "アクセシビリティ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アクセシビリティ",
+        children: "アクセシビリティ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["（ブラウザ視点だと）アクセシビリティとは、", _jsx(_components.strong, {
+        children: "ユーザーがWebページとの対話方法を変更したりカスタマイズして、より使いやすくできること"
+      }), " です。", _jsx(_components.br, {}), "\n状況によっては、ダークモードやズーム、キーボードショートカットが便利に感じる時があります。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "ズーム",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ズーム",
+        children: "ズーム"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["まずは、ズーム機能の実装をしました。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "Ctrl+"
+      }), " や ", _jsx(_components.code, {
+        children: "Ctrl-"
+      }), " で、文字を拡大縮小する機能です。", _jsx(_components.br, {}), "\nそれらのキー入力があれば、zoom 数値変数をincrement/decrementさせ、", _jsx(_components.br, {}), "\nその数値を係数にレイアウトの計算を使用します。", _jsx(_components.br, {}), "\n比較的、サクッと実装ができました。（12,13章が難解すぎたんだ...)", _jsx(_components.br, {}), "\nちなみに、ズームはタブ（ページ）だけであり、クロームUIは対象外となります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下は、ズームの変化前後の画面です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775482859/silver-birder.github.io/blog/upy7ehf96aorsgkf0e84.png?ar=1824%3A1480",
+        alt: "Zoom前"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775482804/silver-birder.github.io/blog/zvhpglh7mzhlkpuosj67.png?ar=1824%3A1480",
+        alt: "Zoom後"
+      })
+    }), "\n", _jsx(_components.h3, {
+      id: "lorem-ipsum",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#lorem-ipsum",
+        children: "lorem ipsum"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["lorem ipsum という、出版やデザイナー向けのダミーテキストがあるようです。", _jsx(_components.br, {}), "\n名前は聞いたことありませんが、どこかで見たことがあるかもしれません。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://ja.wikipedia.org/wiki/Lorem_ipsum",
+      title: "lorem ipsum - Wikipedia",
+      siteName: "ja.wikipedia.org",
+      faviconSrc: "/link-card/0197d6d60e75a82f3f60bcd28852f3a9783b11cafc39479551544cf791ea925b.ico",
+      thumbnailSrc: "/link-card/0384d57c5a1e9b5b48fdb2b1683162ef9b2feca0bd01fd0b26e69aaf2cd5b4a8.png"
+    }), "\n", _jsx(_components.h3, {
+      id: "ダークモード",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ダークモード",
+        children: "ダークモード"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ズームの次は、ダークモードの実装をしました。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "Ctrl+d"
+      }), "をトリガーに、ダークモードへ切り変えます。", _jsx(_components.br, {}), "\nこちらは、クロームとタブ（ページ）どちらも色を反転させます。", _jsx(_components.br, {}), "\nクロームの方が簡単なので、", _jsx(_components.code, {
+        children: "dark_mode"
+      }), " 変数を定義してそれに応じて、背景色や文字色を変化させます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["タブの方が少し複雑です。", _jsx(_components.br, {}), "\nデフォルトの背景色や文字色なら、素直に反転すれば済みます。", _jsx(_components.br, {}), "\nよりカスタマイズする場合は、CSSのメディアクエリを実装します。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "prefers-color-scheme"
+      }), " です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["CSSParserを改造し、メディアクエリをパースできるように修正後、", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "prefers-color-scheme"
+      }), " に従った色を設定するようになりました。", _jsx(_components.br, {}), "\n以下は、ライトモード・ダークモードの画面です。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775483100/silver-birder.github.io/blog/l3ewtnrfniklhpx2cjm2.png?ar=1824%3A1480",
+        alt: "ライトモード"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775483107/silver-birder.github.io/blog/wavehqqzosphxgpkjntp.png?ar=1824%3A1480",
+        alt: "ダークモード"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "キーボードナビゲーション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キーボードナビゲーション",
+        children: "キーボードナビゲーション"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["マウス操作ではなく、キーボード操作で移動できるようにしたいです。", _jsx(_components.br, {}), "\nクロームUIは比較的簡単です。", _jsx(_components.br, {}), "\nズーム機能実装時と同じように、指定キーの組み合わせで機能を実現します。", _jsx(_components.br, {}), "\n新規タブ作成、タブ移動、ブラウザ終了などを実装しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["次は、タブの中のキーボード移動です。", _jsx(_components.br, {}), "\nクリック可能な要素間をタブ移動できて、エンターキーでクリックをできるようにします。", _jsx(_components.br, {}), "\nそのためには、フォーカス実装を行います。", _jsx(_components.br, {}), "\n既にfocusプロパティは実装があったので、ボタンやリンクにフォーカスできるようにして、", _jsx(_components.br, {}), "\nフォーカス可能な要素一覧とフォーカス位置を使って、タブ移動できるようにします。", _jsx(_components.br, {}), "\nエンターキーによる操作は、リンク移動やボタン押下などがあるのでアクティブ化と呼びます。", _jsx(_components.br, {}), "\nさらに、tabindexを実装することで、タブ移動対象外にしたり、タブ順序を指定できるようにしました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["フォーカスが当たっているかどうか視覚的にわかりやすくするように、\nフォーカスリングの実装も行いました。", _jsx(_components.br, {}), "\n画面外にある要素へのフォーカスをする場合は、スクロール移動も行います。", _jsx(_components.br, {}), "\nかなり、現在のブラウザの挙動に近しい実装ができてきました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["以下は、", _jsx(_components.code, {
+        children: "this is a link"
+      }), " へタブ移動してフォーカスが当たっている画面です。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1775485390/silver-birder.github.io/blog/yyiguisfhtp6rg2kzlmi.png?ar=1824%3A1480",
+        alt: "キーボードナビゲーション"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "スクリーンリーダー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スクリーンリーダー",
+        children: "スクリーンリーダー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["画面の文字を読み上げる、スクリーンリーダーを実装したいと思います。", _jsx(_components.br, {}), "\n文字の読み上げ機能は、gTTS を使って実現できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何を読み上げるかというと、画面の文字を上から下まで素直に読み上げれば良いと思うのですが、", _jsx(_components.br, {}), "\nそれを表すデータ構造を保持していません。", _jsx(_components.br, {}), "\nDOMツリーやレイアウトツリーは保持していますが、読み上げに不要な情報が多いです。", _jsx(_components.br, {}), "\n（例えば、スタイリングのためのdivは不要です）", _jsx(_components.br, {}), "\nそこで、アクセシビリティツリーという、ロール情報などを保持するツリーを構築します。", _jsx(_components.br, {}), "\nHTMLの要素には、デフォルトのroleというのが存在するため、それらをツリー構造で保持するようにします。", _jsx(_components.br, {}), "\nroleに加えて、テキストも保持するようにします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["アクセシビリティツリーができると、スクリーンリーダーをするためのショートカットキーを作成して、", _jsx(_components.br, {}), "\n先ほど作成したアクセシビリティツリーを上から読み上げていきます。", _jsx(_components.br, {}), "\nこれに加えて、フォーカス移動したら、フォーカス移動したことを読み上げる機能も実装します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アクセシビリティの章に、以下の文章が書かれていました。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "アクセシビリティツールが一度構築されると、創造的な人々は設計者が予期しない状況でそのツールを活用する方法を見つけ出す"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["キーボードショートカットを実装することで、Webアプリの大量の注文処理を筋肉の記憶（マッスルメモリー）で活用すると書いていて、", _jsx(_components.br, {}), "\nちょっとクスッとしました。", _jsx(_components.br, {}), "\n私も創造的な人になりたいです。。。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第13-14章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260407/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"アクセシビリティ\",\"アニメーション\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260407/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260407/\",\"description\":\"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。\",\"datePublished\":\"2026-04-07\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":310,"publishedAt":"2026-04-07","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260408","publishedAt":"2026-04-08","title":"外湯で寝るのが玄人"},"prev":{"href":"/blog/contents/20260406","publishedAt":"2026-04-06","title":"ヤマザキ春のパンまつり2026、お皿を手に入れた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"},{"publishedAt":"2026-03-29","slug":"20260329","summary":"以下の書籍を11章を読みました。 11章はかなり奥が深いので、1つの章のみの感想になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から10章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第11章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260407/","slug":"20260407"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T28b5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    h3: "h3",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251123/",
+      title: "Google Map の7年分のタイムラインデータが消えた",
+      description: "Google Map の約7年分のタイムラインデータが消えてしまいました。 悲しすぎる。 原因は、スマホ（Google Pixel）のストレージ整理中に、 Google Map のストレージを誤って削除してしまったこと。 バックアップ自体は",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/1676e848e41d81d38c8a725fcd17760a81785f538f06a66356b254aa6ea93b84.png"
+    }), "\n", _jsx(_components.p, {
+      children: "こういう経験をすると、データを所有したいと思うようになりました。\nデータって大事です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "データのエクスポート",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データのエクスポート",
+        children: "データのエクスポート"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google には Takeout というサービスがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://takeout.google.com",
+          children: "Google データ エクスポート - takeout.google.com"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["このサービスは、 Google アカウントに保存されている様々なデータ（Chromeの検索履歴やPhotoの写真など）をエクスポートすることができます。", _jsx(_components.br, {}), "\nGoogle Map もサービス対象ですが、タイムラインデータは含まれていません。", _jsx(_components.br, {}), "\n私は Google Pixel を持っているので、端末の設定アプリからタイムラインデータを JSON 形式でエクスポートすることができます。", _jsx(_components.br, {}), "\nエクスポートした JSON ファイルを Google Map にインポートすることはできません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、タイムラインデータだけでなく口コミデータも一部エクスポートできませんでした。", _jsx(_components.br, {}), "\n私は640件以上の口コミをしているのですが、エクスポートできたのは全部ではなかったと思います。（200件ぐらい？）"]
+    }), "\n", _jsx(_components.h3, {
+      id: "脱線話",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#脱線話",
+        children: "脱線話"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Google Takeout を使って、行動履歴を可視化する ActivityViz というWebアプリを開発しました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://actviz.vercel.app/",
+      title: "ActivityViz",
+      description: "Googleマイアクティビティを可視化します。",
+      siteName: "actviz.vercel.app",
+      faviconSrc: "/link-card/50b3dec615b0ca35a1cb6fbeb0437a58be96ddf808b56d1d44d2a382dc5dc5a3.png"
+    }), "\n", _jsx(_components.p, {
+      children: "Google Takeout でダウンロードしたマイアクティビティをzipごとブラウザにアップロードするだけで、以下のようなグラフを見ることができます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "検索キーワードのワードクラウド"
+      }), "\n", _jsx(_components.li, {
+        children: "月別のアクティビティヒートマップ"
+      }), "\n", _jsx(_components.li, {
+        children: "時間帯ごとの行動パターン"
+      }), "\n", _jsx(_components.li, {
+        children: "位置情報ベースのマップ表示"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["データはブラウザ上で全て完結して処理するため、外部通信は一切しません。", _jsx(_components.br, {}), "\n月別の行動振り返りに便利ですので、ぜひご利用ください。", _jsx(_components.br, {}), "\n実装した話について、以下の記事で紹介していますので、よければご覧ください。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/google-my-activity-visualization/",
+      title: "DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた",
+      description: "DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/e53df4cfa1049360c1466522e011813fd4193d1120471df90d19d7a666f0eb4d.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "データの管理",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データの管理",
+        children: "データの管理"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Map は便利なサービスです。", _jsx(_components.br, {}), "\n目的地までの移動ルートの確認や、場所の検索、ストリートビューで景観の確認もできます。", _jsx(_components.br, {}), "\n私の生活において、Google Map は欠かせない存在です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["とはいえ、私の投稿した口コミデータや行動履歴について、可能なら自身が保持したいです。", _jsx(_components.br, {}), "\nデータのエクスポート機能は、多くのプロダクトでは有料とされることが多いです。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "それだけデータには価値があります。"
+      })]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Map だと口コミデータとタイムラインデータはどちらも手に入れる方法は少なからずあります。", _jsx(_components.br, {}), "\nただし、どちらもそれらのデータを今後も継続して手に入るとは限りません。", _jsx(_components.br, {}), "\nGoogle Map にどっぷり依存しているなら、それは許容しないといけません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Map から脱するなら、それと同等のプロダクトを見つけるか自作しないといけません。", _jsx(_components.br, {}), "\nプロダクトはセルフホスト可能なもの（ex. Dawarich, OwnTracks) でないと、プロダクト側に主導権が渡ってしまいます。", _jsx(_components.br, {}), "\n自作は高難易度でしょう...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "折衷案",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#折衷案",
+        children: "折衷案"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Map の体験は継続したい。", _jsx(_components.br, {}), "\nけれど、データは所有したい。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["なら、定期的にデータをダウンロードするしかなさそうです。", _jsx(_components.br, {}), "\n自分用の小さなスクリプトを用意して、口コミデータやタイムラインデータを手に入れる方法を作ります。", _jsx(_components.br, {}), "\nWeb 上ならブラウザオートメーションツール、モバイル 上ならアプリオートメーションツールです。", _jsx(_components.br, {}), "\n先ほど書いた、Google Takeout や Google Pixel の設定アプリ経由のデータ取得は正道です。", _jsx(_components.br, {}), "\nしかしそれらがいつまで提供されるのか不明ですので、自身の制御できる範囲で仕組み化するとよさそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Dawarich と OwnTracks を使って、Google Map のタイムラインデータを置き換えようかなと思っていたのです。", _jsx(_components.br, {}), "\nそれでうまくいった場合、タイムラインデータは自身の制御下になります。", _jsx(_components.br, {}), "\nただ Google Pixel の純正アプリ（Google Map）に比べたら、バッテリー消耗や精度は厳しそうだなと思っています...。", _jsx(_components.br, {}), "\nタイムラインデータの可視化に関してはより良いものが作れるかもしれませんが。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Google Map タイムラインデータをなんとかしたい\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260228/opengraph-image.png\"],\"keywords\":[\"開発ツール\",\"Google Map\",\"タイムラインデータ\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260228/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260228/\",\"description\":\"以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。 https://silverbirder.github.io/blog/contents/20251123/ こういう経験をすると、データを所有したい\",\"datePublished\":\"2026-02-28\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":272,"publishedAt":"2026-02-28","tags":["開発ツール"],"title":"Google Map タイムラインデータをなんとかしたい"},"navigation":{"next":{"href":"/blog/contents/20260301","publishedAt":"2026-03-01","title":"8ヶ月ぶりの洗車"},"prev":{"href":"/blog/contents/20260227","publishedAt":"2026-02-27","title":"30代からのマウスケア"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2024-03-21","slug":"try-million-lint","summary":"Million.devを知り、少し試してみました。Million.jsについて このライブラリは、React DevToolsのProfilerより簡単にプロファイリングできるみたいです。 パフォーマンスのプロファイリングは通常、面倒で時間のかかる作業です。もしもこれを簡単に実行できるのであれば、めちゃくちゃ捗るなとわくわくしました。","tags":["テスト","開発ツール"],"title":"Million Lintを試してみた"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260228/","slug":"20260228"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

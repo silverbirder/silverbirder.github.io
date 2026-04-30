@@ -1,0 +1,352 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T4000,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "この度、初めて書籍を出版することになりました！\n「はじめての Web Components 入門」本を技術書典 7 で販売します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "技術書典-7-って",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術書典-7-って",
+        children: "技術書典 7 って"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "コミックマーケットのエンジニア向けみたいなものです。\n詳しくは、下記のリンクを参照下さい。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://techbookfest.org/event/tbf07",
+      title: "技術書典7",
+      description: "技術書の祭典が2019年09月22日（日）＠池袋サンシャインシティ 展示ホールC/D（文化会館ビル2/3F）で開催決定！",
+      siteName: "技術書典：技術書オンリーイベント",
+      faviconSrc: "/link-card/b01241c94e6cccf0c3213bc6a7feef5be22b66cca8b8adc0396f0d3c53fab110.png",
+      thumbnailSrc: "/link-card/b2093e44af3466b4d7a5592081c849e210a267c0a9bc1e073fb0407e74d561e6.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "あなたは誰",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#あなたは誰",
+        children: "あなたは誰"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "詳しくは、私のポートフォリオを参照下さい。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/",
+      title: "ジブンノート",
+      description: "silverbirder のホームページ。ブログ記事や自己紹介などを掲載しています。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/cd2dc71f4c4e24dee2702b315c6b785349ddfe75d917407c09f48629407015a4.png"
+    }), "\n", _jsx(_components.p, {
+      children: "Web アプリケーションが大好きなエンジニアです。\n今は、EC サイトのフロントエンドエンジニアをしています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どんな本",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どんな本",
+        children: "どんな本"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Web Components について\n何も知らない方向けの書籍になります。\n書籍の内容の大きな流れは、下記のとおりです。どれもサンプルコードを用意しています。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Web Components の基礎"
+      }), "\n", _jsx(_components.li, {
+        children: "★ 実際に Web Components を作成"
+      }), "\n", _jsx(_components.li, {
+        children: "関連ライブラリの紹介"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "実際に-web-components-を作成-について紹介",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際に-web-components-を作成-について紹介",
+        children: "「実際に Web Components を作成 」について紹介"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "お題として Todo Components を作ることになります。作る流れは順序立てて紹介しています。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "最小限のコンポーネントを作成"
+      }), "\n", _jsx(_components.li, {
+        children: "レンダリングの工夫"
+      }), "\n", _jsx(_components.li, {
+        children: "コンポーネント間のデータ連携"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "上記のステップを踏むことで Todo Components が完成します。もちろん、サンプルコードがあるので動作確認できます。"
+    }), "\n", _jsx(_components.p, {
+      children: "また、カバレッジ 100%テストコードの実装も紹介していますので、TDD も実現できます。Web Components のテストコードは、あまりネット上に紹介されていない印象があったので、折角なので混ぜてみました。"
+    }), "\n", _jsx(_components.p, {
+      children: "最後に、（実際はしていませんが）Web Components を公開する手順も紹介しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "コラムネタ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コラムネタ",
+        children: "コラムネタ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "コラムネタとして下記のようなもの（全てではない）を書いています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "cloneNode vs innerHTML"
+      }), "\n", _jsx(_components.li, {
+        children: "html-imports"
+      }), "\n", _jsx(_components.li, {
+        children: "WAI-ARIA"
+      }), "\n", _jsx(_components.li, {
+        children: "slot"
+      }), "\n", _jsx(_components.li, {
+        children: ":host"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "目次",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#目次",
+        children: "目次"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "第一章 フロントエンド開発"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "フロントエンド開発の苦労"
+          }), "\n", _jsx(_components.li, {
+            children: "コンポーネントベースの JS フレームワーク"
+          }), "\n", _jsx(_components.li, {
+            children: "JS フレームワーク非依存"
+          }), "\n", _jsx(_components.li, {
+            children: "まとめ"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "第二章 Web Components"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "概要"
+          }), "\n", _jsx(_components.li, {
+            children: "Web Components 4 つの基本機能"
+          }), "\n", _jsx(_components.li, {
+            children: "ライフサイクルメソッド"
+          }), "\n", _jsx(_components.li, {
+            children: "まとめ"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "第三章 Web Components を作ってみよう"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "作って学ぶ"
+          }), "\n", _jsx(_components.li, {
+            children: "TodoComponents を作ってみる"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] TodoItem と TodoInput を作る"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] render を工夫してみよう"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] MyTodo を作る"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] 各コンポーネントを連携する その 1"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] 各コンポーネントを連携する その 2"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] 各コンポーネントを連携する その 3"
+          }), "\n", _jsx(_components.li, {
+            children: "[実践] テストコードを書く"
+          }), "\n", _jsx(_components.li, {
+            children: "[補足] slot"
+          }), "\n", _jsx(_components.li, {
+            children: "Web Components の公開"
+          }), "\n", _jsx(_components.li, {
+            children: "まとめ"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["\n", _jsx(_components.p, {
+          children: "第四章 Web Components の関連ライブラリ"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Polymer"
+          }), "\n", _jsx(_components.li, {
+            children: "LitElement"
+          }), "\n", _jsx(_components.li, {
+            children: "Material Web Components"
+          }), "\n", _jsx(_components.li, {
+            children: "その他の周辺ライブラリ"
+          }), "\n", _jsx(_components.li, {
+            children: "まとめ"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "なぜ書いたの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#なぜ書いたの",
+        children: "なぜ書いたの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "主に下記のとおりです。"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Web Components を学習したかったから"
+      }), "\n", _jsx(_components.li, {
+        children: "ポートフォリオとして残したいから"
+      }), "\n", _jsx(_components.li, {
+        children: "エンジニアと交流したいから"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "特に、1 番が大きかったです。\nWeb が大好きな私にとっては、Web Components という技術に興味がありました。\nけれど、実際に試したことがなかったので、これをきっかけにして使ってみたい！という欲求が大きくありました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "いつどこで販売されるの",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#いつどこで販売されるの",
+        children: "いつ、どこで販売されるの"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "2019 年 09 月 22 日で、「池袋サンシャインシティ 展示ホール C/D」で販売します。\n弊サークル「silverbirder」の配置は「う 03C」です。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614430611/silver-birder.github.io/blog/your_circle_silverbirder_03C.png?ar=890%3A299",
+        alt: "貴サークル「silverbirder」う03C"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "販売形態は",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#販売形態は",
+        children: "販売形態は"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "本と電子本の 2 つにするつもりです。\n本は日光企画様より製本して頂いたもののみの販売となります。\n電子本は BOOTH で販売する予定です。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["本を購入された方は、電子本を ", _jsx(_components.strong, {
+        children: "無料"
+      }), " で差し上げます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回、初物が多すぎました（笑）。", _jsx(_components.br, {}), "\nそのせいで、プライベートの時間がほぼなくなりました（笑）。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "初技術書典参加"
+      }), "\n", _jsx(_components.li, {
+        children: "初製本"
+      }), "\n", _jsx(_components.li, {
+        children: "初 Web Components 勉強"
+      }), "\n", _jsx(_components.li, {
+        children: "初クリスタ（イラスト用)"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["技術書典では、エンジニアそれぞれの ", _jsx(_components.strong, {
+        children: "今"
+      }), " 書きたいものをアウトプットしています。\nそうすると、新鮮な情報をキャッチアップしやすくなるため、非常に情報収集するのが効率的だと思います。\n技術書典を参加したことがありませんが、執筆してみて思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["「 ", _jsx(_components.strong, {
+        children: "どの本も絶対面白い！"
+      }), " 」はずです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "だって、好きなこと書けるんですから（笑）。私も含まれます。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["技術書典 7 当日は、是非とも「う 03C」にお越し下さい〜〜！", _jsx(_components.br, {}), "\n（他のサークルさんの本買いに行きたい...!!!）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "関連リンク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#関連リンク",
+        children: "関連リンク"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "見本誌",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#見本誌",
+        children: "見本誌"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://silverbirder.booth.pm/items/1536228",
+          children: "[見本誌] はじめての Web Components 入門 -4 つの基本機能から関連ライブラリまで-"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術書典-7",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術書典-7",
+        children: "技術書典 7"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://techbookfest.org/event/tbf07/circle/5117648689954816",
+      title: "技術書典7: silverbirder 詳細",
+      description: "Web Componentsを誰でも簡単に使えるように紹介します！[無料見本誌あり/サンプルコードあり]",
+      siteName: "技術書典：技術書オンリーイベント",
+      faviconSrc: "/link-card/b01241c94e6cccf0c3213bc6a7feef5be22b66cca8b8adc0396f0d3c53fab110.png",
+      thumbnailSrc: "/link-card/528832d1aa481363466a33b8f24447e77f991e8f0a2e87451b85ead8aedb2a44.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "twitter-宣伝",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#twitter-宣伝",
+        children: "Twitter 宣伝"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://twitter.com/silverbirder/status/1166171153875886080",
+        children: "tweet"
+      })
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"技術書典7 で「はじめてのWeb Components入門」を初出版します！\",\"image\":[\"https://silverbirder.github.io/blog/contents/first_release_techbook7/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"書籍レビュー\",\"技術書典7\",\"Web Components\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/first_release_techbook7/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/first_release_techbook7/\",\"description\":\"この度、初めて書籍を出版することになりました！「はじめてのWeb Components入門」本を技術書典7で販売します。\",\"datePublished\":\"2019-08-30\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":30,"publishedAt":"2019-08-30","tags":["フロントエンド","書籍レビュー"],"title":"技術書典7 で「はじめてのWeb Components入門」を初出版します！"},"navigation":{"next":{"href":"/blog/contents/smart_home_for_enginner","publishedAt":"2019-09-06","title":"エンジニアのためのスマートホーム化"},"prev":{"href":"/blog/contents/cloud_native_days_tokyo_2019","publishedAt":"2019-07-27","title":"Cloud Native Days Tokyo 2019 -2019年7月22-23日参加レポート"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/first_release_techbook7/","slug":"first_release_techbook7"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

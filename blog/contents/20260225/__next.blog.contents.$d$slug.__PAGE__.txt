@@ -1,0 +1,499 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T5851,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["AI にコードを書かせた後、余計なコードを見つけて消す作業があります。", _jsx(_components.br, {}), "\n不毛なことなので、それらの作業を減らすためのお作法を紹介します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "未使用コードを消す",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#未使用コードを消す",
+        children: "未使用コードを消す"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260129/",
+      title: "個人サイトリニューアルの振り返り",
+      description: "個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/d1504c687ef76f83d27c3db5e8cb17c933f38593f6721996674c31464e76ab72.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Git の ", _jsx(_components.code, {
+        children: "pre commit"
+      }), " 時に knip を動かして未使用ファイルを削除するように強制します。", _jsx(_components.br, {}), "\nこれにより、使われていないコードや未使用な npm package などを消すことができます。", _jsx(_components.br, {}), "\nプロジェクトごとに、 knip の設定ファイルを書く必要があります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "文言を1ファイルにまとめる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#文言を1ファイルにまとめる",
+        children: "文言を1ファイルにまとめる"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI にコードを書かせると、テキストが他のページと合わない用語を使ったりします。", _jsx(_components.br, {}), "\nそういった用語を手直しするのが不毛です。", _jsx(_components.br, {}), "\nそこで以下の記事でも触れている通り、画面表示などに使用する文言を言語ファイル( ", _jsx(_components.code, {
+        children: "ja.json"
+      }), " )として管理します。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251222/",
+      title: "多言語対応しなくても i18n を入れる理由は、表記揺れをなくすため",
+      description: "多言語対応を予定していない場合でも、i18n ライブラリを導入し、文言をメッセージファイルで管理しておく方法があります。 この方法を取ると、表記揺れに気づきやすくなるという利点があります。 この記事では主にフロントエンドの文脈で話を進めます",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/e9f006eb2375431a7ecf4228a3f722bb12f246943f5b006b251e98776f770b96.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["その上で、ESLint の設定で 直接テキストを使用できないようにします。", _jsx(_components.br, {}), "\n例えば、", _jsx(_components.code, {
+        children: "jsx-no-literals"
+      }), " が手っ取り早いでしょう。", _jsx(_components.br, {}), "\nこれを導入することで、表示するテキストの表記揺れの修正が言語ファイル内で完結します。", _jsx(_components.br, {}), "\nそうすると、AI から比較的マシなテキストを書き上げてくれます。", _jsx(_components.br, {}), "\nまた良くなかった場合も、文言ファイル内の修正だけに止まるため修正が楽になります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "変更前に戻せる状態にする",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#変更前に戻せる状態にする",
+        children: "変更前に戻せる状態にする"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["よく AI にコードを書かせていると、試行錯誤によって無駄なコードが生まれることがあります。", _jsx(_components.br, {}), "\n基本的に、変更前に戻せる状態を意識しておくと楽です。", _jsx(_components.br, {}), "\nうまく行っている状態までをステージに上げておくのです。", _jsx(_components.br, {}), "\nこまめにコミットしちゃうのが良いのですが、そうはいかない場合もあります。", _jsx(_components.br, {}), "\nそういう場合うまく行っている状態の箇所をステージにあげておけば、AIのコードがNGだった場合にコードをリセットできます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "pre-commit-を厚くする",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#pre-commit-を厚くする",
+        children: "pre commit を厚くする"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.code, {
+        children: "pre commit"
+      }), " 時に、さまざまなチェックを入れておくと安全です。", _jsx(_components.br, {}), "\n私の場合は、以下の npm script の ", _jsx(_components.code, {
+        children: "ci:fix"
+      }), " を ", _jsx(_components.code, {
+        children: "pre commit"
+      }), " に通すようにしています。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "json",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "json",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "{"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "  \"scripts\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"ci:fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"pnpm knip:fix && pnpm lint:fix && pnpm format && pnpm check-types && pnpm test:fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"knip\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"knip\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"knip:fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"knip --fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"lint\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"eslint . --max-warnings 0\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"lint:fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"pnpm lint -- --fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"format\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"prettier --write "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "**/*.{ts,tsx}"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "\\\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"check-types\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"tsc --noEmit\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"test\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"vitest --run\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ","
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "    \"test:fix\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ": "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"pnpm test -- --update\""
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["knipの未使用コードの削除、lintのチェック、formatで整え、check-typesで型チェック、テストの実行です。", _jsx(_components.br, {}), "\nテストにはvitest のテストだけでなく、storybook のテストを実行しています。", _jsx(_components.br, {}), "\nStorybook を Vitest Browser Mode で Visual Regression Test （以下、VRT）します。\n詳しくは、以下の記事をご参考ください。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251203/",
+      title: "Storybook の Story を Vitest Browser Mode with Playwright で VRT",
+      description: "Storybook の Story オブジェクトを Vitest の Browser Mode だけで、Visual Regression Test（VRT）ができるようになりました。 本記事では、その導入手順をコンパクトに紹介します。 前",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/447135f3f459572fc80cd1be7883c03c1def2e1759b6c065ab0ea2860ecf3c32.png"
+    }), "\n", _jsx(_components.p, {
+      children: "VRTに加えて、Storybookのa11yも導入しておきます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://storybook.js.org/addons/@storybook/addon-a11y",
+          children: "Accessibility | Storybook integrations - storybook.js.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["a11yのテストを動かしておくと最低限のa11yのエラーを見つけることができます。", _jsx(_components.br, {}), "\n例えば色のコントラストなどが多いです。", _jsx(_components.br, {}), "\nいちいち指摘せずとも、テストでエラーになれば AI 側で修正してくれるようになります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Lintの設定は、自身が手直しをよくするものはLintで対応できるならやっておきます。", _jsx(_components.br, {}), "\n例えば、Propsなどの並び順は気になる場合は それらを強制する設定を登録しておきます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他",
+        children: "その他"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["あとは、『", _jsx(_components.code, {
+        children: "className"
+      }), "を使わせない』という強硬策を取ることもあります。", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "className"
+      }), " で自由にスタイルを書かせると、AI がデザインシステム外のスタイルで仕上げてくることがあります。", _jsx(_components.br, {}), "\n基本的に、デザインの最終調整は人間の目でやるべきと思いますが、土台はある程度 AI に書かせたいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、ESLintの設定で ", _jsx(_components.code, {
+        children: "className"
+      }), " を使用させない設定を取り入れます。", _jsx(_components.br, {}), "\n設計次第ですが、以下のようなルールで縛っておけば楽です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["AtomicなUIのみ、", _jsx(_components.code, {
+          children: "className"
+        }), " の使用を許可する\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "例: Typography, Layout（Stack, Container, ...）, Button, ..."
+          }), "\n", _jsxs(_components.li, {
+            children: [_jsx(_components.code, {
+              children: "class-variance-authority"
+            }), " を使用し、UIのバリエーションを定義する"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "それ以外のUIは、 AtomicなUI を使うようにする"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらのお作法を守っておくと、AI のコーディングからの手直しを比較的減らせることができます。", _jsx(_components.br, {}), "\nより効率的に開発していきましょう。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIの書いたコードの手直しを減らすお作法\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260225/opengraph-image.png\"],\"keywords\":[\"AI\",\"フロントエンド\",\"手直し\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260225/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260225/\",\"description\":\"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht\",\"datePublished\":\"2026-02-25\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":269,"publishedAt":"2026-02-25","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"},"navigation":{"next":{"href":"/blog/contents/20260226","publishedAt":"2026-02-26","title":"賃貸物件で近隣住民の騒音への対処法"},"prev":{"href":"/blog/contents/20260224","publishedAt":"2026-02-24","title":"令和7年 確定申告 振り返り"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-24","slug":"20260424","summary":"現在、個人開発でブログキュレーションアプリを開発中です。 https://silverbirder.github.io/blog/contents/20260419/ UIデザインについて、v0などのAIデザインツールを使う際に、 バイブコ","tags":["AI","デザイン"],"title":"AIデザインとバイブコーディングの相性の良さ"},{"publishedAt":"2026-04-16","slug":"20260416","summary":"お葬式関連で、実家に帰省した際の話です。 家族みんなで夕食を頂く際に『AIがあるJ:COMのインターネットを契約しようと思ってるんや』という父からの話がありました。 どうやら AI というワードに魅力を感じ、『なんか知らないけど、なんでもや","tags":["雑談","AI"],"title":"パソコン苦手両親のAIへの信頼感"},{"publishedAt":"2026-03-19","slug":"20260319","summary":"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260225/","slug":"20260225"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

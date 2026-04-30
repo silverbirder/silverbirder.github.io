@@ -1,0 +1,88 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T13f3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["フリーランスになってから今まで、国民年金や健康保険をコンビニで支払いしていました。", _jsx(_components.br, {}), "\n銀行からお金を引き出して、コンビニまで足を運び、納付書と現金を渡していたのです...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["一昨日、たまたま国民年金の納付書を見ていたら、", _jsx(_components.strong, {
+        children: "スマホから支払いできる"
+      }), " ことに気づきました。", _jsx(_components.br, {}), "\nこれは、2023年2月20日から使えていたのですね.....。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.nenkin.go.jp/oshirase/taisetu/2023/202302/0220.html",
+      title: "国民年金保険料のスマートフォンアプリによる電子（キャッシュレス）決済がはじまりました",
+      siteName: "nenkin.go.jp",
+      faviconSrc: "/link-card/2d61082147c874e732adf6aed916ff35a41fd67672cfa4234908d8d0f38450bd.ico",
+      thumbnailSrc: "/link-card/f43e7f2f10a13f3be3cbff27998ec34fd6230f8256651850cd966103fb8d0674.png"
+    }), "\n", _jsx(_components.p, {
+      children: "支払い方は簡単で、納付書にあるバーコードをコード決済などのアプリで読み取って払うだけです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.nenkin.go.jp/service/kokunen/hokenryo/smartphone.html",
+      title: "スマートフォンアプリでのお支払い",
+      siteName: "nenkin.go.jp",
+      faviconSrc: "/link-card/2d61082147c874e732adf6aed916ff35a41fd67672cfa4234908d8d0f38450bd.ico",
+      thumbnailSrc: "/link-card/f43e7f2f10a13f3be3cbff27998ec34fd6230f8256651850cd966103fb8d0674.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["私はドコモユーザーなので、d払いで支払いを済ませました。", _jsx(_components.br, {}), "\n国民年金や健康保険などの社会保険料は、こんなに簡単だったんですね...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "水道料金なども",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#水道料金なども",
+        children: "水道料金なども"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["住んで地域では、水道料金の支払いは 地域銀行のみ口座引き落としが可能です。", _jsx(_components.br, {}), "\nそれ以外は、納付書による支払いしかありません。", _jsx(_components.br, {}), "\nただ、この納付書もd払いできました...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また調べてみると、市税や自動車税もキャッシュレス決済ができるみたいです。", _jsx(_components.br, {}), "\nひゃー！もっと最初からやっていればよかった！"]
+    }), "\n", _jsx(_components.h2, {
+      id: "まあ現金もね",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#まあ現金もね",
+        children: "まあ現金もね"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["銀行から現金を引き出すと、お金の重み（お札）を感じるんですよね。", _jsx(_components.br, {}), "\nそれをコンビニの店員さんに渡すので、『お金使ってる感』はあったんですけど、", _jsx(_components.br, {}), "\nd払いだと ぽちぽちっと払えちゃうので、お金使ってる感が減ってて、どうなんだ？とは思いました。", _jsx(_components.br, {}), "\nまあ、d払いを普段から使っている時点で『お金使ってる感』は随分ないんですけどね。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["現金のありがたみを実感するためにも、封筒に1ヶ月分の働いたお金を入れるというのをやってみたいですね（笑）。", _jsx(_components.br, {}), "\n新卒の時からお給料は銀行振込だったので、現金渡しというのを経験してみたいものです。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"社会保険料ってスマホから支払えたのね\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260423/opengraph-image.png\"],\"keywords\":[\"雑談\",\"社会保険料\",\"キャッシュレス決済\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260423/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260423/\",\"description\":\"フリーランスになってから今まで、国民年金や健康保険をコンビニで支払いしていました。 銀行からお金を引き出して、コンビニまで足を運び、納付書と現金を渡していたのです...。 一昨日、たまたま国民年金の納付書を見ていたら、スマホから支払いできる\",\"datePublished\":\"2026-04-23\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":326,"publishedAt":"2026-04-23","tags":["雑談"],"title":"社会保険料ってスマホから支払えたのね"},"navigation":{"next":{"href":"/blog/contents/20260424","publishedAt":"2026-04-24","title":"AIデザインとバイブコーディングの相性の良さ"},"prev":{"href":"/blog/contents/20260422","publishedAt":"2026-04-22","title":"クレーンゲームのスライムがとれなーい！"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-28","slug":"20260428","summary":"今年に入って、3つぐらい陶器を割っています。 割ったのは、コップ2つの取手とお皿1枚の縁です。 割った陶器は、瞬間接着剤を付けて直しました。 割れた理由 コップ1つは、普通に落として割りました。 たしか、食器を乾燥機から取り出して食器棚に移","tags":["雑談"],"title":"陶器をよく割ってしまう..."},{"publishedAt":"2026-04-27","slug":"20260427","summary":"昨日26日（日）のお昼頃、見知らぬ人がインターフォンを鳴らしました。 結論を言うと、国民生活基礎調査の調査員の方でした。 https://www.mhlw.go.jp/stf/toukei/kokuminseikatsu.html 対象の方","tags":["雑談"],"title":"怪しい訪問者と思ったら、国民生活基礎調査（2026年）だった！"},{"publishedAt":"2026-04-25","slug":"20260425","summary":"株式会社はてなが、詐欺被害で11億円流出した様です。 https://news.yahoo.co.jp/articles/6dc2b89180353da79f5c4bca416d0c8d5a692b19 資金流出事案の発生に関するお知らせ","tags":["雑談"],"title":"ソーシャルエンジニアリングって恐ろしい"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260423/","slug":"20260423"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,176 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2187,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "また、以下の記事の続きを書こうと思います。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260312/",
+      title: "Webフロントエンドのコードレビューメモ",
+      description: "Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/848e3d26d38188187406021f05f7b8c62b0a313fe9e3c5657ad49c84f7f33274.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "ビジネスロジック",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ビジネスロジック",
+        children: "ビジネスロジック"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アプリケーションのビジネスロジックに関することについて書きます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["複数パラメータによる条件分岐がある場合、不都合なパターンが存在しないか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "3つ4つと増えると、都合が悪いパターンが稀に発生するため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["アクセスして良い画面（認証）であるか、参照して良いデータ（認可）であるか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "許可していないのにアクセスできたり、許可しているのにアクセスできなかったり"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["対象ドメインを適切に表す型であるか、嘘をついていないか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "無駄な型だと、余計なガード処理を入れる必要がでる"
+          }), "\n", _jsx(_components.li, {
+            children: "嘘をついている場合、保守する際にバグを生む可能性がある"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["必要十分なデータのみ扱っているか（過剰ではないか）\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "APIのデータフェッチや、オブジェクトへ保持されるデータなど"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["過去・現在・未来と考慮できているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["設計をそのまま未来へスライドしても不都合がないか\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "今は良いけど、近い未来に運用上困らないか。トイルは生まれないか。"
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsxs(_components.li, {
+            children: ["現在の設計により過去の設計に不都合がないか\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "データを整えたり、移行手順を用意できているか"
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["登場人物のコンテキストに配慮できているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "誰が使うものか、どういう状況で使うものか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "レビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#レビュー",
+        children: "レビュー"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "レビュー時に考慮していることについて書きます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["レビューコメントに、質問意図は添えれているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "レビュイへの負担を減らせているか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["imo,ask,nits,must,fyi と色分けできているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "質問なのか共有なのか、読み方が変わるため"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["具体的なものを書いて、わかりやすくコメントできているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "コードスニペットか、パッチを当てるPRを出すなど"
+          }), "\n", _jsx(_components.li, {
+            children: "Storybook 等で、指摘したい箇所を画像・動画を残せているか"
+          }), "\n", _jsx(_components.li, {
+            children: "時間軸が大事であれば、タイムラインをリスト形式で書けているか"
+          }), "\n", _jsx(_components.li, {
+            children: "具体的なドメインデータ（登場人物名や商品名など）で会話できているか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["何十行も長文ではなく、端的にコメントできているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "読む時間や読む負荷を下げれているか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["良い点や学びがある点など、ポジティブなフィードバックを出せているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "レビュイへの敬意を忘れていないか"
+          }), "\n", _jsx(_components.li, {
+            children: "提案頂いたことへ感謝すること"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["レビュー中に確認したことについては、コメントを残せているか\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "動作確認の報告や、関係者へ確認したSlackリンクなど"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "また思いつくことがあれば、書こうと思います！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webフロントエンドのコードレビューメモ2\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260318/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"コードレビュー\",\"Webフロントエンド\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260318/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260318/\",\"description\":\"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複\",\"datePublished\":\"2026-03-18\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":290,"publishedAt":"2026-03-18","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},"navigation":{"next":{"href":"/blog/contents/20260319","publishedAt":"2026-03-19","title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},"prev":{"href":"/blog/contents/20260317","publishedAt":"2026-03-17","title":"『Webブラウザエンジニアリング』を買いました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"},{"publishedAt":"2026-02-25","slug":"20260225","summary":"AI にコードを書かせた後、余計なコードを見つけて消す作業があります。 不毛なことなので、それらの作業を減らすためのお作法を紹介します。 未使用コードを消す 以下でも書きましたが、未使用コードの検査に knip を使うことが多いです。 ht","tags":["AI","フロントエンド"],"title":"AIの書いたコードの手直しを減らすお作法"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260318/","slug":"20260318"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

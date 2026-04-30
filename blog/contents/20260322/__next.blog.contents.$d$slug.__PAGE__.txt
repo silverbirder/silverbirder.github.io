@@ -1,0 +1,431 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T6143,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の書籍を4章から6章まで読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "1章から3章の感想については、以下で書いています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260320/",
+      title: "『Webブラウザエンジニアリング』第1~3章を読みました。",
+      description: "以下の書籍を1から3章まで読みました。 https://www.oreilly.co.jp/books/9784814401574/ 全部で16章もあるので、こまめに感想を残しておこうと思います。 Webの歴史 Web が成り立つ経緯につい",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/b6d9a673e9f61ced00d022d64425de4a92b95618cce4d172a4e63db9e61ea43a.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "おさらい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おさらい",
+        children: "おさらい"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "3章までの実装により、以下のような画面が出力できるようになりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774157139/silver-birder.github.io/blog/vv2cad5ehc9nqk6dtqge.png?ar=1660%3A1304",
+        alt: "Section 3.7"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["与えられたURLからHTMLを取得し、超簡易的にパースし、画面内にテキストを出力します。", _jsx(_components.br, {}), "\nテキストが画面内に収まらない場合は改行しますし、スクロール（下移動のみ）ができるようになりました。", _jsx(_components.br, {}), "\nまた文字をベースライン上に揃えて並べるようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "htmlパース",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#htmlパース",
+        children: "HTMLパース"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["HTMLをテキストやタグなどをフラットな構造でパースしていたところを、ツリー構造としてHTMLを分解します（DOMツリー)。", _jsx(_components.br, {}), "\nHTMLは入れ子構造ができる文書フォーマットなので、ツリー構造の相性は良いんでしょう。", _jsx(_components.br, {}), "\nHTMLのパースについては、完成済みノードと未完成のノードに分けていて、未完成ノードを完成済みノードへと入れていく作業です。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下のHTMLがあった場合に、"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "html",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "html",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">Hello <"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "b"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">world</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "b"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "></"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の完成済みの構造へと変換します。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "div"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "├── \"Hello \""
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "└── b"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "    └── \"world\""
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ここのセクションで興味深かったのは、", _jsx(_components.strong, {
+        children: "不正なHTMLフォーマット"
+      }), " の場合への配慮です。", _jsx(_components.br, {}), "\nタグや引用符の閉じ忘れ、doctype,html,head,bodyの指定漏れなどです。", _jsx(_components.br, {}), "\nそういう誤った記述に対して、最低限表示できるように HTML を調整するとのことです。", _jsx(_components.br, {}), "\nこれはかなり闇深そうです...。", _jsx(_components.br, {}), "\n現代のプログラミングにおいては、不正なフォーマットがあればエラーであることを知らせるツールはたくさんあります。", _jsx(_components.br, {}), "\nブラウザのレンダリングエンジン側が、HTMLフォーマットがあればエラーにさせる(白紙?)とどうなっちゃうんでしょうか...？", _jsx(_components.br, {}), "\n大半のページが、白紙になっちゃうのでしょうか？", _jsx(_components.br, {}), "\nブラウザ側の後方互換性という考えも大事なんですが、フォールトトレランスへの配慮をどこまでやるんだと悩みそうになります...。"]
+    }), "\n", _jsx(_components.p, {
+      children: "HTMLパースの実装を終えると、以下の画面出力となりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774157141/silver-birder.github.io/blog/vagjjsq8696rhmfbnysq.png?ar=1660%3A1304",
+        alt: "Section 4.6"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "データの持ち方が変わっただけなので、3章とほとんど変わらないはずです。"
+    }), "\n", _jsx(_components.h2, {
+      id: "レイアウトツリー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#レイアウトツリー",
+        children: "レイアウトツリー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["DOMツリーができたので、次はそれをWebページへ反映したいですね。", _jsx(_components.br, {}), "\n今は、ただただテキストを横に並べいるだけです。", _jsx(_components.br, {}), "\nそこで、DOMツリーをベースに、レイアウトツリーを作ります。", _jsx(_components.br, {}), "\nレイアウトツリーは、対象ノード（要素）のサイズや表示位置の情報を保持します。", _jsx(_components.br, {}), "\nこれまでの表示値は絶対位置で表現していたのですが、親子関係による相対位置を表すようにします。", _jsx(_components.br, {}), "\nまた、要素がブロック要素なのかインライン要素なのかによっても、表示位置が変わります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブロック要素の場合は、横幅は親の横幅と同じで、縦幅は子の高さの合計です。", _jsx(_components.br, {}), "\n表示位置は、xは親のxと同じで、yは親のyと親のheightの合計です。", _jsx(_components.br, {}), "\n並べる方向は、下へ並べていきます。", _jsx(_components.br, {}), "\nこれらは、以下の記事にあるようなブロック・インラインのお話かと思います。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/CSS/Guides/Display/Block_and_inline_layout",
+          children: "通常フローでのブロック・インラインレイアウト - CSS | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["知らなかったこととして、", _jsx(_components.strong, {
+        children: "無名ボックス"
+      }), " という概念です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://developer.mozilla.org/ja/docs/Web/CSS/Guides/Display/Visual_formatting_model#%E7%84%A1%E5%90%8D%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9",
+          children: "視覚整形モデル - CSS | MDN - developer.mozilla.org"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これは、以下のような1つの要素の中に、ブロックやインライン・テキストが混在しているケースです。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "html",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "html",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  これは無名ボックスに囲まれています。"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  <"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "p"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">これは段落の中にあります。</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "p"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  これは無名ボックスに囲まれています。"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "</"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#85E89D",
+                "--shiki-light": "#22863A"
+              },
+              children: "div"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["この場合、pはブロック要素で、\"これは無名ボックスに囲まれています。\" はインライン・テキストです。", _jsx(_components.br, {}), "\nこの場合に、インライン・テキストには、無名ボックスとして扱われるみたいです。", _jsx(_components.br, {}), "\n無名ボックスには、CSSでスタイルを定義することができないようです。", _jsx(_components.br, {}), "\n本書の実装では、ブロック要素として扱うようになっています。"]
+    }), "\n", _jsx(_components.p, {
+      children: "レイアウトツリーの実装を終えると、以下の画面出力となりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774157142/silver-birder.github.io/blog/rydberzgxg6fwc4htmlk.png?ar=1660%3A1304",
+        alt: "Section 5.5"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "レイアウト構造が可視化されているかと思います。"
+    }), "\n", _jsx(_components.h3, {
+      id: "脱線",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#脱線",
+        children: "脱線"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書の実装は、毎回小さな実装から始まります。", _jsx(_components.br, {}), "\nHTMLのパーサなどを小さなクラスとして定義して、少しずつ拡充しています。", _jsx(_components.br, {}), "\n読者としても、1人のWeb開発者としても、小さいものを組み立てていく流れが読みやすくて好感が持てます。", _jsx(_components.br, {}), "\n命名においても、現時点での意味に近しいネーミングにしておいて、意図が変わった段階でリネームをされています。", _jsx(_components.br, {}), "\nそういう細かな書き方を、私も見習いたいなと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "スタイル",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スタイル",
+        children: "スタイル"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["レイアウトツリーが出来上がると、今度は見た目を整えたくなります。", _jsx(_components.br, {}), "\n見た目は、style属性を書くことで変更できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["DOMツリーを生成後、1つずつ要素のstyle属性をパースします。", _jsx(_components.br, {}), "\nstyle属性は、コロンで区切られたkey/valueのペアです。", _jsx(_components.br, {}), "\n複数のstyleを定義する場合は、セミコロンを使います。", _jsx(_components.br, {}), "\nこの前提で、簡易的なCSSパーサーを作成し、DOMツリーのノードにstyleを渡して、レイアウトツリーから参照できる形にします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["スタイルのパーサーを見ていて思ったのは、", _jsx(_components.strong, {
+        children: "エラー時に静かにスキップされる挙動"
+      }), " です。", _jsx(_components.br, {}), "\nこれは現在のブラウザでも同じなのですが、プロパティミスなどでエラーになった場合、そのプロパティをスキップします。", _jsx(_components.br, {}), "\n特に何も壊れることもなく、ただ自然にその他のスタイルが適用されます。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "脱線-1",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#脱線-1",
+        children: "脱線"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["HTMLのパーサのときもそうでしたが、ブラウザのレンダリングエンジンって誤りをできる限り縮めて表示に努めようとします。", _jsx(_components.br, {}), "\n今ではDevToolsがあるのでスタイル未適用の確認は容易ですが、DevToolsがない時代だと未適用になってしまったプロパティを調べるのに苦労しそうですね。", _jsx(_components.br, {}), "\nまあ、見た目を整えたくてプロパティを書いている訳なので未適用だったら困るので気づくとは思いますが...。"]
+    }), "\n", _jsx(_components.h3, {
+      id: "話を戻して",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#話を戻して",
+        children: "話を戻して"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["style属性から次はCSSを読み込むようにします。", _jsx(_components.br, {}), "\nCSSは、どれにスタイルを適用するのかというセレクターと上書き可能なカスケーディングの考えの2つがあります。", _jsx(_components.br, {}), "\n最小実装のため、セレクターはタグと子孫の2つだけにしています。", _jsx(_components.br, {}), "\nCSS はHTMLで定義された順序で読み込み、セレクターの優先度（タグと子孫）によってスタイルを適用します。", _jsx(_components.br, {}), "\n現時点では、フォント関係のスタイルだけ使えるようになります。(font-sizeやcolorなど)", _jsx(_components.br, {}), "\nまた、継承されるスタイルについても言及されており、親要素のスタイルを子要素へ継承するロジックも実装しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["CSSの読み込み、スタイルの優先付け、テキストにフォント関連のスタイルを渡して、Tkinterで描画する際に色などをつけるようになりました。", _jsx(_components.br, {}), "\n（色々と省略しました...笑)"]
+    }), "\n", _jsx(_components.p, {
+      children: "スタイル実装を終えると、以下の画面出力となりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1774157144/silver-birder.github.io/blog/gyeql4i5kgjnmrobtypx.png?ar=1660%3A1304",
+        alt: "Section 6.7"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["見た目がかなり整いはじめました。", _jsx(_components.br, {}), "\nCSSの処理は、セレクターやプロパティをかなり限定的にしているので楽でしたが、特に優先度決めをするのって全件走査してポイントを決めないといけないので、負荷とか高そうだなと... ぐらいを思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["4章から6章まで読みましたが、だんだんとコードベースがボリューミーになってきました。", _jsx(_components.br, {}), "\nそのため、1つ1つトレースするのが大変になってきました。（まだまだ小さいブラウザなのに）", _jsx(_components.br, {}), "\n振る舞いを理解しやすくするためにテストコードが欲しくなりますね。", _jsx(_components.br, {}), "\n次の章も読むのが楽しみです。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第4~6章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260322/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"Webブラウザエンジニアリング\",\"レイアウト\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260322/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260322/\",\"description\":\"以下の書籍を4章から6章まで読みました。 https://www.oreilly.co.jp/books/9784814401574/ 1章から3章の感想については、以下で書いています。 https://silverbirder.githu\",\"datePublished\":\"2026-03-22\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":294,"publishedAt":"2026-03-22","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第4~6章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260323","publishedAt":"2026-03-23","title":"平日のモーニングルーティンを紹介します。  "},"prev":{"href":"/blog/contents/20260321","publishedAt":"2026-03-21","title":"インターホンで、顔が見えない人は出ない"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260322/","slug":"20260322"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

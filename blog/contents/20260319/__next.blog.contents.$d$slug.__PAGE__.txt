@@ -1,0 +1,117 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1aab,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["私は、AI エージェントのマルチタスクをしたことがない人です。", _jsx(_components.br, {}), "\nそのため、この記事はただの偏見です。", _jsx(_components.br, {}), "\n定量的なデータも示さないため、ふわふわとしたポエムです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "マルチタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マルチタスク",
+        children: "マルチタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["複数のタスクを並列で進めるとします。", _jsx(_components.br, {}), "\nWeb開発者であれば、AI エージェントを使ったタスクとして様々なものがあります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "新機能実装"
+      }), "\n", _jsx(_components.li, {
+        children: "不具合の調査"
+      }), "\n", _jsx(_components.li, {
+        children: "ちょっとした改善"
+      }), "\n", _jsx(_components.li, {
+        children: "ライブラリメンテナンス"
+      }), "\n", _jsx(_components.li, {
+        children: "リファクタリング"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何も考えないようなタスクであれば、マルチタスクとして動かすのは良い手と思います。", _jsx(_components.br, {}), "\nしかし、それ以外のタスクというのは人間の確認が入ります。", _jsx(_components.br, {}), "\n（何も考えないタスクも、軽く人間の確認はあるかと思いますが）"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『これこれ間違っているので、こう修正して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『不具合が解消されていないです、こう直して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『テストが意味を成していないです、こう修正して』"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それぞれのタスクには、それぞれのコンテキストが存在します。", _jsx(_components.br, {}), "\nそのコンテキストを踏まえた上で、タスクの成果物に人間が確認しなければいけません。", _jsx(_components.br, {}), "\nそれをスイッチしながら並列的に作業するのって、かなり大変そうな印象です...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["人間のキャパシティ的に記憶できる量が限られているので並列数に上限はあるだろうし、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "記憶を蘇らせる作業"
+      }), " というのは、相当な負荷がかかりそうです。", _jsx(_components.br, {}), "\nその高負荷の中、タスクの確認作業をしないといけないのですが、確認の質も低下しそうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["タスクを5個6個と同時に並列で進めれるため、初期進捗を出す量とスピードは圧倒的かなと思いますが、", _jsx(_components.br, {}), "\nタスク完了するまでの坂登りは質もスピードも低下しないか？と疑問に感じます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "シングルタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#シングルタスク",
+        children: "シングルタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["シングルタスクに慣れている人は多いかと思います。", _jsx(_components.br, {}), "\n1つ1つタスクをこなしていくため、コンテキストスイッチせずに集中して ", _jsx(_components.strong, {
+        children: "深く潜る"
+      }), " ことができます。", _jsx(_components.br, {}), "\nタスクの確認も記憶が鮮明にあるので、100%の力で確認できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つのタスクを終えると達成感があり、次のタスクへと向かいます。", _jsx(_components.br, {}), "\nタスクをこなすことで経験が積まれるため、次のタスクへの効率が良くなります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかしマルチタスクに比べるとシングルタスクの場合、初動のタスク進捗度は低いと思います。", _jsx(_components.br, {}), "\nシングルタスクで1つ2つとこなしている間に、マルチタスクは4つ5つと進めているからです。", _jsx(_components.br, {}), "\nけれど、先ほども説明した通りマルチタスクの坂登りに時間がかかる一方で、シングルタスクは効率よく進んでいきます。", _jsx(_components.br, {}), "\nまあ、人間ですのでシングルタスクでも何度も続けていると疲労は蓄積されますが...。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果として、以下の印象があります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "全タスクが完了するタイミングは、シングルもマルチもそう変わらない"
+      }), "\n", _jsx(_components.li, {
+        children: "品質で言うとシングルの方が上"
+      }), "\n", _jsx(_components.li, {
+        children: "疲労度はマルチの方が上"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["以上、ただの偏見でした。", _jsx(_components.br, {}), "\nマルチエージェント、使ってみた方が良いのでしょうか？"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIエージェント、マルチよりシングルの方が効率良いのでは\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260319/opengraph-image.png\"],\"keywords\":[\"AI\",\"雑談\",\"仕事\",\"AIエージェント\",\"シングルエージェント\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"description\":\"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI\",\"datePublished\":\"2026-03-19\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":291,"publishedAt":"2026-03-19","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},"navigation":{"next":{"href":"/blog/contents/20260320","publishedAt":"2026-03-20","title":"『Webブラウザエンジニアリング』第1~3章を読みました。"},"prev":{"href":"/blog/contents/20260318","publishedAt":"2026-03-18","title":"Webフロントエンドのコードレビューメモ2"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-24","slug":"20260424","summary":"現在、個人開発でブログキュレーションアプリを開発中です。 https://silverbirder.github.io/blog/contents/20260419/ UIデザインについて、v0などのAIデザインツールを使う際に、 バイブコ","tags":["AI","デザイン"],"title":"AIデザインとバイブコーディングの相性の良さ"},{"publishedAt":"2026-04-16","slug":"20260416","summary":"お葬式関連で、実家に帰省した際の話です。 家族みんなで夕食を頂く際に『AIがあるJ:COMのインターネットを契約しようと思ってるんや』という父からの話がありました。 どうやら AI というワードに魅力を感じ、『なんか知らないけど、なんでもや","tags":["雑談","AI"],"title":"パソコン苦手両親のAIへの信頼感"},{"publishedAt":"2026-03-06","slug":"20260306","summary":"Claude Code や Codex 等の AI にプルリク（以下、PR）を書かせて効率化することができます。 けれど、その書かれたプルリク説明文、ちゃんと全部読んでいますか？ レビュワーの負担になっていませんか？ ノイズが多い プルリク","tags":["AI","仕事"],"title":"AIが書いた重厚なプルリク説明文、読んでますか？"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-04-28","slug":"20260428","summary":"今年に入って、3つぐらい陶器を割っています。 割ったのは、コップ2つの取手とお皿1枚の縁です。 割った陶器は、瞬間接着剤を付けて直しました。 割れた理由 コップ1つは、普通に落として割りました。 たしか、食器を乾燥機から取り出して食器棚に移","tags":["雑談"],"title":"陶器をよく割ってしまう..."},{"publishedAt":"2026-04-27","slug":"20260427","summary":"昨日26日（日）のお昼頃、見知らぬ人がインターフォンを鳴らしました。 結論を言うと、国民生活基礎調査の調査員の方でした。 https://www.mhlw.go.jp/stf/toukei/kokuminseikatsu.html 対象の方","tags":["雑談"],"title":"怪しい訪問者と思ったら、国民生活基礎調査（2026年）だった！"},{"publishedAt":"2026-04-25","slug":"20260425","summary":"株式会社はてなが、詐欺被害で11億円流出した様です。 https://news.yahoo.co.jp/articles/6dc2b89180353da79f5c4bca416d0c8d5a692b19 資金流出事案の発生に関するお知らせ","tags":["雑談"],"title":"ソーシャルエンジニアリングって恐ろしい"}],"tag":"雑談"},{"posts":[{"publishedAt":"2026-03-11","slug":"20260311","summary":"寝ようとしているときに考え事をし過ぎて眠れない、ということはありませんか？ そういうときは、考え事をとにかく書き出すと眠れるようになるかもしれません。 例えば 例えば、私だと以下のような考え事がしちゃうときがあります。 『困り事だけど、アレ","tags":["生活","仕事"],"title":"考え事で眠れない時はそれを書き出す"},{"publishedAt":"2026-03-06","slug":"20260306","summary":"Claude Code や Codex 等の AI にプルリク（以下、PR）を書かせて効率化することができます。 けれど、その書かれたプルリク説明文、ちゃんと全部読んでいますか？ レビュワーの負担になっていませんか？ ノイズが多い プルリク","tags":["AI","仕事"],"title":"AIが書いた重厚なプルリク説明文、読んでますか？"},{"publishedAt":"2026-03-05","slug":"20260305","summary":"個人ブログ記事の執筆に AI を使わなくなりました。 その理由について、経緯などを含めて紹介します。 ChatGPTが流行り出した時代 その当時は、ブログ記事の粗い原稿を ChatGPT に渡して推敲を依頼していました。 粗い原稿とは、以下","tags":["AI","仕事"],"title":"個人ブログ記事の執筆にAIを使わない理由"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260319/","slug":"20260319"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

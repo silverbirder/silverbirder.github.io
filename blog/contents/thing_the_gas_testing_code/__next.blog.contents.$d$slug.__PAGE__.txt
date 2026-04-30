@@ -1,0 +1,2908 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T18d8d,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Google Apps Script(以下,GAS)でライブラリを公開しました。ライブラリを開発する際、 ", _jsx(_components.strong, {
+        children: "テストのフィードバックサイクルを短くする"
+      }), " ため、", _jsx(_components.code, {
+        children: "Clasp + Typescript + Jest"
+      }), " という技術スタックを選択しました。\nその開発体験について共有しようと思います。特段変わったことはしていません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "google-apps-script-のテストってどうしてますか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#google-apps-script-のテストってどうしてますか",
+        children: "Google Apps Script のテストってどうしてますか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://script.google.com/",
+        children: "script.google.com"
+      }), "にアクセスしてデバッグ実行って、しんどくないですか？"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1614431285/silver-birder.github.io/blog/google_apps_script_debugging.png?ar=930%3A632",
+        alt: "Google Apps Script Debugging ..."
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["ネットワーク越しでステップ実行するため、 ", _jsx(_components.strong, {
+          children: "遅い"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: ["G Suite 系のサービスと連携すると、サービス側の調整(データ準備とか)が ", _jsx(_components.strong, {
+          children: "面倒"
+        })]
+      }), "\n", _jsxs(_components.li, {
+        children: ["デバッグ機能が ", _jsx(_components.strong, {
+          children: "貧弱"
+        })]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["とても ", _jsx(_components.strong, {
+        children: "ストレスフル"
+      }), " です。単純な GAS なら別に良いんですが、少し複雑な GAS を作ろうと思うと、問題に感じます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ローカルで動かそう",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ローカルで動かそう",
+        children: "ローカルで動かそう"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GAS をローカル環境で動かすことができる Clasp というコマンドラインツールが Google より公開されています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/google/clasp",
+      title: "GitHub - google/clasp: 🔗 Command Line Apps Script Projects",
+      description: "🔗 Command Line Apps Script Projects. Contribute to google/clasp development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/423b621c9a18c42660dd730d98332ebe83f9d2fed3d0bf1c2912e9ce8372c49d.png"
+    }), "\n", _jsx(_components.p, {
+      children: "また、Clasp は Typescript をサポートしているため、型を中心としたコーディングが可能となりました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@types/google-apps-script",
+        children: "npmjs.com"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Typescript を選択すると、Interface 設計が容易になります。もちろん、", _jsx(_components.code, {
+        children: ".gs"
+      }), " ファイルでも同様の事は実現できると思います。"]
+    }), "\n", _jsx(_components.p, {
+      children: "次に、Jest と呼ばれるテストツールを組み合わせることで、ローカル環境でテストが可能になります。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://jestjs.io/docs/getting-started",
+        children: "jestjs.io"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、単純にテストコードが書けません。\n例えば、カレンダーイベントを取得するテストをコーディングするとき、次のようなスクリプトを書いたとします。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "typescript",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "typescript",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "const"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " calendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Calendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " ="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " CalendarApp."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  \"<your google calendar id>\""
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ");"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "calendar"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  ."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getEvents"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"2020-01-01\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "), "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"2020-01-02\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "))"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  ."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "forEach"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "calendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " CalendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "=>"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "    console."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "log"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(calendarEvent."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getTitle"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "());"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  });"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["こう書いてしまうと、本当のカレンダーイベントを取りに行ってしまいます。テストであれば、そういった処理は避けたいところです。\nそこで、", _jsx(_components.code, {
+        children: "CalendarApp"
+      }), " を偽物のオブジェクト、つまり Mock オブジェクトに差し替えるため、依存性逆転の原則(dependency inversion principle)を適用します。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "typescript",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "typescript",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "interface"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendarApp"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "  calendars"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "?:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Array"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">;"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "id"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " string"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "interface"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "  calendarEvents"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "?:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Array"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "ICalendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">;"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  getEvents"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "startTime"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ", "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "endTime"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Array"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "ICalendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">;"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "interface"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "  title"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "?:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " string"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  getTitle"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "()"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " string"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ";"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "class"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " CalendarAppMock"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " implements"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendarApp"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "  calendars"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "?:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Array"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ">;"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "id"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " string"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    return"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " this"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ".calendars"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "!"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "["
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "0"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "].calendar;"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "class"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " CalendarAppImpl"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " implements"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendarApp"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "id"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " string"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ")"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    const"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " calendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " ="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " CalendarApp."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(id);"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "    return"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " calendar;"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  }"
+            })
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "}"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "このようなインターフェース・クラスを準備し、先程のコードを次のようにします。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "typescript",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "typescript",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "const"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " calendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " ="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " CalendarAppMock"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "()."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getCalendarById"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "();"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "calendar"
+            })
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  ."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getEvents"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"2020-01-01\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "), "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "new"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Date"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"2020-01-02\""
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "))"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  ."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "forEach"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#FFAB70",
+                "--shiki-light": "#E36209"
+              },
+              children: "calendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ":"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " ICalendarEvent"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: ") "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "=>"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " {"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "    console."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "log"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "(calendarEvent."
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "getTitle"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "());"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "  });"
+            })
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["結果、", _jsx(_components.code, {
+        children: "CalendarApp"
+      }), " の代わりに Mock オブジェクトを差し込めるようになりました。ローカルテストが可能となります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["もちろん、プロダクトコードでは、", _jsx(_components.code, {
+        children: "CalendarAppMock"
+      }), " ではなく、 ", _jsx(_components.code, {
+        children: "CalendarAppImpl"
+      }), " を使用すれば良いです。\nMock で差し替えるオブジェクトが増えると、InversifyJS のような DI コンテナを検討してみると良いかもしれません。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/inversify/InversifyJS",
+      title: "GitHub - inversify/InversifyJS: Powerful and lightweight inversion of control container. Moved to https://github.com/inversify/monorepo",
+      description: "Powerful and lightweight inversion of control container. Moved to https://github.com/inversify/monorepo - inversify/InversifyJS",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/f73ef4ea51a8ac21d6a332c6d15974df3b86369b00ed198fdb6bceec28b5f6ce.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["こうすることで、Jest によるテストが動作するようになります。", _jsx(_components.br, {}), "\n実際に、開発・公開したライブラリでも十分にテストをすることができました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.a, {
+        href: "https://www.npmjs.com/package/@silverbirder/caat",
+        children: "npmjs.com"
+      })
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "shell",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "shell",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "CaAT"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " $ "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "npm"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " test"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --coverage"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ">"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: " jest "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "\"--coverage\""
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " PASS"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  __tests__/utils/dateUtils.test.ts"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " PASS"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  __tests__/group/groupImpl.test.ts"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " PASS"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "  __tests__/member/memberImpl.test.ts"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------------------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "----------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "-------------------"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "File"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "                 |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " %"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Stmts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " %"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Branch"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " %"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Funcs"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " %"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Lines"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " Uncovered"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Line"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: " #s"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------------------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "----------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "-------------------"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "All"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " files"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "            |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "   98.43"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "    97.62"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "   96.67"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "   98.37"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " __tests__"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "           |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  generator.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "       |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " src/calendar"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "        |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "    93.1"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "   92.31"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "   92.59"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  calendarAppImpl.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      60"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      50"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      60"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " 6,7"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  calendarAppMock.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " src/group"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "           |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  groupImpl.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "       |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " src/member"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "          |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "    94.74"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  memberImpl.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "      |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "    94.74"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " 38"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " src/utils"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "           |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "  dateUtils.ts"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "       |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "      100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "     100"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: " |"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------------------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "----------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "---------"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "-------------------"
+            })]
+          }), "\n", _jsx(_components.span, {
+            "data-line": "",
+            children: " "
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Test"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " Suites:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 3"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " passed,"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 3"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " total"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Tests:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "       23"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " passed,"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 23"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " total"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Snapshots:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "   0"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " total"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Time:"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "        2.826s,"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " estimated"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " 6s"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "Ran"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " all"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " test"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " suites."
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ライブラリとして提供する機能のテストが、たったの ", _jsx(_components.strong, {
+        children: "約 3 秒"
+      }), " で終わります。\n", _jsx(_components.strong, {
+        children: "ストレスフリー"
+      }), " にローカル開発が可能となりました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["詳しくは、実際に作ったライブラリのソースコード(", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/CaAT/tree/master/__tests__",
+        children: "__tests__"
+      }), ")を御覧ください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "GAS は、とても便利です。生産性が向上します。\nサクッと API を構築できますし、G Suite との連携も(当たり前ですが)簡単です。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、メンテナンス性が低いコードになると、 ", _jsx(_components.strong, {
+        children: "陳腐化され誰も面倒が見れなくなります"
+      }), " 。\n常にクリーンであり続けるためには、テストコードは ", _jsx(_components.strong, {
+        children: "必須"
+      }), " です。\nGAS を運用する方々には、是非ともテストコードを検討下さい。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "えあちょっとまってライブラリの紹介",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#えあちょっとまってライブラリの紹介",
+        children: "え、あ、ちょっとまって。ライブラリの紹介"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "アジャイル開発で、かつ、Google Calendar で予定管理しているチームには是非とも使って頂きたいライブラリです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/silverbirder/caat",
+      title: "GitHub - silverbirder/CaAT: CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar.",
+      description: "CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar. - silverbirder/CaAT",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/c9aad439209f33a3eb9fde122e117ab83dacee358c2c3fbd2b45bf63bcc1f683.png"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "CaAT is the Google Apps Script Library that Calculate the Assigned Time in Google Calendar."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "このツールでできることは、次のとおりです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "指定期間における特定ユーザーの Google Calendar で予定されている時間(分)を取得"
+      }), "\n", _jsx(_components.li, {
+        children: "重複している予定は、連続した予定とみなす"
+      }), "\n", _jsx(_components.li, {
+        children: "指定の時間・単語は、計算対象外とみなす (ランチなど）"
+      }), "\n", _jsx(_components.li, {
+        children: "誰がいつ休みなのか、終日イベントから取得"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際にサンプルコードがあるので、ご参考下さい。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/silverbirder/SampleCaat",
+      title: "GitHub - silverbirder/SampleCaAT: This repository is  trying the CaAT repotistory",
+      description: "This repository is  trying the CaAT repotistory. Contribute to silverbirder/SampleCaAT development by creating an account on GitHub.",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.png",
+      thumbnailSrc: "/link-card/72a7ccbba1897263b7e24b68295c590ec88b10108a19ce98d520b37a241621ef.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Google Apps Script でも テスト がしたい！ (Clasp + Typescript + Jest)\",\"image\":[\"https://silverbirder.github.io/blog/contents/thing_the_gas_testing_code/opengraph-image.png\"],\"keywords\":[\"Google\",\"テスト\",\"フロントエンド\",\"Google Apps Script\",\"Jest\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/thing_the_gas_testing_code/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/thing_the_gas_testing_code/\",\"description\":\"Google Apps Script(以下,GAS)でライブラリを公開しました。ライブラリを開発する際、テストのフィードバックサイクルを短くするため、`Clasp + Typescript + Jest` という技術スタックを選択しました。その開発体験について共有しようと思います。特段変わったことはしていません。\",\"datePublished\":\"2020-02-01\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":39,"publishedAt":"2020-02-01","tags":["Google","テスト","フロントエンド"],"title":"Google Apps Script でも テスト がしたい！ (Clasp + Typescript + Jest)"},"navigation":{"next":{"href":"/blog/contents/tiqav2_release","publishedAt":"2020-02-08","title":"1コマ漫画検索サービスTiqav2 (Algolia + Cloudinary + Google Cloud Vision API) 作ってみた"},"prev":{"href":"/blog/contents/things_to_keep_in_writing_unit_tests","publishedAt":"2020-01-12","title":"ユニットテストを書く上で守りたいこと"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2021-12-20","slug":"intro_google_account_photo_api","summary":"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"}],"tag":"Google"},{"posts":[{"publishedAt":"2026-02-10","slug":"20260210","summary":"以下の記事で書いた CSSをテストする方法について、試してみました。 https://zenn.dev/silverbirder/articles/df6752b230f04c ソースコードは、以下に置いています。 https://gith","tags":["フロントエンド","テスト"],"title":"CSSを、Vitestでテストしてみる"},{"publishedAt":"2026-01-10","slug":"20260110","summary":"Web のフロントエンド実装において、次のようなミスによってデザイン崩れを起こしてしまったことはありませんか。 flex-shrink の指定を忘れて、要素が押しつぶされてしまった z-index の指定を間違えて、要素が意図せず前面（また","tags":["フロントエンド","テスト"],"title":"CSS Layout Testing  というテスト手法の提案"},{"publishedAt":"2026-01-09","slug":"20260109","summary":"AIの進化によって、プロダクションコードに対するテストコードは、以前と比べて格段に書きやすくなったと感じています。 単体テストに関する基本的なお作法については、以前に以下の記事で整理しました。 興味があれば、参考として読んでもらえると嬉しい","tags":["テスト"],"title":"単体テストを全通り書くんじゃない！"}],"tag":"テスト"},{"posts":[{"publishedAt":"2026-04-14","slug":"20260414","summary":"過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが","tags":["フロントエンド"],"title":"モバイルアプリを作る機運が高まった"},{"publishedAt":"2026-03-18","slug":"20260318","summary":"また、以下の記事の続きを書こうと思います。 https://silverbirder.github.io/blog/contents/20260312/ ビジネスロジック アプリケーションのビジネスロジックに関することについて書きます。 複","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ2"},{"publishedAt":"2026-03-12","slug":"20260312","summary":"Webフロントエンドのコードレビューをしているときに考えていることについて書きます。 毎日1記事投稿、1記事30分という制約を課していますので、本記事は完璧ではありません。(言い訳) また希望的な考えもあるので、実践していないものもあります","tags":["フロントエンド"],"title":"Webフロントエンドのコードレビューメモ"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/thing_the_gas_testing_code/","slug":"thing_the_gas_testing_code"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

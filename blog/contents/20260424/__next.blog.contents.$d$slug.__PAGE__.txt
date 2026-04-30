@@ -1,0 +1,180 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T303a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "現在、個人開発でブログキュレーションアプリを開発中です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260419/",
+      title: "個人ブログキュレーション",
+      description: "個人ブログは、書き手の人生が現れていて読むのが好きです。 仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。 風邪引いたとか、美味しいもの食べたとか、非生産的な内容 が良いんです。 勝手に書き手を応援したくなるし、勝手",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/28d078a371db6d46547ab75fa87033ea2969c97f1d50501e235d9b2b4c0fbb7f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["UIデザインについて、v0などのAIデザインツールを使う際に、", _jsx(_components.br, {}), "\nバイブコーディングが役立ったので共有します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の前提で話そうかと思います。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "作りたい機能があるが、デザインは決まっていない"
+      }), "\n", _jsx(_components.li, {
+        children: "デザイナー不在で、一人デザイン"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "個人開発はモバイルアプリですが、Webアプリでも含まれる話かと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "いきなりaiデザインを使わない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#いきなりaiデザインを使わない",
+        children: "いきなりAIデザインを使わない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["作りたい機能があるなら、AIデザインでプロンプトを工夫してデザインを生成して貰えます。", _jsx(_components.br, {}), "\nすごくカッコ良いデザインや、斬新的なデザインなど驚くデザインを見ることができます。", _jsx(_components.br, {}), "\n見る分には良いのですが、以下の疑問点がありました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["実現可能なのか？\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "さまざまなデータ・機能を用意することができるのか"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: [_jsx(_components.strong, {
+          children: "\"見る\"と\"使う\"は全然違う"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "\"使ってみる\"と、思ったより使いにくい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["とくに後者の \"使う\" というのは大事で、", _jsx(_components.strong, {
+        children: "画面上（想像上）の体験と 物理上の体験はかなり外れている"
+      }), " ことがあります。", _jsx(_components.br, {}), "\n利用者の状況・感情などを踏まえた上で体験すると、親切に考えていた機能や動線がむしろ余計になることがあります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "バイブコーディングと体験",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#バイブコーディングと体験",
+        children: "バイブコーディングと体験"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、バイブコーディングの出番です。", _jsx(_components.br, {}), "\n私の場合、モバイルアプリで体験したい必要最低限の機能を、2日程度で完成しました。", _jsx(_components.br, {}), "\n最低限の画面構成と、画面に欲しいコンテンツだけは決めておいて、画面内の情報整理はせずにAIに見た目を実装してもらいます。", _jsx(_components.br, {}), "\nコード詳細は読まずに、ノールックでマージします。笑"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["動く形になったら、私のスマホに開発したモバイルアプリをインストールして体験してみます。", _jsx(_components.br, {}), "\n自然に使いたいので、使いたい時にアプリを使いますし、通知をもらってアプリを開くこともあります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "朝食中なら時間に余裕がないので、記事リストのタイトルをぼーっと眺める"
+      }), "\n", _jsx(_components.li, {
+        children: "お風呂上り後なら自由な時間なので、購読したブログの記事を1つずつ読む"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実際に体験することで、", _jsx(_components.strong, {
+        children: "想像していた体験と実体験との差分"
+      }), " が分かってきます。", _jsx(_components.br, {}), "\n想像していた機能があまり使われなかったり、", _jsx(_components.br, {}), "\nニッチな機能の利用頻度が異常に高かったりするのがわかってきました。", _jsx(_components.br, {}), "\n私の場合は、新着記事（から過去記事）の縦無限スクロールによるザッピングが一番触っていました。(笑)"]
+    }), "\n", _jsx(_components.h2, {
+      id: "スクショとaiデザイン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スクショとaiデザイン",
+        children: "スクショとAIデザイン"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["体験することで、何が欲しいのかと具体的な言葉を使って説明できるようになります。", _jsx(_components.br, {}), "\nまた、最低限の機能は完成しています。", _jsx(_components.br, {}), "\n例えば、通知機能やブログ記事データのデータ構造などは解決済みで、", _jsx(_components.br, {}), "\nブログ記事の集計系ソート（購読者数が多い順や更新頻度が高い順など）のパフォーマンス問題も解決見込みです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ見た目だけは、とても残念になっています。", _jsx(_components.br, {}), "\nAI に雑に作らせていたので、見た目は破茶滅茶です。", _jsx(_components.br, {}), "\n余白設計はバラバラですし、レイアウトに規則性がありません。", _jsx(_components.br, {}), "\nコピーライティングも、プログラム変数名が出ていたりします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで ", _jsx(_components.strong, {
+        children: "AIデザインツールの出番"
+      }), " です。", _jsx(_components.br, {}), "\n私の場合は、Google Stitch を使っています。（なんでも良いです）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["デザインツールに、開発した画面スクショを貼り付けて、そのデザインをまずそのまま生成してもらいます。", _jsx(_components.br, {}), "\nといっても、だいたいのデザインツールは気を利かせて、良い悪いさまざまデザインを変えて生成してきます。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "あーだこーだプロンプトを伝えても不毛"
+      }), " なので、気にしません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その後、実際に触ってみて感じた違和感を適宜言語化して、デザイン案を出してもらうのです。", _jsx(_components.br, {}), "\n解決案は一切書かずにテキスト指示することで、自分の想像する角度と異なるデザイン案をもらうことができます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["『記事を読むのにタップ数が多いので、1タップ以内で読めるようにして』\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "前後の日付移動は1タップ、年月移動は2タップ以内 など"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["『画面下部に頻繁にアクセスするxやyを置いて』\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "逆にあまり使わないけど必要な機能は、上部に置いて"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["『記事を、日付や購読ブログなどのファセットで絞り込めるようにして』\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "未読・既読や、過去の記事を見分けれるようにしたい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それぞれの指示から生成されたデザインを見て、『このデザイン良いな』と思うものを見つけるのです。", _jsx(_components.br, {}), "\n全部OK は基本ないので、", _jsx(_components.strong, {
+        children: "良さそうなアイデアを貰う"
+      }), "、というスタンスです。", _jsx(_components.br, {}), "\n（無料枠内まで）何度も繰り返して、納得いく画面を作っていきます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["このUIデザインは、冒頭の\"いきなりAIデザイン\" よりも \"より現実的な体験\" に近しいものになっています。", _jsx(_components.br, {}), "\n作ってみて『あれ、なんか違う』を潰せているため、以前よりも手戻りリスクは小さくなっているはずです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["とりあえず動くものをバイブコーディングでサクッと作り、", _jsx(_components.br, {}), "\n実際に手元で動かしながらUIデザインを練っていく、", _jsx(_components.br, {}), "\nというサイクルが短時間で実現できるようになるのは、AI のおかげだなと思います。", _jsx(_components.br, {}), "\nぜひご参考ください。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIデザインとバイブコーディングの相性の良さ\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260424/opengraph-image.png\"],\"keywords\":[\"AI\",\"デザイン\",\"バイブコーディング\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260424/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260424/\",\"description\":\"現在、個人開発でブログキュレーションアプリを開発中です。 https://silverbirder.github.io/blog/contents/20260419/ UIデザインについて、v0などのAIデザインツールを使う際に、 バイブコ\",\"datePublished\":\"2026-04-24\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":327,"publishedAt":"2026-04-24","tags":["AI","デザイン"],"title":"AIデザインとバイブコーディングの相性の良さ"},"navigation":{"next":{"href":"/blog/contents/20260425","publishedAt":"2026-04-25","title":"ソーシャルエンジニアリングって恐ろしい"},"prev":{"href":"/blog/contents/20260423","publishedAt":"2026-04-23","title":"社会保険料ってスマホから支払えたのね"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-16","slug":"20260416","summary":"お葬式関連で、実家に帰省した際の話です。 家族みんなで夕食を頂く際に『AIがあるJ:COMのインターネットを契約しようと思ってるんや』という父からの話がありました。 どうやら AI というワードに魅力を感じ、『なんか知らないけど、なんでもや","tags":["雑談","AI"],"title":"パソコン苦手両親のAIへの信頼感"},{"publishedAt":"2026-03-19","slug":"20260319","summary":"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},{"publishedAt":"2026-03-06","slug":"20260306","summary":"Claude Code や Codex 等の AI にプルリク（以下、PR）を書かせて効率化することができます。 けれど、その書かれたプルリク説明文、ちゃんと全部読んでいますか？ レビュワーの負担になっていませんか？ ノイズが多い プルリク","tags":["AI","仕事"],"title":"AIが書いた重厚なプルリク説明文、読んでますか？"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260424/","slug":"20260424"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

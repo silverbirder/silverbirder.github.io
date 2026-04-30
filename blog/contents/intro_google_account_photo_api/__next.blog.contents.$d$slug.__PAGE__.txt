@@ -1,0 +1,223 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2695,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zenn のプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(Gravatar みたいな SaaS が使えたら良いのに...)"
+    }), "\n", _jsxs(_components.p, {
+      children: ["最近、自身の", _jsx(_components.a, {
+        href: "https://silverbirder.github.io/",
+        children: "ポートフォリオページ"
+      }), "刷新を検討しており、プロフィール画像をどうするか悩みました。ポートフォリオのベースドキュメントは、Markdown を採用しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["プロフィール画像を固定で保持させず、API 経由でプロフィール画像を設定できないかと思い、今回、 ", _jsx(_components.strong, {
+        children: "Google アカウント画像を返却するだけの API、Google Account Photo API"
+      }), " を作成しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["API のソースコードは、", _jsx(_components.a, {
+        href: "https://github.com/silverbirder/Google-Account-Photo-API",
+        children: "こちら(Github)"
+      }), "です。1 時間程度で作ったので、正常パターンしか見ていません。(笑) ご了承ください。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "google-アカウント画像ってどれ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#google-アカウント画像ってどれ",
+        children: "Google アカウント画像ってどれ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google のアカウント画像は、", _jsx(_components.a, {
+        href: "https://www.google.com/",
+        children: "www.google.com"
+      }), " で表示されている右上の画像です。(ログインしている方のみ)"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1772931944/silver-birder.github.io/blog/tchcmvs04sbk8ytdpclk.png?ar=976%3A816",
+        alt: "Google Chrome Home Page"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "api-の使い方",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#api-の使い方",
+        children: "API の使い方"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "API を呼び出すために、あなたの Google アカウント ID というものを用意する必要があります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "google-アカウント-id-の調べ方",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#google-アカウント-id-の調べ方",
+        children: "Google アカウント ID の調べ方"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["あなたの Google アカウント ID は、", _jsx(_components.a, {
+        href: "https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22%3A%22people%2Fme%22%2C%22personFields%22%3A%22photos%22%7D",
+        children: "Google People API の Explorer を実行"
+      }), " するだけで分かります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実行すると、", _jsx(_components.code, {
+        children: "resourceName(ex. people/<account_id>)"
+      }), " というフィールドが返却されるので、そこに書いてある account_id が、あなたのモノになります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "api-を呼び出す",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#api-を呼び出す",
+        children: "API を呼び出す"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "API は、次の URL に GET 呼び出しします。YOUR_ACCOUNT_ID は、さきほど手に入れた account_id になります。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "https://google-account-photo.vercel.app/api/?account_id=YOUR_ACCOUNT_ID"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "呼び出すと、画像を返却されます。私の場合は、次の画像が返却されます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1772931949/silver-birder.github.io/blog/u9pv2js6cclbepoizrer.jpg?ar=100%3A100",
+        alt: "my google account image"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "markdown-で活用する",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#markdown-で活用する",
+        children: "Markdown で活用する"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "この API を活用すれば、次のような Markdown を書くだけでプロフィール画像を表示することができます！"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "![google account image](https://google-account-photo.vercel.app/api/?account_id=YOUR_ACCOUNT_ID)"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "これだけだと、ちょっと味気ないので、Cloudinary を使います。Cloudinary は、URL のパラメータを設定するだけで、画像を加工できます。例えば、画像を円にする場合は、次の URL を書きます。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "text",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "text",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsx(_components.span, {
+            "data-line": "",
+            children: _jsx(_components.span, {
+              children: "![circle google account image](https://res.cloudinary.com/demo/image/fetch/r_max/https%3A%2F%2Fgoogle-account-photo.vercel.app%2Fapi%2F%3Faccount_id%3DYOUR_ACCOUNT_ID)"
+            })
+          })
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Cloudinary についての説明は、割愛します。"
+    }), "\n", _jsx(_components.p, {
+      children: "私の場合は、次のような画像が表示されます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/r_max/v1772931949/silver-birder.github.io/blog/u9pv2js6cclbepoizrer.jpg?ar=100%3A100",
+        alt: "my_google_account_image_circle"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Cloudinary について、詳しくは次の URL を確認ください。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://cloudinary.com/documentation/fetch_remote_images",
+          children: "Deliver remote media files | Cloudinary"
+        })
+      }), "\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://cloudinary.com/documentation/image_transformations",
+          children: "Image transformations | Cloudinary"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "サクッと API を構築できちゃうのって、便利な世の中だな〜と思いました。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Googleアカウント画像を返却するだけのAPIを作った\",\"image\":[\"https://silverbirder.github.io/blog/contents/intro_google_account_photo_api/opengraph-image.png\"],\"keywords\":[\"Google\",\"バックエンド\",\"成果物\",\"Googleアカウント画像\",\"API\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/intro_google_account_photo_api/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/intro_google_account_photo_api/\",\"description\":\"みなさん、ご自身のプロフィール画像ってどう管理していますか？例えば、zennのプロフィール画像って、更新していますか？ 私は、プロフィール画像の更新は面倒なので、放置することが多いです。(GravatarみたいなSaaSが使えたら良いのに...)\",\"datePublished\":\"2021-12-20\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"postNumber":67,"publishedAt":"2021-12-20","tags":["Google","バックエンド","成果物"],"title":"Googleアカウント画像を返却するだけのAPIを作った"},"navigation":{"next":{"href":"/blog/contents/2021_furikaeri","publishedAt":"2021-12-21","title":"2021年の振り返り。"},"prev":{"href":"/blog/contents/a_mockable_unit_testing_method_that_can_be_completed_only_with_big_query","publishedAt":"2021-11-26","title":"BigQueryだけで完結するモック可能なユニットテスト手法"}},"relatedPosts":[{"posts":[{"publishedAt":"2024-09-24","slug":"spotify-tieup-app","summary":"どうも、Web業界で働き始めて9年目の駆け出しエンジニア、silverbirderです。Spotifyで音楽を聴いていると「この曲、どこかで聞いたことがあるけど、何の主題歌だったかな？」と思うこと、ありませんか？特にドライブ中や作業中に、ふと気になることが多いですよね。  私もそんな経験があり、気になったその曲が主題歌だったアニメを見始めたことがきっかけで、「簡単にタイアップ情報（アニメやドラマなど）を調べられるアプリがあったら便利だな」と思い、このアプリを作ることにしました。","tags":["サービス","AI","Google","成果物"],"title":"1週間で完成！Spotifyタイアップ検索アプリを作った話（駆け出し9年目）"},{"publishedAt":"2022-09-03","slug":"ernie_vilg_demo","summary":"ERNIE-ViLG というのが、\"二次元キャラ\" に強いという記事を目にしました。実際に使ってみようと、次のページで試したんですが、レスポンスがイマイチでした。そこで、次の記事を参考にして、ERNIE-ViLG を Google Colaboratory で動かすようにしました。","tags":["AI","Google","クローリング"],"title":"ERNIE-ViLG を Google Colaboratory で動かしてみた"},{"publishedAt":"2020-06-06","slug":"zoom-meeting-creator","summary":"みなさん、Zoom使っていますか？ ZoomのMeetingを自動生成するGASライブラリを公開しましたので、そのきっかけと使い方について紹介しようと思います。","tags":["成果物","Google","サービス"],"title":"ZoomのMeetingを自動生成するGASライブラリ zoom-meeting-creator を作った"}],"tag":"Google"},{"posts":[{"publishedAt":"2024-03-07","slug":"trpc-msw-mocking","summary":"はじめに tRPCは、型安全なAPIを簡単に構築できるフレームワークです。開発中、バックエンドの実装を待たずに、Storybook上でフロントエンドの開発を進めたい場合、Mock Service Worker (MSW) を使用してAPIのモックを行うことができます。この記事では、maloguertin/msw-trpc を用いて、tRPC通信をMSWでモックする方法について解説します。実用例として、サンプルコードをGitHubリポジトリ silverbirder/trpc-msw-storybook-nextjs で共有しています。","tags":["テスト","バックエンド"],"title":"Storybook上で tRPC通信をMSWでモックする方法"},{"publishedAt":"2022-10-15","slug":"graphql_guild_ecosystem_is_useful","summary":"GraphQL Guild ってご存知ですか？GraphQL 界隈だと、Code Generator が有名と思いますが","tags":["バックエンド"],"title":"GraphQL Guildのエコシステムって便利だね"},{"publishedAt":"2022-09-03","slug":"using_stability_ai_API","summary":"Stable Diffusion は、文章を渡すと画像を生成してくれる AI で OSS です。これを自前で動かそうとすると、GPU が必要になります。","tags":["AI","バックエンド","成果物"],"title":"Stable Diffusion API 開発"}],"tag":"バックエンド"},{"posts":[{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"},{"publishedAt":"2026-01-28","slug":"20260128","summary":"個人サイトをリニューアルしました！🎉 https://silverbirder.github.io リニューアルは、今回で6回目です。制作期間は、去年の12月27日から今年の1月28日までの約1ヶ月間です。個人的には最速の開発期間でした。AIの力は偉大ですね。本記事では、個人サイトのリニューアルでこだわったポイントについて紹介します。","tags":["成果物"],"title":"個人サイトをリニューアルしました！"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/intro_google_account_photo_api/","slug":"intro_google_account_photo_api"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,412 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/c79e62a54706aa32.js","/_next/static/chunks/244e4f6602dcdb8f.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T66b8,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    figure: "figure",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    pre: "pre",
+    span: "span",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下の書籍を1から3章まで読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.oreilly.co.jp/books/9784814401574/",
+      title: "Webブラウザエンジニアリング",
+      description: "Webブラウザは、現代のコンピューティング環境において欠かせない存在であり、最も広く使われているプラットフォームの一つです。本書は、その仕組みを実践的に学ぶための解説書です。実際にWebブラウザを構築する過程をたどりながら、レンダリング、HTMLパーサー、CSS、JavaScript、マルチスレッド対応、セキュリティモデル、アニメーションとコンポジット処理、ブラウザAPI、アクセシビリティなど、モダンなWebブラウザの主要な要素を順を追って解説していきます。\r\n章ごとにコードを動かしながら、ブラウザに機能が積み重なっていく過程を通じて、ソフトウェアを成長させ改善していく経験を自然に体得できます。ブラウザ技術の研究者とChrome開発者による豊富な知見をもとに、Webの進化をたどりながら、手を動かしてブラウザの内部構造を深く理解できる一冊です。",
+      siteName: "oreilly.co.jp",
+      faviconSrc: "/link-card/54a917668fa58018fd0ef7125de1a392f9065c24636e04bc0ad5fa97679913f6.ico",
+      thumbnailSrc: "/link-card/758fd882c92e064593ffcff5aa215a474be73c3fd1cbb51076e5e9d9ed7bacaf.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "全部で16章もあるので、こまめに感想を残しておこうと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "webの歴史",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#webの歴史",
+        children: "Webの歴史"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web が成り立つ経緯について解説がありました。", _jsx(_components.br, {}), "\nふーん、ぐらいの気持ちで読み進めました。", _jsx(_components.br, {}), "\nその Web 歴史の中で、Netscape Navigator と Internet Explorer によるブラウザ戦争についても触れられていました。", _jsx(_components.br, {}), "\nWebKit のプロジェクトが1999年から始まっており、Gecko は1997年の Netscape の開発が始まりだったそうです。", _jsx(_components.br, {}), "\n今日での主要なレンダリングエンジンは、Webkit、それをフォークした Blink、Gecko の3つですが、1990年代からのプロダクトのようです。", _jsx(_components.br, {}), "\nそんな遥か昔のプロダクトは、今でいうレガシーと呼ばれる存在ですが、今でもバリバリの現役というのがすごいですね。", _jsx(_components.br, {}), "\nそんなプロダクトのソースコードは、以下のようなコードがあるようです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "なんであるのか不明なコード"
+      }), "\n", _jsx(_components.li, {
+        children: "消すと壊れる不思議なコード"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["メンテナンスが非常にシビアな印象ですね...。", _jsx(_components.br, {}), "\n抽象化（関数、クラスなど）をすると極端にパフォーマンスが悪くなるそうです。", _jsx(_components.br, {}), "\n様々な処理がレンダリングエンジンには搭載されていて、", _jsx(_components.br, {}), "\nかつ、滑らかなユーザー体験をする上で60fpsを目指すためには、非常に難易度が高そうです。", _jsx(_components.br, {}), "\n面白そうですね。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、標準化とオープンソース化ということにも触れられていました。", _jsx(_components.br, {}), "\nさまざまなブラウザが独自実装してしまうと、Web開発者（Web上にサービスを提供する開発者）から離れられてしまいます。", _jsx(_components.br, {}), "\nそれはそうですよね、複数のブラウザをサポートしようとWeb開発者はプログラムを実装するので、独自ブラウザへのケアはやりたくありません。", _jsx(_components.br, {}), "\nそこで標準化というブラウザの足並みを揃える動きと、透明性のあるオープンソース化によって、", _jsx(_components.br, {}), "\nWeb プラットフォームのエコシステムが成長していったのかと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "学習体験が素晴らしい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#学習体験が素晴らしい",
+        children: "学習体験が素晴らしい"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["座学は終了し、実際にブラウザを作って学ぶ章へ突入しました。", _jsx(_components.br, {}), "\nここの書籍は、学習体験が素晴らしいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書では、読み進めていくにつれて段階的にブラウザを完成していきます。", _jsx(_components.br, {}), "\nそのサンプルコードは、以下のリポジトリからチェックアウト（ダウンロード）できます。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.com/negibokken/web-browser-engineering-step-by-step",
+      title: "GitHub - negibokken/web-browser-engineering-step-by-step: 「Webブラウザエンジニアリング―Chrome開発者たちから学ぶ、作って理解するブラウザとWebの仕組み」のコード解説",
+      description: "「Webブラウザエンジニアリング―Chrome開発者たちから学ぶ、作って理解するブラウザとWebの仕組み」のコード解説 - negibokken/web-browser-engineering-step-by-step",
+      siteName: "GitHub",
+      faviconSrc: "/link-card/32fade605a0a535984968a084e67dd67e4912a9fcf69c12bfc9b920a02394235.svg",
+      thumbnailSrc: "/link-card/e2d3cf90b24ef2be89e3386cd728e64095bec531249e9515112449ec937a0bbf.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["サンプルコードを提供する本というのは、よくあります。", _jsx(_components.br, {}), "\n本書の特徴は、Gitのコミットログです。", _jsx(_components.br, {}), "\nセクション単位に、Gitのコミットログが積まれています。", _jsx(_components.br, {}), "\n実装はセクション1.4から始まるので、そのコミットへスイッチします。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://github.com/negibokken/web-browser-engineering-step-by-step/commit/d09345d433ed85657a487a8228f59082393cdf12",
+          children: "Section 1.4 · negibokken/web-browser-engineering-step-by-step@d09345d · GitHub - github.com"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "git"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " switch"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --detach"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " d09345d"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#6A737D",
+                "--shiki-light": "#6A737D"
+              },
+              children: "   # Section 1.4"
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["スイッチすると、セクション1.4のコードを見ることができます。", _jsx(_components.br, {}), "\n動作する環境は、 Docker を使っているので環境構築が楽になっています。"]
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsxs(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: [_jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "make"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " docker_build"
+            })]
+          }), "\n", _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "make"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " docker_run"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " URL="
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "<"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: "your_url_her"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#E1E4E8",
+                "--shiki-light": "#24292E"
+              },
+              children: "e"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: ">"
+            })]
+          })]
+        })
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "次のセクションに進む場合は、コミットを1つ先に進めば良いのです。"
+    }), "\n", _jsx(_components.figure, {
+      "data-rehype-pretty-code-figure": "",
+      children: _jsx(_components.pre, {
+        tabIndex: "0",
+        "data-language": "bash",
+        "data-theme": "github-dark github-light",
+        children: _jsx(_components.code, {
+          "data-language": "bash",
+          "data-theme": "github-dark github-light",
+          style: {
+            display: "grid"
+          },
+          children: _jsxs(_components.span, {
+            "data-line": "",
+            children: [_jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "git"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " switch"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " --detach"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " \"$("
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: "git"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " rev-list "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: "--reverse"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: " HEAD..main "
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#F97583",
+                "--shiki-light": "#D73A49"
+              },
+              children: "|"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#B392F0",
+                "--shiki-light": "#6F42C1"
+              },
+              children: " head"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " -n"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#79B8FF",
+                "--shiki-light": "#005CC5"
+              },
+              children: " 1"
+            }), _jsx(_components.span, {
+              style: {
+                "--shiki-dark": "#9ECBFF",
+                "--shiki-light": "#032F62"
+              },
+              children: ")\""
+            })]
+          })
+        })
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これを繰り返すことで、徐々にブラウザが進化していくのです。", _jsx(_components.br, {}), "\n本とソースコードと動くもの、この3点セットが常に揃っているのです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "デスクトップ環境とアプリ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#デスクトップ環境とアプリ",
+        children: "デスクトップ環境とアプリ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["PCなどのデスクトップ環境から、Chrome などのアプリを起動します。", _jsx(_components.br, {}), "\nその際、デスクトップ環境はアプリに対して表示するウィンド領域の確保を行います。", _jsx(_components.br, {}), "\nウィンドウ領域内で、アプリが描画されます。", _jsx(_components.br, {}), "\nデスクトップ環境は、マウスクリックやスクロールなどのイベントを検知してアプリへ伝えます。", _jsx(_components.br, {}), "\nアプリは、イベントからアクションを実行し応答します。", _jsx(_components.br, {}), "\nデスクトップ環境は、イベントを受け付けてまた同じことを繰り返します。", _jsx(_components.br, {}), "\nイベントループという無限ループを常に実行します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["アプリ開発には、Apple や Google など各ベンダーが提供する開発ツールキットがあります。", _jsx(_components.br, {}), "\nそのツールキットにはUI部品などが提供されているので、デザインがベンダー色に揃います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書の実装では、そのような部品を一切使わずに2次元キャンバスとして描画します。", _jsx(_components.br, {}), "\nこの発想を見て、『あれ、HTMLのcanvasを使えば、ブラウザの中でブラウザ作れるの？』とか思っちゃいました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "まずは通信",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#まずは通信",
+        children: "まずは通信"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ブラウザを開いて、まず行うのは URL を指定することです。", _jsx(_components.br, {}), "\nURL は、Web上のリソースを識別するものです。", _jsx(_components.br, {}), "\n最初の実装では、指定するURLへサーバリクエストを行いレスポンスのボディをターミナル上で出力するものです。", _jsx(_components.br, {}), "\n内容的に簡単な感じだったので、ささっと読み進めました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "レキサーの登場",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#レキサーの登場",
+        children: "レキサーの登場"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["サーバリクエストのレスポンスは、HTML文書です。", _jsx(_components.br, {}), "\nHTMLを解析するために、超簡易的なレキサー（字句解析器）が登場します。", _jsx(_components.br, {}), "\n1文字ずつチェックし、タグの開始・終了を確認し、タグの中のテキストだけを出力するようにします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "画面に初描画",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#画面に初描画",
+        children: "画面に初描画"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["本書では、Python3 と Tkinter GUIライブラリの Canvas を使います。", _jsx(_components.br, {}), "\nCanvas は、x,y座標を指定して文字を出力します。", _jsx(_components.br, {}), "\n左上が起点となり、下に行くほどy座標は増えて右に行くほどx座標が増えます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["抽出したテキストを、固定の画面幅に、固定の文字サイズで、横に並べます。", _jsx(_components.br, {}), "\n文字が画面を越えるなら、x座標をリセットしてy座標を増やして、文字を横に並べます。", _jsx(_components.br, {}), "\nこれだけでも、HTMLの文章を出力できるのは少し感動しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["どこで折り返すか？の考えに、ハイフネーション という考えがあります。", _jsx(_components.br, {}), "\n英単語だと、改行で単語を跨ぐ場合にハイフンで繋げる、みたいなことがあるようです。", _jsx(_components.br, {}), "\n日本語だと、文章をスペースでは区切りません。", _jsx(_components.br, {}), "\nどこで改行すべきかというのも考える必要があるようです。", _jsx(_components.br, {}), "\nCSS の word-break は関係が近そうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "スクロール",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スクロール",
+        children: "スクロール"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["文字が多いと、固定画面に収まらなくなります。", _jsx(_components.br, {}), "\nそこでスクロールを導入します。", _jsx(_components.br, {}), "\nスクロールって、全ての文字が入っている領域をページ（レイアウト）、見えている領域を画面と考えるようです。", _jsx(_components.br, {}), "\n入力されたテキストからディスプレイリスト（どの文字がどこに表示するか）へ変換し、", _jsx(_components.br, {}), "\nスクロール量に応じて出力するテキストを限定して出力します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["愚直に実装すると、スクロールが発生するたびに処理が重なり 60fps に間に合わなくなります。", _jsx(_components.br, {}), "\nブラウザでは、さまざまな最適化が施されているようです。", _jsx(_components.br, {}), "\n本書では、見えないところを描画しないシンプルな方法が紹介されていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["注釈で面白い話がありました。", _jsx(_components.br, {}), "\nスクロールみたいな動くアニメーションは 60fps (約16ミリ秒)を下回るとストレスに感じるのに対し、", _jsx(_components.br, {}), "\nボタンクリックなどのアクションレスポンスは 100ミリ秒以内 に返せれば良い、みたいな話です。", _jsx(_components.br, {}), "\nアクションの方は、決定して実行して応答を理解する 一連の流れがあるので、時間がかかるようです。", _jsx(_components.br, {}), "\n動くアニメーションの場合は、そういう理解するステップが不要で直感的に理解できるからでしょうか？", _jsx(_components.br, {}), "\n全部が全部、60fps を目指す必要がないのです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "フォント",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#フォント",
+        children: "フォント"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["文字によって、文字の大きさ（横幅・縦幅）は違います。", _jsx(_components.br, {}), "\nxは小さいけど、Gは大きいです。", _jsx(_components.br, {}), "\n太字やイタリック文字によっても、大きさが変わります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["文字の大きさが変わると、Canvasで表示するx,y座標も変わります。", _jsx(_components.br, {}), "\n文字の大きさはフォントデータから取得できます。", _jsx(_components.br, {}), "\nフォントデータから、1文字の縦横幅を取得できます。", _jsx(_components.br, {}), "\nそれらの縦横幅を使って、文字を横に並べるのです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["フォントデータから文字の情報を取得するのは重い（？）みたいで、最適化する必要があります。", _jsx(_components.br, {}), "\nフォントデータをKey/Valueで保持しておいて、使用時にフォントデータを参照するみたいにします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["あとは文字をただ横に並べると、物干し竿にぶら下がったように文字が上に引っ付いた感じになります。", _jsx(_components.br, {}), "\ny座標は上から下に数値が上がるためかと思います。", _jsx(_components.br, {}), "\nそこで、文字の中心となるベースラインを見つけて、表示する文字のy座標を調整するロジックがありました。", _jsx(_components.br, {}), "\nこれは文字を左から右に並べて読む文章を前提としています。", _jsx(_components.br, {}), "\n言語によっては、右から左に文字を並べたり、上から下に文字を並べたりします。", _jsx(_components.br, {}), "\nこういうケースを考慮するとなると、ロジックが複雑になり理解するのが大変そうな印象です...。", _jsx(_components.br, {}), "\n多言語対応をやめたら、かなりスリムなコードになるのでは...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["まだ CSS や Javascript が出ていません。", _jsx(_components.br, {}), "\nHTMLの簡単なパースと画面表示のみです。", _jsx(_components.br, {}), "\nけれど、HTMLを読み込んで画面に描画する、一番基礎となるブラウザができたのは感動しました。", _jsx(_components.br, {}), "\n続きも、しっかり読み込もうと思います。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"rpYMj_YjIpDm4kAj7yXY1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『Webブラウザエンジニアリング』第1~3章を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260320/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"ブラウザ\",\"Webブラウザエンジニアリング\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260320/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260320/\",\"description\":\"以下の書籍を1から3章まで読みました。 https://www.oreilly.co.jp/books/9784814401574/ 全部で16章もあるので、こまめに感想を残しておこうと思います。 Webの歴史 Web が成り立つ経緯につい\",\"datePublished\":\"2026-03-20\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":292,"publishedAt":"2026-03-20","tags":["書籍レビュー","ブラウザ"],"title":"『Webブラウザエンジニアリング』第1~3章を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260321","publishedAt":"2026-03-21","title":"インターホンで、顔が見えない人は出ない"},"prev":{"href":"/blog/contents/20260319","publishedAt":"2026-03-19","title":"AIエージェント、マルチよりシングルの方が効率良いのでは"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"},{"publishedAt":"2026-04-07","slug":"20260407","summary":"以下の書籍を13章と14章を読みました。 もうコードを詳しくトレースするのを諦めました。笑 https://www.oreilly.co.jp/books/9784814401574/ 1章から12章の感想については、以下で書いています。","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第13-14章を読みました。"},{"publishedAt":"2026-04-03","slug":"20260403","summary":"以下の書籍を12章を読みました。 12章は難解でした。 https://www.oreilly.co.jp/books/9784814401574/ 1章から11章の感想については、以下で書いています。 『Webブラウザエンジニアリング』第","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第12章を読みました。"}],"tag":"書籍レビュー"},{"posts":[{"publishedAt":"2026-02-18","slug":"20260218","summary":"最近、iframeを使っています。 クライアントサイドで埋め込む想定で、iframeを使おうとしています。 色々と苦労したことがあったので、書いて残しておこうと思います。 レスポンスヘッダー 前提として、ウェブアプリケーションをプロダクショ","tags":["フロントエンド","ブラウザ"],"title":"iframeの難しさ"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"},{"publishedAt":"2025-08-27","slug":"microcopy-microinteractions-and-links","summary":"こんにちは、@silverbirderです。最近、湖県に移住してWebフロントエンドのお仕事をしています。お仕事をしていると、ユーザー体験を良くするためには、大きな改善をせずとも小さな改善だけでも十分な効果があると思い始めました。本記事では、その小さな改善となる、3つのことについて書きたいと思います。","tags":["フロントエンド","ブラウザ"],"title":"マイクロコピー、マイクロインタラクション、そしてリンク"}],"tag":"ブラウザ"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260320/","slug":"20260320"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/244e4f6602dcdb8f.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

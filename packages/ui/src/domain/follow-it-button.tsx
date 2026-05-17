@@ -56,7 +56,7 @@ export const FollowItButton = ({ height = 9, label, url, width }: Props) => {
     >
       <a
         href={url}
-        rel="noopener noreferrer"
+        rel="noopener"
         style={{ textDecoration: "none" }}
         target="_blank"
       >

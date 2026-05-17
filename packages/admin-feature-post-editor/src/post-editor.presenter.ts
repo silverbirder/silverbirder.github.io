@@ -446,7 +446,7 @@ export const usePostEditorPresenter = ({
             removeDraftQueryParamsFromUrl();
           }
           if (action?.type === "open") {
-            window.open(action.url, "_blank", "noopener,noreferrer");
+            window.open(action.url, "_blank", "noopener");
           }
           if (action?.type === "redirect") {
             isRedirecting = true;

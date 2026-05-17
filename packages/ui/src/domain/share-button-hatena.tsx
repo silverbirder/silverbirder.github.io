@@ -59,7 +59,7 @@ export const ShareButtonHatena = ({
         >
           <a
             href={href}
-            rel="noopener noreferrer"
+            rel="noopener"
             style={{ textDecoration: "none" }}
             target="_blank"
           >

@@ -28,7 +28,7 @@ const bodyContent = (
     </p>
     <p>
       Inline{" "}
-      <a href="https://example.com" rel="noreferrer" target="_blank">
+      <a href="https://example.com" rel="noopener" target="_blank">
         links
       </a>{" "}
       and <strong>emphasis</strong>, <em>italics</em>, and{" "}

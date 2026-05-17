@@ -67,7 +67,7 @@ export const RssButton = ({
     >
       <a
         href={url}
-        rel="noopener noreferrer"
+        rel="noopener"
         style={{ textDecoration: "none" }}
         target="_blank"
       >

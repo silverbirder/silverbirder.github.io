@@ -59,7 +59,7 @@ export const ShareButtonX = ({
         >
           <a
             href={href}
-            rel="noopener noreferrer"
+            rel="noopener"
             style={{ textDecoration: "none" }}
             target="_blank"
           >

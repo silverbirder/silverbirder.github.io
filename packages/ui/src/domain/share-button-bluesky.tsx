@@ -60,7 +60,7 @@ export const ShareButtonBluesky = ({
         >
           <a
             href={href}
-            rel="noopener noreferrer"
+            rel="noopener"
             style={{ textDecoration: "none" }}
             target="_blank"
           >

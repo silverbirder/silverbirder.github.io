@@ -353,7 +353,7 @@ export const Notebook = ({
                     >
                       <a
                         href={subscription.url}
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         style={{ textDecoration: "none" }}
                         target="_blank"
                       >
@@ -400,7 +400,7 @@ export const Notebook = ({
                     >
                       <a
                         href={subscription.emailUrl}
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         style={{ color: "#00cf8d", textDecoration: "none" }}
                         target="_blank"
                       >
@@ -538,7 +538,7 @@ export const Notebook = ({
                               >
                                 <a
                                   href={item.href}
-                                  rel="noopener noreferrer"
+                                  rel="noopener"
                                   style={{ textDecoration: "none" }}
                                   target="_blank"
                                 >
@@ -635,7 +635,7 @@ export const Notebook = ({
                         >
                           <a
                             href={item.href}
-                            rel="noopener noreferrer"
+                            rel="noopener"
                             style={{ textDecoration: "none" }}
                             target="_blank"
                           >

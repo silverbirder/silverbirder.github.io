@@ -39,8 +39,7 @@ export const Link = ({
   const isExternal =
     href && typeof href === "string" ? isExternalHref(href, siteOrigin) : false;
 
-  const resolvedRel =
-    isExternal && !linkProps.rel ? "noopener noreferrer" : linkProps.rel;
+  const resolvedRel = isExternal && !linkProps.rel ? "noopener" : linkProps.rel;
   const resolvedTarget =
     isExternal && !linkProps.target ? "_blank" : linkProps.target;
   const resolvedAs =

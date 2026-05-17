@@ -364,7 +364,7 @@ export const Posts = ({ posts, rssUrl }: Props) => {
                         >
                           <a
                             href={rssUrl}
-                            rel="noopener noreferrer"
+                            rel="noopener"
                             style={{ textDecoration: "none" }}
                             target="_blank"
                           >
@@ -411,7 +411,7 @@ export const Posts = ({ posts, rssUrl }: Props) => {
                         >
                           <a
                             href={FOLLOW_IT_URL}
-                            rel="noopener noreferrer"
+                            rel="noopener"
                             style={{ color: "#00cf8d", textDecoration: "none" }}
                             target="_blank"
                           >

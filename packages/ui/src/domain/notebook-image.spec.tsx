@@ -120,7 +120,7 @@ describe("NotebookImage", () => {
     const newTabLink = container.querySelector("figcaption a");
     expect(newTabLink?.getAttribute("href")).toBe("https://example.com");
     expect(newTabLink?.getAttribute("target")).toBe("_blank");
-    expect(newTabLink?.getAttribute("rel")).toBe("noopener noreferrer");
+    expect(newTabLink?.getAttribute("rel")).toBe("noopener");
     expect(newTabLink?.getAttribute("aria-label")).toBe("別タブで開く");
     expect(newTabLink?.querySelector("svg")).not.toBeNull();
   });

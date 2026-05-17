@@ -97,7 +97,7 @@ export const Me = ({ followLinks }: Props) => {
                       >
                         <a
                           href={followLinks.x}
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           style={{ textDecoration: "none" }}
                           target="_blank"
                         >
@@ -141,7 +141,7 @@ export const Me = ({ followLinks }: Props) => {
                       >
                         <a
                           href={followLinks.bluesky}
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           style={{ textDecoration: "none" }}
                           target="_blank"
                         >
@@ -184,7 +184,7 @@ export const Me = ({ followLinks }: Props) => {
                       >
                         <a
                           href={followLinks.github}
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           style={{ textDecoration: "none" }}
                           target="_blank"
                         >
@@ -217,11 +217,7 @@ export const Me = ({ followLinks }: Props) => {
               <Text my={0}>
                 {t.rich("detailSecond", {
                   link: (chunks) => (
-                    <Link
-                      href={photoMoreLink}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
+                    <Link href={photoMoreLink} rel="noopener" target="_blank">
                       {chunks}
                     </Link>
                   ),

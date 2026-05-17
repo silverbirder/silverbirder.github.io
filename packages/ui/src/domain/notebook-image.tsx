@@ -402,7 +402,7 @@ export const NotebookImage = ({ alt, linkHref, src, ...props }: Props) => {
               <DomainLink
                 aria-label={t("openInNewTabAriaLabel")}
                 href={linkHref}
-                rel="noopener noreferrer"
+                rel="noopener"
                 target="_blank"
               >
                 {alt && <chakra.span>{alt}</chakra.span>}

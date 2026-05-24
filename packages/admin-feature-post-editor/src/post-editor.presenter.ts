@@ -2,7 +2,7 @@
 
 import type { SerializeResult } from "next-mdx-remote-client";
 
-import { formatDate, hasFrontmatter } from "@repo/util";
+import { hasFrontmatter, normalizePublishedAtInputValue } from "@repo/util";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { buildSummaryFromBody, generateZennSlug } from "./libs";
@@ -242,7 +242,7 @@ export const usePostEditorPresenter = ({
     initialAutoCreatePullRequest,
   );
   const [publishedAt, setPublishedAt] = useState(() =>
-    initialPublishedAt ? initialPublishedAt : formatDate(new Date()),
+    normalizePublishedAtInputValue(initialPublishedAt ?? "", new Date()),
   );
   const [summary, setSummary] = useState(initialSummary ?? "");
   const [hatenaEnabled, setHatenaEnabled] = useState(

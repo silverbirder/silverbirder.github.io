@@ -70,6 +70,7 @@ describe("PostEditor", () => {
     expect(labels.some((label) => label.includes("本文"))).toBe(false);
     expect(titleInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(publishedAtInput).not.toBeNull();
+    expect(publishedAtInput?.getAttribute("type")).toBe("datetime-local");
     expect(keywordsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(tagsInput?.getAttribute("placeholder") ?? "").not.toBe("");
     expect(bodyInput?.getAttribute("placeholder") ?? "").not.toBe("");

@@ -483,7 +483,7 @@ export const PostEditorLayout = ({
                             onChange={(event) =>
                               onPublishedAtChange(event.target.value)
                             }
-                            type="date"
+                            type="datetime-local"
                             value={publishedAtValue}
                           />
                         </FieldGroup>

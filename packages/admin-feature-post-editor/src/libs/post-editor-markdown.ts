@@ -3,7 +3,16 @@ import { escapeYamlSingleQuotedString, formatYamlStringList } from "@repo/util";
 
 import { buildSummaryFromBody } from "./summary";
 
-const formatDailyBaseName = (date: Date) => {
+const extractPublishedAtDatePart = (value: string) => {
+  return value.trim().match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? null;
+};
+
+const formatDailyBaseName = (date: Date, publishedAt?: string) => {
+  const datePart = publishedAt ? extractPublishedAtDatePart(publishedAt) : null;
+  if (datePart) {
+    return datePart.replaceAll("-", "");
+  }
+
   const year = String(date.getFullYear());
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
@@ -13,8 +22,9 @@ const formatDailyBaseName = (date: Date) => {
 export const getUniqueDailyFileName = (
   existingFileNames: string[],
   date: Date,
+  publishedAt?: string,
 ) => {
-  const base = formatDailyBaseName(date);
+  const base = formatDailyBaseName(date, publishedAt);
   const normalized = new Set(
     existingFileNames.map((name) => name.toLowerCase()),
   );
@@ -40,6 +50,20 @@ const formatKeywords = (keywords: string[]) => formatYamlStringList(keywords);
 const normalizePublishedAt = (value: string, date: Date) => {
   const trimmed = value.trim();
   if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    return trimmed;
+  }
+  const localDateTimeMatch = trimmed.match(
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?$/,
+  );
+  if (localDateTimeMatch) {
+    const [, datePart, hour, minute, second = "00"] = localDateTimeMatch;
+    return `${datePart}T${hour}:${minute}:${second}+09:00`;
+  }
+  if (
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?(?:Z|[+-]\d{2}:?\d{2})$/.test(
+      trimmed,
+    )
+  ) {
     return trimmed;
   }
   return formatDate(date);

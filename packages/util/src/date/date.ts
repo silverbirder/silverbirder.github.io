@@ -45,6 +45,57 @@ export const formatNotebookDate = (value: string) => {
 
 export const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 
+const getTokyoDateTimeParts = (date: Date) => {
+  const parts = new Intl.DateTimeFormat("ja-JP", {
+    day: "2-digit",
+    hour: "2-digit",
+    hour12: false,
+    minute: "2-digit",
+    month: "2-digit",
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+  }).formatToParts(date);
+
+  const getPart = (type: Intl.DateTimeFormatPartTypes) => {
+    return parts.find((part) => part.type === type)?.value ?? "";
+  };
+
+  return {
+    day: getPart("day"),
+    hour: getPart("hour"),
+    minute: getPart("minute"),
+    month: getPart("month"),
+    year: getPart("year"),
+  };
+};
+
+export const formatTokyoDateTimeLocalInputValue = (date: Date) => {
+  const parts = getTokyoDateTimeParts(date);
+  return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+};
+
+export const normalizePublishedAtInputValue = (value: string, date: Date) => {
+  const trimmed = value.trim();
+  const dateOnlyMatch = trimmed.match(/^(\d{4}-\d{2}-\d{2})$/);
+  if (dateOnlyMatch?.[1]) {
+    return `${dateOnlyMatch[1]}T09:00`;
+  }
+
+  const localDateTimeMatch = trimmed.match(
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2})(?::\d{2})?$/,
+  );
+  if (localDateTimeMatch) {
+    return `${localDateTimeMatch[1]}T${localDateTimeMatch[2]}:${localDateTimeMatch[3]}`;
+  }
+
+  const parsed = new Date(trimmed);
+  if (!Number.isNaN(parsed.getTime())) {
+    return formatTokyoDateTimeLocalInputValue(parsed);
+  }
+
+  return formatTokyoDateTimeLocalInputValue(date);
+};
+
 export const formatJapaneseDateTime = (value: string) => {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {

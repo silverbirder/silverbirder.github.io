@@ -5,6 +5,8 @@ import {
   formatJapaneseDateTime,
   formatNotebookDate,
   formatPublishedDate,
+  formatTokyoDateTimeLocalInputValue,
+  normalizePublishedAtInputValue,
   parsePublishedAtDate,
 } from "./date";
 
@@ -84,6 +86,57 @@ describe("formatDate", () => {
 
     // Assert
     expect(result).toBe("2026-02-01");
+  });
+});
+
+describe("formatTokyoDateTimeLocalInputValue", () => {
+  it("formats a date as datetime-local value in JST", () => {
+    // Arrange
+    const date = new Date("2026-02-01T13:10:00Z");
+
+    // Act
+    const result = formatTokyoDateTimeLocalInputValue(date);
+
+    // Assert
+    expect(result).toBe("2026-02-01T22:10");
+  });
+});
+
+describe("normalizePublishedAtInputValue", () => {
+  it("adds default 09:00 time to legacy date-only values", () => {
+    // Arrange
+    const value = "2026-02-01";
+    const fallbackDate = new Date("2026-02-02T13:10:00Z");
+
+    // Act
+    const result = normalizePublishedAtInputValue(value, fallbackDate);
+
+    // Assert
+    expect(result).toBe("2026-02-01T09:00");
+  });
+
+  it("keeps hour and minute from local datetime values", () => {
+    // Arrange
+    const value = "2026-02-01T22:10";
+    const fallbackDate = new Date("2026-02-02T13:10:00Z");
+
+    // Act
+    const result = normalizePublishedAtInputValue(value, fallbackDate);
+
+    // Assert
+    expect(result).toBe("2026-02-01T22:10");
+  });
+
+  it("formats offset datetime values as JST datetime-local values", () => {
+    // Arrange
+    const value = "2026-02-01T13:10:00Z";
+    const fallbackDate = new Date("2026-02-02T13:10:00Z");
+
+    // Act
+    const result = normalizePublishedAtInputValue(value, fallbackDate);
+
+    // Assert
+    expect(result).toBe("2026-02-01T22:10");
   });
 });
 

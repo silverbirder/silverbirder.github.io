@@ -27,6 +27,22 @@ describe("getUniqueDailyFileName", () => {
     expect(result).toBe("20260201-4.md");
   });
 
+  it("uses the publishedAt date part for a datetime with a JST offset", () => {
+    // Arrange
+    const existing = ["20260201.md"];
+    const date = new Date("2026-01-31T15:10:00.000Z");
+
+    // Act
+    const result = getUniqueDailyFileName(
+      existing,
+      date,
+      "2026-02-01T00:10:00+09:00",
+    );
+
+    // Assert
+    expect(result).toBe("20260201-2.md");
+  });
+
   it("ignores case when checking existing names", () => {
     // Arrange
     const existing = ["20260201.MD"];
@@ -106,5 +122,45 @@ describe("buildMarkdown", () => {
 
     // Assert
     expect(result).toContain("publishedAt: '2026-02-02'");
+  });
+
+  it("normalizes publishedAt with hour and minute as JST datetime", () => {
+    // Arrange
+    const draft = {
+      body: "Body",
+      index: true,
+      keywords: [],
+      publishedAt: "2026-02-01T22:10",
+      summary: "Summary",
+      tags: [],
+      title: "Title",
+    };
+    const date = new Date("2026-02-01T00:00:00Z");
+
+    // Act
+    const result = buildMarkdown(draft, date);
+
+    // Assert
+    expect(result).toContain("publishedAt: '2026-02-01T22:10:00+09:00'");
+  });
+
+  it("keeps legacy date-only publishedAt", () => {
+    // Arrange
+    const draft = {
+      body: "Body",
+      index: true,
+      keywords: [],
+      publishedAt: "2026-02-01",
+      summary: "Summary",
+      tags: [],
+      title: "Title",
+    };
+    const date = new Date("2026-02-01T00:00:00Z");
+
+    // Act
+    const result = buildMarkdown(draft, date);
+
+    // Assert
+    expect(result).toContain("publishedAt: '2026-02-01'");
   });
 });

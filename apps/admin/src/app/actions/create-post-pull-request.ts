@@ -73,7 +73,11 @@ export const createPostPullRequest = async (
 
   try {
     const existingPosts = await api.github.list();
-    const fileName = getUniqueDailyFileName(existingPosts ?? [], date);
+    const fileName = getUniqueDailyFileName(
+      existingPosts ?? [],
+      date,
+      draft.publishedAt,
+    );
     const content = buildMarkdown(draft, date);
     const files = await buildLinkCardPullRequestFiles(content);
     const pullRequestTitle = draft.title.length > 0 ? draft.title : undefined;

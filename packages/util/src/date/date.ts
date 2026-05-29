@@ -2,45 +2,46 @@ export const toDate = (value: string) => {
   return new Date(value);
 };
 
-const toUtcDate = (value: string) => {
-  const [yearText, monthText, dayText] = value.split("-");
-  if (!yearText || !monthText || !dayText) {
-    return new Date(value);
+const getTokyoDateParts = (value: string) => {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return null;
   }
 
-  const year = Number(yearText);
-  const month = Number(monthText);
-  const day = Number(dayText);
+  const parts = new Intl.DateTimeFormat("ja-JP", {
+    day: "2-digit",
+    month: "2-digit",
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+  }).formatToParts(date);
 
-  if (Number.isFinite(year) && Number.isFinite(month) && Number.isFinite(day)) {
-    return new Date(Date.UTC(year, month - 1, day));
-  }
+  const getPart = (type: Intl.DateTimeFormatPartTypes) => {
+    return parts.find((part) => part.type === type)?.value ?? "";
+  };
 
-  return new Date(value);
+  return {
+    day: getPart("day"),
+    month: getPart("month"),
+    year: getPart("year"),
+  };
 };
 
 export const formatPublishedDate = (value: string) => {
-  const date = toUtcDate(value);
-  if (Number.isNaN(date.getTime())) {
+  const parts = getTokyoDateParts(value);
+  if (!parts) {
     return value;
   }
 
-  const year = date.getUTCFullYear();
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  return `${year}年${month}月${day}日`;
+  return `${parts.year}年${parts.month}月${parts.day}日`;
 };
 
 export const formatNotebookDate = (value: string) => {
-  const date = toUtcDate(value);
-  if (Number.isNaN(date.getTime())) {
+  const parts = getTokyoDateParts(value);
+  if (!parts) {
     return value;
   }
 
-  const year = date.getUTCFullYear();
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  return `${year}. ${month}. ${day}`;
+  return `${parts.year}. ${parts.month}. ${parts.day}`;
 };
 
 export const formatDate = (date: Date) => date.toISOString().slice(0, 10);

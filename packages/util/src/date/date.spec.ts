@@ -17,6 +17,12 @@ describe("formatPublishedDate", () => {
     expect(formatted).toBe("2025年01月02日");
   });
 
+  it("formats offset datetime values using Asia/Tokyo date", () => {
+    const formatted = formatPublishedDate("2026-05-29T08:30:00+09:00");
+
+    expect(formatted).toBe("2026年05月29日");
+  });
+
   it("returns the input when it cannot parse the date", () => {
     const formatted = formatPublishedDate("not-a-date");
 
@@ -29,6 +35,12 @@ describe("formatNotebookDate", () => {
     const formatted = formatNotebookDate("2025-01-02");
 
     expect(formatted).toBe("2025. 01. 02");
+  });
+
+  it("formats offset datetime values using Asia/Tokyo notebook date", () => {
+    const formatted = formatNotebookDate("2026-05-29T08:30:00+09:00");
+
+    expect(formatted).toBe("2026. 05. 29");
   });
 
   it("returns the input when it cannot parse the date", () => {

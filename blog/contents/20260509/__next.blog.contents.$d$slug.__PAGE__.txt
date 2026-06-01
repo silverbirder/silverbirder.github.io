@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/ed487a63abbf6ac7.js","/_next/static/chunks/501d46c816fb22da.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1349,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["今朝、長らくお世話になった GitHub Copilot を解約し、", _jsx(_components.br, {}), "\nOpenAI Codex を Plus から Pro にアップグレードしました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "経緯",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#経緯",
+        children: "経緯"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今月、5月4日あたりから OpenAI Codex で何度か上限制限（5時間以内）に達しました。", _jsx(_components.br, {}), "\nそこで GitHub Copilot に切り替え使用すると、5月5日あたりに 上限に達してしまいました。", _jsx(_components.br, {}), "\nGitHub Copilot の GPT-5 mini を使いつつ、OpenAI Codex の上限緩和すればそっちを使う、みたいなことをしていました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "1本に",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1本に",
+        children: "1本に"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["GitHub Copilot には随分お世話になったのですが、", _jsx(_components.br, {}), "\n数日程度で使用制限に引っかかってしまうのは困りました。", _jsx(_components.br, {}), "\n来月からは、GitHub Copilot の料金体制が変わりトークン消費ベースに変わるらしいです。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+      title: "GitHub Copilot is moving to usage-based billing",
+      description: "Starting June 1, your Copilot usage will consume GitHub AI Credits.",
+      siteName: "The GitHub Blog",
+      faviconSrc: "/link-card/fffee2e93040666657098a504d4b8e5d7a553606d9e2f865979052488156cf4a.ico",
+      thumbnailSrc: "/link-card/82563906a6062d3a7d849328c7265519be258e2c71cad9f9be58c477419f18ea.webp"
+    }), "\n", _jsxs(_components.p, {
+      children: ["今困っている私としては、GitHub Copilot を解約し OpenAI Codex のプランを1つ上げました。", _jsx(_components.br, {}), "\nPlus が月20ドルに対して、Pro は月100ドルです。", _jsx(_components.br, {}), "\n別の案として、月20ドル の Plus にしつつ、80ドル をクレジット追加して今月どうなるか見る、", _jsx(_components.br, {}), "\nを考えました。", _jsx(_components.br, {}), "\nまあでも単純計算したら、今月80ドルも足らないかもなと思い、Pro に乗り換えました。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ちなみに、キャンペーンで 5月31日まで Pro の利用回数が 2倍とのことです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+      title: "About ChatGPT Pro tiers | OpenAI Help Center",
+      description: "Information about our paid subscription plan, Pro.",
+      siteName: "OpenAI Help Center",
+      faviconSrc: "https://help.openai.com/favicon.png",
+      thumbnailSrc: "/link-card/8281f699b9acb0445100199dc6d9a9e382e79e29aa61515f6dda66f71766462e.png"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "For Pro $100, to celebrate the launch, you’ll get 2x Codex usage through May 31. That means 10x usage instead of the standard 5x."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "まあ、6月なったら考え直します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "経費として落とせるので、まあいっか。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"6mq6gtyT_-ryicLDiAkrj","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"GitHub Copilot を解約して、OpenAI Codex Pro を契約しました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260509/opengraph-image.png\"],\"keywords\":[\"AI\",\"GitHub Copilot\",\"OpenAI Codex\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260509/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260509/\",\"description\":\"今朝、長らくお世話になった GitHub Copilot を解約し、 OpenAI Codex を Plus から Pro にアップグレードしました。 経緯 今月、5月4日あたりから OpenAI Codex で何度か上限制限（5時間以内）\",\"datePublished\":\"2026-05-09\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":342,"publishedAt":"2026-05-09","tags":["AI"],"title":"GitHub Copilot を解約して、OpenAI Codex Pro を契約しました。"},"navigation":{"next":{"href":"/blog/contents/20260510","publishedAt":"2026-05-10","title":"晴れた日の琵琶湖を眺めて寝る"},"prev":{"href":"/blog/contents/20260508","publishedAt":"2026-05-08","title":"AI Slop と増幅器"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-05-31T09:11:00+09:00","slug":"20260531","summary":"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー","tags":["AI","テスト"],"title":"テストコードの意味がない"},{"publishedAt":"2026-05-08","slug":"20260508","summary":"AI で生成された低品質なもの、AI Slop と呼ばれます。 呼び名はなんでも良いですが、この種のコンテンツを目にするたびに落胆します。 ネット記事や、プルリクエストの説明文、議題とディスカッション、あらゆるところに登場します。 めっちゃ","tags":["AI","雑談"],"title":"AI Slop と増幅器"},{"publishedAt":"2026-04-24","slug":"20260424","summary":"現在、個人開発でブログキュレーションアプリを開発中です。 https://silverbirder.github.io/blog/contents/20260419/ UIデザインについて、v0などのAIデザインツールを使う際に、 バイブコ","tags":["AI","デザイン"],"title":"AIデザインとバイブコーディングの相性の良さ"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260509/","slug":"20260509"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/501d46c816fb22da.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

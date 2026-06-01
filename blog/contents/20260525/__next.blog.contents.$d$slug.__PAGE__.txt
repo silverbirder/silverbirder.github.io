@@ -1,0 +1,105 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/ed487a63abbf6ac7.js","/_next/static/chunks/501d46c816fb22da.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1231,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "先日、個人ブログを読むアプリ、こぶりーをリリースしました！"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260523/",
+      title: "個人ブログを読むアプリ、こぶりーをリリースしました！",
+      description: "個人ブログ好きの皆さんに朗報です！ &quot;個人ブログを、見つけて、読んで、シェアする&quot; アプリ、こぶりーをリリースしました！🎉 こぶりー アプリのURLは、以下の通りです。 こぶりー - kobliy.vercel.app こちらから、個人ブ",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/fd451b1fd8e15d7a840516b819c3800c556d6b19c99d8364b5f6869628a90dd0.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["そのこぶりーに、年月移動できるように改善しました！", _jsx(_components.br, {}), "\nこれで、例えば2020年3月の個人ブログを瞬時に読みに行くことができます 🥳"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["１. ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app",
+        children: "https://kobliy.vercel.app"
+      }), " にアクセスして、右下にあるカレンダーアイコンをタップ"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1779625037/silver-birder.github.io/blog/jl9vzdvjv5bohueqbwww.png?ar=708%3A1506",
+        alt: "年月移動1"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "２. カレンダーが表示されるので、好きな日付をタップ"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1779625039/silver-birder.github.io/blog/w7n77qnmgeb8dsdtklqh.png?ar=714%3A1512",
+        alt: "年月移動2"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そうすると、", _jsx(_components.strong, {
+        children: "選んだ日付へとジャンプ"
+      }), " できます！🚀"]
+    }), "\n", _jsx(_components.h2, {
+      id: "お勧めの使い方",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#お勧めの使い方",
+        children: "お勧めの使い方"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、以下のような使い方をすると楽しいかもしれません！"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["今からちょうど1年前にジャンプ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "今と比較してどういう話題があったのかな"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["年末年始などの特別な日にジャンプ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "今年買ったベストバイとか、振り返りや抱負とかが見えます"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["さて、今日も誰かの個人ブログ記事を読んで時間を潰しましょうか。", _jsx(_components.br, {}), "\n面白い発見や影響を受けることがあるかもしれませんね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"6mq6gtyT_-ryicLDiAkrj","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"こぶりーに、年月移動できるようにしました！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260525/opengraph-image.png\"],\"keywords\":[\"雑談\",\"こぶりー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260525/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260525/\",\"description\":\"先日、個人ブログを読むアプリ、こぶりーをリリースしました！ https://silverbirder.github.io/blog/contents/20260523/ そのこぶりーに、年月移動できるように改善しました！ これで、例えば20\",\"datePublished\":\"2026-05-25\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":358,"publishedAt":"2026-05-25","tags":["雑談"],"title":"こぶりーに、年月移動できるようにしました！"},"navigation":{"next":{"href":"/blog/contents/20260526","publishedAt":"2026-05-26T20:52:00+09:00","title":"はじめてのロゴやアイキャッチ画像制作"},"prev":{"href":"/blog/contents/20260524","publishedAt":"2026-05-24","title":"実は細かい味の違いなんてわからないので、安いので良い"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-02T09:28:00+09:00","slug":"20260602","summary":"以下の記事で紹介したソファをジモティで出品してみました。 https://silverbirder.github.io/blog/contents/20260529/ 値段は0円無料としたからか、出品投稿から30分以内に4件の問い合わせがき","tags":["雑談"],"title":"ジモティでソファを処分した話"},{"publishedAt":"2026-06-01T09:10:00+09:00","slug":"20260601","summary":"午前中、私はスタバで誰かの個人ブログをしっぽり読んでいました。 すると、隣の席に座られたカップルが フラペチーノを落としてしまいました。 その後、なんだか口喧嘩っぽい雰囲気をになりました。 昔の自分を見ているようだったので、なんとか仲良くな","tags":["雑談"],"title":"スタバでケンカ中のカップルにドーナツをあげた"},{"publishedAt":"2026-05-29T08:30:00+09:00","slug":"20260529","summary":"我が家にデカデカとスペースを占有しているソファが2つあります。 サイズ 縦65cm 横165cm 奥行き85cm 購入日 2018年11月23日 新しいソファの購入を検討しています。 そのため、今あるソファを処分したいのですが、どなたか無料","tags":["雑談"],"title":"ソファを処分したい、どなたか貰ってもらえませんか？"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260525/","slug":"20260525"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/501d46c816fb22da.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

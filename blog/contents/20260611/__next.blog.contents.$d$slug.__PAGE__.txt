@@ -1,0 +1,81 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/2e54d38de2e629fb.js","/_next/static/chunks/501d46c816fb22da.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1438,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "『新米おとうちゃんと小さな怪獣』という本を読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://www.bestsellers.co.jp/books/monograph/5c19fbba7765617ec0010000",
+      title: "新米おとうちゃんと小さな怪獣 | 株式会社 ベストセラーズ｜KKベストセラーズ",
+      description: "泣いて笑って、一緒に成長していこう。2児のパパが飾らない言葉で綴る、等身大の育児エッセイ!&nbsp;「疲れた」「今日も大変だったなあ」「いつになったらゆっくりごはん食べられるんだろう」正直しんどい日もあるし、つらい出来事だってある。それでも子育てはドラマチックで、感動的で、そして楽しい!&nbsp;Twitterに投稿する子育て漫画で人気の著者が、子どもとの日々の中で生まれる奮闘劇をやさしい文章とかわいらしいイラストで描く。ママパパは思わず泣けて、共感すること間違いなし!&nbsp;☆描き下ろしおまけ漫画も収録☆",
+      siteName: "株式会社 ベストセラーズ｜KKベストセラーズ",
+      faviconSrc: "/link-card/03aa351c7b5179913e32b220da5b09335a75b3af82602fa01aa20d78bd624843.svg"
+    }), "\n", _jsx(_components.h2, {
+      id: "きっかけ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#きっかけ",
+        children: "きっかけ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["妻の妊娠発覚後、食生活や今後のスケジュール、お金のことなどわからないことがいっぱいです。", _jsx(_components.br, {}), "\nネット記事は部分的に手にするのは良い媒体なのですが、", _jsx(_components.br, {}), "\nまとまったものや正確性などを重視したくて本を探していました。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "無料で本が読めるコスパ抜群の図書館"
+      }), " に行って、本を探していると \"新米おとうちゃんと小さな怪獣\" という本を見かけました。", _jsx(_components.br, {}), "\nタイトルに惹かれてちょっと気になったので借りてきました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "おとうちゃん目線",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おとうちゃん目線",
+        children: "おとうちゃん目線"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["『新米おとうちゃんと小さな怪獣』の本では、", _jsx(_components.br, {}), "\n0歳の娘さんを持つ新米おとうちゃん目線で語られる、", _jsx(_components.br, {}), "\n日常生活や感じたことを可愛いイラスト付きで読むことができる、", _jsx(_components.br, {}), "\n絵本っぽい読みやすいものです。", _jsx(_components.br, {}), "\n10分ぐらいで読める感じでお手軽さの割に、温かい気持ちになれました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ほっこり",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ほっこり",
+        children: "ほっこり"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["娘さんが少しずつ成長していく姿に、自分も涙しそうだなと思いました。", _jsx(_components.br, {}), "\nまだいませんけど（笑）", _jsx(_components.br, {}), "\n立てた、歩けた、登れた、どんどんとできることが増えていって、", _jsx(_components.br, {}), "\nこどもの世界がドンドンと広がっていく。", _jsx(_components.br, {}), "\nこどもはちゃんとみてるし、ちゃんと覚えてるし、ちゃんと考えてる。", _jsx(_components.br, {}), "\nちゃんとこっちも、こどもをみて考えて話せる父親になりたいなと思いました。", _jsx(_components.br, {}), "\nちいさな約束でも、こどもにとっても大きなことなのだから、ちゃんと守りたいと思います。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"BT1_C8E7HNrSnkySkyQSx","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"新米おとうちゃんと小さな怪獣、クスッと泣けた\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260611/opengraph-image.png\"],\"keywords\":[\"雑談\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260611/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260611/\",\"description\":\"『新米おとうちゃんと小さな怪獣』という本を読みました。 https://www.bestsellers.co.jp/books/monograph/5c19fbba7765617ec0010000 きっかけ 妻の妊娠発覚後、食生活や今後のス\",\"datePublished\":\"2026-06-11T20:53:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":375,"publishedAt":"2026-06-11T20:53:00+09:00","tags":["雑談"],"title":"新米おとうちゃんと小さな怪獣、クスッと泣けた"},"navigation":{"next":{"href":"/blog/contents/20260612","publishedAt":"2026-06-12T20:15:00+09:00","title":"今の職業が好き"},"prev":{"href":"/blog/contents/20260610","publishedAt":"2026-06-10T09:45:00+09:00","title":"子なし時代の妬み"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-13T21:59:00+09:00","slug":"20260613","summary":"人工授精を何度か試しても上手くいかなかったので体外受精へ進めていました。 男性は大変ではなく、女性がかなり大変です。 まずはリスク確認 体外受精は、女性の体の外で女性の卵と男性の精子を受精させて体に戻す、という流れです。 体外受精でもさまざ","tags":["雑談"],"title":"体外受精のたいへんさと妊娠報告"},{"publishedAt":"2026-06-12T20:15:00+09:00","slug":"20260612","summary":"私は、新卒の頃から今もIT・Web業界のプログラマとして働いています。 働くこと自体に憂鬱となることは稀にありますが、働く内容は楽しくて仕方がありません。 よく友人・知人などから、以下のことを聞いたりします。 「仕事はつまらない、早く帰宅し","tags":["雑談"],"title":"今の職業が好き"},{"publishedAt":"2026-06-10T09:45:00+09:00","slug":"20260610","summary":"子を授かりました。 https://silverbirder.github.io/blog/contents/20260609/ 今もまだ子なしですが、子がいないといろいろなところに妬みが出てしまっていました。 親族や法事等の親戚の方々と接","tags":["雑談"],"title":"子なし時代の妬み"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260611/","slug":"20260611"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/501d46c816fb22da.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

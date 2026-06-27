@@ -2,11 +2,23 @@ import { describe, expect, it, vi } from "vitest";
 
 vi.mock("react-tweet", () => {
   return {
-    EmbeddedTweet: ({ tweet }: { tweet: { id: string } }) => (
+    EmbeddedTweet: ({
+      tweet,
+    }: {
+      tweet: {
+        entities?: {
+          symbols?: unknown[];
+          user_mentions?: unknown[];
+        };
+        id: string;
+      };
+    }) => (
       <div
         data-embed="tweet"
+        data-symbol-count={tweet.entities?.symbols?.length}
         data-testid="embedded-tweet"
         data-tweet-id={tweet.id}
+        data-user-mention-count={tweet.entities?.user_mentions?.length}
       />
     ),
     TweetNotFound: ({ error }: { error?: unknown }) => (
@@ -29,6 +41,19 @@ vi.mock("react-tweet", () => {
       }
       if (id === "nodata") {
         return { data: null, error: null, isLoading: false };
+      }
+      if (id === "partial-entities") {
+        return {
+          data: {
+            entities: {
+              hashtags: [],
+              urls: [],
+            },
+            id,
+          },
+          error: null,
+          isLoading: false,
+        };
       }
       return { data: { id }, error: null, isLoading: false };
     },
@@ -96,5 +121,18 @@ describe("TweetEmbed", () => {
 
     const outer = container.querySelector('[data-embed="tweet"]');
     expect(outer?.getAttribute("data-tweet-id")).toBe("123");
+  });
+
+  it("renders EmbeddedTweet when optional entity arrays are missing", async () => {
+    const { TweetEmbed } = await load();
+    const { container } = await renderWithProvider(
+      <TweetEmbed id="partial-entities" />,
+    );
+
+    const embedded = container.querySelector('[data-testid="embedded-tweet"]');
+    expect(embedded).not.toBeNull();
+    expect(embedded?.getAttribute("data-tweet-id")).toBe("partial-entities");
+    expect(embedded?.getAttribute("data-user-mention-count")).toBe("0");
+    expect(embedded?.getAttribute("data-symbol-count")).toBe("0");
   });
 });

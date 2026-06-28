@@ -281,6 +281,7 @@ return {
     const bodyText = document.body.textContent ?? "";
     expect(bodyText).toContain("シェアする");
     expect(bodyText).toContain("silverbirder");
+    expect(bodyText).toContain("個人ブログキュレーション");
     expect(bodyText).toContain("Webソフトウェアエンジニア");
     expect(bodyText).toContain("読者になる");
     expect(bodyText).toContain("ブログを応援する");

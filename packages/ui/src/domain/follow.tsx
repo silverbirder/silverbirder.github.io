@@ -21,7 +21,7 @@ export type FollowLinks = {
 
 export type FollowProfile = {
   avatarSrc: string;
-  description: string;
+  description: ReactNode;
   name: string;
 };
 

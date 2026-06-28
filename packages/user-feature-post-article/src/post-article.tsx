@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 import {
   createFollowSection,
   type FollowLinks,
@@ -12,6 +12,7 @@ import { markPostAsRead } from "@repo/user-local-storage";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
+const KOBLIY_ABOUT_URL = "https://kobliy.vercel.app/about";
 const COUNTER_NAMESPACE = "silverbirder-github-io";
 const FOLLOW_IT_URL = "https://follow.it/qxug4e?leanpub";
 const OFUSE_ID = "158382";
@@ -93,7 +94,24 @@ export const PostArticle = ({
     links: followLinks,
     profile: {
       avatarSrc: followProfileAvatarSrc,
-      description: tMe("role"),
+      description: (
+        <>
+          {tMe("role")}
+          <br />
+          {tMe.rich("kobliyRole", {
+            link: (chunks) => (
+              <Link
+                color="green.fg"
+                href={KOBLIY_ABOUT_URL}
+                rel="noopener"
+                target="_blank"
+              >
+                {chunks}
+              </Link>
+            ),
+          })}
+        </>
+      ),
       name: tMe("name"),
     },
   });

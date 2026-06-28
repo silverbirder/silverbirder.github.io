@@ -76,6 +76,20 @@ export const Me = ({ followLinks }: Props) => {
                   {t("name")}
                 </Heading>
                 <Text my={0}>{t("role")}</Text>
+                <Text my={0}>
+                  {t.rich("kobliyRole", {
+                    link: (chunks) => (
+                      <a
+                        href="https://kobliy.vercel.app/about"
+                        rel="noopener"
+                        style={{ color: "var(--chakra-colors-green-fg)" }}
+                        target="_blank"
+                      >
+                        {chunks}
+                      </a>
+                    ),
+                  })}
+                </Text>
                 <HStack gap={1}>
                   <Tooltip.Root
                     closeDelay={0}

@@ -1,0 +1,68 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T13eb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。", _jsx(_components.br, {}), "\n期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。", _jsx(_components.br, {}), "\nそのテストコードは、プロダクションコードをそのままテストコードとして書き落としただけの写経コードだ。", _jsx(_components.br, {}), "\nテストが通る架空の安心感だけ得られるが、それは虚無。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["つい先日、リファクタリングを行った。", _jsx(_components.br, {}), "\n静的解析のルールを追加した関係で、それをクリアするようにプロダクションコードが修正させた。", _jsx(_components.br, {}), "\nすると、プロダクションコードの大幅な変更に伴いテストコードも同時に修正された。", _jsx(_components.br, {}), "\n問題は、プロダクションコードの内容をそのままテストコードが反映させているため、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "期待する機能仕様が満たせていないにも関わらずテストが成功してしまった。"
+      }), _jsx(_components.br, {}), "\nこれはテストではなく、ただファイル作成しているだけだ。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "仕様-is-どこ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#仕様-is-どこ",
+        children: "仕様 is どこ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["現時点だと、プロダクションコードの挙動が仕様となり、それを満たすためにテストコードが生まれている。", _jsx(_components.br, {}), "\nそれはよろしくなく、先の問題が発生してしまう。", _jsx(_components.br, {}), "\nプロダクションコードではなく、別の言語で仕様を定義する必要がある。", _jsx(_components.br, {}), "\nテストレイヤーなどの話をしたい訳ではなく、ただ仕様を壊さないようにしたいだけだ。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["古き良きスタイルだと、エクセルやワードで仕様書を定義するのかもしれないが重たい。", _jsx(_components.br, {}), "\n今だと、宣言的ファイルやマークダウンファイルなどのプレーンファイルだと扱いやすく、様々なエコシステムとの相性が良い。", _jsx(_components.br, {}), "\nそのようなファイル群に \"仕様\" を言語化し、\"仕様\" を満たすテストコードがあって欲しい。", _jsx(_components.br, {}), "\nその解決策の1つとして、Gherkin が使えるのではと思いつつある。", _jsx(_components.br, {}), "\nGherkin の良い点は、自然言語で システムの振る舞いを言語化することができ、かつそれをテストコードとして扱うことができる点だ。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "面倒だけどやらねば",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#面倒だけどやらねば",
+        children: "面倒だけどやらねば"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["仕様を書くのは面倒だ。", _jsx(_components.br, {}), "\nただ、仕様を壊す変更に気づけないのはもっと面倒だ。", _jsx(_components.br, {}), "\nなので、個人開発でも最低限守りたい部分を言語化させている。", _jsx(_components.br, {}), "\nとはいえ全部0から書く訳ではなく、文章の叩き台を自分が作って、後は AI に助けてもらう。", _jsx(_components.br, {}), "\n文章の精査ができたら、テストコードは任せるが「テストが通るための修正」みたいなことをされると結局意味がないので、", _jsx(_components.br, {}), "\nそこの部分はレビューを疎かにしないでいこう。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ 今まであった テストファイルは消しちゃおう。（単なる写経コードだ）"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"jZfrvZDTIfTrr2te2VdaR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"テストコードの意味がない\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260531/opengraph-image.png\"],\"keywords\":[\"AI\",\"テスト\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260531/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260531/\",\"description\":\"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー\",\"datePublished\":\"2026-05-31T09:11:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":364,"publishedAt":"2026-05-31T09:11:00+09:00","tags":["AI","テスト"],"title":"テストコードの意味がない"},"navigation":{"next":{"href":"/blog/contents/20260601","publishedAt":"2026-06-01T09:10:00+09:00","title":"スタバでケンカ中のカップルにドーナツをあげた"},"prev":{"href":"/blog/contents/20260530","publishedAt":"2026-05-30T09:41:00+09:00","title":"スタバで400スター貯まったので、スターマグが欲しい"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-05T09:28:00+09:00","slug":"20260605","summary":"業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。 前提 Webアプリケーションのプログラムファイルがツリー構造である前提とします。 tree よくあるフィーチャー単位のフォルダ構","tags":["テスト"],"title":"テストコード、どこに何書く"},{"publishedAt":"2026-05-14","slug":"20260514","summary":"最近、Testcontainers を使う機会があり、苦労したことについて備忘録として残しておきます。 前提 以下の記事で書いてある構成に近いものです。 https://zenn.dev/silverbirder/articles/0a54","tags":["テスト"],"title":"Testcontainers 導入の苦労話メモ"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260531/","slug":"20260531"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

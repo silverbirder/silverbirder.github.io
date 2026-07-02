@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T12ee,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "個人ブログを、見つけて、読んで、シェアするアプリ、こぶりーの使いやすくなりました！"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    }), "\n", _jsx(_components.p, {
+      children: "個人ブログの記事をタップし記事を読み終わると、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「わかるー！」"
+      }), "\n", _jsx(_components.li, {
+        children: "「クスッとした」"
+      }), "\n", _jsx(_components.li, {
+        children: "「めっちゃいいやん」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["などリアクションしたくなることって、ありますよね。", _jsx(_components.br, {}), "\nこの気持ちを色んな人にシェアしたい！となった時に使える便利な機能、共有機能をご用意しました！"]
+    }), "\n", _jsx(_components.p, {
+      children: "使い方は簡単で、"
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "記事を読む"
+      }), "\n", _jsx(_components.li, {
+        children: "左下に共有補助が出現する"
+      }), "\n", _jsx(_components.li, {
+        children: "共有ボタンをクリック"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["という3ステップです。", _jsx(_components.br, {}), "\n共有補助は、以下の画面になります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1780660499/silver-birder.github.io/blog/zlrzyzfxgyq5yyo6u37h.png?ar=706%3A1502",
+        alt: "こぶりー 共有"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["コピーするボタンは、共有する文面をコピーできます。", _jsx(_components.br, {}), "\n補助的な意味で入れています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "個人ブログにある機能も",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#個人ブログにある機能も",
+        children: "個人ブログにある機能も"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人ブログによっては、コメントやリアクションができるサイトもあります。", _jsx(_components.br, {}), "\nブログ主へ伝えたい、という意味ならそちらの方が適切な場面かもしれません。", _jsx(_components.br, {}), "\nSNSで共有するか、個人ブログへ直接フィードバックを返すかは読者のご判断にお任せします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["こぶりーですが、個人ブログ数は2,500件を超え、記事数は13万件を超えました。", _jsx(_components.br, {}), "\n毎日個人ブログを探していますので、もし追加して欲しいサイトがありましたら", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app/contact",
+        children: "お問い合わせ"
+      }), "ください！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"jZfrvZDTIfTrr2te2VdaR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"こぶりーに、ブログ記事を共有しやすくなりました！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260606/opengraph-image.png\"],\"keywords\":[\"開発ツール\",\"こぶりー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260606/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260606/\",\"description\":\"個人ブログを、見つけて、読んで、シェアするアプリ、こぶりーの使いやすくなりました！ https://kobliy.vercel.app 個人ブログの記事をタップし記事を読み終わると、 「わかるー！」 「クスッとした」 「めっちゃいいやん」\",\"datePublished\":\"2026-06-06T08:09:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":370,"publishedAt":"2026-06-06T08:09:00+09:00","tags":["開発ツール"],"title":"こぶりーに、ブログ記事を共有しやすくなりました！"},"navigation":{"next":{"href":"/blog/contents/20260607","publishedAt":"2026-06-07T09:54:00+09:00","title":"けいおん！聖地に行ってきた"},"prev":{"href":"/blog/contents/20260605","publishedAt":"2026-06-05T09:28:00+09:00","title":"テストコード、どこに何書く"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-02-28","slug":"20260228","summary":"以下の記事で書いた通り、Google Map のタイムラインデータが7年分消失しました。 https://silverbirder.github.io/blog/contents/20251123/ こういう経験をすると、データを所有したい","tags":["開発ツール"],"title":"Google Map タイムラインデータをなんとかしたい"},{"publishedAt":"2026-02-06","slug":"20260206","summary":"ブログ記事のページ下部に、Disqusを設置しています。 急遽、Disqusの上下に良くわからない広告が大量に表示されるようになりました。 Disqusのメール メールボックスを漁ってみると、以下のメールがありました。 Disqusからのメ","tags":["開発ツール"],"title":"Disqusに広告が表示されるようになった"},{"publishedAt":"2025-09-17","slug":"google-my-activity-visualization","summary":"DuckDB WASMとOrigin Private File System (OPFS) を組み合わせ、Google マイアクティビティの履歴をブラウザ内に閉じたまま扱えるようにしたときの設計と学びを整理しました。","tags":["開発ツール","ブラウザ"],"title":"DuckDB WASMとOPFSでGoogleマイアクティビティをブラウザ完結で可視化してみた"}],"tag":"開発ツール"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260606/","slug":"20260606"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

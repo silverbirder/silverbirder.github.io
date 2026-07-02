@@ -1,0 +1,129 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1f3f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "個人ブログを、見つけて、読んで、シェアするアプリ、\"こぶりー\" を運営しています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアプリの肝の1つは、個人ブログのデータの数と思っています。", _jsx(_components.br, {}), "\nどうすれば個人ブログをみつけることができるのか、自分の考えをまとめてみました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "キュレーションサイトから",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キュレーションサイトから",
+        children: "キュレーションサイトから"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の個人ブログのアクセス分析を見ると、どこからアクセスされているかリファラを見ることができます。", _jsx(_components.br, {}), "\nそのリファラを辿ると、キュレーションサイトだったりします。", _jsx(_components.br, {}), "\n一番の数で言うと、ミンゲイインターネット さんですね。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://mingeiinter.net/",
+      title: "ミンゲイインターネット",
+      description: "ミンゲイインターネットは、ミンゲイを感じるブログをあつめているサイトです。このページは 1 年以内に更新があった RSS / Atom フィードのあるブログのリストです。",
+      siteName: "ミンゲイインターネット",
+      faviconSrc: "/link-card/be08bbe1b892b1e77f7e2588b0a93022d71c51d9eb6a1e174214395372c974c0.svg",
+      thumbnailSrc: "/link-card/520df77bac6d16e6d75d2e1ac6a7761698ca22a0d569a95915428c0c7cf65fe8.png"
+    }), "\n", _jsx(_components.p, {
+      children: "他にも5件ほど用意していて、それらをクロールして個人ブログを収集しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "個人サイトから",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#個人サイトから",
+        children: "個人サイトから"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web は、ドキュメントとドキュメントを繋ぐリンクがあります。", _jsx(_components.br, {}), "\n\"こぶりー\" で把握している個人ブログ記事のHTMLを解析し、リンクを集める方法を考えました。", _jsx(_components.br, {}), "\n個人ブログが増えれば、個人ブログ記事も増えるため、ドンドン集まるのでは？と思ったのです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ実際の個人ブログ記事を1万件ほど探索して、1件ほどしか個人ブログを発見できなかったのです。", _jsx(_components.br, {}), "\n費用対効果に合わなかったので、このやり方は見送りました。", _jsx(_components.br, {}), "\nまあ確かに私の個人ブログでもリンクはしますが、個人ブログへリンクするのは稀だなと思うのでした。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "github-から",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#github-から",
+        children: "GitHub から"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["主にIT業界で個人ブログを提供する人は、GitHub リポジトリで公開していることが多いです。", _jsx(_components.br, {}), "\nそのため、GitHub のコード検索で、ブログっぽい単語で検索すると割とヒットします。", _jsx(_components.br, {}), "\n例えば、github.ioのサイトや、リポジトリにリンクされている個人ブログサイトがあったりします。", _jsx(_components.br, {}), "\n界隈が限定されるのは少し偏ってしまうのですが、まあヨシとしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ブログサービス-から",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ブログサービス-から",
+        children: "ブログサービス から"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["note や アメブロ、はてなブログ などブログサービスを提供するサービスは数多くあります。", _jsx(_components.br, {}), "\nこれらにブログ記事を書かれている人はたくさんいます。", _jsx(_components.br, {}), "\n会社として書いているのは個人ブログとして対象外と考えているので除外なのですが、", _jsx(_components.br, {}), "\n純粋に面白そうな個人ブログは、\"こぶりー\"に取り入れています。", _jsx(_components.br, {}), "\nただ本当に山の様にあるので、ここの精査する方法は、より仕組み化が必要となります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["おかげさまで、個人ブログの数は2.7k、個人ブログ記事の数は137.3kもあります。", _jsx(_components.br, {}), "\n\"こぶりー\" には、記事を探す方法を3つほど用意しています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "カレンダー等で自由に年月を移動して記事を探せる"
+      }), "\n", _jsx(_components.li, {
+        children: "記事の中からランダムに1つ読むことができる"
+      }), "\n", _jsx(_components.li, {
+        children: "フィード説明文を元に記事検索することができる"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["より充実した \"こぶりー\" へ成熟させたいため、今後も頑張ってデータ集めをしようと思います。", _jsx(_components.br, {}), "\nもっとこう言う機能がほしい！などあれば、ご自由に 以下の問い合わせフォームでお知らせください！"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://kobliy.vercel.app/contact",
+          children: "https://kobliy.vercel.app/contact"
+        })
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"jZfrvZDTIfTrr2te2VdaR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"個人ブログのみつけかた\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260620/opengraph-image.png\"],\"keywords\":[\"こぶりー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260620/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260620/\",\"description\":\"個人ブログを、見つけて、読んで、シェアするアプリ、\\\"こぶりー\\\" を運営しています。 https://kobliy.vercel.app このアプリの肝の1つは、個人ブログのデータの数と思っています。 どうすれば個人ブログをみつけることができ\",\"datePublished\":\"2026-06-20T20:45:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":384,"publishedAt":"2026-06-20T20:45:00+09:00","tags":[],"title":"個人ブログのみつけかた"},"navigation":{"next":{"href":"/blog/contents/20260621","publishedAt":"2026-06-21T20:35:00+09:00","title":"家を買うのか、また悩む"},"prev":{"href":"/blog/contents/20260619","publishedAt":"2026-06-19T20:14:00+09:00","title":"GitHub Busy をアラームの様に登録したい"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20260620/","slug":"20260620"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

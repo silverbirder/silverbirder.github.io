@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T27aa,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "Webアプリケーションのプログラムファイルがツリー構造である前提とします。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1780572662/silver-birder.github.io/blog/zeflcuw13wjwhexyc5fn.png?ar=281%3A201",
+        alt: "tree"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "よくあるフィーチャー単位のフォルダ構成っぽいものを例として出すと、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["repo/\n", _jsxs(_components.ul, {
+          children: ["\n", _jsxs(_components.li, {
+            children: ["page.tsx\n", _jsxs(_components.ul, {
+              children: ["\n", _jsxs(_components.li, {
+                children: ["A: BのハンドラやデータをCに渡す\n", _jsxs(_components.ul, {
+                  children: ["\n", _jsx(_components.li, {
+                    children: "B: 外部連動するファイル（APIフェッチ・ミューテーション、リダイレクトなど）"
+                  }), "\n", _jsxs(_components.li, {
+                    children: ["C: UIコンポーネント: HTMLの定義場、Dを使って振る舞う\n", _jsxs(_components.ul, {
+                      children: ["\n", _jsxs(_components.li, {
+                        children: ["D: 振る舞いファイル\n", _jsxs(_components.ul, {
+                          children: ["\n", _jsx(_components.li, {
+                            children: "E: フォームバリデーションファイルなど"
+                          }), "\n"]
+                        }), "\n"]
+                      }), "\n"]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n"]
+              }), "\n"]
+            }), "\n"]
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "1つのプログラムファイルは何をしているか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1つのプログラムファイルは何をしているか",
+        children: "1つのプログラムファイルは何をしているか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つのプログラムファイルに書かれていることを読み、", _jsx(_components.br, {}), "\nそこにあるロジックを基本的にテストコードに落とし込みます。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "書かれていることはホワイトに、読み込まれているものはブラックにやります。"
+      })]
+    }), "\n", _jsx(_components.h3, {
+      id: "単体",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#単体",
+        children: "単体"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["BやEは誰も参照しない単体で、ホワイトなテストをします。", _jsx(_components.br, {}), "\n境界値や組み合わせ、条件分岐、事細かく検証します。", _jsx(_components.br, {}), "\nここで徹底して検証することで、使用する側への検証負担を軽減させます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Dは、Cから読み込まれてEを読み込むファイル。", _jsx(_components.br, {}), "\n個人的経験則で、DはCのためのprivateなモノという認識で、", _jsx(_components.br, {}), "\nCのテストでDの内容が内包されるイメージ。", _jsx(_components.br, {}), "\nユーザー視点の振る舞いで検証を書くため。", _jsx(_components.br, {}), "\nただし、Dのロジックが複雑でCのテストで書くのが困難なら、D単体のテストを書く。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "結合",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#結合",
+        children: "結合"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Cは、Aからデータや更新ハンドラを貰ってDの振る舞いを使ってUIを構築する結合部分。", _jsx(_components.br, {}), "\nCから見て、Eのこと細かい検証は書かずブラックボックスとする。", _jsx(_components.br, {}), "\nデータに応じたHTMLの表示検証や、マウスやキーボード操作による振る舞いの検証をここで行う。", _jsx(_components.br, {}), "\n実際にAPIを実行するものではなく、そこは与えられたデータ・ハンドラを使用する前提にする。", _jsx(_components.br, {}), "\nEの詳細は行わないが、正常・失敗の2分岐ぐらいはCのテストに含める。（Cのロジックによる）", _jsx(_components.br, {}), "\nUIには状態遷移がよくあるので状態遷移による検証は網羅して行うと、", _jsx(_components.strong, {
+        children: "仕様の不備に気付けることがある。"
+      })]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Aは、Bでフェッチしたデータやデータ更新ハンドラをCのUIに渡す橋渡しする結合部分。", _jsx(_components.br, {}), "\nデータによってはUIを変えたり、ローディング状態を表示したりもする。", _jsx(_components.br, {}), "\nBの中身の詳細には触れず、返ってくる前提のデータやハンドラをモック・スパイ等で置き換えつつ、", _jsx(_components.br, {}), "\nデータに応じたUIチェックや、クリックアクション時にハンドラ実行されているか、の検証になる。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "全部結合",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#全部結合",
+        children: "全部結合"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["それぞれのファイルには、それぞれの前後関係による結合や単体のテストコードを書きますが、", _jsx(_components.br, {}), "\n上から下まで全て結合したテストができていません。", _jsx(_components.br, {}), "\nAPI データフェッチが実はうまくいっていなかったり更新できなかったり、偽物でテストしていたモノを確認する必要があります。", _jsx(_components.br, {}), "\n所謂E2Eテストを書くのは、そういうポイントの検証をする側面があります。", _jsx(_components.br, {}), "\nE2Eテストには、これまでの結合・単体よりも幅広く検証できてしまう面と不安定さが生んでしまう面があるため、", _jsx(_components.br, {}), "\n単体・結合で行っていたことは基本的に行わず、正常・準異常系・異常系、クリティカルパス、ハッピーパスなどの区分などで書くことが多いです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "コスパ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コスパ",
+        children: "コスパ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["全部が全部テストコードを書いてられるかと言われると、時間は有限です。", _jsx(_components.br, {}), "\nコスパの良いものを優先的にやるのが良いでしょう。", _jsx(_components.br, {}), "\nアプリでバグりやすい箇所を優先的にテストがあると良心的と思うので、", _jsx(_components.br, {}), "\nバグりやすいかどうかは機械的な仕組み（循環的複雑度とかソースコードホットスポット）でも良いし、", _jsx(_components.br, {}), "\nドメイン部分の観点（データ依存の複雑さ、ビジネスロジックの複雑さ）でも良さそうです。", _jsx(_components.br, {}), "\nバグりやすいではなくて、バグったらビジネス的にマズいところを優先するのも、手ですね。", _jsx(_components.br, {}), "\n決済とかお金が絡むところとか、コンバージョンに達するところとか。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "非機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#非機能",
+        children: "非機能"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["純粋に書かれている機能面の検証だけでなくて、", _jsx(_components.br, {}), "\n別軸で非機能面の検証が必要です。", _jsx(_components.br, {}), "\nWebフロントエンドだと、ブラウザパフォーマンス、アクセシビリティ、データ増減等によるレスポンシブ、セキュリティなどもチェックすることもあります。", _jsx(_components.br, {}), "\nそれぞれも、テストコードに落とし込めますが、割愛します。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"jZfrvZDTIfTrr2te2VdaR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"テストコード、どこに何書く\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260605/opengraph-image.png\"],\"keywords\":[\"テスト\",\"Web\",\"フロントエンド\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260605/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260605/\",\"description\":\"業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。 前提 Webアプリケーションのプログラムファイルがツリー構造である前提とします。 tree よくあるフィーチャー単位のフォルダ構\",\"datePublished\":\"2026-06-05T09:28:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":369,"publishedAt":"2026-06-05T09:28:00+09:00","tags":["テスト"],"title":"テストコード、どこに何書く"},"navigation":{"next":{"href":"/blog/contents/20260606","publishedAt":"2026-06-06T08:09:00+09:00","title":"こぶりーに、ブログ記事を共有しやすくなりました！"},"prev":{"href":"/blog/contents/20260604","publishedAt":"2026-06-04T08:21:00+09:00","title":"スターマグ、もっちゅりん、ポッピングシャワースライム"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-05-31T09:11:00+09:00","slug":"20260531","summary":"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー","tags":["AI","テスト"],"title":"テストコードの意味がない"},{"publishedAt":"2026-05-14","slug":"20260514","summary":"最近、Testcontainers を使う機会があり、苦労したことについて備忘録として残しておきます。 前提 以下の記事で書いてある構成に近いものです。 https://zenn.dev/silverbirder/articles/0a54","tags":["テスト"],"title":"Testcontainers 導入の苦労話メモ"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260605/","slug":"20260605"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T286e,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "最近、Testcontainers を使う機会があり、苦労したことについて備忘録として残しておきます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の記事で書いてある構成に近いものです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://zenn.dev/silverbirder/articles/0a54533cb7ee9b",
+      title: "Testcontainersで実現する、使い捨て結合テスト環境構築とテスト実施",
+      siteName: "Zenn",
+      faviconSrc: "/link-card/004f93d534deadc9bf36e93974daf9b19eaa521e459eb18067318b72e4fa1ede.webp",
+      thumbnailSrc: "/link-card/d7ef5bf9f7de8c41bc16b25ce290ef8adc6937cb2ed64bb034cad119644f7d80.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["技術スタックなどは関係なく、フロントエンド(Web)に Docker 、バックエンド(API)に Docker Compose を使用します。", _jsx(_components.br, {}), "\nバックエンドには、Database も含まれる想定です。", _jsx(_components.br, {}), "\n動かす環境は、ローカル環境とCI環境の2つです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "動的ポート",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動的ポート",
+        children: "動的ポート"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アプリを起動する際、どのポートでサーブするかを決める必要があります。", _jsx(_components.br, {}), "\n以下の記事であるとおり、ホスト側で使用できるポートを固定にせずに動的ポートにすると、", _jsx(_components.br, {}), "\nホスト側のポートを気にしなくてすみ、ポートの競合も考えなくてすみます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.docker.com/ja-jp/blog/testcontainers-best-practices/",
+          children: "Testcontainers のベスト プラクティス | Docker - www.docker.com"
+        })
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、（私の知る限りでは）コンテナ起動後でないと動的に決まったポートがわかりません。（もちろん自前で決める方法はありますが）", _jsx(_components.br, {}), "\nそのため、例えばフロントエンドとバックエンドのURLの値を環境変数に相互に設定されていて、ビルドタイムで必要な場合は難しいです。", _jsx(_components.br, {}), "\nそこで、そこはもう諦めて固定ポートで対応することとしました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "認証とcookie",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#認証とcookie",
+        children: "認証とCookie"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["認証でログインした際に発行されるセッショントークンをDB管理とCookie貼り付けする場合、", _jsx(_components.br, {}), "\n擬似的に 認証状態にすることは比較的容易です。", _jsx(_components.br, {}), "\nなぜなら、DBのTestcontainerにアクセスしてセッショントークンを保存し、", _jsx(_components.br, {}), "\nPlaywright 等のブラウザオートメーションに Cookie をセットすれば済むからです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかし、テストの流れとして認証クッキーが必要な場面があります。", _jsx(_components.br, {}), "\nそうすると、SameSite 属性（Lax）の判定を通すためには、same-site にする必要があります。", _jsx(_components.br, {}), "\nscheme（http ≠ https）、domain (api.example.com = app.example.com）を揃えないといけません。", _jsx(_components.br, {}), "\nバックエンドとフロントエンドのそれらを揃える必要があり、ライブラリによっては https でないといけなかったりします。", _jsx(_components.br, {}), "\n（sslを無効化するオプションをアプリコードに埋めたくない）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["となると、自己証明書の発行や API間通信（異なるコンテナ間の通信）用の信頼ストアの設定が必要です。", _jsx(_components.br, {}), "\nTestcontainersを操作するテストコード上に証明書を発行して、各アプリへ配って設定するという仕組みが必要です。", _jsx(_components.br, {}), "\nまた、アプリ自体がhttps対応していない場合は 前段に nginx を置いてhttpsとしてプロキシするなどで対応するのは比較的容易でした。", _jsx(_components.br, {}), "\nなぜなら、nginxのdocker containerを使えば済むからです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "暖気",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#暖気",
+        children: "暖気"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これはTestcontainersという訳ではないのですが、アプリの挙動がたまに怪しくなる場合がありました。", _jsx(_components.br, {}), "\nバックエンドにルーティングがあるはずのパスがないなどのログがでたりします。", _jsx(_components.br, {}), "\n私の場合は、まだアプリがDocker起動してセットアップ中などでリクエストを処理できない状態に陥っているようでして、", _jsx(_components.br, {}), "\nとりあえず アプリへの暖気リクエストを飛ばしてからテストをするように調整しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "キャッシュ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#キャッシュ",
+        children: "キャッシュ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Docker やら Docker Compose を使っていると、とにかく遅いです。", _jsx(_components.br, {}), "\nビルドと起動をする中で、モジュール関係のインストールも含まれていて、", _jsx(_components.br, {}), "\nセットアップだけで5分かかるとかがよくあります。", _jsx(_components.br, {}), "\nこれは開発効率が悪くて困るため、Testcontainers で以下のようなことで効率化しました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["ボリュームを消さない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "モジュールインストールを飛ばす"
+          }), "\n", _jsx(_components.li, {
+            children: "起動時にDBをリセットする"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Dockerイメージも消さない\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "指定するDockerイメージがあれば使う。"
+          }), "\n", _jsx(_components.li, {
+            children: "なければ、ビルドする。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "ローカル環境とCI環境を両立する"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、キャッシュが効いていると困ることもあるので、", _jsx(_components.br, {}), "\nキャッシュ無効の環境変数でも作ればよかったなと思っています...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Testcontainers を使うことのメリットは、やはり使い捨てできる環境という点です。", _jsx(_components.br, {}), "\n特にE2Eテストでよくあるデータ準備という面倒事を、Testcontainers では大胆に変更しても良いのです。", _jsx(_components.br, {}), "\nなぜなら使い終わったら、コンテナごと消すからです。", _jsx(_components.br, {}), "\n他には、以下のことも実現できるのです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "システム日付を変えた日付関連のテスト"
+      }), "\n", _jsx(_components.li, {
+        children: "バッチやキュー処理のテスト"
+      }), "\n", _jsx(_components.li, {
+        children: "メールの受信・送信のテスト"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["バックエンドとフロントエンドを一気通貫した検証ができるので、", _jsx(_components.br, {}), "\nDocker を使っているアプリには、テストライブラリとして Testcontainers をお勧めします！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"jZfrvZDTIfTrr2te2VdaR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Testcontainers 導入の苦労話メモ\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260514/opengraph-image.png\"],\"keywords\":[\"テスト\",\"Testcontainers\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260514/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260514/\",\"description\":\"最近、Testcontainers を使う機会があり、苦労したことについて備忘録として残しておきます。 前提 以下の記事で書いてある構成に近いものです。 https://zenn.dev/silverbirder/articles/0a54\",\"datePublished\":\"2026-05-14\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":347,"publishedAt":"2026-05-14","tags":["テスト"],"title":"Testcontainers 導入の苦労話メモ"},"navigation":{"next":{"href":"/blog/contents/20260515","publishedAt":"2026-05-15","title":"金沢に行くので、オススメ教えて！"},"prev":{"href":"/blog/contents/20260513","publishedAt":"2026-05-13","title":"夜のさざなみ街道とサイゼリヤ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-05T09:28:00+09:00","slug":"20260605","summary":"業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。 前提 Webアプリケーションのプログラムファイルがツリー構造である前提とします。 tree よくあるフィーチャー単位のフォルダ構","tags":["テスト"],"title":"テストコード、どこに何書く"},{"publishedAt":"2026-05-31T09:11:00+09:00","slug":"20260531","summary":"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー","tags":["AI","テスト"],"title":"テストコードの意味がない"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260514/","slug":"20260514"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

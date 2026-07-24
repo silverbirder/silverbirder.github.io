@@ -1,0 +1,141 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2a81,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。", _jsx(_components.br, {}), "\n特に、メジャーアップデートが超助かる。", _jsx(_components.br, {}), "\n昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、", _jsx(_components.br, {}), "\nさすが ITヲタクくん。", _jsx(_components.br, {}), "\n対応してよかったフローについて、書き留めておきます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の場合は、 npm のメジャーアップデートをここ1ヶ月ぐらいやっていました。", _jsx(_components.br, {}), "\n複数のWebフレームワークや、静的解析ツール、APIクライアントツール、モノレポツールなど、", _jsx(_components.br, {}), "\nメジャーアップデートを放置していたものを掘り起こして対応していました。", _jsx(_components.br, {}), "\nメジャーアップデートって、キラキラしてワクワクするんですけど、", _jsx(_components.br, {}), "\n移行と思うと 少しヘビーなんですよね...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "受け入れる仕組みを整える",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#受け入れる仕組みを整える",
+        children: "受け入れる仕組みを整える"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["一番は、安心安全にメジャーアップデートした内容を受け入れる仕組みを整えることです。", _jsx(_components.br, {}), "\n型検査、静的解析（種々様々な強固なもの）、テスト、ビルド、その他 機械的にチェックできるモノ全てです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この中にあるテストは、主に単体テストや結合テストが一般的にですが、", _jsx(_components.br, {}), "\n私の場合は、 Testcontainers + Playwright + Cucumber による受け入れテストを CI 上で動かせる準備を整えています。", _jsx(_components.br, {}), "\nこれはWebフレームワークやAPIクライアントなど、End to End な確認作業のときに大変重宝しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web UI に関わるCSSフレームワークなどのメジャーアップデートの場合は、", _jsx(_components.br, {}), "\nVitest + Browser Mode による VRT が実現できるため、デザイン崩れを検知できます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "少し古いですが、以下の記事にあるような網羅的にテストをカバーできていると安心です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/web_frontend_test_pattern_guide/",
+      title: "Webフロントエンドにおける網羅的テストパターンガイド",
+      description: "こんにちは、テストが好きなsilverbirderと申します。Webフロントエンドのテストは実施していますか？ユニットテストやビジュアルリグレッションテストは広く知られていると思います。しかし、パフォーマンステストのためのテストコードはありますか？また、カオスエンジニアリングテストやアクセシビリティテストはありますか？",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/239ad0adab15ee61efc0671327814cda74c75ca3ae68cc18ba35f37f2c88983f.png"
+    }), "\n", _jsx(_components.p, {
+      children: "※ もう3年前の記事なのでした..."
+    }), "\n", _jsxs(_components.p, {
+      children: ["この受け入れる仕組みがあれば、かなり安心してリリースできます。", _jsx(_components.br, {}), "\nもちろん手動確認は必須ですが、その前段階での ", _jsx(_components.strong, {
+        children: "確認網羅が広いと作業工数が減って作業ミスも減って"
+      }), " 、良きです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "マイグレーションガイドを共に読む",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マイグレーションガイドを共に読む",
+        children: "マイグレーションガイドを共に読む"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI には、メジャーアップデートによるマイグレーションガイドを必ず読ませます。", _jsx(_components.br, {}), "\nトリッキーなことをさせずに、推奨方針で進めさせる方が、", _jsx(_components.strong, {
+        children: "もしもの時のトラブルショート"
+      }), " がやりやすいからです。", _jsx(_components.br, {}), "\nイシューがすでに起票されていたり、誰かが記事を書いていたりするかもだからです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただ、私もマイグレーションガイドを最後まで一読します。", _jsx(_components.br, {}), "\nAI の成果物の良し悪しのジャッジするためと、", _jsx(_components.br, {}), "\nデフォルトの挙動が変わらないかなどはみています。", _jsx(_components.br, {}), "\nまあ、結局のところ 成果物を見ても \"わからない\" となってしまうから 読むだけです。笑"]
+    }), "\n", _jsx(_components.h2, {
+      id: "試作と破棄",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#試作と破棄",
+        children: "試作と破棄"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["一旦 AI にマイグレーションガイドに沿って、", _jsx(_components.br, {}), "\n変更行数・変更ファイル数など無視して、", _jsx(_components.br, {}), "\nマイグレーションを完成させるところを目指します。", _jsx(_components.br, {}), "\nゴールは、先ほどの受け入れ仕組みが通ることです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["試作して気づくことは多く、", _jsx(_components.br, {}), "\nプロダクト固有の問題や他のライブラリの依存関係で困ることなど、", _jsx(_components.br, {}), "\n机上の空論では気付けないことが多くあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["とにかく受け入れを通せる状態まで来たら、", _jsx(_components.br, {}), "\nその修正（PullRequest）を捨てます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その後、修正内容について分類し、メジャーアップデート前の準備できることを、", _jsx(_components.br, {}), "\n細かく分けて PullRequestを建ててリリースすると、", _jsx(_components.strong, {
+        children: "ビッグバンリリースではなくなります"
+      }), "。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これはレビュワーにとってありがたいことで、", _jsx(_components.br, {}), "\nそういう負担軽減にもつながります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "使い捨て冪等マイグレーションスクリプト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#使い捨て冪等マイグレーションスクリプト",
+        children: "使い捨て冪等マイグレーションスクリプト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["特に大規模な変更の場合、マイグレーションに時間がかかることがあります。", _jsx(_components.br, {}), "\nAI のトークンが勿体ないです。", _jsx(_components.br, {}), "\nそんなときは、使い捨てのマイグレーションスクリプトを AI に書かせます。", _jsx(_components.br, {}), "\nAST 解析させてコードを修正するスクリプトを書かせて、", _jsx(_components.br, {}), "\nそのスクリプトを実行することで、冪等に同じ結果になるようにします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "冪等が大事"
+      }), " で、実行するたびに結果が変わるとその内容を微調整しないといけなくなるため、", _jsx(_components.br, {}), "\n冪等で結果が変わらないようにすると、確認作業が楽です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私の場合は、mjsファイルを沢山作らせてとnpm scriptで直列に実行するコマンドを追加します。", _jsx(_components.br, {}), "\nあとはそのコマンドを実行するだけで、マイグレーションが完成するようにします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI がない場合はこういうのを作らせるのって結構大変だったので、", _jsx(_components.br, {}), "\nありがたい限りです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["マイグレーションガイドを丁寧に公開してくださる OSSメンテナの皆さん、", _jsx(_components.br, {}), "\nいつもありがとうございます。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"モジュールアップデートでやっていること\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260724/opengraph-image.png\"],\"keywords\":[\"AI\",\"フロントエンド\",\"モジュールアップデート\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260724/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260724/\",\"description\":\"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー\",\"datePublished\":\"2026-07-24T20:27:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":418,"publishedAt":"2026-07-24T20:27:00+09:00","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},"navigation":{"prev":{"href":"/blog/contents/20260723","publishedAt":"2026-07-23T21:00:00+09:00","title":"毎日使っているアプリたち"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"},{"publishedAt":"2026-05-11","slug":"20260511","summary":"以下で書いた個人ブログを読むアプリ（個人ブログライブラリ、略して \"こぶりー\" ）をモバイルアプリで開発していました。 https://silverbirder.github.io/blog/contents/20260419/ 審査関連で","tags":["フロントエンド"],"title":"モバイルアプリからPWAアプリへ切り替え"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260724/","slug":"20260724"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

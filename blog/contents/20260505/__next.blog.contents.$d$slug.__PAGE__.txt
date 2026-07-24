@@ -1,0 +1,231 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T3b43,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "以下で書いた通り、モバイルアプリを作っています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260419/",
+      title: "個人ブログキュレーション",
+      description: "個人ブログは、書き手の人生が現れていて読むのが好きです。 仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。 風邪引いたとか、美味しいもの食べたとか、非生産的な内容 が良いんです。 勝手に書き手を応援したくなるし、勝手",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/28d078a371db6d46547ab75fa87033ea2969c97f1d50501e235d9b2b4c0fbb7f.png"
+    }), "\n", _jsx(_components.p, {
+      children: "アプリ名は、\"こぶりー\" と仮の名前を決めました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260501/",
+      title: "アプリ名を考える",
+      description: "以下で書いた通り、モバイルアプリを作っています。 https://silverbirder.github.io/blog/contents/20260419/ アプリ名を考えるのって、悩ましくて楽しいものです。 アプリについて考える このア",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/2ca816cf2b76d5604efc16d70ca20cc7886520b2a5df57974845e1a022dc4385.png"
+    }), "\n", _jsx(_components.p, {
+      children: "現時点での開発進捗をまとめようと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "成果物",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#成果物",
+        children: "成果物"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "スクリーンショットは載せませんが、どこまで作ったかを書いていきます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Android アプリのみ対象"
+      }), "\n", _jsxs(_components.li, {
+        children: ["記事を読む、個人ブログを探す の2ページ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "\"記事を読む\"は、新着記事の無限スクロール読み（WebView）"
+          }), "\n", _jsx(_components.li, {
+            children: "\"個人ブログを探す\"は、個人ブログ一覧と詳細"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["個人ブログのデータ取得バッチ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "差分更新 と 全件更新"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["ロゴ制作\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Adobe Express を使ってみた"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["上記開発をする前に、実現可能かどうか MVP として開発済みです。", _jsx(_components.br, {}), "\n以下については実現可能ですが、詳細は未定の状態です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "個人ブログの購読と通知"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、MVPでアプリ体験すると \"記事を読む\" でダラダラと記事を読み沼るのが一番でした。", _jsx(_components.br, {}), "\nなので、そこを中心としてそれ以外の余分なものを削っていこうと思ってます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "技術",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#技術",
+        children: "技術"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["React Native と Expo SDK 55 をベースとして開発しています。", _jsx(_components.br, {}), "\n技術選定は、 Expo Docs 推奨を基準として悩まずに進めます。", _jsx(_components.br, {}), "\n特に、MCPやSkillを公開されているライブラリを優先しているため、それらへのキャッチアップを楽にします。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、", _jsx(_components.code, {
+        children: "npm script"
+      }), " で機械的にチェックするコマンド（", _jsx(_components.code, {
+        children: "ci:fix"
+      }), "）を用意しています。", _jsx(_components.br, {}), "\nこのコマンドは、pre commit 時に走る様にしています。", _jsx(_components.br, {}), "\nコマンド内容は、以下になります。"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsx(_components.li, {
+        children: "直列で各コマンドを実行して、失敗したらNG"
+      }), "\n", _jsxs(_components.li, {
+        children: ["タスク\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "knip で未使用コードのチェック"
+          }), "\n", _jsxs(_components.li, {
+            children: ["i18n ファイル（", _jsx(_components.code, {
+              children: "ja.json"
+            }), "）の未使用箇所のチェック"]
+          }), "\n", _jsx(_components.li, {
+            children: "expo-doctor の実行"
+          }), "\n", _jsx(_components.li, {
+            children: "prettier のフォーマット"
+          }), "\n", _jsx(_components.li, {
+            children: "typecheck の型チェック"
+          }), "\n", _jsxs(_components.li, {
+            children: ["lint の実行\n", _jsxs(_components.ul, {
+              children: ["\n", _jsx(_components.li, {
+                children: "eslint-config-expo"
+              }), "\n", _jsx(_components.li, {
+                children: "eslint-plugin-i18next"
+              }), "\n", _jsx(_components.li, {
+                children: "eslint-plugin-perfectionist"
+              }), "\n", _jsx(_components.li, {
+                children: "eslint-plugin-storybook"
+              }), "\n"]
+            }), "\n"]
+          }), "\n", _jsx(_components.li, {
+            children: "test の実行"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は主に、Codex の力を借りて実装しています。", _jsx(_components.br, {}), "\nCodex でバリバリ実装したものをレビューする際に ", _jsx(_components.strong, {
+        children: "指摘した内容をできる限り仕組み化を徹している"
+      }), " と上記の構成となりました。", _jsx(_components.br, {}), "\n例えば、以下の考えで入れています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "knip があれば、試行錯誤の未参照コードを消せる"
+      }), "\n", _jsx(_components.li, {
+        children: "i18n があれば、ユーザへ見せるテキストを一元管理でき、表記揺れをなくせる"
+      }), "\n", _jsx(_components.li, {
+        children: "expo-doctor があれば、expo 関連のNGパターンを検知できる"
+      }), "\n", _jsx(_components.li, {
+        children: "prettier, typecheck は言わずもがな"
+      }), "\n", _jsx(_components.li, {
+        children: "lint があれば、適宜指摘した内容を機械的に治せる"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["他にも、Codemod 等で1ファイル内の構成を統制させたいなども検討しましたが、断念しました。", _jsx(_components.br, {}), "\nその代わり、 ", _jsx(_components.strong, {
+        children: "AGENTS.md にルールを随時追記"
+      }), "していきます。", _jsx(_components.br, {}), "\nフォルダ構成はああだ、命名はこうだ、テストはこうだ、みたいな雑なテキストを残しておきます。", _jsx(_components.br, {}), "\nCodex はこれらの情報を汲み取ってくれるので、意外とうまく行っています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト",
+        children: "テスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["またこれまでは、個人開発ではとにかくテストコードを書かせるように過去していたのですが、", _jsx(_components.br, {}), "\nAI に書かせるテストはただの ", _jsx(_components.strong, {
+        children: "プロダクトコードの写し"
+      }), " でしかなく（指示が粗いのが悪い）良さがありませんでした。", _jsx(_components.br, {}), "\nテストを直す時間だけ増えるのですが、ただそれだけでした。", _jsx(_components.br, {}), "\n（仕事の場合はちゃんと見るのですが、個人だと手を抜きがち）", _jsx(_components.br, {}), "\n今回、データ取得のバッチ処理は処理が複雑でかつ実行時間が長いため、", _jsx(_components.br, {}), "\nそこだけテストコードを徹底して書く様にしました。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "手動テストがどうしても難しいところ"
+      }), "だからです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "データ取得",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データ取得",
+        children: "データ取得"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アプリの肝は、データです。", _jsx(_components.br, {}), "\n個人ブログデータは、RSSフィードを元に取得しています。", _jsx(_components.br, {}), "\nざっと数千の個人ブログのRSSフィードを用意していて、ブログに紐づく記事データもあります。", _jsx(_components.br, {}), "\nさらに、個人ブログのアイコンと記事のサムネイルも取得しています。", _jsx(_components.br, {}), "\nそうすると、愚直に直列に対応すると ", _jsx(_components.strong, {
+        children: "全件走査に2時間以上かかりました。"
+      }), _jsx(_components.br, {}), "\nそれでも構わないのですが、できれば新鮮な状態で記事の通知が欲しいので、", _jsx(_components.br, {}), "\n差分更新する方法を選びました。", _jsx(_components.br, {}), "\n差分なので、全件に比べると極端に早く10分程度で済みます。", _jsx(_components.br, {}), "\nただ今は開発中でバグっている可能性が高いため、全件更新する方法も残しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その他に、微調整するために並列化する方法を採用したのですが、", _jsx(_components.br, {}), "\nコードの複雑さが増すだけで速度は数%ぐらいしか早くならないので、", _jsx(_components.br, {}), "\nコスパ悪いため却下しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "自作しない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#自作しない",
+        children: "自作しない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["XMLのパースや、データ取得スクリプトのコマンドライン制御など、", _jsx(_components.br, {}), "\n小さくやるなら自作しちゃうのが手っ取り早いのですが、", _jsx(_components.br, {}), "\nたぶんうまくいかないことが多いです。", _jsx(_components.br, {}), "\nそのため、汎用性が高い機能は ライブラリを調べて取り込む様にしています。", _jsx(_components.br, {}), "\n念の為、成熟度の確認や自動スクリプト無効化などのものは入れています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ui",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ui",
+        children: "UI"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["当初は、StyleSheet で書こうかなと思ったのですが、直接のトークン指定（色やスペースなど）が困りました。", _jsx(_components.br, {}), "\nデザイントークンが整っている、tailwind っぽい Nativewind を使ってUI開発していました。", _jsx(_components.br, {}), "\nデータ増減などでUIを逐次細かく確認する作業を効率化するためには、Storybook は欠かせません。", _jsx(_components.br, {}), "\n積極的にUI開発では、Storybook上で見ながら実装しました。", _jsx(_components.br, {}), "\nただゼロからコンポーネント群を準備するのは骨が折れるので、HeroUIを入れておきました。", _jsx(_components.br, {}), "\n入れておいてなんですが、使っているコンポーネントがボタンとチップだけなので、外すかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["毎日、開発しているアプリをプレビュー版として使っています。", _jsx(_components.br, {}), "\nもう既にどっぷりと沼っていて、個人ブログって個性があって面白いし、参考になることもあるし、何かへのﾖｲｼｮｯもないし、", _jsx(_components.br, {}), "\nめちゃ気に入っています。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"個人ブログキュレーション開発進捗：技術編\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260505/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"個人ブログ\",\"モバイルアプリ\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260505/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260505/\",\"description\":\"以下で書いた通り、モバイルアプリを作っています。 https://silverbirder.github.io/blog/contents/20260419/ アプリ名は、\\\"こぶりー\\\" と仮の名前を決めました。 https://silver\",\"datePublished\":\"2026-05-05\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":338,"publishedAt":"2026-05-05","tags":["個人開発"],"title":"個人ブログキュレーション開発進捗：技術編"},"navigation":{"next":{"href":"/blog/contents/20260506","publishedAt":"2026-05-06","title":"温泉で思考がトトノウ"},"prev":{"href":"/blog/contents/20260504","publishedAt":"2026-05-04","title":"趣味の1つはドライブなのかも。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-20T20:55:00+09:00","slug":"20260720","summary":"個人ブログを見つけて、読んで、シェアするアプリ、 \"こぶりー\" を運用しています。 https://kobliy.vercel.app こぶりーを作っていてこだわっている所を紹介します。 データが肝 個人ブログを読むアプリですので、 個人ブ","tags":["個人開発"],"title":"こぶりーのこだわった所"},{"publishedAt":"2026-06-15T21:03:00+09:00","slug":"20260615","summary":"どうもみなさん、こんにちは。 個人ブログを読むアプリ、\"こぶりー\" を運営している silverbirder です。 https://kobliy.vercel.app こぶりーに、ランダム読みと記事検索の機能を追加しました ので簡単にご紹","tags":["個人開発"],"title":"こぶりーに、ランダム読みと記事検索の機能を追加！"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260505/","slug":"20260505"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

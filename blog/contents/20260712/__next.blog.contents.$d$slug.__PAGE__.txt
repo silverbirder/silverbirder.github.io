@@ -1,0 +1,166 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T38e6,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "技術評論社 から出版された『表層UIデザインの解剖学』を読みました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://gihyo.jp/book/2026/978-4-297-15706-7",
+      title: "表層UIデザインの解剖学 | 技術評論社",
+      description: "UI（ユーザーインターフェース）は、現代のデジタル社会において、人とサービスをつなぐ「道具」のような存在です。道具としてのUIに求められるのは、使いやすさ、アクセシビリティ、そして「また使いたい」と思わせる魅力です。良い道具は使い手の生活に溶け込み、その価値を見出され続けるものです。そして、UIデザインとは、まさにそのような「道具としての魅力」を形にする作業です。\r\n\r\nしかし、昨今のUIデザインは、均質化が進み、パターン化されたデザインの模倣が繰り返されがちになっており、UIは個性や独自性を失い、形式的な表現に留まりがちになっています。\r\n\r\nこのような状況の中で、本書ではUIデザインの意義を問い直します。UIを「道具」として見つめ直し、その魅力をどう育み、サービスを通じてユーザーの心を動かす存在にするか。本書を通じて、UIが生み出す体験の価値を再定義し、デザイナーが果たすべき役割とその意義を伝えたいと考えています。\r\n\r\n本書は、Amebaのデザインシステム「Spindle」の制作者が、自らの経験と哲学をもとに、「なぜ表層UIデザインにこだわるのか」「どのようにその価値を深めるべきなのか」を言語化し、体系的にまとめたものです。UIデザインの初心者から中堅デザイナーまで、多くの人にとって新たな発見と視点をもたらすはずです。\r\n\r\nUIデザインを「道具としての魅力」という視点から深く掘り下げることで、単なる見た目を超えた、心を動かすUIデザインをともに考えましょう。",
+      siteName: "技術評論社",
+      faviconSrc: "/link-card/e09d208c5d3696da32dc163403f85ae5aa888a0ff33ccd12f5ce7797378d8583.svg",
+      thumbnailSrc: "/link-card/f81209cbbf9f5833620ae39f0e86dbe6e220fe5f01b8b864174e5658d258a2e1.jpg"
+    }), "\n", _jsx(_components.p, {
+      children: "本記事では、読了した感想について記録したいと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ui-と物理世界",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ui-と物理世界",
+        children: "UI と物理世界"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["UI は、物理世界（アナログ世界）に存在する人がデジタル世界へ接するための橋渡し・タッチポイント。", _jsx(_components.br, {}), "\n人がデジタル世界を自然に体験するためには、UI が物理世界の法則や人の知覚情報に沿ったデザインであること。", _jsx(_components.br, {}), "\n物理世界や人は普遍的なものなので、ここに即したデザインにしておくと、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "デジタル世界へ没頭できる"
+      }), " 、みたいな感じ。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["例えば、物理世界では太陽と影があり、重力があり、色鮮やかです。", _jsx(_components.br, {}), "\nデジタル世界、私の仕事場であるスマホのブラウザの中も、ドロップシャドウやアニメーション、カラーを定義できます。", _jsx(_components.br, {}), "\nこれらの定義について、より物理世界に従ったルール、人の知覚に沿ったルールになっていると、", _jsx(_components.br, {}), "\n手に馴染む「なんか良いな」と思えるサービスになる。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["「なんか良いな」と思えるUIって優れた機能も大事ですが、", _jsx(_components.br, {}), "\nなかなか気づきそうにないちょっとしたことの集合体と、私も思うので本書には共感しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["今の世の中、AI で UI 生成が簡単にできるようになりましたが、", _jsx(_components.br, {}), "\n生成された UI はどこかチープな感覚になります。", _jsx(_components.br, {}), "\nAI の生成は過去データから確率論的にベターなデザインが生まれやすく、どこにでもあるような無機質なものに見えます。", _jsx(_components.br, {}), "\nこれは悪ではなく、お問い合わせフォームのような どのサービスにもよくある UI は、AI 生成されたもので十分に思えます。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ただそのサービス独自の機能においては差別化が求められます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「押せると思ったら押せなかった」"
+      }), "\n", _jsx(_components.li, {
+        children: "「影がなんか変」"
+      }), "\n", _jsx(_components.li, {
+        children: "「色がチカチカしてみにくい」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["など、小さなストレスが蓄積すると例え素晴らしい機能があっても、不便に感じます。", _jsx(_components.br, {}), "\n物理世界では当たり前だった法則が、デジタル世界ではその法則が乱れていると、", _jsx(_components.br, {}), "\n人は物理とデジタルのギャップに差を感じて、使いにくいと思うのです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "形の考え",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#形の考え",
+        children: "形の考え"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は今まで様々な UIやデザイン周りについての本を読んできました。", _jsx(_components.br, {}), "\n配色や余白設計、タイポグラフィ（字形や字間、寄せ、etc）やコピーライティング（ボイスアンドトーン）、", _jsx(_components.br, {}), "\nあしらい、トンマナ、エレベーション、マイクロインタラクション、心理学・経験則、などです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["今回目から鱗だったのは、 ", _jsx(_components.strong, {
+        children: "形の考え"
+      }), " です。", _jsx(_components.br, {}), "\nUIを作る際、円形なのか長方形なのか正方形なのか、様々な形を作ります。", _jsx(_components.br, {}), "\nではなぜ、その形を選んだのでしょうか？"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「なぜカード型の長方形にしたのか？」"
+      }), "\n", _jsx(_components.li, {
+        children: "「なぜ角丸をつけたのか？」"
+      }), "\n", _jsx(_components.li, {
+        children: "「なぜ...」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["振り返れば、私の場合は「情報を整理しやすいものをグルーピング」で容器に入れる意識で、長方形型のカードUIをよく使っていました。", _jsx(_components.br, {}), "\n左右が丸い横長のピル型のUIや、アバター画像の円形のUIって、なんでそんな形にしたのだろう？", _jsx(_components.br, {}), "\n多くの場合は「なんとなく」感覚でやるのが多いと思います。", _jsx(_components.br, {}), "\nただその「なんとなく」を言語化できれば、より Webサイトの世界観を作り込むことができるため、利点だと思いました。", _jsx(_components.br, {}), "\nここでも、現実世界のルールや人のルールを当てはめるのも良いかもしれません。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "紙は四角いので、記事コンテンツは長方形（正方形）を選んだ"
+      }), "\n", _jsx(_components.li, {
+        children: "顔は丸いので、アバター画像は円形を選んだ"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["角丸をつける場合は「その空間にスペースが生まれるので、少し余裕のある落ち着いた世界観」につながります。", _jsx(_components.br, {}), "\n影をつける場合は「その物体がZ軸上の高さが上がるため、押せると思わせる」意図に繋がります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が運営する ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app",
+        children: "こぶりー"
+      }), " でも少し言語化してみました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "タイムラインの週間UIは、紙のカレンダーの見た目にした"
+      }), "\n", _jsx(_components.li, {
+        children: "ブログ記事UIは、1枚の紙としたいので長方形（角丸なし）にした"
+      }), "\n", _jsxs(_components.li, {
+        children: ["絞り込みや日付移動など操作をしてもらいたいところは、角丸ボタンにした\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "少しZ軸を上げると、尚良いのかもしれない"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["形に関して意識したことが少なかったため、今回の読書のおかげで、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "形に関する疑問を持つことができるようになりました"
+      }), "。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アニメーション",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アニメーション",
+        children: "アニメーション"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アニメーションは、機能的な観点だけだと不要な存在です。(瞬間のフィードバックだけで良い）", _jsx(_components.br, {}), "\nこれは、ユーザーが行ったアクションのフィードバックを視覚的に伝えることで、", _jsx(_components.br, {}), "\nその結果を滑らかに理解できる補助になります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["アニメーションには、現在値から期待値までをどれぐらいの時間をかけて、どのぐらいの角度で伸ばすのか、", _jsx(_components.br, {}), "\n自由度の高い設計になります。", _jsx(_components.br, {}), "\n私の場合はあまりそれを拘ったことがなくて、", _jsx(_components.br, {}), "\n使用するライブラリや既存のアニメーション設定を踏襲することが多かったです。", _jsx(_components.br, {}), "\nそっちの方が外れなくて済むかなと。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それも悪くないと思うのですが、", _jsx(_components.br, {}), "\nどういう意図でアニメーションの値を設定するのか考えると深み（世界観への没入感）が出て良いです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["物理世界では、上から下へ物が落ちる重力や、移動における摩擦や反発などがあります。", _jsx(_components.br, {}), "\nそのルールに沿って、例えばボトムシートのような下から上に上がるアニメーションは、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "上がる時は少しだけ遅くして、閉じる時は少し早く動くようにする"
+      }), " と良いかもしれません。", _jsx(_components.br, {}), "\nカルーセルのような横移動させるコンテンツの場合は、移動時にほんの少し減速してみると良いかもしれません。", _jsx(_components.br, {}), "\n浮いているボタンをクリックしたら、『少し凹ませた影と色にした後に、平な状態にして、元の浮いたボタンにする』", _jsx(_components.br, {}), "\nの一連をアニメーションを、", _jsx(_components.strong, {
+        children: "硬そうなボタンや柔らかそうなボタン"
+      }), " でも、緩急が違ってきそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["UIデザインは細部に拘ることで「なんか分からないけど、使いやすい」と思わせると考えています。", _jsx(_components.br, {}), "\n本書を通して、また一つ拘るための考え軸が増えて勉強になりました。", _jsx(_components.br, {}), "\n執筆頂いた著者の方に、感謝を申し上げます。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"『表層UIデザインの解剖学』を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260712/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"表層UIデザインの解剖学\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260712/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260712/\",\"description\":\"技術評論社 から出版された『表層UIデザインの解剖学』を読みました。 https://gihyo.jp/book/2026/978-4-297-15706-7 本記事では、読了した感想について記録したいと思います。 UI と物理世界 UI\",\"datePublished\":\"2026-07-12T18:00:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":406,"publishedAt":"2026-07-12T18:00:00+09:00","tags":["書籍レビュー"],"title":"『表層UIデザインの解剖学』を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260713","publishedAt":"2026-07-13T20:31:00+09:00","title":"週刊少年ジャンプ 2026年33号 が見つからない"},"prev":{"href":"/blog/contents/20260711","publishedAt":"2026-07-11T20:55:00+09:00","title":"プレママ無料プレゼントを手当たり次第に応募"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-22T20:51:00+09:00","slug":"20260722","summary":"今日は休みなので、以下の罫線についてのデザイン本を読みました。 https://www.sbcr.jp/product/4815637484/ テレビとかをみながら読んだので、少し粗めですが感想を書きます。 誰向け？ この本は、おそらくデザ","tags":["書籍レビュー"],"title":"『だけじゃない ケイセン デザイン』を読みました。"},{"publishedAt":"2026-07-21T19:42:00+09:00","slug":"20260721","summary":"以下の書籍を購入しました。 https://www.sbcr.jp/product/4815637484/ まだ読めていません。 経緯 以下の記事で書いたように、『表層UIデザインの解剖学』という書籍から UIデザインで気づく観点を養うこと","tags":["書籍レビュー"],"title":"『だけじゃない ケイセン デザイン』を買いました。"},{"publishedAt":"2026-04-13","slug":"20260413","summary":"以下の書籍を15章と16章を読みました。 これで最後になります。 https://www.oreilly.co.jp/books/9784814401574/ 1章から14章の感想については、以下で書いています。 『Webブラウザエンジニア","tags":["書籍レビュー"],"title":"『Webブラウザエンジニアリング』第15-16章を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260712/","slug":"20260712"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

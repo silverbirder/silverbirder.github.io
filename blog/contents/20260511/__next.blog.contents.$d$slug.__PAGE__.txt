@@ -1,0 +1,137 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2516,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下で書いた個人ブログを読むアプリ（個人ブログライブラリ、略して ", _jsx(_components.strong, {
+        children: "\"こぶりー\""
+      }), " ）をモバイルアプリで開発していました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260419/",
+      title: "個人ブログキュレーション",
+      description: "個人ブログは、書き手の人生が現れていて読むのが好きです。 仕事のことも良いですが、私の好みは私生活についてのブログ記事が良いです。 風邪引いたとか、美味しいもの食べたとか、非生産的な内容 が良いんです。 勝手に書き手を応援したくなるし、勝手",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/28d078a371db6d46547ab75fa87033ea2969c97f1d50501e235d9b2b4c0fbb7f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["審査関連でハードルが高いのと、PWAアプリで同じ機能を実現できるので、", _jsx(_components.br, {}), "\nモバイルアプリからPWAアプリへ切り替えました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "審査",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#審査",
+        children: "審査"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "モバイルアプリの対象プラットフォームは、Android だけと考えていました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260414/",
+      title: "モバイルアプリを作る機運が高まった",
+      description: "過去にモバイルアプリを作ろうとして断念したことがありました。 https://silverbirder.github.io/blog/contents/first-mobile-app-failure/ 最近、作りたいモバイルアプリのネタが",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/0937f5948cf6660c6d3ae9433094c26d2b72c7917252ad163f788b0b27e1475d.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google Play へリリースするためにはいくつかのステップを踏まないといけません。", _jsx(_components.br, {}), "\nネットで調べてみると、様々な先駆者たちによって知見が公開されていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["まずは、提出するためのアカウントを個人にするか組織にするかという点です。", _jsx(_components.br, {}), "\nそのまま文字として読むなら、私は法人化していない個人事業主のため 個人アカウントを選択します。", _jsx(_components.br, {}), "\n組織アカウントでの提出も可能ですが、企業識別コード D-U-N-S Numberの準備が必要とのことです。", _jsx(_components.br, {}), "\nいったん、個人アカウントで考え始めました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人アカウントの場合、リリース前のクローズドテストというステップで、12人のテスターと14日間のテスト実施が必要です。", _jsx(_components.br, {}), "\nDiscordやSaaSなどでそれらを解消する方法があるようです。", _jsx(_components.br, {}), "\n『お、大変そ...』と ", _jsx(_components.strong, {
+        children: "心が少しポキッ"
+      }), " としました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、モバイルアプリを課金可能なアプリとして提出する場合、", _jsx(_components.br, {}), "\nGoogle Play にてアカウントの住所や電話番号が公開されます。", _jsx(_components.br, {}), "\nそういえば、この情報は昔SNSで見たことがあるのですが、すっかり忘れてました。笑", _jsx(_components.br, {}), "\n『無料アプリとして提出する予定だったけど、課金機能を作るなら全世界に私の住所と電話番号が...』と ", _jsx(_components.strong, {
+        children: "ポキッと"
+      }), " しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらの問題を解決する方法として組織アカウントの作成のようです。", _jsx(_components.br, {}), "\nこれがあれば、\"クローズドテストの免除\"と Google Play へ公開される情報が \"組織の住所と電話番号\" になります。", _jsx(_components.br, {}), "\n後者は、バーチャルオフィスの契約や携帯電話の契約などが必要です。", _jsx(_components.br, {}), "\n『持ち物が増える...』と ", _jsx(_components.strong, {
+        children: "ポッキリ"
+      }), " してしまいました。", _jsx(_components.br, {}), "\nこのためだけにバーチャルオフィスや電話番号の契約をするのに、意欲が上がりませんでした。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "pwaでも同じものが作れる",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#pwaでも同じものが作れる",
+        children: "PWAでも同じものが作れる"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["モバイルアプリで欲しかったのは 通知 だけです。", _jsx(_components.br, {}), "\nPWA アプリとして Web アプリを作れば、Web Pushで通知を受け取れます。", _jsx(_components.br, {}), "\nPWA 前提と振り切れば、まあ良いんじゃないかと思い始めました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "コードベースの移行は、1時間程度で終了しました。"
+      }), _jsx(_components.br, {}), "\nいろいろと理由があるのですが、以下の理由が移行を楽にしてくれました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["React Native から React への移行\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "\"Learn Once, Write Anywhere\" を強く実感しました"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["APIは Supabase に寄せている\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "クライアントからは、Supabase SDK + TanStack Query でコード変更なし"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["UIライブラリは、React Native, React 両方サポートの HeroUI\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "UI部分もそのまま移行"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ただし、React Native 向けのライブラリとして React Native Calendars を使用していたので、", _jsx(_components.br, {}), "\nそれの切り替えが少し必要でした。", _jsx(_components.br, {}), "\nWeb Push の仕組みについては、基本的に Supabase 側に全て寄せていたため、", _jsx(_components.br, {}), "\nサービスワーカーから 購読処理を書く（登録と通知）ぐらいで その他は変更が少なかったです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "実際にデプロイしたPWAアプリで通知確認しましたが、アプリをシャットダウンしても通知が届きました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["モバイルアプリって、もう組織アカウントじゃないと提出するの難しそうですね...。", _jsx(_components.br, {}), "\n個人はもうだいぶハードル上がってそうで、組織が開発したモバイルアプリが多くを占めるのではと思ったりしました。", _jsx(_components.br, {}), "\nPWA いくぞ！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"モバイルアプリからPWAアプリへ切り替え\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260511/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"PWA\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260511/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260511/\",\"description\":\"以下で書いた個人ブログを読むアプリ（個人ブログライブラリ、略して \\\"こぶりー\\\" ）をモバイルアプリで開発していました。 https://silverbirder.github.io/blog/contents/20260419/ 審査関連で\",\"datePublished\":\"2026-05-11\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":344,"publishedAt":"2026-05-11","tags":["フロントエンド"],"title":"モバイルアプリからPWAアプリへ切り替え"},"navigation":{"next":{"href":"/blog/contents/20260512","publishedAt":"2026-05-12","title":"滋賀にいくなら、ここ！"},"prev":{"href":"/blog/contents/20260510","publishedAt":"2026-05-10","title":"晴れた日の琵琶湖を眺めて寝る"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260511/","slug":"20260511"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

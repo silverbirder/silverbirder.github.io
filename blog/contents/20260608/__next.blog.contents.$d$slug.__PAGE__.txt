@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1f4f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。", _jsx(_components.br, {}), "\n\"こぶりー\" ( ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app/",
+        children: "https://kobliy.vercel.app/"
+      }), " ) という個人ブログを読むアプリのコードです。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260531/",
+      title: "テストコードの意味がない",
+      description: "個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/15b372334ea36dc0bc14673e0d84c990ceec60e31cc41fe8bb68f7115718c26f.png"
+    }), "\n", _jsx(_components.p, {
+      children: "その代わり、以下の構成のテストコードを用意しました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "cucumberとgherkin（日本語マークダウン）でテストシナリオを記述"
+      }), "\n", _jsx(_components.li, {
+        children: "TestcontainersとPlaywrightでテスト環境を構築"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "Testcontainers については、以下で書いた記事が参考になります。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/testcontainers-integration-test-disposable/",
+      title: "Testcontainersで実現する、使い捨て結合テスト環境構築とテスト実施",
+      description: "みなさん、Testcontainersをご存知ですか？Testcontainersは、Dockerコンテナを利用して実際のサービスを統合テストで手軽に使用できるオープンソースのライブラリです。今回、Testcontainersを使って、GitHub Actions上でRails API、MySQL、Next.jsをDockerコンテナとして起動させ、複数のテストシナリオを独立してテストすることができました。以下はその概要図です。本記事では、このテストについての解説と学びを紹介したいと思います。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/b88acf0b95278ead4e8bafcb2ec130251bc4ff4d172fa36c0d60d4310a9f3a50.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "システム日付",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#システム日付",
+        children: "システム日付"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "\"こぶりー\" では現在日付に関係するロジックがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Web: 未来の日付にあるブログ記事をスキップ"
+      }), "\n", _jsx(_components.li, {
+        children: "バッチ: 個人ブログ記事を取り込む際に未来の公開日をスキップ"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["こういう時に Playwrightでのブラウザ日付を固定（2026年6月1日）にしたり、", _jsx(_components.br, {}), "\nTestcontainersのDockerコンテナのシステム日付を固定（2026年6月1日）にすることで、", _jsx(_components.br, {}), "\n日付に左右されないテストが実現できます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "架空の環境",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#架空の環境",
+        children: "架空の環境"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "\"こぶりー\" では、いくつかの環境を組み合わせています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "Cloud Run: 日々の個人ブログ記事を収集するバッチ"
+      }), "\n", _jsx(_components.li, {
+        children: "Supabase Edge Functions: データ更新や新着記事の通知などの処理"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらを Testcontainers の中にそのまま格納して環境変数だけ切り替えるだけで、", _jsx(_components.br, {}), "\nローカルのテスト環境だけで全ての機能をチェックすることができます。", _jsx(_components.br, {}), "\nローカル完結するので、テスト速度も早く安定したテストになります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト内容",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト内容",
+        children: "テスト内容"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["プロダクションコードを仕様とした写経テストコードは捨てて、", _jsx(_components.br, {}), "\nGherkinのテストシナリオを仕様とさせます。", _jsx(_components.br, {}), "\nその代わり、テストシナリオにはこれまで実装してきた機能で守りたい機能のシナリオを記述する必要があります。", _jsx(_components.br, {}), "\n「何を守りたいか」を考える必要があり、今のところ思いつくままに列挙しています。", _jsx(_components.br, {}), "\n何度書いても冪等なテスト環境なので、何度も実行して検証して形にしました。", _jsx(_components.br, {}), "\nここに書く粒度などは、まだ手探りな状態です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "リファクタリング",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#リファクタリング",
+        children: "リファクタリング"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["守りたい仕様は定義できたので、", _jsx(_components.br, {}), "\ncodemod によるファイル内の記述をチェック・強制(fix)するのを追加しました。", _jsx(_components.br, {}), "\nAIへのプロンプトやコンテキスト、AGENTS.md などによるガードレールよりも、", _jsx(_components.br, {}), "\nnpm script のfixで直させた方が AI もそちらに沿うように倣ってくれるため、やっておきたいのです。", _jsx(_components.br, {}), "\nで、ほぼ大半のts,tsxファイルを変更しましたが、Testcontainersのテストのおかげで安心してマージできました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"写経テストコードを全部消した\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260608/opengraph-image.png\"],\"keywords\":[\"AI\",\"フロントエンド\",\"テスト\",\"Testcontainers\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260608/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260608/\",\"description\":\"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \\\"こぶりー\\\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi\",\"datePublished\":\"2026-06-08T09:05:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":372,"publishedAt":"2026-06-08T09:05:00+09:00","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},"navigation":{"next":{"href":"/blog/contents/20260609","publishedAt":"2026-06-09T09:06:00+09:00","title":"5年掛けて、子を授かった"},"prev":{"href":"/blog/contents/20260607","publishedAt":"2026-06-07T09:54:00+09:00","title":"けいおん！聖地に行ってきた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"},{"publishedAt":"2026-05-11","slug":"20260511","summary":"以下で書いた個人ブログを読むアプリ（個人ブログライブラリ、略して \"こぶりー\" ）をモバイルアプリで開発していました。 https://silverbirder.github.io/blog/contents/20260419/ 審査関連で","tags":["フロントエンド"],"title":"モバイルアプリからPWAアプリへ切り替え"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-07-08T20:25:00+09:00","slug":"20260708","summary":"お仕事先のWebアプリケーションに、Testcontainersを導入運用して数ヶ月経過しました。 良い点と困る点について、書き残しておきます。 前提 簡単な前提として、バックエンドDB・APIとフロントエンドの3層構成のよくあるWebアプ","tags":["テスト"],"title":"Testcontainers運用経験から分かった、良い点・困る点"},{"publishedAt":"2026-06-05T09:28:00+09:00","slug":"20260605","summary":"業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。 前提 Webアプリケーションのプログラムファイルがツリー構造である前提とします。 tree よくあるフィーチャー単位のフォルダ構","tags":["テスト"],"title":"テストコード、どこに何書く"},{"publishedAt":"2026-05-31T09:11:00+09:00","slug":"20260531","summary":"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー","tags":["AI","テスト"],"title":"テストコードの意味がない"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260608/","slug":"20260608"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

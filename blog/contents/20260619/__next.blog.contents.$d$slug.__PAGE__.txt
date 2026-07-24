@@ -1,0 +1,107 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T12ac,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["仕事柄、GitHub Busy を設定しています。", _jsx(_components.br, {}), "\nこの Busy には有効期限を GUI 上で登録することができます。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1781867447/silver-birder.github.io/blog/ns4ww8zar45zg8u6e7bd.png?ar=980%3A1088",
+        alt: "GitHub Busy 編集画面"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "困っていること",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#困っていること",
+        children: "困っていること"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["毎週水曜日に Busy を設定していて、木曜日に解除しています。", _jsx(_components.br, {}), "\nこの解除をたまに忘れてしまいます。", _jsx(_components.br, {}), "\n忘れると、仕事でチームメイトに迷惑かけてしまうことがあります。", _jsx(_components.br, {}), "\nそのため、現在の運用では Slackリマインダー等で通知を貰って気づく様にしていますが、", _jsx(_components.br, {}), "\n見慣れてしまうと慣れて忘れてしまいます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アイデア",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アイデア",
+        children: "アイデア"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google カレンダーの不在予定と連動したアイデアを閃いたのですが、", _jsx(_components.br, {}), "\nもう少し手軽に柔軟に Busy 登録できたら良いなと思いました。", _jsx(_components.br, {}), "\nそこで、モバイルの ", _jsx(_components.strong, {
+        children: "標準アラームアプリ"
+      }), " のような設定ができると便利そう...! と再度閃きました。", _jsx(_components.br, {}), "\n曜日や時間の設定ができる、そんなイメージです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「水曜日は終日 Busy にして、平日の19時以降も Busy にする」"
+      }), "\n", _jsx(_components.li, {
+        children: "「今週は月曜日に休むので、水曜日を外して月曜日に設定すれば良い」"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "試作",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#試作",
+        children: "試作"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["無料枠で実現するために、Upstash のサービスを使えばクリアできそう という見込みはつきました。", _jsx(_components.br, {}), "\nただし無料枠の範囲内で収めるために、時間設定できる単位を1分単位ではなく15分単位などになりそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "試作品は、こちらです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.a, {
+          href: "https://ghb-timmer.vercel.app",
+          children: "https://ghb-timmer.vercel.app"
+        }), "\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "追記: 設計見直しのため停止しました。"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "おわりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#おわりに",
+        children: "おわりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["基本的に自分向けですが、利用したい人もいるかもしれないので、", _jsx(_components.br, {}), "\nまた完成しましたらお知らせします！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"GitHub Busy をアラームの様に登録したい\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260619/opengraph-image.png\"],\"keywords\":[\"成果物\",\"GitHub\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260619/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260619/\",\"description\":\"仕事柄、GitHub Busy を設定しています。 この Busy には有効期限を GUI 上で登録することができます。 GitHub Busy 編集画面 困っていること 毎週水曜日に Busy を設定していて、木曜日に解除しています。 こ\",\"datePublished\":\"2026-06-19T20:14:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":383,"publishedAt":"2026-06-19T20:14:00+09:00","tags":["成果物"],"title":"GitHub Busy をアラームの様に登録したい"},"navigation":{"next":{"href":"/blog/contents/20260620","publishedAt":"2026-06-20T20:45:00+09:00","title":"個人ブログのみつけかた"},"prev":{"href":"/blog/contents/20260618","publishedAt":"2026-06-18T20:27:00+09:00","title":"プレママプレゼント、タダで貰えるもんは貰う"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-05-23","slug":"20260523","summary":"個人ブログ好きの皆さんに朗報です！ \"個人ブログを、見つけて、読んで、シェアする\" アプリ、こぶりーをリリースしました！🎉 こぶりー アプリのURLは、以下の通りです。 こぶりー - kobliy.vercel.app こちらから、個人ブ","tags":["成果物","趣味"],"title":"個人ブログを読むアプリ、こぶりーをリリースしました！"},{"publishedAt":"2026-02-20","slug":"20260220","summary":"個人サイトリニューアルを機に、記事を書く執筆環境Webアプリを用意しました。 https://silverbirder.github.io/blog/contents/20260128/ どのようなものか簡単に紹介します。 入力とプレビュー","tags":["成果物"],"title":"記事投稿 連続100回以上している 私専用執筆環境Webアプリ"},{"publishedAt":"2026-01-29","slug":"20260129","summary":"個人サイト（ジブンノート）をリニューアルしました。本記事では、個人サイトをリニューアルした際にあった出来事などを振り返りたいと思います。ちなみに、個人サイトは以下のページです。ノート風デザインで、ブログ記事が読めるようになりました！🎉","tags":["成果物","振り返り"],"title":"個人サイトリニューアルの振り返り"}],"tag":"成果物"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260619/","slug":"20260619"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,127 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T24d7,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    h3: "h3",
+    img: "img",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "個人ブログを見つけて、読んで、シェアするアプリ、 \"こぶりー\" を運用しています。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    }), "\n", _jsx(_components.p, {
+      children: "こぶりーを作っていてこだわっている所を紹介します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "データが肝",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#データが肝",
+        children: "データが肝"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人ブログを読むアプリですので、", _jsx(_components.br, {}), "\n個人ブログの ", _jsx(_components.strong, {
+        children: "データが肝"
+      }), " になってきます。", _jsx(_components.br, {}), "\nデータが少ないと見に行こうとは思わないので、", _jsx(_components.br, {}), "\nデータを集める仕組みづくりを徹底しました。", _jsx(_components.br, {}), "\n以下の記事にあるように、個人ブログを見つける仕組み作りを作っています。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260620/",
+      title: "個人ブログのみつけかた",
+      description: "個人ブログを、見つけて、読んで、シェアするアプリ、&quot;こぶりー&quot; を運営しています。 https://kobliy.vercel.app このアプリの肝の1つは、個人ブログのデータの数と思っています。 どうすれば個人ブログをみつけることができ",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/522876c3f74eb23dbb81b4e2ffab407d8028ee60e87eaf6a374a73f2a5fd6293.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["一番うまくいっているのは、GitHub コード検索です。", _jsx(_components.br, {}), "\n\"ブログ\" などの単語を含むリポジトリを探索し、いくつかのプロセスを経てブログURLを発見します。", _jsx(_components.br, {}), "\nあとは、私の方で手動でチェックして良かったら登録するようにしています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この仕組みを作って気づくことが多くて、", _jsx(_components.br, {}), "\n例えば 1つのハンドルネームで複数のブログサービス（はてな、note、Amebaなど）を利用していたり、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "フィードURLが残念ながらなかった"
+      }), " り、", _jsx(_components.br, {}), "\nフィードの中身がlocalhostとかundefinedだったりしています。", _jsx(_components.br, {}), "\nあと、AI で作ったサイトは一瞬で分かるなと残念ながら気づけるようになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "uiデザイン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#uiデザイン",
+        children: "UIデザイン"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今の AI にはUIデザインがｲﾏﾋﾄﾂというか、", _jsx(_components.br, {}), "\n感情に訴えかける（なんか良いなと思う気付けない良さ）部分は、人間のデザイン力が大事と思っています。", _jsx(_components.br, {}), "\nそのUIデザインを凝るためには、さまざまな気づかないぐらいの配慮 が大事です。", _jsx(_components.br, {}), "\n配色、余白、コピーライティング（ボイスアンドトーン）、あしらい、影、形、インタラクション、動線、視線、経験則、心理学、さまざまあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1784546708/silver-birder.github.io/blog/cawfutpsfbgazbw77u88.png?ar=1170%3A2532",
+        alt: "こぶりー読むページ"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "こぶりーのUI デザインは、何度も調整をしています。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人ブログ記事は、1つの紙と捉えて長方形の角丸なしにしています。", _jsx(_components.br, {}), "\n視線として、まずサムネイルを見てタイトル、説明文、お気に入りやシェアのアクション、の順番にしています。", _jsx(_components.br, {}), "\nメタデータとして、エンゲージデータ（閲覧数など）やホスト名、公開日を下部においています。", _jsx(_components.br, {}), "\nうすく、格子状の背景を入れています。", _jsx(_components.br, {}), "\n記事に少し影をつけて押せる見た目にして、既読にしたら影を消して色を薄くして視線の注意から落とすようにしています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["角丸をつけて影をつけたボタンは、押せる意図を統一的にしています。", _jsx(_components.br, {}), "\nまた 栞に少し広い影をつけていて、記事とのZ軸の高さがあるためです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["栞は現実世界での使い方を再現していて、", _jsx(_components.br, {}), "\n栞を記事カードに置いたらその位置に戻ってくれる機能です。", _jsx(_components.br, {}), "\nタイムラインで眺めていて、途中から再開したいからこう言う機能を用意しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["全体の色は白黒をベースにしていて、", _jsx(_components.br, {}), "\nHeroUI の tailwind ベースな色を使っています。", _jsx(_components.br, {}), "\n初期の頃は #FFF な色を使われていて目がチカチカするので、", _jsx(_components.br, {}), "\n個人ブログライブラリー（こぶりー）の図書館っぽく落ち着いたトーンにしたく、", _jsx(_components.br, {}), "\noklch の輝度を全体的に数%落としています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何かコンテンツを追加する場合は、その分他の要素が圧迫されるため、", _jsx(_components.br, {}), "\n要素を省略するか配置を変えるなどで 減らすことを心がけています。", _jsx(_components.br, {}), "\n（でないと、画面が圧迫してごちゃごちゃしちゃうため）"]
+    }), "\n", _jsx(_components.h3, {
+      id: "その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他",
+        children: "その他"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアプリは PWA としてモバイルアプリとして提供していて、", _jsx(_components.br, {}), "\n私は自分のスマホにこぶりーをホーム画面に追加して、ワンタップで見れるようにしています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["いかにして読む体験を楽にするためにも、", _jsx(_components.br, {}), "\nできる限りタップ数を減らして、", _jsx(_components.br, {}), "\nスムーズに個人ブログ記事を何も考えずに眺めれるようにしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ちょっとした休憩時間にこぶりーを眺める、そういう日常に自然に溶け込むアプリになれるように、", _jsx(_components.br, {}), "\n頑張っていきたいと思います。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"こぶりーのこだわった所\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260720/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"こぶりー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260720/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260720/\",\"description\":\"個人ブログを見つけて、読んで、シェアするアプリ、 \\\"こぶりー\\\" を運用しています。 https://kobliy.vercel.app こぶりーを作っていてこだわっている所を紹介します。 データが肝 個人ブログを読むアプリですので、 個人ブ\",\"datePublished\":\"2026-07-20T20:55:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":414,"publishedAt":"2026-07-20T20:55:00+09:00","tags":["個人開発"],"title":"こぶりーのこだわった所"},"navigation":{"next":{"href":"/blog/contents/20260721","publishedAt":"2026-07-21T19:42:00+09:00","title":"『だけじゃない ケイセン デザイン』を買いました。"},"prev":{"href":"/blog/contents/20260719","publishedAt":"2026-07-19T21:23:00+09:00","title":"夏バテ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-15T21:03:00+09:00","slug":"20260615","summary":"どうもみなさん、こんにちは。 個人ブログを読むアプリ、\"こぶりー\" を運営している silverbirder です。 https://kobliy.vercel.app こぶりーに、ランダム読みと記事検索の機能を追加しました ので簡単にご紹","tags":["個人開発"],"title":"こぶりーに、ランダム読みと記事検索の機能を追加！"},{"publishedAt":"2026-05-05","slug":"20260505","summary":"以下で書いた通り、モバイルアプリを作っています。 https://silverbirder.github.io/blog/contents/20260419/ アプリ名は、\"こぶりー\" と仮の名前を決めました。 https://silver","tags":["個人開発"],"title":"個人ブログキュレーション開発進捗：技術編"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260720/","slug":"20260720"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

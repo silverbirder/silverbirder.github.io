@@ -1,0 +1,58 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tab5,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    blockquote: "blockquote",
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "なんでやねん！"
+    }), "\n", _jsxs(_components.p, {
+      children: ["AIに指摘をしたとき、なんかモヤっとする。", _jsx(_components.br, {}), "\n「するどい指摘です！」とか言われると、褒められてるようでいて、どこかズレてる感じ。", _jsx(_components.br, {}), "\n反論しても不毛なので、冷静に淡々と指示を出そう。", _jsx(_components.br, {}), "\n「いい気づきです！」みたいな返しもあるけれど……ぬぬぬ。"]
+    }), "\n", _jsx(_components.p, {
+      children: "最近よく見る文末がこれ。"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "「ご希望があれば、XXの方向やYYの方向で修正できます。どちらの方向に整えましょうか？」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これ、9割以上は希望していない方向が多い印象。", _jsx(_components.br, {}), "\nそういうときも、やっぱり冷静に淡々と指示を続けるのが吉。"]
+    }), "\n", _jsx(_components.p, {
+      children: "GitHub のプルリクエストで AI からのレビューコメントを見ていると、"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "「このコードは XX という点で問題があります。修正を推奨します。」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["といったコメントが出てくることがある。", _jsx(_components.br, {}), "\nでも実際は、問題ではないケースのほうが多い。", _jsx(_components.br, {}), "\nむしろ、提案された修正を適用するとバグることすらある。", _jsx(_components.br, {}), "\nなので、これらのコメントは“気持ち程度”に見るぐらいがちょうどいい。", _jsx(_components.br, {}), "\n（たまにドキッとするやつもありますが）"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIに間違いを指摘したら「するどい指摘です！」と言われたときー\",\"image\":[\"https://silverbirder.github.io/blog/contents/20251111/opengraph-image.png\"],\"keywords\":[\"AI\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20251111/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20251111/\",\"description\":\"なんでやねん！AIに指摘をしたとき、なんかモヤっとする。「するどい指摘です！」とか言われると、褒められてるようでいて、微妙にずれてる感じ。反論しても不毛なので、冷静に淡々と指示を出そう。「いい気づきです！」みたいな返事もあるけれど……ぬぬぬ。\",\"datePublished\":\"2025-11-11\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":163,"publishedAt":"2025-11-11","tags":["AI"],"title":"AIに間違いを指摘したら「するどい指摘です！」と言われたときー"},"navigation":{"next":{"href":"/blog/contents/20251112","publishedAt":"2025-11-12","title":"車のヒヤリハット"},"prev":{"href":"/blog/contents/20251110","publishedAt":"2025-11-10","title":"モダンな(?)フロントエンド技術セット"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"}],"tag":"AI"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251111/","slug":"20251111"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

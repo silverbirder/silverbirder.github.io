@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2a87,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["お仕事先のWebアプリケーションに、Testcontainersを導入運用して数ヶ月経過しました。", _jsx(_components.br, {}), "\n良い点と困る点について、書き残しておきます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["簡単な前提として、バックエンドDB・APIとフロントエンドの3層構成のよくあるWebアプリケーションアーキテクチャです。", _jsx(_components.br, {}), "\nそのアプリケーションに対して、Testcontainers の環境構築、Playwrightのブラウザ操作、Cucumberの振る舞いテストの3セットで、", _jsx(_components.br, {}), "\nE2Eテストを書いています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "よかったこと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#よかったこと",
+        children: "よかったこと"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["一番は、", _jsx(_components.strong, {
+        children: "ポータビリティの高さ"
+      }), " です。", _jsx(_components.br, {}), "\nTestcontainers は Docker を起動停止を操作するだけのライブラリのため、", _jsx(_components.br, {}), "\nDocker が動く環境であれば、どこでも同様の環境を構築できます。", _jsx(_components.br, {}), "\nそのため、お手元のローカル環境やGitHub ActionsやCircleCIといったCI環境であっても動作します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["例えば、ソフトウェア依存関係アップデートツール（Dependabot、Renovateなど）で起票されるPullRequest毎に対して、", _jsx(_components.br, {}), "\nTestcontainers のE2Eテストを動かすことができます。", _jsx(_components.br, {}), "\nアップデートによっては、Webアプリケーションが壊れるかどうかを早期に発見できる良さがあります。", _jsx(_components.br, {}), "\nもちろん、開発ブランチ毎にもTestcontainersを動かすこともできるため、開発PRの段階でE2Eテストが壊れるかどうか判断できます。", _jsx(_components.br, {}), "\nこの早期発見は、", _jsx(_components.strong, {
+        children: "リリース時点で検出→リバート→再リリースの手間が省かれます"
+      }), "。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["二番目の良さは、", _jsx(_components.strong, {
+        children: "エラーの再現性の高さ"
+      }), " です。", _jsx(_components.br, {}), "\nTestcontainers では Docker を使ってアプリケーションを構築します。", _jsx(_components.br, {}), "\nデータベースの作成やマイグレーション、シード実行、アプリケーションのモジュールインストールやビルド。", _jsx(_components.br, {}), "\nそして、起動後のサービスにPlaywrightでブラウザ操作をします。", _jsx(_components.br, {}), "\n設計次第ですが、基本的にTestcontainers 内で完結できるため、エラー発生時の調査がしやすいのです。", _jsx(_components.br, {}), "\nローカル環境にて、同様のソースコードをチェックアウトさせすれば、ほぼ間違いなくエラーを再現できます。", _jsx(_components.br, {}), "\nこれは、よくあるステージング環境E2Eテストであれば、そうはいきません。", _jsx(_components.br, {}), "\nデータ起因であったり、外部ネットワーク通信といった要因よって不安定にテストが失敗しますが、", _jsx(_components.br, {}), "\nそれらを再現するのにもデータの準備（リセット）など手間がかかります。", _jsx(_components.br, {}), "\nその点、Testcontainers であれば ", _jsx(_components.strong, {
+        children: "データは全て冪等で同じ状態を構築できる"
+      }), " ため心配なく、", _jsx(_components.br, {}), "\nDocker ネットワーク内で WebサーバからAPIサーバに内部通信するため経路が短く不安定になりにくいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["三番目の良さは、", _jsx(_components.strong, {
+        children: "テストの汎用性の高さ"
+      }), " です。", _jsx(_components.br, {}), "\n一般的なE2Eテストの検査はブラウザ視点のものが多いのですが、", _jsx(_components.br, {}), "\nTestcontainersによるテストであれば、 ", _jsx(_components.strong, {
+        children: "DBに格納されているデータをチェックできます"
+      }), " 。", _jsx(_components.br, {}), "\nDocker のシステム日付を変更すれば ", _jsx(_components.strong, {
+        children: "年末年始のテスト"
+      }), " も実現できます。", _jsx(_components.br, {}), "\n特別なデータをステージング環境でメンテナンスする必要がなく、Testcontainers用のシードデータを用意しておけば大丈夫です。", _jsx(_components.br, {}), "\nまた、 ", _jsx(_components.strong, {
+        children: "バッチ起動やキューIN・OUT、メール送受信"
+      }), " といったテストも可能です。", _jsx(_components.br, {}), "\n多言語対応であれば、Docker内の言語設定とPlaywrightの言語設定を修正すれば実現できます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "困る点",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#困る点",
+        children: "困る点"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["一番は、", _jsx(_components.strong, {
+        children: "実行時間の遅さ"
+      }), " です。", _jsx(_components.br, {}), "\nモジュールインストールやDockerビルド、起動とテストとやることがいっぱいです。", _jsx(_components.br, {}), "\n愚直に直列で構築すると、簡単なテストだけでも10分以上かかります。", _jsx(_components.br, {}), "\nその内のセットアップが9割を占め、残り1割がテスト実行となります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そのため、CI環境でTestcontainersを動かすには、いくつか設計が必要になります。", _jsx(_components.br, {}), "\n1つは、", _jsx(_components.strong, {
+        children: "キャッシュの有効活用"
+      }), " です。", _jsx(_components.br, {}), "\nテストステップをインストール・ビルド・起動テスト の3段階に分けて、", _jsx(_components.br, {}), "\nインストールとビルドにキャッシュを導入します。", _jsx(_components.br, {}), "\nそうすれば、起動テストだけになり高速になります。", _jsx(_components.br, {}), "\nもう1つは、", _jsx(_components.strong, {
+        children: "処理の並列化"
+      }), " です。", _jsx(_components.br, {}), "\n扱うDocker分を直列ではなく並列処理させると、", _jsx(_components.br, {}), "\n足し算ではなく一番遅い処理時間のものが実行時間になります。", _jsx(_components.br, {}), "\nまた、テスト自体も全て並列で動くように設計すると良いです。", _jsx(_components.br, {}), "\n私の場合は、テストケースを全てユニークなCucumberのタグとし、GitHub Actionsのmatrixでタグを全て列挙します。", _jsx(_components.br, {}), "\nそうすれば、全てのテストが独立して並列でテストされます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に困るのは、 ", _jsx(_components.strong, {
+        children: "Docker内のテストしかできない点"
+      }), " です。", _jsx(_components.br, {}), "\n例えば、ステージング環境E2Eテストの場合だと CDN やロードバランサーといったサービスが使われていることがあります。", _jsx(_components.br, {}), "\n特にフロントエンドではCDNの設定に依存する場合があります。", _jsx(_components.br, {}), "\nその場合、そのCDN依存なテストケースは Testcontainers では再現できません。", _jsx(_components.br, {}), "\nCDNと振る舞いが同じ Docker コンテナを用意してプロキシするようにできなくはないですが、", _jsx(_components.br, {}), "\n完全一致しないため、あまりお勧めしません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Testcontainers でテストできるのは ", _jsx(_components.strong, {
+        children: "Docker で動かすもののみ"
+      }), " となります。", _jsx(_components.br, {}), "\nOAuth認証などを使用する場合、外部サービスの認証をする必要があるため、", _jsx(_components.br, {}), "\nそのテストを書きたくない場合は、外部通信をインターセプトし成功情報を返す、ということは実現できます。", _jsx(_components.br, {}), "\n必ずアプリケーション側にロジック注入してはならず（E2Eのときは処理しないなど）、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "外部から振る舞いを調整できるようにすること（プロキシ、サイドカーなど）"
+      }), " をお勧めします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["何度かステージング環境E2Eテストを経験してきた私としては、", _jsx(_components.br, {}), "\nこのTestcontainersによる使い捨てテスト環境は 運用が楽で気に入っています。", _jsx(_components.br, {}), "\nまた知見が貯まれば共有します！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Testcontainers運用経験から分かった、良い点・困る点\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260708/opengraph-image.png\"],\"keywords\":[\"テスト\",\"Testcontainers\",\"Cucumber\",\"Playwright\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260708/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260708/\",\"description\":\"お仕事先のWebアプリケーションに、Testcontainersを導入運用して数ヶ月経過しました。 良い点と困る点について、書き残しておきます。 前提 簡単な前提として、バックエンドDB・APIとフロントエンドの3層構成のよくあるWebアプ\",\"datePublished\":\"2026-07-08T20:25:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":402,"publishedAt":"2026-07-08T20:25:00+09:00","tags":["テスト"],"title":"Testcontainers運用経験から分かった、良い点・困る点"},"navigation":{"next":{"href":"/blog/contents/20260709","publishedAt":"2026-07-09T19:56:00+09:00","title":"IntelliJ IDEA に戻った"},"prev":{"href":"/blog/contents/20260707","publishedAt":"2026-07-07T20:51:00+09:00","title":"はっしーはっぴー"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-05T09:28:00+09:00","slug":"20260605","summary":"業務でWebフロントエンドのテストコードを書く際に、どこに何を書くかというのをざっくりと考えをまとめてみます。 前提 Webアプリケーションのプログラムファイルがツリー構造である前提とします。 tree よくあるフィーチャー単位のフォルダ構","tags":["テスト"],"title":"テストコード、どこに何書く"},{"publishedAt":"2026-05-31T09:11:00+09:00","slug":"20260531","summary":"個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー","tags":["AI","テスト"],"title":"テストコードの意味がない"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260708/","slug":"20260708"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

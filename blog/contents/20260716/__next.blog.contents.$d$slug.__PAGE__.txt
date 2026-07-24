@@ -1,0 +1,104 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T211f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "デブサミ2019 の GitHub 社所属の登壇者の方が紹介されていた、InnerSource の考え方を最近を思い出しました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://event.shoeisha.jp/devsumi/20190214/session/1995",
+      title: "OSS開発スタイルを取り入れて、効率的な開発を！～InnerSourceのススメ～ | Developers Summit 2019",
+      description: "【15-D-4】 OSS開発スタイルを取り入れて、効率的な開発を！～InnerSourceのススメ～ | Developers Summit 2019",
+      siteName: "Shoeisha Event",
+      faviconSrc: "/link-card/587041b32365f9c3a2c04b52d5bdc4703e0e2e102a44769e82482ce1eb6d5f77.ico",
+      thumbnailSrc: "/link-card/287b8c83f6dd3b109862618911e3a69b6f6679b38f2a51120ee98cc530593193.png"
+    }), "\n", _jsx(_components.h2, {
+      id: "innersource-とは",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#innersource-とは",
+        children: "InnerSource とは"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Open Source Software（以降、OSS）の開発・運用プロセス文化を、", _jsx(_components.br, {}), "\n社内(Inner) にもその文化を醸成させよう、というニュアンスだったと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["OSSは、オープンで誰でも閲覧可能で、誰でも問題起票（issue）、議論（Discussion）に参加できます。", _jsx(_components.br, {}), "\n情報源は、リポジトリを Single Source Of Truth（以降、SSOT）とし、誰でも貢献（コントリビュート）することができます。", _jsx(_components.br, {}), "\nPR作成されれば、コードオーナーがアサインされレビューし取り込むことができます。", _jsx(_components.br, {}), "\nちなみに GitHub では、", _jsx(_components.code, {
+        children: "CODE_OF_CONDUCT.md"
+      }), " や ", _jsx(_components.code, {
+        children: "SUPPORT.md"
+      }), "、", _jsx(_components.code, {
+        children: "CONTRIBUTING.md"
+      }), " といった決まったファイル名を使うと、", _jsx(_components.br, {}), "\n", _jsx(_components.code, {
+        children: "helpful resources"
+      }), " や ", _jsx(_components.code, {
+        children: "contribute タブ"
+      }), " などでリンクされます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["オペレーションをGitOpsで駆動するようにすれば、", _jsx(_components.br, {}), "\n問い合わせIssue起票→担当者アサイン→回答（ナレッジ蓄積）などを自動化できます。", _jsx(_components.br, {}), "\nこれは1例であり、SlackやZendesk などからGitOps起点にすることで、", _jsx(_components.br, {}), "\nプロダクトについての情報が1手にリポジトリへ集約されます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["情報がオープンに誰でもアクセスして検索可能（個人情報の取り扱い管理は別途）、", _jsx(_components.br, {}), "\nGitOps駆動によるオペレーション自動化、", _jsx(_components.br, {}), "\nナレッジが集約された情報源となります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ai時代",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ai時代",
+        children: "AI時代"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI により、誰でも簡単にOSSへコントリビュートできる時代になりました。", _jsx(_components.br, {}), "\nAI slop 問題があるぐらい、以前に比べてコントリビュートする上での敷居が低くなった証拠です。", _jsx(_components.br, {}), "\nOSS はそれらの問題を対処する大変さがありますが、innerSource なら社内の人となるため、", _jsx(_components.br, {}), "\n比較的 AI slop な問題はそう大きな問題にはならないかもしれません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["今の時代 誰でもPRを提出できるようになったため、", _jsx(_components.br, {}), "\nたとえば 営業職（Aさん）のチームメンバーから改善して欲しいことについてプロンプトをGitHub issue に書いて、", _jsx(_components.br, {}), "\n起票するだけで Claude などが駆動してPRを作成できます。", _jsx(_components.br, {}), "\n作成したPRは、プレビューデプロイ環境に展開され、Aさんが期待する結果を確認できたら、", _jsx(_components.br, {}), "\nコードオーナーへレビューアサインする仕組みにします。", _jsx(_components.br, {}), "\nそのままマージすることは、Claudeの精度やハーネス整備などの加減によりますが、", _jsx(_components.br, {}), "\n多くはそのままにはいけないかもしれません。", _jsx(_components.br, {}), "\nただ、形と期待したいことをプロンプトと目に見える形を用意できれば、", _jsx(_components.br, {}), "\nコードオーナーが 温度感や優先度（Issueラベル運用など）を軸に形に仕上げる、", _jsx(_components.br, {}), "\nみたいなこともできそうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["またCS担当者からのお問い合わせが発生した際に、", _jsx(_components.br, {}), "\nプロダクト仕様はリポジトリの中のため（コードが仕様）、", _jsx(_components.br, {}), "\nZendesk チケット作成 → 自動 GitHub issue 起票 (個人情報をマスクするならもう一段手前に何か必要） → Claude 調査 → レスポンス（or 内容確認のエンジニア側担当者をつける）といった流れも簡単そうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["さらに、Datadog 等のアラートを起因して、", _jsx(_components.br, {}), "\nGitHub issue 起票させ、Runbook ベースにトリアージを Claude に行わせて、", _jsx(_components.br, {}), "\n即リバートPRを作成させるか、マニュアル手順を実行する運用担当者をアサインさせ対応させるなども、", _jsx(_components.br, {}), "\nできるかもしれません。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["GitHub には Teams でチーム作成して、そのチームに属するメンバーをランダムアサインすることも可能のため、", _jsx(_components.br, {}), "\n運用担当者をランダムに割り振ることが可能ですし、ユーザー自身が Busy 状態にしておけばアサインから外れることになります。", _jsx(_components.br, {}), "\n他にも様々な OSS 運用する上での便利な機能があるかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI slop は知らない人から大量に送りつけられると困るのですが、", _jsx(_components.br, {}), "\n社内の知らない人からであれば、もし困ったとしても改善できる余地が OSS よりも広いと思います。", _jsx(_components.br, {}), "\nInnerSource、いかがでしょうか。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"InnerSourceとAI\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260716/opengraph-image.png\"],\"keywords\":[\"仕事\",\"InnerSource\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260716/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260716/\",\"description\":\"デブサミ2019 の GitHub 社所属の登壇者の方が紹介されていた、InnerSource の考え方を最近を思い出しました。 https://event.shoeisha.jp/devsumi/20190214/session/1995\",\"datePublished\":\"2026-07-16T20:27:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":410,"publishedAt":"2026-07-16T20:27:00+09:00","tags":["仕事"],"title":"InnerSourceとAI"},"navigation":{"next":{"href":"/blog/contents/20260717","publishedAt":"2026-07-17T20:30:00+09:00","title":"信頼貯金"},"prev":{"href":"/blog/contents/20260715","publishedAt":"2026-07-15T20:15:00+09:00","title":"妊娠3ヶ月目"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-17T20:30:00+09:00","slug":"20260717","summary":"信頼貯金って、貯まっていると協力的になってくれる傾向があるので、 できる限り誰かのお困りごとを解決したい。 そのために、私の場合は Slack や GitHub 上のアクション通知を沢山拾うようにしている。 ビジネスメンバー ビジネスメンバ","tags":["雑談","仕事"],"title":"信頼貯金"},{"publishedAt":"2026-07-09T19:56:00+09:00","slug":"20260709","summary":"今まで、VSCode を3年ほど使っていたのですが、何度もフリーズ→再起動を繰り返す頻度が増えて困ったので、 昔使っていた IntelliJ IDEA を使うように戻りました。 VSCode 遅い なぜか分からないのですが、とにかく挙動が遅","tags":["仕事"],"title":"IntelliJ IDEA に戻った"},{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260716/","slug":"20260716"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

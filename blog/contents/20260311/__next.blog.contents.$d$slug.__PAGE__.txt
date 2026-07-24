@@ -1,0 +1,96 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1481,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["寝ようとしているときに考え事をし過ぎて眠れない、ということはありませんか？", _jsx(_components.br, {}), "\nそういうときは、考え事をとにかく書き出すと眠れるようになるかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "例えば",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#例えば",
+        children: "例えば"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "例えば、私だと以下のような考え事がしちゃうときがあります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『困り事だけど、アレで解決できるかな...？』"
+      }), "\n", _jsx(_components.li, {
+        children: "『あの人に、コレについて相談したいな...』"
+      }), "\n", _jsx(_components.li, {
+        children: "『オペレーション、もっとこうしたらよくできそうだ...』"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つの考えに没頭すると、アレもコレもと考えが広がっていって収集つかなくなるのです。", _jsx(_components.br, {}), "\nそうすると、ずっと頭が考えに集中しすぎて眠るモードになかなか入れません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "書き出す",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#書き出す",
+        children: "書き出す"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["書き出す手段はなんでも良いです。", _jsx(_components.br, {}), "\n私の場合は、スマホ（Google Pixel) のメモ（Keep）に思いのままに書き出しています。", _jsx(_components.br, {}), "\nスマホの場合、画面を暗転しておくと目が覚めないのでお勧めです。", _jsx(_components.br, {}), "\n書き出すルールは、以下の3つぐらいです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "打ち間違いは直さない"
+      }), "\n", _jsx(_components.li, {
+        children: "読み返さない"
+      }), "\n", _jsx(_components.li, {
+        children: "整理しない"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["思いつくままに書き出した後、メモアプリは閉じずに開いたままにします。", _jsx(_components.br, {}), "\n起床後にメモを目にするためです。", _jsx(_components.br, {}), "\nそのまま、スマホを手放して目を閉じます。", _jsx(_components.br, {}), "\nそうすると、", _jsx(_components.strong, {
+        children: "さっきまで考えていたことがメモに出力されて脳が解放された"
+      }), " 、そんな気分に私はなります。", _jsx(_components.br, {}), "\nしかし、また異なる考え事や先ほどの考えの延長について脳を使い始めてしまうかもしれません。", _jsx(_components.br, {}), "\nこのときも、さっきと同様に書き出して脳をスッキリさせます。", _jsx(_components.br, {}), "\n私は、この手順で考え事で眠れなくなるという問題を解消できました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そして、起床後にスマホを開くとメモが書かれているのを目にします。", _jsx(_components.br, {}), "\n誤字が多すぎて意味がわからないときもありますが、大体は読んで思い出せます。", _jsx(_components.br, {}), "\n考え事がうまくいく内容もあれば、あさっての方向に突き進んでしまったものもあります。", _jsx(_components.br, {}), "\n夜中に書いたメモが、起床後の私へ良いバトンパスになることもあります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『アレを使って困り事を解決してみるか！』"
+      }), "\n", _jsx(_components.li, {
+        children: "『相談したい内容をまとめて、あの人に聞いてみるか！』"
+      }), "\n", _jsx(_components.li, {
+        children: "『オペレーションの手順書を書いて、みんなに共有するか！』"
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "ぜひ参考にしてみてください。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"C8sX0lxeMjwNyYAFfAxPw","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"考え事で眠れない時はそれを書き出す\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260311/opengraph-image.png\"],\"keywords\":[\"生活\",\"仕事\",\"考え事\",\"書き出す\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260311/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260311/\",\"description\":\"寝ようとしているときに考え事をし過ぎて眠れない、ということはありませんか？ そういうときは、考え事をとにかく書き出すと眠れるようになるかもしれません。 例えば 例えば、私だと以下のような考え事がしちゃうときがあります。 『困り事だけど、アレ\",\"datePublished\":\"2026-03-11\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":283,"publishedAt":"2026-03-11","tags":["生活","仕事"],"title":"考え事で眠れない時はそれを書き出す"},"navigation":{"next":{"href":"/blog/contents/20260312","publishedAt":"2026-03-12","title":"Webフロントエンドのコードレビューメモ"},"prev":{"href":"/blog/contents/20260310","publishedAt":"2026-03-10","title":"『CSS 優良デザイン×アイデア事典 プロがシェアする現場の即戦力テクニック』を買いました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-06T20:23:00+09:00","slug":"20260706","summary":"6月末に締切期限の市民税の支払いを忘れていました。 気づいてやばい！となり、今日休みだった妻に頼んで市役所へ行って貰い、支払って事なきを得ました。 延滞金 延滞金 いくらなんだろうと思い、 妻に 市民税の金額+2万円ぐらい渡しました。 特に","tags":["生活"],"title":"市民税の支払い忘れ"},{"publishedAt":"2026-06-23T20:16:00+09:00","slug":"20260623","summary":"待ちに待った、リディのアイランドソファが届きました！ リディのソファ リディ｜家具・インテリアのリビンズグループ - livins.co.jp Mサイズでクッション2つ付きで、税込 約6万5千円です。 家具屋さんで購入するときに、クーポン","tags":["雑談","生活"],"title":"リディのアイランドソファがとどいた！"},{"publishedAt":"2026-03-31","slug":"20260331","summary":"賃貸か戸建か、どちらが良いんですかね？ 私はこれまで、4件の賃貸物件と1件の戸建物件（親族の持ち家）に住んでいました。 今は賃貸物件で暮らしているのですが、戸建の方が良いのかな？と思うことがあります。 個人的感想を書こうと思います。 発端","tags":["生活"],"title":"賃貸か戸建か"}],"tag":"生活"},{"posts":[{"publishedAt":"2026-07-17T20:30:00+09:00","slug":"20260717","summary":"信頼貯金って、貯まっていると協力的になってくれる傾向があるので、 できる限り誰かのお困りごとを解決したい。 そのために、私の場合は Slack や GitHub 上のアクション通知を沢山拾うようにしている。 ビジネスメンバー ビジネスメンバ","tags":["雑談","仕事"],"title":"信頼貯金"},{"publishedAt":"2026-07-16T20:27:00+09:00","slug":"20260716","summary":"デブサミ2019 の GitHub 社所属の登壇者の方が紹介されていた、InnerSource の考え方を最近を思い出しました。 https://event.shoeisha.jp/devsumi/20190214/session/1995","tags":["仕事"],"title":"InnerSourceとAI"},{"publishedAt":"2026-07-09T19:56:00+09:00","slug":"20260709","summary":"今まで、VSCode を3年ほど使っていたのですが、何度もフリーズ→再起動を繰り返す頻度が増えて困ったので、 昔使っていた IntelliJ IDEA を使うように戻りました。 VSCode 遅い なぜか分からないのですが、とにかく挙動が遅","tags":["仕事"],"title":"IntelliJ IDEA に戻った"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260311/","slug":"20260311"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

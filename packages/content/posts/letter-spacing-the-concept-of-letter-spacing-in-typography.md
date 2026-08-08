@@ -63,11 +63,8 @@ index: false
 [W3CのWCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html) では、テキストのスペーシングに関する基準が示されています。
 
 > - 行間（line spacing）はフォントサイズの1.5倍以上
->
 > - 段落後のスペースはフォントサイズの2倍以上
->
 > - 文字間（letter spacing）はフォントサイズの0.12倍以上
->
 > - 単語間（word spacing）はフォントサイズの0.16倍以上
 
 これらは最低限の指標だと思うので、実際にスタイルを適用しながらレタースペーシングの調整を試してみたいと思います。

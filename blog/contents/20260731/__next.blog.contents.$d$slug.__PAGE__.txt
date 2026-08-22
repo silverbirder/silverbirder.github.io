@@ -1,0 +1,152 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2a30,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人ブログを見つけて、読んで、シェアするアプリ ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app/",
+        children: "こぶりー"
+      }), " がどれぐらい使われているか知りたいです。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["今までは、Google Analytics (以降、GA） を導入するだけだったので、アクセス数や直帰率といったざっくりとした数値しか分かりません。", _jsx(_components.br, {}), "\nこれはこれで良いのですが、もう少し細かく分析したくなりました。", _jsx(_components.br, {}), "\nそこで完全無料で GA と Data Studio を使って よくある分析グラフを用意しました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "bigquery-は使わない",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#bigquery-は使わない",
+        children: "BigQuery は使わない"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["イベントデータを集める場所を無料枠内の BigQuery に入れるのがよく見るのですが、", _jsx(_components.br, {}), "\n下手したら課金してしまうため避けたかったのです。", _jsx(_components.br, {}), "\nクレジットカードへの紐付けをしたくなかったのと、Sandbox環境というのもできることが制限されるので、", _jsx(_components.br, {}), "\n避けました。", _jsx(_components.br, {}), "\nデータは、GA に送信するようにして集めるようにしました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "設計とe2e",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#設計とe2e",
+        children: "設計とE2E"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["基本的には、GAの自動・拡張計測のイベントを頼りたいのですが、", _jsx(_components.br, {}), "\nそれに加えてアプリ独自のイベント計測をGAに送信する、というのが原則です。", _jsx(_components.br, {}), "\n独自とは、「記事を読む」や「記事をシェアする」、「Webプッシュで開いたか」などのイベントです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これらを AI に設計書を書かせて私がレビューします。", _jsx(_components.br, {}), "\n不明点を全て潰した後は、それを満たすE2Eテストコードの設計書を書かせます。", _jsx(_components.br, {}), "\n私は、TestContainers + Playwright + Cucumber.js による受け入れテストしか書いていなくて、単体テストは書いていません。", _jsx(_components.br, {}), "\nその受け入れテストに、全てのイベントを経由する1本のシナリオを作って、最終的にGAへ送信するデータをまとめてチェックする、", _jsx(_components.br, {}), "\nというテスト設計にしました。", _jsx(_components.br, {}), "\nゴールは、過不足なくイベントが期待通り送信されたことになります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["後はプロダクションコードを実装させてレビューができたら、", _jsx(_components.br, {}), "\n受け入れテストを書かせます。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "この受け入れテストをPASSさせるのがとても大変で、1日かかりました。"
+      }), _jsx(_components.br, {}), "\nたまにプロダクションコードの不具合を検知するので、良い体験でした。"]
+    }), "\n", _jsx(_components.p, {
+      children: "これを通せたら、そのままデプロイして コード修正は終了です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ga側の設定",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ga側の設定",
+        children: "GA側の設定"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Codex App では ブラウザ操作をやってくれるため、", _jsx(_components.br, {}), "\n先ほど書いた設計書を読んで GA 側の設定をして貰いました。", _jsx(_components.br, {}), "\nなんだか、", _jsx(_components.strong, {
+        children: "先輩マーケターに代わりにやってもらっている感じの気分"
+      }), " になりました。", _jsx(_components.br, {}), "\nGA のどこに標準・拡張機能イベントの設定やカスタム定義の設定、エンゲージメント設定があるのか、", _jsx(_components.br, {}), "\n先輩に教えてもらいながら設定して貰いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "data-studio側の設定",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#data-studio側の設定",
+        children: "Data Studio側の設定"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Codex 先輩に、GAと同様に Data Studioの設定もお願いしました。", _jsx(_components.br, {}), "\nといっても、データソースとしてGAを登録して、いくつかグラフを追加して貰いました。", _jsx(_components.br, {}), "\nただグラフは、私が欲しいと思ったものを入れないと意味がないので、何が欲しいのかよく考えました。", _jsx(_components.br, {}), "\n元々気になっていたことがどうなっているのかをわかるようなグラフを用意しました。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "時間帯と曜日のクロスでのイベントヒートマップ"
+      }), "\n", _jsx(_components.li, {
+        children: "流入元はどこが多くて、新規・リピータの割合はどれぐらいか"
+      }), "\n", _jsx(_components.li, {
+        children: "どの機能がどれぐらい使われているか"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["あと、イベント数の中で私のイベントを除去するようにしました。", _jsx(_components.br, {}), "\n検証のためにWebプッシュの動作を見たり、購読を繰り返したりしていたので...笑", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "除去のロジックは、私の住んでいる地域を除外という荒技です。"
+      }), _jsx(_components.br, {}), "\n田舎民の特権ですね。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "準備ok",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#準備ok",
+        children: "準備OK"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Data Studio の準備ができたので、とりあえず今は見た目無視で分析したいグラフを作っては捨てたりしています。", _jsx(_components.br, {}), "\n私の中で知識が浅いところは、Codex 先輩にブラウザ操作して見てもらって分析してもらってフィードバックをもらって、", _jsx(_components.br, {}), "\n改善を色々やっています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["昔勤めていた職場で、GAやLookerをバリバリ使われているところがあったのですが、", _jsx(_components.br, {}), "\nその完成された分析ページを見て 微調整などをやったことはあるのですが、", _jsx(_components.br, {}), "\nやはりゼロから作るのは難しいですね。", _jsx(_components.br, {}), "\n何を見るのか、分析のどういうデータを作れば良いのか、", _jsx(_components.br, {}), "\n手探りな感じです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["わからないことがあるのは楽しくて、", _jsx(_components.br, {}), "\n少しずつ形になっていくのがさらに楽しいです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わり",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わり",
+        children: "終わり"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://kobliy.vercel.app/",
+        children: "こぶりー"
+      }), "は、", _jsx(_components.strong, {
+        children: "日曜日の夜9時ぐらいが一番アクセスが多い"
+      }), " ようです。", _jsx(_components.br, {}), "\n逆に少ないのは、土曜日と水曜日で午前中のようです。", _jsx(_components.br, {}), "\nアイデアとして、週末向けに\"今週よく読まれた記事\"みたいなページがあると良いかもですね。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"_EBo_TtXSgOsihOHWU9CI","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Google AnalyticsとData Studio\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260731/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"Google Analytics\",\"Data Studio\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260731/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260731/\",\"description\":\"個人ブログを見つけて、読んで、シェアするアプリ こぶりー がどれぐらい使われているか知りたいです。 https://kobliy.vercel.app/ 今までは、Google Analytics (以降、GA） を導入するだけだったので、\",\"datePublished\":\"2026-07-31T20:01:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":425,"publishedAt":"2026-07-31T20:01:00+09:00","tags":["個人開発"],"title":"Google AnalyticsとData Studio"},"navigation":{"next":{"href":"/blog/contents/20260801","publishedAt":"2026-08-01T20:32:00+09:00","title":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』戦利品"},"prev":{"href":"/blog/contents/20260730","publishedAt":"2026-07-30T21:01:00+09:00","title":"青森の次は、令和8年熊本地震"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-08-17T21:16:00+09:00","slug":"20260817","summary":"久々に体重をはかると、約8kg増えていました。 暴食しすぎた節があるので「まあそうだろうなぁ」と冷静になりました。 前回は防風通聖散 という武器を使ってダイエットしていましたが、 今回は有酸素運動、ランニングをやろうと思います。 ランニング","tags":["個人開発"],"title":"ブローガスト17日目: 体重8kg増、ランニングで思考がトトノウ"},{"publishedAt":"2026-07-20T20:55:00+09:00","slug":"20260720","summary":"個人ブログを見つけて、読んで、シェアするアプリ、 \"こぶりー\" を運用しています。 https://kobliy.vercel.app こぶりーを作っていてこだわっている所を紹介します。 データが肝 個人ブログを読むアプリですので、 個人ブ","tags":["個人開発"],"title":"こぶりーのこだわった所"},{"publishedAt":"2026-06-15T21:03:00+09:00","slug":"20260615","summary":"どうもみなさん、こんにちは。 個人ブログを読むアプリ、\"こぶりー\" を運営している silverbirder です。 https://kobliy.vercel.app こぶりーに、ランダム読みと記事検索の機能を追加しました ので簡単にご紹","tags":["個人開発"],"title":"こぶりーに、ランダム読みと記事検索の機能を追加！"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260731/","slug":"20260731"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

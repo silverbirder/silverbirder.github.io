@@ -1,0 +1,123 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2394,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "今更ですが、Technology Radar Vol. 34 が今年の4月に公開されていました。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://www.thoughtworks.com/radar",
+          children: "Technology Radar | Guide to technology landscape | Thoughtworks"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "前回の記事は、こちらです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251108/",
+      title: "Technology Radar Vol. 33 所感",
+      description: "Thoughtworks の **Technology Radar Vol. 33** が公開されました。  - [Technology Radar | Guide to technology landscape | Thoughtworks](https://www.thoughtworks.com/radar)今回は、流し読みして気になったトピックについての感想をまとめます。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/536e55c31d7696ad60ea8063c019f928db6a829f835d30c713dd592492ce0f54.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Vol. 34 は前回同様 AI 周りばかりでした。", _jsx(_components.br, {}), "\nそんな中で気になったものをいくつかピックアップします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ミューテーションテスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ミューテーションテスト",
+        children: "\u001fミューテーションテスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["プロダクションコードの一部をランダムに書き換えて、テストが失敗したらテストコードが正しいと判断し、", _jsx(_components.br, {}), "\n逆にテストが成功してしまったらテストコードが誤っている、という判断になります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ミューテーションテストで有名な StrykerJS は、過去以下の記事で取り扱っていました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/web_frontend_test_pattern_guide/",
+      title: "Webフロントエンドにおける網羅的テストパターンガイド",
+      description: "こんにちは、テストが好きなsilverbirderと申します。Webフロントエンドのテストは実施していますか？ユニットテストやビジュアルリグレッションテストは広く知られていると思います。しかし、パフォーマンステストのためのテストコードはありますか？また、カオスエンジニアリングテストやアクセシビリティテストはありますか？",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/239ad0adab15ee61efc0671327814cda74c75ca3ae68cc18ba35f37f2c88983f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["それが再浮上したのは、昨今のAIによる品質保証を担保する方法の1つとして有効かもしれないからです。", _jsx(_components.br, {}), "\nAI はテストコードを大量生成されますが、私はこれを最近嫌っています。", _jsx(_components.br, {}), "\n以下で理由を述べています。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260531/",
+      title: "テストコードの意味がない",
+      description: "個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/15b372334ea36dc0bc14673e0d84c990ceec60e31cc41fe8bb68f7115718c26f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["このミューテーションテストは、テストコードをテストするようなもので、", _jsx(_components.br, {}), "\n大量テストコードの質を上げるためのツールとして悪くないかもしれません。", _jsx(_components.br, {}), "\nとはいえ、ノールックな大量テストコードには嫌悪していて、", _jsx(_components.br, {}), "\n同様にミューテーションテストで足りないテストコードを大量追加する というのも嫌悪しています。", _jsx(_components.br, {}), "\n（じゃあ何がいいんじゃいは、時間が足りないので書きません）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "アーキテクチャ検証",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#アーキテクチャ検証",
+        children: "アーキテクチャ検証"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI コーディングでのアーキテクチャを検証するツールというのがありました。", _jsx(_components.br, {}), "\n記事では、Spectral, ArchUnit, Spring Modulith の3つが例として上がっていました。", _jsx(_components.br, {}), "\nArchUnit は過去に試した記事がありました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/arch-unit/",
+      title: "TypescriptでArchUnitしてみた",
+      description: "ArchUnitをというものを最近知りました。依存関係のテストができるそうです。さっそく試してみたいと思いますので、その備忘録として残しておきます。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/5093b97bbcbad2ed3c84aacc88efac9e5da258256e8c45d4a111e64796b47102.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["レイヤードアーキテクチャやモノレポのアプリケーションでは、依存関係を整える必要があります。", _jsx(_components.br, {}), "\nこの依存関係を無視してプログラムを書かれないように、ArchUnit などのようなツールで検証する、という具合です。", _jsx(_components.br, {}), "\nArchUnit じゃなくても、ESLint などのルールでも定義することができます。", _jsx(_components.br, {}), "\n先のミューテーションテストと同様に、AI コーディング を守る為のガードレールです（イマドキはハーネス）。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["私もこういった検証パターンをいくつも用意していますし、", _jsx(_components.br, {}), "\nAST 解析によるオレオレリントで守りたい形を制限していたりします。", _jsx(_components.br, {}), "\nこれは私がプログラムを理解する為に欠かせないもので、", _jsx(_components.br, {}), "\n守られているルールをたくさん用意しておけば、", _jsx(_components.br, {}), "\nコード理解を邪魔するものが減ってメンテしやすいと思っているからです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI 関連の流行り廃りは異常なので、AI 増幅器として力を発揮できるように UI デザインを徹底して勉強しています。", _jsx(_components.br, {}), "\n好きだからというのが一番です。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"_EBo_TtXSgOsihOHWU9CI","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト3日目: Technology Radar Vol. 34 所感\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260803/opengraph-image.png\"],\"keywords\":[\"雑談\",\"Technology Radar\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260803/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260803/\",\"description\":\"今更ですが、Technology Radar Vol. 34 が今年の4月に公開されていました。 Technology Radar | Guide to technology landscape | Thoughtworks 前回の記事は、\",\"datePublished\":\"2026-08-03T20:55:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":428,"publishedAt":"2026-08-03T20:55:00+09:00","tags":["雑談"],"title":"ブローガスト3日目: Technology Radar Vol. 34 所感"},"navigation":{"next":{"href":"/blog/contents/20260804","publishedAt":"2026-08-04T20:44:00+09:00","title":"ブローガスト4日目: Sentry 調査が捗った話"},"prev":{"href":"/blog/contents/20260802","publishedAt":"2026-08-02T20:52:00+09:00","title":"ブローガスト2日目: もくもく会 in 図書館"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-08-22T20:15:00+09:00","slug":"20260822","summary":"今日の投稿で、連続投稿300日目です。 もう2ヶ月続ければ、1年です！ 連続投稿して気づいたことについて、書こうと思います。 ネタは尽きない 連続投稿7日目ぐらいに、書くネタが尽きるかなと思っていました。 田舎暮らしだし、外出も多くないし、","tags":["趣味","雑談"],"title":"ブローガスト22日目: 連続投稿300日目"},{"publishedAt":"2026-08-21T21:45:00+09:00","slug":"20260821","summary":"中学生の頃、所属する剣道部の顧問がとんでもなく怖い先生だったのですが、 とても感謝している恩師の一人です。 そんな恩師との思い出を書こうと思います。 跨って竹刀で叩く 剣道での練習の中で、掛かり稽古 があります。 10分間など時間内に、1対","tags":["雑談"],"title":"ブローガスト21日目: 恩師の思い出"},{"publishedAt":"2026-08-19T21:12:00+09:00","slug":"20260819","summary":"最近、目にするものにはなんでもあしらい（装飾）があるんだなと気づきました。 まあ、当たり前かもですが...笑 いろいろなところ テレビを見ていると、番組ロゴやテロップなど映像として映すものほとんど全てに、いろいろな工夫がされています。 季節","tags":["雑談"],"title":"ブローガスト19日目: 世界はあしらいに満ちている"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260803/","slug":"20260803"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

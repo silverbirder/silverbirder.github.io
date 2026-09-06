@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1dc3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "現在地から出発し、元の場所へ戻る散歩コースを生成し、Google Mapsで案内するアプリ、「散歩コース生成」をリニューアルをしました！🎉"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://my-walker.vercel.app/?utm_source=silverbirder",
+      title: "散歩コース生成 | 現在地から戻ってくる散歩コースを作成",
+      description: "現在地から出発し、元の場所へ戻る散歩コースを生成し、Google Mapsで案内します。",
+      siteName: "my-walker.vercel.app",
+      faviconSrc: "/link-card/d76a90101a73bc0fe76f6b851b3acf47a7cb5d9f81db270d8cf115aa8a4bb35e.svg",
+      thumbnailSrc: "/link-card/9547ae27ddaf82dc110ac1b66b52228eafe916a8ba8f6546b600f3d943bb2fa6.png"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1788006985/silver-birder.github.io/blog/z4egjt8hhwro06rrpjz3.png?ar=1280%3A3057",
+        alt: "散歩コース生成 リニューアル!"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "散歩コース生成について、軽く紹介します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "散歩好きな方向け",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#散歩好きな方向け",
+        children: "散歩好きな方向け"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアプリは、", _jsx(_components.br, {}), "\n現在地から元に戻ってくる散歩コースを、", _jsx(_components.br, {}), "\n好きな距離を自由に選んで、散歩コースを生成し、", _jsx(_components.br, {}), "\nGoogle Maps のルート案内のURLを提供します。", _jsx(_components.br, {}), "\nURLをタップすると、Google Maps のアプリが起動してルート案内が表示されます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「行ったことない散歩コースを行ってみたい」"
+      }), "\n", _jsx(_components.li, {
+        children: "「旅行先で土地勘がないけど、散歩したい」"
+      }), "\n", _jsx(_components.li, {
+        children: "「少し時間があまったから、10分ぐらいの散歩コースがほしい」"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["といったときにぴったりです。", _jsx(_components.br, {}), "\n特に散歩好きな人なら分かるかもしれませんが、 ", _jsx(_components.strong, {
+        children: "何度も何度も似たような散歩コースを行く"
+      }), " ことになって、", _jsx(_components.br, {}), "\n飽き飽きすることが少しあります。", _jsx(_components.br, {}), "\nそれでも同じ道を通ったとしても、天気の違いや時間帯の違いなどで少し違った景色を楽しみというのもあります。", _jsx(_components.br, {}), "\nただ私として「", _jsx(_components.strong, {
+        children: "もっと冒険してみたい"
+      }), "」と思うことがあり、それがこのアプリを作るきっかけです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ルート案内の機能は Google Maps に任せます。", _jsx(_components.br, {}), "\n音声案内だったり、ストリートビューのプレビューなどが Google Maps にあるのでそれを使います。", _jsx(_components.br, {}), "\nその代わり、その前段の \"距離選択\" と \"ルート生成\" はこちらで行います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "少しのこだわり",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#少しのこだわり",
+        children: "少しのこだわり"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["散歩コースの距離を決める際、", _jsx(_components.strong, {
+        children: "徒歩でどれぐらいかかるか"
+      }), " を概算で補足として表示しています。", _jsx(_components.br, {}), "\nこれは「休憩時間が30分ぐらいだから、20分ぐらいで収まる距離が欲しい」という気持ちがきっかけです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["またユーザー同士で楽しんでもらえたらと、 ", _jsx(_components.strong, {
+        children: "散歩コースのSNSシェア"
+      }), " を入れてみました。", _jsx(_components.br, {}), "\n「現在地が含まれるのはちょっと...」と私は思ってしまうので「散歩コースの形」をシェアできるようにしました。笑", _jsx(_components.br, {}), "\n利用されるか不明ですが、なにかのきっかけで楽しんでもらえたらと入れています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1788007012/silver-birder.github.io/blog/xj6ieijbvndcodklqyh0.png?ar=1280%3A3057",
+        alt: "SNSシェア"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["また生成した散歩コースが気に入ったら、保存できるようにしています。", _jsx(_components.br, {}), "\nただ「どういうコースだったっけ？」と忘れてしまうことがあるので、短い文字ですが名前を付けれるようにしています。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1788007023/silver-birder.github.io/blog/frzevyfhnq9wcyrr6mby.png?ar=1280%3A3057",
+        alt: "保存した散歩コース"
+      })
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["このアプリのおかげで「いつも通っている道に、こんな抜け道あるんだ！」と感動したことがあります。", _jsx(_components.br, {}), "\n「今まで気づいていなかったけど、ここ曲がってあそこ曲がったら あの大通りにでるのか！」と、", _jsx(_components.strong, {
+        children: "見慣れた町も旅行気分"
+      }), " になります。", _jsx(_components.br, {}), "\nぜひ、お散歩のお供に使ってみてはいかがでしょうか？"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト29日目: 散歩コース生成のリニューアル\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260829/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"散歩コース生成\",\"散歩\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260829/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260829/\",\"description\":\"現在地から出発し、元の場所へ戻る散歩コースを生成し、Google Mapsで案内するアプリ、「散歩コース生成」をリニューアルをしました！🎉 https://my-walker.vercel.app?utm_source=silverbir\",\"datePublished\":\"2026-08-29T20:39:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":454,"publishedAt":"2026-08-29T20:39:00+09:00","tags":["個人開発"],"title":"ブローガスト29日目: 散歩コース生成のリニューアル"},"navigation":{"next":{"href":"/blog/contents/20260830","publishedAt":"2026-08-30T22:00:00+09:00","title":"ブローガスト30日目: いつも通りの日曜日、幸せな1日"},"prev":{"href":"/blog/contents/20260828","publishedAt":"2026-08-28T20:15:00+09:00","title":"ブローガスト28日目: ブリタからユタカの水へ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"},{"publishedAt":"2026-08-31T21:07:00+09:00","slug":"20260831","summary":"なんとなく、これまで作ったWebアプリたちを振り返ります。 こぶりー つくるきっかけは、個人ブログが好きな私がいろんな個人ブログを読みたい、というのがありました。 当初は、RSSリーダー の個人ブログ版 みたいな位置付けで考えていました。","tags":["個人開発"],"title":"ブローガスト31日目: 作ったWebアプリたちを振り返る"},{"publishedAt":"2026-08-17T21:16:00+09:00","slug":"20260817","summary":"久々に体重をはかると、約8kg増えていました。 暴食しすぎた節があるので「まあそうだろうなぁ」と冷静になりました。 前回は防風通聖散 という武器を使ってダイエットしていましたが、 今回は有酸素運動、ランニングをやろうと思います。 ランニング","tags":["個人開発"],"title":"ブローガスト17日目: 体重8kg増、ランニングで思考がトトノウ"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260829/","slug":"20260829"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

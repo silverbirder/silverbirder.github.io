@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T17a1,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "前回同様、今回は『カラー・アクセシビリティ』の本の書籍レビューを書きます。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://book.mynavi.jp/ec/products/detail/id=138894",
+      title: "カラー・アクセシビリティ|マイナビブックス",
+      description: "アクセシビリティのために、色についてきちんと知ろう",
+      siteName: "book.mynavi.jp",
+      faviconSrc: "/link-card/2301beacbf66d1d6328194f1cfeffc0a7b65c92964be280fd5f66dc7af6b2e0d.ico",
+      thumbnailSrc: "/link-card/8650d10173aeae9c384c65e670b7a5cc9ab1670bf74a7ada77e8d03e6e0c5d05.jpg"
+    }), "\n", _jsx(_components.h2, {
+      id: "色盲",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#色盲",
+        children: "色盲"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["色盲の人は、日本では男性の約5％（20人に1人）、女性の約0.2％（500人に1人）と割合でいるようです。", _jsx(_components.br, {}), "\n色盲には以下の種類があるようです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "第1色盲: 赤・オレンジ・黄の明度が弱く感じる"
+      }), "\n", _jsx(_components.li, {
+        children: "第2色盲: 緑・黄・赤の範囲の色が区別しにくい"
+      }), "\n", _jsx(_components.li, {
+        children: "第3色盲: 青色と緑色、黄色と紫色が混同する"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、加齢に伴う色の識別能力も低下するらしいです。", _jsx(_components.br, {}), "\n珍しいものではなく、身近なものと認識するとよさそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "コントラスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コントラスト",
+        children: "コントラスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["色のコントラストを上げると、色盲関係なく文字が読みやすくなります。", _jsx(_components.br, {}), "\n明暗で差をつけたり、補色で色を分けたり、寒暖で色を分けたり、彩度で色を分けたり、", _jsx(_components.br, {}), "\nさまざま方法があります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また、これは大事だなと思ったのが ", _jsx(_components.strong, {
+        children: "グレースケール"
+      }), " でデザインを確認することです。", _jsx(_components.br, {}), "\nグレースケールすると、無彩色になるのでそれでも読めるデザインは色に依存していないと判断できます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テクニック",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テクニック",
+        children: "テクニック"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "色だけで区別するようなデザインは避けましょう。"
+    }), "\n", _jsxs(_components.p, {
+      children: ["ECサイトで服を購入する際に、色の選択がある場合は 色だけの選択肢ではなく、", _jsx(_components.br, {}), "\nその色を表す名前（個性的なものではなく一般的な名前）を一緒にあると良さそうです。", _jsx(_components.br, {}), "\nグラフの表示には色だけでなく形や模様を分けておくと良いでしょう。", _jsx(_components.br, {}), "\n他には、リンクテキストには色だけで区別するのではなく ", _jsx(_components.strong, {
+        children: "アンダー線など形をつけること"
+      }), " （ホバー時ではなく常に）や、", _jsx(_components.br, {}), "\nフォームの必須要素には 必須 と明記すること などが挙げられていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["色だけで特別な意味を持つ UI というのは色に見慣れている人にはなかなか気づきにくいのかもしれないです。", _jsx(_components.br, {}), "\nそういうときに、グレースケールで確認すると気づくことができるため、", _jsx(_components.strong, {
+        children: "グレースケール"
+      }), " の確認は大事と思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["色に加えて文字や線など記号をつけることが大事ですが、", _jsx(_components.br, {}), "\n路面図のような複雑な絵については 記号の表現方法も凝る必要があります。", _jsx(_components.br, {}), "\n良い勉強になりました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト14日目: 『カラー・アクセシビリティ』を読みました。\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260814/opengraph-image.png\"],\"keywords\":[\"書籍レビュー\",\"アクセシビリティ\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260814/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260814/\",\"description\":\"前回同様、今回は『カラー・アクセシビリティ』の本の書籍レビューを書きます。 https://book.mynavi.jp/ec/products/detail/id=138894 色盲 色盲の人は、日本では男性の約5％（20人に1人）、女性\",\"datePublished\":\"2026-08-14T20:29:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":439,"publishedAt":"2026-08-14T20:29:00+09:00","tags":["書籍レビュー"],"title":"ブローガスト14日目: 『カラー・アクセシビリティ』を読みました。"},"navigation":{"next":{"href":"/blog/contents/20260815","publishedAt":"2026-08-15T21:29:00+09:00","title":"ブローガスト15日目: 『ウェブ配色 決める! チカラ』を読みました。"},"prev":{"href":"/blog/contents/20260813","publishedAt":"2026-08-13T20:31:00+09:00","title":"ブローガスト13日目: 『いろいろな、いろ』を読みました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-08-15T21:29:00+09:00","slug":"20260815","summary":"前回同様、昔読んだけど感想が残せていない以下の本『ウェブ配色 決める! 』について、 簡単に感想をまとめておこうと思います。 https://www.color-fortuna.com/writing/deciding-power-for-","tags":["書籍レビュー"],"title":"ブローガスト15日目: 『ウェブ配色 決める! チカラ』を読みました。"},{"publishedAt":"2026-08-13T20:31:00+09:00","slug":"20260813","summary":"前回同様、過去読んだ本の書籍レビューを残したいため、 今回は『いろいろな、いろ』 について書き残そうと思います。 https://ingectar-e.com/books/iroironairo あまり書けることがありませんでした...。","tags":["書籍レビュー"],"title":"ブローガスト13日目: 『いろいろな、いろ』を読みました。"},{"publishedAt":"2026-08-12T20:04:00+09:00","slug":"20260812","summary":"前回同様、過去読んだ本の書籍レビューを残したいため、 今回は『あたらしい、あしらい。』 について書き残そうと思います。 https://ingectar-e.com/books/atarashiiashirai あしらい あしらいとは装飾や","tags":["書籍レビュー"],"title":"ブローガスト12日目: 『あたらしい、あしらい。』を読みました。"}],"tag":"書籍レビュー"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260814/","slug":"20260814"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

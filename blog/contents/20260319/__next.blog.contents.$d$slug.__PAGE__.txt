@@ -1,0 +1,117 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1aab,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["私は、AI エージェントのマルチタスクをしたことがない人です。", _jsx(_components.br, {}), "\nそのため、この記事はただの偏見です。", _jsx(_components.br, {}), "\n定量的なデータも示さないため、ふわふわとしたポエムです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "マルチタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マルチタスク",
+        children: "マルチタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["複数のタスクを並列で進めるとします。", _jsx(_components.br, {}), "\nWeb開発者であれば、AI エージェントを使ったタスクとして様々なものがあります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "新機能実装"
+      }), "\n", _jsx(_components.li, {
+        children: "不具合の調査"
+      }), "\n", _jsx(_components.li, {
+        children: "ちょっとした改善"
+      }), "\n", _jsx(_components.li, {
+        children: "ライブラリメンテナンス"
+      }), "\n", _jsx(_components.li, {
+        children: "リファクタリング"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何も考えないようなタスクであれば、マルチタスクとして動かすのは良い手と思います。", _jsx(_components.br, {}), "\nしかし、それ以外のタスクというのは人間の確認が入ります。", _jsx(_components.br, {}), "\n（何も考えないタスクも、軽く人間の確認はあるかと思いますが）"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『これこれ間違っているので、こう修正して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『不具合が解消されていないです、こう直して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『テストが意味を成していないです、こう修正して』"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それぞれのタスクには、それぞれのコンテキストが存在します。", _jsx(_components.br, {}), "\nそのコンテキストを踏まえた上で、タスクの成果物に人間が確認しなければいけません。", _jsx(_components.br, {}), "\nそれをスイッチしながら並列的に作業するのって、かなり大変そうな印象です...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["人間のキャパシティ的に記憶できる量が限られているので並列数に上限はあるだろうし、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "記憶を蘇らせる作業"
+      }), " というのは、相当な負荷がかかりそうです。", _jsx(_components.br, {}), "\nその高負荷の中、タスクの確認作業をしないといけないのですが、確認の質も低下しそうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["タスクを5個6個と同時に並列で進めれるため、初期進捗を出す量とスピードは圧倒的かなと思いますが、", _jsx(_components.br, {}), "\nタスク完了するまでの坂登りは質もスピードも低下しないか？と疑問に感じます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "シングルタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#シングルタスク",
+        children: "シングルタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["シングルタスクに慣れている人は多いかと思います。", _jsx(_components.br, {}), "\n1つ1つタスクをこなしていくため、コンテキストスイッチせずに集中して ", _jsx(_components.strong, {
+        children: "深く潜る"
+      }), " ことができます。", _jsx(_components.br, {}), "\nタスクの確認も記憶が鮮明にあるので、100%の力で確認できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つのタスクを終えると達成感があり、次のタスクへと向かいます。", _jsx(_components.br, {}), "\nタスクをこなすことで経験が積まれるため、次のタスクへの効率が良くなります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかしマルチタスクに比べるとシングルタスクの場合、初動のタスク進捗度は低いと思います。", _jsx(_components.br, {}), "\nシングルタスクで1つ2つとこなしている間に、マルチタスクは4つ5つと進めているからです。", _jsx(_components.br, {}), "\nけれど、先ほども説明した通りマルチタスクの坂登りに時間がかかる一方で、シングルタスクは効率よく進んでいきます。", _jsx(_components.br, {}), "\nまあ、人間ですのでシングルタスクでも何度も続けていると疲労は蓄積されますが...。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果として、以下の印象があります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "全タスクが完了するタイミングは、シングルもマルチもそう変わらない"
+      }), "\n", _jsx(_components.li, {
+        children: "品質で言うとシングルの方が上"
+      }), "\n", _jsx(_components.li, {
+        children: "疲労度はマルチの方が上"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["以上、ただの偏見でした。", _jsx(_components.br, {}), "\nマルチエージェント、使ってみた方が良いのでしょうか？"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIエージェント、マルチよりシングルの方が効率良いのでは\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260319/opengraph-image.png\"],\"keywords\":[\"AI\",\"雑談\",\"仕事\",\"AIエージェント\",\"シングルエージェント\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"description\":\"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI\",\"datePublished\":\"2026-03-19\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":291,"publishedAt":"2026-03-19","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},"navigation":{"next":{"href":"/blog/contents/20260320","publishedAt":"2026-03-20","title":"『Webブラウザエンジニアリング』第1~3章を読みました。"},"prev":{"href":"/blog/contents/20260318","publishedAt":"2026-03-18","title":"Webフロントエンドのコードレビューメモ2"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"},{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-28T20:10:00+09:00","slug":"20260628","summary":"この記事をかくときは、100%人の手で書いています。 UIをつくるときも、100%人の手で書いています。 （ロジックは AI に書かせます） 他にはプレゼンテーションやスライドといった書き物も、 コンテンツ準備は AI にさせますが、文章を","tags":["仕事","AI"],"title":"人が読む見る箇所は、人の手がここちよい"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-09-06T20:32:00+09:00","slug":"20260906","summary":"今日は2トピックを書こうと思います。 爆音花火 地元のお祭りに行ってきました。 お祭りの最後に花火をあげるのですが、爆音の音楽（J-POP）を流しながら見る形式でした。 滋賀に来てこれで3回目の花火だったのですが、過去3回とも同じ形式でした","tags":["雑談"],"title":"爆音花火 / こぶりー マイページ"},{"publishedAt":"2026-09-04T20:58:00+09:00","slug":"20260904","summary":"今日、ロピア 彦根ナフコ店 がオープンしました！🎉 滋賀県初上陸です！！！ https://news.yahoo.co.jp/articles/42e97a43ba389d117d916250be9c9c37ce1ff764 https:","tags":["雑談"],"title":"ロピア 彦根ナフコ店 オープン！"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"}],"tag":"雑談"},{"posts":[{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"},{"publishedAt":"2026-08-07T20:55:00+09:00","slug":"20260807","summary":"今お世話になっている職場とも、来年2月出産に備えて手前で休むことになります。 出産後に復帰させてもらえるのか不透明なのと、ちょうど良い区切りでもあるので、職を探しています。 人に寄り添うUIデザイン 私は主にWebフロントエンドでお仕事させ","tags":["仕事"],"title":"ブローガスト7日目: お仕事ありますか？"},{"publishedAt":"2026-08-04T20:44:00+09:00","slug":"20260804","summary":"最近お仕事で、エラートラッキングツールでお馴染みの Sentry を使ったエラー調査が捗りました。 その出来事を書こうと思います。 調査はしんどい 緊急性が高くないケースの調査をしていたのですが、ほったらかしにしていた大量のissueを捌い","tags":["仕事"],"title":"ブローガスト4日目: Sentry 調査が捗った話"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260319/","slug":"20260319"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

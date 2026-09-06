@@ -1,0 +1,117 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T14cc,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Mac で作業中に『ディスク容量がいっぱいです』という通知が飛んできました。", _jsx(_components.br, {}), "\nえ？と思い見てみると ", _jsx(_components.strong, {
+        children: "\"使用済み: 440GB / 全体: 489GB\""
+      }), " と空き容量 49GB になっていました。", _jsx(_components.br, {}), "\nそんなバカな！？と驚き、諸々整えていくと ", _jsx(_components.strong, {
+        children: "約275GB"
+      }), " 削除しました。", _jsx(_components.br, {}), "\nやったことについて、まとめておきました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "内訳",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#内訳",
+        children: "内訳"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "消した容量は、以下の内訳の通りです。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["パッケージ管理\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "~/.npm: 72GB"
+          }), "\n", _jsx(_components.li, {
+            children: "~/.asdf: 7GB"
+          }), "\n", _jsx(_components.li, {
+            children: "mise 古いランタイム: 2GB"
+          }), "\n", _jsx(_components.li, {
+            children: "pnpm 未使用パッケージ: 5GB"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["キャッシュ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Docker cache: 18GB"
+          }), "\n", _jsx(_components.li, {
+            children: "~/Library/Caches: 21GB"
+          }), "\n", _jsx(_components.li, {
+            children: "VSCode cache/history: 4GB"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["モバイルアプリ\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "iOSシミュレータ(CoreSimulator): 29GB"
+          }), "\n", _jsx(_components.li, {
+            children: "Android SDK / NDK: 7GB"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsx(_components.li, {
+        children: "GitHubリポジトリ: 65GB"
+      }), "\n", _jsx(_components.li, {
+        children: "ドットフォルダ: 45GB"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["72GB って...どんだけ使ってんねん...！", _jsx(_components.br, {}), "\nみなさん、定期的にお掃除ましょうね。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "少し詳しく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#少し詳しく",
+        children: "少し詳しく"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["基本的にキャッシュデータが一番大きいです。", _jsx(_components.br, {}), "\nnpm や Docker、Library（Macのアプリたち）がドンドンと溜まって行ったのです。", _jsx(_components.br, {}), "\nLibrary においては、既にアンインストールしたアプリのデータも残っていました。", _jsx(_components.br, {}), "\nドットフォルダももう入れていないアプリの残骸とかが溜まっていました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に大きかったのは、シミュレータ系です。", _jsx(_components.br, {}), "\niOS や Android のシミュレータで未使用なものが溜まっていました。", _jsx(_components.br, {}), "\nなんなら、XCode をアンインストールしていたのに iOSのシミュレータは直接消せない（保護されている）ため、", _jsx(_components.br, {}), "\nXCodeを入れてシミュレータ消してXCode消して、なんてこともしました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["あとはGitHubリポジトリですが、これらはケースバイケースでした。", _jsx(_components.br, {}), "\n永遠と蓄積されていたignore系ファイルが溜まっていたので、消したというのがメインです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "定期的にストレージを見直しましょうね。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト16日目: Mac ストレージを約275GB削除した話\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260816/opengraph-image.png\"],\"keywords\":[\"雑談\",\"ストレージ\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260816/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260816/\",\"description\":\"Mac で作業中に『ディスク容量がいっぱいです』という通知が飛んできました。 え？と思い見てみると \\\"使用済み: 440GB / 全体: 489GB\\\" と空き容量 49GB になっていました。 そんなバカな！？と驚き、諸々整えていくと 約2\",\"datePublished\":\"2026-08-16T11:28:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":441,"publishedAt":"2026-08-16T11:28:00+09:00","tags":["雑談"],"title":"ブローガスト16日目: Mac ストレージを約275GB削除した話"},"navigation":{"next":{"href":"/blog/contents/20260817","publishedAt":"2026-08-17T21:16:00+09:00","title":"ブローガスト17日目: 体重8kg増、ランニングで思考がトトノウ"},"prev":{"href":"/blog/contents/20260815","publishedAt":"2026-08-15T21:29:00+09:00","title":"ブローガスト15日目: 『ウェブ配色 決める! チカラ』を読みました。"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-06T20:32:00+09:00","slug":"20260906","summary":"今日は2トピックを書こうと思います。 爆音花火 地元のお祭りに行ってきました。 お祭りの最後に花火をあげるのですが、爆音の音楽（J-POP）を流しながら見る形式でした。 滋賀に来てこれで3回目の花火だったのですが、過去3回とも同じ形式でした","tags":["雑談"],"title":"爆音花火 / こぶりー マイページ"},{"publishedAt":"2026-09-04T20:58:00+09:00","slug":"20260904","summary":"今日、ロピア 彦根ナフコ店 がオープンしました！🎉 滋賀県初上陸です！！！ https://news.yahoo.co.jp/articles/42e97a43ba389d117d916250be9c9c37ce1ff764 https:","tags":["雑談"],"title":"ロピア 彦根ナフコ店 オープン！"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260816/","slug":"20260816"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

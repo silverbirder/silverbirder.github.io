@@ -1,0 +1,86 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T14e2,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["私の愛車は日産の軽自動車デイズです。", _jsx(_components.br, {}), "\n日産から車検のハガキがきましたので、車を預けてきました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "jaf",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#jaf",
+        children: "JAF"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["JAFからメッセージが届きました。", _jsx(_components.br, {}), "\n「継続更新の手続きでハガキを郵送したけど弊社に返ってきたので、住所変更しましたか？」", _jsx(_components.br, {}), "\nとのこと。", _jsx(_components.br, {}), "\n電話番号を調べるとJAFだったので、間違いなさそうです。", _jsx(_components.br, {}), "\n住所変更をWebでしようとすると、会員番号が必要のようです。", _jsx(_components.br, {}), "\n私は、それに見覚えがありませんでした。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["たまたま車検だったので、日産に行って担当の人に聞きました。", _jsx(_components.br, {}), "\nそしたら「電話でできますよ、今日は休みなので明日電話してみては」とのこと。", _jsx(_components.br, {}), "\n自宅に帰り、車を購入したときに貰った大きな封筒の中を漁ってみると、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "未開封のJAFの封筒"
+      }), " がありました...!", _jsx(_components.br, {}), "\nその中にJAFのカードがあったので、無事手続き完了しました。", _jsx(_components.br, {}), "\nもしJAFへロードサービス依頼した際、会員番号が不明なら氏名電話番号などで照合するそうです。", _jsx(_components.br, {}), "\nいやぁ... JAFカードを財布のカードケースに入れておきました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "代車",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#代車",
+        children: "代車"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["車検で車が2日ほど預けることになります。", _jsx(_components.br, {}), "\n本来は1日で良いのですが、預ける時間が遅すぎたので2日になるようです。", _jsx(_components.br, {}), "\nオペレータの方に「代車はいかがですか？」と聞かれます。", _jsx(_components.br, {}), "\n私は、ドライブは好きなのですが運転は苦手です。", _jsx(_components.br, {}), "\n「同じコンパクトカーあったりしますか？」と尋ねるとないそうです。", _jsx(_components.br, {}), "\n大きい車なら手配できるのですが、正直不安です。", _jsx(_components.br, {}), "\nそのため、代車は借りずにしました。", _jsx(_components.br, {}), "\n慣れない車でぶつけたりしそうで...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "バッテリー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#バッテリー",
+        children: "バッテリー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["車検で車を見てもらうと「走行距離が短すぎて、バッテリー交換した方が良いですよ」とのことです。", _jsx(_components.br, {}), "\n年間1万キロの走行距離が一般的とのことですが、私は半分ぐらいの走行距離のようです。", _jsx(_components.br, {}), "\n車を購入して3年ほど経っていて、4年ぐらいで交換がよくあるとのことなので、交換をしてもらいました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["昔 冬の日に原付のバッテリーが上がってエンジンがかからず歩いて帰ったことがあるので、", _jsx(_components.br, {}), "\n車のバッテリーがあがるとどうなるのでしょうか。", _jsx(_components.br, {}), "\nエンジンがなかなかかからない？"]
+    }), "\n", _jsx(_components.p, {
+      children: "バッテリーの交換は依頼しておきました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["明日、車を取りに行ってきます。", _jsx(_components.br, {}), "\n綺麗にもどっておいでよ！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト24日目: 日産と車検\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260824/opengraph-image.png\"],\"keywords\":[\"車\",\"車検\",\"JAF\",\"バッテリー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260824/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260824/\",\"description\":\"私の愛車は日産の軽自動車デイズです。 日産から車検のハガキがきましたので、車を預けてきました。 JAF JAFからメッセージが届きました。 「継続更新の手続きでハガキを郵送したけど弊社に返ってきたので、住所変更しましたか？」 とのこと。 電\",\"datePublished\":\"2026-08-24T21:05:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":449,"publishedAt":"2026-08-24T21:05:00+09:00","tags":["車"],"title":"ブローガスト24日目: 日産と車検"},"navigation":{"next":{"href":"/blog/contents/20260825","publishedAt":"2026-08-25T20:40:00+09:00","title":"ブローガスト25日目: ミューテーションテストのキルゼロテスト"},"prev":{"href":"/blog/contents/20260823","publishedAt":"2026-08-23T21:25:00+09:00","title":"ブローガスト23日目: お金は使ってナンボ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-25T20:11:00+09:00","slug":"20260725","summary":"朝のテレビ番組で、車内の熱を放出するのに外気導入が良いとのことを知りました。 そんな機能 みたことないよ！と思って、車内のモニター周りを見るとありました...！ 外気導入 車には外気へ繋がる通気口みたいなのがあって、 そこを外気導入ONにす","tags":["車"],"title":"車の外気導入"},{"publishedAt":"2026-05-27T20:08:00+09:00","slug":"20260527","summary":"運転していると、さまざまな譲り合いに遭遇します。 細い道路で対向車が通行するために左側に車を寄せて道を譲ると 対向車の運転手からハンドジェスチャーで「ありがとう」としてくれます。 コンビニなどから車が道路へ出る際に、道を譲ると コンビニから","tags":["車"],"title":"運転中、譲り合いのやりとりが好き"},{"publishedAt":"2026-03-01","slug":"20260301","summary":"もう雪は降らないので、冬用タイヤを夏用タイヤに履き替えました。 せっかくなので、8ヶ月ぶりに洗車しました。 ガソスタの洗車は使わずに、マンションの駐車場で一人でやりました。 準備したもの 準備したものは、以下のとおりです。 バケツ 2つ タ","tags":["車"],"title":"8ヶ月ぶりの洗車"}],"tag":"車"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260824/","slug":"20260824"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

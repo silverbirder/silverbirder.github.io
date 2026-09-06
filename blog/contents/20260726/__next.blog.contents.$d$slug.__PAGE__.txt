@@ -1,0 +1,92 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T12e0,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    img: "img",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "スマイルスライム アイストレー が届いたので、さっそく氷を作ってみました！"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://store.jp.square-enix.com/estore/g/gMW60539-3/",
+      title: "スマイルスライム　アイストレー: ゲームシリーズ | スクウェア・エニックス e-STORE",
+      description: "立体的な「スライム」の形をした氷が一度に3つ作れちゃう、かわいいアイストレーです",
+      siteName: "store.jp.square-enix.com",
+      faviconSrc: "/link-card/7cf83db17ccc3e444868f77ad3750f46e60e43d2438248b65649d2c40c89aa48.ico",
+      thumbnailSrc: "/link-card/42b3afa36e84cf65c0a56a21f976c9b3668e35eb515517a730a3ec135bcb28e2.jpg"
+    }), "\n", _jsxs(_components.p, {
+      children: ["アイストレーに水を入れて、冷凍庫で冷やします。", _jsx(_components.br, {}), "\n水を入れすぎるとうまくいかないので、少なめが良さそうです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "凍ったら、容器をキッチンに移動させました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1785067666/silver-birder.github.io/blog/kkiskmibcdqdfao0mwqz.jpg?ar=1280%3A960",
+        alt: "スマイルスライム アイストレー 1"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "容器は2つの蓋で重なっているので、片方を外します。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1785067711/silver-birder.github.io/blog/w87mwxhmx6phqrmyszpw.jpg?ar=1280%3A960",
+        alt: "スマイルスライム アイストレー 2"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "氷がついている方の蓋を、お皿などの上におきます。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1785067751/silver-birder.github.io/blog/qfoog8igkpegtlfwcq6p.jpg?ar=1280%3A960",
+        alt: "スマイルスライム アイストレー 3"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "蓋の端を持って、力を加えて氷を取り出します。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1785067817/silver-birder.github.io/blog/de2brewyxnmsznoeoylc.jpg?ar=1280%3A960",
+        alt: "スマイルスライム アイストレー 4"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["スライム型の氷ができました！🎉", _jsx(_components.br, {}), "\nかわいい〜〜〜！！！", _jsx(_components.br, {}), "\n少し水をつけるなどして溶かすと、", _jsx(_components.br, {}), "\nスライムのフォルムがツルツル滑って気持ちいいです。"]
+    }), "\n", _jsx(_components.p, {
+      children: "あとは、コップに氷と水を入れて頂きました。"
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1785067925/silver-birder.github.io/blog/sghwdyvsoahmrefbqrdi.jpg?ar=1280%3A1707",
+        alt: "お冷"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["難しいのが、水を入れる量と取り出す力加減です。", _jsx(_components.br, {}), "\n水が多すぎると、取り出す時にスライムの型に水の板がひっついちゃいました。", _jsx(_components.br, {}), "\n取り出す力が強すぎたり、方向を間違えるとスライムが半分こになっちゃいました。", _jsx(_components.br, {}), "\nむずかし〜！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"スマイルスライム アイストレー、氷作ってみた！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260726/opengraph-image.png\"],\"keywords\":[\"趣味\",\"スマイルスライム アイストレー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260726/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260726/\",\"description\":\"スマイルスライム アイストレー が届いたので、さっそく氷を作ってみました！ https://store.jp.square-enix.com/estore/g/gMW60539-3/ アイストレーに水を入れて、冷凍庫で冷やします。 水を入れ\",\"datePublished\":\"2026-07-26T21:02:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":420,"publishedAt":"2026-07-26T21:02:00+09:00","tags":["趣味"],"title":"スマイルスライム アイストレー、氷作ってみた！"},"navigation":{"next":{"href":"/blog/contents/20260727","publishedAt":"2026-07-27T19:53:00+09:00","title":"魔のつわりピークを超えた"},"prev":{"href":"/blog/contents/20260725","publishedAt":"2026-07-25T20:11:00+09:00","title":"車の外気導入"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-08-22T20:15:00+09:00","slug":"20260822","summary":"今日の投稿で、連続投稿300日目です。 もう2ヶ月続ければ、1年です！ 連続投稿して気づいたことについて、書こうと思います。 ネタは尽きない 連続投稿7日目ぐらいに、書くネタが尽きるかなと思っていました。 田舎暮らしだし、外出も多くないし、","tags":["趣味","雑談"],"title":"ブローガスト22日目: 連続投稿300日目"},{"publishedAt":"2026-08-01T20:32:00+09:00","slug":"20260801","summary":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』のふくびきを引いてきました！ https://www.jp.square-enix.com/goods/kuji/fukubiki40th/ 一人最大5回まで引けるので、5回全部引","tags":["趣味"],"title":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』戦利品"},{"publishedAt":"2026-07-13T20:31:00+09:00","slug":"20260713","summary":"今週発売の『週刊少年ジャンプ 2026年33号』が、どこのコンビニに行っても売り切れてました。 「あれ？珍しいな」と思い、ネットで検索するとワンピースの付録カードがあったのですね。 それで買い占めがあって、どのコンビニでも完売と張り出されて","tags":["趣味"],"title":"週刊少年ジャンプ 2026年33号 が見つからない"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260726/","slug":"20260726"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

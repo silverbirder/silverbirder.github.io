@@ -1,0 +1,163 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T271a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "なんとなく、これまで作ったWebアプリたちを振り返ります。"
+    }), "\n", _jsx(_components.h2, {
+      id: "こぶりー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#こぶりー",
+        children: "こぶりー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["つくるきっかけは、個人ブログが好きな私がいろんな個人ブログを読みたい、というのがありました。", _jsx(_components.br, {}), "\n当初は、RSSリーダー の個人ブログ版 みたいな位置付けで考えていました。", _jsx(_components.br, {}), "\n最終的には、個人ブログのキュレーションサイト、という位置に着地しました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kobliy.vercel.app/",
+      title: "こぶりー",
+      description: "個人ブログを見つけて、読んで、シェアするための小さなライブラリです。",
+      siteName: "kobliy.vercel.app",
+      faviconSrc: "/link-card/c34e29a39c7b8a3831da0b5e3c430512dbb5ad99ca9f3f0607b1958c7abe446c.png",
+      thumbnailSrc: "/link-card/e93a5021bd9a51ebc86d4c488da076913a0d4b27ca813b1c130b19a7db1b09bf.png"
+    }), "\n", _jsx(_components.p, {
+      children: "当初は、ネイティブアプリ（Android）を考えていて、色々敷居が高かったので断念しました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "散歩コース生成",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#散歩コース生成",
+        children: "散歩コース生成"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["つくるきっかけは、時間があれば散歩していた私向けに、私の知らない散歩コースがほしい、じゃあ作ろうとなりました。", _jsx(_components.br, {}), "\n散歩コースのルート生成の設計を大事にしながら、無料でできる範囲で実装できる！と判明し、完成させました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://my-walker.vercel.app/",
+      title: "散歩コース生成",
+      description: "現在地から出発し、同じ場所に戻ってくる散歩コースをGoogle Mapで案内します",
+      siteName: "my-walker.vercel.app",
+      faviconSrc: "/link-card/d76a90101a73bc0fe76f6b851b3acf47a7cb5d9f81db270d8cf115aa8a4bb35e.png",
+      thumbnailSrc: "/link-card/b16b7697638c51f1779e8bc8cab5fa93fc4cf8063612c32fc46430f9ca4ec0b7.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["見慣れた町も冒険できる、私の良い相棒になっていて、", _jsx(_components.br, {}), "\nアクセス数がダントツ1位です。", _jsx(_components.br, {}), "\n最近、UIをリニューアルしました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "こつこつ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#こつこつ",
+        children: "こつこつ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["なんでもこつこつ記録するアプリ、というので作りました。", _jsx(_components.br, {}), "\nたぶん3年ぐらい前?に作っていて、いまだに現役です。", _jsx(_components.br, {}), "\nアクセス数は、多分私だけです。笑"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://kotsu-kotsu.vercel.app/",
+      title: "こつこつ",
+      description: "こつこつ記録するだけ",
+      siteName: "kotsu-kotsu.vercel.app",
+      faviconSrc: "/link-card/12a990b8a9c8babf2cc245451afa32c7fab03b654d4da275e2c704e41a1311fd.png",
+      thumbnailSrc: "/link-card/8c42c15110892a8c7c3fd8a7635261979a4a80fd22585749ca7a08fcc865f356.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["これの良いところは、記録するフォーマットを自由に作れる というところです。", _jsx(_components.br, {}), "\nそして、作ったフォーマットで記録したらいい感じのグラフで可視化できるのです。", _jsx(_components.br, {}), "\n「コンタクトを変えた日」とか「筋トレした内容」とか「蚊を倒した日」とかを記録していました。", _jsx(_components.br, {}), "\nコンタクトを変えた日って、2weekのコンタクトの場合、いつ捨てたか忘れる時があるので重宝しています。", _jsx(_components.br, {}), "\n蚊を倒した日は、蚊対策のグッズを入れる前と入れた後で変わったか（減ってくれていると嬉しい）というのを知りたいので記録していました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人的には通知機能やデータ出力が欲しいなと思うので、", _jsx(_components.br, {}), "\nまたいつか作り直そうかなと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "絵文字ルーレット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#絵文字ルーレット",
+        children: "絵文字ルーレット"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["ルーレットを回すだけのアプリです。", _jsx(_components.br, {}), "\n絵文字をセットして、ルーレットを回します。", _jsx(_components.br, {}), "\n職場で朝会当番を決めるのに使っていました。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://emoji-roulette.vercel.app/",
+      title: "Emoji Roulette",
+      description: "Spin the wheel of emojis!",
+      siteName: "emoji-roulette.vercel.app",
+      faviconSrc: "/link-card/cea55083a07c72a89e7550371c66ae18e87b0621543ad7ed020113d7701e9106.ico",
+      thumbnailSrc: "/link-card/c5ac04b1816db71c9062e913d523a5743a81d112e831f790009f59d21ae9ccaf.png"
+    }), "\n", _jsx(_components.p, {
+      children: "今は、あまり使わなくなりました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "その他",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#その他",
+        children: "その他"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google のアクティビティログを可視化するWebアプリ「ActivityViz」", _jsx(_components.br, {}), "\nデータは全てブラウザ内に完結するのが特徴。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://actviz.vercel.app/",
+      title: "ActivityViz",
+      description: "Googleマイアクティビティを可視化します。",
+      siteName: "actviz.vercel.app",
+      faviconSrc: "/link-card/50b3dec615b0ca35a1cb6fbeb0437a58be96ddf808b56d1d44d2a382dc5dc5a3.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["プロダクトごとにフィーチャーリクエストを投稿・管理するWebアプリ「Fequest」", _jsx(_components.br, {}), "\nプロダクトごとにURLを発行し、投稿ページと管理ページを用意しています。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://fequest.vercel.app/",
+      title: "Fequest",
+      description: "ほしいとつくるを共有するプラットフォーム",
+      siteName: "fequest.vercel.app",
+      faviconSrc: "/link-card/ae774c03c1ab60b103ac0b35bc3002668f93e3dd2dee99a355140ebc95c630d7.png",
+      thumbnailSrc: "/link-card/6fa14c185d5036f2e76030e7285e5817d7fd22a7a28154a6bee8d38bdfab1234.png"
+    }), "\n", _jsx(_components.p, {
+      children: "遊びに行きたい場所を探すWebアプリ「どこいこ」\nキーワードから、GoogleとYahooのスポットが地図で見れるように。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://dokoiko.vercel.app/",
+      title: "どこいこ",
+      description: "あなたの行きたい場所を見つけるためのアプリです。",
+      siteName: "dokoiko.vercel.app",
+      faviconSrc: "/link-card/a01f834fad2decaef6b268c8e700d4429b460c1b9d905f11aaa3fb929f78458f.png",
+      thumbnailSrc: "/link-card/54d5a9c4c2258794b1be556825d385713e8f01d5504860243b6ee719c734f262.png"
+    }), "\n", _jsx(_components.p, {
+      children: "※ 他にも「Vlog」「タイアップ検索」「ぼちぼち」「元とらなアカン」など色々作りました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["いまのところ「こぶりー」「散歩コース生成」は頻繁にメンテナンスしています。", _jsx(_components.br, {}), "\nここのブログサイト「ジブンノート」は毎日ブログ記事投稿しています。", _jsx(_components.br, {}), "\n「こつこつ」はリニューアルしたいなと思うし、他にもやりたいことがいろいろあります。", _jsx(_components.br, {}), "\n個人開発は、やっぱり楽しいものですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト31日目: 作ったWebアプリたちを振り返る\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260831/opengraph-image.png\"],\"keywords\":[\"個人開発\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260831/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260831/\",\"description\":\"なんとなく、これまで作ったWebアプリたちを振り返ります。 こぶりー つくるきっかけは、個人ブログが好きな私がいろんな個人ブログを読みたい、というのがありました。 当初は、RSSリーダー の個人ブログ版 みたいな位置付けで考えていました。\",\"datePublished\":\"2026-08-31T21:07:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":456,"publishedAt":"2026-08-31T21:07:00+09:00","tags":["個人開発"],"title":"ブローガスト31日目: 作ったWebアプリたちを振り返る"},"navigation":{"next":{"href":"/blog/contents/20260901","publishedAt":"2026-09-01T21:30:00+09:00","title":"妊娠5ヶ月目、うんこマッサージ"},"prev":{"href":"/blog/contents/20260830","publishedAt":"2026-08-30T22:00:00+09:00","title":"ブローガスト30日目: いつも通りの日曜日、幸せな1日"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"},{"publishedAt":"2026-08-29T20:39:00+09:00","slug":"20260829","summary":"現在地から出発し、元の場所へ戻る散歩コースを生成し、Google Mapsで案内するアプリ、「散歩コース生成」をリニューアルをしました！🎉 https://my-walker.vercel.app?utm_source=silverbir","tags":["個人開発"],"title":"ブローガスト29日目: 散歩コース生成のリニューアル"},{"publishedAt":"2026-08-17T21:16:00+09:00","slug":"20260817","summary":"久々に体重をはかると、約8kg増えていました。 暴食しすぎた節があるので「まあそうだろうなぁ」と冷静になりました。 前回は防風通聖散 という武器を使ってダイエットしていましたが、 今回は有酸素運動、ランニングをやろうと思います。 ランニング","tags":["個人開発"],"title":"ブローガスト17日目: 体重8kg増、ランニングで思考がトトノウ"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260831/","slug":"20260831"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

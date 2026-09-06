@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T141a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["今日は何も変わったことがない、いつも通りの日曜日でした。", _jsx(_components.br, {}), "\nそんな \"いつも通り\" という日に、なぜか幸せ（？）というか 満ちた（？）気分でいっぱいになりました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "いつも通りの1日",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#いつも通りの1日",
+        children: "いつも通りの1日"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["いつも通りの時間帯で起床して、月末の掃除をササっと片付けて、", _jsx(_components.br, {}), "\n妻と一緒に朝の鬼滅の刃を見て、妻の職場まで車で送った後、", _jsx(_components.br, {}), "\nドライブで少し離れたショッピングモールで探し物（骨盤ベルト）を探して帰宅。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["帰宅後に食事を取り ぼーっとしたら、妻の職場の近くまで車を運んで、ぶらぶら散歩。", _jsx(_components.br, {}), "\n少し出店があったので、人がいつもより少し多くて賑やかでした。", _jsx(_components.br, {}), "\nお迎え連絡がきたら、いつもの駐車場で待ち合わせしてそのまま帰宅。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["帰宅したら、妻は少し眠った後 またショッピングモールに行ってサイゼリアで食事。", _jsx(_components.br, {}), "\n夜の20時頃にショッピングモールをでたら、24時間テレビがフィナーレっぽくて、", _jsx(_components.br, {}), "\n流し見しながら帰宅。"]
+    }), "\n", _jsx(_components.p, {
+      children: "VIVANT を見ながら、お風呂に入った後 いつも通りブログ記事を書いています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "心が満ちてた",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#心が満ちてた",
+        children: "心が満ちてた"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["なぜかわからないのですが、心が満ちた幸せ（？）な日でした。", _jsx(_components.br, {}), "\n朝の挨拶、私も妻も健康で自立していて、電気やガス、水道が通っている。", _jsx(_components.br, {}), "\n空調は涼しくて、過ごしやすい部屋になっています。", _jsx(_components.br, {}), "\n天気は晴れいていて、外に出るといつも通りの景色。", _jsx(_components.br, {}), "\nショッピングモールに行くと、賑やかな雰囲気でたくさんの人がいました。", _jsx(_components.br, {}), "\n帰宅後の駐車場に着いたら、鈴虫の声が心地よいリズムで鳴いています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["少し客観視、というか俯瞰したようなそんな目線になっていて、", _jsx(_components.br, {}), "\n「なんだかこんな日って、めっちゃ良いよな」と思うのでした。", _jsx(_components.br, {}), "\n\"いつも通り\" というのは、良いものなんだなと。", _jsx(_components.br, {}), "\nとても満足した、そんな1日を過ごしました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "たまに嫌な気分",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#たまに嫌な気分",
+        children: "たまに嫌な気分"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私はたまにネガティブな嫌な気分に取り憑かれることがあって、", _jsx(_components.br, {}), "\nそういう日は 元気がありません。", _jsx(_components.br, {}), "\n今日のこの良い気分を容器につめて、嫌な気分になったらその気分を取り出して元気になりたいな。笑", _jsx(_components.br, {}), "\n何か失敗しても仕事がなくなっても、なんとかなりそうだという気分です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "明日も、いつも通りの月曜日を過ごしましょう。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"9D_YjMr8ebFIuGJXfbg3v","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ブローガスト30日目: いつも通りの日曜日、幸せな1日\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260830/opengraph-image.png\"],\"keywords\":[\"雑談\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260830/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260830/\",\"description\":\"今日は何も変わったことがない、いつも通りの日曜日でした。 そんな \\\"いつも通り\\\" という日に、なぜか幸せ（？）というか 満ちた（？）気分でいっぱいになりました。 いつも通りの1日 いつも通りの時間帯で起床して、月末の掃除をササっと片付けて、\",\"datePublished\":\"2026-08-30T22:00:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":455,"publishedAt":"2026-08-30T22:00:00+09:00","tags":["雑談"],"title":"ブローガスト30日目: いつも通りの日曜日、幸せな1日"},"navigation":{"next":{"href":"/blog/contents/20260831","publishedAt":"2026-08-31T21:07:00+09:00","title":"ブローガスト31日目: 作ったWebアプリたちを振り返る"},"prev":{"href":"/blog/contents/20260829","publishedAt":"2026-08-29T20:39:00+09:00","title":"ブローガスト29日目: 散歩コース生成のリニューアル"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-06T20:32:00+09:00","slug":"20260906","summary":"今日は2トピックを書こうと思います。 爆音花火 地元のお祭りに行ってきました。 お祭りの最後に花火をあげるのですが、爆音の音楽（J-POP）を流しながら見る形式でした。 滋賀に来てこれで3回目の花火だったのですが、過去3回とも同じ形式でした","tags":["雑談"],"title":"爆音花火 / こぶりー マイページ"},{"publishedAt":"2026-09-04T20:58:00+09:00","slug":"20260904","summary":"今日、ロピア 彦根ナフコ店 がオープンしました！🎉 滋賀県初上陸です！！！ https://news.yahoo.co.jp/articles/42e97a43ba389d117d916250be9c9c37ce1ff764 https:","tags":["雑談"],"title":"ロピア 彦根ナフコ店 オープン！"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260830/","slug":"20260830"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -27,6 +27,13 @@ export default async function RootLayout({ children }: Props) {
   const messages = await getMessages();
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <link href="https://github.com/silverbirder" rel="me" />
+        <link
+          href="https://webmention.io/silverbirder.github.io/webmention"
+          rel="webmention"
+        />
+      </head>
       <body className={`${kleeOne.className} ${kleeOne.variable}`}>
         <Provider>
           <NextIntlClientProvider messages={messages}>

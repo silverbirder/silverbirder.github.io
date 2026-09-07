@@ -69,12 +69,27 @@ describe("RootLayout", () => {
     expect(element.type).toBe("html");
     expect(element.props.lang).toBe("ja");
 
-    const bodyElement = element.props.children;
+    const htmlChildren = React.Children.toArray(element.props.children);
+    const bodyElement = htmlChildren.find(
+      (child) => isValidElement(child) && child.type === "body",
+    );
 
-    expect(bodyElement.type).toBe("body");
-    expect(bodyElement.props.className).toBe("klee-font klee-font-variable");
+    expect(isValidElement(bodyElement)).toBe(true);
+    if (!isValidElement(bodyElement)) {
+      throw new Error("Body element is missing");
+    }
+    const bodyReactElement = bodyElement as React.ReactElement<{
+      children: ReactNode;
+      className: string;
+    }>;
+    expect(bodyReactElement.type).toBe("body");
+    expect(bodyReactElement.props.className).toBe(
+      "klee-font klee-font-variable",
+    );
 
-    const bodyChildren = React.Children.toArray(bodyElement.props.children);
+    const bodyChildren = React.Children.toArray(
+      bodyReactElement.props.children,
+    );
     const uiProviderCandidate = bodyChildren[0];
 
     expect(isValidElement(uiProviderCandidate)).toBe(true);
@@ -151,7 +166,10 @@ describe("RootLayout", () => {
     }
 
     const htmlElement = element as React.ReactElement<{ children: ReactNode }>;
-    const bodyElement = htmlElement.props.children;
+    const htmlChildren = React.Children.toArray(htmlElement.props.children);
+    const bodyElement = htmlChildren.find(
+      (child) => isValidElement(child) && child.type === "body",
+    );
     expect(isValidElement(bodyElement)).toBe(true);
     if (!isValidElement(bodyElement)) {
       throw new Error("Body element is missing");

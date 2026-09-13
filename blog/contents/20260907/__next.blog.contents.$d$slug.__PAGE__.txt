@@ -1,0 +1,120 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1d1a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Testcontainers + Playwright + Cucumber.js による受け入れテストを、公私ともに活用しています。", _jsx(_components.br, {}), "\n運用していて気づいた点について、また書き残そうと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "開発pr単位でe2eテスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#開発pr単位でe2eテスト",
+        children: "開発PR単位でE2Eテスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["これはTestcontainers 導入初期から設定しているもので、", _jsx(_components.br, {}), "\nGitHub Actions などのCI経由で E2Eテストを動かせます。", _jsx(_components.br, {}), "\n依存関係アップデートツール によるPRや開発PRの単位で E2Eテストを回せるのは、", _jsx(_components.br, {}), "\nかなり早い段階で不具合を発見できるため良いです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "さまざまな機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#さまざまな機能",
+        children: "さまざまな機能"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Playwright を使えば、", _jsx(_components.strong, {
+        children: "カメラで何かをスキャンする"
+      }), " といった操作も GitHub Actions 経由でもテストできました。", _jsx(_components.br, {}), "\n外部デバイスってどうなんだろうなと思ってたのですが、できてびっくりです。", _jsx(_components.br, {}), "\nブラウザの時間やDockerのシステム時刻を変更すれば、タイムトラベルできました。", _jsx(_components.br, {}), "\nメールやバッチ処理もキックできるため、送信されたメール件数や内容も確認できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Playwright で使用するレンダリングエンジン Chromium、WebKit、Firefox を選べるため、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "クロスブラウザテスト"
+      }), " もできます。", _jsx(_components.br, {}), "\nビューポートも変えることができるため、スマホ、タブレット、ラップトップ、デスクトップと ", _jsx(_components.strong, {
+        children: "クロスデバイステスト"
+      }), " もできます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "さまざまな非機能",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#さまざまな非機能",
+        children: "さまざまな非機能"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "さまざまな非機能テストも PR単位で短時間で検証できます。"
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "パフォーマンステスト"
+      }), " が実現できます。", _jsx(_components.br, {}), "\nブラウザの描画パフォーマンスとして、どれぐらい遅いのかテストすることができます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "負荷テスト"
+      }), " も実現できます。", _jsx(_components.br, {}), "\nvegeta や k6 を Dockerfile として使用して、対象箇所（API、ブラウザ）に負荷をかけるテストもできます。", _jsx(_components.br, {}), "\n本番環境と同等のマシンスペックは GitHub Actions では用意するとお金がかかるので、", _jsx(_components.br, {}), "\nスケールダウンして検証するとよいです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "カオステスト"
+      }), " も実現できます。", _jsx(_components.br, {}), "\nDocker の一部の箇所を高負荷にして処理不能に追い込んだ際の挙動を確認する、というのもできます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "aiモンキーテスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#aiモンキーテスト",
+        children: "AIモンキーテスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI の力を借りれば、", _jsx(_components.strong, {
+        children: "モンキーテスト"
+      }), " もできます。", _jsx(_components.br, {}), "\n画面を操作するための Page Object Model があれば、操作可能です。", _jsx(_components.br, {}), "\nDBに投入するシードデータも Testcontainers 内で自由に制御できるため、必要なものは整えれます。", _jsx(_components.br, {}), "\nそれらの情報をもとに、Claude や Codex 等の AI にデータを渡して自由に Cucumber.js のシナリオを作成させます。", _jsx(_components.br, {}), "\nそのシナリオを実行させてどうなるか、というモンキーテストも実現できました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "単体テストを処分",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#単体テストを処分",
+        children: "単体テストを処分"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["特に個人開発においては、単体テストは処分しました。", _jsx(_components.br, {}), "\nAI によって、E2Eテスト作成は圧倒的に早くなりました。", _jsx(_components.br, {}), "\nAI量産写経単体テストは、プロダクションコードを正として書かれるため、プロダクションコードがバグっていても気づけませんでした。", _jsx(_components.br, {}), "\nTestcontainers E2Eテストの場合は、必ず ", _jsx(_components.strong, {
+        children: "動画ファイル"
+      }), " をつけるようにしているので、", _jsx(_components.br, {}), "\nテストが成功した場合の動画を見て判断しています。", _jsx(_components.br, {}), "\nもちろん、意図しない無理やりE2Eテストもできなくはないので、レビューは欠かせません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "こんなにも幅広い柔軟性の高い設計ができるなんて、少し自慢したくなり本記事を書きました。（笑）"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"gd3FrDmEZ1FqfSYf-sNCp","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Testcontainersで開発PR単位にE2Eテストなど\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260907/opengraph-image.png\"],\"keywords\":[\"テスト\",\"Testcontainers\",\"Playwright\",\"Cucumber.js\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260907/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260907/\",\"description\":\"Testcontainers + Playwright + Cucumber.js による受け入れテストを、公私ともに活用しています。 運用していて気づいた点について、また書き残そうと思います。 開発PR単位でE2Eテスト これはTestc\",\"datePublished\":\"2026-09-07T20:49:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":463,"publishedAt":"2026-09-07T20:49:00+09:00","tags":["テスト"],"title":"Testcontainersで開発PR単位にE2Eテストなど"},"navigation":{"next":{"href":"/blog/contents/20260908","publishedAt":"2026-09-08T21:47:00+09:00","title":"Webmention 使ってみた"},"prev":{"href":"/blog/contents/20260906","publishedAt":"2026-09-06T20:32:00+09:00","title":"爆音花火 / こぶりー マイページ"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-08-25T20:40:00+09:00","slug":"20260825","summary":"テストコードをテストする、ミューテーションテスト。 プロダクションコードを突然変異でコードを書き換えたら（ミューテーション）、テストが失敗してくれるかどうか。 失敗するということは、不具合を検知できたということです。 ミューテーションする箇","tags":["テスト"],"title":"ブローガスト25日目: ミューテーションテストのキルゼロテスト"},{"publishedAt":"2026-07-08T20:25:00+09:00","slug":"20260708","summary":"お仕事先のWebアプリケーションに、Testcontainersを導入運用して数ヶ月経過しました。 良い点と困る点について、書き残しておきます。 前提 簡単な前提として、バックエンドDB・APIとフロントエンドの3層構成のよくあるWebアプ","tags":["テスト"],"title":"Testcontainers運用経験から分かった、良い点・困る点"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260907/","slug":"20260907"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

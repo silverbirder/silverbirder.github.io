@@ -1,0 +1,124 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T19f3,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["Webmention というのを最近知りました。", _jsx(_components.br, {}), "\n名前の通り、Web 上でメンションすることができます。", _jsx(_components.br, {}), "\n受信側、送信側、どちらも対応したので感想を残そうと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "webmention-ざっくりと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#webmention-ざっくりと",
+        children: "Webmention ざっくりと"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Web AサイトにBサイトのリンクをつけると、", _jsx(_components.br, {}), "\nBサイト側に「Aサイトからリンクされたよ」と通知を受け取る仕組みです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["その通知の仕組みは簡単で「AからBに、決まった形式でHTTP POSTする」だけです。", _jsx(_components.br, {}), "\nどこにPOSTするかというと、Bサイトの ", _jsx(_components.code, {
+        children: "rel=\"webmention\""
+      }), " の link属性のhrefに送ります。", _jsx(_components.br, {}), "\nこの仕様は、W3C勧告されたものになります。", _jsx(_components.br, {}), "\n決まった形式は、以下の2つを送ります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "source: リンクしている側のURL（Aサイト）"
+      }), "\n", _jsx(_components.li, {
+        children: "target: リンクされた側のURL（Bサイト）"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "実装してみた",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実装してみた",
+        children: "実装してみた"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["実装してみたといっても、自分の手でやっていないので理解負債が貯まっています。笑", _jsx(_components.br, {}), "\nWebmentionをする側（送信する側）は、個人ブログキュレーションサイト ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app",
+        children: "こぶりー"
+      }), " にしました。", _jsx(_components.br, {}), "\nこのサイトにはさまざまな個人ブログ記事を紹介しているため、丁度良い検証になります。", _jsx(_components.br, {}), "\nやっていることは上記のセクションで書いた通りで、"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["ブログ記事のデータ追加処理中に、それがWebmention対応かどうかチェックする（", _jsx(_components.code, {
+          children: "rel=\"webmention\""
+        }), "）"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["Webmention 対応のサイトがあれば、POST送信先（href）に ", _jsx(_components.code, {
+          children: "source"
+        }), " ", _jsx(_components.code, {
+          children: "target"
+        }), " を付与して送信"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["だけです。", _jsx(_components.br, {}), "\nWebmentionをされる側（受信側）は、このジブンノートのサイトを対象にしました。", _jsx(_components.br, {}), "\nこのサイトは静的ページでホスティングされているだけのため、サーバは保持していません。", _jsx(_components.br, {}), "\nそこで、", _jsx(_components.a, {
+        href: "https://webmention.io",
+        children: "webmention.io"
+      }), " という外部サービスに代行して貰います。", _jsx(_components.br, {}), "\n私の場合は GitHub Pages だったため、以下の手順で登録が簡単でした。"]
+    }), "\n", _jsxs(_components.ol, {
+      children: ["\n", _jsxs(_components.li, {
+        children: [_jsx(_components.code, {
+          children: "<link href=\"https://github.com/<ユーザー名>\" rel=\"me\">"
+        }), " をつける"]
+      }), "\n", _jsx(_components.li, {
+        children: "GitHub の自身のプロフィールに公開しているサイトを設定する"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["上記を完了すると、Webmention でジブンノートへ通知されると、どこからメンションされたか見れるようになります。", _jsx(_components.br, {}), "\n今は、", _jsx(_components.a, {
+        href: "https://webmention.io",
+        children: "webmention.io"
+      }), " のサイトから一覧で見るようにしていますが、", _jsx(_components.br, {}), "\nWeb Hook が提供されているため通知をフックに Slack通知などにすることもできそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "実際にメンションできたか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#実際にメンションできたか",
+        children: "実際にメンションできたか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["いまのところ、ジブンノートを含めて3サイトしかありませんでした。笑", _jsx(_components.br, {}), "\nあまり普及していないみたいなので、増えていくと良いなと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["SNS に依存しない、インターネットの昔ながらのハイパーリンクで繋がるインディーウェブな世界、", _jsx(_components.br, {}), "\n広がれ〜！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"gd3FrDmEZ1FqfSYf-sNCp","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webmention 使ってみた\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260908/opengraph-image.png\"],\"keywords\":[\"フロントエンド\",\"個人開発\",\"Webmention\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260908/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260908/\",\"description\":\"Webmention というのを最近知りました。 名前の通り、Web 上でメンションすることができます。 受信側、送信側、どちらも対応したので感想を残そうと思います。 Webmention ざっくりと Web AサイトにBサイトのリンクをつ\",\"datePublished\":\"2026-09-08T21:47:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":464,"publishedAt":"2026-09-08T21:47:00+09:00","tags":["フロントエンド","個人開発"],"title":"Webmention 使ってみた"},"navigation":{"next":{"href":"/blog/contents/20260909","publishedAt":"2026-09-09T21:26:00+09:00","title":"男の子と戌の日"},"prev":{"href":"/blog/contents/20260907","publishedAt":"2026-09-07T20:49:00+09:00","title":"Testcontainersで開発PR単位にE2Eテストなど"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"},{"publishedAt":"2026-06-03T09:33:00+09:00","slug":"20260603","summary":"最近のお悩みは、Webのソフトウェア開発におけるテストコードが爆増したことにより、 テスト成功による過度な安心感 によって手動確認するのが減っているのかもと思ったりしています。 例えば、Webのフォーム画面に小さな改修があったとして、その修","tags":["AI","フロントエンド"],"title":"念の為に、手動確認をしよう"}],"tag":"フロントエンド"},{"posts":[{"publishedAt":"2026-09-12T20:51:00+09:00","slug":"20260912","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー の検索機能を改善しました。 こぶりー 検索 https://kobliy.vercel.app/search?q=日記&sort=newest 検索対象にブログを含める この改善は","tags":["個人開発"],"title":"こぶりーの検索機能を改善したよ"},{"publishedAt":"2026-09-11T21:07:00+09:00","slug":"20260911","summary":"最近まで、散歩コース生成のアプリに夢中で こぶりーを放置していました。 個人ブログを見つけて読んでシェアするアプリ、こぶりー。 先月に比べてアクセス数などが少し減っていて、リピーターはありがいたいことに一定数いらっしゃいます。 なにかないか","tags":["個人開発","雑談"],"title":"こぶりーを盛り上げたい"},{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260908/","slug":"20260908"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

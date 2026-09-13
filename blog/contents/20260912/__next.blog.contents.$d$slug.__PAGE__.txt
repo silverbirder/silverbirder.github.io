@@ -1,0 +1,93 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Te9a,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    img: "img",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人ブログを見つけて、読んで、シェアするアプリ、", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app",
+        children: "こぶりー"
+      }), " の検索機能を改善しました。"]
+    }), "\n", _jsx(_components.p, {
+      children: _jsx(_components.img, {
+        src: "https://res.cloudinary.com/silverbirder/image/upload/v1789214275/silver-birder.github.io/blog/uqgcj6p32alvtsgsne9n.png?ar=828%3A1792",
+        alt: "こぶりー 検索"
+      })
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://kobliy.vercel.app/search?q=%E6%97%A5%E8%A8%98&sort=newest",
+          children: "https://kobliy.vercel.app/search?q=日記&sort=newest"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "検索対象にブログを含める",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#検索対象にブログを含める",
+        children: "検索対象にブログを含める"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["この改善は、", _jsx(_components.strong, {
+        children: "お問い合わせして頂いた機能"
+      }), " になります。", _jsx(_components.br, {}), "\n従来はブログ記事しか検索結果を表示していませんでしたが、ブログ自体も検索対象に含めるようにしました。", _jsx(_components.br, {}), "\n「私のお気に入りのブログがあるかな？」を調べる際に便利です。", _jsx(_components.br, {}), "\nブログのタイトルやURLを使って検索するようになっています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "並び順に投稿順",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#並び順に投稿順",
+        children: "並び順に投稿順"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["検索した際にキーワードの関連度が高い順に表示していましたが、", _jsx(_components.br, {}), "\n投稿順に並び替える機能を用意しました。", _jsx(_components.br, {}), "\n日記を読みたいなぁと思い検索したものの、", _jsx(_components.strong, {
+        children: "投稿順があるとそのまま読みやすいな"
+      }), " と思ったのが背景です。"]
+    }), "\n", _jsx(_components.p, {
+      children: "※ 補足ですが、実装不備で検索後じゃないと並び順が表示されません、いずれ直します。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "明日も引き続き、こぶりーを改善したいと思います！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"gd3FrDmEZ1FqfSYf-sNCp","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"こぶりーの検索機能を改善したよ\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260912/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"こぶりー\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260912/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260912/\",\"description\":\"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー の検索機能を改善しました。 こぶりー 検索 https://kobliy.vercel.app/search?q=日記&sort=newest 検索対象にブログを含める この改善は\",\"datePublished\":\"2026-09-12T20:51:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":468,"publishedAt":"2026-09-12T20:51:00+09:00","tags":["個人開発"],"title":"こぶりーの検索機能を改善したよ"},"navigation":{"next":{"href":"/blog/contents/20260913","publishedAt":"2026-09-13T21:20:00+09:00","title":"いきつけのスタバ、名付け"},"prev":{"href":"/blog/contents/20260911","publishedAt":"2026-09-11T21:07:00+09:00","title":"こぶりーを盛り上げたい"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-11T21:07:00+09:00","slug":"20260911","summary":"最近まで、散歩コース生成のアプリに夢中で こぶりーを放置していました。 個人ブログを見つけて読んでシェアするアプリ、こぶりー。 先月に比べてアクセス数などが少し減っていて、リピーターはありがいたいことに一定数いらっしゃいます。 なにかないか","tags":["個人開発","雑談"],"title":"こぶりーを盛り上げたい"},{"publishedAt":"2026-09-08T21:47:00+09:00","slug":"20260908","summary":"Webmention というのを最近知りました。 名前の通り、Web 上でメンションすることができます。 受信側、送信側、どちらも対応したので感想を残そうと思います。 Webmention ざっくりと Web AサイトにBサイトのリンクをつ","tags":["フロントエンド","個人開発"],"title":"Webmention 使ってみた"},{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260912/","slug":"20260912"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

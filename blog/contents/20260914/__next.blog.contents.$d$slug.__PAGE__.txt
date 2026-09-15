@@ -1,0 +1,64 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:Tc10,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: [_jsx(_components.a, {
+        href: "https://kobliy.vercel.app/",
+        children: "こぶりー"
+      }), "に表示速度改善のために諸々と修正していました。", _jsx(_components.br, {}), "\n意図せず、Vercelの Edge Requests がホビープランの上限を達してしまい、今朝 Vercel からメールがきていました。", _jsx(_components.br, {}), "\nVercelにホスティングしているアプリ全部が使えなくなってしまったので、急遽 Pro プランを契約して解決しました...。", _jsx(_components.br, {}), "\n午後に落ち着いて原因を確認したら、初歩的なミス（？）をしていて修正して根本原因は解決しました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Testcontainer による主要ルートの機能は全部網羅できていたので問題なかったのですが、", _jsx(_components.br, {}), "\n今回のケースでは検知できませんでした。", _jsx(_components.br, {}), "\n認識できないことは予防しようがないので、リリース後の確認が疎かでした。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "そろそろ移行か",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#そろそろ移行か",
+        children: "そろそろ移行か"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Vercel は now.sh のころからお世話になっていて、私には手に馴染んでるんですよね。", _jsx(_components.br, {}), "\n他に魅力的なサービスもたくさん生まれていますが、とりあえず試すなら Vercel だったんです。", _jsx(_components.br, {}), "\nCloudflare は昔使っていたのですが、MFA 関連でログインできなくなってしまい、それっきり使っていないのです。", _jsx(_components.br, {}), "\n今度こそ、そっちなどにのせかえようかしら。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今日は短めですが、以上になります。", _jsx(_components.br, {}), "\n20$ の勉強代を支払いました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"xSeLMi-58aIvNNoXajEnM","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"アプリを壊して Vercel Pro に課金しちゃった\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260914/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"Vercel\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260914/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260914/\",\"description\":\"こぶりーに表示速度改善のために諸々と修正していました。 意図せず、Vercelの Edge Requests がホビープランの上限を達してしまい、今朝 Vercel からメールがきていました。 Vercelにホスティングしているアプリ全部が\",\"datePublished\":\"2026-09-14T20:59:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":470,"publishedAt":"2026-09-14T20:59:00+09:00","tags":["個人開発"],"title":"アプリを壊して Vercel Pro に課金しちゃった"},"navigation":{"next":{"href":"/blog/contents/20260915","publishedAt":"2026-09-15T20:06:00+09:00","title":"トルネコやヤンガス"},"prev":{"href":"/blog/contents/20260913","publishedAt":"2026-09-13T21:20:00+09:00","title":"いきつけのスタバ、名付け"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-12T20:51:00+09:00","slug":"20260912","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー の検索機能を改善しました。 こぶりー 検索 https://kobliy.vercel.app/search?q=日記&sort=newest 検索対象にブログを含める この改善は","tags":["個人開発"],"title":"こぶりーの検索機能を改善したよ"},{"publishedAt":"2026-09-11T21:07:00+09:00","slug":"20260911","summary":"最近まで、散歩コース生成のアプリに夢中で こぶりーを放置していました。 個人ブログを見つけて読んでシェアするアプリ、こぶりー。 先月に比べてアクセス数などが少し減っていて、リピーターはありがいたいことに一定数いらっしゃいます。 なにかないか","tags":["個人開発","雑談"],"title":"こぶりーを盛り上げたい"},{"publishedAt":"2026-09-08T21:47:00+09:00","slug":"20260908","summary":"Webmention というのを最近知りました。 名前の通り、Web 上でメンションすることができます。 受信側、送信側、どちらも対応したので感想を残そうと思います。 Webmention ざっくりと Web AサイトにBサイトのリンクをつ","tags":["フロントエンド","個人開発"],"title":"Webmention 使ってみた"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260914/","slug":"20260914"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

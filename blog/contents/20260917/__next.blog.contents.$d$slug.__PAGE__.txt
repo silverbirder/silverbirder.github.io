@@ -1,0 +1,114 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1bc6,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["やらかしたので懺悔ポエムです。", _jsx(_components.br, {}), "\n個人開発の規模感ですが、Codex にバリバリ書かせてリリースさせて何回か壊しちゃいました。", _jsx(_components.br, {}), "\nコードの完全理解はしなくても良いかもですが、", _jsx(_components.strong, {
+        children: "見ないより読むべき"
+      }), " だなと思うこの頃です。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "やらかし",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#やらかし",
+        children: "やらかし"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以下の記事のように、Vercel へ過剰なリクエストが発生させてしまい Vercel Pro に課金してしまいました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260914/",
+      title: "アプリを壊して Vercel Pro に課金しちゃった",
+      description: "こぶりーに表示速度改善のために諸々と修正していました。 意図せず、Vercelの Edge Requests がホビープランの上限を達してしまい、今朝 Vercel からメールがきていました。 Vercelにホスティングしているアプリ全部が",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/cf18f1188e7799bea02a2e8899fb8d1cf14d7e10cd74fa4d34e45ce7260a26f8.png"
+    }), "\n", _jsx(_components.p, {
+      children: "他には、"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["大量のDBデータ保存をしてしまい、容量を減らしても無料枠を超えそうになった\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "Supabase で、大量データを追加→削除しても元に戻らないので、postgresqlのバージョン更新をさせてリセットして解決"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["なぞのキャッシュが効いて挙動不安定に陥った\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "基本的にキャッシュしない方針で設計していたが、簡易キャッシュの仕組みが入っていた"
+          }), "\n", _jsx(_components.li, {
+            children: "\"簡易\" \"自前\" で入れがちなのやめてほしい"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["Testcontainers + Playwright + Cucumber.js による 開発PR単位のE2Eテストのおかげで、", _jsx(_components.br, {}), "\n機能動作の担保ができていたため安心感にあぐらをかいていたのです...。", _jsx(_components.br, {}), "\n「E2EテストOK、手元の動作もOK！GO！！！」"]
+    }), "\n", _jsx(_components.h2, {
+      id: "振り返り",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#振り返り",
+        children: "振り返り"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["何をしても完璧に防げたと言えることは、そうないのかなと思いつつ、", _jsx(_components.br, {}), "\nコードの中身を理解しない状態を継続すると、 ", _jsx(_components.strong, {
+        children: "Codex の話すことを鵜呑み"
+      }), " になってしまいます。", _jsx(_components.br, {}), "\nCodex へ質問をすることも ", _jsx(_components.strong, {
+        children: "見当違いなこと"
+      }), " も増え、「え、なんでそうなってるの？」と焦ることもたまにあります。", _jsx(_components.br, {}), "\n理解が浅いシステムに修正指示というのは、未知なほど指示が不正確にアバウトになってしまいます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["まあ個人開発の趣味レベルなので、それでも構わないっちゃかまわないのですが、", _jsx(_components.br, {}), "\nメンテナンスが続かないなぁという感じです。", _jsx(_components.br, {}), "\n1つ直すと3つ壊すみたいな感覚です。（そうなっていないけど）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["やっぱり基本は大事で、コードの完全理解！とまではいかないかもですが、", _jsx(_components.br, {}), "\n何をやっているのか一歩引いて俯瞰的な目で見て内容を把握しておくのは、まだ必要かもなぁと思います。", _jsx(_components.br, {}), "\nもちろん先の発生したケースは、Testcontainers で非機能テストも実現可能です。", _jsx(_components.br, {}), "\n意図しないデータ容量、リクエスト数などを担保する仕組みづくりはできるでしょう。", _jsx(_components.br, {}), "\nその都度より強化なガードレールになるので、安全になるでしょう。", _jsx(_components.br, {}), "\nただ理解が浅いシステムへの修正による暴走は、とりかえしがつかないことも起こり得るし、", _jsx(_components.br, {}), "\n気づくこともできなかったりします。"]
+    }), "\n", _jsx(_components.p, {
+      children: "ということで、落ち着いてコードは読んだ上でマージしようと思います。笑"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["コードを見返すと「え、これ無駄なことを...」と気づくこともあるので、", _jsx(_components.br, {}), "\n私にはまだコードを読む理解は必要のようです...。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"ChNyPGNLpE6Bk8Yv_orbb","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"コードを読むのは大事\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260917/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"ポエム\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260917/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260917/\",\"description\":\"やらかしたので懺悔ポエムです。 個人開発の規模感ですが、Codex にバリバリ書かせてリリースさせて何回か壊しちゃいました。 コードの完全理解はしなくても良いかもですが、見ないより読むべき だなと思うこの頃です。 やらかし 以下の記事のよう\",\"datePublished\":\"2026-09-17T20:52:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":473,"publishedAt":"2026-09-17T20:52:00+09:00","tags":["個人開発"],"title":"コードを読むのは大事"},"navigation":{"next":{"href":"/blog/contents/20260918","publishedAt":"2026-09-18T21:14:00+09:00","title":"古今東西、趣味のためのDB選定"},"prev":{"href":"/blog/contents/20260916","publishedAt":"2026-09-16T22:20:00+09:00","title":"こども用品を揃えに"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-18T21:14:00+09:00","slug":"20260918","summary":"個人開発、趣味としてのアプリ開発において費用をできる限り抑えたいです。 特に課題になるのが DB選定です。 もう耳にタコができるぐらい色々な人が書いていると思いますが、私も書きます。 前提 趣味レベルのDB性能で十分です。 データ容量、処理","tags":["個人開発"],"title":"古今東西、趣味のためのDB選定"},{"publishedAt":"2026-09-14T20:59:00+09:00","slug":"20260914","summary":"こぶりーに表示速度改善のために諸々と修正していました。 意図せず、Vercelの Edge Requests がホビープランの上限を達してしまい、今朝 Vercel からメールがきていました。 Vercelにホスティングしているアプリ全部が","tags":["個人開発"],"title":"アプリを壊して Vercel Pro に課金しちゃった"},{"publishedAt":"2026-09-12T20:51:00+09:00","slug":"20260912","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー の検索機能を改善しました。 こぶりー 検索 https://kobliy.vercel.app/search?q=日記&sort=newest 検索対象にブログを含める この改善は","tags":["個人開発"],"title":"こぶりーの検索機能を改善したよ"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260917/","slug":"20260917"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,129 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1c2f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人開発、趣味としてのアプリ開発において費用をできる限り抑えたいです。", _jsx(_components.br, {}), "\n特に課題になるのが DB選定です。", _jsx(_components.br, {}), "\nもう耳にタコができるぐらい色々な人が書いていると思いますが、私も書きます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "前提",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#前提",
+        children: "前提"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["趣味レベルのDB性能で十分です。", _jsx(_components.br, {}), "\nデータ容量、処理速度、その他諸々 特に求めることはありません。", _jsx(_components.br, {}), "\nレート制限もある程度気にしません。", _jsx(_components.br, {}), "\nただただ、安くデータを永続的に保存できればそれでヨシです。", _jsx(_components.br, {}), "\n私の作るものとして、Web アプリを前提とします。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "スプレッドシート-as-a-db",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#スプレッドシート-as-a-db",
+        children: "スプレッドシート as a DB"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Google スプレッドシートにデータを保存する方法です。", _jsx(_components.br, {}), "\nGoogle スプレッドシートへの参照書き込むできるAPIが存在する（はず）ので、", _jsx(_components.br, {}), "\nそれをクライアントとして使用します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["また似たようなサービスとして、Amazon Athena では S3 にCSVやJSONなどを置いて、", _jsx(_components.br, {}), "\n読み書きすることができます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "オブジェクトストレージ-as-a-db",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#オブジェクトストレージ-as-a-db",
+        children: "オブジェクトストレージ as a DB"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Dropbox や Google Drive などのオブジェクトストレージにデータを保存する方法です。", _jsx(_components.br, {}), "\nDropbox は私が新卒の頃に個人で作ったWebアプリのDBとして使っていた不思議な方法です。（笑）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ブラウザ-as-a-db",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ブラウザ-as-a-db",
+        children: "ブラウザ as a DB"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["DuckDB のように、ブラウザ上にデータを保存する方法です。", _jsx(_components.br, {}), "\n以下は、Google アクティビティデータをブラウザに保存し分析するWebアプリです。", _jsx(_components.br, {}), "\n（動くのかどうか不明です）"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://actviz.vercel.app/",
+      title: "ActivityViz",
+      description: "Googleマイアクティビティを可視化します。",
+      siteName: "actviz.vercel.app",
+      faviconSrc: "/link-card/50b3dec615b0ca35a1cb6fbeb0437a58be96ddf808b56d1d44d2a382dc5dc5a3.png"
+    }), "\n", _jsx(_components.p, {
+      children: "外部通信したくないセンシティブなデータだったので、上記方法を選びました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ソースコード-as-a-db",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ソースコード-as-a-db",
+        children: "ソースコード as a DB"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["プログラムのソースコードに JSON ファイルなどとしてデータを保存する方法です。", _jsx(_components.br, {}), "\nGitHub Gist などでも良いでしょう。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "xaas",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#xaas",
+        children: "XaaS"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Heroku や Fly.io などのアプリ実行環境とDBをまとめて提供する PaaS や、", _jsx(_components.br, {}), "\nSupabase のような バックエンド機能としてDBを提供する BaaS、", _jsx(_components.br, {}), "\nPlanetScale や Neon のような DB専用のサービスを提供する DBaaS、", _jsx(_components.br, {}), "\nVercel や Cloudflare のような DB を含めたサーバーレスなプラットフォーム、", _jsx(_components.br, {}), "\nAWS や Google Cloud のようなインフラ基盤全般を提供するものなど、", _jsx(_components.br, {}), "\nたくさんあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "無料枠があったりなかったり、DBの種類も様々です。"
+    }), "\n", _jsx(_components.h2, {
+      id: "どれが良いか",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#どれが良いか",
+        children: "どれが良いか"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["趣味の範囲なのでなんだって良いのですが、", _jsx(_components.br, {}), "\n突然の値上げが往々にしてあります。", _jsx(_components.br, {}), "\n一部に依存せず分散した方が良いのでしょうが、面倒です。", _jsx(_components.br, {}), "\n好きに選びましょう。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["メモリーにデータ保存させたり、", _jsx(_components.br, {}), "\n(家内Webサービス向けの) ラズパイをDBとしたり。", _jsx(_components.br, {}), "\n皆さんは、何を選びますか？"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"ChNyPGNLpE6Bk8Yv_orbb","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"古今東西、趣味のためのDB選定\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260918/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"DB選定\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260918/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260918/\",\"description\":\"個人開発、趣味としてのアプリ開発において費用をできる限り抑えたいです。 特に課題になるのが DB選定です。 もう耳にタコができるぐらい色々な人が書いていると思いますが、私も書きます。 前提 趣味レベルのDB性能で十分です。 データ容量、処理\",\"datePublished\":\"2026-09-18T21:14:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":474,"publishedAt":"2026-09-18T21:14:00+09:00","tags":["個人開発"],"title":"古今東西、趣味のためのDB選定"},"navigation":{"next":{"href":"/blog/contents/20260919","publishedAt":"2026-09-19T20:53:00+09:00","title":"寝不足でモッタイナイ"},"prev":{"href":"/blog/contents/20260917","publishedAt":"2026-09-17T20:52:00+09:00","title":"コードを読むのは大事"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-17T20:52:00+09:00","slug":"20260917","summary":"やらかしたので懺悔ポエムです。 個人開発の規模感ですが、Codex にバリバリ書かせてリリースさせて何回か壊しちゃいました。 コードの完全理解はしなくても良いかもですが、見ないより読むべき だなと思うこの頃です。 やらかし 以下の記事のよう","tags":["個人開発"],"title":"コードを読むのは大事"},{"publishedAt":"2026-09-14T20:59:00+09:00","slug":"20260914","summary":"こぶりーに表示速度改善のために諸々と修正していました。 意図せず、Vercelの Edge Requests がホビープランの上限を達してしまい、今朝 Vercel からメールがきていました。 Vercelにホスティングしているアプリ全部が","tags":["個人開発"],"title":"アプリを壊して Vercel Pro に課金しちゃった"},{"publishedAt":"2026-09-12T20:51:00+09:00","slug":"20260912","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー の検索機能を改善しました。 こぶりー 検索 https://kobliy.vercel.app/search?q=日記&sort=newest 検索対象にブログを含める この改善は","tags":["個人開発"],"title":"こぶりーの検索機能を改善したよ"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260918/","slug":"20260918"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

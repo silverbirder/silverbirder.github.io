@@ -1,0 +1,59 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T86e,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(LinkCard, {
+      url: "https://w.jgs.me/pages/Webmention%20%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F",
+      title: "Webmention 使ってみた - I am Electrical machine",
+      description: "いまのところ、ジブンノートを含めて3サイトしかありませんでした。笑 あまり普及していないみたいなので、増えていくと良いなと思います。 Webmentionクラブ Webmention 使ってみた https://silverbirder.github.io/blog/contents/20260908/",
+      siteName: "I am Electrical machine",
+      faviconSrc: "/link-card/569e9f3229463ef2328069982adbbd14c32f2041a5b080935be69a7514a5d4d6.ico",
+      thumbnailSrc: "/link-card/77b88469c7fa1176403fb948b0185390fa89e0f9256a24c8d85e48eca70e0221.png"
+    }), "\n", _jsx(_components.p, {
+      children: "以下で確認したところ、今のところ 22件の個人ブログがWebmention対応しているみたいです！"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://kobliy.vercel.app/webmentions",
+          children: "https://kobliy.vercel.app/webmentions"
+        })
+      }), "\n"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"grWnl8f1YlVHzzrAklwTt","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webmention対応ブログは22件のようです！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260921-3/opengraph-image.png\"],\"keywords\":[\"雑談\",\"Webmention\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260921-3/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260921-3/\",\"description\":\"https://w.jgs.me/pages/Webmention%20%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F 以下で確認したところ、今のところ 22件の個人ブログがWebmention対\",\"datePublished\":\"2026-09-21T23:56:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":479,"publishedAt":"2026-09-21T23:56:00+09:00","tags":["雑談"],"title":"Webmention対応ブログは22件のようです！"},"navigation":{"next":{"href":"/blog/contents/20260922","publishedAt":"2026-09-22T21:22:00+09:00","title":"2大巨頭チャイルドシート、天下一品UIデザイン"},"prev":{"href":"/blog/contents/20260921-2","publishedAt":"2026-09-21T23:47:00+09:00","title":"Webmention 届いています！"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-25T21:00:00+09:00","slug":"20260925","summary":"こぶりー でぼーっと眺めていたら、以下の記事を発見しました。 https://tthrr.com/article/2026-09-24/ 「なるほどね。疲れた時に『これやれば自分は元気出るよ』っていうリストか！」 コーピングリストは、元気に","tags":["雑談"],"title":"私のコーピングリスト"},{"publishedAt":"2026-09-21T23:47:00+09:00","slug":"20260921-2","summary":"https://t2aki.doncha.net/?id=3118 Webmention 届いていますよ！🎉 返信してみました！","tags":["雑談"],"title":"Webmention 届いています！"},{"publishedAt":"2026-09-19T20:53:00+09:00","slug":"20260919","summary":"今日の0時ごろ、考え事に夢中になってしまい中々寝れませんでした。 そのため、今日の予定をいろいろキャンセルしてほとんど寝ていました...。 ひゃーモッタイナイ！ カンガエゴト・ダイブ 仕事のこと、個人開発のことなどで、めっちゃ良いアイデアが","tags":["雑談"],"title":"寝不足でモッタイナイ"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260921-3/","slug":"20260921-3"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

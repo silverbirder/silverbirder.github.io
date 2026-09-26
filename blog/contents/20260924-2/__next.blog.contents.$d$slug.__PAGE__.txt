@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+4:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:T5a4,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(LinkCard, {
+      url: "https://weblog.ason.as/%57ebmention%E3%82%AF%E3%83%A9%E3%83%96",
+      title: "Webmentionクラブ",
+      description: "Webmentionのページだよ。 このページのリンクをあなたのサイトに貼ってくれて僕が承認すれば下の方に表示されると思う。",
+      siteName: "weblog.ason.as"
+    }), "\n", _jsxs(_components.p, {
+      children: ["こんにちはー！", _jsx(_components.br, {}), "\nよかったら承認してください！"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"grWnl8f1YlVHzzrAklwTt","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webmentionクラブ\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260924-2/opengraph-image.png\"],\"keywords\":[\"Webmention\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260924-2/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260924-2/\",\"description\":\"https://weblog.ason.as/%57ebmention%E3%82%AF%E3%83%A9%E3%83%96 こんにちはー！ よかったら承認してください！\",\"datePublished\":\"2026-09-24T22:14:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":484,"publishedAt":"2026-09-24T22:14:00+09:00","tags":[],"title":"Webmentionクラブ"},"navigation":{"next":{"href":"/blog/contents/20260925","publishedAt":"2026-09-25T21:00:00+09:00","title":"私のコーピングリスト"},"prev":{"href":"/blog/contents/20260924","publishedAt":"2026-09-24T21:00:00+09:00","title":"個人的CIチェックリスト"}},"relatedPosts":[],"shareUrl":"https://silverbirder.github.io/blog/contents/20260924-2/","slug":"20260924-2"}]],[["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

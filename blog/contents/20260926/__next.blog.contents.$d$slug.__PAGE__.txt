@@ -1,0 +1,87 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T14fb,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "主にネガティブ寄りな話は、チャットより電話の方が解決することが多いなと思います。"
+    }), "\n", _jsx(_components.h2, {
+      id: "母からのline",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#母からのline",
+        children: "母からのLINE"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["母や父からのLINEは、私にとって少し既読するのに躊躇うことが多いです。", _jsx(_components.br, {}), "\n仏教に信心深い両親のため、それに関連する\"お誘い\"などで少し喧嘩に近いやり取りをすることが多いです。", _jsx(_components.br, {}), "\n端的に言うと、", _jsx(_components.strong, {
+        children: "お誘いを断る"
+      }), " と怒られます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["LINE の長文メッセージを受け取るとウッとなっちゃうので、", _jsx(_components.br, {}), "\n電話でやりとりすることにしています。", _jsx(_components.br, {}), "\n良い流れの話だったらチャットでも構わないのですが、", _jsx(_components.br, {}), "\n悪い流れになりそうだったら電話で感情を込めて話します。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["チャットというより、私の言語化が拙いというのが大きいので、", _jsx(_components.br, {}), "\n「あれ、こういうときなんて言えば良いんだ...？」と戸惑い、", _jsx(_components.br, {}), "\n汲み取ってくれるかなと ", _jsx(_components.strong, {
+        children: "直球の文章"
+      }), " を送ったりすると、たまに勘違いして余計炎上しちゃうのです。", _jsx(_components.br, {}), "\nなので電話で話したいことを ", _jsx(_components.strong, {
+        children: "気持ちを込めて伝える"
+      }), " と、だいたいはわかってくれます。", _jsx(_components.br, {}), "\nそして電話をすると、少しスッキリと遺恨なく終えれます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "仕事でも",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#仕事でも",
+        children: "仕事でも"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["仕事では効率を求めることが多いので、非同期的にやりとりしやすいよう、", _jsx(_components.br, {}), "\n言語化してテキストベースで仕事をすることが多いです。", _jsx(_components.br, {}), "\n質問だったり、依頼だったり。", _jsx(_components.br, {}), "\nしかし、（ハドルのような）ビデオ通話で話した方がスムーズにコトが進むこともあります。", _jsx(_components.br, {}), "\n少し否定的（？）な話を伝えるときやセンシティブな話、モヤモヤしたことなどを伝えるときなどです。", _jsx(_components.br, {}), "\n困っていることやお力を借りたい場合などで、状況によってはビデオ通話を選びます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: [_jsx(_components.strong, {
+        children: "テキストだと感情が乗らない"
+      }), " ため、テキストでやりとりするとその裏の感情を邪推してしまって、", _jsx(_components.br, {}), "\n結果よくない方向に向かってしまうこともあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["「ちょっとハドルしても良いですか？」と伺って、言葉を尽くして話すことを心がけています。", _jsx(_components.br, {}), "\n結局のところ、人と人の仕事は ", _jsx(_components.strong, {
+        children: "非合理的な意思決定"
+      }), " を伴うことが多いため、", _jsx(_components.br, {}), "\n外堀りを埋める立ち回りをやっておくと なんかうまくいきます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["昨日母から仏教関連の\"お誘い\"をチャットで断ってしまい、かつ勘違いをさせてしまい、", _jsx(_components.br, {}), "\n「あ、やべ..」とモヤモヤしていました。", _jsx(_components.br, {}), "\n一晩寝かせてしまって「まずいかも...」と心配になり今朝電話をして解決しました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"grWnl8f1YlVHzzrAklwTt","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"チャットより電話\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260926/opengraph-image.png\"],\"keywords\":[\"趣味\",\"チャット\",\"電話\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260926/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260926/\",\"description\":\"主にネガティブ寄りな話は、チャットより電話の方が解決することが多いなと思います。 母からのLINE 母や父からのLINEは、私にとって少し既読するのに躊躇うことが多いです。 仏教に信心深い両親のため、それに関連する\\\"お誘い\\\"などで少し喧嘩に\",\"datePublished\":\"2026-09-26T20:23:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":486,"publishedAt":"2026-09-26T20:23:00+09:00","tags":["趣味"],"title":"チャットより電話"},"navigation":{"prev":{"href":"/blog/contents/20260925","publishedAt":"2026-09-25T21:00:00+09:00","title":"私のコーピングリスト"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-23T21:09:00+09:00","slug":"20260923-2","summary":"https://strata.orito-itsuki.graphics/implement-webmention/ 例えばはてなブックマークとかのコメント欄とかは結構地獄の様相を呈するときもあり 何度か刺されたことがあるので、私はコメント","tags":["趣味"],"title":"Webmention 対応が増えてきた"},{"publishedAt":"2026-08-22T20:15:00+09:00","slug":"20260822","summary":"今日の投稿で、連続投稿300日目です。 もう2ヶ月続ければ、1年です！ 連続投稿して気づいたことについて、書こうと思います。 ネタは尽きない 連続投稿7日目ぐらいに、書くネタが尽きるかなと思っていました。 田舎暮らしだし、外出も多くないし、","tags":["趣味","雑談"],"title":"ブローガスト22日目: 連続投稿300日目"},{"publishedAt":"2026-08-01T20:32:00+09:00","slug":"20260801","summary":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』のふくびきを引いてきました！ https://www.jp.square-enix.com/goods/kuji/fukubiki40th/ 一人最大5回まで引けるので、5回全部引","tags":["趣味"],"title":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』戦利品"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260926/","slug":"20260926"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

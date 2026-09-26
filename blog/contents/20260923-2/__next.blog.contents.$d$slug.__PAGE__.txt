@@ -1,0 +1,55 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T7d9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    blockquote: "blockquote",
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(LinkCard, {
+      url: "https://strata.orito-itsuki.graphics/implement-webmention/",
+      title: "Webmention を実装した - 春告げ抹茶ホイップ",
+      description: "このサイトに Webmention の受信と送信を実装した話。",
+      siteName: "strata.orito-itsuki.graphics",
+      faviconSrc: "/link-card/d115befbae5259df65adf9970bb03ed506f0fec5dafe5b23035d0d63853530a5.svg",
+      thumbnailSrc: "/link-card/93cf4ead89a559d57a395249c4e56cbb04d21582c8698caa38a4d31850534727.png"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "例えばはてなブックマークとかのコメント欄とかは結構地獄の様相を呈するときもあり"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何度か刺されたことがあるので、私はコメントミュートしちゃいました。", _jsx(_components.br, {}), "\nWebmention の場合、コメント表示などコントロール可能なのが良いですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"grWnl8f1YlVHzzrAklwTt","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webmention 対応が増えてきた\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260923-2/opengraph-image.png\"],\"keywords\":[\"趣味\",\"Webmention\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260923-2/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260923-2/\",\"description\":\"https://strata.orito-itsuki.graphics/implement-webmention/ 例えばはてなブックマークとかのコメント欄とかは結構地獄の様相を呈するときもあり 何度か刺されたことがあるので、私はコメント\",\"datePublished\":\"2026-09-23T21:09:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":482,"publishedAt":"2026-09-23T21:09:00+09:00","tags":["趣味"],"title":"Webmention 対応が増えてきた"},"navigation":{"next":{"href":"/blog/contents/20260924","publishedAt":"2026-09-24T21:00:00+09:00","title":"個人的CIチェックリスト"},"prev":{"href":"/blog/contents/20260923","publishedAt":"2026-09-23T20:51:00+09:00","title":"ブラウザの共有先に、こぶりーを追加"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-26T20:23:00+09:00","slug":"20260926","summary":"主にネガティブ寄りな話は、チャットより電話の方が解決することが多いなと思います。 母からのLINE 母や父からのLINEは、私にとって少し既読するのに躊躇うことが多いです。 仏教に信心深い両親のため、それに関連する\"お誘い\"などで少し喧嘩に","tags":["趣味"],"title":"チャットより電話"},{"publishedAt":"2026-08-22T20:15:00+09:00","slug":"20260822","summary":"今日の投稿で、連続投稿300日目です。 もう2ヶ月続ければ、1年です！ 連続投稿して気づいたことについて、書こうと思います。 ネタは尽きない 連続投稿7日目ぐらいに、書くネタが尽きるかなと思っていました。 田舎暮らしだし、外出も多くないし、","tags":["趣味","雑談"],"title":"ブローガスト22日目: 連続投稿300日目"},{"publishedAt":"2026-08-01T20:32:00+09:00","slug":"20260801","summary":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』のふくびきを引いてきました！ https://www.jp.square-enix.com/goods/kuji/fukubiki40th/ 一人最大5回まで引けるので、5回全部引","tags":["趣味"],"title":"『ドラゴンクエストふくびき所スペシャル～40年目の旅立ち～』戦利品"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260923-2/","slug":"20260923-2"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

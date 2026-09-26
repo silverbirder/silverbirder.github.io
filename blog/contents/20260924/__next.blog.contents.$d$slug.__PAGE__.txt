@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2256,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["趣味で作っているWebアプリにて、実装したものを細かくPull Request（以降、PR）を作成します。", _jsx(_components.br, {}), "\nPR に対して、機械的にチェックするCIチェックリストがあります。", _jsx(_components.br, {}), "\n個人的に気に入っているものを紹介します。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "未使用コードの削除",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#未使用コードの削除",
+        children: "未使用コードの削除"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["実装をガンガン進めていくと、", _jsx(_components.strong, {
+        children: "いらなくなったものが溜まりがち"
+      }), " です。", _jsx(_components.br, {}), "\n使われなくなったものを残しておくと、コードメンテナンスで余計なコスト負担になります。", _jsx(_components.br, {}), "\nそこで、以下のものたちをつかって未使用コードを徹底して削除していきます。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "oxlint の未使用コードを検出する仕組み"
+      }), "\n", _jsx(_components.li, {
+        children: "stylelint の未使用スタイルを検出する仕組み"
+      }), "\n", _jsx(_components.li, {
+        children: "..."
+      }), "\n", _jsx(_components.li, {
+        children: "knip の未使用モジュールを検出する仕組み"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ファイルフォルダ構造の制御",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ファイルフォルダ構造の制御",
+        children: "ファイル・フォルダ構造の制御"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つのファイル内での記述構成や、フォルダ内のファイル構成など、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "ルール化して一定のリズムで読みやすい状態"
+      }), " を保ちたいです。", _jsx(_components.br, {}), "\n独自に ", _jsx(_components.strong, {
+        children: "AST解析チェック兼Codemod"
+      }), " を行うスクリプトを入れています。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "最初に定数を宣言して..."
+      }), "\n", _jsx(_components.li, {
+        children: "次にpublicな関数、その次にprivateな関数を宣言して..."
+      }), "\n", _jsx(_components.li, {
+        children: "関数名や変数名はコレコレ..."
+      }), "\n", _jsx(_components.li, {
+        children: "フォルダ内のファイル名の命名規則はコレで..."
+      }), "\n", _jsx(_components.li, {
+        children: "エクスポートはコレコレで..."
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "これは主に私が読みやすいために特化したものなので、自作しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "1ファイル行数制限",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#1ファイル行数制限",
+        children: "1ファイル行数制限"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["昔はあまり好きではなかったのですが、", _jsx(_components.strong, {
+        children: "1ファイルに最大100行"
+      }), " という制限を入れています。", _jsx(_components.br, {}), "\nこれは強制的にファイルを分割することを促すのですが、先のファイル制御を組み合わせれば、", _jsx(_components.br, {}), "\n結構いい感じにファイル分割してくれます。", _jsx(_components.br, {}), "\nまた最近の AI は責務に応じて分割をきれいにしてくれるので、助かっています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["PRをチェックする際、", _jsx(_components.strong, {
+        children: "1PRで最大10ファイル"
+      }), " までと制限をかけているため、", _jsx(_components.br, {}), "\nPR分割も強制的に行われます。", _jsx(_components.br, {}), "\nあとは、スタックされた PR の全体像を見つつ1つずつチェックしていけるので、", _jsx(_components.br, {}), "\nストレスが比較的少なく済みます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "表記揺れの排除",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#表記揺れの排除",
+        children: "表記揺れの排除"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["画面によって ", _jsx(_components.strong, {
+        children: "表示されている文言が違っている"
+      }), "、というのが体験が嫌いなので排除したいです。", _jsx(_components.br, {}), "\n保存するなのか、登録するなのか、ドメイン用語がバラバラだったり...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["そこで、", _jsx(_components.strong, {
+        children: "日本語の言語ファイルを1枚"
+      }), " 用意しています。", _jsx(_components.br, {}), "\n表示するテキストやアラートメッセージなど、ユーザーへ見せる日本語を1つのファイルから必ず参照するようにしています。", _jsx(_components.br, {}), "\n直接日本語を書いたらエラーにするように、独自の静的解析を作っています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "テスト",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#テスト",
+        children: "テスト"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["単体テストコードは、意図的に入れていません。", _jsx(_components.br, {}), "\n（※ なぜそうしたか過去の記事に書いたと思います）", _jsx(_components.br, {}), "\nその代わり、Testcontainers + Playwright + Cucumber.js によるE2Eテストを動かすようにしています。", _jsx(_components.br, {}), "\nテスト環境（DB, サーバ, etc）をDockerベースで構築して、End to End に主要な機能テストを書いています。", _jsx(_components.br, {}), "\nCI 環境（GitHub Actions, CircleCI, ...etc）どこでも動かせるので、必ず PR 時にテストするようにしています。", _jsx(_components.br, {}), "\n並列処理していて、", _jsx(_components.strong, {
+        children: "だいたい5分以内"
+      }), " に終わります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "よくあるやつ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#よくあるやつ",
+        children: "よくあるやつ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["あとは、静的解析やフォーマッタ、型チェック、ビルドなどを入れています。", _jsx(_components.br, {}), "\n静的解析には、SonarQubeのルールセットを入れているので、SonarQubeのよくあるチェックも含まれます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["極限まで私のためのルールを整えておけば、", _jsx(_components.br, {}), "\nPRを読むのがかなり楽になっています。", _jsx(_components.br, {}), "\n自作は今では簡単なので、アイデアさえあればいくらでも最適化できます。", _jsx(_components.br, {}), "\n最後まで読んでいただきありがとうございました。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"grWnl8f1YlVHzzrAklwTt","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"個人的CIチェックリスト\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260924/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"フロントエンド\",\"CI\",\"チェックリスト\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260924/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260924/\",\"description\":\"趣味で作っているWebアプリにて、実装したものを細かくPull Request（以降、PR）を作成します。 PR に対して、機械的にチェックするCIチェックリストがあります。 個人的に気に入っているものを紹介します。 未使用コードの削除 実\",\"datePublished\":\"2026-09-24T21:00:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":483,"publishedAt":"2026-09-24T21:00:00+09:00","tags":["個人開発","フロントエンド"],"title":"個人的CIチェックリスト"},"navigation":{"next":{"href":"/blog/contents/20260924-2","publishedAt":"2026-09-24T22:14:00+09:00","title":"Webmentionクラブ"},"prev":{"href":"/blog/contents/20260923-2","publishedAt":"2026-09-23T21:09:00+09:00","title":"Webmention 対応が増えてきた"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-23T20:51:00+09:00","slug":"20260923","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー に、ちょっとした改善を入れました。 主に運営側向けの機能なので、こぶりーだより ではなく、ここで書きます。笑 ※ 最近ここの境界が曖昧になっていてよろしくない... 共有先にこぶりー","tags":["個人開発"],"title":"ブラウザの共有先に、こぶりーを追加"},{"publishedAt":"2026-09-20T21:14:00+09:00","slug":"20260920","summary":"シルバーウィーク2日目、交通渋滞過ぎて疲労困憊民です。 個人ブログを見つけて、読んで、シェアするアプリ、こぶりー にWebmention対応向けのページを用意しました。 https://kobliy.vercel.app/webmentio","tags":["個人開発"],"title":"Webmention対応ブログたち"},{"publishedAt":"2026-09-18T21:14:00+09:00","slug":"20260918","summary":"個人開発、趣味としてのアプリ開発において費用をできる限り抑えたいです。 特に課題になるのが DB選定です。 もう耳にタコができるぐらい色々な人が書いていると思いますが、私も書きます。 前提 趣味レベルのDB性能で十分です。 データ容量、処理","tags":["個人開発"],"title":"古今東西、趣味のためのDB選定"}],"tag":"個人開発"},{"posts":[{"publishedAt":"2026-09-08T21:47:00+09:00","slug":"20260908","summary":"Webmention というのを最近知りました。 名前の通り、Web 上でメンションすることができます。 受信側、送信側、どちらも対応したので感想を残そうと思います。 Webmention ざっくりと Web AサイトにBサイトのリンクをつ","tags":["フロントエンド","個人開発"],"title":"Webmention 使ってみた"},{"publishedAt":"2026-07-24T20:27:00+09:00","slug":"20260724","summary":"ITヲタクな AI くんにピッタリな仕事の一つは、モジュールアップデート。 特に、メジャーアップデートが超助かる。 昔だったら 数ヶ月掛かった移行も、数日たらずに対応できるようになったので、 さすが ITヲタクくん。 対応してよかったフロー","tags":["AI","フロントエンド"],"title":"モジュールアップデートでやっていること"},{"publishedAt":"2026-06-08T09:05:00+09:00","slug":"20260608","summary":"以下で書いた通り、プロダクトコードを写経したテストコードを削除しました。 \"こぶりー\" ( https://kobliy.vercel.app/ ) という個人ブログを読むアプリのコードです。 https://silverbirder.gi","tags":["AI","フロントエンド","テスト"],"title":"写経テストコードを全部消した"}],"tag":"フロントエンド"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260924/","slug":"20260924"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

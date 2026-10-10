@@ -1,0 +1,112 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1414,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["ネガティブな発言をする人がいるとします。", _jsx(_components.br, {}), "\nその言葉に対して、こちらもマイナスな感情を抱いてしまうことがあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "たとえば、こんな発言です。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "「なんでこんなところにゴミ置いてるんだ（怒り）」"
+      }), "\n", _jsx(_components.li, {
+        children: "「私って、ほんと何もできないや（悲しみ）」"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ネガティブで返してしまうと",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ネガティブで返してしまうと",
+        children: "ネガティブで返してしまうと"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "けれど、その発言に対して、こちらもネガティブな言葉で返してしまうと、気づかないうちに悪循環に陥ってしまいます。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「知らないよ、私に言わないでよ！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「 私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「わかったよ。だから何もしないで！」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "無理にポジティブにならなくていい",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#無理にポジティブにならなくていい",
+        children: "無理にポジティブにならなくていい"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["そうならないように、ネガティブな発言があったとしても、ぐっとこらえて、ネガティブではない言葉を返してみましょう。", _jsx(_components.br, {}), "\n無理にポジティブになる必要はありません。", _jsx(_components.br, {}), "\n淡々とした、ノーマルな言葉で十分です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsxs(_components.li, {
+        children: ["「なんでこんなところにゴミ置いてるんだ（怒り）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「何か急ぎの用事があったのかな？ ゴミは運んでおくよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n", _jsxs(_components.li, {
+        children: ["「私って、ほんと何もできないや（悲しみ）」\n", _jsxs(_components.ul, {
+          children: ["\n", _jsx(_components.li, {
+            children: "→「そんなことないよ。大丈夫だよ」"
+          }), "\n"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "空気は少しずつ変わっていく",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#空気は少しずつ変わっていく",
+        children: "空気は少しずつ変わっていく"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "それだけで、下へ向かっていた空気が、ほんの少しずつ、上へと向きを変えていくはずです。"
+    }), "\n", _jsx(_components.p, {
+      children: "相手は自由に感情を出していて、こちらがこらえる立場になると、もやもやしてしまうこともあるかもしれません。"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、ネガティブなやり取りをさらに膨らませて、結果的に自分まで嫌な気分になるくらいなら、少しでもポジティブに、あるいは笑って終われる着地のほうが、後味はずっと良いのではないかと思います。"
+    }), "\n", _jsx(_components.p, {
+      children: "by みつを"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"niR1Xs7ZG_3skBjt_duiT","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"ネガティブにネガティブを返さない\",\"image\":[\"https://silverbirder.github.io/blog/contents/20251217/opengraph-image.png\"],\"keywords\":[\"雑談\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20251217/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20251217/\",\"description\":\"ネガティブな発言をする人がいるとします。 その言葉に対して、こちらもマイナスな感情を抱いてしまうことがあります。 たとえば、こんな発言です。 「なんでこんなところにゴミ置いてるんだ（怒り）」 「私って、ほんと何もできないや（悲しみ）」 ネガ\",\"datePublished\":\"2025-12-17\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":false,"postNumber":199,"publishedAt":"2025-12-17","tags":["雑談"],"title":"ネガティブにネガティブを返さない"},"navigation":{"next":{"href":"/blog/contents/20251218","publishedAt":"2025-12-18","title":"もし今と違う職業を選ぶとしたら？"},"prev":{"href":"/blog/contents/20251216","publishedAt":"2025-12-16","title":"ジェフグルメカードと株主優待"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-10T21:26:00+09:00","slug":"20261010","summary":"今期の覇権（？）アニメ、FX戦士くるみちゃんの1話と2話を視聴しました。 FXの啓蒙アニメとして、しっかり恐怖を与える良いアニメですね。 開始3分、恐怖の含み損 主人公のくるみちゃんが、FXで売買開始してローソク足が極端に急降下。 恐怖の高","tags":["雑談","趣味"],"title":"FX戦士くるみちゃん、所感"},{"publishedAt":"2026-10-08T20:54:00+09:00","slug":"20261008","summary":"昨日の20時ぐらいに1時間かけて車で帰っていました。 1時間ずっと、助手席にいる妻とずーっと話していました。 なんか話がしやすいんですよね。 なんででしょう。 視界が暗いから 夜の移動だと、視界は基本的に暗いです。 最初は顔を見ずに電話のよ","tags":["雑談"],"title":"夜のドライブは話しやすい"},{"publishedAt":"2026-10-06T20:50:00+09:00","slug":"20261006","summary":"AI 並列作業していると、状況教えてと何度も聞いちゃいます。 覚えれない それぞれの作業がどのような内容かなんとなくは覚えていますが、 並列で作業させると基本的に忘却します。 そうすると「状況教えて」と聞いて進捗を教えてもらいます。 その後","tags":["AI","雑談"],"title":"状況教えてオジサン"}],"tag":"雑談"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20251217/","slug":"20251217"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1525,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "ナイモノは読めないから",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ナイモノは読めないから",
+        children: "ナイモノは読めないから"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["Design Doc のような機能に関する仕様や、", _jsx(_components.br, {}), "\nADR のような全体のアーキテクチャに関する仕様など、", _jsx(_components.br, {}), "\n意思決定は山ほどあります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["作った結果についてはコードベースに残っているため、", _jsx(_components.br, {}), "\n機能の振る舞いや具体的な設計については（AIが）読めばわかります。", _jsx(_components.br, {}), "\nしかし作っていないもの、例えば見送ったものについては読み取ることができません。", _jsx(_components.br, {}), "\n仕様を決めるにあたって、", _jsx(_components.strong, {
+        children: "見送る過程の議論・思考は貴重な情報"
+      }), " で、", _jsx(_components.br, {}), "\nそれを含めて意思決定です。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["この ", _jsx(_components.strong, {
+        children: "ナイモノを言語化して記録"
+      }), " をすることで、人やAIライクに仕事を進めることができます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "リポジトリにコミット",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#リポジトリにコミット",
+        children: "リポジトリにコミット"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["その言語化したテキストは、リポジトリにそのままコミットして残す様にしています。", _jsx(_components.br, {}), "\nこれはリポジトリに入っていることで、わざわざAIにプロンプトチューニングしなくてもそれを踏まえて設計してくれる、", _jsx(_components.br, {}), "\nそんな気がします。（笑）", _jsx(_components.br, {}), "\n（GitHub issueなど外部に纏めるよりもシームレスと思ったり）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["実際私の個人開発において、開発した機能仕様について毎回AIに伝える必要がなくなり、", _jsx(_components.br, {}), "\n機能名を改善する際に文脈コンテキストを踏まえて作ってくれます。", _jsx(_components.br, {}), "\nこれは結構助かりました。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["個人ではなくチームにおいては、さらに良い点があります。", _jsx(_components.br, {}), "\nチームで開発すると効率化を求めると、", _jsx(_components.strong, {
+        children: "情報格差"
+      }), " が生まれる場合があります。", _jsx(_components.br, {}), "\nある人は知っているけど、あの人はしらない。", _jsx(_components.br, {}), "\nそういう情報格差があると、レビュー精度だけでなくコミュニケーションで困ることもあります。", _jsx(_components.br, {}), "\nその情報格差を平すために、この資料を残すことは大事なことと思います。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["意見を募る RFC のファイルも同じくリポジトリにコミットしておくと良いでしょう。", _jsx(_components.br, {}), "\n個々人の意見の集合体が記録されることで、チームとしてはどういう方向に舵を切ったのかを知ることができます。", _jsx(_components.br, {}), "\nどういう考慮があったか、どういう懸念があったか、そういう背景を残すというのは将来の自分たちの首を絞めずに済みます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["資料を書く面倒さは、今の時代はほぼノーコストです。", _jsx(_components.br, {}), "\nメンテナンスしないために、その時点のスナップショットと扱うとやりやすいです。", _jsx(_components.br, {}), "\nぜひ、仕様をリポジトリにコミットしましょう。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"niR1Xs7ZG_3skBjt_duiT","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Design Doc, ADR, RFC\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261009/opengraph-image.png\"],\"keywords\":[\"仕事\",\"個人開発\",\"Design Doc\",\"ADR\",\"RFC\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261009/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261009/\",\"description\":\"趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。 ナイモノは読めないから Design Doc のような機能に関する仕様や、 ADR のような全体のアーキテクチャに関する仕様など、 意思決定は山ほ\",\"datePublished\":\"2026-10-09T21:06:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":499,"publishedAt":"2026-10-09T21:06:00+09:00","tags":["仕事","個人開発"],"title":"Design Doc, ADR, RFC"},"navigation":{"next":{"href":"/blog/contents/20261010","publishedAt":"2026-10-10T21:26:00+09:00","title":"FX戦士くるみちゃん、所感"},"prev":{"href":"/blog/contents/20261008","publishedAt":"2026-10-08T20:54:00+09:00","title":"夜のドライブは話しやすい"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"},{"publishedAt":"2026-08-07T20:55:00+09:00","slug":"20260807","summary":"今お世話になっている職場とも、来年2月出産に備えて手前で休むことになります。 出産後に復帰させてもらえるのか不透明なのと、ちょうど良い区切りでもあるので、職を探しています。 人に寄り添うUIデザイン 私は主にWebフロントエンドでお仕事させ","tags":["仕事"],"title":"ブローガスト7日目: お仕事ありますか？"}],"tag":"仕事"},{"posts":[{"publishedAt":"2026-10-04T21:19:00+09:00","slug":"20261004","summary":"個人ブログを見つけて、読んで、シェアするアプリ こぶりー に、RSSがないブログ も掲載できるようにしました！🎉 別途サイト内お知らせにもお伝えする予定です。 これで（私の）お気に入りのRSSがないブログも、こぶりーで見つけることができる","tags":["個人開発"],"title":"こぶりーに、RSSなしブログを掲載開始！"},{"publishedAt":"2026-09-24T21:00:00+09:00","slug":"20260924","summary":"趣味で作っているWebアプリにて、実装したものを細かくPull Request（以降、PR）を作成します。 PR に対して、機械的にチェックするCIチェックリストがあります。 個人的に気に入っているものを紹介します。 未使用コードの削除 実","tags":["個人開発","フロントエンド"],"title":"個人的CIチェックリスト"},{"publishedAt":"2026-09-23T20:51:00+09:00","slug":"20260923","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー に、ちょっとした改善を入れました。 主に運営側向けの機能なので、こぶりーだより ではなく、ここで書きます。笑 ※ 最近ここの境界が曖昧になっていてよろしくない... 共有先にこぶりー","tags":["個人開発"],"title":"ブラウザの共有先に、こぶりーを追加"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261009/","slug":"20261009"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

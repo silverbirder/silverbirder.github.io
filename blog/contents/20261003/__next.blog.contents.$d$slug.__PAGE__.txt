@@ -1,0 +1,109 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2319,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "個人開発（趣味）レベルですが、テストに対するスタンスについて簡単に書きます。"
+    }), "\n", _jsx(_components.h2, {
+      id: "コードレビュー",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#コードレビュー",
+        children: "コードレビュー"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["物量に圧倒されるプロダクションコードとテストコードをレビューするのは、", _jsx(_components.br, {}), "\n書く工程が減ったため読む深みが浅くなっています。", _jsx(_components.br, {}), "\nDIPやインターフェースを整えたり、純粋関数に寄せたりなど創意工夫を施してテスタビリティを上げても、", _jsx(_components.br, {}), "\n単体テストコードや結合テストコードをノールックに近い見方でレビューする傾向が増えつつあります。"]
+    }), "\n", _jsx(_components.p, {
+      children: "以下の記事のように、プロダクションコードをそのまま写経しただけの単体テストコードは削除しました。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20260531/",
+      title: "テストコードの意味がない",
+      description: "個人開発のバイブコーディングでテストコードを書かせているが意味がなかった。 期待する機能をプロンプトで指示しプロダクションコードが出来上がるが、同時にテストコードも書かせていた。 そのテストコードは、プロダクションコードをそのままテストコー",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/15b372334ea36dc0bc14673e0d84c990ceec60e31cc41fe8bb68f7115718c26f.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["Zod 等のスキーマバリデーションや、", _jsx(_components.br, {}), "\nStorybook アクセシビリティチェックやVRT、", _jsx(_components.br, {}), "\nSonarQubeによるコードチェック、", _jsx(_components.br, {}), "\nミューテーション、モンキー、", _jsx(_components.br, {}), "\n独自AST・Codemod、独自リンターなどで守るべきものは残しています。", _jsx(_components.br, {}), "\n（ここのバリエーションは本当に増えています...）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["最近ではレビュー依頼が来たら3者のAIエージェントにレビューをさせて報告させることが多く、", _jsx(_components.br, {}), "\nUI・UXのレビューチェックは私、と分担することにしています。", _jsx(_components.br, {}), "\n仕様については、Design Doc や ADR などをコードベースにコミットして把握させます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "ciでe2e",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#ciでe2e",
+        children: "CIでE2E"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私のブログで散々書いている Testcontainers + Playwright + Cucumber.js のE2Eテストを、", _jsx(_components.br, {}), "\nCI として動かすようにしています。", _jsx(_components.br, {}), "\nGitHub Action や CircleCI で動かすようにしています。（お金の都合です）"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["単体・結合テストに比べて、E2Eテストは実行時間は確かに遅いですが、", _jsx(_components.br, {}), "\n設計次第で10分前後で終わることが多いです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["メンテナンスコストにおいては、FE・BEを分けた構成なのであれば、", _jsx(_components.br, {}), "\nFE側にPage Object Modelを置いたり、BE側にシードやスクリプトファイルを置くなどして、", _jsx(_components.br, {}), "\n近しい箇所にあればアプリ側の修正と一緒にするなどでコストを下げれます。", _jsx(_components.br, {}), "\nTestcontainers でDB自体も建てるため、基本的に外部依存が少ないため、", _jsx(_components.br, {}), "\nフレーキーになることは少ないです。", _jsx(_components.br, {}), "\nまたエラー発生時のトラブルシューティングも Testcontainers 内部に閉じるので、", _jsx(_components.br, {}), "\nトレースしやすいし、AI にやらせて治させます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["欠点は、真の意味でE2Eテストではないところです。", _jsx(_components.br, {}), "\nGitHub OAuthなどの外部依存する箇所は外部通信をインターセプトしてレスポンスを返すようにしているため、", _jsx(_components.br, {}), "\n外部サービスのレスポンスが変わったり挙動が変わったりといったところには気づけません。", _jsx(_components.br, {}), "\nよくある本番に近い環境で、それらのパターンだけは手動テストする必要は残っています。", _jsx(_components.br, {}), "\n外部依存があると不安定になるため、意図的な設計にしています。", _jsx(_components.br, {}), "\nただし禁止事項は、E2Eテストコード分岐をプロダクションコードに入れないことです。", _jsx(_components.br, {}), "\n先のような外部通信のインターセプトや環境変数による変更のみを許容しています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "動画でチェック",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#動画でチェック",
+        children: "動画でチェック"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["コードレビューは、先ほどのE2Eテストの動作をPlaywrightの動画撮影させてストレージにアップさせます。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "動画なら期待する振る舞いを視覚的に判断できる"
+      }), " ので、それで把握するようにしています。", _jsx(_components.br, {}), "\nもはや自作コストは低くなっているため、影響した箇所の動画だけ見るようにしたり、", _jsx(_components.br, {}), "\nデータベースのデータ変化をグラフィカルに表示するようにするなどで、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "人間が見やすい視覚的な結果をレビュー"
+      }), "することにしてます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["これは扱うプロダクトによっては見るべきものは変わってきますが、", _jsx(_components.br, {}), "\n私の場合は ブラウザ操作の動画を見るだけで十分です。", _jsx(_components.br, {}), "\n振る舞いについては、自然言語でCucumber.jsによるマークダウンファイルを読めば分かるし、", _jsx(_components.br, {}), "\n動画ファイルも添付されているので、それも見ればさらに理解が深まります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["ロジックが複雑な流れになるようなら、mermaidやdrawioなどの図で読めるようにして、", _jsx(_components.br, {}), "\nレビューしやすいような視覚的な表現にしています。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "以上、現時点でのテストへのスタンスでした。"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"niR1Xs7ZG_3skBjt_duiT","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"テストへのスタンス\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261003/opengraph-image.png\"],\"keywords\":[\"テスト\",\"Testcontainers\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261003/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261003/\",\"description\":\"個人開発（趣味）レベルですが、テストに対するスタンスについて簡単に書きます。 コードレビュー 物量に圧倒されるプロダクションコードとテストコードをレビューするのは、 書く工程が減ったため読む深みが浅くなっています。 DIPやインターフェース\",\"datePublished\":\"2026-10-03T21:24:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":493,"publishedAt":"2026-10-03T21:24:00+09:00","tags":["テスト"],"title":"テストへのスタンス"},"navigation":{"next":{"href":"/blog/contents/20261004","publishedAt":"2026-10-04T21:19:00+09:00","title":"こぶりーに、RSSなしブログを掲載開始！"},"prev":{"href":"/blog/contents/20261002","publishedAt":"2026-10-02T20:38:00+09:00","title":"足湯バケツ、健康は足元から"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-09-07T20:49:00+09:00","slug":"20260907","summary":"Testcontainers + Playwright + Cucumber.js による受け入れテストを、公私ともに活用しています。 運用していて気づいた点について、また書き残そうと思います。 開発PR単位でE2Eテスト これはTestc","tags":["テスト"],"title":"Testcontainersで開発PR単位にE2Eテストなど"},{"publishedAt":"2026-08-25T20:40:00+09:00","slug":"20260825","summary":"テストコードをテストする、ミューテーションテスト。 プロダクションコードを突然変異でコードを書き換えたら（ミューテーション）、テストが失敗してくれるかどうか。 失敗するということは、不具合を検知できたということです。 ミューテーションする箇","tags":["テスト"],"title":"ブローガスト25日目: ミューテーションテストのキルゼロテスト"},{"publishedAt":"2026-07-08T20:25:00+09:00","slug":"20260708","summary":"お仕事先のWebアプリケーションに、Testcontainersを導入運用して数ヶ月経過しました。 良い点と困る点について、書き残しておきます。 前提 簡単な前提として、バックエンドDB・APIとフロントエンドの3層構成のよくあるWebアプ","tags":["テスト"],"title":"Testcontainers運用経験から分かった、良い点・困る点"}],"tag":"テスト"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261003/","slug":"20261003"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

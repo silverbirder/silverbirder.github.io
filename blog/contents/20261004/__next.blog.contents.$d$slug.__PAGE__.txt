@@ -1,0 +1,143 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1e3f,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["個人ブログを見つけて、読んで、シェアするアプリ ", _jsx(_components.a, {
+        href: "https://kobliy.vercel.app",
+        children: "こぶりー"
+      }), " に、", _jsx(_components.strong, {
+        children: "RSSがないブログ"
+      }), " も掲載できるようにしました！🎉", _jsx(_components.br, {}), "\n別途サイト内お知らせにもお伝えする予定です。", _jsx(_components.br, {}), "\nこれで（私の）お気に入りのRSSがないブログも、こぶりーで見つけることができるようになり嬉しいです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "仕組み",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#仕組み",
+        children: "仕組み"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["従来、RSSファイルを起点として個人ブログや記事をデータ取り込みしています。", _jsx(_components.br, {}), "\nそのためこの従来のデータ取り込みフローに沿うように、独自にRSSなしブログからRSSファイルを作成・更新します。", _jsx(_components.br, {}), "\nあとは、その独自RSSファイルを従来のデータ取り込みフローに任せるため、既存のフローをシンプルに保てます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "だいたい2パターン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#だいたい2パターン",
+        children: "だいたい2パターン"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["多くの個人ブログは、ページネーション か 追加読み込み の2パターンのページ構成が多いです。", _jsx(_components.br, {}), "\n前者のページネーションの場合、多くはURLパスが更新されますが一部は変わらないものもありました。", _jsx(_components.br, {}), "\nロジックをシンプルに保つため、URLパスが更新されないケースは除外しています。", _jsx(_components.br, {}), "\n※ 個別対応する設計よりも汎用的な設計に倒しています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["追加読み込みの場合は、無限スクロールな自動的に読み込まれる場合かボタンクリックなどをトリガーに読み込まれるかのどちらかです。", _jsx(_components.br, {}), "\n読み込みふりをして、実はHTML上に隠していたりいることもあります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "いろいろなデザイン",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#いろいろなデザイン",
+        children: "いろいろなデザイン"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["AI に取り込み指示をしても、当該ページがブログ記事があるところかどうかの判断が難しいため、", _jsx(_components.br, {}), "\n数百ページのRSSなしブログを全部目視でチェックしました。（人間の判断じゃないと難しい個人ブログが多い）", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "個人ブログのデザインは十人十色"
+      }), " です。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "ブラウザのデフォルトスタイルのままのようなシンプルなデザイン"
+      }), "\n", _jsx(_components.li, {
+        children: "どこかのサービスデザインを真似たようなデザイン"
+      }), "\n", _jsx(_components.li, {
+        children: "デザインテンプレートやスタイルフレームワークのままのデザイン"
+      }), "\n", _jsx(_components.li, {
+        children: "オリジナルのコンセプトを掲げたデザイン"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["などさまざまです。", _jsx(_components.br, {}), "\n私も上記のどれも試したことがあるので、とてもよくわかります。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "人の書く記事は味わい深い",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#人の書く記事は味わい深い",
+        children: "人の書く記事は味わい深い"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["数百の個人ブログを確認する作業が1週間ぐらいかかりました。", _jsx(_components.br, {}), "\n確認作業していて改めて気づいたのですが、", _jsx(_components.strong, {
+        children: "人の書く記事はいろいろな感情が載っていて"
+      }), " 読んでいて楽しいです。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "何かを買った話やご飯に食べに行った話"
+      }), "\n", _jsx(_components.li, {
+        children: "趣味の話"
+      }), "\n", _jsx(_components.li, {
+        children: "家族や友人の話"
+      }), "\n", _jsx(_components.li, {
+        children: "転職や振り返りの話"
+      }), "\n", _jsx(_components.li, {
+        children: "...etc"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["などなど。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "コロナで大変"
+      }), " だったり、", _jsx(_components.strong, {
+        children: "AI で仕事が変わった"
+      }), " など時代によっても傾向も違います。", _jsx(_components.br, {}), "\nこぶりーでは、数年前の記事をワンタップで見つけれます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["記事を読むと、微笑ましい気持ちになれたり、怖いなぁと気をつけようと思たり、", _jsx(_components.br, {}), "\n作者（ブロガー）の ", _jsx(_components.strong, {
+        children: "実体験を少し疑似体験"
+      }), " した気分に浸れます。", _jsx(_components.br, {}), "\nこの文化は、今後も残り続けて欲しいなと思いました。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "執筆時点で、こぶりーには3,400件を超えるブログを掲載しています。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: _jsx(_components.a, {
+          href: "https://kobliy.vercel.app/about",
+          children: "https://kobliy.vercel.app/about"
+        })
+      }), "\n"]
+    }), "\n", _jsx(_components.p, {
+      children: "3,400人分の体験を疑似体験しましょう！"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"niR1Xs7ZG_3skBjt_duiT","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"こぶりーに、RSSなしブログを掲載開始！\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261004/opengraph-image.png\"],\"keywords\":[\"個人開発\",\"こぶりー\",\"RSS\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261004/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261004/\",\"description\":\"個人ブログを見つけて、読んで、シェアするアプリ こぶりー に、RSSがないブログ も掲載できるようにしました！🎉 別途サイト内お知らせにもお伝えする予定です。 これで（私の）お気に入りのRSSがないブログも、こぶりーで見つけることができる\",\"datePublished\":\"2026-10-04T21:19:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":494,"publishedAt":"2026-10-04T21:19:00+09:00","tags":["個人開発"],"title":"こぶりーに、RSSなしブログを掲載開始！"},"navigation":{"next":{"href":"/blog/contents/20261005","publishedAt":"2026-10-05T21:18:00+09:00","title":"Codex, Claude のピン留めがお気に入り"},"prev":{"href":"/blog/contents/20261003","publishedAt":"2026-10-03T21:24:00+09:00","title":"テストへのスタンス"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-09T21:06:00+09:00","slug":"20261009","summary":"趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。 ナイモノは読めないから Design Doc のような機能に関する仕様や、 ADR のような全体のアーキテクチャに関する仕様など、 意思決定は山ほ","tags":["仕事","個人開発"],"title":"Design Doc, ADR, RFC"},{"publishedAt":"2026-09-24T21:00:00+09:00","slug":"20260924","summary":"趣味で作っているWebアプリにて、実装したものを細かくPull Request（以降、PR）を作成します。 PR に対して、機械的にチェックするCIチェックリストがあります。 個人的に気に入っているものを紹介します。 未使用コードの削除 実","tags":["個人開発","フロントエンド"],"title":"個人的CIチェックリスト"},{"publishedAt":"2026-09-23T20:51:00+09:00","slug":"20260923","summary":"個人ブログを見つけて、読んで、シェアするアプリ、こぶりー に、ちょっとした改善を入れました。 主に運営側向けの機能なので、こぶりーだより ではなく、ここで書きます。笑 ※ 最近ここの境界が曖昧になっていてよろしくない... 共有先にこぶりー","tags":["個人開発"],"title":"ブラウザの共有先に、こぶりーを追加"}],"tag":"個人開発"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261004/","slug":"20261004"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

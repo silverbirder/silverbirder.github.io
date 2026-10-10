@@ -1,0 +1,117 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1aab,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  };
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["私は、AI エージェントのマルチタスクをしたことがない人です。", _jsx(_components.br, {}), "\nそのため、この記事はただの偏見です。", _jsx(_components.br, {}), "\n定量的なデータも示さないため、ふわふわとしたポエムです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "マルチタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#マルチタスク",
+        children: "マルチタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["複数のタスクを並列で進めるとします。", _jsx(_components.br, {}), "\nWeb開発者であれば、AI エージェントを使ったタスクとして様々なものがあります。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "新機能実装"
+      }), "\n", _jsx(_components.li, {
+        children: "不具合の調査"
+      }), "\n", _jsx(_components.li, {
+        children: "ちょっとした改善"
+      }), "\n", _jsx(_components.li, {
+        children: "ライブラリメンテナンス"
+      }), "\n", _jsx(_components.li, {
+        children: "リファクタリング"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何も考えないようなタスクであれば、マルチタスクとして動かすのは良い手と思います。", _jsx(_components.br, {}), "\nしかし、それ以外のタスクというのは人間の確認が入ります。", _jsx(_components.br, {}), "\n（何も考えないタスクも、軽く人間の確認はあるかと思いますが）"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "『これこれ間違っているので、こう修正して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『不具合が解消されていないです、こう直して』"
+      }), "\n", _jsx(_components.li, {
+        children: "『テストが意味を成していないです、こう修正して』"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["それぞれのタスクには、それぞれのコンテキストが存在します。", _jsx(_components.br, {}), "\nそのコンテキストを踏まえた上で、タスクの成果物に人間が確認しなければいけません。", _jsx(_components.br, {}), "\nそれをスイッチしながら並列的に作業するのって、かなり大変そうな印象です...。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["人間のキャパシティ的に記憶できる量が限られているので並列数に上限はあるだろうし、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "記憶を蘇らせる作業"
+      }), " というのは、相当な負荷がかかりそうです。", _jsx(_components.br, {}), "\nその高負荷の中、タスクの確認作業をしないといけないのですが、確認の質も低下しそうです。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["タスクを5個6個と同時に並列で進めれるため、初期進捗を出す量とスピードは圧倒的かなと思いますが、", _jsx(_components.br, {}), "\nタスク完了するまでの坂登りは質もスピードも低下しないか？と疑問に感じます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "シングルタスク",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#シングルタスク",
+        children: "シングルタスク"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["シングルタスクに慣れている人は多いかと思います。", _jsx(_components.br, {}), "\n1つ1つタスクをこなしていくため、コンテキストスイッチせずに集中して ", _jsx(_components.strong, {
+        children: "深く潜る"
+      }), " ことができます。", _jsx(_components.br, {}), "\nタスクの確認も記憶が鮮明にあるので、100%の力で確認できます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["1つのタスクを終えると達成感があり、次のタスクへと向かいます。", _jsx(_components.br, {}), "\nタスクをこなすことで経験が積まれるため、次のタスクへの効率が良くなります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["しかしマルチタスクに比べるとシングルタスクの場合、初動のタスク進捗度は低いと思います。", _jsx(_components.br, {}), "\nシングルタスクで1つ2つとこなしている間に、マルチタスクは4つ5つと進めているからです。", _jsx(_components.br, {}), "\nけれど、先ほども説明した通りマルチタスクの坂登りに時間がかかる一方で、シングルタスクは効率よく進んでいきます。", _jsx(_components.br, {}), "\nまあ、人間ですのでシングルタスクでも何度も続けていると疲労は蓄積されますが...。"]
+    }), "\n", _jsx(_components.p, {
+      children: "結果として、以下の印象があります。"
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "全タスクが完了するタイミングは、シングルもマルチもそう変わらない"
+      }), "\n", _jsx(_components.li, {
+        children: "品質で言うとシングルの方が上"
+      }), "\n", _jsx(_components.li, {
+        children: "疲労度はマルチの方が上"
+      }), "\n"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["以上、ただの偏見でした。", _jsx(_components.br, {}), "\nマルチエージェント、使ってみた方が良いのでしょうか？"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+0:{"buildId":"niR1Xs7ZG_3skBjt_duiT","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"AIエージェント、マルチよりシングルの方が効率良いのでは\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260319/opengraph-image.png\"],\"keywords\":[\"AI\",\"雑談\",\"仕事\",\"AIエージェント\",\"シングルエージェント\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260319/\",\"description\":\"私は、AI エージェントのマルチタスクをしたことがない人です。 そのため、この記事はただの偏見です。 定量的なデータも示さないため、ふわふわとしたポエムです。 マルチタスク 複数のタスクを並列で進めるとします。 Web開発者であれば、AI\",\"datePublished\":\"2026-03-19\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":291,"publishedAt":"2026-03-19","tags":["AI","雑談","仕事"],"title":"AIエージェント、マルチよりシングルの方が効率良いのでは"},"navigation":{"next":{"href":"/blog/contents/20260320","publishedAt":"2026-03-20","title":"『Webブラウザエンジニアリング』第1~3章を読みました。"},"prev":{"href":"/blog/contents/20260318","publishedAt":"2026-03-18","title":"Webフロントエンドのコードレビューメモ2"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-06T20:50:00+09:00","slug":"20261006","summary":"AI 並列作業していると、状況教えてと何度も聞いちゃいます。 覚えれない それぞれの作業がどのような内容かなんとなくは覚えていますが、 並列で作業させると基本的に忘却します。 そうすると「状況教えて」と聞いて進捗を教えてもらいます。 その後","tags":["AI","雑談"],"title":"状況教えてオジサン"},{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"},{"publishedAt":"2026-09-05T22:52:00+09:00","slug":"20260905","summary":"OpenAI の Codex を普段から愛用しています。 開発において、VS Code や IntelliJ IDEA という枯れたメジャーエディタを使っていましたが、 最近は Codex Desktop App だけでも案外イケるかも？と","tags":["AI","個人開発"],"title":"Codex Desktop App だけでも十分かもしれない"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-10-10T21:26:00+09:00","slug":"20261010","summary":"今期の覇権（？）アニメ、FX戦士くるみちゃんの1話と2話を視聴しました。 FXの啓蒙アニメとして、しっかり恐怖を与える良いアニメですね。 開始3分、恐怖の含み損 主人公のくるみちゃんが、FXで売買開始してローソク足が極端に急降下。 恐怖の高","tags":["雑談","趣味"],"title":"FX戦士くるみちゃん、所感"},{"publishedAt":"2026-10-08T20:54:00+09:00","slug":"20261008","summary":"昨日の20時ぐらいに1時間かけて車で帰っていました。 1時間ずっと、助手席にいる妻とずーっと話していました。 なんか話がしやすいんですよね。 なんででしょう。 視界が暗いから 夜の移動だと、視界は基本的に暗いです。 最初は顔を見ずに電話のよ","tags":["雑談"],"title":"夜のドライブは話しやすい"},{"publishedAt":"2026-10-06T20:50:00+09:00","slug":"20261006","summary":"AI 並列作業していると、状況教えてと何度も聞いちゃいます。 覚えれない それぞれの作業がどのような内容かなんとなくは覚えていますが、 並列で作業させると基本的に忘却します。 そうすると「状況教えて」と聞いて進捗を教えてもらいます。 その後","tags":["AI","雑談"],"title":"状況教えてオジサン"}],"tag":"雑談"},{"posts":[{"publishedAt":"2026-10-09T21:06:00+09:00","slug":"20261009","summary":"趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。 ナイモノは読めないから Design Doc のような機能に関する仕様や、 ADR のような全体のアーキテクチャに関する仕様など、 意思決定は山ほ","tags":["仕事","個人開発"],"title":"Design Doc, ADR, RFC"},{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260319/","slug":"20260319"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

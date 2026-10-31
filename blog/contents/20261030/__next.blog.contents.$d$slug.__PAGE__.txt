@@ -1,0 +1,104 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T2170,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    code: "code",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["今日はお仕事（Web関連）のことでも書こうと思います。", _jsx(_components.br, {}), "\n今の時代、", _jsx(_components.strong, {
+        children: "アイデアがあれば"
+      }), " 形にするまでの道のりは比較的楽になりました。", _jsx(_components.br, {}), "\n昔だと、形にするためには技術的な調査や設計方法について下調べをした上で、せっせと作っていました。", _jsx(_components.br, {}), "\nそれがいまだと、アイデアさえあればそれをグイーンと ", _jsx(_components.strong, {
+        children: "0から動く形にするのは一瞬です"
+      }), "。", _jsx(_components.br, {}), "\nもちろん、形にするものによってはサービスローンチな話だったりすると100%にするのがとても大変な話ですが...。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "最近の取り組み",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#最近の取り組み",
+        children: "最近の取り組み"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["脆弱性関連の話題が多いため、各ライブラリや言語の脆弱性やマルウェアが発生した場合の検知を仕組み化しました。", _jsx(_components.br, {}), "\nライブラリにおいては Dependabot alerts に託しつつ いくつかのトリアージを経て「やばい！」ものは通知する感じにしました。", _jsx(_components.br, {}), "\nちょうど最近 dependabot の以下のニュース発表があって、さすがGitHubさんです。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://github.blog/changelog/2026-10-28-prioritize-dependabot-alerts-with-reachability-analysis/",
+      title: "Prioritize Dependabot alerts with reachability analysis - GitHub Changelog",
+      description: "Dependabot alerts can add up faster than a team can work through them. A vulnerable package in your dependency tree doesn&rsquo;t always mean your code uses the vulnerable part of&hellip;",
+      siteName: "The GitHub Blog",
+      faviconSrc: "/link-card/fffee2e93040666657098a504d4b8e5d7a553606d9e2f865979052488156cf4a.ico",
+      thumbnailSrc: "/link-card/b7d08ac406df3c58a6dde331a4366d6e6bbb30ee27ffadd2e509075e539651d8.webp"
+    }), "\n", _jsxs(_components.p, {
+      children: ["言語においては 公式が提供している情報（フィード）を定期的にPullして「CVE」の名のつく発表があれば通知する感じにしました。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "Renovate さんは優秀"
+      }), " で、リポジトリにある言語バージョンを良い感じに（というより設定で）バージョン更新してくれるPRを作ってくれます。", _jsx(_components.br, {}), "\nDockerfile、.tool-versions などを一括で更新してくれます。", _jsx(_components.br, {}), "\nそのため急ぎの場合は、Renovateをキックしてあげると、更新準備が始まります。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["次に ", _jsx(_components.code, {
+        children: " gh pr-graph"
+      }), " を知りまして、これは主に自分自身の環境で見ることが多い用途ですが、これをGitHub PR にあれば良いのでは？と思い至り、", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "PR 関係図"
+      }), " を可視化する仕組みを導入しました。", _jsx(_components.br, {}), "\n仕組みは至ってシンプルで、当該PRに参照（Stack、Issue Link、PR Link）した対象を Mermaid で可視化します。", _jsx(_components.br, {}), "\nMermaid って拘れば結構カッコ良いシンプルなデザインも組みことができまして、なんならアイコン画像も出せちゃいます。", _jsx(_components.br, {}), "\nこれを導入してよかったのは、PRレビューで依存関係がめちゃ広いPRの1部分を見る時に どのあたりの仕事のものかというのをパッと理解できる点です。", _jsx(_components.br, {}), "\nあと純粋に頑張った感がすごく良く見えます。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["他には Testcontainers + Cucumber.js + Playwright のE2Eテスト基盤をメンテナンスしているのですが、", _jsx(_components.br, {}), "\nPlaywright の操作を Page Object Model（POM）で管理していて、", _jsx(_components.br, {}), "\nPOMに対する検査を導入しました。", _jsx(_components.br, {}), "\n新規開発よりも保守運用の方が労力が多いE2Eにおいて、よく更新がある1つがアクセス操作の更新です。", _jsx(_components.br, {}), "\n対象要素へのアクセス方法が更新された場合にわざわざE2Eテストを動かさなくても、", _jsx(_components.br, {}), "\n当該 POM ファイルの更新をするだけで、POMファイルをStorybookとPlaywrightを使って振る舞いを検査させます。", _jsx(_components.br, {}), "\nそうするとアクセス方法が更新された場合に、その振る舞いを事前に検査するだけで済むのです。", _jsx(_components.br, {}), "\nE2Eにおいては1シナリオ10分などかかっていたとして、POMファイルのテストは結合テスト（Storybookのビルドと起動、Playwright テスト）で3分程度で済みます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["アイデアは転がっているのですが、なかなか気付けません。", _jsx(_components.br, {}), "\nただただ仕事をこなすだけじゃなくて、いつものトイル作業や困りごとを改めて自覚することで、", _jsx(_components.br, {}), "\nアイデアに気づくことがあります。", _jsx(_components.br, {}), "\nたまには、1日の使った時間を振り返ると面白いかもしれません。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "去年の私",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#去年の私",
+        children: "去年の私"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251030/",
+      title: "家計簿を手動でつけている",
+      description: "以前は、某Mのマークの家計簿アプリを使って、自動で家計簿をつけていました。銀行口座やクレジットカードを連携すると、支出や収入を自動で取得して、きれいにグラフ化してくれます。とても便利だったのですが、「自動でやってくれるから、あとで見ればいいや」と思ってしまい、次第に見なくなっていきました。結果として、家計簿を「つけている実感」が薄れていったのです。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/4dd2c2825f75c54d41e8b0c5c4b02a626ff01c1537a88ebd31318e98314290ad.png"
+    }), "\n", _jsx(_components.p, {
+      children: "手動で家計簿をつけた話。もう今はやっていません。笑"
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"2Pw25ED-ki8jlkkeWUeYG","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"貴重なアイデア\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261030/opengraph-image.png\"],\"keywords\":[\"仕事\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261030/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261030/\",\"description\":\"今日はお仕事（Web関連）のことでも書こうと思います。 今の時代、アイデアがあれば 形にするまでの道のりは比較的楽になりました。 昔だと、形にするためには技術的な調査や設計方法について下調べをした上で、せっせと作っていました。 それがいまだ\",\"datePublished\":\"2026-10-30T20:44:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":520,"publishedAt":"2026-10-30T20:44:00+09:00","tags":["仕事"],"title":"貴重なアイデア"},"navigation":{"next":{"href":"/blog/contents/20261031","publishedAt":"2026-10-31T21:12:00+09:00","title":"個人的ベビー布団2大巨頭"},"prev":{"href":"/blog/contents/20261029","publishedAt":"2026-10-29T21:05:00+09:00","title":"平日の生活感に惹かれる"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-09T21:06:00+09:00","slug":"20261009","summary":"趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。 ナイモノは読めないから Design Doc のような機能に関する仕様や、 ADR のような全体のアーキテクチャに関する仕様など、 意思決定は山ほ","tags":["仕事","個人開発"],"title":"Design Doc, ADR, RFC"},{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"},{"publishedAt":"2026-09-03T20:43:00+09:00","slug":"20260903","summary":"今日、天ぷら屋さんで昼食を取りました。 お隣の席が職場グループ8人組でした。 なんとなく、尼崎での思い出が蘇りました。 毎日一緒 尼崎にある職場で出勤していた頃、その当時は私はまだ独身でした。 同じチームで働く4名ぐらいのメンバーと、 毎日","tags":["雑談","仕事"],"title":"尼崎のおもいで"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261030/","slug":"20261030"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

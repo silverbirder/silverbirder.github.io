@@ -1,0 +1,55 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T7d9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    blockquote: "blockquote",
+    br: "br",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(LinkCard, {
+      url: "https://strata.orito-itsuki.graphics/implement-webmention/",
+      title: "Webmention を実装した - 春告げ抹茶ホイップ",
+      description: "このサイトに Webmention の受信と送信を実装した話。",
+      siteName: "strata.orito-itsuki.graphics",
+      faviconSrc: "/link-card/d115befbae5259df65adf9970bb03ed506f0fec5dafe5b23035d0d63853530a5.svg",
+      thumbnailSrc: "/link-card/93cf4ead89a559d57a395249c4e56cbb04d21582c8698caa38a4d31850534727.png"
+    }), "\n", _jsxs(_components.blockquote, {
+      children: ["\n", _jsx(_components.p, {
+        children: "例えばはてなブックマークとかのコメント欄とかは結構地獄の様相を呈するときもあり"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["何度か刺されたことがあるので、私はコメントミュートしちゃいました。", _jsx(_components.br, {}), "\nWebmention の場合、コメント表示などコントロール可能なのが良いですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"2Pw25ED-ki8jlkkeWUeYG","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"Webmention 対応が増えてきた\",\"image\":[\"https://silverbirder.github.io/blog/contents/20260923-2/opengraph-image.png\"],\"keywords\":[\"趣味\",\"Webmention\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20260923-2/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20260923-2/\",\"description\":\"https://strata.orito-itsuki.graphics/implement-webmention/ 例えばはてなブックマークとかのコメント欄とかは結構地獄の様相を呈するときもあり 何度か刺されたことがあるので、私はコメント\",\"datePublished\":\"2026-09-23T21:09:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":482,"publishedAt":"2026-09-23T21:09:00+09:00","tags":["趣味"],"title":"Webmention 対応が増えてきた"},"navigation":{"next":{"href":"/blog/contents/20260924","publishedAt":"2026-09-24T21:00:00+09:00","title":"個人的CIチェックリスト"},"prev":{"href":"/blog/contents/20260923","publishedAt":"2026-09-23T20:51:00+09:00","title":"ブラウザの共有先に、こぶりーを追加"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-10-26T21:09:00+09:00","slug":"20261026","summary":"ついにブログ投稿の連続投稿日数365日目です！🎉 いや〜うれしい！ 継続できたのは、日々読んでくださる方、いいね・コメントしてくださる方のおかげです、ありがとうございます！ 次の目標は 連続投稿2年です！ おそらくまた忙しい（出産が控えて","tags":["趣味","雑談"],"title":"連続投稿、1年達成！"},{"publishedAt":"2026-10-21T21:07:00+09:00","slug":"20261021","summary":"人生初めて、宝くじを買いました！ 買ったのはロト6とハロウィンジャンボ宝くじの2つです。 ロト6 は既に結果発表があり1,000円の当選でした。 ハロウィンジャンボは10月26日に発表とのことです。 人生が潤う 宝くじってお金がほしくて買い","tags":["趣味"],"title":"宝くじデビュー"},{"publishedAt":"2026-10-19T20:40:00+09:00","slug":"20261019","summary":"色々やることを達成できたので、数ヶ月前に書きかけたUIに関する本の執筆を再開しました。 執筆をはじめて1週間ぐらいするのですが、本を書くことで知識の整理になること を改めて良さを実感しました。 やったこと 書きたいなと思うことを、色々なイン","tags":["趣味","雑談"],"title":"本執筆のすゝめ"}],"tag":"趣味"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20260923-2/","slug":"20260923-2"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

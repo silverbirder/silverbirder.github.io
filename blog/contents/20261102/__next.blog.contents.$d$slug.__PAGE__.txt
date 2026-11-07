@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T12f9,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.p, {
+      children: "『ネズミのチョッキくん』に引き続き『パンどろぼう』もアニメ放送中です。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://animestore.docomo.ne.jp/animestore/ci_pc?workId=29296",
+      title: "パンどろぼう | アニメ動画見放題 | dアニメストア",
+      siteName: "animestore.docomo.ne.jp",
+      faviconSrc: "/link-card/fac8cacd11030383de4cf94964b8470cd5aefb0416d4330d6f772868179353c7.png"
+    }), "\n", _jsx(_components.p, {
+      children: "パンどろぼうの原作（絵本）を知らないのですが、パンどろぼうが可愛いくて、歌も中毒性があって良くて継続視聴しています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "絵本のグッズ化",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#絵本のグッズ化",
+        children: "絵本のグッズ化"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["よくショッピングモールで、パンどろぼうのグッズをみかけるのですが、アニメ化のおかげなのでしょうか。", _jsx(_components.br, {}), "\nというより、最近は絵本のグッズ展開をよくみかけていて、他には『ねないこだれだ』とか『はらぺこあおむし』のグッズとかもみました。", _jsx(_components.br, {}), "\n私の推しの『だるまさんが』のだるまぬいぐるみがあれば、即買いしそうです。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "絵本の読み聞かせ",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#絵本の読み聞かせ",
+        children: "絵本の読み聞かせ"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["こどもが生まれたら、絵本の読み聞かせをやってみたいなと思います。", _jsx(_components.br, {}), "\n一緒にいろいろな絵本を体験できたら、楽しそうです。", _jsx(_components.br, {}), "\n大人になってから絵本を読むと、また違った視点で見れて面白そうかもと思います。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "去年の私",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#去年の私",
+        children: "去年の私"
+      })
+    }), "\n", _jsx(_components.p, {
+      children: "ブログを毎日書こうという決意表明の記事を書いたみたいです。"
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251102/",
+      title: "毎日ブログを投稿する",
+      description: "以下の記事を読みました。- [三日坊主だった私が見つけた習慣化のコツ　毎日ブログ更新を7年間継続できた「小さなルール」 - りっすん by イーアイデム](https://www.e-aidem.com/ch/listen/entry/2025/10/22/103000)「毎日ブログを投稿する」は本当にすごい。ネタは尽きないのだろうか、とつい思います。私自身、月1本書けたら良いほうでした。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/4321c3fc3035bf79edb81d1ad6e774637e247ca40c01ca86907c09c07b80715e.png"
+    }), "\n", _jsx(_components.p, {
+      children: "無事1年連続で投稿できて、さすが自分！とほめました。"
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["GMO 会見やってたみたいですね。", _jsx(_components.br, {}), "\nお疲れ様でした。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"4X54wOpIbXHJHedYUSc8L","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"パンどろぼう\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261102/opengraph-image.png\"],\"keywords\":[\"こども\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261102/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261102/\",\"description\":\"『ネズミのチョッキくん』に引き続き『パンどろぼう』もアニメ放送中です。 https://animestore.docomo.ne.jp/animestore/ci_pc?workId=29296 パンどろぼうの原作（絵本）を知らないのですが\",\"datePublished\":\"2026-11-02T20:42:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":523,"publishedAt":"2026-11-02T20:42:00+09:00","tags":["こども"],"title":"パンどろぼう"},"navigation":{"next":{"href":"/blog/contents/20261103","publishedAt":"2026-11-03T19:43:00+09:00","title":"スマホから、初カキコども"},"prev":{"href":"/blog/contents/20261101","publishedAt":"2026-11-01T20:54:00+09:00","title":"nishikawaお布団・ヒートテックの季節"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-11-05T20:56:00+09:00","slug":"20261105","summary":"妊娠7ヶ月の妻の体重は、妊娠前に比べて約7kg増加しています。 その事実を最近になって知りました。 毎日体重計を見ていたのですが、トータルでいくらかなんて私も妻もわかっていませんでした。 トツキトオカの体重グラフで、その事実を知ることができ","tags":["こども"],"title":"体重プラス7kgの体感"},{"publishedAt":"2026-11-01T20:54:00+09:00","slug":"20261101","summary":"nishikawa のお布団を購入しました！ nisikawaお布団-開封前 nisikawaお布団-開封後 可愛い〜〜〜！ 購入してよかった、これで残りの赤ちゃん用品は沐浴セットだけ！ 寒くなってきた もう11月で、すっかり冬ですね。 ヒ","tags":["こども"],"title":"nishikawaお布団・ヒートテックの季節"},{"publishedAt":"2026-10-31T21:12:00+09:00","slug":"20261031","summary":"今日ベビー布団を探しに行きました。 nishikawa か サンデシカの2つのブランドのお布団が多くありました。 どちらで買おうか悩んでいます。 絞り込み ベビー布団、どれも大体同じようなものに見えてしまいなかなか決め手が見つかりません。","tags":["こども"],"title":"個人的ベビー布団2大巨頭"}],"tag":"こども"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261102/","slug":"20261102"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

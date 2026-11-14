@@ -1,0 +1,95 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1563,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    ul: "ul",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["両親学級に行ってきました。", _jsx(_components.br, {}), "\n母子手帳をもらったときから、両親学級の存在を知り行ってみたいねと妻と話してて、", _jsx(_components.br, {}), "\n予約がいっぱいで、ようやく今日行けて嬉しかったです。", _jsx(_components.br, {}), "\n一軒家で集まり、助産師さんと保育士さんの2名と、参加者（私、妻、女性の方）の5名で始まりました。", _jsx(_components.br, {}), "\n練習できたのは、以下の5つでした。"]
+    }), "\n", _jsxs(_components.ul, {
+      children: ["\n", _jsx(_components.li, {
+        children: "だっこ"
+      }), "\n", _jsx(_components.li, {
+        children: "げっぷ"
+      }), "\n", _jsx(_components.li, {
+        children: "おむつ替え"
+      }), "\n", _jsx(_components.li, {
+        children: "着替え"
+      }), "\n", _jsx(_components.li, {
+        children: "沐浴"
+      }), "\n"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["3,200gの赤ちゃん人形を抱っこすると、おぉ〜ずっしりするなと思いました。", _jsx(_components.br, {}), "\n事前に YouTube で諸々（上記5つ）視聴して予習してきましたが、", _jsx(_components.br, {}), "\n実際にやると頭と体がついていっていない感じでおぼつかないかんじでした。", _jsx(_components.br, {}), "\nそれでも助産師さんから常に褒めてくれていて、自己肯定感を保って練習できました、ありがとうございます。"]
+    }), "\n", _jsx(_components.h2, {
+      id: "話しかける",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#話しかける",
+        children: "話しかける"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["何をするにしても、赤ちゃんに話しかけると良いと聞きました。", _jsx(_components.br, {}), "\nそういえば、YouTube でもそんなこと言われたような。", _jsx(_components.br, {}), "\n頭洗うね〜、脇を洗うね〜、流すね〜。", _jsx(_components.br, {}), "\nそういうのを口にしてやると、会話は成り立たないのですが意思疎通できているような、", _jsx(_components.br, {}), "\nそんな感覚になるのかなと思います。（練習は赤ちゃん人形）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["両親学級、自分が父親になる自覚が少し芽生えたような感覚でした。", _jsx(_components.br, {}), "\n人見知りすぎて、参加者の人や助産師さんと何も会話できなくて、やぁ〜ダメだなぁと反省しました。", _jsx(_components.br, {}), "\n両親学級終了後、アカチャンデパートに行って細かい必要なものを色々揃えました。", _jsx(_components.br, {}), "\nもう買うものはほぼなくなりましたので、万全の状態です！", _jsx(_components.br, {}), "\n（ないものもありますが、生まれてからで問題ないものは買っていない）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "去年の私",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#去年の私",
+        children: "去年の私"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251114/",
+      title: "金曜ロードショー月別「よく放送される作品」ランキング",
+      description: "AI に 10 分ほどで雑に作らせたのですが、金曜ロードショーで「どの月にどんな映画が多く放送されているか」を可視化してみました。",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/db241075ac1b887d3c68ffca584f03795b1c24da7ad06915f3303a283a34e9e5.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["金曜ロードショーでよく放送される映画は何か、というのを書きました。", _jsx(_components.br, {}), "\nそろそろ、アナ雪やホームアローンが放送される季節ですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"Jtd7Qr999p95dZn-D3PH-","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"両親学級\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261114/opengraph-image.png\"],\"keywords\":[\"こども\",\"両親学級\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261114/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261114/\",\"description\":\"両親学級に行ってきました。 母子手帳をもらったときから、両親学級の存在を知り行ってみたいねと妻と話してて、 予約がいっぱいで、ようやく今日行けて嬉しかったです。 一軒家で集まり、助産師さんと保育士さんの2名と、参加者（私、妻、女性の方）の5\",\"datePublished\":\"2026-11-14T20:09:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":535,"publishedAt":"2026-11-14T20:09:00+09:00","tags":["こども"],"title":"両親学級"},"navigation":{"prev":{"href":"/blog/contents/20261113","publishedAt":"2026-11-13T20:50:00+09:00","title":"8つのライフロール"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-11-13T20:50:00+09:00","slug":"20261113","summary":"今朝のたまひよアプリの1日コメントで、『8つのライフロール』について紹介がありました。 人は、さまざまなライフステージにおいて8つの役割を組み合わせて生きます。 8つの役割は、以下のものです。 子ども 親からみた子どもの役割 学生 学び続け","tags":["こども"],"title":"8つのライフロール"},{"publishedAt":"2026-11-11T21:02:00+09:00","slug":"20261111","summary":"今日、妊婦健診に加えて 初めての助産師外来を受けました。 助産師さん 出産でとてもお世話になる助産師さんとお話する機会がありました。 話す大半は入院に関わる案内が中心です。 書類や入院時に必要なもの、泊まる部屋や分娩室の紹介。 陣痛や過ごし","tags":["こども"],"title":"初、助産師外来"},{"publishedAt":"2026-11-10T21:21:00+09:00","slug":"20261110","summary":"まだ出産していないですが、保育園をどうするかという議論をついにし始めました。 点数 両親が共働きで、子を育てる時間が難しいなどで保育園(等)に預けて、こどもの面倒を見てもらいます。 幼稚園、保育園、こども園 認可外、企業型、エトセトラ 0歳","tags":["こども"],"title":"保育園の点数制度"}],"tag":"こども"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261114/","slug":"20261114"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null

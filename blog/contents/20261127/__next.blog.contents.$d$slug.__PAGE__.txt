@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[11612,["/_next/static/chunks/9ac8aedf8cbc0a01.js","/_next/static/chunks/47246b0ed60268d3.js","/_next/static/chunks/3537148190d3a6ee.js"],"PostArticle"]
+6:I[31800,["/_next/static/chunks/17f3253639a776d6.js","/_next/static/chunks/224810ce72aad27b.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+3:T1f1e,"use strict";
+const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    br: "br",
+    h2: "h2",
+    p: "p",
+    strong: "strong",
+    ..._provideComponents(),
+    ...props.components
+  }, {LinkCard} = _components;
+  if (!LinkCard) _missingMdxReference("LinkCard", true);
+  return _jsxs(_Fragment, {
+    children: [_jsxs(_components.p, {
+      children: ["仕事でもプライベートでも、AI にバリバリ書かせるのが当たり前になりました。", _jsx(_components.br, {}), "\n理解を補うために、人間が理解しやすい 動画・画像・UML等の図示、自然言語のテストコード などを使うようになりました。", _jsx(_components.br, {}), "\n以下の記事でもあるように、個人サイトのリニューアルをしていますが、その作業でも同様のことをしています。"]
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20261117/",
+      title: "個人サイトのリニューアル 7回目",
+      description: "個人サイト、7回目のリニューアルをします。 個人が自由に練習できる場、それが個人サイトの良いところです。 今まで 静的コンテンツを必ずホスティングする構成を変えずに、いろいろなものを試してきました。 最初は、Hugo でポートフォリオとして",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/682ecf1808ce0ed17baab5b442584450effa4b7c9c18ce6e402a537e323f399b.png"
+    }), "\n", _jsx(_components.p, {
+      children: "ただ、どうしても理解を補う情報は増えても、やはり理解を深める姿勢は必要不可欠と考えています。"
+    }), "\n", _jsx(_components.h2, {
+      id: "失敗した",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#失敗した",
+        children: "失敗した"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私が取り組んでいる個人サイトのリニューアルの話をします。", _jsx(_components.br, {}), "\nブログ記事（マークダウンファイル）をGitHubリポジトリ管理から、別のCMS用 GitHub リポジトリ管理に移します。", _jsx(_components.br, {}), "\nCMSにあるブログ記事をどのようにしてサイト側へ渡すか、ビルド&デプロイフローについて考えました。", _jsx(_components.br, {}), "\nどのようなフローで進むのか、シーケンス図を成果物としてレビューしていましたが、内部の詳細なことを知らずにそのままやってみました。", _jsx(_components.br, {}), "\nすると、「あれ、GitHubのレートリミットに引っかかった」となってしまいました。", _jsx(_components.br, {}), "\nGitHub API を使ってコンテンツデータを取得するのですが、一括ではなく個々の記事（500記事ほど）を取っていたためです。", _jsx(_components.br, {}), "\nまあ言葉にすると、なんで気付けないのかと恥ずかしく思うのですが...。", _jsx(_components.br, {}), "\n", _jsx(_components.strong, {
+        children: "図解は抽象的で理解しやすい"
+      }), " のですが、", _jsx(_components.strong, {
+        children: "欠落している情報がある"
+      }), " のです。", _jsx(_components.br, {}), "\n（じゃあ、コードベースを詳細に図解したものを読め...と言われても）"]
+    }), "\n", _jsx(_components.h2, {
+      id: "質問する",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#質問する",
+        children: "質問する"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["私は『間違っていると分かっていてもとにかく仕様を言語化して AI に Q&A をする』ことにしました。", _jsx(_components.br, {}), "\nどこかのだれかは、もしかしたらこういうのをQ&Aを仕組み化して、答えれるまで進めれないみたいなこともしているみたいですが、", _jsx(_components.br, {}), "\n自主的に今は聞いています。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["「これこれ〜こうこうで、こうだよね？」ととにかく聞いています。", _jsx(_components.br, {}), "\n間違っている場合は、ちゃんと間違っていると指摘してくれます。", _jsx(_components.br, {}), "\n問い詰めるなどでYESマンとかにさせなければ。"]
+    }), "\n", _jsxs(_components.p, {
+      children: ["間違っている場合、理解を訂正しようとすると何度も質問を繰り返します。", _jsx(_components.br, {}), "\n図解も入れるのですが、それでも理解が難しい場合があります。", _jsx(_components.br, {}), "\nその場合、システムが複雑な傾向にあると思い、私はその仕組みを見直すことが多いです。", _jsx(_components.br, {}), "\n例えば分岐や前提条件が複雑だったりすると、そのシステムを扱う人（私）が苦しむためです。", _jsx(_components.br, {}), "\n結果、", _jsx(_components.strong, {
+        children: "理解が追いつく範囲のシステムにダウン"
+      }), " して、それを私が運用する、となっています。笑"]
+    }), "\n", _jsx(_components.h2, {
+      id: "終わりに",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#終わりに",
+        children: "終わりに"
+      })
+    }), "\n", _jsxs(_components.p, {
+      children: ["今日は少し頭が疲れました。", _jsx(_components.br, {}), "\n普段から文章を書く癖はついているのですが、プロンプトで並列でいろいろなことをやりとりすると、", _jsx(_components.br, {}), "\n頭がいっぱいいっぱいになりました...笑"]
+    }), "\n", _jsx(_components.h2, {
+      id: "去年の私",
+      children: _jsx(_components.a, {
+        className: "mdx-heading-anchor",
+        href: "#去年の私",
+        children: "去年の私"
+      })
+    }), "\n", _jsx(LinkCard, {
+      url: "https://silverbirder.github.io/blog/contents/20251127/",
+      title: "CSSで任意の色から、背景色・文字色を決める方法",
+      description: "CSS の色に関する Tip を 2 つ紹介します。 1つの文字色から、薄い背景色を決める 1つの背景色から、文字色を決める APIなどで色が1つ決まっている際に、文字色や背景色を決めるのに便利なテクニックです。 1つの文字色から、薄い背景",
+      siteName: "ジブンノート",
+      faviconSrc: "/link-card/ae69a12b79706aeac55a62e8814eaf32b26b623f57c37ab5e67e3ab24d37617a.bin",
+      thumbnailSrc: "/link-card/e14324daf0d22aa1a19cda31c599e838a4a18fc1a930096f0cb8b56c512b62bc.png"
+    }), "\n", _jsxs(_components.p, {
+      children: ["CSS の Tips ですね。", _jsx(_components.br, {}), "\n今では直接 CSS をゼロから書くことはなくなりましたが、アイデアとして知識があると、引き出しが増えて良いですね。"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ..._provideComponents(),
+    ...props.components
+  };
+  return MDXLayout ? _jsx(MDXLayout, {
+    ...props,
+    children: _jsx(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
+function _missingMdxReference(id, component) {
+  throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+}
+0:{"buildId":"WQEzd_sBMYedEX55M3vms","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"silverbirder\"},\"headline\":\"理解を深めるために問う\",\"image\":[\"https://silverbirder.github.io/blog/contents/20261127/opengraph-image.png\"],\"keywords\":[\"AI\",\"仕事\"],\"mainEntityOfPage\":{\"@id\":\"https://silverbirder.github.io/blog/contents/20261127/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://silverbirder.github.io/assets/logo.png\"},\"name\":\"ジブンノート\"},\"url\":\"https://silverbirder.github.io/blog/contents/20261127/\",\"description\":\"仕事でもプライベートでも、AI にバリバリ書かせるのが当たり前になりました。 理解を補うために、人間が理解しやすい 動画・画像・UML等の図示、自然言語のテストコード などを使うようになりました。 以下の記事でもあるように、個人サイトのリニ\",\"datePublished\":\"2026-11-27T20:34:00+09:00\"}"},"type":"application/ld+json"}],["$","$L2",null,{"compiledSource":"$3","followLinks":{"bluesky":"https://bsky.app/profile/silverbirder.bsky.social","github":"https://github.com/silverbirder","rss":"https://silverbirder.github.io/rss.xml","x":"https://x.com/silverbirder"},"followProfileAvatarSrc":"https://silverbirder.github.io/assets/logo.png","meta":{"index":true,"postNumber":548,"publishedAt":"2026-11-27T20:34:00+09:00","tags":["AI","仕事"],"title":"理解を深めるために問う"},"navigation":{"next":{"href":"/blog/contents/20261128","publishedAt":"2026-11-28T20:36:00+09:00","title":"今年買ってよかったもの 2026"},"prev":{"href":"/blog/contents/20261126","publishedAt":"2026-11-26T21:13:00+09:00","title":"たまねぎ事件"}},"relatedPosts":[{"posts":[{"publishedAt":"2026-11-19T20:22:00+09:00","slug":"20261119","summary":"「AIですぐできました！」という話をあちらこちらでよく聞きます。 短時間にできたこと（ポン出し）によるすごさというのは、AI がすごいのであってプロンプター（？）はそんなにです。 アイデアというのは、素晴らしいものと思います。 それよりも","tags":["AI"],"title":"ポン出しの価値"},{"publishedAt":"2026-10-06T20:50:00+09:00","slug":"20261006","summary":"AI 並列作業していると、状況教えてと何度も聞いちゃいます。 覚えれない それぞれの作業がどのような内容かなんとなくは覚えていますが、 並列で作業させると基本的に忘却します。 そうすると「状況教えて」と聞いて進捗を教えてもらいます。 その後","tags":["AI","雑談"],"title":"状況教えてオジサン"},{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"}],"tag":"AI"},{"posts":[{"publishedAt":"2026-10-30T20:44:00+09:00","slug":"20261030","summary":"今日はお仕事（Web関連）のことでも書こうと思います。 今の時代、アイデアがあれば 形にするまでの道のりは比較的楽になりました。 昔だと、形にするためには技術的な調査や設計方法について下調べをした上で、せっせと作っていました。 それがいまだ","tags":["仕事"],"title":"貴重なアイデア"},{"publishedAt":"2026-10-09T21:06:00+09:00","slug":"20261009","summary":"趣味レベルの開発であっても、最近では DesignDocやADRを書き残すようにしています。 ナイモノは読めないから Design Doc のような機能に関する仕様や、 ADR のような全体のアーキテクチャに関する仕様など、 意思決定は山ほ","tags":["仕事","個人開発"],"title":"Design Doc, ADR, RFC"},{"publishedAt":"2026-10-05T21:18:00+09:00","slug":"20261005","summary":"Codex や Claude のデスクトップアプリにあるピン留め機能が気に入っています。 ピン留めというメタファ 髪の毛を束にしてまとめるためのピン留めや、 コルクボードに紙を止めるためのピン留めなど、 何かを固定するというメタファがピン留","tags":["仕事","AI"],"title":"Codex, Claude のピン留めがお気に入り"}],"tag":"仕事"}],"shareUrl":"https://silverbirder.github.io/blog/contents/20261127/","slug":"20261127"}]],["$L4"],"$L5"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/3537148190d3a6ee.js","async":true}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null
